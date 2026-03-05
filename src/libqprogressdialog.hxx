@@ -232,76 +232,6 @@ class VirtualQProgressDialog final : public QProgressDialog {
     VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent) {};
     VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent, flags) {};
 
-    ~VirtualQProgressDialog() {
-        qprogressdialog_metaobject_callback = nullptr;
-        qprogressdialog_metacast_callback = nullptr;
-        qprogressdialog_metacall_callback = nullptr;
-        qprogressdialog_sizehint_callback = nullptr;
-        qprogressdialog_resizeevent_callback = nullptr;
-        qprogressdialog_closeevent_callback = nullptr;
-        qprogressdialog_changeevent_callback = nullptr;
-        qprogressdialog_showevent_callback = nullptr;
-        qprogressdialog_setvisible_callback = nullptr;
-        qprogressdialog_minimumsizehint_callback = nullptr;
-        qprogressdialog_open_callback = nullptr;
-        qprogressdialog_exec_callback = nullptr;
-        qprogressdialog_done_callback = nullptr;
-        qprogressdialog_accept_callback = nullptr;
-        qprogressdialog_reject_callback = nullptr;
-        qprogressdialog_keypressevent_callback = nullptr;
-        qprogressdialog_contextmenuevent_callback = nullptr;
-        qprogressdialog_eventfilter_callback = nullptr;
-        qprogressdialog_devtype_callback = nullptr;
-        qprogressdialog_heightforwidth_callback = nullptr;
-        qprogressdialog_hasheightforwidth_callback = nullptr;
-        qprogressdialog_paintengine_callback = nullptr;
-        qprogressdialog_event_callback = nullptr;
-        qprogressdialog_mousepressevent_callback = nullptr;
-        qprogressdialog_mousereleaseevent_callback = nullptr;
-        qprogressdialog_mousedoubleclickevent_callback = nullptr;
-        qprogressdialog_mousemoveevent_callback = nullptr;
-        qprogressdialog_wheelevent_callback = nullptr;
-        qprogressdialog_keyreleaseevent_callback = nullptr;
-        qprogressdialog_focusinevent_callback = nullptr;
-        qprogressdialog_focusoutevent_callback = nullptr;
-        qprogressdialog_enterevent_callback = nullptr;
-        qprogressdialog_leaveevent_callback = nullptr;
-        qprogressdialog_paintevent_callback = nullptr;
-        qprogressdialog_moveevent_callback = nullptr;
-        qprogressdialog_tabletevent_callback = nullptr;
-        qprogressdialog_actionevent_callback = nullptr;
-        qprogressdialog_dragenterevent_callback = nullptr;
-        qprogressdialog_dragmoveevent_callback = nullptr;
-        qprogressdialog_dragleaveevent_callback = nullptr;
-        qprogressdialog_dropevent_callback = nullptr;
-        qprogressdialog_hideevent_callback = nullptr;
-        qprogressdialog_nativeevent_callback = nullptr;
-        qprogressdialog_metric_callback = nullptr;
-        qprogressdialog_initpainter_callback = nullptr;
-        qprogressdialog_redirected_callback = nullptr;
-        qprogressdialog_sharedpainter_callback = nullptr;
-        qprogressdialog_inputmethodevent_callback = nullptr;
-        qprogressdialog_inputmethodquery_callback = nullptr;
-        qprogressdialog_focusnextprevchild_callback = nullptr;
-        qprogressdialog_timerevent_callback = nullptr;
-        qprogressdialog_childevent_callback = nullptr;
-        qprogressdialog_customevent_callback = nullptr;
-        qprogressdialog_connectnotify_callback = nullptr;
-        qprogressdialog_disconnectnotify_callback = nullptr;
-        qprogressdialog_forceshow_callback = nullptr;
-        qprogressdialog_adjustposition_callback = nullptr;
-        qprogressdialog_updatemicrofocus_callback = nullptr;
-        qprogressdialog_create_callback = nullptr;
-        qprogressdialog_destroy_callback = nullptr;
-        qprogressdialog_focusnextchild_callback = nullptr;
-        qprogressdialog_focuspreviouschild_callback = nullptr;
-        qprogressdialog_sender_callback = nullptr;
-        qprogressdialog_sendersignalindex_callback = nullptr;
-        qprogressdialog_receivers_callback = nullptr;
-        qprogressdialog_issignalconnected_callback = nullptr;
-        qprogressdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQProgressDialog_MetaObject_Callback(QProgressDialog_MetaObject_Callback cb) { qprogressdialog_metaobject_callback = cb; }
     inline void setQProgressDialog_Metacast_Callback(QProgressDialog_Metacast_Callback cb) { qprogressdialog_metacast_callback = cb; }
@@ -445,12 +375,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_metaobject_isbase) {
             qprogressdialog_metaobject_isbase = false;
             return QProgressDialog::metaObject();
-        } else if (qprogressdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qprogressdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::metaObject();
         }
+        auto metaobject_cb = qprogressdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,14 +389,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_metacast_isbase) {
             qprogressdialog_metacast_isbase = false;
             return QProgressDialog::qt_metacast(param1);
-        } else if (qprogressdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qprogressdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qprogressdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressDialog::qt_metacast(param1);
         }
+        return QProgressDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,16 +405,17 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_metacall_isbase) {
             qprogressdialog_metacall_isbase = false;
             return QProgressDialog::qt_metacall(param1, param2, param3);
-        } else if (qprogressdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qprogressdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qprogressdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::qt_metacall(param1, param2, param3);
         }
+        return QProgressDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,12 +423,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_sizehint_isbase) {
             qprogressdialog_sizehint_isbase = false;
             return QProgressDialog::sizeHint();
-        } else if (qprogressdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qprogressdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QProgressDialog::sizeHint();
         }
+        auto sizehint_cb = qprogressdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QProgressDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -503,13 +437,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_resizeevent_isbase) {
             qprogressdialog_resizeevent_isbase = false;
             QProgressDialog::resizeEvent(event);
-        } else if (qprogressdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qprogressdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qprogressdialog_resizeevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,13 +454,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_closeevent_isbase) {
             qprogressdialog_closeevent_isbase = false;
             QProgressDialog::closeEvent(event);
-        } else if (qprogressdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qprogressdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qprogressdialog_closeevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,13 +471,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_changeevent_isbase) {
             qprogressdialog_changeevent_isbase = false;
             QProgressDialog::changeEvent(event);
-        } else if (qprogressdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qprogressdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qprogressdialog_changeevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -545,13 +488,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_showevent_isbase) {
             qprogressdialog_showevent_isbase = false;
             QProgressDialog::showEvent(event);
-        } else if (qprogressdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qprogressdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qprogressdialog_showevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,13 +505,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_setvisible_isbase) {
             qprogressdialog_setvisible_isbase = false;
             QProgressDialog::setVisible(visible);
-        } else if (qprogressdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qprogressdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qprogressdialog_setvisible_callback(this, cbval1);
-        } else {
-            QProgressDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,12 +522,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_minimumsizehint_isbase) {
             qprogressdialog_minimumsizehint_isbase = false;
             return QProgressDialog::minimumSizeHint();
-        } else if (qprogressdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qprogressdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QProgressDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qprogressdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QProgressDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,11 +536,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_open_isbase) {
             qprogressdialog_open_isbase = false;
             QProgressDialog::open();
-        } else if (qprogressdialog_open_callback != nullptr) {
-            qprogressdialog_open_callback();
-        } else {
-            QProgressDialog::open();
+            return;
         }
+        auto open_cb = qprogressdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QProgressDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,12 +551,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_exec_isbase) {
             qprogressdialog_exec_isbase = false;
             return QProgressDialog::exec();
-        } else if (qprogressdialog_exec_callback != nullptr) {
-            int callback_ret = qprogressdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::exec();
         }
+        auto exec_cb = qprogressdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProgressDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +565,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_done_isbase) {
             qprogressdialog_done_isbase = false;
             QProgressDialog::done(param1);
-        } else if (qprogressdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qprogressdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            qprogressdialog_done_callback(this, cbval1);
-        } else {
-            QProgressDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,11 +582,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_accept_isbase) {
             qprogressdialog_accept_isbase = false;
             QProgressDialog::accept();
-        } else if (qprogressdialog_accept_callback != nullptr) {
-            qprogressdialog_accept_callback();
-        } else {
-            QProgressDialog::accept();
+            return;
         }
+        auto accept_cb = qprogressdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QProgressDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,11 +597,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_reject_isbase) {
             qprogressdialog_reject_isbase = false;
             QProgressDialog::reject();
-        } else if (qprogressdialog_reject_callback != nullptr) {
-            qprogressdialog_reject_callback();
-        } else {
-            QProgressDialog::reject();
+            return;
         }
+        auto reject_cb = qprogressdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QProgressDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +612,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_keypressevent_isbase) {
             qprogressdialog_keypressevent_isbase = false;
             QProgressDialog::keyPressEvent(param1);
-        } else if (qprogressdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qprogressdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qprogressdialog_keypressevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +629,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_contextmenuevent_isbase) {
             qprogressdialog_contextmenuevent_isbase = false;
             QProgressDialog::contextMenuEvent(param1);
-        } else if (qprogressdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qprogressdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qprogressdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,15 +646,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_eventfilter_isbase) {
             qprogressdialog_eventfilter_isbase = false;
             return QProgressDialog::eventFilter(param1, param2);
-        } else if (qprogressdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qprogressdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qprogressdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QProgressDialog::eventFilter(param1, param2);
         }
+        return QProgressDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,12 +663,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_devtype_isbase) {
             qprogressdialog_devtype_isbase = false;
             return QProgressDialog::devType();
-        } else if (qprogressdialog_devtype_callback != nullptr) {
-            int callback_ret = qprogressdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::devType();
         }
+        auto devtype_cb = qprogressdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProgressDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,14 +677,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_heightforwidth_isbase) {
             qprogressdialog_heightforwidth_isbase = false;
             return QProgressDialog::heightForWidth(param1);
-        } else if (qprogressdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qprogressdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qprogressdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::heightForWidth(param1);
         }
+        return QProgressDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,12 +693,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_hasheightforwidth_isbase) {
             qprogressdialog_hasheightforwidth_isbase = false;
             return QProgressDialog::hasHeightForWidth();
-        } else if (qprogressdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qprogressdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qprogressdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,12 +707,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_paintengine_isbase) {
             qprogressdialog_paintengine_isbase = false;
             return QProgressDialog::paintEngine();
-        } else if (qprogressdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qprogressdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::paintEngine();
         }
+        auto paintengine_cb = qprogressdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,14 +721,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_event_isbase) {
             qprogressdialog_event_isbase = false;
             return QProgressDialog::event(event);
-        } else if (qprogressdialog_event_callback != nullptr) {
+        }
+        auto event_cb = qprogressdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qprogressdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressDialog::event(event);
         }
+        return QProgressDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +737,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_mousepressevent_isbase) {
             qprogressdialog_mousepressevent_isbase = false;
             QProgressDialog::mousePressEvent(event);
-        } else if (qprogressdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qprogressdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +754,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_mousereleaseevent_isbase) {
             qprogressdialog_mousereleaseevent_isbase = false;
             QProgressDialog::mouseReleaseEvent(event);
-        } else if (qprogressdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qprogressdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +771,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_mousedoubleclickevent_isbase) {
             qprogressdialog_mousedoubleclickevent_isbase = false;
             QProgressDialog::mouseDoubleClickEvent(event);
-        } else if (qprogressdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qprogressdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +788,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_mousemoveevent_isbase) {
             qprogressdialog_mousemoveevent_isbase = false;
             QProgressDialog::mouseMoveEvent(event);
-        } else if (qprogressdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qprogressdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qprogressdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +805,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_wheelevent_isbase) {
             qprogressdialog_wheelevent_isbase = false;
             QProgressDialog::wheelEvent(event);
-        } else if (qprogressdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qprogressdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qprogressdialog_wheelevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +822,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_keyreleaseevent_isbase) {
             qprogressdialog_keyreleaseevent_isbase = false;
             QProgressDialog::keyReleaseEvent(event);
-        } else if (qprogressdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qprogressdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qprogressdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +839,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_focusinevent_isbase) {
             qprogressdialog_focusinevent_isbase = false;
             QProgressDialog::focusInEvent(event);
-        } else if (qprogressdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qprogressdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qprogressdialog_focusinevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +856,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_focusoutevent_isbase) {
             qprogressdialog_focusoutevent_isbase = false;
             QProgressDialog::focusOutEvent(event);
-        } else if (qprogressdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qprogressdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qprogressdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +873,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_enterevent_isbase) {
             qprogressdialog_enterevent_isbase = false;
             QProgressDialog::enterEvent(event);
-        } else if (qprogressdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qprogressdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qprogressdialog_enterevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +890,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_leaveevent_isbase) {
             qprogressdialog_leaveevent_isbase = false;
             QProgressDialog::leaveEvent(event);
-        } else if (qprogressdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qprogressdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qprogressdialog_leaveevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +907,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_paintevent_isbase) {
             qprogressdialog_paintevent_isbase = false;
             QProgressDialog::paintEvent(event);
-        } else if (qprogressdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qprogressdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qprogressdialog_paintevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +924,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_moveevent_isbase) {
             qprogressdialog_moveevent_isbase = false;
             QProgressDialog::moveEvent(event);
-        } else if (qprogressdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qprogressdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qprogressdialog_moveevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +941,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_tabletevent_isbase) {
             qprogressdialog_tabletevent_isbase = false;
             QProgressDialog::tabletEvent(event);
-        } else if (qprogressdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qprogressdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qprogressdialog_tabletevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +958,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_actionevent_isbase) {
             qprogressdialog_actionevent_isbase = false;
             QProgressDialog::actionEvent(event);
-        } else if (qprogressdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qprogressdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qprogressdialog_actionevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +975,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_dragenterevent_isbase) {
             qprogressdialog_dragenterevent_isbase = false;
             QProgressDialog::dragEnterEvent(event);
-        } else if (qprogressdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qprogressdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qprogressdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +992,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_dragmoveevent_isbase) {
             qprogressdialog_dragmoveevent_isbase = false;
             QProgressDialog::dragMoveEvent(event);
-        } else if (qprogressdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qprogressdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qprogressdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +1009,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_dragleaveevent_isbase) {
             qprogressdialog_dragleaveevent_isbase = false;
             QProgressDialog::dragLeaveEvent(event);
-        } else if (qprogressdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qprogressdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qprogressdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1026,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_dropevent_isbase) {
             qprogressdialog_dropevent_isbase = false;
             QProgressDialog::dropEvent(event);
-        } else if (qprogressdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qprogressdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qprogressdialog_dropevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,13 +1043,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_hideevent_isbase) {
             qprogressdialog_hideevent_isbase = false;
             QProgressDialog::hideEvent(event);
-        } else if (qprogressdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qprogressdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qprogressdialog_hideevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,7 +1060,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_nativeevent_isbase) {
             qprogressdialog_nativeevent_isbase = false;
             return QProgressDialog::nativeEvent(eventType, message, result);
-        } else if (qprogressdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qprogressdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1039,12 +1073,11 @@ class VirtualQProgressDialog final : public QProgressDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qprogressdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QProgressDialog::nativeEvent(eventType, message, result);
         }
+        return QProgressDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,14 +1085,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_metric_isbase) {
             qprogressdialog_metric_isbase = false;
             return QProgressDialog::metric(param1);
-        } else if (qprogressdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qprogressdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qprogressdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::metric(param1);
         }
+        return QProgressDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1067,13 +1101,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_initpainter_isbase) {
             qprogressdialog_initpainter_isbase = false;
             QProgressDialog::initPainter(painter);
-        } else if (qprogressdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qprogressdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qprogressdialog_initpainter_callback(this, cbval1);
-        } else {
-            QProgressDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,14 +1118,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_redirected_isbase) {
             qprogressdialog_redirected_isbase = false;
             return QProgressDialog::redirected(offset);
-        } else if (qprogressdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qprogressdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qprogressdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressDialog::redirected(offset);
         }
+        return QProgressDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,12 +1134,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_sharedpainter_isbase) {
             qprogressdialog_sharedpainter_isbase = false;
             return QProgressDialog::sharedPainter();
-        } else if (qprogressdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qprogressdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qprogressdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,13 +1148,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_inputmethodevent_isbase) {
             qprogressdialog_inputmethodevent_isbase = false;
             QProgressDialog::inputMethodEvent(param1);
-        } else if (qprogressdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qprogressdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qprogressdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,14 +1165,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_inputmethodquery_isbase) {
             qprogressdialog_inputmethodquery_isbase = false;
             return QProgressDialog::inputMethodQuery(param1);
-        } else if (qprogressdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qprogressdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qprogressdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QProgressDialog::inputMethodQuery(param1);
         }
+        return QProgressDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,14 +1181,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_focusnextprevchild_isbase) {
             qprogressdialog_focusnextprevchild_isbase = false;
             return QProgressDialog::focusNextPrevChild(next);
-        } else if (qprogressdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qprogressdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qprogressdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressDialog::focusNextPrevChild(next);
         }
+        return QProgressDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,13 +1197,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_timerevent_isbase) {
             qprogressdialog_timerevent_isbase = false;
             QProgressDialog::timerEvent(event);
-        } else if (qprogressdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qprogressdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qprogressdialog_timerevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,13 +1214,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_childevent_isbase) {
             qprogressdialog_childevent_isbase = false;
             QProgressDialog::childEvent(event);
-        } else if (qprogressdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qprogressdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qprogressdialog_childevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,13 +1231,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_customevent_isbase) {
             qprogressdialog_customevent_isbase = false;
             QProgressDialog::customEvent(event);
-        } else if (qprogressdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qprogressdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qprogressdialog_customevent_callback(this, cbval1);
-        } else {
-            QProgressDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,15 +1248,18 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_connectnotify_isbase) {
             qprogressdialog_connectnotify_isbase = false;
             QProgressDialog::connectNotify(signal);
-        } else if (qprogressdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qprogressdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprogressdialog_connectnotify_callback(this, cbval1);
-        } else {
-            QProgressDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,15 +1267,18 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_disconnectnotify_isbase) {
             qprogressdialog_disconnectnotify_isbase = false;
             QProgressDialog::disconnectNotify(signal);
-        } else if (qprogressdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qprogressdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qprogressdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QProgressDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,11 +1286,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_forceshow_isbase) {
             qprogressdialog_forceshow_isbase = false;
             QProgressDialog::forceShow();
-        } else if (qprogressdialog_forceshow_callback != nullptr) {
-            qprogressdialog_forceshow_callback();
-        } else {
-            QProgressDialog::forceShow();
+            return;
         }
+        auto forceshow_cb = qprogressdialog_forceshow_callback;
+        if (forceshow_cb) {
+            forceshow_cb();
+            return;
+        }
+        QProgressDialog::forceShow();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1239,13 +1301,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_adjustposition_isbase) {
             qprogressdialog_adjustposition_isbase = false;
             QProgressDialog::adjustPosition(param1);
-        } else if (qprogressdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qprogressdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qprogressdialog_adjustposition_callback(this, cbval1);
-        } else {
-            QProgressDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QProgressDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,11 +1318,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_updatemicrofocus_isbase) {
             qprogressdialog_updatemicrofocus_isbase = false;
             QProgressDialog::updateMicroFocus();
-        } else if (qprogressdialog_updatemicrofocus_callback != nullptr) {
-            qprogressdialog_updatemicrofocus_callback();
-        } else {
-            QProgressDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qprogressdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QProgressDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,11 +1333,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_create_isbase) {
             qprogressdialog_create_isbase = false;
             QProgressDialog::create();
-        } else if (qprogressdialog_create_callback != nullptr) {
-            qprogressdialog_create_callback();
-        } else {
-            QProgressDialog::create();
+            return;
         }
+        auto create_cb = qprogressdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QProgressDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1277,11 +1348,14 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_destroy_isbase) {
             qprogressdialog_destroy_isbase = false;
             QProgressDialog::destroy();
-        } else if (qprogressdialog_destroy_callback != nullptr) {
-            qprogressdialog_destroy_callback();
-        } else {
-            QProgressDialog::destroy();
+            return;
         }
+        auto destroy_cb = qprogressdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QProgressDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1289,12 +1363,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_focusnextchild_isbase) {
             qprogressdialog_focusnextchild_isbase = false;
             return QProgressDialog::focusNextChild();
-        } else if (qprogressdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qprogressdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qprogressdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1302,12 +1377,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_focuspreviouschild_isbase) {
             qprogressdialog_focuspreviouschild_isbase = false;
             return QProgressDialog::focusPreviousChild();
-        } else if (qprogressdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qprogressdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qprogressdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1315,12 +1391,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_sender_isbase) {
             qprogressdialog_sender_isbase = false;
             return QProgressDialog::sender();
-        } else if (qprogressdialog_sender_callback != nullptr) {
-            QObject* callback_ret = qprogressdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QProgressDialog::sender();
         }
+        auto sender_cb = qprogressdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QProgressDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1328,12 +1405,13 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_sendersignalindex_isbase) {
             qprogressdialog_sendersignalindex_isbase = false;
             return QProgressDialog::senderSignalIndex();
-        } else if (qprogressdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qprogressdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qprogressdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QProgressDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,14 +1419,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_receivers_isbase) {
             qprogressdialog_receivers_isbase = false;
             return QProgressDialog::receivers(signal);
-        } else if (qprogressdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qprogressdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qprogressdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QProgressDialog::receivers(signal);
         }
+        return QProgressDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1356,16 +1435,17 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_issignalconnected_isbase) {
             qprogressdialog_issignalconnected_isbase = false;
             return QProgressDialog::isSignalConnected(signal);
-        } else if (qprogressdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qprogressdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qprogressdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QProgressDialog::isSignalConnected(signal);
         }
+        return QProgressDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1373,15 +1453,16 @@ class VirtualQProgressDialog final : public QProgressDialog {
         if (qprogressdialog_getdecodedmetricf_isbase) {
             qprogressdialog_getdecodedmetricf_isbase = false;
             return QProgressDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qprogressdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qprogressdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qprogressdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QProgressDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QProgressDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

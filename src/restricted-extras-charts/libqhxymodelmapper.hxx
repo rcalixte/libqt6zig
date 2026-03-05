@@ -99,33 +99,6 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     VirtualQHXYModelMapper() : QHXYModelMapper() {};
     VirtualQHXYModelMapper(QObject* parent) : QHXYModelMapper(parent) {};
 
-    ~VirtualQHXYModelMapper() {
-        qhxymodelmapper_metaobject_callback = nullptr;
-        qhxymodelmapper_metacast_callback = nullptr;
-        qhxymodelmapper_metacall_callback = nullptr;
-        qhxymodelmapper_event_callback = nullptr;
-        qhxymodelmapper_eventfilter_callback = nullptr;
-        qhxymodelmapper_timerevent_callback = nullptr;
-        qhxymodelmapper_childevent_callback = nullptr;
-        qhxymodelmapper_customevent_callback = nullptr;
-        qhxymodelmapper_connectnotify_callback = nullptr;
-        qhxymodelmapper_disconnectnotify_callback = nullptr;
-        qhxymodelmapper_first_callback = nullptr;
-        qhxymodelmapper_setfirst_callback = nullptr;
-        qhxymodelmapper_count_callback = nullptr;
-        qhxymodelmapper_setcount_callback = nullptr;
-        qhxymodelmapper_orientation_callback = nullptr;
-        qhxymodelmapper_setorientation_callback = nullptr;
-        qhxymodelmapper_xsection_callback = nullptr;
-        qhxymodelmapper_setxsection_callback = nullptr;
-        qhxymodelmapper_ysection_callback = nullptr;
-        qhxymodelmapper_setysection_callback = nullptr;
-        qhxymodelmapper_sender_callback = nullptr;
-        qhxymodelmapper_sendersignalindex_callback = nullptr;
-        qhxymodelmapper_receivers_callback = nullptr;
-        qhxymodelmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQHXYModelMapper_MetaObject_Callback(QHXYModelMapper_MetaObject_Callback cb) { qhxymodelmapper_metaobject_callback = cb; }
     inline void setQHXYModelMapper_Metacast_Callback(QHXYModelMapper_Metacast_Callback cb) { qhxymodelmapper_metacast_callback = cb; }
@@ -183,12 +156,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_metaobject_isbase) {
             qhxymodelmapper_metaobject_isbase = false;
             return QHXYModelMapper::metaObject();
-        } else if (qhxymodelmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qhxymodelmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QHXYModelMapper::metaObject();
         }
+        auto metaobject_cb = qhxymodelmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QHXYModelMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +170,15 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_metacast_isbase) {
             qhxymodelmapper_metacast_isbase = false;
             return QHXYModelMapper::qt_metacast(param1);
-        } else if (qhxymodelmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qhxymodelmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qhxymodelmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHXYModelMapper::qt_metacast(param1);
         }
+        return QHXYModelMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +186,17 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_metacall_isbase) {
             qhxymodelmapper_metacall_isbase = false;
             return QHXYModelMapper::qt_metacall(param1, param2, param3);
-        } else if (qhxymodelmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qhxymodelmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qhxymodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::qt_metacall(param1, param2, param3);
         }
+        return QHXYModelMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,14 +204,15 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_event_isbase) {
             qhxymodelmapper_event_isbase = false;
             return QHXYModelMapper::event(event);
-        } else if (qhxymodelmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qhxymodelmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qhxymodelmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHXYModelMapper::event(event);
         }
+        return QHXYModelMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +220,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_eventfilter_isbase) {
             qhxymodelmapper_eventfilter_isbase = false;
             return QHXYModelMapper::eventFilter(watched, event);
-        } else if (qhxymodelmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qhxymodelmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qhxymodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QHXYModelMapper::eventFilter(watched, event);
         }
+        return QHXYModelMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +237,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_timerevent_isbase) {
             qhxymodelmapper_timerevent_isbase = false;
             QHXYModelMapper::timerEvent(event);
-        } else if (qhxymodelmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qhxymodelmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qhxymodelmapper_timerevent_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +254,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_childevent_isbase) {
             qhxymodelmapper_childevent_isbase = false;
             QHXYModelMapper::childEvent(event);
-        } else if (qhxymodelmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qhxymodelmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qhxymodelmapper_childevent_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,13 +271,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_customevent_isbase) {
             qhxymodelmapper_customevent_isbase = false;
             QHXYModelMapper::customEvent(event);
-        } else if (qhxymodelmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qhxymodelmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qhxymodelmapper_customevent_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,15 +288,18 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_connectnotify_isbase) {
             qhxymodelmapper_connectnotify_isbase = false;
             QHXYModelMapper::connectNotify(signal);
-        } else if (qhxymodelmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qhxymodelmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qhxymodelmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,15 +307,18 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_disconnectnotify_isbase) {
             qhxymodelmapper_disconnectnotify_isbase = false;
             QHXYModelMapper::disconnectNotify(signal);
-        } else if (qhxymodelmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qhxymodelmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qhxymodelmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,12 +326,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_first_isbase) {
             qhxymodelmapper_first_isbase = false;
             return QHXYModelMapper::first();
-        } else if (qhxymodelmapper_first_callback != nullptr) {
-            int callback_ret = qhxymodelmapper_first_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::first();
         }
+        auto first_cb = qhxymodelmapper_first_callback;
+        if (first_cb) {
+            int callback_ret = first_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHXYModelMapper::first();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,13 +340,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_setfirst_isbase) {
             qhxymodelmapper_setfirst_isbase = false;
             QHXYModelMapper::setFirst(first);
-        } else if (qhxymodelmapper_setfirst_callback != nullptr) {
+            return;
+        }
+        auto setfirst_cb = qhxymodelmapper_setfirst_callback;
+        if (setfirst_cb) {
             int cbval1 = first;
 
-            qhxymodelmapper_setfirst_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::setFirst(first);
+            setfirst_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::setFirst(first);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +357,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_count_isbase) {
             qhxymodelmapper_count_isbase = false;
             return QHXYModelMapper::count();
-        } else if (qhxymodelmapper_count_callback != nullptr) {
-            int callback_ret = qhxymodelmapper_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::count();
         }
+        auto count_cb = qhxymodelmapper_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHXYModelMapper::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,13 +371,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_setcount_isbase) {
             qhxymodelmapper_setcount_isbase = false;
             QHXYModelMapper::setCount(count);
-        } else if (qhxymodelmapper_setcount_callback != nullptr) {
+            return;
+        }
+        auto setcount_cb = qhxymodelmapper_setcount_callback;
+        if (setcount_cb) {
             int cbval1 = count;
 
-            qhxymodelmapper_setcount_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::setCount(count);
+            setcount_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::setCount(count);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,12 +388,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_orientation_isbase) {
             qhxymodelmapper_orientation_isbase = false;
             return QHXYModelMapper::orientation();
-        } else if (qhxymodelmapper_orientation_callback != nullptr) {
-            int callback_ret = qhxymodelmapper_orientation_callback();
-            return static_cast<Qt::Orientation>(callback_ret);
-        } else {
-            return QHXYModelMapper::orientation();
         }
+        auto orientation_cb = qhxymodelmapper_orientation_callback;
+        if (orientation_cb) {
+            int callback_ret = orientation_cb();
+            return static_cast<Qt::Orientation>(callback_ret);
+        }
+        return QHXYModelMapper::orientation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,13 +402,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_setorientation_isbase) {
             qhxymodelmapper_setorientation_isbase = false;
             QHXYModelMapper::setOrientation(orientation);
-        } else if (qhxymodelmapper_setorientation_callback != nullptr) {
+            return;
+        }
+        auto setorientation_cb = qhxymodelmapper_setorientation_callback;
+        if (setorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
 
-            qhxymodelmapper_setorientation_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::setOrientation(orientation);
+            setorientation_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::setOrientation(orientation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,12 +419,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_xsection_isbase) {
             qhxymodelmapper_xsection_isbase = false;
             return QHXYModelMapper::xSection();
-        } else if (qhxymodelmapper_xsection_callback != nullptr) {
-            int callback_ret = qhxymodelmapper_xsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::xSection();
         }
+        auto xsection_cb = qhxymodelmapper_xsection_callback;
+        if (xsection_cb) {
+            int callback_ret = xsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHXYModelMapper::xSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,13 +433,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_setxsection_isbase) {
             qhxymodelmapper_setxsection_isbase = false;
             QHXYModelMapper::setXSection(xSection);
-        } else if (qhxymodelmapper_setxsection_callback != nullptr) {
+            return;
+        }
+        auto setxsection_cb = qhxymodelmapper_setxsection_callback;
+        if (setxsection_cb) {
             int cbval1 = xSection;
 
-            qhxymodelmapper_setxsection_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::setXSection(xSection);
+            setxsection_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::setXSection(xSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +450,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_ysection_isbase) {
             qhxymodelmapper_ysection_isbase = false;
             return QHXYModelMapper::ySection();
-        } else if (qhxymodelmapper_ysection_callback != nullptr) {
-            int callback_ret = qhxymodelmapper_ysection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::ySection();
         }
+        auto ysection_cb = qhxymodelmapper_ysection_callback;
+        if (ysection_cb) {
+            int callback_ret = ysection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHXYModelMapper::ySection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +464,16 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_setysection_isbase) {
             qhxymodelmapper_setysection_isbase = false;
             QHXYModelMapper::setYSection(ySection);
-        } else if (qhxymodelmapper_setysection_callback != nullptr) {
+            return;
+        }
+        auto setysection_cb = qhxymodelmapper_setysection_callback;
+        if (setysection_cb) {
             int cbval1 = ySection;
 
-            qhxymodelmapper_setysection_callback(this, cbval1);
-        } else {
-            QHXYModelMapper::setYSection(ySection);
+            setysection_cb(this, cbval1);
+            return;
         }
+        QHXYModelMapper::setYSection(ySection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +481,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_sender_isbase) {
             qhxymodelmapper_sender_isbase = false;
             return QHXYModelMapper::sender();
-        } else if (qhxymodelmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qhxymodelmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QHXYModelMapper::sender();
         }
+        auto sender_cb = qhxymodelmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QHXYModelMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +495,13 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_sendersignalindex_isbase) {
             qhxymodelmapper_sendersignalindex_isbase = false;
             return QHXYModelMapper::senderSignalIndex();
-        } else if (qhxymodelmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qhxymodelmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qhxymodelmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHXYModelMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +509,15 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_receivers_isbase) {
             qhxymodelmapper_receivers_isbase = false;
             return QHXYModelMapper::receivers(signal);
-        } else if (qhxymodelmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qhxymodelmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qhxymodelmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QHXYModelMapper::receivers(signal);
         }
+        return QHXYModelMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,16 +525,17 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
         if (qhxymodelmapper_issignalconnected_isbase) {
             qhxymodelmapper_issignalconnected_isbase = false;
             return QHXYModelMapper::isSignalConnected(signal);
-        } else if (qhxymodelmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qhxymodelmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qhxymodelmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHXYModelMapper::isSignalConnected(signal);
         }
+        return QHXYModelMapper::isSignalConnected(signal);
     }
 
     // Friend functions

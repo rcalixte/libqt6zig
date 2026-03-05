@@ -68,23 +68,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
   public:
     VirtualKPartsPartBase() : KParts::PartBase() {};
 
-    ~VirtualKPartsPartBase() {
-        kparts__partbase_action2_callback = nullptr;
-        kparts__partbase_actioncollection_callback = nullptr;
-        kparts__partbase_componentname_callback = nullptr;
-        kparts__partbase_domdocument_callback = nullptr;
-        kparts__partbase_xmlfile_callback = nullptr;
-        kparts__partbase_localxmlfile_callback = nullptr;
-        kparts__partbase_setcomponentname_callback = nullptr;
-        kparts__partbase_setxmlfile_callback = nullptr;
-        kparts__partbase_setlocalxmlfile_callback = nullptr;
-        kparts__partbase_setxml_callback = nullptr;
-        kparts__partbase_setdomdocument_callback = nullptr;
-        kparts__partbase_statechanged_callback = nullptr;
-        kparts__partbase_standardsxmlfilelocation_callback = nullptr;
-        kparts__partbase_loadstandardsxmlfile_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__PartBase_Action2_Callback(KParts__PartBase_Action2_Callback cb) { kparts__partbase_action2_callback = cb; }
     inline void setKParts__PartBase_ActionCollection_Callback(KParts__PartBase_ActionCollection_Callback cb) { kparts__partbase_actioncollection_callback = cb; }
@@ -122,16 +105,17 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_action2_isbase) {
             kparts__partbase_action2_isbase = false;
             return KParts__PartBase::action(element);
-        } else if (kparts__partbase_action2_callback != nullptr) {
+        }
+        auto action2_cb = kparts__partbase_action2_callback;
+        if (action2_cb) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kparts__partbase_action2_callback(this, cbval1);
+            QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__PartBase::action(element);
         }
+        return KParts__PartBase::action(element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -139,12 +123,13 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_actioncollection_isbase) {
             kparts__partbase_actioncollection_isbase = false;
             return KParts__PartBase::actionCollection();
-        } else if (kparts__partbase_actioncollection_callback != nullptr) {
-            KActionCollection* callback_ret = kparts__partbase_actioncollection_callback();
-            return callback_ret;
-        } else {
-            return KParts__PartBase::actionCollection();
         }
+        auto actioncollection_cb = kparts__partbase_actioncollection_callback;
+        if (actioncollection_cb) {
+            KActionCollection* callback_ret = actioncollection_cb();
+            return callback_ret;
+        }
+        return KParts__PartBase::actionCollection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -152,13 +137,14 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_componentname_isbase) {
             kparts__partbase_componentname_isbase = false;
             return KParts__PartBase::componentName();
-        } else if (kparts__partbase_componentname_callback != nullptr) {
-            const char* callback_ret = kparts__partbase_componentname_callback();
+        }
+        auto componentname_cb = kparts__partbase_componentname_callback;
+        if (componentname_cb) {
+            const char* callback_ret = componentname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__PartBase::componentName();
         }
+        return KParts__PartBase::componentName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -166,12 +152,13 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_domdocument_isbase) {
             kparts__partbase_domdocument_isbase = false;
             return KParts__PartBase::domDocument();
-        } else if (kparts__partbase_domdocument_callback != nullptr) {
-            QDomDocument* callback_ret = kparts__partbase_domdocument_callback();
-            return *callback_ret;
-        } else {
-            return KParts__PartBase::domDocument();
         }
+        auto domdocument_cb = kparts__partbase_domdocument_callback;
+        if (domdocument_cb) {
+            QDomDocument* callback_ret = domdocument_cb();
+            return *callback_ret;
+        }
+        return KParts__PartBase::domDocument();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,13 +166,14 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_xmlfile_isbase) {
             kparts__partbase_xmlfile_isbase = false;
             return KParts__PartBase::xmlFile();
-        } else if (kparts__partbase_xmlfile_callback != nullptr) {
-            const char* callback_ret = kparts__partbase_xmlfile_callback();
+        }
+        auto xmlfile_cb = kparts__partbase_xmlfile_callback;
+        if (xmlfile_cb) {
+            const char* callback_ret = xmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__PartBase::xmlFile();
         }
+        return KParts__PartBase::xmlFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,13 +181,14 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_localxmlfile_isbase) {
             kparts__partbase_localxmlfile_isbase = false;
             return KParts__PartBase::localXMLFile();
-        } else if (kparts__partbase_localxmlfile_callback != nullptr) {
-            const char* callback_ret = kparts__partbase_localxmlfile_callback();
+        }
+        auto localxmlfile_cb = kparts__partbase_localxmlfile_callback;
+        if (localxmlfile_cb) {
+            const char* callback_ret = localxmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__PartBase::localXMLFile();
         }
+        return KParts__PartBase::localXMLFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,7 +196,10 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_setcomponentname_isbase) {
             kparts__partbase_setcomponentname_isbase = false;
             KParts__PartBase::setComponentName(componentName, componentDisplayName);
-        } else if (kparts__partbase_setcomponentname_callback != nullptr) {
+            return;
+        }
+        auto setcomponentname_cb = kparts__partbase_setcomponentname_callback;
+        if (setcomponentname_cb) {
             const QString componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -225,12 +217,12 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
 
-            kparts__partbase_setcomponentname_callback(this, cbval1, cbval2);
+            setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
-        } else {
-            KParts__PartBase::setComponentName(componentName, componentDisplayName);
+            return;
         }
+        KParts__PartBase::setComponentName(componentName, componentDisplayName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -238,7 +230,10 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_setxmlfile_isbase) {
             kparts__partbase_setxmlfile_isbase = false;
             KParts__PartBase::setXMLFile(file, merge, setXMLDoc);
-        } else if (kparts__partbase_setxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setxmlfile_cb = kparts__partbase_setxmlfile_callback;
+        if (setxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -250,11 +245,11 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
-            kparts__partbase_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
-        } else {
-            KParts__PartBase::setXMLFile(file, merge, setXMLDoc);
+            return;
         }
+        KParts__PartBase::setXMLFile(file, merge, setXMLDoc);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,7 +257,10 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_setlocalxmlfile_isbase) {
             kparts__partbase_setlocalxmlfile_isbase = false;
             KParts__PartBase::setLocalXMLFile(file);
-        } else if (kparts__partbase_setlocalxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setlocalxmlfile_cb = kparts__partbase_setlocalxmlfile_callback;
+        if (setlocalxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -272,11 +270,11 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
 
-            kparts__partbase_setlocalxmlfile_callback(this, cbval1);
+            setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
-        } else {
-            KParts__PartBase::setLocalXMLFile(file);
+            return;
         }
+        KParts__PartBase::setLocalXMLFile(file);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,7 +282,10 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_setxml_isbase) {
             kparts__partbase_setxml_isbase = false;
             KParts__PartBase::setXML(document, merge);
-        } else if (kparts__partbase_setxml_callback != nullptr) {
+            return;
+        }
+        auto setxml_cb = kparts__partbase_setxml_callback;
+        if (setxml_cb) {
             const QString document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -295,11 +296,11 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             const char* cbval1 = document_str;
             bool cbval2 = merge;
 
-            kparts__partbase_setxml_callback(this, cbval1, cbval2);
+            setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
-        } else {
-            KParts__PartBase::setXML(document, merge);
+            return;
         }
+        KParts__PartBase::setXML(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,16 +308,19 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_setdomdocument_isbase) {
             kparts__partbase_setdomdocument_isbase = false;
             KParts__PartBase::setDOMDocument(document, merge);
-        } else if (kparts__partbase_setdomdocument_callback != nullptr) {
+            return;
+        }
+        auto setdomdocument_cb = kparts__partbase_setdomdocument_callback;
+        if (setdomdocument_cb) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
 
-            kparts__partbase_setdomdocument_callback(this, cbval1, cbval2);
-        } else {
-            KParts__PartBase::setDOMDocument(document, merge);
+            setdomdocument_cb(this, cbval1, cbval2);
+            return;
         }
+        KParts__PartBase::setDOMDocument(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,7 +328,10 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_statechanged_isbase) {
             kparts__partbase_statechanged_isbase = false;
             KParts__PartBase::stateChanged(newstate, reverse);
-        } else if (kparts__partbase_statechanged_callback != nullptr) {
+            return;
+        }
+        auto statechanged_cb = kparts__partbase_statechanged_callback;
+        if (statechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -335,11 +342,11 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
-            kparts__partbase_statechanged_callback(this, cbval1, cbval2);
+            statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
-        } else {
-            KParts__PartBase::stateChanged(newstate, reverse);
+            return;
         }
+        KParts__PartBase::stateChanged(newstate, reverse);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,13 +354,14 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_standardsxmlfilelocation_isbase) {
             kparts__partbase_standardsxmlfilelocation_isbase = false;
             return KParts__PartBase::standardsXmlFileLocation();
-        } else if (kparts__partbase_standardsxmlfilelocation_callback != nullptr) {
-            const char* callback_ret = kparts__partbase_standardsxmlfilelocation_callback();
+        }
+        auto standardsxmlfilelocation_cb = kparts__partbase_standardsxmlfilelocation_callback;
+        if (standardsxmlfilelocation_cb) {
+            const char* callback_ret = standardsxmlfilelocation_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__PartBase::standardsXmlFileLocation();
         }
+        return KParts__PartBase::standardsXmlFileLocation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -361,11 +369,14 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         if (kparts__partbase_loadstandardsxmlfile_isbase) {
             kparts__partbase_loadstandardsxmlfile_isbase = false;
             KParts__PartBase::loadStandardsXmlFile();
-        } else if (kparts__partbase_loadstandardsxmlfile_callback != nullptr) {
-            kparts__partbase_loadstandardsxmlfile_callback();
-        } else {
-            KParts__PartBase::loadStandardsXmlFile();
+            return;
         }
+        auto loadstandardsxmlfile_cb = kparts__partbase_loadstandardsxmlfile_callback;
+        if (loadstandardsxmlfile_cb) {
+            loadstandardsxmlfile_cb();
+            return;
+        }
+        KParts__PartBase::loadStandardsXmlFile();
     }
 
     // Friend functions

@@ -69,23 +69,6 @@ class VirtualQUndoGroup final : public QUndoGroup {
     VirtualQUndoGroup() : QUndoGroup() {};
     VirtualQUndoGroup(QObject* parent) : QUndoGroup(parent) {};
 
-    ~VirtualQUndoGroup() {
-        qundogroup_metaobject_callback = nullptr;
-        qundogroup_metacast_callback = nullptr;
-        qundogroup_metacall_callback = nullptr;
-        qundogroup_event_callback = nullptr;
-        qundogroup_eventfilter_callback = nullptr;
-        qundogroup_timerevent_callback = nullptr;
-        qundogroup_childevent_callback = nullptr;
-        qundogroup_customevent_callback = nullptr;
-        qundogroup_connectnotify_callback = nullptr;
-        qundogroup_disconnectnotify_callback = nullptr;
-        qundogroup_sender_callback = nullptr;
-        qundogroup_sendersignalindex_callback = nullptr;
-        qundogroup_receivers_callback = nullptr;
-        qundogroup_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQUndoGroup_MetaObject_Callback(QUndoGroup_MetaObject_Callback cb) { qundogroup_metaobject_callback = cb; }
     inline void setQUndoGroup_Metacast_Callback(QUndoGroup_Metacast_Callback cb) { qundogroup_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_metaobject_isbase) {
             qundogroup_metaobject_isbase = false;
             return QUndoGroup::metaObject();
-        } else if (qundogroup_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qundogroup_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QUndoGroup::metaObject();
         }
+        auto metaobject_cb = qundogroup_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QUndoGroup::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_metacast_isbase) {
             qundogroup_metacast_isbase = false;
             return QUndoGroup::qt_metacast(param1);
-        } else if (qundogroup_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qundogroup_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qundogroup_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoGroup::qt_metacast(param1);
         }
+        return QUndoGroup::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_metacall_isbase) {
             qundogroup_metacall_isbase = false;
             return QUndoGroup::qt_metacall(param1, param2, param3);
-        } else if (qundogroup_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qundogroup_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qundogroup_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QUndoGroup::qt_metacall(param1, param2, param3);
         }
+        return QUndoGroup::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_event_isbase) {
             qundogroup_event_isbase = false;
             return QUndoGroup::event(event);
-        } else if (qundogroup_event_callback != nullptr) {
+        }
+        auto event_cb = qundogroup_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qundogroup_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoGroup::event(event);
         }
+        return QUndoGroup::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_eventfilter_isbase) {
             qundogroup_eventfilter_isbase = false;
             return QUndoGroup::eventFilter(watched, event);
-        } else if (qundogroup_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qundogroup_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qundogroup_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QUndoGroup::eventFilter(watched, event);
         }
+        return QUndoGroup::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_timerevent_isbase) {
             qundogroup_timerevent_isbase = false;
             QUndoGroup::timerEvent(event);
-        } else if (qundogroup_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qundogroup_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qundogroup_timerevent_callback(this, cbval1);
-        } else {
-            QUndoGroup::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QUndoGroup::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_childevent_isbase) {
             qundogroup_childevent_isbase = false;
             QUndoGroup::childEvent(event);
-        } else if (qundogroup_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qundogroup_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qundogroup_childevent_callback(this, cbval1);
-        } else {
-            QUndoGroup::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QUndoGroup::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_customevent_isbase) {
             qundogroup_customevent_isbase = false;
             QUndoGroup::customEvent(event);
-        } else if (qundogroup_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qundogroup_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qundogroup_customevent_callback(this, cbval1);
-        } else {
-            QUndoGroup::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QUndoGroup::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_connectnotify_isbase) {
             qundogroup_connectnotify_isbase = false;
             QUndoGroup::connectNotify(signal);
-        } else if (qundogroup_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qundogroup_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qundogroup_connectnotify_callback(this, cbval1);
-        } else {
-            QUndoGroup::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QUndoGroup::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_disconnectnotify_isbase) {
             qundogroup_disconnectnotify_isbase = false;
             QUndoGroup::disconnectNotify(signal);
-        } else if (qundogroup_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qundogroup_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qundogroup_disconnectnotify_callback(this, cbval1);
-        } else {
-            QUndoGroup::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QUndoGroup::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_sender_isbase) {
             qundogroup_sender_isbase = false;
             return QUndoGroup::sender();
-        } else if (qundogroup_sender_callback != nullptr) {
-            QObject* callback_ret = qundogroup_sender_callback();
-            return callback_ret;
-        } else {
-            return QUndoGroup::sender();
         }
+        auto sender_cb = qundogroup_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QUndoGroup::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_sendersignalindex_isbase) {
             qundogroup_sendersignalindex_isbase = false;
             return QUndoGroup::senderSignalIndex();
-        } else if (qundogroup_sendersignalindex_callback != nullptr) {
-            int callback_ret = qundogroup_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QUndoGroup::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qundogroup_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QUndoGroup::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_receivers_isbase) {
             qundogroup_receivers_isbase = false;
             return QUndoGroup::receivers(signal);
-        } else if (qundogroup_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qundogroup_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qundogroup_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QUndoGroup::receivers(signal);
         }
+        return QUndoGroup::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQUndoGroup final : public QUndoGroup {
         if (qundogroup_issignalconnected_isbase) {
             qundogroup_issignalconnected_isbase = false;
             return QUndoGroup::isSignalConnected(signal);
-        } else if (qundogroup_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qundogroup_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qundogroup_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QUndoGroup::isSignalConnected(signal);
         }
+        return QUndoGroup::isSignalConnected(signal);
     }
 
     // Friend functions

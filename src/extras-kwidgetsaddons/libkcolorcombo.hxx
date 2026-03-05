@@ -219,73 +219,6 @@ class VirtualKColorCombo final : public KColorCombo {
     VirtualKColorCombo(QWidget* parent) : KColorCombo(parent) {};
     VirtualKColorCombo() : KColorCombo() {};
 
-    ~VirtualKColorCombo() {
-        kcolorcombo_metaobject_callback = nullptr;
-        kcolorcombo_metacast_callback = nullptr;
-        kcolorcombo_metacall_callback = nullptr;
-        kcolorcombo_paintevent_callback = nullptr;
-        kcolorcombo_setmodel_callback = nullptr;
-        kcolorcombo_sizehint_callback = nullptr;
-        kcolorcombo_minimumsizehint_callback = nullptr;
-        kcolorcombo_showpopup_callback = nullptr;
-        kcolorcombo_hidepopup_callback = nullptr;
-        kcolorcombo_event_callback = nullptr;
-        kcolorcombo_inputmethodquery_callback = nullptr;
-        kcolorcombo_focusinevent_callback = nullptr;
-        kcolorcombo_focusoutevent_callback = nullptr;
-        kcolorcombo_changeevent_callback = nullptr;
-        kcolorcombo_resizeevent_callback = nullptr;
-        kcolorcombo_showevent_callback = nullptr;
-        kcolorcombo_hideevent_callback = nullptr;
-        kcolorcombo_mousepressevent_callback = nullptr;
-        kcolorcombo_mousereleaseevent_callback = nullptr;
-        kcolorcombo_keypressevent_callback = nullptr;
-        kcolorcombo_keyreleaseevent_callback = nullptr;
-        kcolorcombo_wheelevent_callback = nullptr;
-        kcolorcombo_contextmenuevent_callback = nullptr;
-        kcolorcombo_inputmethodevent_callback = nullptr;
-        kcolorcombo_initstyleoption_callback = nullptr;
-        kcolorcombo_devtype_callback = nullptr;
-        kcolorcombo_setvisible_callback = nullptr;
-        kcolorcombo_heightforwidth_callback = nullptr;
-        kcolorcombo_hasheightforwidth_callback = nullptr;
-        kcolorcombo_paintengine_callback = nullptr;
-        kcolorcombo_mousedoubleclickevent_callback = nullptr;
-        kcolorcombo_mousemoveevent_callback = nullptr;
-        kcolorcombo_enterevent_callback = nullptr;
-        kcolorcombo_leaveevent_callback = nullptr;
-        kcolorcombo_moveevent_callback = nullptr;
-        kcolorcombo_closeevent_callback = nullptr;
-        kcolorcombo_tabletevent_callback = nullptr;
-        kcolorcombo_actionevent_callback = nullptr;
-        kcolorcombo_dragenterevent_callback = nullptr;
-        kcolorcombo_dragmoveevent_callback = nullptr;
-        kcolorcombo_dragleaveevent_callback = nullptr;
-        kcolorcombo_dropevent_callback = nullptr;
-        kcolorcombo_nativeevent_callback = nullptr;
-        kcolorcombo_metric_callback = nullptr;
-        kcolorcombo_initpainter_callback = nullptr;
-        kcolorcombo_redirected_callback = nullptr;
-        kcolorcombo_sharedpainter_callback = nullptr;
-        kcolorcombo_focusnextprevchild_callback = nullptr;
-        kcolorcombo_eventfilter_callback = nullptr;
-        kcolorcombo_timerevent_callback = nullptr;
-        kcolorcombo_childevent_callback = nullptr;
-        kcolorcombo_customevent_callback = nullptr;
-        kcolorcombo_connectnotify_callback = nullptr;
-        kcolorcombo_disconnectnotify_callback = nullptr;
-        kcolorcombo_updatemicrofocus_callback = nullptr;
-        kcolorcombo_create_callback = nullptr;
-        kcolorcombo_destroy_callback = nullptr;
-        kcolorcombo_focusnextchild_callback = nullptr;
-        kcolorcombo_focuspreviouschild_callback = nullptr;
-        kcolorcombo_sender_callback = nullptr;
-        kcolorcombo_sendersignalindex_callback = nullptr;
-        kcolorcombo_receivers_callback = nullptr;
-        kcolorcombo_issignalconnected_callback = nullptr;
-        kcolorcombo_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKColorCombo_MetaObject_Callback(KColorCombo_MetaObject_Callback cb) { kcolorcombo_metaobject_callback = cb; }
     inline void setKColorCombo_Metacast_Callback(KColorCombo_Metacast_Callback cb) { kcolorcombo_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_metaobject_isbase) {
             kcolorcombo_metaobject_isbase = false;
             return KColorCombo::metaObject();
-        } else if (kcolorcombo_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcolorcombo_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::metaObject();
         }
+        auto metaobject_cb = kcolorcombo_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KColorCombo::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_metacast_isbase) {
             kcolorcombo_metacast_isbase = false;
             return KColorCombo::qt_metacast(param1);
-        } else if (kcolorcombo_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcolorcombo_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcolorcombo_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorCombo::qt_metacast(param1);
         }
+        return KColorCombo::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_metacall_isbase) {
             kcolorcombo_metacall_isbase = false;
             return KColorCombo::qt_metacall(param1, param2, param3);
-        } else if (kcolorcombo_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcolorcombo_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcolorcombo_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorCombo::qt_metacall(param1, param2, param3);
         }
+        return KColorCombo::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,13 +404,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_paintevent_isbase) {
             kcolorcombo_paintevent_isbase = false;
             KColorCombo::paintEvent(event);
-        } else if (kcolorcombo_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcolorcombo_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kcolorcombo_paintevent_callback(this, cbval1);
-        } else {
-            KColorCombo::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +421,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_setmodel_isbase) {
             kcolorcombo_setmodel_isbase = false;
             KColorCombo::setModel(model);
-        } else if (kcolorcombo_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = kcolorcombo_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            kcolorcombo_setmodel_callback(this, cbval1);
-        } else {
-            KColorCombo::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        KColorCombo::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,12 +438,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_sizehint_isbase) {
             kcolorcombo_sizehint_isbase = false;
             return KColorCombo::sizeHint();
-        } else if (kcolorcombo_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcolorcombo_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KColorCombo::sizeHint();
         }
+        auto sizehint_cb = kcolorcombo_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KColorCombo::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +452,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_minimumsizehint_isbase) {
             kcolorcombo_minimumsizehint_isbase = false;
             return KColorCombo::minimumSizeHint();
-        } else if (kcolorcombo_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcolorcombo_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KColorCombo::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcolorcombo_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KColorCombo::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,11 +466,14 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_showpopup_isbase) {
             kcolorcombo_showpopup_isbase = false;
             KColorCombo::showPopup();
-        } else if (kcolorcombo_showpopup_callback != nullptr) {
-            kcolorcombo_showpopup_callback();
-        } else {
-            KColorCombo::showPopup();
+            return;
         }
+        auto showpopup_cb = kcolorcombo_showpopup_callback;
+        if (showpopup_cb) {
+            showpopup_cb();
+            return;
+        }
+        KColorCombo::showPopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -534,11 +481,14 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_hidepopup_isbase) {
             kcolorcombo_hidepopup_isbase = false;
             KColorCombo::hidePopup();
-        } else if (kcolorcombo_hidepopup_callback != nullptr) {
-            kcolorcombo_hidepopup_callback();
-        } else {
-            KColorCombo::hidePopup();
+            return;
         }
+        auto hidepopup_cb = kcolorcombo_hidepopup_callback;
+        if (hidepopup_cb) {
+            hidepopup_cb();
+            return;
+        }
+        KColorCombo::hidePopup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,14 +496,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_event_isbase) {
             kcolorcombo_event_isbase = false;
             return KColorCombo::event(event);
-        } else if (kcolorcombo_event_callback != nullptr) {
+        }
+        auto event_cb = kcolorcombo_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcolorcombo_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorCombo::event(event);
         }
+        return KColorCombo::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,14 +512,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_inputmethodquery_isbase) {
             kcolorcombo_inputmethodquery_isbase = false;
             return KColorCombo::inputMethodQuery(param1);
-        } else if (kcolorcombo_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcolorcombo_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kcolorcombo_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KColorCombo::inputMethodQuery(param1);
         }
+        return KColorCombo::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,13 +528,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_focusinevent_isbase) {
             kcolorcombo_focusinevent_isbase = false;
             KColorCombo::focusInEvent(e);
-        } else if (kcolorcombo_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcolorcombo_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kcolorcombo_focusinevent_callback(this, cbval1);
-        } else {
-            KColorCombo::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,13 +545,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_focusoutevent_isbase) {
             kcolorcombo_focusoutevent_isbase = false;
             KColorCombo::focusOutEvent(e);
-        } else if (kcolorcombo_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcolorcombo_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kcolorcombo_focusoutevent_callback(this, cbval1);
-        } else {
-            KColorCombo::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,13 +562,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_changeevent_isbase) {
             kcolorcombo_changeevent_isbase = false;
             KColorCombo::changeEvent(e);
-        } else if (kcolorcombo_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcolorcombo_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kcolorcombo_changeevent_callback(this, cbval1);
-        } else {
-            KColorCombo::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,13 +579,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_resizeevent_isbase) {
             kcolorcombo_resizeevent_isbase = false;
             KColorCombo::resizeEvent(e);
-        } else if (kcolorcombo_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcolorcombo_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            kcolorcombo_resizeevent_callback(this, cbval1);
-        } else {
-            KColorCombo::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,13 +596,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_showevent_isbase) {
             kcolorcombo_showevent_isbase = false;
             KColorCombo::showEvent(e);
-        } else if (kcolorcombo_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcolorcombo_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = e;
 
-            kcolorcombo_showevent_callback(this, cbval1);
-        } else {
-            KColorCombo::showEvent(e);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::showEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,13 +613,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_hideevent_isbase) {
             kcolorcombo_hideevent_isbase = false;
             KColorCombo::hideEvent(e);
-        } else if (kcolorcombo_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcolorcombo_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = e;
 
-            kcolorcombo_hideevent_callback(this, cbval1);
-        } else {
-            KColorCombo::hideEvent(e);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::hideEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,13 +630,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_mousepressevent_isbase) {
             kcolorcombo_mousepressevent_isbase = false;
             KColorCombo::mousePressEvent(e);
-        } else if (kcolorcombo_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcolorcombo_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcolorcombo_mousepressevent_callback(this, cbval1);
-        } else {
-            KColorCombo::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -674,13 +647,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_mousereleaseevent_isbase) {
             kcolorcombo_mousereleaseevent_isbase = false;
             KColorCombo::mouseReleaseEvent(e);
-        } else if (kcolorcombo_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcolorcombo_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcolorcombo_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KColorCombo::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,13 +664,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_keypressevent_isbase) {
             kcolorcombo_keypressevent_isbase = false;
             KColorCombo::keyPressEvent(e);
-        } else if (kcolorcombo_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcolorcombo_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kcolorcombo_keypressevent_callback(this, cbval1);
-        } else {
-            KColorCombo::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,13 +681,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_keyreleaseevent_isbase) {
             kcolorcombo_keyreleaseevent_isbase = false;
             KColorCombo::keyReleaseEvent(e);
-        } else if (kcolorcombo_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcolorcombo_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kcolorcombo_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KColorCombo::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,13 +698,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_wheelevent_isbase) {
             kcolorcombo_wheelevent_isbase = false;
             KColorCombo::wheelEvent(e);
-        } else if (kcolorcombo_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcolorcombo_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kcolorcombo_wheelevent_callback(this, cbval1);
-        } else {
-            KColorCombo::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,13 +715,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_contextmenuevent_isbase) {
             kcolorcombo_contextmenuevent_isbase = false;
             KColorCombo::contextMenuEvent(e);
-        } else if (kcolorcombo_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcolorcombo_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
 
-            kcolorcombo_contextmenuevent_callback(this, cbval1);
-        } else {
-            KColorCombo::contextMenuEvent(e);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::contextMenuEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +732,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_inputmethodevent_isbase) {
             kcolorcombo_inputmethodevent_isbase = false;
             KColorCombo::inputMethodEvent(param1);
-        } else if (kcolorcombo_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcolorcombo_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kcolorcombo_inputmethodevent_callback(this, cbval1);
-        } else {
-            KColorCombo::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +749,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_initstyleoption_isbase) {
             kcolorcombo_initstyleoption_isbase = false;
             KColorCombo::initStyleOption(option);
-        } else if (kcolorcombo_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kcolorcombo_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
 
-            kcolorcombo_initstyleoption_callback(this, cbval1);
-        } else {
-            KColorCombo::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KColorCombo::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,12 +766,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_devtype_isbase) {
             kcolorcombo_devtype_isbase = false;
             return KColorCombo::devType();
-        } else if (kcolorcombo_devtype_callback != nullptr) {
-            int callback_ret = kcolorcombo_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KColorCombo::devType();
         }
+        auto devtype_cb = kcolorcombo_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KColorCombo::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +780,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_setvisible_isbase) {
             kcolorcombo_setvisible_isbase = false;
             KColorCombo::setVisible(visible);
-        } else if (kcolorcombo_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcolorcombo_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcolorcombo_setvisible_callback(this, cbval1);
-        } else {
-            KColorCombo::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KColorCombo::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,14 +797,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_heightforwidth_isbase) {
             kcolorcombo_heightforwidth_isbase = false;
             return KColorCombo::heightForWidth(param1);
-        } else if (kcolorcombo_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcolorcombo_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcolorcombo_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorCombo::heightForWidth(param1);
         }
+        return KColorCombo::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,12 +813,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_hasheightforwidth_isbase) {
             kcolorcombo_hasheightforwidth_isbase = false;
             return KColorCombo::hasHeightForWidth();
-        } else if (kcolorcombo_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcolorcombo_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcolorcombo_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KColorCombo::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,12 +827,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_paintengine_isbase) {
             kcolorcombo_paintengine_isbase = false;
             return KColorCombo::paintEngine();
-        } else if (kcolorcombo_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcolorcombo_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::paintEngine();
         }
+        auto paintengine_cb = kcolorcombo_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KColorCombo::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +841,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_mousedoubleclickevent_isbase) {
             kcolorcombo_mousedoubleclickevent_isbase = false;
             KColorCombo::mouseDoubleClickEvent(event);
-        } else if (kcolorcombo_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcolorcombo_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcolorcombo_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KColorCombo::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +858,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_mousemoveevent_isbase) {
             kcolorcombo_mousemoveevent_isbase = false;
             KColorCombo::mouseMoveEvent(event);
-        } else if (kcolorcombo_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcolorcombo_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcolorcombo_mousemoveevent_callback(this, cbval1);
-        } else {
-            KColorCombo::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +875,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_enterevent_isbase) {
             kcolorcombo_enterevent_isbase = false;
             KColorCombo::enterEvent(event);
-        } else if (kcolorcombo_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcolorcombo_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcolorcombo_enterevent_callback(this, cbval1);
-        } else {
-            KColorCombo::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +892,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_leaveevent_isbase) {
             kcolorcombo_leaveevent_isbase = false;
             KColorCombo::leaveEvent(event);
-        } else if (kcolorcombo_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcolorcombo_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kcolorcombo_leaveevent_callback(this, cbval1);
-        } else {
-            KColorCombo::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +909,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_moveevent_isbase) {
             kcolorcombo_moveevent_isbase = false;
             KColorCombo::moveEvent(event);
-        } else if (kcolorcombo_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcolorcombo_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcolorcombo_moveevent_callback(this, cbval1);
-        } else {
-            KColorCombo::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +926,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_closeevent_isbase) {
             kcolorcombo_closeevent_isbase = false;
             KColorCombo::closeEvent(event);
-        } else if (kcolorcombo_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcolorcombo_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcolorcombo_closeevent_callback(this, cbval1);
-        } else {
-            KColorCombo::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,13 +943,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_tabletevent_isbase) {
             kcolorcombo_tabletevent_isbase = false;
             KColorCombo::tabletEvent(event);
-        } else if (kcolorcombo_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcolorcombo_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcolorcombo_tabletevent_callback(this, cbval1);
-        } else {
-            KColorCombo::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +960,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_actionevent_isbase) {
             kcolorcombo_actionevent_isbase = false;
             KColorCombo::actionEvent(event);
-        } else if (kcolorcombo_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcolorcombo_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcolorcombo_actionevent_callback(this, cbval1);
-        } else {
-            KColorCombo::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,13 +977,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_dragenterevent_isbase) {
             kcolorcombo_dragenterevent_isbase = false;
             KColorCombo::dragEnterEvent(event);
-        } else if (kcolorcombo_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcolorcombo_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcolorcombo_dragenterevent_callback(this, cbval1);
-        } else {
-            KColorCombo::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,13 +994,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_dragmoveevent_isbase) {
             kcolorcombo_dragmoveevent_isbase = false;
             KColorCombo::dragMoveEvent(event);
-        } else if (kcolorcombo_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcolorcombo_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcolorcombo_dragmoveevent_callback(this, cbval1);
-        } else {
-            KColorCombo::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +1011,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_dragleaveevent_isbase) {
             kcolorcombo_dragleaveevent_isbase = false;
             KColorCombo::dragLeaveEvent(event);
-        } else if (kcolorcombo_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcolorcombo_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcolorcombo_dragleaveevent_callback(this, cbval1);
-        } else {
-            KColorCombo::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,13 +1028,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_dropevent_isbase) {
             kcolorcombo_dropevent_isbase = false;
             KColorCombo::dropEvent(event);
-        } else if (kcolorcombo_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcolorcombo_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcolorcombo_dropevent_callback(this, cbval1);
-        } else {
-            KColorCombo::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,7 +1045,9 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_nativeevent_isbase) {
             kcolorcombo_nativeevent_isbase = false;
             return KColorCombo::nativeEvent(eventType, message, result);
-        } else if (kcolorcombo_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcolorcombo_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1019,12 +1058,11 @@ class VirtualKColorCombo final : public KColorCombo {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcolorcombo_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KColorCombo::nativeEvent(eventType, message, result);
         }
+        return KColorCombo::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,14 +1070,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_metric_isbase) {
             kcolorcombo_metric_isbase = false;
             return KColorCombo::metric(param1);
-        } else if (kcolorcombo_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcolorcombo_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcolorcombo_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorCombo::metric(param1);
         }
+        return KColorCombo::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1047,13 +1086,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_initpainter_isbase) {
             kcolorcombo_initpainter_isbase = false;
             KColorCombo::initPainter(painter);
-        } else if (kcolorcombo_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcolorcombo_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcolorcombo_initpainter_callback(this, cbval1);
-        } else {
-            KColorCombo::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KColorCombo::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1061,14 +1103,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_redirected_isbase) {
             kcolorcombo_redirected_isbase = false;
             return KColorCombo::redirected(offset);
-        } else if (kcolorcombo_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcolorcombo_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcolorcombo_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorCombo::redirected(offset);
         }
+        return KColorCombo::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,12 +1119,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_sharedpainter_isbase) {
             kcolorcombo_sharedpainter_isbase = false;
             return KColorCombo::sharedPainter();
-        } else if (kcolorcombo_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcolorcombo_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::sharedPainter();
         }
+        auto sharedpainter_cb = kcolorcombo_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KColorCombo::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1089,14 +1133,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_focusnextprevchild_isbase) {
             kcolorcombo_focusnextprevchild_isbase = false;
             return KColorCombo::focusNextPrevChild(next);
-        } else if (kcolorcombo_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcolorcombo_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcolorcombo_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorCombo::focusNextPrevChild(next);
         }
+        return KColorCombo::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1104,15 +1149,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_eventfilter_isbase) {
             kcolorcombo_eventfilter_isbase = false;
             return KColorCombo::eventFilter(watched, event);
-        } else if (kcolorcombo_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcolorcombo_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcolorcombo_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KColorCombo::eventFilter(watched, event);
         }
+        return KColorCombo::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,13 +1166,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_timerevent_isbase) {
             kcolorcombo_timerevent_isbase = false;
             KColorCombo::timerEvent(event);
-        } else if (kcolorcombo_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcolorcombo_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcolorcombo_timerevent_callback(this, cbval1);
-        } else {
-            KColorCombo::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,13 +1183,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_childevent_isbase) {
             kcolorcombo_childevent_isbase = false;
             KColorCombo::childEvent(event);
-        } else if (kcolorcombo_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcolorcombo_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcolorcombo_childevent_callback(this, cbval1);
-        } else {
-            KColorCombo::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1148,13 +1200,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_customevent_isbase) {
             kcolorcombo_customevent_isbase = false;
             KColorCombo::customEvent(event);
-        } else if (kcolorcombo_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcolorcombo_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcolorcombo_customevent_callback(this, cbval1);
-        } else {
-            KColorCombo::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KColorCombo::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1162,15 +1217,18 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_connectnotify_isbase) {
             kcolorcombo_connectnotify_isbase = false;
             KColorCombo::connectNotify(signal);
-        } else if (kcolorcombo_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcolorcombo_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolorcombo_connectnotify_callback(this, cbval1);
-        } else {
-            KColorCombo::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KColorCombo::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,15 +1236,18 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_disconnectnotify_isbase) {
             kcolorcombo_disconnectnotify_isbase = false;
             KColorCombo::disconnectNotify(signal);
-        } else if (kcolorcombo_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcolorcombo_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolorcombo_disconnectnotify_callback(this, cbval1);
-        } else {
-            KColorCombo::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KColorCombo::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,11 +1255,14 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_updatemicrofocus_isbase) {
             kcolorcombo_updatemicrofocus_isbase = false;
             KColorCombo::updateMicroFocus();
-        } else if (kcolorcombo_updatemicrofocus_callback != nullptr) {
-            kcolorcombo_updatemicrofocus_callback();
-        } else {
-            KColorCombo::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcolorcombo_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KColorCombo::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,11 +1270,14 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_create_isbase) {
             kcolorcombo_create_isbase = false;
             KColorCombo::create();
-        } else if (kcolorcombo_create_callback != nullptr) {
-            kcolorcombo_create_callback();
-        } else {
-            KColorCombo::create();
+            return;
         }
+        auto create_cb = kcolorcombo_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KColorCombo::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,11 +1285,14 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_destroy_isbase) {
             kcolorcombo_destroy_isbase = false;
             KColorCombo::destroy();
-        } else if (kcolorcombo_destroy_callback != nullptr) {
-            kcolorcombo_destroy_callback();
-        } else {
-            KColorCombo::destroy();
+            return;
         }
+        auto destroy_cb = kcolorcombo_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KColorCombo::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,12 +1300,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_focusnextchild_isbase) {
             kcolorcombo_focusnextchild_isbase = false;
             return KColorCombo::focusNextChild();
-        } else if (kcolorcombo_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcolorcombo_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::focusNextChild();
         }
+        auto focusnextchild_cb = kcolorcombo_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KColorCombo::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,12 +1314,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_focuspreviouschild_isbase) {
             kcolorcombo_focuspreviouschild_isbase = false;
             return KColorCombo::focusPreviousChild();
-        } else if (kcolorcombo_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcolorcombo_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcolorcombo_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KColorCombo::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,12 +1328,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_sender_isbase) {
             kcolorcombo_sender_isbase = false;
             return KColorCombo::sender();
-        } else if (kcolorcombo_sender_callback != nullptr) {
-            QObject* callback_ret = kcolorcombo_sender_callback();
-            return callback_ret;
-        } else {
-            return KColorCombo::sender();
         }
+        auto sender_cb = kcolorcombo_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KColorCombo::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1342,13 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_sendersignalindex_isbase) {
             kcolorcombo_sendersignalindex_isbase = false;
             return KColorCombo::senderSignalIndex();
-        } else if (kcolorcombo_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcolorcombo_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KColorCombo::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcolorcombo_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KColorCombo::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,14 +1356,15 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_receivers_isbase) {
             kcolorcombo_receivers_isbase = false;
             return KColorCombo::receivers(signal);
-        } else if (kcolorcombo_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcolorcombo_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcolorcombo_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColorCombo::receivers(signal);
         }
+        return KColorCombo::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,16 +1372,17 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_issignalconnected_isbase) {
             kcolorcombo_issignalconnected_isbase = false;
             return KColorCombo::isSignalConnected(signal);
-        } else if (kcolorcombo_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcolorcombo_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcolorcombo_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColorCombo::isSignalConnected(signal);
         }
+        return KColorCombo::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1314,15 +1390,16 @@ class VirtualKColorCombo final : public KColorCombo {
         if (kcolorcombo_getdecodedmetricf_isbase) {
             kcolorcombo_getdecodedmetricf_isbase = false;
             return KColorCombo::getDecodedMetricF(metricA, metricB);
-        } else if (kcolorcombo_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcolorcombo_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcolorcombo_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KColorCombo::getDecodedMetricF(metricA, metricB);
         }
+        return KColorCombo::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

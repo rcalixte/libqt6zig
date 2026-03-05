@@ -420,139 +420,6 @@ class VirtualKCompletionBox final : public KCompletionBox {
     VirtualKCompletionBox(QWidget* parent) : KCompletionBox(parent) {};
     VirtualKCompletionBox() : KCompletionBox() {};
 
-    ~VirtualKCompletionBox() {
-        kcompletionbox_metaobject_callback = nullptr;
-        kcompletionbox_metacast_callback = nullptr;
-        kcompletionbox_metacall_callback = nullptr;
-        kcompletionbox_sizehint_callback = nullptr;
-        kcompletionbox_popup_callback = nullptr;
-        kcompletionbox_setvisible_callback = nullptr;
-        kcompletionbox_eventfilter_callback = nullptr;
-        kcompletionbox_globalpositionhint_callback = nullptr;
-        kcompletionbox_slotactivated_callback = nullptr;
-        kcompletionbox_setselectionmodel_callback = nullptr;
-        kcompletionbox_dropevent_callback = nullptr;
-        kcompletionbox_event_callback = nullptr;
-        kcompletionbox_mimetypes_callback = nullptr;
-        kcompletionbox_mimedata_callback = nullptr;
-        kcompletionbox_dropmimedata_callback = nullptr;
-        kcompletionbox_supporteddropactions_callback = nullptr;
-        kcompletionbox_visualrect_callback = nullptr;
-        kcompletionbox_scrollto_callback = nullptr;
-        kcompletionbox_indexat_callback = nullptr;
-        kcompletionbox_doitemslayout_callback = nullptr;
-        kcompletionbox_reset_callback = nullptr;
-        kcompletionbox_setrootindex_callback = nullptr;
-        kcompletionbox_scrollcontentsby_callback = nullptr;
-        kcompletionbox_datachanged_callback = nullptr;
-        kcompletionbox_rowsinserted_callback = nullptr;
-        kcompletionbox_rowsabouttoberemoved_callback = nullptr;
-        kcompletionbox_mousemoveevent_callback = nullptr;
-        kcompletionbox_mousereleaseevent_callback = nullptr;
-        kcompletionbox_wheelevent_callback = nullptr;
-        kcompletionbox_timerevent_callback = nullptr;
-        kcompletionbox_resizeevent_callback = nullptr;
-        kcompletionbox_dragmoveevent_callback = nullptr;
-        kcompletionbox_dragleaveevent_callback = nullptr;
-        kcompletionbox_startdrag_callback = nullptr;
-        kcompletionbox_initviewitemoption_callback = nullptr;
-        kcompletionbox_paintevent_callback = nullptr;
-        kcompletionbox_horizontaloffset_callback = nullptr;
-        kcompletionbox_verticaloffset_callback = nullptr;
-        kcompletionbox_movecursor_callback = nullptr;
-        kcompletionbox_setselection_callback = nullptr;
-        kcompletionbox_visualregionforselection_callback = nullptr;
-        kcompletionbox_selectedindexes_callback = nullptr;
-        kcompletionbox_updategeometries_callback = nullptr;
-        kcompletionbox_isindexhidden_callback = nullptr;
-        kcompletionbox_selectionchanged_callback = nullptr;
-        kcompletionbox_currentchanged_callback = nullptr;
-        kcompletionbox_viewportsizehint_callback = nullptr;
-        kcompletionbox_keyboardsearch_callback = nullptr;
-        kcompletionbox_sizehintforrow_callback = nullptr;
-        kcompletionbox_sizehintforcolumn_callback = nullptr;
-        kcompletionbox_itemdelegateforindex_callback = nullptr;
-        kcompletionbox_inputmethodquery_callback = nullptr;
-        kcompletionbox_selectall_callback = nullptr;
-        kcompletionbox_updateeditordata_callback = nullptr;
-        kcompletionbox_updateeditorgeometries_callback = nullptr;
-        kcompletionbox_verticalscrollbaraction_callback = nullptr;
-        kcompletionbox_horizontalscrollbaraction_callback = nullptr;
-        kcompletionbox_verticalscrollbarvaluechanged_callback = nullptr;
-        kcompletionbox_horizontalscrollbarvaluechanged_callback = nullptr;
-        kcompletionbox_closeeditor_callback = nullptr;
-        kcompletionbox_commitdata_callback = nullptr;
-        kcompletionbox_editordestroyed_callback = nullptr;
-        kcompletionbox_edit2_callback = nullptr;
-        kcompletionbox_selectioncommand_callback = nullptr;
-        kcompletionbox_focusnextprevchild_callback = nullptr;
-        kcompletionbox_viewportevent_callback = nullptr;
-        kcompletionbox_mousepressevent_callback = nullptr;
-        kcompletionbox_mousedoubleclickevent_callback = nullptr;
-        kcompletionbox_dragenterevent_callback = nullptr;
-        kcompletionbox_focusinevent_callback = nullptr;
-        kcompletionbox_focusoutevent_callback = nullptr;
-        kcompletionbox_keypressevent_callback = nullptr;
-        kcompletionbox_inputmethodevent_callback = nullptr;
-        kcompletionbox_minimumsizehint_callback = nullptr;
-        kcompletionbox_setupviewport_callback = nullptr;
-        kcompletionbox_contextmenuevent_callback = nullptr;
-        kcompletionbox_changeevent_callback = nullptr;
-        kcompletionbox_initstyleoption_callback = nullptr;
-        kcompletionbox_devtype_callback = nullptr;
-        kcompletionbox_heightforwidth_callback = nullptr;
-        kcompletionbox_hasheightforwidth_callback = nullptr;
-        kcompletionbox_paintengine_callback = nullptr;
-        kcompletionbox_keyreleaseevent_callback = nullptr;
-        kcompletionbox_enterevent_callback = nullptr;
-        kcompletionbox_leaveevent_callback = nullptr;
-        kcompletionbox_moveevent_callback = nullptr;
-        kcompletionbox_closeevent_callback = nullptr;
-        kcompletionbox_tabletevent_callback = nullptr;
-        kcompletionbox_actionevent_callback = nullptr;
-        kcompletionbox_showevent_callback = nullptr;
-        kcompletionbox_hideevent_callback = nullptr;
-        kcompletionbox_nativeevent_callback = nullptr;
-        kcompletionbox_metric_callback = nullptr;
-        kcompletionbox_initpainter_callback = nullptr;
-        kcompletionbox_redirected_callback = nullptr;
-        kcompletionbox_sharedpainter_callback = nullptr;
-        kcompletionbox_childevent_callback = nullptr;
-        kcompletionbox_customevent_callback = nullptr;
-        kcompletionbox_connectnotify_callback = nullptr;
-        kcompletionbox_disconnectnotify_callback = nullptr;
-        kcompletionbox_calculategeometry_callback = nullptr;
-        kcompletionbox_resizeandreposition_callback = nullptr;
-        kcompletionbox_resizecontents_callback = nullptr;
-        kcompletionbox_contentssize_callback = nullptr;
-        kcompletionbox_rectforindex_callback = nullptr;
-        kcompletionbox_setpositionforindex_callback = nullptr;
-        kcompletionbox_state_callback = nullptr;
-        kcompletionbox_setstate_callback = nullptr;
-        kcompletionbox_scheduledelayeditemslayout_callback = nullptr;
-        kcompletionbox_executedelayeditemslayout_callback = nullptr;
-        kcompletionbox_setdirtyregion_callback = nullptr;
-        kcompletionbox_scrolldirtyregion_callback = nullptr;
-        kcompletionbox_dirtyregionoffset_callback = nullptr;
-        kcompletionbox_startautoscroll_callback = nullptr;
-        kcompletionbox_stopautoscroll_callback = nullptr;
-        kcompletionbox_doautoscroll_callback = nullptr;
-        kcompletionbox_dropindicatorposition_callback = nullptr;
-        kcompletionbox_setviewportmargins_callback = nullptr;
-        kcompletionbox_viewportmargins_callback = nullptr;
-        kcompletionbox_drawframe_callback = nullptr;
-        kcompletionbox_updatemicrofocus_callback = nullptr;
-        kcompletionbox_create_callback = nullptr;
-        kcompletionbox_destroy_callback = nullptr;
-        kcompletionbox_focusnextchild_callback = nullptr;
-        kcompletionbox_focuspreviouschild_callback = nullptr;
-        kcompletionbox_sender_callback = nullptr;
-        kcompletionbox_sendersignalindex_callback = nullptr;
-        kcompletionbox_receivers_callback = nullptr;
-        kcompletionbox_issignalconnected_callback = nullptr;
-        kcompletionbox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCompletionBox_MetaObject_Callback(KCompletionBox_MetaObject_Callback cb) { kcompletionbox_metaobject_callback = cb; }
     inline void setKCompletionBox_Metacast_Callback(KCompletionBox_Metacast_Callback cb) { kcompletionbox_metacast_callback = cb; }
@@ -822,12 +689,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_metaobject_isbase) {
             kcompletionbox_metaobject_isbase = false;
             return KCompletionBox::metaObject();
-        } else if (kcompletionbox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcompletionbox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::metaObject();
         }
+        auto metaobject_cb = kcompletionbox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,14 +703,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_metacast_isbase) {
             kcompletionbox_metacast_isbase = false;
             return KCompletionBox::qt_metacast(param1);
-        } else if (kcompletionbox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcompletionbox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcompletionbox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::qt_metacast(param1);
         }
+        return KCompletionBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,16 +719,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_metacall_isbase) {
             kcompletionbox_metacall_isbase = false;
             return KCompletionBox::qt_metacall(param1, param2, param3);
-        } else if (kcompletionbox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcompletionbox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcompletionbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::qt_metacall(param1, param2, param3);
         }
+        return KCompletionBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,12 +737,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_sizehint_isbase) {
             kcompletionbox_sizehint_isbase = false;
             return KCompletionBox::sizeHint();
-        } else if (kcompletionbox_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcompletionbox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::sizeHint();
         }
+        auto sizehint_cb = kcompletionbox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,11 +751,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_popup_isbase) {
             kcompletionbox_popup_isbase = false;
             KCompletionBox::popup();
-        } else if (kcompletionbox_popup_callback != nullptr) {
-            kcompletionbox_popup_callback();
-        } else {
-            KCompletionBox::popup();
+            return;
         }
+        auto popup_cb = kcompletionbox_popup_callback;
+        if (popup_cb) {
+            popup_cb();
+            return;
+        }
+        KCompletionBox::popup();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +766,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setvisible_isbase) {
             kcompletionbox_setvisible_isbase = false;
             KCompletionBox::setVisible(visible);
-        } else if (kcompletionbox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcompletionbox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcompletionbox_setvisible_callback(this, cbval1);
-        } else {
-            KCompletionBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,15 +783,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_eventfilter_isbase) {
             kcompletionbox_eventfilter_isbase = false;
             return KCompletionBox::eventFilter(param1, param2);
-        } else if (kcompletionbox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcompletionbox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kcompletionbox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCompletionBox::eventFilter(param1, param2);
         }
+        return KCompletionBox::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,12 +800,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_globalpositionhint_isbase) {
             kcompletionbox_globalpositionhint_isbase = false;
             return KCompletionBox::globalPositionHint();
-        } else if (kcompletionbox_globalpositionhint_callback != nullptr) {
-            QPoint* callback_ret = kcompletionbox_globalpositionhint_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::globalPositionHint();
         }
+        auto globalpositionhint_cb = kcompletionbox_globalpositionhint_callback;
+        if (globalpositionhint_cb) {
+            QPoint* callback_ret = globalpositionhint_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::globalPositionHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,13 +814,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_slotactivated_isbase) {
             kcompletionbox_slotactivated_isbase = false;
             KCompletionBox::slotActivated(param1);
-        } else if (kcompletionbox_slotactivated_callback != nullptr) {
+            return;
+        }
+        auto slotactivated_cb = kcompletionbox_slotactivated_callback;
+        if (slotactivated_cb) {
             QListWidgetItem* cbval1 = param1;
 
-            kcompletionbox_slotactivated_callback(this, cbval1);
-        } else {
-            KCompletionBox::slotActivated(param1);
+            slotactivated_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::slotActivated(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +831,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setselectionmodel_isbase) {
             kcompletionbox_setselectionmodel_isbase = false;
             KCompletionBox::setSelectionModel(selectionModel);
-        } else if (kcompletionbox_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = kcompletionbox_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            kcompletionbox_setselectionmodel_callback(this, cbval1);
-        } else {
-            KCompletionBox::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,13 +848,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dropevent_isbase) {
             kcompletionbox_dropevent_isbase = false;
             KCompletionBox::dropEvent(event);
-        } else if (kcompletionbox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcompletionbox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcompletionbox_dropevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,14 +865,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_event_isbase) {
             kcompletionbox_event_isbase = false;
             return KCompletionBox::event(e);
-        } else if (kcompletionbox_event_callback != nullptr) {
+        }
+        auto event_cb = kcompletionbox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kcompletionbox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::event(e);
         }
+        return KCompletionBox::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,8 +881,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_mimetypes_isbase) {
             kcompletionbox_mimetypes_isbase = false;
             return KCompletionBox::mimeTypes();
-        } else if (kcompletionbox_mimetypes_callback != nullptr) {
-            const char** callback_ret = kcompletionbox_mimetypes_callback();
+        }
+        auto mimetypes_cb = kcompletionbox_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1004,9 +895,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KCompletionBox::mimeTypes();
         }
+        return KCompletionBox::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,7 +904,9 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_mimedata_isbase) {
             kcompletionbox_mimedata_isbase = false;
             return KCompletionBox::mimeData(items);
-        } else if (kcompletionbox_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kcompletionbox_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QListWidgetItem*>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
             QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * (items_ret.size())));
@@ -1026,12 +918,11 @@ class VirtualKCompletionBox final : public KCompletionBox {
             items_out.data = static_cast<void*>(items_arr);
             libqt_list /* of QListWidgetItem* */ cbval1 = items_out;
 
-            QMimeData* callback_ret = kcompletionbox_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(items_arr);
             return callback_ret;
-        } else {
-            return KCompletionBox::mimeData(items);
         }
+        return KCompletionBox::mimeData(items);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,16 +930,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dropmimedata_isbase) {
             kcompletionbox_dropmimedata_isbase = false;
             return KCompletionBox::dropMimeData(index, data, action);
-        } else if (kcompletionbox_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kcompletionbox_dropmimedata_callback;
+        if (dropmimedata_cb) {
             int cbval1 = index;
             QMimeData* cbval2 = (QMimeData*)data;
             int cbval3 = static_cast<int>(action);
 
-            bool callback_ret = kcompletionbox_dropmimedata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCompletionBox::dropMimeData(index, data, action);
         }
+        return KCompletionBox::dropMimeData(index, data, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,12 +948,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_supporteddropactions_isbase) {
             kcompletionbox_supporteddropactions_isbase = false;
             return KCompletionBox::supportedDropActions();
-        } else if (kcompletionbox_supporteddropactions_callback != nullptr) {
-            int callback_ret = kcompletionbox_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KCompletionBox::supportedDropActions();
         }
+        auto supporteddropactions_cb = kcompletionbox_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KCompletionBox::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,16 +962,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_visualrect_isbase) {
             kcompletionbox_visualrect_isbase = false;
             return KCompletionBox::visualRect(index);
-        } else if (kcompletionbox_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = kcompletionbox_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kcompletionbox_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCompletionBox::visualRect(index);
         }
+        return KCompletionBox::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,16 +980,19 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_scrollto_isbase) {
             kcompletionbox_scrollto_isbase = false;
             KCompletionBox::scrollTo(index, hint);
-        } else if (kcompletionbox_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = kcompletionbox_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            kcompletionbox_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,16 +1000,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_indexat_isbase) {
             kcompletionbox_indexat_isbase = false;
             return KCompletionBox::indexAt(p);
-        } else if (kcompletionbox_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = kcompletionbox_indexat_callback;
+        if (indexat_cb) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            QModelIndex* callback_ret = kcompletionbox_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCompletionBox::indexAt(p);
         }
+        return KCompletionBox::indexAt(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,11 +1018,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_doitemslayout_isbase) {
             kcompletionbox_doitemslayout_isbase = false;
             KCompletionBox::doItemsLayout();
-        } else if (kcompletionbox_doitemslayout_callback != nullptr) {
-            kcompletionbox_doitemslayout_callback();
-        } else {
-            KCompletionBox::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = kcompletionbox_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        KCompletionBox::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,11 +1033,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_reset_isbase) {
             kcompletionbox_reset_isbase = false;
             KCompletionBox::reset();
-        } else if (kcompletionbox_reset_callback != nullptr) {
-            kcompletionbox_reset_callback();
-        } else {
-            KCompletionBox::reset();
+            return;
         }
+        auto reset_cb = kcompletionbox_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        KCompletionBox::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,15 +1048,18 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setrootindex_isbase) {
             kcompletionbox_setrootindex_isbase = false;
             KCompletionBox::setRootIndex(index);
-        } else if (kcompletionbox_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = kcompletionbox_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            kcompletionbox_setrootindex_callback(this, cbval1);
-        } else {
-            KCompletionBox::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,14 +1067,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_scrollcontentsby_isbase) {
             kcompletionbox_scrollcontentsby_isbase = false;
             KCompletionBox::scrollContentsBy(dx, dy);
-        } else if (kcompletionbox_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = kcompletionbox_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kcompletionbox_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1175,7 +1085,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_datachanged_isbase) {
             kcompletionbox_datachanged_isbase = false;
             KCompletionBox::dataChanged(topLeft, bottomRight, roles);
-        } else if (kcompletionbox_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = kcompletionbox_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1193,11 +1106,11 @@ class VirtualKCompletionBox final : public KCompletionBox {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            kcompletionbox_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            KCompletionBox::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        KCompletionBox::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,17 +1118,20 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_rowsinserted_isbase) {
             kcompletionbox_rowsinserted_isbase = false;
             KCompletionBox::rowsInserted(parent, start, end);
-        } else if (kcompletionbox_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = kcompletionbox_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            kcompletionbox_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCompletionBox::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCompletionBox::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,17 +1139,20 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_rowsabouttoberemoved_isbase) {
             kcompletionbox_rowsabouttoberemoved_isbase = false;
             KCompletionBox::rowsAboutToBeRemoved(parent, start, end);
-        } else if (kcompletionbox_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = kcompletionbox_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            kcompletionbox_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCompletionBox::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCompletionBox::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,13 +1160,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_mousemoveevent_isbase) {
             kcompletionbox_mousemoveevent_isbase = false;
             KCompletionBox::mouseMoveEvent(e);
-        } else if (kcompletionbox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcompletionbox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcompletionbox_mousemoveevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1255,13 +1177,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_mousereleaseevent_isbase) {
             kcompletionbox_mousereleaseevent_isbase = false;
             KCompletionBox::mouseReleaseEvent(e);
-        } else if (kcompletionbox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcompletionbox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kcompletionbox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,13 +1194,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_wheelevent_isbase) {
             kcompletionbox_wheelevent_isbase = false;
             KCompletionBox::wheelEvent(e);
-        } else if (kcompletionbox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcompletionbox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kcompletionbox_wheelevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1283,13 +1211,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_timerevent_isbase) {
             kcompletionbox_timerevent_isbase = false;
             KCompletionBox::timerEvent(e);
-        } else if (kcompletionbox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcompletionbox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            kcompletionbox_timerevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1297,13 +1228,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_resizeevent_isbase) {
             kcompletionbox_resizeevent_isbase = false;
             KCompletionBox::resizeEvent(e);
-        } else if (kcompletionbox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcompletionbox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            kcompletionbox_resizeevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,13 +1245,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dragmoveevent_isbase) {
             kcompletionbox_dragmoveevent_isbase = false;
             KCompletionBox::dragMoveEvent(e);
-        } else if (kcompletionbox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcompletionbox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            kcompletionbox_dragmoveevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1325,13 +1262,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dragleaveevent_isbase) {
             kcompletionbox_dragleaveevent_isbase = false;
             KCompletionBox::dragLeaveEvent(e);
-        } else if (kcompletionbox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcompletionbox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            kcompletionbox_dragleaveevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1339,13 +1279,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_startdrag_isbase) {
             kcompletionbox_startdrag_isbase = false;
             KCompletionBox::startDrag(supportedActions);
-        } else if (kcompletionbox_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = kcompletionbox_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            kcompletionbox_startdrag_callback(this, cbval1);
-        } else {
-            KCompletionBox::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,13 +1296,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_initviewitemoption_isbase) {
             kcompletionbox_initviewitemoption_isbase = false;
             KCompletionBox::initViewItemOption(option);
-        } else if (kcompletionbox_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = kcompletionbox_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            kcompletionbox_initviewitemoption_callback(this, cbval1);
-        } else {
-            KCompletionBox::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1367,13 +1313,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_paintevent_isbase) {
             kcompletionbox_paintevent_isbase = false;
             KCompletionBox::paintEvent(e);
-        } else if (kcompletionbox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcompletionbox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            kcompletionbox_paintevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1381,12 +1330,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_horizontaloffset_isbase) {
             kcompletionbox_horizontaloffset_isbase = false;
             return KCompletionBox::horizontalOffset();
-        } else if (kcompletionbox_horizontaloffset_callback != nullptr) {
-            int callback_ret = kcompletionbox_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::horizontalOffset();
         }
+        auto horizontaloffset_cb = kcompletionbox_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCompletionBox::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1394,12 +1344,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_verticaloffset_isbase) {
             kcompletionbox_verticaloffset_isbase = false;
             return KCompletionBox::verticalOffset();
-        } else if (kcompletionbox_verticaloffset_callback != nullptr) {
-            int callback_ret = kcompletionbox_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::verticalOffset();
         }
+        auto verticaloffset_cb = kcompletionbox_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCompletionBox::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1407,15 +1358,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_movecursor_isbase) {
             kcompletionbox_movecursor_isbase = false;
             return KCompletionBox::moveCursor(cursorAction, modifiers);
-        } else if (kcompletionbox_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = kcompletionbox_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = kcompletionbox_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KCompletionBox::moveCursor(cursorAction, modifiers);
         }
+        return KCompletionBox::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1423,16 +1375,19 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setselection_isbase) {
             kcompletionbox_setselection_isbase = false;
             KCompletionBox::setSelection(rect, command);
-        } else if (kcompletionbox_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = kcompletionbox_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            kcompletionbox_setselection_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::setSelection(rect, command);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::setSelection(rect, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1440,16 +1395,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_visualregionforselection_isbase) {
             kcompletionbox_visualregionforselection_isbase = false;
             return KCompletionBox::visualRegionForSelection(selection);
-        } else if (kcompletionbox_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = kcompletionbox_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = kcompletionbox_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCompletionBox::visualRegionForSelection(selection);
         }
+        return KCompletionBox::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1457,8 +1413,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_selectedindexes_isbase) {
             kcompletionbox_selectedindexes_isbase = false;
             return KCompletionBox::selectedIndexes();
-        } else if (kcompletionbox_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kcompletionbox_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = kcompletionbox_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1467,9 +1425,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCompletionBox::selectedIndexes();
         }
+        return KCompletionBox::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1477,11 +1434,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_updategeometries_isbase) {
             kcompletionbox_updategeometries_isbase = false;
             KCompletionBox::updateGeometries();
-        } else if (kcompletionbox_updategeometries_callback != nullptr) {
-            kcompletionbox_updategeometries_callback();
-        } else {
-            KCompletionBox::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = kcompletionbox_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        KCompletionBox::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1489,16 +1449,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_isindexhidden_isbase) {
             kcompletionbox_isindexhidden_isbase = false;
             return KCompletionBox::isIndexHidden(index);
-        } else if (kcompletionbox_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = kcompletionbox_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kcompletionbox_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::isIndexHidden(index);
         }
+        return KCompletionBox::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1506,7 +1467,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_selectionchanged_isbase) {
             kcompletionbox_selectionchanged_isbase = false;
             KCompletionBox::selectionChanged(selected, deselected);
-        } else if (kcompletionbox_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = kcompletionbox_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1514,10 +1478,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            kcompletionbox_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1525,7 +1489,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_currentchanged_isbase) {
             kcompletionbox_currentchanged_isbase = false;
             KCompletionBox::currentChanged(current, previous);
-        } else if (kcompletionbox_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = kcompletionbox_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1533,10 +1500,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            kcompletionbox_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1544,12 +1511,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_viewportsizehint_isbase) {
             kcompletionbox_viewportsizehint_isbase = false;
             return KCompletionBox::viewportSizeHint();
-        } else if (kcompletionbox_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = kcompletionbox_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::viewportSizeHint();
         }
+        auto viewportsizehint_cb = kcompletionbox_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1557,7 +1525,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_keyboardsearch_isbase) {
             kcompletionbox_keyboardsearch_isbase = false;
             KCompletionBox::keyboardSearch(search);
-        } else if (kcompletionbox_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = kcompletionbox_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1567,11 +1538,11 @@ class VirtualKCompletionBox final : public KCompletionBox {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            kcompletionbox_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            KCompletionBox::keyboardSearch(search);
+            return;
         }
+        KCompletionBox::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1579,14 +1550,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_sizehintforrow_isbase) {
             kcompletionbox_sizehintforrow_isbase = false;
             return KCompletionBox::sizeHintForRow(row);
-        } else if (kcompletionbox_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = kcompletionbox_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = kcompletionbox_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::sizeHintForRow(row);
         }
+        return KCompletionBox::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,14 +1566,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_sizehintforcolumn_isbase) {
             kcompletionbox_sizehintforcolumn_isbase = false;
             return KCompletionBox::sizeHintForColumn(column);
-        } else if (kcompletionbox_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = kcompletionbox_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = kcompletionbox_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::sizeHintForColumn(column);
         }
+        return KCompletionBox::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1609,16 +1582,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_itemdelegateforindex_isbase) {
             kcompletionbox_itemdelegateforindex_isbase = false;
             return KCompletionBox::itemDelegateForIndex(index);
-        } else if (kcompletionbox_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = kcompletionbox_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = kcompletionbox_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::itemDelegateForIndex(index);
         }
+        return KCompletionBox::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1626,14 +1600,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_inputmethodquery_isbase) {
             kcompletionbox_inputmethodquery_isbase = false;
             return KCompletionBox::inputMethodQuery(query);
-        } else if (kcompletionbox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcompletionbox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = kcompletionbox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCompletionBox::inputMethodQuery(query);
         }
+        return KCompletionBox::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1641,11 +1616,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_selectall_isbase) {
             kcompletionbox_selectall_isbase = false;
             KCompletionBox::selectAll();
-        } else if (kcompletionbox_selectall_callback != nullptr) {
-            kcompletionbox_selectall_callback();
-        } else {
-            KCompletionBox::selectAll();
+            return;
         }
+        auto selectall_cb = kcompletionbox_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        KCompletionBox::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1653,11 +1631,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_updateeditordata_isbase) {
             kcompletionbox_updateeditordata_isbase = false;
             KCompletionBox::updateEditorData();
-        } else if (kcompletionbox_updateeditordata_callback != nullptr) {
-            kcompletionbox_updateeditordata_callback();
-        } else {
-            KCompletionBox::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = kcompletionbox_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        KCompletionBox::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1665,11 +1646,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_updateeditorgeometries_isbase) {
             kcompletionbox_updateeditorgeometries_isbase = false;
             KCompletionBox::updateEditorGeometries();
-        } else if (kcompletionbox_updateeditorgeometries_callback != nullptr) {
-            kcompletionbox_updateeditorgeometries_callback();
-        } else {
-            KCompletionBox::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = kcompletionbox_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        KCompletionBox::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1677,13 +1661,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_verticalscrollbaraction_isbase) {
             kcompletionbox_verticalscrollbaraction_isbase = false;
             KCompletionBox::verticalScrollbarAction(action);
-        } else if (kcompletionbox_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = kcompletionbox_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            kcompletionbox_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            KCompletionBox::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1691,13 +1678,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_horizontalscrollbaraction_isbase) {
             kcompletionbox_horizontalscrollbaraction_isbase = false;
             KCompletionBox::horizontalScrollbarAction(action);
-        } else if (kcompletionbox_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = kcompletionbox_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            kcompletionbox_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            KCompletionBox::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1705,13 +1695,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_verticalscrollbarvaluechanged_isbase) {
             kcompletionbox_verticalscrollbarvaluechanged_isbase = false;
             KCompletionBox::verticalScrollbarValueChanged(value);
-        } else if (kcompletionbox_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = kcompletionbox_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            kcompletionbox_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            KCompletionBox::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1719,13 +1712,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_horizontalscrollbarvaluechanged_isbase) {
             kcompletionbox_horizontalscrollbarvaluechanged_isbase = false;
             KCompletionBox::horizontalScrollbarValueChanged(value);
-        } else if (kcompletionbox_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = kcompletionbox_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            kcompletionbox_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            KCompletionBox::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1733,14 +1729,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_closeeditor_isbase) {
             kcompletionbox_closeeditor_isbase = false;
             KCompletionBox::closeEditor(editor, hint);
-        } else if (kcompletionbox_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = kcompletionbox_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            kcompletionbox_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1748,13 +1747,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_commitdata_isbase) {
             kcompletionbox_commitdata_isbase = false;
             KCompletionBox::commitData(editor);
-        } else if (kcompletionbox_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = kcompletionbox_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            kcompletionbox_commitdata_callback(this, cbval1);
-        } else {
-            KCompletionBox::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1762,13 +1764,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_editordestroyed_isbase) {
             kcompletionbox_editordestroyed_isbase = false;
             KCompletionBox::editorDestroyed(editor);
-        } else if (kcompletionbox_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = kcompletionbox_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            kcompletionbox_editordestroyed_callback(this, cbval1);
-        } else {
-            KCompletionBox::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1776,18 +1781,19 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_edit2_isbase) {
             kcompletionbox_edit2_isbase = false;
             return KCompletionBox::edit(index, trigger, event);
-        } else if (kcompletionbox_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = kcompletionbox_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = kcompletionbox_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCompletionBox::edit(index, trigger, event);
         }
+        return KCompletionBox::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1795,17 +1801,18 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_selectioncommand_isbase) {
             kcompletionbox_selectioncommand_isbase = false;
             return KCompletionBox::selectionCommand(index, event);
-        } else if (kcompletionbox_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = kcompletionbox_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = kcompletionbox_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return KCompletionBox::selectionCommand(index, event);
         }
+        return KCompletionBox::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1813,14 +1820,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_focusnextprevchild_isbase) {
             kcompletionbox_focusnextprevchild_isbase = false;
             return KCompletionBox::focusNextPrevChild(next);
-        } else if (kcompletionbox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcompletionbox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcompletionbox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::focusNextPrevChild(next);
         }
+        return KCompletionBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1828,14 +1836,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_viewportevent_isbase) {
             kcompletionbox_viewportevent_isbase = false;
             return KCompletionBox::viewportEvent(event);
-        } else if (kcompletionbox_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = kcompletionbox_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcompletionbox_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::viewportEvent(event);
         }
+        return KCompletionBox::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1843,13 +1852,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_mousepressevent_isbase) {
             kcompletionbox_mousepressevent_isbase = false;
             KCompletionBox::mousePressEvent(event);
-        } else if (kcompletionbox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcompletionbox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcompletionbox_mousepressevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1857,13 +1869,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_mousedoubleclickevent_isbase) {
             kcompletionbox_mousedoubleclickevent_isbase = false;
             KCompletionBox::mouseDoubleClickEvent(event);
-        } else if (kcompletionbox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcompletionbox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcompletionbox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1871,13 +1886,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dragenterevent_isbase) {
             kcompletionbox_dragenterevent_isbase = false;
             KCompletionBox::dragEnterEvent(event);
-        } else if (kcompletionbox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcompletionbox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcompletionbox_dragenterevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1885,13 +1903,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_focusinevent_isbase) {
             kcompletionbox_focusinevent_isbase = false;
             KCompletionBox::focusInEvent(event);
-        } else if (kcompletionbox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcompletionbox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcompletionbox_focusinevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1899,13 +1920,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_focusoutevent_isbase) {
             kcompletionbox_focusoutevent_isbase = false;
             KCompletionBox::focusOutEvent(event);
-        } else if (kcompletionbox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcompletionbox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcompletionbox_focusoutevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1913,13 +1937,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_keypressevent_isbase) {
             kcompletionbox_keypressevent_isbase = false;
             KCompletionBox::keyPressEvent(event);
-        } else if (kcompletionbox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcompletionbox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcompletionbox_keypressevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1927,13 +1954,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_inputmethodevent_isbase) {
             kcompletionbox_inputmethodevent_isbase = false;
             KCompletionBox::inputMethodEvent(event);
-        } else if (kcompletionbox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcompletionbox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            kcompletionbox_inputmethodevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1941,12 +1971,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_minimumsizehint_isbase) {
             kcompletionbox_minimumsizehint_isbase = false;
             return KCompletionBox::minimumSizeHint();
-        } else if (kcompletionbox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcompletionbox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcompletionbox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1954,13 +1985,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setupviewport_isbase) {
             kcompletionbox_setupviewport_isbase = false;
             KCompletionBox::setupViewport(viewport);
-        } else if (kcompletionbox_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = kcompletionbox_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            kcompletionbox_setupviewport_callback(this, cbval1);
-        } else {
-            KCompletionBox::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1968,13 +2002,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_contextmenuevent_isbase) {
             kcompletionbox_contextmenuevent_isbase = false;
             KCompletionBox::contextMenuEvent(param1);
-        } else if (kcompletionbox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcompletionbox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kcompletionbox_contextmenuevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1982,13 +2019,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_changeevent_isbase) {
             kcompletionbox_changeevent_isbase = false;
             KCompletionBox::changeEvent(param1);
-        } else if (kcompletionbox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcompletionbox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcompletionbox_changeevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1996,13 +2036,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_initstyleoption_isbase) {
             kcompletionbox_initstyleoption_isbase = false;
             KCompletionBox::initStyleOption(option);
-        } else if (kcompletionbox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kcompletionbox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kcompletionbox_initstyleoption_callback(this, cbval1);
-        } else {
-            KCompletionBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2010,12 +2053,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_devtype_isbase) {
             kcompletionbox_devtype_isbase = false;
             return KCompletionBox::devType();
-        } else if (kcompletionbox_devtype_callback != nullptr) {
-            int callback_ret = kcompletionbox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::devType();
         }
+        auto devtype_cb = kcompletionbox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCompletionBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2023,14 +2067,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_heightforwidth_isbase) {
             kcompletionbox_heightforwidth_isbase = false;
             return KCompletionBox::heightForWidth(param1);
-        } else if (kcompletionbox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcompletionbox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcompletionbox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::heightForWidth(param1);
         }
+        return KCompletionBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2038,12 +2083,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_hasheightforwidth_isbase) {
             kcompletionbox_hasheightforwidth_isbase = false;
             return KCompletionBox::hasHeightForWidth();
-        } else if (kcompletionbox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcompletionbox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcompletionbox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2051,12 +2097,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_paintengine_isbase) {
             kcompletionbox_paintengine_isbase = false;
             return KCompletionBox::paintEngine();
-        } else if (kcompletionbox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcompletionbox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::paintEngine();
         }
+        auto paintengine_cb = kcompletionbox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2064,13 +2111,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_keyreleaseevent_isbase) {
             kcompletionbox_keyreleaseevent_isbase = false;
             KCompletionBox::keyReleaseEvent(event);
-        } else if (kcompletionbox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcompletionbox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcompletionbox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2078,13 +2128,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_enterevent_isbase) {
             kcompletionbox_enterevent_isbase = false;
             KCompletionBox::enterEvent(event);
-        } else if (kcompletionbox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcompletionbox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcompletionbox_enterevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2092,13 +2145,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_leaveevent_isbase) {
             kcompletionbox_leaveevent_isbase = false;
             KCompletionBox::leaveEvent(event);
-        } else if (kcompletionbox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcompletionbox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kcompletionbox_leaveevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2106,13 +2162,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_moveevent_isbase) {
             kcompletionbox_moveevent_isbase = false;
             KCompletionBox::moveEvent(event);
-        } else if (kcompletionbox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcompletionbox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcompletionbox_moveevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2120,13 +2179,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_closeevent_isbase) {
             kcompletionbox_closeevent_isbase = false;
             KCompletionBox::closeEvent(event);
-        } else if (kcompletionbox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcompletionbox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcompletionbox_closeevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2134,13 +2196,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_tabletevent_isbase) {
             kcompletionbox_tabletevent_isbase = false;
             KCompletionBox::tabletEvent(event);
-        } else if (kcompletionbox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcompletionbox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcompletionbox_tabletevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2148,13 +2213,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_actionevent_isbase) {
             kcompletionbox_actionevent_isbase = false;
             KCompletionBox::actionEvent(event);
-        } else if (kcompletionbox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcompletionbox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcompletionbox_actionevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2162,13 +2230,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_showevent_isbase) {
             kcompletionbox_showevent_isbase = false;
             KCompletionBox::showEvent(event);
-        } else if (kcompletionbox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcompletionbox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcompletionbox_showevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2176,13 +2247,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_hideevent_isbase) {
             kcompletionbox_hideevent_isbase = false;
             KCompletionBox::hideEvent(event);
-        } else if (kcompletionbox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcompletionbox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcompletionbox_hideevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2190,7 +2264,9 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_nativeevent_isbase) {
             kcompletionbox_nativeevent_isbase = false;
             return KCompletionBox::nativeEvent(eventType, message, result);
-        } else if (kcompletionbox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcompletionbox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2201,12 +2277,11 @@ class VirtualKCompletionBox final : public KCompletionBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcompletionbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KCompletionBox::nativeEvent(eventType, message, result);
         }
+        return KCompletionBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2214,14 +2289,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_metric_isbase) {
             kcompletionbox_metric_isbase = false;
             return KCompletionBox::metric(param1);
-        } else if (kcompletionbox_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcompletionbox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcompletionbox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::metric(param1);
         }
+        return KCompletionBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2229,13 +2305,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_initpainter_isbase) {
             kcompletionbox_initpainter_isbase = false;
             KCompletionBox::initPainter(painter);
-        } else if (kcompletionbox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcompletionbox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcompletionbox_initpainter_callback(this, cbval1);
-        } else {
-            KCompletionBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2243,14 +2322,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_redirected_isbase) {
             kcompletionbox_redirected_isbase = false;
             return KCompletionBox::redirected(offset);
-        } else if (kcompletionbox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcompletionbox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcompletionbox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::redirected(offset);
         }
+        return KCompletionBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2258,12 +2338,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_sharedpainter_isbase) {
             kcompletionbox_sharedpainter_isbase = false;
             return KCompletionBox::sharedPainter();
-        } else if (kcompletionbox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcompletionbox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::sharedPainter();
         }
+        auto sharedpainter_cb = kcompletionbox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2271,13 +2352,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_childevent_isbase) {
             kcompletionbox_childevent_isbase = false;
             KCompletionBox::childEvent(event);
-        } else if (kcompletionbox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcompletionbox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcompletionbox_childevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2285,13 +2369,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_customevent_isbase) {
             kcompletionbox_customevent_isbase = false;
             KCompletionBox::customEvent(event);
-        } else if (kcompletionbox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcompletionbox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcompletionbox_customevent_callback(this, cbval1);
-        } else {
-            KCompletionBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2299,15 +2386,18 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_connectnotify_isbase) {
             kcompletionbox_connectnotify_isbase = false;
             KCompletionBox::connectNotify(signal);
-        } else if (kcompletionbox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcompletionbox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcompletionbox_connectnotify_callback(this, cbval1);
-        } else {
-            KCompletionBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2315,15 +2405,18 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_disconnectnotify_isbase) {
             kcompletionbox_disconnectnotify_isbase = false;
             KCompletionBox::disconnectNotify(signal);
-        } else if (kcompletionbox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcompletionbox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcompletionbox_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCompletionBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2331,12 +2424,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_calculategeometry_isbase) {
             kcompletionbox_calculategeometry_isbase = false;
             return KCompletionBox::calculateGeometry();
-        } else if (kcompletionbox_calculategeometry_callback != nullptr) {
-            QRect* callback_ret = kcompletionbox_calculategeometry_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::calculateGeometry();
         }
+        auto calculategeometry_cb = kcompletionbox_calculategeometry_callback;
+        if (calculategeometry_cb) {
+            QRect* callback_ret = calculategeometry_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::calculateGeometry();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2344,11 +2438,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_resizeandreposition_isbase) {
             kcompletionbox_resizeandreposition_isbase = false;
             KCompletionBox::resizeAndReposition();
-        } else if (kcompletionbox_resizeandreposition_callback != nullptr) {
-            kcompletionbox_resizeandreposition_callback();
-        } else {
-            KCompletionBox::resizeAndReposition();
+            return;
         }
+        auto resizeandreposition_cb = kcompletionbox_resizeandreposition_callback;
+        if (resizeandreposition_cb) {
+            resizeandreposition_cb();
+            return;
+        }
+        KCompletionBox::resizeAndReposition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2356,14 +2453,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_resizecontents_isbase) {
             kcompletionbox_resizecontents_isbase = false;
             KCompletionBox::resizeContents(width, height);
-        } else if (kcompletionbox_resizecontents_callback != nullptr) {
+            return;
+        }
+        auto resizecontents_cb = kcompletionbox_resizecontents_callback;
+        if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
 
-            kcompletionbox_resizecontents_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::resizeContents(width, height);
+            resizecontents_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::resizeContents(width, height);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2371,12 +2471,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_contentssize_isbase) {
             kcompletionbox_contentssize_isbase = false;
             return KCompletionBox::contentsSize();
-        } else if (kcompletionbox_contentssize_callback != nullptr) {
-            QSize* callback_ret = kcompletionbox_contentssize_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::contentsSize();
         }
+        auto contentssize_cb = kcompletionbox_contentssize_callback;
+        if (contentssize_cb) {
+            QSize* callback_ret = contentssize_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::contentsSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2384,16 +2485,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_rectforindex_isbase) {
             kcompletionbox_rectforindex_isbase = false;
             return KCompletionBox::rectForIndex(index);
-        } else if (kcompletionbox_rectforindex_callback != nullptr) {
+        }
+        auto rectforindex_cb = kcompletionbox_rectforindex_callback;
+        if (rectforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kcompletionbox_rectforindex_callback(this, cbval1);
+            QRect* callback_ret = rectforindex_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCompletionBox::rectForIndex(index);
         }
+        return KCompletionBox::rectForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2401,7 +2503,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setpositionforindex_isbase) {
             kcompletionbox_setpositionforindex_isbase = false;
             KCompletionBox::setPositionForIndex(position, index);
-        } else if (kcompletionbox_setpositionforindex_callback != nullptr) {
+            return;
+        }
+        auto setpositionforindex_cb = kcompletionbox_setpositionforindex_callback;
+        if (setpositionforindex_cb) {
             const QPoint& position_ret = position;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
@@ -2409,10 +2514,10 @@ class VirtualKCompletionBox final : public KCompletionBox {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kcompletionbox_setpositionforindex_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::setPositionForIndex(position, index);
+            setpositionforindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::setPositionForIndex(position, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2420,12 +2525,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_state_isbase) {
             kcompletionbox_state_isbase = false;
             return KCompletionBox::state();
-        } else if (kcompletionbox_state_callback != nullptr) {
-            int callback_ret = kcompletionbox_state_callback();
-            return static_cast<VirtualKCompletionBox::State>(callback_ret);
-        } else {
-            return KCompletionBox::state();
         }
+        auto state_cb = kcompletionbox_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualKCompletionBox::State>(callback_ret);
+        }
+        return KCompletionBox::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2433,13 +2539,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setstate_isbase) {
             kcompletionbox_setstate_isbase = false;
             KCompletionBox::setState(state);
-        } else if (kcompletionbox_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = kcompletionbox_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            kcompletionbox_setstate_callback(this, cbval1);
-        } else {
-            KCompletionBox::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2447,11 +2556,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_scheduledelayeditemslayout_isbase) {
             kcompletionbox_scheduledelayeditemslayout_isbase = false;
             KCompletionBox::scheduleDelayedItemsLayout();
-        } else if (kcompletionbox_scheduledelayeditemslayout_callback != nullptr) {
-            kcompletionbox_scheduledelayeditemslayout_callback();
-        } else {
-            KCompletionBox::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = kcompletionbox_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        KCompletionBox::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2459,11 +2571,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_executedelayeditemslayout_isbase) {
             kcompletionbox_executedelayeditemslayout_isbase = false;
             KCompletionBox::executeDelayedItemsLayout();
-        } else if (kcompletionbox_executedelayeditemslayout_callback != nullptr) {
-            kcompletionbox_executedelayeditemslayout_callback();
-        } else {
-            KCompletionBox::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = kcompletionbox_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        KCompletionBox::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2471,15 +2586,18 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setdirtyregion_isbase) {
             kcompletionbox_setdirtyregion_isbase = false;
             KCompletionBox::setDirtyRegion(region);
-        } else if (kcompletionbox_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = kcompletionbox_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            kcompletionbox_setdirtyregion_callback(this, cbval1);
-        } else {
-            KCompletionBox::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2487,14 +2605,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_scrolldirtyregion_isbase) {
             kcompletionbox_scrolldirtyregion_isbase = false;
             KCompletionBox::scrollDirtyRegion(dx, dy);
-        } else if (kcompletionbox_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = kcompletionbox_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kcompletionbox_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBox::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBox::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2502,12 +2623,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dirtyregionoffset_isbase) {
             kcompletionbox_dirtyregionoffset_isbase = false;
             return KCompletionBox::dirtyRegionOffset();
-        } else if (kcompletionbox_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = kcompletionbox_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = kcompletionbox_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2515,11 +2637,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_startautoscroll_isbase) {
             kcompletionbox_startautoscroll_isbase = false;
             KCompletionBox::startAutoScroll();
-        } else if (kcompletionbox_startautoscroll_callback != nullptr) {
-            kcompletionbox_startautoscroll_callback();
-        } else {
-            KCompletionBox::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = kcompletionbox_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        KCompletionBox::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2527,11 +2652,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_stopautoscroll_isbase) {
             kcompletionbox_stopautoscroll_isbase = false;
             KCompletionBox::stopAutoScroll();
-        } else if (kcompletionbox_stopautoscroll_callback != nullptr) {
-            kcompletionbox_stopautoscroll_callback();
-        } else {
-            KCompletionBox::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = kcompletionbox_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        KCompletionBox::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2539,11 +2667,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_doautoscroll_isbase) {
             kcompletionbox_doautoscroll_isbase = false;
             KCompletionBox::doAutoScroll();
-        } else if (kcompletionbox_doautoscroll_callback != nullptr) {
-            kcompletionbox_doautoscroll_callback();
-        } else {
-            KCompletionBox::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = kcompletionbox_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        KCompletionBox::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2551,12 +2682,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_dropindicatorposition_isbase) {
             kcompletionbox_dropindicatorposition_isbase = false;
             return KCompletionBox::dropIndicatorPosition();
-        } else if (kcompletionbox_dropindicatorposition_callback != nullptr) {
-            int callback_ret = kcompletionbox_dropindicatorposition_callback();
-            return static_cast<VirtualKCompletionBox::DropIndicatorPosition>(callback_ret);
-        } else {
-            return KCompletionBox::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = kcompletionbox_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualKCompletionBox::DropIndicatorPosition>(callback_ret);
+        }
+        return KCompletionBox::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2564,16 +2696,19 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_setviewportmargins_isbase) {
             kcompletionbox_setviewportmargins_isbase = false;
             KCompletionBox::setViewportMargins(left, top, right, bottom);
-        } else if (kcompletionbox_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = kcompletionbox_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            kcompletionbox_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KCompletionBox::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KCompletionBox::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2581,12 +2716,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_viewportmargins_isbase) {
             kcompletionbox_viewportmargins_isbase = false;
             return KCompletionBox::viewportMargins();
-        } else if (kcompletionbox_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = kcompletionbox_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return KCompletionBox::viewportMargins();
         }
+        auto viewportmargins_cb = kcompletionbox_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return KCompletionBox::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2594,13 +2730,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_drawframe_isbase) {
             kcompletionbox_drawframe_isbase = false;
             KCompletionBox::drawFrame(param1);
-        } else if (kcompletionbox_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kcompletionbox_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kcompletionbox_drawframe_callback(this, cbval1);
-        } else {
-            KCompletionBox::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KCompletionBox::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2608,11 +2747,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_updatemicrofocus_isbase) {
             kcompletionbox_updatemicrofocus_isbase = false;
             KCompletionBox::updateMicroFocus();
-        } else if (kcompletionbox_updatemicrofocus_callback != nullptr) {
-            kcompletionbox_updatemicrofocus_callback();
-        } else {
-            KCompletionBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcompletionbox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KCompletionBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2620,11 +2762,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_create_isbase) {
             kcompletionbox_create_isbase = false;
             KCompletionBox::create();
-        } else if (kcompletionbox_create_callback != nullptr) {
-            kcompletionbox_create_callback();
-        } else {
-            KCompletionBox::create();
+            return;
         }
+        auto create_cb = kcompletionbox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KCompletionBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2632,11 +2777,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_destroy_isbase) {
             kcompletionbox_destroy_isbase = false;
             KCompletionBox::destroy();
-        } else if (kcompletionbox_destroy_callback != nullptr) {
-            kcompletionbox_destroy_callback();
-        } else {
-            KCompletionBox::destroy();
+            return;
         }
+        auto destroy_cb = kcompletionbox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KCompletionBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2644,12 +2792,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_focusnextchild_isbase) {
             kcompletionbox_focusnextchild_isbase = false;
             return KCompletionBox::focusNextChild();
-        } else if (kcompletionbox_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcompletionbox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::focusNextChild();
         }
+        auto focusnextchild_cb = kcompletionbox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2657,12 +2806,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_focuspreviouschild_isbase) {
             kcompletionbox_focuspreviouschild_isbase = false;
             return KCompletionBox::focusPreviousChild();
-        } else if (kcompletionbox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcompletionbox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcompletionbox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2670,12 +2820,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_sender_isbase) {
             kcompletionbox_sender_isbase = false;
             return KCompletionBox::sender();
-        } else if (kcompletionbox_sender_callback != nullptr) {
-            QObject* callback_ret = kcompletionbox_sender_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBox::sender();
         }
+        auto sender_cb = kcompletionbox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCompletionBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2683,12 +2834,13 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_sendersignalindex_isbase) {
             kcompletionbox_sendersignalindex_isbase = false;
             return KCompletionBox::senderSignalIndex();
-        } else if (kcompletionbox_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcompletionbox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcompletionbox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCompletionBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2696,14 +2848,15 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_receivers_isbase) {
             kcompletionbox_receivers_isbase = false;
             return KCompletionBox::receivers(signal);
-        } else if (kcompletionbox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcompletionbox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcompletionbox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletionBox::receivers(signal);
         }
+        return KCompletionBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2711,16 +2864,17 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_issignalconnected_isbase) {
             kcompletionbox_issignalconnected_isbase = false;
             return KCompletionBox::isSignalConnected(signal);
-        } else if (kcompletionbox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcompletionbox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcompletionbox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletionBox::isSignalConnected(signal);
         }
+        return KCompletionBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2728,15 +2882,16 @@ class VirtualKCompletionBox final : public KCompletionBox {
         if (kcompletionbox_getdecodedmetricf_isbase) {
             kcompletionbox_getdecodedmetricf_isbase = false;
             return KCompletionBox::getDecodedMetricF(metricA, metricB);
-        } else if (kcompletionbox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcompletionbox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcompletionbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KCompletionBox::getDecodedMetricF(metricA, metricB);
         }
+        return KCompletionBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

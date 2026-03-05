@@ -68,23 +68,6 @@ class VirtualQAmbientSound final : public QAmbientSound {
   public:
     VirtualQAmbientSound(QAudioEngine* engine) : QAmbientSound(engine) {};
 
-    ~VirtualQAmbientSound() {
-        qambientsound_metaobject_callback = nullptr;
-        qambientsound_metacast_callback = nullptr;
-        qambientsound_metacall_callback = nullptr;
-        qambientsound_event_callback = nullptr;
-        qambientsound_eventfilter_callback = nullptr;
-        qambientsound_timerevent_callback = nullptr;
-        qambientsound_childevent_callback = nullptr;
-        qambientsound_customevent_callback = nullptr;
-        qambientsound_connectnotify_callback = nullptr;
-        qambientsound_disconnectnotify_callback = nullptr;
-        qambientsound_sender_callback = nullptr;
-        qambientsound_sendersignalindex_callback = nullptr;
-        qambientsound_receivers_callback = nullptr;
-        qambientsound_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAmbientSound_MetaObject_Callback(QAmbientSound_MetaObject_Callback cb) { qambientsound_metaobject_callback = cb; }
     inline void setQAmbientSound_Metacast_Callback(QAmbientSound_Metacast_Callback cb) { qambientsound_metacast_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_metaobject_isbase) {
             qambientsound_metaobject_isbase = false;
             return QAmbientSound::metaObject();
-        } else if (qambientsound_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qambientsound_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAmbientSound::metaObject();
         }
+        auto metaobject_cb = qambientsound_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAmbientSound::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,14 +119,15 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_metacast_isbase) {
             qambientsound_metacast_isbase = false;
             return QAmbientSound::qt_metacast(param1);
-        } else if (qambientsound_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qambientsound_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qambientsound_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAmbientSound::qt_metacast(param1);
         }
+        return QAmbientSound::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,16 +135,17 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_metacall_isbase) {
             qambientsound_metacall_isbase = false;
             return QAmbientSound::qt_metacall(param1, param2, param3);
-        } else if (qambientsound_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qambientsound_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qambientsound_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAmbientSound::qt_metacall(param1, param2, param3);
         }
+        return QAmbientSound::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,14 +153,15 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_event_isbase) {
             qambientsound_event_isbase = false;
             return QAmbientSound::event(event);
-        } else if (qambientsound_event_callback != nullptr) {
+        }
+        auto event_cb = qambientsound_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qambientsound_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAmbientSound::event(event);
         }
+        return QAmbientSound::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,15 +169,16 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_eventfilter_isbase) {
             qambientsound_eventfilter_isbase = false;
             return QAmbientSound::eventFilter(watched, event);
-        } else if (qambientsound_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qambientsound_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qambientsound_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAmbientSound::eventFilter(watched, event);
         }
+        return QAmbientSound::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,13 +186,16 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_timerevent_isbase) {
             qambientsound_timerevent_isbase = false;
             QAmbientSound::timerEvent(event);
-        } else if (qambientsound_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qambientsound_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qambientsound_timerevent_callback(this, cbval1);
-        } else {
-            QAmbientSound::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAmbientSound::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,13 +203,16 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_childevent_isbase) {
             qambientsound_childevent_isbase = false;
             QAmbientSound::childEvent(event);
-        } else if (qambientsound_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qambientsound_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qambientsound_childevent_callback(this, cbval1);
-        } else {
-            QAmbientSound::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAmbientSound::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +220,16 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_customevent_isbase) {
             qambientsound_customevent_isbase = false;
             QAmbientSound::customEvent(event);
-        } else if (qambientsound_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qambientsound_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qambientsound_customevent_callback(this, cbval1);
-        } else {
-            QAmbientSound::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAmbientSound::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,15 +237,18 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_connectnotify_isbase) {
             qambientsound_connectnotify_isbase = false;
             QAmbientSound::connectNotify(signal);
-        } else if (qambientsound_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qambientsound_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qambientsound_connectnotify_callback(this, cbval1);
-        } else {
-            QAmbientSound::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAmbientSound::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +256,18 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_disconnectnotify_isbase) {
             qambientsound_disconnectnotify_isbase = false;
             QAmbientSound::disconnectNotify(signal);
-        } else if (qambientsound_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qambientsound_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qambientsound_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAmbientSound::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAmbientSound::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,12 +275,13 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_sender_isbase) {
             qambientsound_sender_isbase = false;
             return QAmbientSound::sender();
-        } else if (qambientsound_sender_callback != nullptr) {
-            QObject* callback_ret = qambientsound_sender_callback();
-            return callback_ret;
-        } else {
-            return QAmbientSound::sender();
         }
+        auto sender_cb = qambientsound_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAmbientSound::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,12 +289,13 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_sendersignalindex_isbase) {
             qambientsound_sendersignalindex_isbase = false;
             return QAmbientSound::senderSignalIndex();
-        } else if (qambientsound_sendersignalindex_callback != nullptr) {
-            int callback_ret = qambientsound_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAmbientSound::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qambientsound_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAmbientSound::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +303,15 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_receivers_isbase) {
             qambientsound_receivers_isbase = false;
             return QAmbientSound::receivers(signal);
-        } else if (qambientsound_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qambientsound_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qambientsound_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAmbientSound::receivers(signal);
         }
+        return QAmbientSound::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,16 +319,17 @@ class VirtualQAmbientSound final : public QAmbientSound {
         if (qambientsound_issignalconnected_isbase) {
             qambientsound_issignalconnected_isbase = false;
             return QAmbientSound::isSignalConnected(signal);
-        } else if (qambientsound_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qambientsound_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qambientsound_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAmbientSound::isSignalConnected(signal);
         }
+        return QAmbientSound::isSignalConnected(signal);
     }
 
     // Friend functions

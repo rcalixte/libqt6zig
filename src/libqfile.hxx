@@ -140,46 +140,6 @@ class VirtualQFile final : public QFile {
     VirtualQFile(QObject* parent) : QFile(parent) {};
     VirtualQFile(const QString& name, QObject* parent) : QFile(name, parent) {};
 
-    ~VirtualQFile() {
-        qfile_metaobject_callback = nullptr;
-        qfile_metacast_callback = nullptr;
-        qfile_metacall_callback = nullptr;
-        qfile_filename_callback = nullptr;
-        qfile_open_callback = nullptr;
-        qfile_size_callback = nullptr;
-        qfile_resize_callback = nullptr;
-        qfile_permissions_callback = nullptr;
-        qfile_setpermissions_callback = nullptr;
-        qfile_close_callback = nullptr;
-        qfile_issequential_callback = nullptr;
-        qfile_pos_callback = nullptr;
-        qfile_seek_callback = nullptr;
-        qfile_atend_callback = nullptr;
-        qfile_readdata_callback = nullptr;
-        qfile_writedata_callback = nullptr;
-        qfile_readlinedata_callback = nullptr;
-        qfile_reset_callback = nullptr;
-        qfile_bytesavailable_callback = nullptr;
-        qfile_bytestowrite_callback = nullptr;
-        qfile_canreadline_callback = nullptr;
-        qfile_waitforreadyread_callback = nullptr;
-        qfile_waitforbyteswritten_callback = nullptr;
-        qfile_skipdata_callback = nullptr;
-        qfile_event_callback = nullptr;
-        qfile_eventfilter_callback = nullptr;
-        qfile_timerevent_callback = nullptr;
-        qfile_childevent_callback = nullptr;
-        qfile_customevent_callback = nullptr;
-        qfile_connectnotify_callback = nullptr;
-        qfile_disconnectnotify_callback = nullptr;
-        qfile_setopenmode_callback = nullptr;
-        qfile_seterrorstring_callback = nullptr;
-        qfile_sender_callback = nullptr;
-        qfile_sendersignalindex_callback = nullptr;
-        qfile_receivers_callback = nullptr;
-        qfile_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFile_MetaObject_Callback(QFile_MetaObject_Callback cb) { qfile_metaobject_callback = cb; }
     inline void setQFile_Metacast_Callback(QFile_Metacast_Callback cb) { qfile_metacast_callback = cb; }
@@ -263,12 +223,13 @@ class VirtualQFile final : public QFile {
         if (qfile_metaobject_isbase) {
             qfile_metaobject_isbase = false;
             return QFile::metaObject();
-        } else if (qfile_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qfile_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QFile::metaObject();
         }
+        auto metaobject_cb = qfile_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QFile::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,14 +237,15 @@ class VirtualQFile final : public QFile {
         if (qfile_metacast_isbase) {
             qfile_metacast_isbase = false;
             return QFile::qt_metacast(param1);
-        } else if (qfile_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qfile_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qfile_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::qt_metacast(param1);
         }
+        return QFile::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,16 +253,17 @@ class VirtualQFile final : public QFile {
         if (qfile_metacall_isbase) {
             qfile_metacall_isbase = false;
             return QFile::qt_metacall(param1, param2, param3);
-        } else if (qfile_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qfile_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qfile_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFile::qt_metacall(param1, param2, param3);
         }
+        return QFile::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,13 +271,14 @@ class VirtualQFile final : public QFile {
         if (qfile_filename_isbase) {
             qfile_filename_isbase = false;
             return QFile::fileName();
-        } else if (qfile_filename_callback != nullptr) {
-            const char* callback_ret = qfile_filename_callback();
+        }
+        auto filename_cb = qfile_filename_callback;
+        if (filename_cb) {
+            const char* callback_ret = filename_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QFile::fileName();
         }
+        return QFile::fileName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,14 +286,15 @@ class VirtualQFile final : public QFile {
         if (qfile_open_isbase) {
             qfile_open_isbase = false;
             return QFile::open(flags);
-        } else if (qfile_open_callback != nullptr) {
+        }
+        auto open_cb = qfile_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            bool callback_ret = qfile_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::open(flags);
         }
+        return QFile::open(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,12 +302,13 @@ class VirtualQFile final : public QFile {
         if (qfile_size_isbase) {
             qfile_size_isbase = false;
             return QFile::size();
-        } else if (qfile_size_callback != nullptr) {
-            long long callback_ret = qfile_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::size();
         }
+        auto size_cb = qfile_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QFile::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,14 +316,15 @@ class VirtualQFile final : public QFile {
         if (qfile_resize_isbase) {
             qfile_resize_isbase = false;
             return QFile::resize(sz);
-        } else if (qfile_resize_callback != nullptr) {
+        }
+        auto resize_cb = qfile_resize_callback;
+        if (resize_cb) {
             long long cbval1 = static_cast<long long>(sz);
 
-            bool callback_ret = qfile_resize_callback(this, cbval1);
+            bool callback_ret = resize_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::resize(sz);
         }
+        return QFile::resize(sz);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,12 +332,13 @@ class VirtualQFile final : public QFile {
         if (qfile_permissions_isbase) {
             qfile_permissions_isbase = false;
             return QFile::permissions();
-        } else if (qfile_permissions_callback != nullptr) {
-            int callback_ret = qfile_permissions_callback();
-            return static_cast<QFileDevice::Permissions>(callback_ret);
-        } else {
-            return QFile::permissions();
         }
+        auto permissions_cb = qfile_permissions_callback;
+        if (permissions_cb) {
+            int callback_ret = permissions_cb();
+            return static_cast<QFileDevice::Permissions>(callback_ret);
+        }
+        return QFile::permissions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -378,14 +346,15 @@ class VirtualQFile final : public QFile {
         if (qfile_setpermissions_isbase) {
             qfile_setpermissions_isbase = false;
             return QFile::setPermissions(permissionSpec);
-        } else if (qfile_setpermissions_callback != nullptr) {
+        }
+        auto setpermissions_cb = qfile_setpermissions_callback;
+        if (setpermissions_cb) {
             int cbval1 = static_cast<int>(permissionSpec);
 
-            bool callback_ret = qfile_setpermissions_callback(this, cbval1);
+            bool callback_ret = setpermissions_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::setPermissions(permissionSpec);
         }
+        return QFile::setPermissions(permissionSpec);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -393,11 +362,14 @@ class VirtualQFile final : public QFile {
         if (qfile_close_isbase) {
             qfile_close_isbase = false;
             QFile::close();
-        } else if (qfile_close_callback != nullptr) {
-            qfile_close_callback();
-        } else {
-            QFile::close();
+            return;
         }
+        auto close_cb = qfile_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QFile::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -405,12 +377,13 @@ class VirtualQFile final : public QFile {
         if (qfile_issequential_isbase) {
             qfile_issequential_isbase = false;
             return QFile::isSequential();
-        } else if (qfile_issequential_callback != nullptr) {
-            bool callback_ret = qfile_issequential_callback();
-            return callback_ret;
-        } else {
-            return QFile::isSequential();
         }
+        auto issequential_cb = qfile_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QFile::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,12 +391,13 @@ class VirtualQFile final : public QFile {
         if (qfile_pos_isbase) {
             qfile_pos_isbase = false;
             return QFile::pos();
-        } else if (qfile_pos_callback != nullptr) {
-            long long callback_ret = qfile_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::pos();
         }
+        auto pos_cb = qfile_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QFile::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,14 +405,15 @@ class VirtualQFile final : public QFile {
         if (qfile_seek_isbase) {
             qfile_seek_isbase = false;
             return QFile::seek(offset);
-        } else if (qfile_seek_callback != nullptr) {
+        }
+        auto seek_cb = qfile_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(offset);
 
-            bool callback_ret = qfile_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::seek(offset);
         }
+        return QFile::seek(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,12 +421,13 @@ class VirtualQFile final : public QFile {
         if (qfile_atend_isbase) {
             qfile_atend_isbase = false;
             return QFile::atEnd();
-        } else if (qfile_atend_callback != nullptr) {
-            bool callback_ret = qfile_atend_callback();
-            return callback_ret;
-        } else {
-            return QFile::atEnd();
         }
+        auto atend_cb = qfile_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QFile::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,15 +435,16 @@ class VirtualQFile final : public QFile {
         if (qfile_readdata_isbase) {
             qfile_readdata_isbase = false;
             return QFile::readData(data, maxlen);
-        } else if (qfile_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = qfile_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qfile_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::readData(data, maxlen);
         }
+        return QFile::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,15 +452,16 @@ class VirtualQFile final : public QFile {
         if (qfile_writedata_isbase) {
             qfile_writedata_isbase = false;
             return QFile::writeData(data, lenVal);
-        } else if (qfile_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = qfile_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = qfile_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::writeData(data, lenVal);
         }
+        return QFile::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,15 +469,16 @@ class VirtualQFile final : public QFile {
         if (qfile_readlinedata_isbase) {
             qfile_readlinedata_isbase = false;
             return QFile::readLineData(data, maxlen);
-        } else if (qfile_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qfile_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qfile_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::readLineData(data, maxlen);
         }
+        return QFile::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,12 +486,13 @@ class VirtualQFile final : public QFile {
         if (qfile_reset_isbase) {
             qfile_reset_isbase = false;
             return QFile::reset();
-        } else if (qfile_reset_callback != nullptr) {
-            bool callback_ret = qfile_reset_callback();
-            return callback_ret;
-        } else {
-            return QFile::reset();
         }
+        auto reset_cb = qfile_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QFile::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -520,12 +500,13 @@ class VirtualQFile final : public QFile {
         if (qfile_bytesavailable_isbase) {
             qfile_bytesavailable_isbase = false;
             return QFile::bytesAvailable();
-        } else if (qfile_bytesavailable_callback != nullptr) {
-            long long callback_ret = qfile_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::bytesAvailable();
         }
+        auto bytesavailable_cb = qfile_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QFile::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,12 +514,13 @@ class VirtualQFile final : public QFile {
         if (qfile_bytestowrite_isbase) {
             qfile_bytestowrite_isbase = false;
             return QFile::bytesToWrite();
-        } else if (qfile_bytestowrite_callback != nullptr) {
-            long long callback_ret = qfile_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::bytesToWrite();
         }
+        auto bytestowrite_cb = qfile_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QFile::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,12 +528,13 @@ class VirtualQFile final : public QFile {
         if (qfile_canreadline_isbase) {
             qfile_canreadline_isbase = false;
             return QFile::canReadLine();
-        } else if (qfile_canreadline_callback != nullptr) {
-            bool callback_ret = qfile_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QFile::canReadLine();
         }
+        auto canreadline_cb = qfile_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QFile::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,14 +542,15 @@ class VirtualQFile final : public QFile {
         if (qfile_waitforreadyread_isbase) {
             qfile_waitforreadyread_isbase = false;
             return QFile::waitForReadyRead(msecs);
-        } else if (qfile_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qfile_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qfile_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::waitForReadyRead(msecs);
         }
+        return QFile::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,14 +558,15 @@ class VirtualQFile final : public QFile {
         if (qfile_waitforbyteswritten_isbase) {
             qfile_waitforbyteswritten_isbase = false;
             return QFile::waitForBytesWritten(msecs);
-        } else if (qfile_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qfile_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qfile_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::waitForBytesWritten(msecs);
         }
+        return QFile::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,14 +574,15 @@ class VirtualQFile final : public QFile {
         if (qfile_skipdata_isbase) {
             qfile_skipdata_isbase = false;
             return QFile::skipData(maxSize);
-        } else if (qfile_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qfile_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qfile_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QFile::skipData(maxSize);
         }
+        return QFile::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,14 +590,15 @@ class VirtualQFile final : public QFile {
         if (qfile_event_isbase) {
             qfile_event_isbase = false;
             return QFile::event(event);
-        } else if (qfile_event_callback != nullptr) {
+        }
+        auto event_cb = qfile_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qfile_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::event(event);
         }
+        return QFile::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,15 +606,16 @@ class VirtualQFile final : public QFile {
         if (qfile_eventfilter_isbase) {
             qfile_eventfilter_isbase = false;
             return QFile::eventFilter(watched, event);
-        } else if (qfile_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qfile_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qfile_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFile::eventFilter(watched, event);
         }
+        return QFile::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +623,16 @@ class VirtualQFile final : public QFile {
         if (qfile_timerevent_isbase) {
             qfile_timerevent_isbase = false;
             QFile::timerEvent(event);
-        } else if (qfile_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qfile_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qfile_timerevent_callback(this, cbval1);
-        } else {
-            QFile::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QFile::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +640,16 @@ class VirtualQFile final : public QFile {
         if (qfile_childevent_isbase) {
             qfile_childevent_isbase = false;
             QFile::childEvent(event);
-        } else if (qfile_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qfile_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qfile_childevent_callback(this, cbval1);
-        } else {
-            QFile::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QFile::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +657,16 @@ class VirtualQFile final : public QFile {
         if (qfile_customevent_isbase) {
             qfile_customevent_isbase = false;
             QFile::customEvent(event);
-        } else if (qfile_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qfile_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qfile_customevent_callback(this, cbval1);
-        } else {
-            QFile::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QFile::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,15 +674,18 @@ class VirtualQFile final : public QFile {
         if (qfile_connectnotify_isbase) {
             qfile_connectnotify_isbase = false;
             QFile::connectNotify(signal);
-        } else if (qfile_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qfile_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfile_connectnotify_callback(this, cbval1);
-        } else {
-            QFile::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QFile::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,15 +693,18 @@ class VirtualQFile final : public QFile {
         if (qfile_disconnectnotify_isbase) {
             qfile_disconnectnotify_isbase = false;
             QFile::disconnectNotify(signal);
-        } else if (qfile_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qfile_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfile_disconnectnotify_callback(this, cbval1);
-        } else {
-            QFile::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QFile::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +712,16 @@ class VirtualQFile final : public QFile {
         if (qfile_setopenmode_isbase) {
             qfile_setopenmode_isbase = false;
             QFile::setOpenMode(openMode);
-        } else if (qfile_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qfile_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qfile_setopenmode_callback(this, cbval1);
-        } else {
-            QFile::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QFile::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,7 +729,10 @@ class VirtualQFile final : public QFile {
         if (qfile_seterrorstring_isbase) {
             qfile_seterrorstring_isbase = false;
             QFile::setErrorString(errorString);
-        } else if (qfile_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qfile_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -733,11 +742,11 @@ class VirtualQFile final : public QFile {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qfile_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QFile::setErrorString(errorString);
+            return;
         }
+        QFile::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,12 +754,13 @@ class VirtualQFile final : public QFile {
         if (qfile_sender_isbase) {
             qfile_sender_isbase = false;
             return QFile::sender();
-        } else if (qfile_sender_callback != nullptr) {
-            QObject* callback_ret = qfile_sender_callback();
-            return callback_ret;
-        } else {
-            return QFile::sender();
         }
+        auto sender_cb = qfile_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QFile::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,12 +768,13 @@ class VirtualQFile final : public QFile {
         if (qfile_sendersignalindex_isbase) {
             qfile_sendersignalindex_isbase = false;
             return QFile::senderSignalIndex();
-        } else if (qfile_sendersignalindex_callback != nullptr) {
-            int callback_ret = qfile_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFile::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qfile_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFile::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,14 +782,15 @@ class VirtualQFile final : public QFile {
         if (qfile_receivers_isbase) {
             qfile_receivers_isbase = false;
             return QFile::receivers(signal);
-        } else if (qfile_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qfile_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qfile_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFile::receivers(signal);
         }
+        return QFile::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,16 +798,17 @@ class VirtualQFile final : public QFile {
         if (qfile_issignalconnected_isbase) {
             qfile_issignalconnected_isbase = false;
             return QFile::isSignalConnected(signal);
-        } else if (qfile_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qfile_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qfile_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFile::isSignalConnected(signal);
         }
+        return QFile::isSignalConnected(signal);
     }
 
     // Friend functions

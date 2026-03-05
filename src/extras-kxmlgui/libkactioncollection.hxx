@@ -72,24 +72,6 @@ class VirtualKActionCollection final : public KActionCollection {
     VirtualKActionCollection(QObject* parent) : KActionCollection(parent) {};
     VirtualKActionCollection(QObject* parent, const QString& cName) : KActionCollection(parent, cName) {};
 
-    ~VirtualKActionCollection() {
-        kactioncollection_metaobject_callback = nullptr;
-        kactioncollection_metacast_callback = nullptr;
-        kactioncollection_metacall_callback = nullptr;
-        kactioncollection_connectnotify_callback = nullptr;
-        kactioncollection_slotactiontriggered_callback = nullptr;
-        kactioncollection_event_callback = nullptr;
-        kactioncollection_eventfilter_callback = nullptr;
-        kactioncollection_timerevent_callback = nullptr;
-        kactioncollection_childevent_callback = nullptr;
-        kactioncollection_customevent_callback = nullptr;
-        kactioncollection_disconnectnotify_callback = nullptr;
-        kactioncollection_sender_callback = nullptr;
-        kactioncollection_sendersignalindex_callback = nullptr;
-        kactioncollection_receivers_callback = nullptr;
-        kactioncollection_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKActionCollection_MetaObject_Callback(KActionCollection_MetaObject_Callback cb) { kactioncollection_metaobject_callback = cb; }
     inline void setKActionCollection_Metacast_Callback(KActionCollection_Metacast_Callback cb) { kactioncollection_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_metaobject_isbase) {
             kactioncollection_metaobject_isbase = false;
             return KActionCollection::metaObject();
-        } else if (kactioncollection_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kactioncollection_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KActionCollection::metaObject();
         }
+        auto metaobject_cb = kactioncollection_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KActionCollection::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_metacast_isbase) {
             kactioncollection_metacast_isbase = false;
             return KActionCollection::qt_metacast(param1);
-        } else if (kactioncollection_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kactioncollection_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kactioncollection_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionCollection::qt_metacast(param1);
         }
+        return KActionCollection::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_metacall_isbase) {
             kactioncollection_metacall_isbase = false;
             return KActionCollection::qt_metacall(param1, param2, param3);
-        } else if (kactioncollection_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kactioncollection_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kactioncollection_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionCollection::qt_metacall(param1, param2, param3);
         }
+        return KActionCollection::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,15 +159,18 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_connectnotify_isbase) {
             kactioncollection_connectnotify_isbase = false;
             KActionCollection::connectNotify(signal);
-        } else if (kactioncollection_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kactioncollection_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kactioncollection_connectnotify_callback(this, cbval1);
-        } else {
-            KActionCollection::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KActionCollection::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -190,11 +178,14 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_slotactiontriggered_isbase) {
             kactioncollection_slotactiontriggered_isbase = false;
             KActionCollection::slotActionTriggered();
-        } else if (kactioncollection_slotactiontriggered_callback != nullptr) {
-            kactioncollection_slotactiontriggered_callback();
-        } else {
-            KActionCollection::slotActionTriggered();
+            return;
         }
+        auto slotactiontriggered_cb = kactioncollection_slotactiontriggered_callback;
+        if (slotactiontriggered_cb) {
+            slotactiontriggered_cb();
+            return;
+        }
+        KActionCollection::slotActionTriggered();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,14 +193,15 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_event_isbase) {
             kactioncollection_event_isbase = false;
             return KActionCollection::event(event);
-        } else if (kactioncollection_event_callback != nullptr) {
+        }
+        auto event_cb = kactioncollection_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kactioncollection_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionCollection::event(event);
         }
+        return KActionCollection::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,15 +209,16 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_eventfilter_isbase) {
             kactioncollection_eventfilter_isbase = false;
             return KActionCollection::eventFilter(watched, event);
-        } else if (kactioncollection_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kactioncollection_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kactioncollection_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KActionCollection::eventFilter(watched, event);
         }
+        return KActionCollection::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +226,16 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_timerevent_isbase) {
             kactioncollection_timerevent_isbase = false;
             KActionCollection::timerEvent(event);
-        } else if (kactioncollection_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kactioncollection_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kactioncollection_timerevent_callback(this, cbval1);
-        } else {
-            KActionCollection::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KActionCollection::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +243,16 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_childevent_isbase) {
             kactioncollection_childevent_isbase = false;
             KActionCollection::childEvent(event);
-        } else if (kactioncollection_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kactioncollection_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kactioncollection_childevent_callback(this, cbval1);
-        } else {
-            KActionCollection::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KActionCollection::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,13 +260,16 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_customevent_isbase) {
             kactioncollection_customevent_isbase = false;
             KActionCollection::customEvent(event);
-        } else if (kactioncollection_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kactioncollection_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kactioncollection_customevent_callback(this, cbval1);
-        } else {
-            KActionCollection::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KActionCollection::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,15 +277,18 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_disconnectnotify_isbase) {
             kactioncollection_disconnectnotify_isbase = false;
             KActionCollection::disconnectNotify(signal);
-        } else if (kactioncollection_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kactioncollection_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kactioncollection_disconnectnotify_callback(this, cbval1);
-        } else {
-            KActionCollection::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KActionCollection::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,12 +296,13 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_sender_isbase) {
             kactioncollection_sender_isbase = false;
             return KActionCollection::sender();
-        } else if (kactioncollection_sender_callback != nullptr) {
-            QObject* callback_ret = kactioncollection_sender_callback();
-            return callback_ret;
-        } else {
-            return KActionCollection::sender();
         }
+        auto sender_cb = kactioncollection_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KActionCollection::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,12 +310,13 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_sendersignalindex_isbase) {
             kactioncollection_sendersignalindex_isbase = false;
             return KActionCollection::senderSignalIndex();
-        } else if (kactioncollection_sendersignalindex_callback != nullptr) {
-            int callback_ret = kactioncollection_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KActionCollection::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kactioncollection_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KActionCollection::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,14 +324,15 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_receivers_isbase) {
             kactioncollection_receivers_isbase = false;
             return KActionCollection::receivers(signal);
-        } else if (kactioncollection_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kactioncollection_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kactioncollection_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionCollection::receivers(signal);
         }
+        return KActionCollection::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,16 +340,17 @@ class VirtualKActionCollection final : public KActionCollection {
         if (kactioncollection_issignalconnected_isbase) {
             kactioncollection_issignalconnected_isbase = false;
             return KActionCollection::isSignalConnected(signal);
-        } else if (kactioncollection_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kactioncollection_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kactioncollection_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionCollection::isSignalConnected(signal);
         }
+        return KActionCollection::isSignalConnected(signal);
     }
 
     // Friend functions

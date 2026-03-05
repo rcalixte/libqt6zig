@@ -237,79 +237,6 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     VirtualKPluralHandlingSpinBox(QWidget* parent) : KPluralHandlingSpinBox(parent) {};
     VirtualKPluralHandlingSpinBox() : KPluralHandlingSpinBox() {};
 
-    ~VirtualKPluralHandlingSpinBox() {
-        kpluralhandlingspinbox_metaobject_callback = nullptr;
-        kpluralhandlingspinbox_metacast_callback = nullptr;
-        kpluralhandlingspinbox_metacall_callback = nullptr;
-        kpluralhandlingspinbox_event_callback = nullptr;
-        kpluralhandlingspinbox_validate_callback = nullptr;
-        kpluralhandlingspinbox_valuefromtext_callback = nullptr;
-        kpluralhandlingspinbox_textfromvalue_callback = nullptr;
-        kpluralhandlingspinbox_fixup_callback = nullptr;
-        kpluralhandlingspinbox_sizehint_callback = nullptr;
-        kpluralhandlingspinbox_minimumsizehint_callback = nullptr;
-        kpluralhandlingspinbox_inputmethodquery_callback = nullptr;
-        kpluralhandlingspinbox_stepby_callback = nullptr;
-        kpluralhandlingspinbox_clear_callback = nullptr;
-        kpluralhandlingspinbox_resizeevent_callback = nullptr;
-        kpluralhandlingspinbox_keypressevent_callback = nullptr;
-        kpluralhandlingspinbox_keyreleaseevent_callback = nullptr;
-        kpluralhandlingspinbox_wheelevent_callback = nullptr;
-        kpluralhandlingspinbox_focusinevent_callback = nullptr;
-        kpluralhandlingspinbox_focusoutevent_callback = nullptr;
-        kpluralhandlingspinbox_contextmenuevent_callback = nullptr;
-        kpluralhandlingspinbox_changeevent_callback = nullptr;
-        kpluralhandlingspinbox_closeevent_callback = nullptr;
-        kpluralhandlingspinbox_hideevent_callback = nullptr;
-        kpluralhandlingspinbox_mousepressevent_callback = nullptr;
-        kpluralhandlingspinbox_mousereleaseevent_callback = nullptr;
-        kpluralhandlingspinbox_mousemoveevent_callback = nullptr;
-        kpluralhandlingspinbox_timerevent_callback = nullptr;
-        kpluralhandlingspinbox_paintevent_callback = nullptr;
-        kpluralhandlingspinbox_showevent_callback = nullptr;
-        kpluralhandlingspinbox_initstyleoption_callback = nullptr;
-        kpluralhandlingspinbox_stepenabled_callback = nullptr;
-        kpluralhandlingspinbox_devtype_callback = nullptr;
-        kpluralhandlingspinbox_setvisible_callback = nullptr;
-        kpluralhandlingspinbox_heightforwidth_callback = nullptr;
-        kpluralhandlingspinbox_hasheightforwidth_callback = nullptr;
-        kpluralhandlingspinbox_paintengine_callback = nullptr;
-        kpluralhandlingspinbox_mousedoubleclickevent_callback = nullptr;
-        kpluralhandlingspinbox_enterevent_callback = nullptr;
-        kpluralhandlingspinbox_leaveevent_callback = nullptr;
-        kpluralhandlingspinbox_moveevent_callback = nullptr;
-        kpluralhandlingspinbox_tabletevent_callback = nullptr;
-        kpluralhandlingspinbox_actionevent_callback = nullptr;
-        kpluralhandlingspinbox_dragenterevent_callback = nullptr;
-        kpluralhandlingspinbox_dragmoveevent_callback = nullptr;
-        kpluralhandlingspinbox_dragleaveevent_callback = nullptr;
-        kpluralhandlingspinbox_dropevent_callback = nullptr;
-        kpluralhandlingspinbox_nativeevent_callback = nullptr;
-        kpluralhandlingspinbox_metric_callback = nullptr;
-        kpluralhandlingspinbox_initpainter_callback = nullptr;
-        kpluralhandlingspinbox_redirected_callback = nullptr;
-        kpluralhandlingspinbox_sharedpainter_callback = nullptr;
-        kpluralhandlingspinbox_inputmethodevent_callback = nullptr;
-        kpluralhandlingspinbox_focusnextprevchild_callback = nullptr;
-        kpluralhandlingspinbox_eventfilter_callback = nullptr;
-        kpluralhandlingspinbox_childevent_callback = nullptr;
-        kpluralhandlingspinbox_customevent_callback = nullptr;
-        kpluralhandlingspinbox_connectnotify_callback = nullptr;
-        kpluralhandlingspinbox_disconnectnotify_callback = nullptr;
-        kpluralhandlingspinbox_lineedit_callback = nullptr;
-        kpluralhandlingspinbox_setlineedit_callback = nullptr;
-        kpluralhandlingspinbox_updatemicrofocus_callback = nullptr;
-        kpluralhandlingspinbox_create_callback = nullptr;
-        kpluralhandlingspinbox_destroy_callback = nullptr;
-        kpluralhandlingspinbox_focusnextchild_callback = nullptr;
-        kpluralhandlingspinbox_focuspreviouschild_callback = nullptr;
-        kpluralhandlingspinbox_sender_callback = nullptr;
-        kpluralhandlingspinbox_sendersignalindex_callback = nullptr;
-        kpluralhandlingspinbox_receivers_callback = nullptr;
-        kpluralhandlingspinbox_issignalconnected_callback = nullptr;
-        kpluralhandlingspinbox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPluralHandlingSpinBox_MetaObject_Callback(KPluralHandlingSpinBox_MetaObject_Callback cb) { kpluralhandlingspinbox_metaobject_callback = cb; }
     inline void setKPluralHandlingSpinBox_Metacast_Callback(KPluralHandlingSpinBox_Metacast_Callback cb) { kpluralhandlingspinbox_metacast_callback = cb; }
@@ -459,12 +386,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_metaobject_isbase) {
             kpluralhandlingspinbox_metaobject_isbase = false;
             return KPluralHandlingSpinBox::metaObject();
-        } else if (kpluralhandlingspinbox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpluralhandlingspinbox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::metaObject();
         }
+        auto metaobject_cb = kpluralhandlingspinbox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -472,14 +400,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_metacast_isbase) {
             kpluralhandlingspinbox_metacast_isbase = false;
             return KPluralHandlingSpinBox::qt_metacast(param1);
-        } else if (kpluralhandlingspinbox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpluralhandlingspinbox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpluralhandlingspinbox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::qt_metacast(param1);
         }
+        return KPluralHandlingSpinBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,16 +416,17 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_metacall_isbase) {
             kpluralhandlingspinbox_metacall_isbase = false;
             return KPluralHandlingSpinBox::qt_metacall(param1, param2, param3);
-        } else if (kpluralhandlingspinbox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpluralhandlingspinbox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpluralhandlingspinbox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::qt_metacall(param1, param2, param3);
         }
+        return KPluralHandlingSpinBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -504,14 +434,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_event_isbase) {
             kpluralhandlingspinbox_event_isbase = false;
             return KPluralHandlingSpinBox::event(event);
-        } else if (kpluralhandlingspinbox_event_callback != nullptr) {
+        }
+        auto event_cb = kpluralhandlingspinbox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpluralhandlingspinbox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::event(event);
         }
+        return KPluralHandlingSpinBox::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -519,7 +450,9 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_validate_isbase) {
             kpluralhandlingspinbox_validate_isbase = false;
             return KPluralHandlingSpinBox::validate(input, pos);
-        } else if (kpluralhandlingspinbox_validate_callback != nullptr) {
+        }
+        auto validate_cb = kpluralhandlingspinbox_validate_callback;
+        if (validate_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -530,12 +463,11 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
-            int callback_ret = kpluralhandlingspinbox_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::validate(input, pos);
         }
+        return KPluralHandlingSpinBox::validate(input, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,7 +475,9 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_valuefromtext_isbase) {
             kpluralhandlingspinbox_valuefromtext_isbase = false;
             return KPluralHandlingSpinBox::valueFromText(text);
-        } else if (kpluralhandlingspinbox_valuefromtext_callback != nullptr) {
+        }
+        auto valuefromtext_cb = kpluralhandlingspinbox_valuefromtext_callback;
+        if (valuefromtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -553,12 +487,11 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            int callback_ret = kpluralhandlingspinbox_valuefromtext_callback(this, cbval1);
+            int callback_ret = valuefromtext_cb(this, cbval1);
             libqt_free(text_str);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::valueFromText(text);
         }
+        return KPluralHandlingSpinBox::valueFromText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,15 +499,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_textfromvalue_isbase) {
             kpluralhandlingspinbox_textfromvalue_isbase = false;
             return KPluralHandlingSpinBox::textFromValue(val);
-        } else if (kpluralhandlingspinbox_textfromvalue_callback != nullptr) {
+        }
+        auto textfromvalue_cb = kpluralhandlingspinbox_textfromvalue_callback;
+        if (textfromvalue_cb) {
             int cbval1 = val;
 
-            const char* callback_ret = kpluralhandlingspinbox_textfromvalue_callback(this, cbval1);
+            const char* callback_ret = textfromvalue_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KPluralHandlingSpinBox::textFromValue(val);
         }
+        return KPluralHandlingSpinBox::textFromValue(val);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,7 +516,10 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_fixup_isbase) {
             kpluralhandlingspinbox_fixup_isbase = false;
             KPluralHandlingSpinBox::fixup(str);
-        } else if (kpluralhandlingspinbox_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = kpluralhandlingspinbox_fixup_callback;
+        if (fixup_cb) {
             QString str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
@@ -592,11 +529,11 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
 
-            kpluralhandlingspinbox_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(str_str);
-        } else {
-            KPluralHandlingSpinBox::fixup(str);
+            return;
         }
+        KPluralHandlingSpinBox::fixup(str);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -604,12 +541,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_sizehint_isbase) {
             kpluralhandlingspinbox_sizehint_isbase = false;
             return KPluralHandlingSpinBox::sizeHint();
-        } else if (kpluralhandlingspinbox_sizehint_callback != nullptr) {
-            QSize* callback_ret = kpluralhandlingspinbox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::sizeHint();
         }
+        auto sizehint_cb = kpluralhandlingspinbox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPluralHandlingSpinBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,12 +555,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_minimumsizehint_isbase) {
             kpluralhandlingspinbox_minimumsizehint_isbase = false;
             return KPluralHandlingSpinBox::minimumSizeHint();
-        } else if (kpluralhandlingspinbox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kpluralhandlingspinbox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kpluralhandlingspinbox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPluralHandlingSpinBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,14 +569,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_inputmethodquery_isbase) {
             kpluralhandlingspinbox_inputmethodquery_isbase = false;
             return KPluralHandlingSpinBox::inputMethodQuery(param1);
-        } else if (kpluralhandlingspinbox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kpluralhandlingspinbox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kpluralhandlingspinbox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::inputMethodQuery(param1);
         }
+        return KPluralHandlingSpinBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +585,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_stepby_isbase) {
             kpluralhandlingspinbox_stepby_isbase = false;
             KPluralHandlingSpinBox::stepBy(steps);
-        } else if (kpluralhandlingspinbox_stepby_callback != nullptr) {
+            return;
+        }
+        auto stepby_cb = kpluralhandlingspinbox_stepby_callback;
+        if (stepby_cb) {
             int cbval1 = steps;
 
-            kpluralhandlingspinbox_stepby_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::stepBy(steps);
+            stepby_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::stepBy(steps);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,11 +602,14 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_clear_isbase) {
             kpluralhandlingspinbox_clear_isbase = false;
             KPluralHandlingSpinBox::clear();
-        } else if (kpluralhandlingspinbox_clear_callback != nullptr) {
-            kpluralhandlingspinbox_clear_callback();
-        } else {
-            KPluralHandlingSpinBox::clear();
+            return;
         }
+        auto clear_cb = kpluralhandlingspinbox_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KPluralHandlingSpinBox::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,13 +617,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_resizeevent_isbase) {
             kpluralhandlingspinbox_resizeevent_isbase = false;
             KPluralHandlingSpinBox::resizeEvent(event);
-        } else if (kpluralhandlingspinbox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kpluralhandlingspinbox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_resizeevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,13 +634,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_keypressevent_isbase) {
             kpluralhandlingspinbox_keypressevent_isbase = false;
             KPluralHandlingSpinBox::keyPressEvent(event);
-        } else if (kpluralhandlingspinbox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kpluralhandlingspinbox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_keypressevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,13 +651,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_keyreleaseevent_isbase) {
             kpluralhandlingspinbox_keyreleaseevent_isbase = false;
             KPluralHandlingSpinBox::keyReleaseEvent(event);
-        } else if (kpluralhandlingspinbox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kpluralhandlingspinbox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,13 +668,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_wheelevent_isbase) {
             kpluralhandlingspinbox_wheelevent_isbase = false;
             KPluralHandlingSpinBox::wheelEvent(event);
-        } else if (kpluralhandlingspinbox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kpluralhandlingspinbox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_wheelevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,13 +685,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_focusinevent_isbase) {
             kpluralhandlingspinbox_focusinevent_isbase = false;
             KPluralHandlingSpinBox::focusInEvent(event);
-        } else if (kpluralhandlingspinbox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kpluralhandlingspinbox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_focusinevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,13 +702,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_focusoutevent_isbase) {
             kpluralhandlingspinbox_focusoutevent_isbase = false;
             KPluralHandlingSpinBox::focusOutEvent(event);
-        } else if (kpluralhandlingspinbox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kpluralhandlingspinbox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_focusoutevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,13 +719,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_contextmenuevent_isbase) {
             kpluralhandlingspinbox_contextmenuevent_isbase = false;
             KPluralHandlingSpinBox::contextMenuEvent(event);
-        } else if (kpluralhandlingspinbox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kpluralhandlingspinbox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,13 +736,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_changeevent_isbase) {
             kpluralhandlingspinbox_changeevent_isbase = false;
             KPluralHandlingSpinBox::changeEvent(event);
-        } else if (kpluralhandlingspinbox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kpluralhandlingspinbox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_changeevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,13 +753,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_closeevent_isbase) {
             kpluralhandlingspinbox_closeevent_isbase = false;
             KPluralHandlingSpinBox::closeEvent(event);
-        } else if (kpluralhandlingspinbox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kpluralhandlingspinbox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_closeevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -797,13 +770,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_hideevent_isbase) {
             kpluralhandlingspinbox_hideevent_isbase = false;
             KPluralHandlingSpinBox::hideEvent(event);
-        } else if (kpluralhandlingspinbox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kpluralhandlingspinbox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_hideevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,13 +787,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_mousepressevent_isbase) {
             kpluralhandlingspinbox_mousepressevent_isbase = false;
             KPluralHandlingSpinBox::mousePressEvent(event);
-        } else if (kpluralhandlingspinbox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kpluralhandlingspinbox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_mousepressevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -825,13 +804,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_mousereleaseevent_isbase) {
             kpluralhandlingspinbox_mousereleaseevent_isbase = false;
             KPluralHandlingSpinBox::mouseReleaseEvent(event);
-        } else if (kpluralhandlingspinbox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kpluralhandlingspinbox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,13 +821,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_mousemoveevent_isbase) {
             kpluralhandlingspinbox_mousemoveevent_isbase = false;
             KPluralHandlingSpinBox::mouseMoveEvent(event);
-        } else if (kpluralhandlingspinbox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kpluralhandlingspinbox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,13 +838,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_timerevent_isbase) {
             kpluralhandlingspinbox_timerevent_isbase = false;
             KPluralHandlingSpinBox::timerEvent(event);
-        } else if (kpluralhandlingspinbox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpluralhandlingspinbox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_timerevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +855,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_paintevent_isbase) {
             kpluralhandlingspinbox_paintevent_isbase = false;
             KPluralHandlingSpinBox::paintEvent(event);
-        } else if (kpluralhandlingspinbox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kpluralhandlingspinbox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_paintevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +872,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_showevent_isbase) {
             kpluralhandlingspinbox_showevent_isbase = false;
             KPluralHandlingSpinBox::showEvent(event);
-        } else if (kpluralhandlingspinbox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kpluralhandlingspinbox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_showevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,13 +889,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_initstyleoption_isbase) {
             kpluralhandlingspinbox_initstyleoption_isbase = false;
             KPluralHandlingSpinBox::initStyleOption(option);
-        } else if (kpluralhandlingspinbox_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kpluralhandlingspinbox_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
 
-            kpluralhandlingspinbox_initstyleoption_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,12 +906,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_stepenabled_isbase) {
             kpluralhandlingspinbox_stepenabled_isbase = false;
             return KPluralHandlingSpinBox::stepEnabled();
-        } else if (kpluralhandlingspinbox_stepenabled_callback != nullptr) {
-            int callback_ret = kpluralhandlingspinbox_stepenabled_callback();
-            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::stepEnabled();
         }
+        auto stepenabled_cb = kpluralhandlingspinbox_stepenabled_callback;
+        if (stepenabled_cb) {
+            int callback_ret = stepenabled_cb();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
+        }
+        return KPluralHandlingSpinBox::stepEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,12 +920,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_devtype_isbase) {
             kpluralhandlingspinbox_devtype_isbase = false;
             return KPluralHandlingSpinBox::devType();
-        } else if (kpluralhandlingspinbox_devtype_callback != nullptr) {
-            int callback_ret = kpluralhandlingspinbox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::devType();
         }
+        auto devtype_cb = kpluralhandlingspinbox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPluralHandlingSpinBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,13 +934,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_setvisible_isbase) {
             kpluralhandlingspinbox_setvisible_isbase = false;
             KPluralHandlingSpinBox::setVisible(visible);
-        } else if (kpluralhandlingspinbox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kpluralhandlingspinbox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kpluralhandlingspinbox_setvisible_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,14 +951,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_heightforwidth_isbase) {
             kpluralhandlingspinbox_heightforwidth_isbase = false;
             return KPluralHandlingSpinBox::heightForWidth(param1);
-        } else if (kpluralhandlingspinbox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kpluralhandlingspinbox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kpluralhandlingspinbox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::heightForWidth(param1);
         }
+        return KPluralHandlingSpinBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,12 +967,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_hasheightforwidth_isbase) {
             kpluralhandlingspinbox_hasheightforwidth_isbase = false;
             return KPluralHandlingSpinBox::hasHeightForWidth();
-        } else if (kpluralhandlingspinbox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kpluralhandlingspinbox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kpluralhandlingspinbox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,12 +981,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_paintengine_isbase) {
             kpluralhandlingspinbox_paintengine_isbase = false;
             return KPluralHandlingSpinBox::paintEngine();
-        } else if (kpluralhandlingspinbox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kpluralhandlingspinbox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::paintEngine();
         }
+        auto paintengine_cb = kpluralhandlingspinbox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -990,13 +995,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_mousedoubleclickevent_isbase) {
             kpluralhandlingspinbox_mousedoubleclickevent_isbase = false;
             KPluralHandlingSpinBox::mouseDoubleClickEvent(event);
-        } else if (kpluralhandlingspinbox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kpluralhandlingspinbox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,13 +1012,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_enterevent_isbase) {
             kpluralhandlingspinbox_enterevent_isbase = false;
             KPluralHandlingSpinBox::enterEvent(event);
-        } else if (kpluralhandlingspinbox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kpluralhandlingspinbox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_enterevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,13 +1029,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_leaveevent_isbase) {
             kpluralhandlingspinbox_leaveevent_isbase = false;
             KPluralHandlingSpinBox::leaveEvent(event);
-        } else if (kpluralhandlingspinbox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kpluralhandlingspinbox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_leaveevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,13 +1046,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_moveevent_isbase) {
             kpluralhandlingspinbox_moveevent_isbase = false;
             KPluralHandlingSpinBox::moveEvent(event);
-        } else if (kpluralhandlingspinbox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kpluralhandlingspinbox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_moveevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1046,13 +1063,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_tabletevent_isbase) {
             kpluralhandlingspinbox_tabletevent_isbase = false;
             KPluralHandlingSpinBox::tabletEvent(event);
-        } else if (kpluralhandlingspinbox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kpluralhandlingspinbox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_tabletevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1060,13 +1080,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_actionevent_isbase) {
             kpluralhandlingspinbox_actionevent_isbase = false;
             KPluralHandlingSpinBox::actionEvent(event);
-        } else if (kpluralhandlingspinbox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kpluralhandlingspinbox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_actionevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,13 +1097,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_dragenterevent_isbase) {
             kpluralhandlingspinbox_dragenterevent_isbase = false;
             KPluralHandlingSpinBox::dragEnterEvent(event);
-        } else if (kpluralhandlingspinbox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kpluralhandlingspinbox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_dragenterevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,13 +1114,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_dragmoveevent_isbase) {
             kpluralhandlingspinbox_dragmoveevent_isbase = false;
             KPluralHandlingSpinBox::dragMoveEvent(event);
-        } else if (kpluralhandlingspinbox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kpluralhandlingspinbox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,13 +1131,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_dragleaveevent_isbase) {
             kpluralhandlingspinbox_dragleaveevent_isbase = false;
             KPluralHandlingSpinBox::dragLeaveEvent(event);
-        } else if (kpluralhandlingspinbox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kpluralhandlingspinbox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,13 +1148,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_dropevent_isbase) {
             kpluralhandlingspinbox_dropevent_isbase = false;
             KPluralHandlingSpinBox::dropEvent(event);
-        } else if (kpluralhandlingspinbox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kpluralhandlingspinbox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_dropevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,7 +1165,9 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_nativeevent_isbase) {
             kpluralhandlingspinbox_nativeevent_isbase = false;
             return KPluralHandlingSpinBox::nativeEvent(eventType, message, result);
-        } else if (kpluralhandlingspinbox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kpluralhandlingspinbox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1141,12 +1178,11 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kpluralhandlingspinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::nativeEvent(eventType, message, result);
         }
+        return KPluralHandlingSpinBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,14 +1190,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_metric_isbase) {
             kpluralhandlingspinbox_metric_isbase = false;
             return KPluralHandlingSpinBox::metric(param1);
-        } else if (kpluralhandlingspinbox_metric_callback != nullptr) {
+        }
+        auto metric_cb = kpluralhandlingspinbox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kpluralhandlingspinbox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::metric(param1);
         }
+        return KPluralHandlingSpinBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,13 +1206,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_initpainter_isbase) {
             kpluralhandlingspinbox_initpainter_isbase = false;
             KPluralHandlingSpinBox::initPainter(painter);
-        } else if (kpluralhandlingspinbox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kpluralhandlingspinbox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kpluralhandlingspinbox_initpainter_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,14 +1223,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_redirected_isbase) {
             kpluralhandlingspinbox_redirected_isbase = false;
             return KPluralHandlingSpinBox::redirected(offset);
-        } else if (kpluralhandlingspinbox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kpluralhandlingspinbox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kpluralhandlingspinbox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::redirected(offset);
         }
+        return KPluralHandlingSpinBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,12 +1239,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_sharedpainter_isbase) {
             kpluralhandlingspinbox_sharedpainter_isbase = false;
             return KPluralHandlingSpinBox::sharedPainter();
-        } else if (kpluralhandlingspinbox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kpluralhandlingspinbox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::sharedPainter();
         }
+        auto sharedpainter_cb = kpluralhandlingspinbox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,13 +1253,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_inputmethodevent_isbase) {
             kpluralhandlingspinbox_inputmethodevent_isbase = false;
             KPluralHandlingSpinBox::inputMethodEvent(param1);
-        } else if (kpluralhandlingspinbox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kpluralhandlingspinbox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kpluralhandlingspinbox_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,14 +1270,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_focusnextprevchild_isbase) {
             kpluralhandlingspinbox_focusnextprevchild_isbase = false;
             return KPluralHandlingSpinBox::focusNextPrevChild(next);
-        } else if (kpluralhandlingspinbox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kpluralhandlingspinbox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kpluralhandlingspinbox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::focusNextPrevChild(next);
         }
+        return KPluralHandlingSpinBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,15 +1286,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_eventfilter_isbase) {
             kpluralhandlingspinbox_eventfilter_isbase = false;
             return KPluralHandlingSpinBox::eventFilter(watched, event);
-        } else if (kpluralhandlingspinbox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpluralhandlingspinbox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpluralhandlingspinbox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::eventFilter(watched, event);
         }
+        return KPluralHandlingSpinBox::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,13 +1303,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_childevent_isbase) {
             kpluralhandlingspinbox_childevent_isbase = false;
             KPluralHandlingSpinBox::childEvent(event);
-        } else if (kpluralhandlingspinbox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpluralhandlingspinbox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_childevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,13 +1320,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_customevent_isbase) {
             kpluralhandlingspinbox_customevent_isbase = false;
             KPluralHandlingSpinBox::customEvent(event);
-        } else if (kpluralhandlingspinbox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpluralhandlingspinbox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpluralhandlingspinbox_customevent_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,15 +1337,18 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_connectnotify_isbase) {
             kpluralhandlingspinbox_connectnotify_isbase = false;
             KPluralHandlingSpinBox::connectNotify(signal);
-        } else if (kpluralhandlingspinbox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpluralhandlingspinbox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpluralhandlingspinbox_connectnotify_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,15 +1356,18 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_disconnectnotify_isbase) {
             kpluralhandlingspinbox_disconnectnotify_isbase = false;
             KPluralHandlingSpinBox::disconnectNotify(signal);
-        } else if (kpluralhandlingspinbox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpluralhandlingspinbox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpluralhandlingspinbox_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1316,12 +1375,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_lineedit_isbase) {
             kpluralhandlingspinbox_lineedit_isbase = false;
             return KPluralHandlingSpinBox::lineEdit();
-        } else if (kpluralhandlingspinbox_lineedit_callback != nullptr) {
-            QLineEdit* callback_ret = kpluralhandlingspinbox_lineedit_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::lineEdit();
         }
+        auto lineedit_cb = kpluralhandlingspinbox_lineedit_callback;
+        if (lineedit_cb) {
+            QLineEdit* callback_ret = lineedit_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::lineEdit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1329,13 +1389,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_setlineedit_isbase) {
             kpluralhandlingspinbox_setlineedit_isbase = false;
             KPluralHandlingSpinBox::setLineEdit(edit);
-        } else if (kpluralhandlingspinbox_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = kpluralhandlingspinbox_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
 
-            kpluralhandlingspinbox_setlineedit_callback(this, cbval1);
-        } else {
-            KPluralHandlingSpinBox::setLineEdit(edit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        KPluralHandlingSpinBox::setLineEdit(edit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1343,11 +1406,14 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_updatemicrofocus_isbase) {
             kpluralhandlingspinbox_updatemicrofocus_isbase = false;
             KPluralHandlingSpinBox::updateMicroFocus();
-        } else if (kpluralhandlingspinbox_updatemicrofocus_callback != nullptr) {
-            kpluralhandlingspinbox_updatemicrofocus_callback();
-        } else {
-            KPluralHandlingSpinBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kpluralhandlingspinbox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPluralHandlingSpinBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1355,11 +1421,14 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_create_isbase) {
             kpluralhandlingspinbox_create_isbase = false;
             KPluralHandlingSpinBox::create();
-        } else if (kpluralhandlingspinbox_create_callback != nullptr) {
-            kpluralhandlingspinbox_create_callback();
-        } else {
-            KPluralHandlingSpinBox::create();
+            return;
         }
+        auto create_cb = kpluralhandlingspinbox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPluralHandlingSpinBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1367,11 +1436,14 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_destroy_isbase) {
             kpluralhandlingspinbox_destroy_isbase = false;
             KPluralHandlingSpinBox::destroy();
-        } else if (kpluralhandlingspinbox_destroy_callback != nullptr) {
-            kpluralhandlingspinbox_destroy_callback();
-        } else {
-            KPluralHandlingSpinBox::destroy();
+            return;
         }
+        auto destroy_cb = kpluralhandlingspinbox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPluralHandlingSpinBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1379,12 +1451,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_focusnextchild_isbase) {
             kpluralhandlingspinbox_focusnextchild_isbase = false;
             return KPluralHandlingSpinBox::focusNextChild();
-        } else if (kpluralhandlingspinbox_focusnextchild_callback != nullptr) {
-            bool callback_ret = kpluralhandlingspinbox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::focusNextChild();
         }
+        auto focusnextchild_cb = kpluralhandlingspinbox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1392,12 +1465,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_focuspreviouschild_isbase) {
             kpluralhandlingspinbox_focuspreviouschild_isbase = false;
             return KPluralHandlingSpinBox::focusPreviousChild();
-        } else if (kpluralhandlingspinbox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kpluralhandlingspinbox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kpluralhandlingspinbox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,12 +1479,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_sender_isbase) {
             kpluralhandlingspinbox_sender_isbase = false;
             return KPluralHandlingSpinBox::sender();
-        } else if (kpluralhandlingspinbox_sender_callback != nullptr) {
-            QObject* callback_ret = kpluralhandlingspinbox_sender_callback();
-            return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::sender();
         }
+        auto sender_cb = kpluralhandlingspinbox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPluralHandlingSpinBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1418,12 +1493,13 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_sendersignalindex_isbase) {
             kpluralhandlingspinbox_sendersignalindex_isbase = false;
             return KPluralHandlingSpinBox::senderSignalIndex();
-        } else if (kpluralhandlingspinbox_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpluralhandlingspinbox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpluralhandlingspinbox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPluralHandlingSpinBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1431,14 +1507,15 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_receivers_isbase) {
             kpluralhandlingspinbox_receivers_isbase = false;
             return KPluralHandlingSpinBox::receivers(signal);
-        } else if (kpluralhandlingspinbox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpluralhandlingspinbox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpluralhandlingspinbox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::receivers(signal);
         }
+        return KPluralHandlingSpinBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1446,16 +1523,17 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_issignalconnected_isbase) {
             kpluralhandlingspinbox_issignalconnected_isbase = false;
             return KPluralHandlingSpinBox::isSignalConnected(signal);
-        } else if (kpluralhandlingspinbox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpluralhandlingspinbox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpluralhandlingspinbox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPluralHandlingSpinBox::isSignalConnected(signal);
         }
+        return KPluralHandlingSpinBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1463,15 +1541,16 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         if (kpluralhandlingspinbox_getdecodedmetricf_isbase) {
             kpluralhandlingspinbox_getdecodedmetricf_isbase = false;
             return KPluralHandlingSpinBox::getDecodedMetricF(metricA, metricB);
-        } else if (kpluralhandlingspinbox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kpluralhandlingspinbox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kpluralhandlingspinbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPluralHandlingSpinBox::getDecodedMetricF(metricA, metricB);
         }
+        return KPluralHandlingSpinBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

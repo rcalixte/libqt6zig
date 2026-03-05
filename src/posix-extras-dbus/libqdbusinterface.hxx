@@ -80,26 +80,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
     VirtualQDBusInterface(const QString& service, const QString& path, const QString& interface, const QDBusConnection& connection) : QDBusInterface(service, path, interface, connection) {};
     VirtualQDBusInterface(const QString& service, const QString& path, const QString& interface, const QDBusConnection& connection, QObject* parent) : QDBusInterface(service, path, interface, connection, parent) {};
 
-    ~VirtualQDBusInterface() {
-        qdbusinterface_metaobject_callback = nullptr;
-        qdbusinterface_metacast_callback = nullptr;
-        qdbusinterface_metacall_callback = nullptr;
-        qdbusinterface_connectnotify_callback = nullptr;
-        qdbusinterface_disconnectnotify_callback = nullptr;
-        qdbusinterface_event_callback = nullptr;
-        qdbusinterface_eventfilter_callback = nullptr;
-        qdbusinterface_timerevent_callback = nullptr;
-        qdbusinterface_childevent_callback = nullptr;
-        qdbusinterface_customevent_callback = nullptr;
-        qdbusinterface_internalpropget_callback = nullptr;
-        qdbusinterface_internalpropset_callback = nullptr;
-        qdbusinterface_internalconstcall_callback = nullptr;
-        qdbusinterface_sender_callback = nullptr;
-        qdbusinterface_sendersignalindex_callback = nullptr;
-        qdbusinterface_receivers_callback = nullptr;
-        qdbusinterface_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDBusInterface_MetaObject_Callback(QDBusInterface_MetaObject_Callback cb) { qdbusinterface_metaobject_callback = cb; }
     inline void setQDBusInterface_Metacast_Callback(QDBusInterface_Metacast_Callback cb) { qdbusinterface_metacast_callback = cb; }
@@ -143,12 +123,13 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_metaobject_isbase) {
             qdbusinterface_metaobject_isbase = false;
             return QDBusInterface::metaObject();
-        } else if (qdbusinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdbusinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDBusInterface::metaObject();
         }
+        auto metaobject_cb = qdbusinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDBusInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,14 +137,15 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_metacast_isbase) {
             qdbusinterface_metacast_isbase = false;
             return QDBusInterface::qt_metacast(param1);
-        } else if (qdbusinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdbusinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdbusinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusInterface::qt_metacast(param1);
         }
+        return QDBusInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -171,16 +153,17 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_metacall_isbase) {
             qdbusinterface_metacall_isbase = false;
             return QDBusInterface::qt_metacall(param1, param2, param3);
-        } else if (qdbusinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdbusinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdbusinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusInterface::qt_metacall(param1, param2, param3);
         }
+        return QDBusInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,15 +171,18 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_connectnotify_isbase) {
             qdbusinterface_connectnotify_isbase = false;
             QDBusInterface::connectNotify(signal);
-        } else if (qdbusinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdbusinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbusinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDBusInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,15 +190,18 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_disconnectnotify_isbase) {
             qdbusinterface_disconnectnotify_isbase = false;
             QDBusInterface::disconnectNotify(signal);
-        } else if (qdbusinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdbusinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbusinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDBusInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,14 +209,15 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_event_isbase) {
             qdbusinterface_event_isbase = false;
             return QDBusInterface::event(event);
-        } else if (qdbusinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdbusinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdbusinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusInterface::event(event);
         }
+        return QDBusInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,15 +225,16 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_eventfilter_isbase) {
             qdbusinterface_eventfilter_isbase = false;
             return QDBusInterface::eventFilter(watched, event);
-        } else if (qdbusinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdbusinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdbusinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDBusInterface::eventFilter(watched, event);
         }
+        return QDBusInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +242,16 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_timerevent_isbase) {
             qdbusinterface_timerevent_isbase = false;
             QDBusInterface::timerEvent(event);
-        } else if (qdbusinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdbusinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdbusinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDBusInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDBusInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,13 +259,16 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_childevent_isbase) {
             qdbusinterface_childevent_isbase = false;
             QDBusInterface::childEvent(event);
-        } else if (qdbusinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdbusinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdbusinterface_childevent_callback(this, cbval1);
-        } else {
-            QDBusInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDBusInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,13 +276,16 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_customevent_isbase) {
             qdbusinterface_customevent_isbase = false;
             QDBusInterface::customEvent(event);
-        } else if (qdbusinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdbusinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdbusinterface_customevent_callback(this, cbval1);
-        } else {
-            QDBusInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDBusInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,14 +293,15 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_internalpropget_isbase) {
             qdbusinterface_internalpropget_isbase = false;
             return QDBusInterface::internalPropGet(propname);
-        } else if (qdbusinterface_internalpropget_callback != nullptr) {
+        }
+        auto internalpropget_cb = qdbusinterface_internalpropget_callback;
+        if (internalpropget_cb) {
             const char* cbval1 = (const char*)propname;
 
-            QVariant* callback_ret = qdbusinterface_internalpropget_callback(this, cbval1);
+            QVariant* callback_ret = internalpropget_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDBusInterface::internalPropGet(propname);
         }
+        return QDBusInterface::internalPropGet(propname);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,16 +309,19 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_internalpropset_isbase) {
             qdbusinterface_internalpropset_isbase = false;
             QDBusInterface::internalPropSet(propname, value);
-        } else if (qdbusinterface_internalpropset_callback != nullptr) {
+            return;
+        }
+        auto internalpropset_cb = qdbusinterface_internalpropset_callback;
+        if (internalpropset_cb) {
             const char* cbval1 = (const char*)propname;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qdbusinterface_internalpropset_callback(this, cbval1, cbval2);
-        } else {
-            QDBusInterface::internalPropSet(propname, value);
+            internalpropset_cb(this, cbval1, cbval2);
+            return;
         }
+        QDBusInterface::internalPropSet(propname, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,7 +329,9 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_internalconstcall_isbase) {
             qdbusinterface_internalconstcall_isbase = false;
             return QDBusInterface::internalConstCall(mode, method);
-        } else if (qdbusinterface_internalconstcall_callback != nullptr) {
+        }
+        auto internalconstcall_cb = qdbusinterface_internalconstcall_callback;
+        if (internalconstcall_cb) {
             int cbval1 = static_cast<int>(mode);
             const QString method_ret = method;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -336,12 +342,11 @@ class VirtualQDBusInterface final : public QDBusInterface {
             ((char*)method_str)[method_str_len] = '\0';
             const char* cbval2 = method_str;
 
-            QDBusMessage* callback_ret = qdbusinterface_internalconstcall_callback(this, cbval1, cbval2);
+            QDBusMessage* callback_ret = internalconstcall_cb(this, cbval1, cbval2);
             libqt_free(method_str);
             return *callback_ret;
-        } else {
-            return QDBusInterface::internalConstCall(mode, method);
         }
+        return QDBusInterface::internalConstCall(mode, method);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -349,12 +354,13 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_sender_isbase) {
             qdbusinterface_sender_isbase = false;
             return QDBusInterface::sender();
-        } else if (qdbusinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdbusinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDBusInterface::sender();
         }
+        auto sender_cb = qdbusinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDBusInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,12 +368,13 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_sendersignalindex_isbase) {
             qdbusinterface_sendersignalindex_isbase = false;
             return QDBusInterface::senderSignalIndex();
-        } else if (qdbusinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdbusinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDBusInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdbusinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDBusInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -375,14 +382,15 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_receivers_isbase) {
             qdbusinterface_receivers_isbase = false;
             return QDBusInterface::receivers(signal);
-        } else if (qdbusinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdbusinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdbusinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusInterface::receivers(signal);
         }
+        return QDBusInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,16 +398,17 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (qdbusinterface_issignalconnected_isbase) {
             qdbusinterface_issignalconnected_isbase = false;
             return QDBusInterface::isSignalConnected(signal);
-        } else if (qdbusinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdbusinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdbusinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusInterface::isSignalConnected(signal);
         }
+        return QDBusInterface::isSignalConnected(signal);
     }
 
     // Friend functions

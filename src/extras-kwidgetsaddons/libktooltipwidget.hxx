@@ -207,69 +207,6 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     VirtualKToolTipWidget(QWidget* parent) : KToolTipWidget(parent) {};
     VirtualKToolTipWidget() : KToolTipWidget() {};
 
-    ~VirtualKToolTipWidget() {
-        ktooltipwidget_metaobject_callback = nullptr;
-        ktooltipwidget_metacast_callback = nullptr;
-        ktooltipwidget_metacall_callback = nullptr;
-        ktooltipwidget_enterevent_callback = nullptr;
-        ktooltipwidget_hideevent_callback = nullptr;
-        ktooltipwidget_leaveevent_callback = nullptr;
-        ktooltipwidget_paintevent_callback = nullptr;
-        ktooltipwidget_devtype_callback = nullptr;
-        ktooltipwidget_setvisible_callback = nullptr;
-        ktooltipwidget_sizehint_callback = nullptr;
-        ktooltipwidget_minimumsizehint_callback = nullptr;
-        ktooltipwidget_heightforwidth_callback = nullptr;
-        ktooltipwidget_hasheightforwidth_callback = nullptr;
-        ktooltipwidget_paintengine_callback = nullptr;
-        ktooltipwidget_event_callback = nullptr;
-        ktooltipwidget_mousepressevent_callback = nullptr;
-        ktooltipwidget_mousereleaseevent_callback = nullptr;
-        ktooltipwidget_mousedoubleclickevent_callback = nullptr;
-        ktooltipwidget_mousemoveevent_callback = nullptr;
-        ktooltipwidget_wheelevent_callback = nullptr;
-        ktooltipwidget_keypressevent_callback = nullptr;
-        ktooltipwidget_keyreleaseevent_callback = nullptr;
-        ktooltipwidget_focusinevent_callback = nullptr;
-        ktooltipwidget_focusoutevent_callback = nullptr;
-        ktooltipwidget_moveevent_callback = nullptr;
-        ktooltipwidget_resizeevent_callback = nullptr;
-        ktooltipwidget_closeevent_callback = nullptr;
-        ktooltipwidget_contextmenuevent_callback = nullptr;
-        ktooltipwidget_tabletevent_callback = nullptr;
-        ktooltipwidget_actionevent_callback = nullptr;
-        ktooltipwidget_dragenterevent_callback = nullptr;
-        ktooltipwidget_dragmoveevent_callback = nullptr;
-        ktooltipwidget_dragleaveevent_callback = nullptr;
-        ktooltipwidget_dropevent_callback = nullptr;
-        ktooltipwidget_showevent_callback = nullptr;
-        ktooltipwidget_nativeevent_callback = nullptr;
-        ktooltipwidget_changeevent_callback = nullptr;
-        ktooltipwidget_metric_callback = nullptr;
-        ktooltipwidget_initpainter_callback = nullptr;
-        ktooltipwidget_redirected_callback = nullptr;
-        ktooltipwidget_sharedpainter_callback = nullptr;
-        ktooltipwidget_inputmethodevent_callback = nullptr;
-        ktooltipwidget_inputmethodquery_callback = nullptr;
-        ktooltipwidget_focusnextprevchild_callback = nullptr;
-        ktooltipwidget_eventfilter_callback = nullptr;
-        ktooltipwidget_timerevent_callback = nullptr;
-        ktooltipwidget_childevent_callback = nullptr;
-        ktooltipwidget_customevent_callback = nullptr;
-        ktooltipwidget_connectnotify_callback = nullptr;
-        ktooltipwidget_disconnectnotify_callback = nullptr;
-        ktooltipwidget_updatemicrofocus_callback = nullptr;
-        ktooltipwidget_create_callback = nullptr;
-        ktooltipwidget_destroy_callback = nullptr;
-        ktooltipwidget_focusnextchild_callback = nullptr;
-        ktooltipwidget_focuspreviouschild_callback = nullptr;
-        ktooltipwidget_sender_callback = nullptr;
-        ktooltipwidget_sendersignalindex_callback = nullptr;
-        ktooltipwidget_receivers_callback = nullptr;
-        ktooltipwidget_issignalconnected_callback = nullptr;
-        ktooltipwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToolTipWidget_MetaObject_Callback(KToolTipWidget_MetaObject_Callback cb) { ktooltipwidget_metaobject_callback = cb; }
     inline void setKToolTipWidget_Metacast_Callback(KToolTipWidget_Metacast_Callback cb) { ktooltipwidget_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_metaobject_isbase) {
             ktooltipwidget_metaobject_isbase = false;
             return KToolTipWidget::metaObject();
-        } else if (ktooltipwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktooltipwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::metaObject();
         }
+        auto metaobject_cb = ktooltipwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_metacast_isbase) {
             ktooltipwidget_metacast_isbase = false;
             return KToolTipWidget::qt_metacast(param1);
-        } else if (ktooltipwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktooltipwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktooltipwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolTipWidget::qt_metacast(param1);
         }
+        return KToolTipWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_metacall_isbase) {
             ktooltipwidget_metacall_isbase = false;
             return KToolTipWidget::qt_metacall(param1, param2, param3);
-        } else if (ktooltipwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktooltipwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktooltipwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolTipWidget::qt_metacall(param1, param2, param3);
         }
+        return KToolTipWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,13 +384,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_enterevent_isbase) {
             ktooltipwidget_enterevent_isbase = false;
             KToolTipWidget::enterEvent(event);
-        } else if (ktooltipwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = ktooltipwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            ktooltipwidget_enterevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,13 +401,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_hideevent_isbase) {
             ktooltipwidget_hideevent_isbase = false;
             KToolTipWidget::hideEvent(param1);
-        } else if (ktooltipwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = ktooltipwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            ktooltipwidget_hideevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -472,13 +418,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_leaveevent_isbase) {
             ktooltipwidget_leaveevent_isbase = false;
             KToolTipWidget::leaveEvent(param1);
-        } else if (ktooltipwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = ktooltipwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            ktooltipwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,13 +435,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_paintevent_isbase) {
             ktooltipwidget_paintevent_isbase = false;
             KToolTipWidget::paintEvent(event);
-        } else if (ktooltipwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = ktooltipwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            ktooltipwidget_paintevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,12 +452,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_devtype_isbase) {
             ktooltipwidget_devtype_isbase = false;
             return KToolTipWidget::devType();
-        } else if (ktooltipwidget_devtype_callback != nullptr) {
-            int callback_ret = ktooltipwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToolTipWidget::devType();
         }
+        auto devtype_cb = ktooltipwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToolTipWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +466,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_setvisible_isbase) {
             ktooltipwidget_setvisible_isbase = false;
             KToolTipWidget::setVisible(visible);
-        } else if (ktooltipwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = ktooltipwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            ktooltipwidget_setvisible_callback(this, cbval1);
-        } else {
-            KToolTipWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,12 +483,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_sizehint_isbase) {
             ktooltipwidget_sizehint_isbase = false;
             return KToolTipWidget::sizeHint();
-        } else if (ktooltipwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = ktooltipwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KToolTipWidget::sizeHint();
         }
+        auto sizehint_cb = ktooltipwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KToolTipWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,12 +497,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_minimumsizehint_isbase) {
             ktooltipwidget_minimumsizehint_isbase = false;
             return KToolTipWidget::minimumSizeHint();
-        } else if (ktooltipwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = ktooltipwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KToolTipWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = ktooltipwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KToolTipWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,14 +511,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_heightforwidth_isbase) {
             ktooltipwidget_heightforwidth_isbase = false;
             return KToolTipWidget::heightForWidth(param1);
-        } else if (ktooltipwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = ktooltipwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = ktooltipwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolTipWidget::heightForWidth(param1);
         }
+        return KToolTipWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,12 +527,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_hasheightforwidth_isbase) {
             ktooltipwidget_hasheightforwidth_isbase = false;
             return KToolTipWidget::hasHeightForWidth();
-        } else if (ktooltipwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = ktooltipwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = ktooltipwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,12 +541,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_paintengine_isbase) {
             ktooltipwidget_paintengine_isbase = false;
             return KToolTipWidget::paintEngine();
-        } else if (ktooltipwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = ktooltipwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::paintEngine();
         }
+        auto paintengine_cb = ktooltipwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,14 +555,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_event_isbase) {
             ktooltipwidget_event_isbase = false;
             return KToolTipWidget::event(event);
-        } else if (ktooltipwidget_event_callback != nullptr) {
+        }
+        auto event_cb = ktooltipwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ktooltipwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolTipWidget::event(event);
         }
+        return KToolTipWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,13 +571,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_mousepressevent_isbase) {
             ktooltipwidget_mousepressevent_isbase = false;
             KToolTipWidget::mousePressEvent(event);
-        } else if (ktooltipwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = ktooltipwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktooltipwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +588,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_mousereleaseevent_isbase) {
             ktooltipwidget_mousereleaseevent_isbase = false;
             KToolTipWidget::mouseReleaseEvent(event);
-        } else if (ktooltipwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = ktooltipwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktooltipwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +605,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_mousedoubleclickevent_isbase) {
             ktooltipwidget_mousedoubleclickevent_isbase = false;
             KToolTipWidget::mouseDoubleClickEvent(event);
-        } else if (ktooltipwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = ktooltipwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktooltipwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +622,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_mousemoveevent_isbase) {
             ktooltipwidget_mousemoveevent_isbase = false;
             KToolTipWidget::mouseMoveEvent(event);
-        } else if (ktooltipwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = ktooltipwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktooltipwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +639,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_wheelevent_isbase) {
             ktooltipwidget_wheelevent_isbase = false;
             KToolTipWidget::wheelEvent(event);
-        } else if (ktooltipwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = ktooltipwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            ktooltipwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +656,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_keypressevent_isbase) {
             ktooltipwidget_keypressevent_isbase = false;
             KToolTipWidget::keyPressEvent(event);
-        } else if (ktooltipwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = ktooltipwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ktooltipwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +673,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_keyreleaseevent_isbase) {
             ktooltipwidget_keyreleaseevent_isbase = false;
             KToolTipWidget::keyReleaseEvent(event);
-        } else if (ktooltipwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = ktooltipwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ktooltipwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +690,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_focusinevent_isbase) {
             ktooltipwidget_focusinevent_isbase = false;
             KToolTipWidget::focusInEvent(event);
-        } else if (ktooltipwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = ktooltipwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ktooltipwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +707,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_focusoutevent_isbase) {
             ktooltipwidget_focusoutevent_isbase = false;
             KToolTipWidget::focusOutEvent(event);
-        } else if (ktooltipwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = ktooltipwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ktooltipwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +724,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_moveevent_isbase) {
             ktooltipwidget_moveevent_isbase = false;
             KToolTipWidget::moveEvent(event);
-        } else if (ktooltipwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = ktooltipwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            ktooltipwidget_moveevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +741,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_resizeevent_isbase) {
             ktooltipwidget_resizeevent_isbase = false;
             KToolTipWidget::resizeEvent(event);
-        } else if (ktooltipwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = ktooltipwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            ktooltipwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +758,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_closeevent_isbase) {
             ktooltipwidget_closeevent_isbase = false;
             KToolTipWidget::closeEvent(event);
-        } else if (ktooltipwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = ktooltipwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            ktooltipwidget_closeevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +775,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_contextmenuevent_isbase) {
             ktooltipwidget_contextmenuevent_isbase = false;
             KToolTipWidget::contextMenuEvent(event);
-        } else if (ktooltipwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = ktooltipwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            ktooltipwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +792,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_tabletevent_isbase) {
             ktooltipwidget_tabletevent_isbase = false;
             KToolTipWidget::tabletEvent(event);
-        } else if (ktooltipwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = ktooltipwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            ktooltipwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +809,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_actionevent_isbase) {
             ktooltipwidget_actionevent_isbase = false;
             KToolTipWidget::actionEvent(event);
-        } else if (ktooltipwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = ktooltipwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            ktooltipwidget_actionevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +826,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_dragenterevent_isbase) {
             ktooltipwidget_dragenterevent_isbase = false;
             KToolTipWidget::dragEnterEvent(event);
-        } else if (ktooltipwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = ktooltipwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            ktooltipwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +843,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_dragmoveevent_isbase) {
             ktooltipwidget_dragmoveevent_isbase = false;
             KToolTipWidget::dragMoveEvent(event);
-        } else if (ktooltipwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = ktooltipwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            ktooltipwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +860,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_dragleaveevent_isbase) {
             ktooltipwidget_dragleaveevent_isbase = false;
             KToolTipWidget::dragLeaveEvent(event);
-        } else if (ktooltipwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = ktooltipwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            ktooltipwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +877,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_dropevent_isbase) {
             ktooltipwidget_dropevent_isbase = false;
             KToolTipWidget::dropEvent(event);
-        } else if (ktooltipwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = ktooltipwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            ktooltipwidget_dropevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +894,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_showevent_isbase) {
             ktooltipwidget_showevent_isbase = false;
             KToolTipWidget::showEvent(event);
-        } else if (ktooltipwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = ktooltipwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            ktooltipwidget_showevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,7 +911,9 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_nativeevent_isbase) {
             ktooltipwidget_nativeevent_isbase = false;
             return KToolTipWidget::nativeEvent(eventType, message, result);
-        } else if (ktooltipwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = ktooltipwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,12 +924,11 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = ktooltipwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KToolTipWidget::nativeEvent(eventType, message, result);
         }
+        return KToolTipWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +936,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_changeevent_isbase) {
             ktooltipwidget_changeevent_isbase = false;
             KToolTipWidget::changeEvent(param1);
-        } else if (ktooltipwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = ktooltipwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            ktooltipwidget_changeevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,14 +953,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_metric_isbase) {
             ktooltipwidget_metric_isbase = false;
             return KToolTipWidget::metric(param1);
-        } else if (ktooltipwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = ktooltipwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = ktooltipwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolTipWidget::metric(param1);
         }
+        return KToolTipWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +969,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_initpainter_isbase) {
             ktooltipwidget_initpainter_isbase = false;
             KToolTipWidget::initPainter(painter);
-        } else if (ktooltipwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = ktooltipwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            ktooltipwidget_initpainter_callback(this, cbval1);
-        } else {
-            KToolTipWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,14 +986,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_redirected_isbase) {
             ktooltipwidget_redirected_isbase = false;
             return KToolTipWidget::redirected(offset);
-        } else if (ktooltipwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = ktooltipwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = ktooltipwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolTipWidget::redirected(offset);
         }
+        return KToolTipWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,12 +1002,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_sharedpainter_isbase) {
             ktooltipwidget_sharedpainter_isbase = false;
             return KToolTipWidget::sharedPainter();
-        } else if (ktooltipwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = ktooltipwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::sharedPainter();
         }
+        auto sharedpainter_cb = ktooltipwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1016,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_inputmethodevent_isbase) {
             ktooltipwidget_inputmethodevent_isbase = false;
             KToolTipWidget::inputMethodEvent(param1);
-        } else if (ktooltipwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = ktooltipwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            ktooltipwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1033,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_inputmethodquery_isbase) {
             ktooltipwidget_inputmethodquery_isbase = false;
             return KToolTipWidget::inputMethodQuery(param1);
-        } else if (ktooltipwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = ktooltipwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = ktooltipwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KToolTipWidget::inputMethodQuery(param1);
         }
+        return KToolTipWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,14 +1049,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_focusnextprevchild_isbase) {
             ktooltipwidget_focusnextprevchild_isbase = false;
             return KToolTipWidget::focusNextPrevChild(next);
-        } else if (ktooltipwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = ktooltipwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = ktooltipwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolTipWidget::focusNextPrevChild(next);
         }
+        return KToolTipWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,15 +1065,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_eventfilter_isbase) {
             ktooltipwidget_eventfilter_isbase = false;
             return KToolTipWidget::eventFilter(watched, event);
-        } else if (ktooltipwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktooltipwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktooltipwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToolTipWidget::eventFilter(watched, event);
         }
+        return KToolTipWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_timerevent_isbase) {
             ktooltipwidget_timerevent_isbase = false;
             KToolTipWidget::timerEvent(event);
-        } else if (ktooltipwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktooltipwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktooltipwidget_timerevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_childevent_isbase) {
             ktooltipwidget_childevent_isbase = false;
             KToolTipWidget::childEvent(event);
-        } else if (ktooltipwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktooltipwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktooltipwidget_childevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_customevent_isbase) {
             ktooltipwidget_customevent_isbase = false;
             KToolTipWidget::customEvent(event);
-        } else if (ktooltipwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktooltipwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktooltipwidget_customevent_callback(this, cbval1);
-        } else {
-            KToolTipWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_connectnotify_isbase) {
             ktooltipwidget_connectnotify_isbase = false;
             KToolTipWidget::connectNotify(signal);
-        } else if (ktooltipwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktooltipwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktooltipwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KToolTipWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_disconnectnotify_isbase) {
             ktooltipwidget_disconnectnotify_isbase = false;
             KToolTipWidget::disconnectNotify(signal);
-        } else if (ktooltipwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktooltipwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktooltipwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToolTipWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToolTipWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_updatemicrofocus_isbase) {
             ktooltipwidget_updatemicrofocus_isbase = false;
             KToolTipWidget::updateMicroFocus();
-        } else if (ktooltipwidget_updatemicrofocus_callback != nullptr) {
-            ktooltipwidget_updatemicrofocus_callback();
-        } else {
-            KToolTipWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = ktooltipwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KToolTipWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_create_isbase) {
             ktooltipwidget_create_isbase = false;
             KToolTipWidget::create();
-        } else if (ktooltipwidget_create_callback != nullptr) {
-            ktooltipwidget_create_callback();
-        } else {
-            KToolTipWidget::create();
+            return;
         }
+        auto create_cb = ktooltipwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KToolTipWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_destroy_isbase) {
             ktooltipwidget_destroy_isbase = false;
             KToolTipWidget::destroy();
-        } else if (ktooltipwidget_destroy_callback != nullptr) {
-            ktooltipwidget_destroy_callback();
-        } else {
-            KToolTipWidget::destroy();
+            return;
         }
+        auto destroy_cb = ktooltipwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KToolTipWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_focusnextchild_isbase) {
             ktooltipwidget_focusnextchild_isbase = false;
             return KToolTipWidget::focusNextChild();
-        } else if (ktooltipwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = ktooltipwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::focusNextChild();
         }
+        auto focusnextchild_cb = ktooltipwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_focuspreviouschild_isbase) {
             ktooltipwidget_focuspreviouschild_isbase = false;
             return KToolTipWidget::focusPreviousChild();
-        } else if (ktooltipwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = ktooltipwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = ktooltipwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_sender_isbase) {
             ktooltipwidget_sender_isbase = false;
             return KToolTipWidget::sender();
-        } else if (ktooltipwidget_sender_callback != nullptr) {
-            QObject* callback_ret = ktooltipwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KToolTipWidget::sender();
         }
+        auto sender_cb = ktooltipwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToolTipWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_sendersignalindex_isbase) {
             ktooltipwidget_sendersignalindex_isbase = false;
             return KToolTipWidget::senderSignalIndex();
-        } else if (ktooltipwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktooltipwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToolTipWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktooltipwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToolTipWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_receivers_isbase) {
             ktooltipwidget_receivers_isbase = false;
             return KToolTipWidget::receivers(signal);
-        } else if (ktooltipwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktooltipwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktooltipwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolTipWidget::receivers(signal);
         }
+        return KToolTipWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_issignalconnected_isbase) {
             ktooltipwidget_issignalconnected_isbase = false;
             return KToolTipWidget::isSignalConnected(signal);
-        } else if (ktooltipwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktooltipwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktooltipwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolTipWidget::isSignalConnected(signal);
         }
+        return KToolTipWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
         if (ktooltipwidget_getdecodedmetricf_isbase) {
             ktooltipwidget_getdecodedmetricf_isbase = false;
             return KToolTipWidget::getDecodedMetricF(metricA, metricB);
-        } else if (ktooltipwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = ktooltipwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = ktooltipwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KToolTipWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KToolTipWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -227,75 +227,6 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     VirtualKAboutApplicationDialog(const KAboutData& aboutData, KAboutApplicationDialog::Options opts, QWidget* parent) : KAboutApplicationDialog(aboutData, opts, parent) {};
     VirtualKAboutApplicationDialog(const KAboutData& aboutData, QWidget* parent) : KAboutApplicationDialog(aboutData, parent) {};
 
-    ~VirtualKAboutApplicationDialog() {
-        kaboutapplicationdialog_metaobject_callback = nullptr;
-        kaboutapplicationdialog_metacast_callback = nullptr;
-        kaboutapplicationdialog_metacall_callback = nullptr;
-        kaboutapplicationdialog_setvisible_callback = nullptr;
-        kaboutapplicationdialog_sizehint_callback = nullptr;
-        kaboutapplicationdialog_minimumsizehint_callback = nullptr;
-        kaboutapplicationdialog_open_callback = nullptr;
-        kaboutapplicationdialog_exec_callback = nullptr;
-        kaboutapplicationdialog_done_callback = nullptr;
-        kaboutapplicationdialog_accept_callback = nullptr;
-        kaboutapplicationdialog_reject_callback = nullptr;
-        kaboutapplicationdialog_keypressevent_callback = nullptr;
-        kaboutapplicationdialog_closeevent_callback = nullptr;
-        kaboutapplicationdialog_showevent_callback = nullptr;
-        kaboutapplicationdialog_resizeevent_callback = nullptr;
-        kaboutapplicationdialog_contextmenuevent_callback = nullptr;
-        kaboutapplicationdialog_eventfilter_callback = nullptr;
-        kaboutapplicationdialog_devtype_callback = nullptr;
-        kaboutapplicationdialog_heightforwidth_callback = nullptr;
-        kaboutapplicationdialog_hasheightforwidth_callback = nullptr;
-        kaboutapplicationdialog_paintengine_callback = nullptr;
-        kaboutapplicationdialog_event_callback = nullptr;
-        kaboutapplicationdialog_mousepressevent_callback = nullptr;
-        kaboutapplicationdialog_mousereleaseevent_callback = nullptr;
-        kaboutapplicationdialog_mousedoubleclickevent_callback = nullptr;
-        kaboutapplicationdialog_mousemoveevent_callback = nullptr;
-        kaboutapplicationdialog_wheelevent_callback = nullptr;
-        kaboutapplicationdialog_keyreleaseevent_callback = nullptr;
-        kaboutapplicationdialog_focusinevent_callback = nullptr;
-        kaboutapplicationdialog_focusoutevent_callback = nullptr;
-        kaboutapplicationdialog_enterevent_callback = nullptr;
-        kaboutapplicationdialog_leaveevent_callback = nullptr;
-        kaboutapplicationdialog_paintevent_callback = nullptr;
-        kaboutapplicationdialog_moveevent_callback = nullptr;
-        kaboutapplicationdialog_tabletevent_callback = nullptr;
-        kaboutapplicationdialog_actionevent_callback = nullptr;
-        kaboutapplicationdialog_dragenterevent_callback = nullptr;
-        kaboutapplicationdialog_dragmoveevent_callback = nullptr;
-        kaboutapplicationdialog_dragleaveevent_callback = nullptr;
-        kaboutapplicationdialog_dropevent_callback = nullptr;
-        kaboutapplicationdialog_hideevent_callback = nullptr;
-        kaboutapplicationdialog_nativeevent_callback = nullptr;
-        kaboutapplicationdialog_changeevent_callback = nullptr;
-        kaboutapplicationdialog_metric_callback = nullptr;
-        kaboutapplicationdialog_initpainter_callback = nullptr;
-        kaboutapplicationdialog_redirected_callback = nullptr;
-        kaboutapplicationdialog_sharedpainter_callback = nullptr;
-        kaboutapplicationdialog_inputmethodevent_callback = nullptr;
-        kaboutapplicationdialog_inputmethodquery_callback = nullptr;
-        kaboutapplicationdialog_focusnextprevchild_callback = nullptr;
-        kaboutapplicationdialog_timerevent_callback = nullptr;
-        kaboutapplicationdialog_childevent_callback = nullptr;
-        kaboutapplicationdialog_customevent_callback = nullptr;
-        kaboutapplicationdialog_connectnotify_callback = nullptr;
-        kaboutapplicationdialog_disconnectnotify_callback = nullptr;
-        kaboutapplicationdialog_adjustposition_callback = nullptr;
-        kaboutapplicationdialog_updatemicrofocus_callback = nullptr;
-        kaboutapplicationdialog_create_callback = nullptr;
-        kaboutapplicationdialog_destroy_callback = nullptr;
-        kaboutapplicationdialog_focusnextchild_callback = nullptr;
-        kaboutapplicationdialog_focuspreviouschild_callback = nullptr;
-        kaboutapplicationdialog_sender_callback = nullptr;
-        kaboutapplicationdialog_sendersignalindex_callback = nullptr;
-        kaboutapplicationdialog_receivers_callback = nullptr;
-        kaboutapplicationdialog_issignalconnected_callback = nullptr;
-        kaboutapplicationdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAboutApplicationDialog_MetaObject_Callback(KAboutApplicationDialog_MetaObject_Callback cb) { kaboutapplicationdialog_metaobject_callback = cb; }
     inline void setKAboutApplicationDialog_Metacast_Callback(KAboutApplicationDialog_Metacast_Callback cb) { kaboutapplicationdialog_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_metaobject_isbase) {
             kaboutapplicationdialog_metaobject_isbase = false;
             return KAboutApplicationDialog::metaObject();
-        } else if (kaboutapplicationdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kaboutapplicationdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::metaObject();
         }
+        auto metaobject_cb = kaboutapplicationdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_metacast_isbase) {
             kaboutapplicationdialog_metacast_isbase = false;
             return KAboutApplicationDialog::qt_metacast(param1);
-        } else if (kaboutapplicationdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kaboutapplicationdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kaboutapplicationdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::qt_metacast(param1);
         }
+        return KAboutApplicationDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_metacall_isbase) {
             kaboutapplicationdialog_metacall_isbase = false;
             return KAboutApplicationDialog::qt_metacall(param1, param2, param3);
-        } else if (kaboutapplicationdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kaboutapplicationdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kaboutapplicationdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::qt_metacall(param1, param2, param3);
         }
+        return KAboutApplicationDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +416,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_setvisible_isbase) {
             kaboutapplicationdialog_setvisible_isbase = false;
             KAboutApplicationDialog::setVisible(visible);
-        } else if (kaboutapplicationdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kaboutapplicationdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kaboutapplicationdialog_setvisible_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,12 +433,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_sizehint_isbase) {
             kaboutapplicationdialog_sizehint_isbase = false;
             return KAboutApplicationDialog::sizeHint();
-        } else if (kaboutapplicationdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kaboutapplicationdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAboutApplicationDialog::sizeHint();
         }
+        auto sizehint_cb = kaboutapplicationdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KAboutApplicationDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +447,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_minimumsizehint_isbase) {
             kaboutapplicationdialog_minimumsizehint_isbase = false;
             return KAboutApplicationDialog::minimumSizeHint();
-        } else if (kaboutapplicationdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kaboutapplicationdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAboutApplicationDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kaboutapplicationdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KAboutApplicationDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,11 +461,14 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_open_isbase) {
             kaboutapplicationdialog_open_isbase = false;
             KAboutApplicationDialog::open();
-        } else if (kaboutapplicationdialog_open_callback != nullptr) {
-            kaboutapplicationdialog_open_callback();
-        } else {
-            KAboutApplicationDialog::open();
+            return;
         }
+        auto open_cb = kaboutapplicationdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KAboutApplicationDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -534,12 +476,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_exec_isbase) {
             kaboutapplicationdialog_exec_isbase = false;
             return KAboutApplicationDialog::exec();
-        } else if (kaboutapplicationdialog_exec_callback != nullptr) {
-            int callback_ret = kaboutapplicationdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::exec();
         }
+        auto exec_cb = kaboutapplicationdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAboutApplicationDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,13 +490,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_done_isbase) {
             kaboutapplicationdialog_done_isbase = false;
             KAboutApplicationDialog::done(param1);
-        } else if (kaboutapplicationdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kaboutapplicationdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kaboutapplicationdialog_done_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +507,14 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_accept_isbase) {
             kaboutapplicationdialog_accept_isbase = false;
             KAboutApplicationDialog::accept();
-        } else if (kaboutapplicationdialog_accept_callback != nullptr) {
-            kaboutapplicationdialog_accept_callback();
-        } else {
-            KAboutApplicationDialog::accept();
+            return;
         }
+        auto accept_cb = kaboutapplicationdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KAboutApplicationDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,11 +522,14 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_reject_isbase) {
             kaboutapplicationdialog_reject_isbase = false;
             KAboutApplicationDialog::reject();
-        } else if (kaboutapplicationdialog_reject_callback != nullptr) {
-            kaboutapplicationdialog_reject_callback();
-        } else {
-            KAboutApplicationDialog::reject();
+            return;
         }
+        auto reject_cb = kaboutapplicationdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KAboutApplicationDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +537,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_keypressevent_isbase) {
             kaboutapplicationdialog_keypressevent_isbase = false;
             KAboutApplicationDialog::keyPressEvent(param1);
-        } else if (kaboutapplicationdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kaboutapplicationdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +554,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_closeevent_isbase) {
             kaboutapplicationdialog_closeevent_isbase = false;
             KAboutApplicationDialog::closeEvent(param1);
-        } else if (kaboutapplicationdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kaboutapplicationdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_closeevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +571,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_showevent_isbase) {
             kaboutapplicationdialog_showevent_isbase = false;
             KAboutApplicationDialog::showEvent(param1);
-        } else if (kaboutapplicationdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kaboutapplicationdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_showevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +588,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_resizeevent_isbase) {
             kaboutapplicationdialog_resizeevent_isbase = false;
             KAboutApplicationDialog::resizeEvent(param1);
-        } else if (kaboutapplicationdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kaboutapplicationdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +605,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_contextmenuevent_isbase) {
             kaboutapplicationdialog_contextmenuevent_isbase = false;
             KAboutApplicationDialog::contextMenuEvent(param1);
-        } else if (kaboutapplicationdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kaboutapplicationdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,15 +622,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_eventfilter_isbase) {
             kaboutapplicationdialog_eventfilter_isbase = false;
             return KAboutApplicationDialog::eventFilter(param1, param2);
-        } else if (kaboutapplicationdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kaboutapplicationdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kaboutapplicationdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::eventFilter(param1, param2);
         }
+        return KAboutApplicationDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,12 +639,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_devtype_isbase) {
             kaboutapplicationdialog_devtype_isbase = false;
             return KAboutApplicationDialog::devType();
-        } else if (kaboutapplicationdialog_devtype_callback != nullptr) {
-            int callback_ret = kaboutapplicationdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::devType();
         }
+        auto devtype_cb = kaboutapplicationdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAboutApplicationDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,14 +653,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_heightforwidth_isbase) {
             kaboutapplicationdialog_heightforwidth_isbase = false;
             return KAboutApplicationDialog::heightForWidth(param1);
-        } else if (kaboutapplicationdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kaboutapplicationdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kaboutapplicationdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::heightForWidth(param1);
         }
+        return KAboutApplicationDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,12 +669,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_hasheightforwidth_isbase) {
             kaboutapplicationdialog_hasheightforwidth_isbase = false;
             return KAboutApplicationDialog::hasHeightForWidth();
-        } else if (kaboutapplicationdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kaboutapplicationdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kaboutapplicationdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,12 +683,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_paintengine_isbase) {
             kaboutapplicationdialog_paintengine_isbase = false;
             return KAboutApplicationDialog::paintEngine();
-        } else if (kaboutapplicationdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kaboutapplicationdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::paintEngine();
         }
+        auto paintengine_cb = kaboutapplicationdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,14 +697,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_event_isbase) {
             kaboutapplicationdialog_event_isbase = false;
             return KAboutApplicationDialog::event(event);
-        } else if (kaboutapplicationdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kaboutapplicationdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kaboutapplicationdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::event(event);
         }
+        return KAboutApplicationDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,13 +713,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_mousepressevent_isbase) {
             kaboutapplicationdialog_mousepressevent_isbase = false;
             KAboutApplicationDialog::mousePressEvent(event);
-        } else if (kaboutapplicationdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kaboutapplicationdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutapplicationdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_mousereleaseevent_isbase) {
             kaboutapplicationdialog_mousereleaseevent_isbase = false;
             KAboutApplicationDialog::mouseReleaseEvent(event);
-        } else if (kaboutapplicationdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kaboutapplicationdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutapplicationdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_mousedoubleclickevent_isbase) {
             kaboutapplicationdialog_mousedoubleclickevent_isbase = false;
             KAboutApplicationDialog::mouseDoubleClickEvent(event);
-        } else if (kaboutapplicationdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kaboutapplicationdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutapplicationdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_mousemoveevent_isbase) {
             kaboutapplicationdialog_mousemoveevent_isbase = false;
             KAboutApplicationDialog::mouseMoveEvent(event);
-        } else if (kaboutapplicationdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kaboutapplicationdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kaboutapplicationdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_wheelevent_isbase) {
             kaboutapplicationdialog_wheelevent_isbase = false;
             KAboutApplicationDialog::wheelEvent(event);
-        } else if (kaboutapplicationdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kaboutapplicationdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kaboutapplicationdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_keyreleaseevent_isbase) {
             kaboutapplicationdialog_keyreleaseevent_isbase = false;
             KAboutApplicationDialog::keyReleaseEvent(event);
-        } else if (kaboutapplicationdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kaboutapplicationdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kaboutapplicationdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_focusinevent_isbase) {
             kaboutapplicationdialog_focusinevent_isbase = false;
             KAboutApplicationDialog::focusInEvent(event);
-        } else if (kaboutapplicationdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kaboutapplicationdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kaboutapplicationdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_focusoutevent_isbase) {
             kaboutapplicationdialog_focusoutevent_isbase = false;
             KAboutApplicationDialog::focusOutEvent(event);
-        } else if (kaboutapplicationdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kaboutapplicationdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kaboutapplicationdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_enterevent_isbase) {
             kaboutapplicationdialog_enterevent_isbase = false;
             KAboutApplicationDialog::enterEvent(event);
-        } else if (kaboutapplicationdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kaboutapplicationdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kaboutapplicationdialog_enterevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_leaveevent_isbase) {
             kaboutapplicationdialog_leaveevent_isbase = false;
             KAboutApplicationDialog::leaveEvent(event);
-        } else if (kaboutapplicationdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kaboutapplicationdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kaboutapplicationdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_paintevent_isbase) {
             kaboutapplicationdialog_paintevent_isbase = false;
             KAboutApplicationDialog::paintEvent(event);
-        } else if (kaboutapplicationdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kaboutapplicationdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kaboutapplicationdialog_paintevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_moveevent_isbase) {
             kaboutapplicationdialog_moveevent_isbase = false;
             KAboutApplicationDialog::moveEvent(event);
-        } else if (kaboutapplicationdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kaboutapplicationdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kaboutapplicationdialog_moveevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_tabletevent_isbase) {
             kaboutapplicationdialog_tabletevent_isbase = false;
             KAboutApplicationDialog::tabletEvent(event);
-        } else if (kaboutapplicationdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kaboutapplicationdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kaboutapplicationdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_actionevent_isbase) {
             kaboutapplicationdialog_actionevent_isbase = false;
             KAboutApplicationDialog::actionEvent(event);
-        } else if (kaboutapplicationdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kaboutapplicationdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kaboutapplicationdialog_actionevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_dragenterevent_isbase) {
             kaboutapplicationdialog_dragenterevent_isbase = false;
             KAboutApplicationDialog::dragEnterEvent(event);
-        } else if (kaboutapplicationdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kaboutapplicationdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kaboutapplicationdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_dragmoveevent_isbase) {
             kaboutapplicationdialog_dragmoveevent_isbase = false;
             KAboutApplicationDialog::dragMoveEvent(event);
-        } else if (kaboutapplicationdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kaboutapplicationdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kaboutapplicationdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_dragleaveevent_isbase) {
             kaboutapplicationdialog_dragleaveevent_isbase = false;
             KAboutApplicationDialog::dragLeaveEvent(event);
-        } else if (kaboutapplicationdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kaboutapplicationdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kaboutapplicationdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_dropevent_isbase) {
             kaboutapplicationdialog_dropevent_isbase = false;
             KAboutApplicationDialog::dropEvent(event);
-        } else if (kaboutapplicationdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kaboutapplicationdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kaboutapplicationdialog_dropevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_hideevent_isbase) {
             kaboutapplicationdialog_hideevent_isbase = false;
             KAboutApplicationDialog::hideEvent(event);
-        } else if (kaboutapplicationdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kaboutapplicationdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kaboutapplicationdialog_hideevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,7 +1036,9 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_nativeevent_isbase) {
             kaboutapplicationdialog_nativeevent_isbase = false;
             return KAboutApplicationDialog::nativeEvent(eventType, message, result);
-        } else if (kaboutapplicationdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kaboutapplicationdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1017,12 +1049,11 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kaboutapplicationdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::nativeEvent(eventType, message, result);
         }
+        return KAboutApplicationDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,13 +1061,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_changeevent_isbase) {
             kaboutapplicationdialog_changeevent_isbase = false;
             KAboutApplicationDialog::changeEvent(param1);
-        } else if (kaboutapplicationdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kaboutapplicationdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_changeevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_metric_isbase) {
             kaboutapplicationdialog_metric_isbase = false;
             return KAboutApplicationDialog::metric(param1);
-        } else if (kaboutapplicationdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kaboutapplicationdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kaboutapplicationdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::metric(param1);
         }
+        return KAboutApplicationDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_initpainter_isbase) {
             kaboutapplicationdialog_initpainter_isbase = false;
             KAboutApplicationDialog::initPainter(painter);
-        } else if (kaboutapplicationdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kaboutapplicationdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kaboutapplicationdialog_initpainter_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_redirected_isbase) {
             kaboutapplicationdialog_redirected_isbase = false;
             return KAboutApplicationDialog::redirected(offset);
-        } else if (kaboutapplicationdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kaboutapplicationdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kaboutapplicationdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::redirected(offset);
         }
+        return KAboutApplicationDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_sharedpainter_isbase) {
             kaboutapplicationdialog_sharedpainter_isbase = false;
             return KAboutApplicationDialog::sharedPainter();
-        } else if (kaboutapplicationdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kaboutapplicationdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kaboutapplicationdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_inputmethodevent_isbase) {
             kaboutapplicationdialog_inputmethodevent_isbase = false;
             KAboutApplicationDialog::inputMethodEvent(param1);
-        } else if (kaboutapplicationdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kaboutapplicationdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kaboutapplicationdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_inputmethodquery_isbase) {
             kaboutapplicationdialog_inputmethodquery_isbase = false;
             return KAboutApplicationDialog::inputMethodQuery(param1);
-        } else if (kaboutapplicationdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kaboutapplicationdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kaboutapplicationdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KAboutApplicationDialog::inputMethodQuery(param1);
         }
+        return KAboutApplicationDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_focusnextprevchild_isbase) {
             kaboutapplicationdialog_focusnextprevchild_isbase = false;
             return KAboutApplicationDialog::focusNextPrevChild(next);
-        } else if (kaboutapplicationdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kaboutapplicationdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kaboutapplicationdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::focusNextPrevChild(next);
         }
+        return KAboutApplicationDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_timerevent_isbase) {
             kaboutapplicationdialog_timerevent_isbase = false;
             KAboutApplicationDialog::timerEvent(event);
-        } else if (kaboutapplicationdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kaboutapplicationdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kaboutapplicationdialog_timerevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_childevent_isbase) {
             kaboutapplicationdialog_childevent_isbase = false;
             KAboutApplicationDialog::childEvent(event);
-        } else if (kaboutapplicationdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kaboutapplicationdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kaboutapplicationdialog_childevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_customevent_isbase) {
             kaboutapplicationdialog_customevent_isbase = false;
             KAboutApplicationDialog::customEvent(event);
-        } else if (kaboutapplicationdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kaboutapplicationdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kaboutapplicationdialog_customevent_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_connectnotify_isbase) {
             kaboutapplicationdialog_connectnotify_isbase = false;
             KAboutApplicationDialog::connectNotify(signal);
-        } else if (kaboutapplicationdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kaboutapplicationdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kaboutapplicationdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_disconnectnotify_isbase) {
             kaboutapplicationdialog_disconnectnotify_isbase = false;
             KAboutApplicationDialog::disconnectNotify(signal);
-        } else if (kaboutapplicationdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kaboutapplicationdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kaboutapplicationdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_adjustposition_isbase) {
             kaboutapplicationdialog_adjustposition_isbase = false;
             KAboutApplicationDialog::adjustPosition(param1);
-        } else if (kaboutapplicationdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kaboutapplicationdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kaboutapplicationdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KAboutApplicationDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KAboutApplicationDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_updatemicrofocus_isbase) {
             kaboutapplicationdialog_updatemicrofocus_isbase = false;
             KAboutApplicationDialog::updateMicroFocus();
-        } else if (kaboutapplicationdialog_updatemicrofocus_callback != nullptr) {
-            kaboutapplicationdialog_updatemicrofocus_callback();
-        } else {
-            KAboutApplicationDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kaboutapplicationdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KAboutApplicationDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_create_isbase) {
             kaboutapplicationdialog_create_isbase = false;
             KAboutApplicationDialog::create();
-        } else if (kaboutapplicationdialog_create_callback != nullptr) {
-            kaboutapplicationdialog_create_callback();
-        } else {
-            KAboutApplicationDialog::create();
+            return;
         }
+        auto create_cb = kaboutapplicationdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KAboutApplicationDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_destroy_isbase) {
             kaboutapplicationdialog_destroy_isbase = false;
             KAboutApplicationDialog::destroy();
-        } else if (kaboutapplicationdialog_destroy_callback != nullptr) {
-            kaboutapplicationdialog_destroy_callback();
-        } else {
-            KAboutApplicationDialog::destroy();
+            return;
         }
+        auto destroy_cb = kaboutapplicationdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KAboutApplicationDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_focusnextchild_isbase) {
             kaboutapplicationdialog_focusnextchild_isbase = false;
             return KAboutApplicationDialog::focusNextChild();
-        } else if (kaboutapplicationdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kaboutapplicationdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kaboutapplicationdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_focuspreviouschild_isbase) {
             kaboutapplicationdialog_focuspreviouschild_isbase = false;
             return KAboutApplicationDialog::focusPreviousChild();
-        } else if (kaboutapplicationdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kaboutapplicationdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kaboutapplicationdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_sender_isbase) {
             kaboutapplicationdialog_sender_isbase = false;
             return KAboutApplicationDialog::sender();
-        } else if (kaboutapplicationdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kaboutapplicationdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KAboutApplicationDialog::sender();
         }
+        auto sender_cb = kaboutapplicationdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAboutApplicationDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_sendersignalindex_isbase) {
             kaboutapplicationdialog_sendersignalindex_isbase = false;
             return KAboutApplicationDialog::senderSignalIndex();
-        } else if (kaboutapplicationdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kaboutapplicationdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kaboutapplicationdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAboutApplicationDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_receivers_isbase) {
             kaboutapplicationdialog_receivers_isbase = false;
             return KAboutApplicationDialog::receivers(signal);
-        } else if (kaboutapplicationdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kaboutapplicationdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kaboutapplicationdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::receivers(signal);
         }
+        return KAboutApplicationDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_issignalconnected_isbase) {
             kaboutapplicationdialog_issignalconnected_isbase = false;
             return KAboutApplicationDialog::isSignalConnected(signal);
-        } else if (kaboutapplicationdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kaboutapplicationdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kaboutapplicationdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAboutApplicationDialog::isSignalConnected(signal);
         }
+        return KAboutApplicationDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
         if (kaboutapplicationdialog_getdecodedmetricf_isbase) {
             kaboutapplicationdialog_getdecodedmetricf_isbase = false;
             return KAboutApplicationDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kaboutapplicationdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kaboutapplicationdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kaboutapplicationdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KAboutApplicationDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KAboutApplicationDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

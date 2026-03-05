@@ -102,34 +102,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     VirtualQSyntaxHighlighter(QObject* parent) : QSyntaxHighlighter(parent) {};
     VirtualQSyntaxHighlighter(QTextDocument* parent) : QSyntaxHighlighter(parent) {};
 
-    ~VirtualQSyntaxHighlighter() {
-        qsyntaxhighlighter_metaobject_callback = nullptr;
-        qsyntaxhighlighter_metacast_callback = nullptr;
-        qsyntaxhighlighter_metacall_callback = nullptr;
-        qsyntaxhighlighter_highlightblock_callback = nullptr;
-        qsyntaxhighlighter_event_callback = nullptr;
-        qsyntaxhighlighter_eventfilter_callback = nullptr;
-        qsyntaxhighlighter_timerevent_callback = nullptr;
-        qsyntaxhighlighter_childevent_callback = nullptr;
-        qsyntaxhighlighter_customevent_callback = nullptr;
-        qsyntaxhighlighter_connectnotify_callback = nullptr;
-        qsyntaxhighlighter_disconnectnotify_callback = nullptr;
-        qsyntaxhighlighter_setformat_callback = nullptr;
-        qsyntaxhighlighter_setformat2_callback = nullptr;
-        qsyntaxhighlighter_setformat3_callback = nullptr;
-        qsyntaxhighlighter_format_callback = nullptr;
-        qsyntaxhighlighter_previousblockstate_callback = nullptr;
-        qsyntaxhighlighter_currentblockstate_callback = nullptr;
-        qsyntaxhighlighter_setcurrentblockstate_callback = nullptr;
-        qsyntaxhighlighter_setcurrentblockuserdata_callback = nullptr;
-        qsyntaxhighlighter_currentblockuserdata_callback = nullptr;
-        qsyntaxhighlighter_currentblock_callback = nullptr;
-        qsyntaxhighlighter_sender_callback = nullptr;
-        qsyntaxhighlighter_sendersignalindex_callback = nullptr;
-        qsyntaxhighlighter_receivers_callback = nullptr;
-        qsyntaxhighlighter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSyntaxHighlighter_MetaObject_Callback(QSyntaxHighlighter_MetaObject_Callback cb) { qsyntaxhighlighter_metaobject_callback = cb; }
     inline void setQSyntaxHighlighter_Metacast_Callback(QSyntaxHighlighter_Metacast_Callback cb) { qsyntaxhighlighter_metacast_callback = cb; }
@@ -189,12 +161,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_metaobject_isbase) {
             qsyntaxhighlighter_metaobject_isbase = false;
             return QSyntaxHighlighter::metaObject();
-        } else if (qsyntaxhighlighter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsyntaxhighlighter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSyntaxHighlighter::metaObject();
         }
+        auto metaobject_cb = qsyntaxhighlighter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSyntaxHighlighter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,14 +175,15 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_metacast_isbase) {
             qsyntaxhighlighter_metacast_isbase = false;
             return QSyntaxHighlighter::qt_metacast(param1);
-        } else if (qsyntaxhighlighter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsyntaxhighlighter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsyntaxhighlighter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSyntaxHighlighter::qt_metacast(param1);
         }
+        return QSyntaxHighlighter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,21 +191,23 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_metacall_isbase) {
             qsyntaxhighlighter_metacall_isbase = false;
             return QSyntaxHighlighter::qt_metacall(param1, param2, param3);
-        } else if (qsyntaxhighlighter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsyntaxhighlighter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsyntaxhighlighter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSyntaxHighlighter::qt_metacall(param1, param2, param3);
         }
+        return QSyntaxHighlighter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void highlightBlock(const QString& text) override {
-        if (qsyntaxhighlighter_highlightblock_callback != nullptr) {
+        auto highlightblock_cb = qsyntaxhighlighter_highlightblock_callback;
+        if (highlightblock_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -241,7 +217,7 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            qsyntaxhighlighter_highlightblock_callback(this, cbval1);
+            highlightblock_cb(this, cbval1);
             libqt_free(text_str);
         }
     }
@@ -251,14 +227,15 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_event_isbase) {
             qsyntaxhighlighter_event_isbase = false;
             return QSyntaxHighlighter::event(event);
-        } else if (qsyntaxhighlighter_event_callback != nullptr) {
+        }
+        auto event_cb = qsyntaxhighlighter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsyntaxhighlighter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSyntaxHighlighter::event(event);
         }
+        return QSyntaxHighlighter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -266,15 +243,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_eventfilter_isbase) {
             qsyntaxhighlighter_eventfilter_isbase = false;
             return QSyntaxHighlighter::eventFilter(watched, event);
-        } else if (qsyntaxhighlighter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsyntaxhighlighter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsyntaxhighlighter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSyntaxHighlighter::eventFilter(watched, event);
         }
+        return QSyntaxHighlighter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,13 +260,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_timerevent_isbase) {
             qsyntaxhighlighter_timerevent_isbase = false;
             QSyntaxHighlighter::timerEvent(event);
-        } else if (qsyntaxhighlighter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsyntaxhighlighter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsyntaxhighlighter_timerevent_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -296,13 +277,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_childevent_isbase) {
             qsyntaxhighlighter_childevent_isbase = false;
             QSyntaxHighlighter::childEvent(event);
-        } else if (qsyntaxhighlighter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsyntaxhighlighter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsyntaxhighlighter_childevent_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -310,13 +294,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_customevent_isbase) {
             qsyntaxhighlighter_customevent_isbase = false;
             QSyntaxHighlighter::customEvent(event);
-        } else if (qsyntaxhighlighter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsyntaxhighlighter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsyntaxhighlighter_customevent_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,15 +311,18 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_connectnotify_isbase) {
             qsyntaxhighlighter_connectnotify_isbase = false;
             QSyntaxHighlighter::connectNotify(signal);
-        } else if (qsyntaxhighlighter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsyntaxhighlighter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsyntaxhighlighter_connectnotify_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,15 +330,18 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_disconnectnotify_isbase) {
             qsyntaxhighlighter_disconnectnotify_isbase = false;
             QSyntaxHighlighter::disconnectNotify(signal);
-        } else if (qsyntaxhighlighter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsyntaxhighlighter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsyntaxhighlighter_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -356,17 +349,20 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_setformat_isbase) {
             qsyntaxhighlighter_setformat_isbase = false;
             QSyntaxHighlighter::setFormat(start, count, format);
-        } else if (qsyntaxhighlighter_setformat_callback != nullptr) {
+            return;
+        }
+        auto setformat_cb = qsyntaxhighlighter_setformat_callback;
+        if (setformat_cb) {
             int cbval1 = start;
             int cbval2 = count;
             const QTextCharFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextCharFormat* cbval3 = const_cast<QTextCharFormat*>(&format_ret);
 
-            qsyntaxhighlighter_setformat_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSyntaxHighlighter::setFormat(start, count, format);
+            setformat_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSyntaxHighlighter::setFormat(start, count, format);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,17 +370,20 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_setformat2_isbase) {
             qsyntaxhighlighter_setformat2_isbase = false;
             QSyntaxHighlighter::setFormat(start, count, color);
-        } else if (qsyntaxhighlighter_setformat2_callback != nullptr) {
+            return;
+        }
+        auto setformat2_cb = qsyntaxhighlighter_setformat2_callback;
+        if (setformat2_cb) {
             int cbval1 = start;
             int cbval2 = count;
             const QColor& color_ret = color;
             // Cast returned reference into pointer
             QColor* cbval3 = const_cast<QColor*>(&color_ret);
 
-            qsyntaxhighlighter_setformat2_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSyntaxHighlighter::setFormat(start, count, color);
+            setformat2_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSyntaxHighlighter::setFormat(start, count, color);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -392,17 +391,20 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_setformat3_isbase) {
             qsyntaxhighlighter_setformat3_isbase = false;
             QSyntaxHighlighter::setFormat(start, count, font);
-        } else if (qsyntaxhighlighter_setformat3_callback != nullptr) {
+            return;
+        }
+        auto setformat3_cb = qsyntaxhighlighter_setformat3_callback;
+        if (setformat3_cb) {
             int cbval1 = start;
             int cbval2 = count;
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval3 = const_cast<QFont*>(&font_ret);
 
-            qsyntaxhighlighter_setformat3_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSyntaxHighlighter::setFormat(start, count, font);
+            setformat3_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSyntaxHighlighter::setFormat(start, count, font);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,14 +412,15 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_format_isbase) {
             qsyntaxhighlighter_format_isbase = false;
             return QSyntaxHighlighter::format(pos);
-        } else if (qsyntaxhighlighter_format_callback != nullptr) {
+        }
+        auto format_cb = qsyntaxhighlighter_format_callback;
+        if (format_cb) {
             int cbval1 = pos;
 
-            QTextCharFormat* callback_ret = qsyntaxhighlighter_format_callback(this, cbval1);
+            QTextCharFormat* callback_ret = format_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSyntaxHighlighter::format(pos);
         }
+        return QSyntaxHighlighter::format(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -425,12 +428,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_previousblockstate_isbase) {
             qsyntaxhighlighter_previousblockstate_isbase = false;
             return QSyntaxHighlighter::previousBlockState();
-        } else if (qsyntaxhighlighter_previousblockstate_callback != nullptr) {
-            int callback_ret = qsyntaxhighlighter_previousblockstate_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSyntaxHighlighter::previousBlockState();
         }
+        auto previousblockstate_cb = qsyntaxhighlighter_previousblockstate_callback;
+        if (previousblockstate_cb) {
+            int callback_ret = previousblockstate_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSyntaxHighlighter::previousBlockState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,12 +442,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_currentblockstate_isbase) {
             qsyntaxhighlighter_currentblockstate_isbase = false;
             return QSyntaxHighlighter::currentBlockState();
-        } else if (qsyntaxhighlighter_currentblockstate_callback != nullptr) {
-            int callback_ret = qsyntaxhighlighter_currentblockstate_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSyntaxHighlighter::currentBlockState();
         }
+        auto currentblockstate_cb = qsyntaxhighlighter_currentblockstate_callback;
+        if (currentblockstate_cb) {
+            int callback_ret = currentblockstate_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSyntaxHighlighter::currentBlockState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,13 +456,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_setcurrentblockstate_isbase) {
             qsyntaxhighlighter_setcurrentblockstate_isbase = false;
             QSyntaxHighlighter::setCurrentBlockState(newState);
-        } else if (qsyntaxhighlighter_setcurrentblockstate_callback != nullptr) {
+            return;
+        }
+        auto setcurrentblockstate_cb = qsyntaxhighlighter_setcurrentblockstate_callback;
+        if (setcurrentblockstate_cb) {
             int cbval1 = newState;
 
-            qsyntaxhighlighter_setcurrentblockstate_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::setCurrentBlockState(newState);
+            setcurrentblockstate_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::setCurrentBlockState(newState);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,13 +473,16 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_setcurrentblockuserdata_isbase) {
             qsyntaxhighlighter_setcurrentblockuserdata_isbase = false;
             QSyntaxHighlighter::setCurrentBlockUserData(data);
-        } else if (qsyntaxhighlighter_setcurrentblockuserdata_callback != nullptr) {
+            return;
+        }
+        auto setcurrentblockuserdata_cb = qsyntaxhighlighter_setcurrentblockuserdata_callback;
+        if (setcurrentblockuserdata_cb) {
             QTextBlockUserData* cbval1 = data;
 
-            qsyntaxhighlighter_setcurrentblockuserdata_callback(this, cbval1);
-        } else {
-            QSyntaxHighlighter::setCurrentBlockUserData(data);
+            setcurrentblockuserdata_cb(this, cbval1);
+            return;
         }
+        QSyntaxHighlighter::setCurrentBlockUserData(data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,12 +490,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_currentblockuserdata_isbase) {
             qsyntaxhighlighter_currentblockuserdata_isbase = false;
             return QSyntaxHighlighter::currentBlockUserData();
-        } else if (qsyntaxhighlighter_currentblockuserdata_callback != nullptr) {
-            QTextBlockUserData* callback_ret = qsyntaxhighlighter_currentblockuserdata_callback();
-            return callback_ret;
-        } else {
-            return QSyntaxHighlighter::currentBlockUserData();
         }
+        auto currentblockuserdata_cb = qsyntaxhighlighter_currentblockuserdata_callback;
+        if (currentblockuserdata_cb) {
+            QTextBlockUserData* callback_ret = currentblockuserdata_cb();
+            return callback_ret;
+        }
+        return QSyntaxHighlighter::currentBlockUserData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,12 +504,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_currentblock_isbase) {
             qsyntaxhighlighter_currentblock_isbase = false;
             return QSyntaxHighlighter::currentBlock();
-        } else if (qsyntaxhighlighter_currentblock_callback != nullptr) {
-            QTextBlock* callback_ret = qsyntaxhighlighter_currentblock_callback();
-            return *callback_ret;
-        } else {
-            return QSyntaxHighlighter::currentBlock();
         }
+        auto currentblock_cb = qsyntaxhighlighter_currentblock_callback;
+        if (currentblock_cb) {
+            QTextBlock* callback_ret = currentblock_cb();
+            return *callback_ret;
+        }
+        return QSyntaxHighlighter::currentBlock();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,12 +518,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_sender_isbase) {
             qsyntaxhighlighter_sender_isbase = false;
             return QSyntaxHighlighter::sender();
-        } else if (qsyntaxhighlighter_sender_callback != nullptr) {
-            QObject* callback_ret = qsyntaxhighlighter_sender_callback();
-            return callback_ret;
-        } else {
-            return QSyntaxHighlighter::sender();
         }
+        auto sender_cb = qsyntaxhighlighter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSyntaxHighlighter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,12 +532,13 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_sendersignalindex_isbase) {
             qsyntaxhighlighter_sendersignalindex_isbase = false;
             return QSyntaxHighlighter::senderSignalIndex();
-        } else if (qsyntaxhighlighter_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsyntaxhighlighter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSyntaxHighlighter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsyntaxhighlighter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSyntaxHighlighter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,14 +546,15 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_receivers_isbase) {
             qsyntaxhighlighter_receivers_isbase = false;
             return QSyntaxHighlighter::receivers(signal);
-        } else if (qsyntaxhighlighter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsyntaxhighlighter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsyntaxhighlighter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSyntaxHighlighter::receivers(signal);
         }
+        return QSyntaxHighlighter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,16 +562,17 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (qsyntaxhighlighter_issignalconnected_isbase) {
             qsyntaxhighlighter_issignalconnected_isbase = false;
             return QSyntaxHighlighter::isSignalConnected(signal);
-        } else if (qsyntaxhighlighter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsyntaxhighlighter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsyntaxhighlighter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSyntaxHighlighter::isSignalConnected(signal);
         }
+        return QSyntaxHighlighter::isSignalConnected(signal);
     }
 
     // Friend functions

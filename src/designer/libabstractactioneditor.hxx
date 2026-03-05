@@ -219,73 +219,6 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     VirtualQDesignerActionEditorInterface(QWidget* parent) : QDesignerActionEditorInterface(parent) {};
     VirtualQDesignerActionEditorInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerActionEditorInterface(parent, flags) {};
 
-    ~VirtualQDesignerActionEditorInterface() {
-        qdesigneractioneditorinterface_metaobject_callback = nullptr;
-        qdesigneractioneditorinterface_metacast_callback = nullptr;
-        qdesigneractioneditorinterface_metacall_callback = nullptr;
-        qdesigneractioneditorinterface_core_callback = nullptr;
-        qdesigneractioneditorinterface_manageaction_callback = nullptr;
-        qdesigneractioneditorinterface_unmanageaction_callback = nullptr;
-        qdesigneractioneditorinterface_setformwindow_callback = nullptr;
-        qdesigneractioneditorinterface_devtype_callback = nullptr;
-        qdesigneractioneditorinterface_setvisible_callback = nullptr;
-        qdesigneractioneditorinterface_sizehint_callback = nullptr;
-        qdesigneractioneditorinterface_minimumsizehint_callback = nullptr;
-        qdesigneractioneditorinterface_heightforwidth_callback = nullptr;
-        qdesigneractioneditorinterface_hasheightforwidth_callback = nullptr;
-        qdesigneractioneditorinterface_paintengine_callback = nullptr;
-        qdesigneractioneditorinterface_event_callback = nullptr;
-        qdesigneractioneditorinterface_mousepressevent_callback = nullptr;
-        qdesigneractioneditorinterface_mousereleaseevent_callback = nullptr;
-        qdesigneractioneditorinterface_mousedoubleclickevent_callback = nullptr;
-        qdesigneractioneditorinterface_mousemoveevent_callback = nullptr;
-        qdesigneractioneditorinterface_wheelevent_callback = nullptr;
-        qdesigneractioneditorinterface_keypressevent_callback = nullptr;
-        qdesigneractioneditorinterface_keyreleaseevent_callback = nullptr;
-        qdesigneractioneditorinterface_focusinevent_callback = nullptr;
-        qdesigneractioneditorinterface_focusoutevent_callback = nullptr;
-        qdesigneractioneditorinterface_enterevent_callback = nullptr;
-        qdesigneractioneditorinterface_leaveevent_callback = nullptr;
-        qdesigneractioneditorinterface_paintevent_callback = nullptr;
-        qdesigneractioneditorinterface_moveevent_callback = nullptr;
-        qdesigneractioneditorinterface_resizeevent_callback = nullptr;
-        qdesigneractioneditorinterface_closeevent_callback = nullptr;
-        qdesigneractioneditorinterface_contextmenuevent_callback = nullptr;
-        qdesigneractioneditorinterface_tabletevent_callback = nullptr;
-        qdesigneractioneditorinterface_actionevent_callback = nullptr;
-        qdesigneractioneditorinterface_dragenterevent_callback = nullptr;
-        qdesigneractioneditorinterface_dragmoveevent_callback = nullptr;
-        qdesigneractioneditorinterface_dragleaveevent_callback = nullptr;
-        qdesigneractioneditorinterface_dropevent_callback = nullptr;
-        qdesigneractioneditorinterface_showevent_callback = nullptr;
-        qdesigneractioneditorinterface_hideevent_callback = nullptr;
-        qdesigneractioneditorinterface_nativeevent_callback = nullptr;
-        qdesigneractioneditorinterface_changeevent_callback = nullptr;
-        qdesigneractioneditorinterface_metric_callback = nullptr;
-        qdesigneractioneditorinterface_initpainter_callback = nullptr;
-        qdesigneractioneditorinterface_redirected_callback = nullptr;
-        qdesigneractioneditorinterface_sharedpainter_callback = nullptr;
-        qdesigneractioneditorinterface_inputmethodevent_callback = nullptr;
-        qdesigneractioneditorinterface_inputmethodquery_callback = nullptr;
-        qdesigneractioneditorinterface_focusnextprevchild_callback = nullptr;
-        qdesigneractioneditorinterface_eventfilter_callback = nullptr;
-        qdesigneractioneditorinterface_timerevent_callback = nullptr;
-        qdesigneractioneditorinterface_childevent_callback = nullptr;
-        qdesigneractioneditorinterface_customevent_callback = nullptr;
-        qdesigneractioneditorinterface_connectnotify_callback = nullptr;
-        qdesigneractioneditorinterface_disconnectnotify_callback = nullptr;
-        qdesigneractioneditorinterface_updatemicrofocus_callback = nullptr;
-        qdesigneractioneditorinterface_create_callback = nullptr;
-        qdesigneractioneditorinterface_destroy_callback = nullptr;
-        qdesigneractioneditorinterface_focusnextchild_callback = nullptr;
-        qdesigneractioneditorinterface_focuspreviouschild_callback = nullptr;
-        qdesigneractioneditorinterface_sender_callback = nullptr;
-        qdesigneractioneditorinterface_sendersignalindex_callback = nullptr;
-        qdesigneractioneditorinterface_receivers_callback = nullptr;
-        qdesigneractioneditorinterface_issignalconnected_callback = nullptr;
-        qdesigneractioneditorinterface_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerActionEditorInterface_MetaObject_Callback(QDesignerActionEditorInterface_MetaObject_Callback cb) { qdesigneractioneditorinterface_metaobject_callback = cb; }
     inline void setQDesignerActionEditorInterface_Metacast_Callback(QDesignerActionEditorInterface_Metacast_Callback cb) { qdesigneractioneditorinterface_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_metaobject_isbase) {
             qdesigneractioneditorinterface_metaobject_isbase = false;
             return QDesignerActionEditorInterface::metaObject();
-        } else if (qdesigneractioneditorinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdesigneractioneditorinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::metaObject();
         }
+        auto metaobject_cb = qdesigneractioneditorinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_metacast_isbase) {
             qdesigneractioneditorinterface_metacast_isbase = false;
             return QDesignerActionEditorInterface::qt_metacast(param1);
-        } else if (qdesigneractioneditorinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdesigneractioneditorinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdesigneractioneditorinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::qt_metacast(param1);
         }
+        return QDesignerActionEditorInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_metacall_isbase) {
             qdesigneractioneditorinterface_metacall_isbase = false;
             return QDesignerActionEditorInterface::qt_metacall(param1, param2, param3);
-        } else if (qdesigneractioneditorinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdesigneractioneditorinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdesigneractioneditorinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::qt_metacall(param1, param2, param3);
         }
+        return QDesignerActionEditorInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,38 +404,42 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_core_isbase) {
             qdesigneractioneditorinterface_core_isbase = false;
             return QDesignerActionEditorInterface::core();
-        } else if (qdesigneractioneditorinterface_core_callback != nullptr) {
-            QDesignerFormEditorInterface* callback_ret = qdesigneractioneditorinterface_core_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::core();
         }
+        auto core_cb = qdesigneractioneditorinterface_core_callback;
+        if (core_cb) {
+            QDesignerFormEditorInterface* callback_ret = core_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::core();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void manageAction(QAction* action) override {
-        if (qdesigneractioneditorinterface_manageaction_callback != nullptr) {
+        auto manageaction_cb = qdesigneractioneditorinterface_manageaction_callback;
+        if (manageaction_cb) {
             QAction* cbval1 = action;
 
-            qdesigneractioneditorinterface_manageaction_callback(this, cbval1);
+            manageaction_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void unmanageAction(QAction* action) override {
-        if (qdesigneractioneditorinterface_unmanageaction_callback != nullptr) {
+        auto unmanageaction_cb = qdesigneractioneditorinterface_unmanageaction_callback;
+        if (unmanageaction_cb) {
             QAction* cbval1 = action;
 
-            qdesigneractioneditorinterface_unmanageaction_callback(this, cbval1);
+            unmanageaction_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setFormWindow(QDesignerFormWindowInterface* formWindow) override {
-        if (qdesigneractioneditorinterface_setformwindow_callback != nullptr) {
+        auto setformwindow_cb = qdesigneractioneditorinterface_setformwindow_callback;
+        if (setformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
 
-            qdesigneractioneditorinterface_setformwindow_callback(this, cbval1);
+            setformwindow_cb(this, cbval1);
         }
     }
 
@@ -508,12 +448,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_devtype_isbase) {
             qdesigneractioneditorinterface_devtype_isbase = false;
             return QDesignerActionEditorInterface::devType();
-        } else if (qdesigneractioneditorinterface_devtype_callback != nullptr) {
-            int callback_ret = qdesigneractioneditorinterface_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::devType();
         }
+        auto devtype_cb = qdesigneractioneditorinterface_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerActionEditorInterface::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,13 +462,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_setvisible_isbase) {
             qdesigneractioneditorinterface_setvisible_isbase = false;
             QDesignerActionEditorInterface::setVisible(visible);
-        } else if (qdesigneractioneditorinterface_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdesigneractioneditorinterface_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdesigneractioneditorinterface_setvisible_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,12 +479,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_sizehint_isbase) {
             qdesigneractioneditorinterface_sizehint_isbase = false;
             return QDesignerActionEditorInterface::sizeHint();
-        } else if (qdesigneractioneditorinterface_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdesigneractioneditorinterface_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::sizeHint();
         }
+        auto sizehint_cb = qdesigneractioneditorinterface_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerActionEditorInterface::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,12 +493,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_minimumsizehint_isbase) {
             qdesigneractioneditorinterface_minimumsizehint_isbase = false;
             return QDesignerActionEditorInterface::minimumSizeHint();
-        } else if (qdesigneractioneditorinterface_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdesigneractioneditorinterface_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdesigneractioneditorinterface_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerActionEditorInterface::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,14 +507,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_heightforwidth_isbase) {
             qdesigneractioneditorinterface_heightforwidth_isbase = false;
             return QDesignerActionEditorInterface::heightForWidth(param1);
-        } else if (qdesigneractioneditorinterface_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdesigneractioneditorinterface_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdesigneractioneditorinterface_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::heightForWidth(param1);
         }
+        return QDesignerActionEditorInterface::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,12 +523,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_hasheightforwidth_isbase) {
             qdesigneractioneditorinterface_hasheightforwidth_isbase = false;
             return QDesignerActionEditorInterface::hasHeightForWidth();
-        } else if (qdesigneractioneditorinterface_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdesigneractioneditorinterface_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdesigneractioneditorinterface_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,12 +537,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_paintengine_isbase) {
             qdesigneractioneditorinterface_paintengine_isbase = false;
             return QDesignerActionEditorInterface::paintEngine();
-        } else if (qdesigneractioneditorinterface_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdesigneractioneditorinterface_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::paintEngine();
         }
+        auto paintengine_cb = qdesigneractioneditorinterface_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,14 +551,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_event_isbase) {
             qdesigneractioneditorinterface_event_isbase = false;
             return QDesignerActionEditorInterface::event(event);
-        } else if (qdesigneractioneditorinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdesigneractioneditorinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdesigneractioneditorinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::event(event);
         }
+        return QDesignerActionEditorInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +567,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_mousepressevent_isbase) {
             qdesigneractioneditorinterface_mousepressevent_isbase = false;
             QDesignerActionEditorInterface::mousePressEvent(event);
-        } else if (qdesigneractioneditorinterface_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdesigneractioneditorinterface_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_mousepressevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +584,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_mousereleaseevent_isbase) {
             qdesigneractioneditorinterface_mousereleaseevent_isbase = false;
             QDesignerActionEditorInterface::mouseReleaseEvent(event);
-        } else if (qdesigneractioneditorinterface_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdesigneractioneditorinterface_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +601,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_mousedoubleclickevent_isbase) {
             qdesigneractioneditorinterface_mousedoubleclickevent_isbase = false;
             QDesignerActionEditorInterface::mouseDoubleClickEvent(event);
-        } else if (qdesigneractioneditorinterface_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdesigneractioneditorinterface_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,13 +618,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_mousemoveevent_isbase) {
             qdesigneractioneditorinterface_mousemoveevent_isbase = false;
             QDesignerActionEditorInterface::mouseMoveEvent(event);
-        } else if (qdesigneractioneditorinterface_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdesigneractioneditorinterface_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -673,13 +635,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_wheelevent_isbase) {
             qdesigneractioneditorinterface_wheelevent_isbase = false;
             QDesignerActionEditorInterface::wheelEvent(event);
-        } else if (qdesigneractioneditorinterface_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdesigneractioneditorinterface_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_wheelevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -687,13 +652,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_keypressevent_isbase) {
             qdesigneractioneditorinterface_keypressevent_isbase = false;
             QDesignerActionEditorInterface::keyPressEvent(event);
-        } else if (qdesigneractioneditorinterface_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdesigneractioneditorinterface_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_keypressevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,13 +669,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_keyreleaseevent_isbase) {
             qdesigneractioneditorinterface_keyreleaseevent_isbase = false;
             QDesignerActionEditorInterface::keyReleaseEvent(event);
-        } else if (qdesigneractioneditorinterface_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdesigneractioneditorinterface_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,13 +686,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_focusinevent_isbase) {
             qdesigneractioneditorinterface_focusinevent_isbase = false;
             QDesignerActionEditorInterface::focusInEvent(event);
-        } else if (qdesigneractioneditorinterface_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdesigneractioneditorinterface_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_focusinevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,13 +703,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_focusoutevent_isbase) {
             qdesigneractioneditorinterface_focusoutevent_isbase = false;
             QDesignerActionEditorInterface::focusOutEvent(event);
-        } else if (qdesigneractioneditorinterface_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdesigneractioneditorinterface_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_focusoutevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,13 +720,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_enterevent_isbase) {
             qdesigneractioneditorinterface_enterevent_isbase = false;
             QDesignerActionEditorInterface::enterEvent(event);
-        } else if (qdesigneractioneditorinterface_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdesigneractioneditorinterface_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_enterevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,13 +737,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_leaveevent_isbase) {
             qdesigneractioneditorinterface_leaveevent_isbase = false;
             QDesignerActionEditorInterface::leaveEvent(event);
-        } else if (qdesigneractioneditorinterface_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdesigneractioneditorinterface_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_leaveevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,13 +754,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_paintevent_isbase) {
             qdesigneractioneditorinterface_paintevent_isbase = false;
             QDesignerActionEditorInterface::paintEvent(event);
-        } else if (qdesigneractioneditorinterface_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdesigneractioneditorinterface_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_paintevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +771,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_moveevent_isbase) {
             qdesigneractioneditorinterface_moveevent_isbase = false;
             QDesignerActionEditorInterface::moveEvent(event);
-        } else if (qdesigneractioneditorinterface_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdesigneractioneditorinterface_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_moveevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +788,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_resizeevent_isbase) {
             qdesigneractioneditorinterface_resizeevent_isbase = false;
             QDesignerActionEditorInterface::resizeEvent(event);
-        } else if (qdesigneractioneditorinterface_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdesigneractioneditorinterface_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_resizeevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,13 +805,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_closeevent_isbase) {
             qdesigneractioneditorinterface_closeevent_isbase = false;
             QDesignerActionEditorInterface::closeEvent(event);
-        } else if (qdesigneractioneditorinterface_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdesigneractioneditorinterface_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_closeevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,13 +822,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_contextmenuevent_isbase) {
             qdesigneractioneditorinterface_contextmenuevent_isbase = false;
             QDesignerActionEditorInterface::contextMenuEvent(event);
-        } else if (qdesigneractioneditorinterface_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdesigneractioneditorinterface_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,13 +839,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_tabletevent_isbase) {
             qdesigneractioneditorinterface_tabletevent_isbase = false;
             QDesignerActionEditorInterface::tabletEvent(event);
-        } else if (qdesigneractioneditorinterface_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdesigneractioneditorinterface_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_tabletevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +856,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_actionevent_isbase) {
             qdesigneractioneditorinterface_actionevent_isbase = false;
             QDesignerActionEditorInterface::actionEvent(event);
-        } else if (qdesigneractioneditorinterface_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdesigneractioneditorinterface_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_actionevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,13 +873,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_dragenterevent_isbase) {
             qdesigneractioneditorinterface_dragenterevent_isbase = false;
             QDesignerActionEditorInterface::dragEnterEvent(event);
-        } else if (qdesigneractioneditorinterface_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdesigneractioneditorinterface_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_dragenterevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,13 +890,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_dragmoveevent_isbase) {
             qdesigneractioneditorinterface_dragmoveevent_isbase = false;
             QDesignerActionEditorInterface::dragMoveEvent(event);
-        } else if (qdesigneractioneditorinterface_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdesigneractioneditorinterface_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,13 +907,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_dragleaveevent_isbase) {
             qdesigneractioneditorinterface_dragleaveevent_isbase = false;
             QDesignerActionEditorInterface::dragLeaveEvent(event);
-        } else if (qdesigneractioneditorinterface_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdesigneractioneditorinterface_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,13 +924,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_dropevent_isbase) {
             qdesigneractioneditorinterface_dropevent_isbase = false;
             QDesignerActionEditorInterface::dropEvent(event);
-        } else if (qdesigneractioneditorinterface_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdesigneractioneditorinterface_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_dropevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,13 +941,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_showevent_isbase) {
             qdesigneractioneditorinterface_showevent_isbase = false;
             QDesignerActionEditorInterface::showEvent(event);
-        } else if (qdesigneractioneditorinterface_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdesigneractioneditorinterface_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_showevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,13 +958,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_hideevent_isbase) {
             qdesigneractioneditorinterface_hideevent_isbase = false;
             QDesignerActionEditorInterface::hideEvent(event);
-        } else if (qdesigneractioneditorinterface_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdesigneractioneditorinterface_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_hideevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,7 +975,9 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_nativeevent_isbase) {
             qdesigneractioneditorinterface_nativeevent_isbase = false;
             return QDesignerActionEditorInterface::nativeEvent(eventType, message, result);
-        } else if (qdesigneractioneditorinterface_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdesigneractioneditorinterface_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -964,12 +988,11 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdesigneractioneditorinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::nativeEvent(eventType, message, result);
         }
+        return QDesignerActionEditorInterface::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +1000,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_changeevent_isbase) {
             qdesigneractioneditorinterface_changeevent_isbase = false;
             QDesignerActionEditorInterface::changeEvent(param1);
-        } else if (qdesigneractioneditorinterface_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdesigneractioneditorinterface_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qdesigneractioneditorinterface_changeevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,14 +1017,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_metric_isbase) {
             qdesigneractioneditorinterface_metric_isbase = false;
             return QDesignerActionEditorInterface::metric(param1);
-        } else if (qdesigneractioneditorinterface_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdesigneractioneditorinterface_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdesigneractioneditorinterface_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::metric(param1);
         }
+        return QDesignerActionEditorInterface::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,13 +1033,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_initpainter_isbase) {
             qdesigneractioneditorinterface_initpainter_isbase = false;
             QDesignerActionEditorInterface::initPainter(painter);
-        } else if (qdesigneractioneditorinterface_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdesigneractioneditorinterface_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdesigneractioneditorinterface_initpainter_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,14 +1050,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_redirected_isbase) {
             qdesigneractioneditorinterface_redirected_isbase = false;
             return QDesignerActionEditorInterface::redirected(offset);
-        } else if (qdesigneractioneditorinterface_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdesigneractioneditorinterface_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdesigneractioneditorinterface_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::redirected(offset);
         }
+        return QDesignerActionEditorInterface::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,12 +1066,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_sharedpainter_isbase) {
             qdesigneractioneditorinterface_sharedpainter_isbase = false;
             return QDesignerActionEditorInterface::sharedPainter();
-        } else if (qdesigneractioneditorinterface_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdesigneractioneditorinterface_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::sharedPainter();
         }
+        auto sharedpainter_cb = qdesigneractioneditorinterface_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,13 +1080,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_inputmethodevent_isbase) {
             qdesigneractioneditorinterface_inputmethodevent_isbase = false;
             QDesignerActionEditorInterface::inputMethodEvent(param1);
-        } else if (qdesigneractioneditorinterface_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdesigneractioneditorinterface_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdesigneractioneditorinterface_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1062,14 +1097,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_inputmethodquery_isbase) {
             qdesigneractioneditorinterface_inputmethodquery_isbase = false;
             return QDesignerActionEditorInterface::inputMethodQuery(param1);
-        } else if (qdesigneractioneditorinterface_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdesigneractioneditorinterface_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdesigneractioneditorinterface_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::inputMethodQuery(param1);
         }
+        return QDesignerActionEditorInterface::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,14 +1113,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_focusnextprevchild_isbase) {
             qdesigneractioneditorinterface_focusnextprevchild_isbase = false;
             return QDesignerActionEditorInterface::focusNextPrevChild(next);
-        } else if (qdesigneractioneditorinterface_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdesigneractioneditorinterface_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdesigneractioneditorinterface_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::focusNextPrevChild(next);
         }
+        return QDesignerActionEditorInterface::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,15 +1129,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_eventfilter_isbase) {
             qdesigneractioneditorinterface_eventfilter_isbase = false;
             return QDesignerActionEditorInterface::eventFilter(watched, event);
-        } else if (qdesigneractioneditorinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdesigneractioneditorinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdesigneractioneditorinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::eventFilter(watched, event);
         }
+        return QDesignerActionEditorInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,13 +1146,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_timerevent_isbase) {
             qdesigneractioneditorinterface_timerevent_isbase = false;
             QDesignerActionEditorInterface::timerEvent(event);
-        } else if (qdesigneractioneditorinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdesigneractioneditorinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,13 +1163,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_childevent_isbase) {
             qdesigneractioneditorinterface_childevent_isbase = false;
             QDesignerActionEditorInterface::childEvent(event);
-        } else if (qdesigneractioneditorinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdesigneractioneditorinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_childevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,13 +1180,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_customevent_isbase) {
             qdesigneractioneditorinterface_customevent_isbase = false;
             QDesignerActionEditorInterface::customEvent(event);
-        } else if (qdesigneractioneditorinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdesigneractioneditorinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesigneractioneditorinterface_customevent_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,15 +1197,18 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_connectnotify_isbase) {
             qdesigneractioneditorinterface_connectnotify_isbase = false;
             QDesignerActionEditorInterface::connectNotify(signal);
-        } else if (qdesigneractioneditorinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdesigneractioneditorinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesigneractioneditorinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,15 +1216,18 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_disconnectnotify_isbase) {
             qdesigneractioneditorinterface_disconnectnotify_isbase = false;
             QDesignerActionEditorInterface::disconnectNotify(signal);
-        } else if (qdesigneractioneditorinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdesigneractioneditorinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesigneractioneditorinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDesignerActionEditorInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerActionEditorInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,11 +1235,14 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_updatemicrofocus_isbase) {
             qdesigneractioneditorinterface_updatemicrofocus_isbase = false;
             QDesignerActionEditorInterface::updateMicroFocus();
-        } else if (qdesigneractioneditorinterface_updatemicrofocus_callback != nullptr) {
-            qdesigneractioneditorinterface_updatemicrofocus_callback();
-        } else {
-            QDesignerActionEditorInterface::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdesigneractioneditorinterface_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDesignerActionEditorInterface::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,11 +1250,14 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_create_isbase) {
             qdesigneractioneditorinterface_create_isbase = false;
             QDesignerActionEditorInterface::create();
-        } else if (qdesigneractioneditorinterface_create_callback != nullptr) {
-            qdesigneractioneditorinterface_create_callback();
-        } else {
-            QDesignerActionEditorInterface::create();
+            return;
         }
+        auto create_cb = qdesigneractioneditorinterface_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDesignerActionEditorInterface::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,11 +1265,14 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_destroy_isbase) {
             qdesigneractioneditorinterface_destroy_isbase = false;
             QDesignerActionEditorInterface::destroy();
-        } else if (qdesigneractioneditorinterface_destroy_callback != nullptr) {
-            qdesigneractioneditorinterface_destroy_callback();
-        } else {
-            QDesignerActionEditorInterface::destroy();
+            return;
         }
+        auto destroy_cb = qdesigneractioneditorinterface_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDesignerActionEditorInterface::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,12 +1280,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_focusnextchild_isbase) {
             qdesigneractioneditorinterface_focusnextchild_isbase = false;
             return QDesignerActionEditorInterface::focusNextChild();
-        } else if (qdesigneractioneditorinterface_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdesigneractioneditorinterface_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::focusNextChild();
         }
+        auto focusnextchild_cb = qdesigneractioneditorinterface_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1231,12 +1294,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_focuspreviouschild_isbase) {
             qdesigneractioneditorinterface_focuspreviouschild_isbase = false;
             return QDesignerActionEditorInterface::focusPreviousChild();
-        } else if (qdesigneractioneditorinterface_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdesigneractioneditorinterface_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdesigneractioneditorinterface_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1244,12 +1308,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_sender_isbase) {
             qdesigneractioneditorinterface_sender_isbase = false;
             return QDesignerActionEditorInterface::sender();
-        } else if (qdesigneractioneditorinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdesigneractioneditorinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::sender();
         }
+        auto sender_cb = qdesigneractioneditorinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDesignerActionEditorInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,12 +1322,13 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_sendersignalindex_isbase) {
             qdesigneractioneditorinterface_sendersignalindex_isbase = false;
             return QDesignerActionEditorInterface::senderSignalIndex();
-        } else if (qdesigneractioneditorinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdesigneractioneditorinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdesigneractioneditorinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerActionEditorInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,14 +1336,15 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_receivers_isbase) {
             qdesigneractioneditorinterface_receivers_isbase = false;
             return QDesignerActionEditorInterface::receivers(signal);
-        } else if (qdesigneractioneditorinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdesigneractioneditorinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdesigneractioneditorinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::receivers(signal);
         }
+        return QDesignerActionEditorInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,16 +1352,17 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_issignalconnected_isbase) {
             qdesigneractioneditorinterface_issignalconnected_isbase = false;
             return QDesignerActionEditorInterface::isSignalConnected(signal);
-        } else if (qdesigneractioneditorinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdesigneractioneditorinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdesigneractioneditorinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerActionEditorInterface::isSignalConnected(signal);
         }
+        return QDesignerActionEditorInterface::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1302,15 +1370,16 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
         if (qdesigneractioneditorinterface_getdecodedmetricf_isbase) {
             qdesigneractioneditorinterface_getdecodedmetricf_isbase = false;
             return QDesignerActionEditorInterface::getDecodedMetricF(metricA, metricB);
-        } else if (qdesigneractioneditorinterface_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdesigneractioneditorinterface_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdesigneractioneditorinterface_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDesignerActionEditorInterface::getDecodedMetricF(metricA, metricB);
         }
+        return QDesignerActionEditorInterface::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

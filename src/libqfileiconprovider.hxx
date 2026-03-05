@@ -41,14 +41,6 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
   public:
     VirtualQFileIconProvider() : QFileIconProvider() {};
 
-    ~VirtualQFileIconProvider() {
-        qfileiconprovider_icon_callback = nullptr;
-        qfileiconprovider_icon2_callback = nullptr;
-        qfileiconprovider_type_callback = nullptr;
-        qfileiconprovider_setoptions_callback = nullptr;
-        qfileiconprovider_options_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFileIconProvider_Icon_Callback(QFileIconProvider_Icon_Callback cb) { qfileiconprovider_icon_callback = cb; }
     inline void setQFileIconProvider_Icon2_Callback(QFileIconProvider_Icon2_Callback cb) { qfileiconprovider_icon2_callback = cb; }
@@ -68,14 +60,15 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         if (qfileiconprovider_icon_isbase) {
             qfileiconprovider_icon_isbase = false;
             return QFileIconProvider::icon(typeVal);
-        } else if (qfileiconprovider_icon_callback != nullptr) {
+        }
+        auto icon_cb = qfileiconprovider_icon_callback;
+        if (icon_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            QIcon* callback_ret = qfileiconprovider_icon_callback(this, cbval1);
+            QIcon* callback_ret = icon_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFileIconProvider::icon(typeVal);
         }
+        return QFileIconProvider::icon(typeVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -83,16 +76,17 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         if (qfileiconprovider_icon2_isbase) {
             qfileiconprovider_icon2_isbase = false;
             return QFileIconProvider::icon(info);
-        } else if (qfileiconprovider_icon2_callback != nullptr) {
+        }
+        auto icon2_cb = qfileiconprovider_icon2_callback;
+        if (icon2_cb) {
             const QFileInfo& info_ret = info;
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&info_ret);
 
-            QIcon* callback_ret = qfileiconprovider_icon2_callback(this, cbval1);
+            QIcon* callback_ret = icon2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QFileIconProvider::icon(info);
         }
+        return QFileIconProvider::icon(info);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -100,17 +94,18 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         if (qfileiconprovider_type_isbase) {
             qfileiconprovider_type_isbase = false;
             return QFileIconProvider::type(param1);
-        } else if (qfileiconprovider_type_callback != nullptr) {
+        }
+        auto type_cb = qfileiconprovider_type_callback;
+        if (type_cb) {
             const QFileInfo& param1_ret = param1;
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&param1_ret);
 
-            const char* callback_ret = qfileiconprovider_type_callback(this, cbval1);
+            const char* callback_ret = type_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QFileIconProvider::type(param1);
         }
+        return QFileIconProvider::type(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -118,13 +113,16 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         if (qfileiconprovider_setoptions_isbase) {
             qfileiconprovider_setoptions_isbase = false;
             QFileIconProvider::setOptions(options);
-        } else if (qfileiconprovider_setoptions_callback != nullptr) {
+            return;
+        }
+        auto setoptions_cb = qfileiconprovider_setoptions_callback;
+        if (setoptions_cb) {
             int cbval1 = static_cast<int>(options);
 
-            qfileiconprovider_setoptions_callback(this, cbval1);
-        } else {
-            QFileIconProvider::setOptions(options);
+            setoptions_cb(this, cbval1);
+            return;
         }
+        QFileIconProvider::setOptions(options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -132,12 +130,13 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         if (qfileiconprovider_options_isbase) {
             qfileiconprovider_options_isbase = false;
             return QFileIconProvider::options();
-        } else if (qfileiconprovider_options_callback != nullptr) {
-            int callback_ret = qfileiconprovider_options_callback();
-            return static_cast<QAbstractFileIconProvider::Options>(callback_ret);
-        } else {
-            return QFileIconProvider::options();
         }
+        auto options_cb = qfileiconprovider_options_callback;
+        if (options_cb) {
+            int callback_ret = options_cb();
+            return static_cast<QAbstractFileIconProvider::Options>(callback_ret);
+        }
+        return QFileIconProvider::options();
     }
 };
 

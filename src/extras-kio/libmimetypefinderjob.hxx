@@ -141,47 +141,6 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     VirtualKIOMimeTypeFinderJob(const QUrl& url) : KIO::MimeTypeFinderJob(url) {};
     VirtualKIOMimeTypeFinderJob(const QUrl& url, QObject* parent) : KIO::MimeTypeFinderJob(url, parent) {};
 
-    ~VirtualKIOMimeTypeFinderJob() {
-        kio__mimetypefinderjob_metaobject_callback = nullptr;
-        kio__mimetypefinderjob_metacast_callback = nullptr;
-        kio__mimetypefinderjob_metacall_callback = nullptr;
-        kio__mimetypefinderjob_start_callback = nullptr;
-        kio__mimetypefinderjob_dokill_callback = nullptr;
-        kio__mimetypefinderjob_slotresult_callback = nullptr;
-        kio__mimetypefinderjob_addsubjob_callback = nullptr;
-        kio__mimetypefinderjob_removesubjob_callback = nullptr;
-        kio__mimetypefinderjob_slotinfomessage_callback = nullptr;
-        kio__mimetypefinderjob_dosuspend_callback = nullptr;
-        kio__mimetypefinderjob_doresume_callback = nullptr;
-        kio__mimetypefinderjob_errorstring_callback = nullptr;
-        kio__mimetypefinderjob_event_callback = nullptr;
-        kio__mimetypefinderjob_eventfilter_callback = nullptr;
-        kio__mimetypefinderjob_timerevent_callback = nullptr;
-        kio__mimetypefinderjob_childevent_callback = nullptr;
-        kio__mimetypefinderjob_customevent_callback = nullptr;
-        kio__mimetypefinderjob_connectnotify_callback = nullptr;
-        kio__mimetypefinderjob_disconnectnotify_callback = nullptr;
-        kio__mimetypefinderjob_hassubjobs_callback = nullptr;
-        kio__mimetypefinderjob_subjobs_callback = nullptr;
-        kio__mimetypefinderjob_clearsubjobs_callback = nullptr;
-        kio__mimetypefinderjob_setcapabilities_callback = nullptr;
-        kio__mimetypefinderjob_isfinished_callback = nullptr;
-        kio__mimetypefinderjob_seterror_callback = nullptr;
-        kio__mimetypefinderjob_seterrortext_callback = nullptr;
-        kio__mimetypefinderjob_setprocessedamount_callback = nullptr;
-        kio__mimetypefinderjob_settotalamount_callback = nullptr;
-        kio__mimetypefinderjob_setprogressunit_callback = nullptr;
-        kio__mimetypefinderjob_setpercent_callback = nullptr;
-        kio__mimetypefinderjob_emitresult_callback = nullptr;
-        kio__mimetypefinderjob_emitpercent_callback = nullptr;
-        kio__mimetypefinderjob_emitspeed_callback = nullptr;
-        kio__mimetypefinderjob_startelapsedtimer_callback = nullptr;
-        kio__mimetypefinderjob_sender_callback = nullptr;
-        kio__mimetypefinderjob_sendersignalindex_callback = nullptr;
-        kio__mimetypefinderjob_receivers_callback = nullptr;
-        kio__mimetypefinderjob_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__MimeTypeFinderJob_MetaObject_Callback(KIO__MimeTypeFinderJob_MetaObject_Callback cb) { kio__mimetypefinderjob_metaobject_callback = cb; }
     inline void setKIO__MimeTypeFinderJob_Metacast_Callback(KIO__MimeTypeFinderJob_Metacast_Callback cb) { kio__mimetypefinderjob_metacast_callback = cb; }
@@ -267,12 +226,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_metaobject_isbase) {
             kio__mimetypefinderjob_metaobject_isbase = false;
             return KIO__MimeTypeFinderJob::metaObject();
-        } else if (kio__mimetypefinderjob_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__mimetypefinderjob_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::metaObject();
         }
+        auto metaobject_cb = kio__mimetypefinderjob_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,14 +240,15 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_metacast_isbase) {
             kio__mimetypefinderjob_metacast_isbase = false;
             return KIO__MimeTypeFinderJob::qt_metacast(param1);
-        } else if (kio__mimetypefinderjob_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__mimetypefinderjob_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__mimetypefinderjob_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::qt_metacast(param1);
         }
+        return KIO__MimeTypeFinderJob::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,16 +256,17 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_metacall_isbase) {
             kio__mimetypefinderjob_metacall_isbase = false;
             return KIO__MimeTypeFinderJob::qt_metacall(param1, param2, param3);
-        } else if (kio__mimetypefinderjob_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__mimetypefinderjob_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__mimetypefinderjob_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__MimeTypeFinderJob::qt_metacall(param1, param2, param3);
         }
+        return KIO__MimeTypeFinderJob::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,11 +274,14 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_start_isbase) {
             kio__mimetypefinderjob_start_isbase = false;
             KIO__MimeTypeFinderJob::start();
-        } else if (kio__mimetypefinderjob_start_callback != nullptr) {
-            kio__mimetypefinderjob_start_callback();
-        } else {
-            KIO__MimeTypeFinderJob::start();
+            return;
         }
+        auto start_cb = kio__mimetypefinderjob_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        KIO__MimeTypeFinderJob::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,12 +289,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_dokill_isbase) {
             kio__mimetypefinderjob_dokill_isbase = false;
             return KIO__MimeTypeFinderJob::doKill();
-        } else if (kio__mimetypefinderjob_dokill_callback != nullptr) {
-            bool callback_ret = kio__mimetypefinderjob_dokill_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::doKill();
         }
+        auto dokill_cb = kio__mimetypefinderjob_dokill_callback;
+        if (dokill_cb) {
+            bool callback_ret = dokill_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::doKill();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,13 +303,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_slotresult_isbase) {
             kio__mimetypefinderjob_slotresult_isbase = false;
             KIO__MimeTypeFinderJob::slotResult(job);
-        } else if (kio__mimetypefinderjob_slotresult_callback != nullptr) {
+            return;
+        }
+        auto slotresult_cb = kio__mimetypefinderjob_slotresult_callback;
+        if (slotresult_cb) {
             KJob* cbval1 = job;
 
-            kio__mimetypefinderjob_slotresult_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::slotResult(job);
+            slotresult_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::slotResult(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -351,14 +320,15 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_addsubjob_isbase) {
             kio__mimetypefinderjob_addsubjob_isbase = false;
             return KIO__MimeTypeFinderJob::addSubjob(job);
-        } else if (kio__mimetypefinderjob_addsubjob_callback != nullptr) {
+        }
+        auto addsubjob_cb = kio__mimetypefinderjob_addsubjob_callback;
+        if (addsubjob_cb) {
             KJob* cbval1 = job;
 
-            bool callback_ret = kio__mimetypefinderjob_addsubjob_callback(this, cbval1);
+            bool callback_ret = addsubjob_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::addSubjob(job);
         }
+        return KIO__MimeTypeFinderJob::addSubjob(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,14 +336,15 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_removesubjob_isbase) {
             kio__mimetypefinderjob_removesubjob_isbase = false;
             return KIO__MimeTypeFinderJob::removeSubjob(job);
-        } else if (kio__mimetypefinderjob_removesubjob_callback != nullptr) {
+        }
+        auto removesubjob_cb = kio__mimetypefinderjob_removesubjob_callback;
+        if (removesubjob_cb) {
             KJob* cbval1 = job;
 
-            bool callback_ret = kio__mimetypefinderjob_removesubjob_callback(this, cbval1);
+            bool callback_ret = removesubjob_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::removeSubjob(job);
         }
+        return KIO__MimeTypeFinderJob::removeSubjob(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -381,7 +352,10 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_slotinfomessage_isbase) {
             kio__mimetypefinderjob_slotinfomessage_isbase = false;
             KIO__MimeTypeFinderJob::slotInfoMessage(job, message);
-        } else if (kio__mimetypefinderjob_slotinfomessage_callback != nullptr) {
+            return;
+        }
+        auto slotinfomessage_cb = kio__mimetypefinderjob_slotinfomessage_callback;
+        if (slotinfomessage_cb) {
             KJob* cbval1 = job;
             const QString message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -392,11 +366,11 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
 
-            kio__mimetypefinderjob_slotinfomessage_callback(this, cbval1, cbval2);
+            slotinfomessage_cb(this, cbval1, cbval2);
             libqt_free(message_str);
-        } else {
-            KIO__MimeTypeFinderJob::slotInfoMessage(job, message);
+            return;
         }
+        KIO__MimeTypeFinderJob::slotInfoMessage(job, message);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -404,12 +378,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_dosuspend_isbase) {
             kio__mimetypefinderjob_dosuspend_isbase = false;
             return KIO__MimeTypeFinderJob::doSuspend();
-        } else if (kio__mimetypefinderjob_dosuspend_callback != nullptr) {
-            bool callback_ret = kio__mimetypefinderjob_dosuspend_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::doSuspend();
         }
+        auto dosuspend_cb = kio__mimetypefinderjob_dosuspend_callback;
+        if (dosuspend_cb) {
+            bool callback_ret = dosuspend_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::doSuspend();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -417,12 +392,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_doresume_isbase) {
             kio__mimetypefinderjob_doresume_isbase = false;
             return KIO__MimeTypeFinderJob::doResume();
-        } else if (kio__mimetypefinderjob_doresume_callback != nullptr) {
-            bool callback_ret = kio__mimetypefinderjob_doresume_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::doResume();
         }
+        auto doresume_cb = kio__mimetypefinderjob_doresume_callback;
+        if (doresume_cb) {
+            bool callback_ret = doresume_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::doResume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,13 +406,14 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_errorstring_isbase) {
             kio__mimetypefinderjob_errorstring_isbase = false;
             return KIO__MimeTypeFinderJob::errorString();
-        } else if (kio__mimetypefinderjob_errorstring_callback != nullptr) {
-            const char* callback_ret = kio__mimetypefinderjob_errorstring_callback();
+        }
+        auto errorstring_cb = kio__mimetypefinderjob_errorstring_callback;
+        if (errorstring_cb) {
+            const char* callback_ret = errorstring_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KIO__MimeTypeFinderJob::errorString();
         }
+        return KIO__MimeTypeFinderJob::errorString();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,14 +421,15 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_event_isbase) {
             kio__mimetypefinderjob_event_isbase = false;
             return KIO__MimeTypeFinderJob::event(event);
-        } else if (kio__mimetypefinderjob_event_callback != nullptr) {
+        }
+        auto event_cb = kio__mimetypefinderjob_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__mimetypefinderjob_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::event(event);
         }
+        return KIO__MimeTypeFinderJob::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,15 +437,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_eventfilter_isbase) {
             kio__mimetypefinderjob_eventfilter_isbase = false;
             return KIO__MimeTypeFinderJob::eventFilter(watched, event);
-        } else if (kio__mimetypefinderjob_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__mimetypefinderjob_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kio__mimetypefinderjob_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::eventFilter(watched, event);
         }
+        return KIO__MimeTypeFinderJob::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,13 +454,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_timerevent_isbase) {
             kio__mimetypefinderjob_timerevent_isbase = false;
             KIO__MimeTypeFinderJob::timerEvent(event);
-        } else if (kio__mimetypefinderjob_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__mimetypefinderjob_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__mimetypefinderjob_timerevent_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -489,13 +471,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_childevent_isbase) {
             kio__mimetypefinderjob_childevent_isbase = false;
             KIO__MimeTypeFinderJob::childEvent(event);
-        } else if (kio__mimetypefinderjob_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__mimetypefinderjob_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__mimetypefinderjob_childevent_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -503,13 +488,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_customevent_isbase) {
             kio__mimetypefinderjob_customevent_isbase = false;
             KIO__MimeTypeFinderJob::customEvent(event);
-        } else if (kio__mimetypefinderjob_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__mimetypefinderjob_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__mimetypefinderjob_customevent_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,15 +505,18 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_connectnotify_isbase) {
             kio__mimetypefinderjob_connectnotify_isbase = false;
             KIO__MimeTypeFinderJob::connectNotify(signal);
-        } else if (kio__mimetypefinderjob_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__mimetypefinderjob_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__mimetypefinderjob_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,15 +524,18 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_disconnectnotify_isbase) {
             kio__mimetypefinderjob_disconnectnotify_isbase = false;
             KIO__MimeTypeFinderJob::disconnectNotify(signal);
-        } else if (kio__mimetypefinderjob_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__mimetypefinderjob_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__mimetypefinderjob_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,12 +543,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_hassubjobs_isbase) {
             kio__mimetypefinderjob_hassubjobs_isbase = false;
             return KIO__MimeTypeFinderJob::hasSubjobs();
-        } else if (kio__mimetypefinderjob_hassubjobs_callback != nullptr) {
-            bool callback_ret = kio__mimetypefinderjob_hassubjobs_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::hasSubjobs();
         }
+        auto hassubjobs_cb = kio__mimetypefinderjob_hassubjobs_callback;
+        if (hassubjobs_cb) {
+            bool callback_ret = hassubjobs_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::hasSubjobs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -562,8 +557,10 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_subjobs_isbase) {
             kio__mimetypefinderjob_subjobs_isbase = false;
             return KIO__MimeTypeFinderJob::subjobs();
-        } else if (kio__mimetypefinderjob_subjobs_callback != nullptr) {
-            libqt_list /* of KJob* */ callback_ret = kio__mimetypefinderjob_subjobs_callback();
+        }
+        auto subjobs_cb = kio__mimetypefinderjob_subjobs_callback;
+        if (subjobs_cb) {
+            libqt_list /* of KJob* */ callback_ret = subjobs_cb();
             QList<KJob*>* callback_ret_QList;
             callback_ret_QList->reserve(callback_ret.len);
             KJob** callback_ret_arr = static_cast<KJob**>(callback_ret.data);
@@ -572,9 +569,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
             }
             libqt_free(callback_ret.data);
             return *callback_ret_QList;
-        } else {
-            return KIO__MimeTypeFinderJob::subjobs();
         }
+        return KIO__MimeTypeFinderJob::subjobs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,11 +578,14 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_clearsubjobs_isbase) {
             kio__mimetypefinderjob_clearsubjobs_isbase = false;
             KIO__MimeTypeFinderJob::clearSubjobs();
-        } else if (kio__mimetypefinderjob_clearsubjobs_callback != nullptr) {
-            kio__mimetypefinderjob_clearsubjobs_callback();
-        } else {
-            KIO__MimeTypeFinderJob::clearSubjobs();
+            return;
         }
+        auto clearsubjobs_cb = kio__mimetypefinderjob_clearsubjobs_callback;
+        if (clearsubjobs_cb) {
+            clearsubjobs_cb();
+            return;
+        }
+        KIO__MimeTypeFinderJob::clearSubjobs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,13 +593,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_setcapabilities_isbase) {
             kio__mimetypefinderjob_setcapabilities_isbase = false;
             KIO__MimeTypeFinderJob::setCapabilities(capabilities);
-        } else if (kio__mimetypefinderjob_setcapabilities_callback != nullptr) {
+            return;
+        }
+        auto setcapabilities_cb = kio__mimetypefinderjob_setcapabilities_callback;
+        if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
 
-            kio__mimetypefinderjob_setcapabilities_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::setCapabilities(capabilities);
+            setcapabilities_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::setCapabilities(capabilities);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,12 +610,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_isfinished_isbase) {
             kio__mimetypefinderjob_isfinished_isbase = false;
             return KIO__MimeTypeFinderJob::isFinished();
-        } else if (kio__mimetypefinderjob_isfinished_callback != nullptr) {
-            bool callback_ret = kio__mimetypefinderjob_isfinished_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::isFinished();
         }
+        auto isfinished_cb = kio__mimetypefinderjob_isfinished_callback;
+        if (isfinished_cb) {
+            bool callback_ret = isfinished_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::isFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,13 +624,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_seterror_isbase) {
             kio__mimetypefinderjob_seterror_isbase = false;
             KIO__MimeTypeFinderJob::setError(errorCode);
-        } else if (kio__mimetypefinderjob_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = kio__mimetypefinderjob_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = errorCode;
 
-            kio__mimetypefinderjob_seterror_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::setError(errorCode);
+            seterror_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::setError(errorCode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,7 +641,10 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_seterrortext_isbase) {
             kio__mimetypefinderjob_seterrortext_isbase = false;
             KIO__MimeTypeFinderJob::setErrorText(errorText);
-        } else if (kio__mimetypefinderjob_seterrortext_callback != nullptr) {
+            return;
+        }
+        auto seterrortext_cb = kio__mimetypefinderjob_seterrortext_callback;
+        if (seterrortext_cb) {
             const QString errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
@@ -645,11 +654,11 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
 
-            kio__mimetypefinderjob_seterrortext_callback(this, cbval1);
+            seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
-        } else {
-            KIO__MimeTypeFinderJob::setErrorText(errorText);
+            return;
         }
+        KIO__MimeTypeFinderJob::setErrorText(errorText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,14 +666,17 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_setprocessedamount_isbase) {
             kio__mimetypefinderjob_setprocessedamount_isbase = false;
             KIO__MimeTypeFinderJob::setProcessedAmount(unit, amount);
-        } else if (kio__mimetypefinderjob_setprocessedamount_callback != nullptr) {
+            return;
+        }
+        auto setprocessedamount_cb = kio__mimetypefinderjob_setprocessedamount_callback;
+        if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kio__mimetypefinderjob_setprocessedamount_callback(this, cbval1, cbval2);
-        } else {
-            KIO__MimeTypeFinderJob::setProcessedAmount(unit, amount);
+            setprocessedamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__MimeTypeFinderJob::setProcessedAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,14 +684,17 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_settotalamount_isbase) {
             kio__mimetypefinderjob_settotalamount_isbase = false;
             KIO__MimeTypeFinderJob::setTotalAmount(unit, amount);
-        } else if (kio__mimetypefinderjob_settotalamount_callback != nullptr) {
+            return;
+        }
+        auto settotalamount_cb = kio__mimetypefinderjob_settotalamount_callback;
+        if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kio__mimetypefinderjob_settotalamount_callback(this, cbval1, cbval2);
-        } else {
-            KIO__MimeTypeFinderJob::setTotalAmount(unit, amount);
+            settotalamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__MimeTypeFinderJob::setTotalAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -687,13 +702,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_setprogressunit_isbase) {
             kio__mimetypefinderjob_setprogressunit_isbase = false;
             KIO__MimeTypeFinderJob::setProgressUnit(unit);
-        } else if (kio__mimetypefinderjob_setprogressunit_callback != nullptr) {
+            return;
+        }
+        auto setprogressunit_cb = kio__mimetypefinderjob_setprogressunit_callback;
+        if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
 
-            kio__mimetypefinderjob_setprogressunit_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::setProgressUnit(unit);
+            setprogressunit_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::setProgressUnit(unit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -701,13 +719,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_setpercent_isbase) {
             kio__mimetypefinderjob_setpercent_isbase = false;
             KIO__MimeTypeFinderJob::setPercent(percentage);
-        } else if (kio__mimetypefinderjob_setpercent_callback != nullptr) {
+            return;
+        }
+        auto setpercent_cb = kio__mimetypefinderjob_setpercent_callback;
+        if (setpercent_cb) {
             unsigned long cbval1 = percentage;
 
-            kio__mimetypefinderjob_setpercent_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::setPercent(percentage);
+            setpercent_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::setPercent(percentage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -715,11 +736,14 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_emitresult_isbase) {
             kio__mimetypefinderjob_emitresult_isbase = false;
             KIO__MimeTypeFinderJob::emitResult();
-        } else if (kio__mimetypefinderjob_emitresult_callback != nullptr) {
-            kio__mimetypefinderjob_emitresult_callback();
-        } else {
-            KIO__MimeTypeFinderJob::emitResult();
+            return;
         }
+        auto emitresult_cb = kio__mimetypefinderjob_emitresult_callback;
+        if (emitresult_cb) {
+            emitresult_cb();
+            return;
+        }
+        KIO__MimeTypeFinderJob::emitResult();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,14 +751,17 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_emitpercent_isbase) {
             kio__mimetypefinderjob_emitpercent_isbase = false;
             KIO__MimeTypeFinderJob::emitPercent(processedAmount, totalAmount);
-        } else if (kio__mimetypefinderjob_emitpercent_callback != nullptr) {
+            return;
+        }
+        auto emitpercent_cb = kio__mimetypefinderjob_emitpercent_callback;
+        if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
 
-            kio__mimetypefinderjob_emitpercent_callback(this, cbval1, cbval2);
-        } else {
-            KIO__MimeTypeFinderJob::emitPercent(processedAmount, totalAmount);
+            emitpercent_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__MimeTypeFinderJob::emitPercent(processedAmount, totalAmount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,13 +769,16 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_emitspeed_isbase) {
             kio__mimetypefinderjob_emitspeed_isbase = false;
             KIO__MimeTypeFinderJob::emitSpeed(speed);
-        } else if (kio__mimetypefinderjob_emitspeed_callback != nullptr) {
+            return;
+        }
+        auto emitspeed_cb = kio__mimetypefinderjob_emitspeed_callback;
+        if (emitspeed_cb) {
             unsigned long cbval1 = speed;
 
-            kio__mimetypefinderjob_emitspeed_callback(this, cbval1);
-        } else {
-            KIO__MimeTypeFinderJob::emitSpeed(speed);
+            emitspeed_cb(this, cbval1);
+            return;
         }
+        KIO__MimeTypeFinderJob::emitSpeed(speed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,11 +786,14 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_startelapsedtimer_isbase) {
             kio__mimetypefinderjob_startelapsedtimer_isbase = false;
             KIO__MimeTypeFinderJob::startElapsedTimer();
-        } else if (kio__mimetypefinderjob_startelapsedtimer_callback != nullptr) {
-            kio__mimetypefinderjob_startelapsedtimer_callback();
-        } else {
-            KIO__MimeTypeFinderJob::startElapsedTimer();
+            return;
         }
+        auto startelapsedtimer_cb = kio__mimetypefinderjob_startelapsedtimer_callback;
+        if (startelapsedtimer_cb) {
+            startelapsedtimer_cb();
+            return;
+        }
+        KIO__MimeTypeFinderJob::startElapsedTimer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,12 +801,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_sender_isbase) {
             kio__mimetypefinderjob_sender_isbase = false;
             return KIO__MimeTypeFinderJob::sender();
-        } else if (kio__mimetypefinderjob_sender_callback != nullptr) {
-            QObject* callback_ret = kio__mimetypefinderjob_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::sender();
         }
+        auto sender_cb = kio__mimetypefinderjob_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__MimeTypeFinderJob::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,12 +815,13 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_sendersignalindex_isbase) {
             kio__mimetypefinderjob_sendersignalindex_isbase = false;
             return KIO__MimeTypeFinderJob::senderSignalIndex();
-        } else if (kio__mimetypefinderjob_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__mimetypefinderjob_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__MimeTypeFinderJob::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__mimetypefinderjob_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__MimeTypeFinderJob::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,14 +829,15 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_receivers_isbase) {
             kio__mimetypefinderjob_receivers_isbase = false;
             return KIO__MimeTypeFinderJob::receivers(signal);
-        } else if (kio__mimetypefinderjob_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__mimetypefinderjob_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__mimetypefinderjob_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__MimeTypeFinderJob::receivers(signal);
         }
+        return KIO__MimeTypeFinderJob::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,16 +845,17 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
         if (kio__mimetypefinderjob_issignalconnected_isbase) {
             kio__mimetypefinderjob_issignalconnected_isbase = false;
             return KIO__MimeTypeFinderJob::isSignalConnected(signal);
-        } else if (kio__mimetypefinderjob_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__mimetypefinderjob_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__mimetypefinderjob_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__MimeTypeFinderJob::isSignalConnected(signal);
         }
+        return KIO__MimeTypeFinderJob::isSignalConnected(signal);
     }
 
     // Friend functions

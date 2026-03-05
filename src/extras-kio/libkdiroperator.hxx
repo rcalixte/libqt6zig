@@ -334,111 +334,6 @@ class VirtualKDirOperator final : public KDirOperator {
     VirtualKDirOperator(const QUrl& urlName) : KDirOperator(urlName) {};
     VirtualKDirOperator(const QUrl& urlName, QWidget* parent) : KDirOperator(urlName, parent) {};
 
-    ~VirtualKDirOperator() {
-        kdiroperator_metaobject_callback = nullptr;
-        kdiroperator_metacast_callback = nullptr;
-        kdiroperator_metacall_callback = nullptr;
-        kdiroperator_setshowhiddenfiles_callback = nullptr;
-        kdiroperator_seturl_callback = nullptr;
-        kdiroperator_setmode_callback = nullptr;
-        kdiroperator_setpreviewwidget_callback = nullptr;
-        kdiroperator_setviewconfig_callback = nullptr;
-        kdiroperator_readconfig_callback = nullptr;
-        kdiroperator_writeconfig_callback = nullptr;
-        kdiroperator_del_callback = nullptr;
-        kdiroperator_setenabledirhighlighting_callback = nullptr;
-        kdiroperator_setacceptdrops_callback = nullptr;
-        kdiroperator_setdropoptions_callback = nullptr;
-        kdiroperator_trash_callback = nullptr;
-        kdiroperator_createview_callback = nullptr;
-        kdiroperator_setdirlister_callback = nullptr;
-        kdiroperator_resizeevent_callback = nullptr;
-        kdiroperator_activatedmenu_callback = nullptr;
-        kdiroperator_changeevent_callback = nullptr;
-        kdiroperator_eventfilter_callback = nullptr;
-        kdiroperator_back_callback = nullptr;
-        kdiroperator_forward_callback = nullptr;
-        kdiroperator_home_callback = nullptr;
-        kdiroperator_cdup_callback = nullptr;
-        kdiroperator_rereaddir_callback = nullptr;
-        kdiroperator_mkdir_callback = nullptr;
-        kdiroperator_deleteselected_callback = nullptr;
-        kdiroperator_trashselected_callback = nullptr;
-        kdiroperator_selectdir_callback = nullptr;
-        kdiroperator_devtype_callback = nullptr;
-        kdiroperator_setvisible_callback = nullptr;
-        kdiroperator_sizehint_callback = nullptr;
-        kdiroperator_minimumsizehint_callback = nullptr;
-        kdiroperator_heightforwidth_callback = nullptr;
-        kdiroperator_hasheightforwidth_callback = nullptr;
-        kdiroperator_paintengine_callback = nullptr;
-        kdiroperator_event_callback = nullptr;
-        kdiroperator_mousepressevent_callback = nullptr;
-        kdiroperator_mousereleaseevent_callback = nullptr;
-        kdiroperator_mousedoubleclickevent_callback = nullptr;
-        kdiroperator_mousemoveevent_callback = nullptr;
-        kdiroperator_wheelevent_callback = nullptr;
-        kdiroperator_keypressevent_callback = nullptr;
-        kdiroperator_keyreleaseevent_callback = nullptr;
-        kdiroperator_focusinevent_callback = nullptr;
-        kdiroperator_focusoutevent_callback = nullptr;
-        kdiroperator_enterevent_callback = nullptr;
-        kdiroperator_leaveevent_callback = nullptr;
-        kdiroperator_paintevent_callback = nullptr;
-        kdiroperator_moveevent_callback = nullptr;
-        kdiroperator_closeevent_callback = nullptr;
-        kdiroperator_contextmenuevent_callback = nullptr;
-        kdiroperator_tabletevent_callback = nullptr;
-        kdiroperator_actionevent_callback = nullptr;
-        kdiroperator_dragenterevent_callback = nullptr;
-        kdiroperator_dragmoveevent_callback = nullptr;
-        kdiroperator_dragleaveevent_callback = nullptr;
-        kdiroperator_dropevent_callback = nullptr;
-        kdiroperator_showevent_callback = nullptr;
-        kdiroperator_hideevent_callback = nullptr;
-        kdiroperator_nativeevent_callback = nullptr;
-        kdiroperator_metric_callback = nullptr;
-        kdiroperator_initpainter_callback = nullptr;
-        kdiroperator_redirected_callback = nullptr;
-        kdiroperator_sharedpainter_callback = nullptr;
-        kdiroperator_inputmethodevent_callback = nullptr;
-        kdiroperator_inputmethodquery_callback = nullptr;
-        kdiroperator_focusnextprevchild_callback = nullptr;
-        kdiroperator_timerevent_callback = nullptr;
-        kdiroperator_childevent_callback = nullptr;
-        kdiroperator_customevent_callback = nullptr;
-        kdiroperator_connectnotify_callback = nullptr;
-        kdiroperator_disconnectnotify_callback = nullptr;
-        kdiroperator_setupactions_callback = nullptr;
-        kdiroperator_updatesortactions_callback = nullptr;
-        kdiroperator_updateviewactions_callback = nullptr;
-        kdiroperator_setupmenu2_callback = nullptr;
-        kdiroperator_preparecompletionobjects_callback = nullptr;
-        kdiroperator_checkpreviewsupport_callback = nullptr;
-        kdiroperator_resetcursor_callback = nullptr;
-        kdiroperator_pathchanged_callback = nullptr;
-        kdiroperator_selectfile_callback = nullptr;
-        kdiroperator_highlightfile_callback = nullptr;
-        kdiroperator_sortbyname_callback = nullptr;
-        kdiroperator_sortbysize_callback = nullptr;
-        kdiroperator_sortbydate_callback = nullptr;
-        kdiroperator_sortbytype_callback = nullptr;
-        kdiroperator_sortreversed_callback = nullptr;
-        kdiroperator_toggledirsfirst_callback = nullptr;
-        kdiroperator_toggleignorecase_callback = nullptr;
-        kdiroperator_slotcompletionmatch_callback = nullptr;
-        kdiroperator_updatemicrofocus_callback = nullptr;
-        kdiroperator_create_callback = nullptr;
-        kdiroperator_destroy_callback = nullptr;
-        kdiroperator_focusnextchild_callback = nullptr;
-        kdiroperator_focuspreviouschild_callback = nullptr;
-        kdiroperator_sender_callback = nullptr;
-        kdiroperator_sendersignalindex_callback = nullptr;
-        kdiroperator_receivers_callback = nullptr;
-        kdiroperator_issignalconnected_callback = nullptr;
-        kdiroperator_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDirOperator_MetaObject_Callback(KDirOperator_MetaObject_Callback cb) { kdiroperator_metaobject_callback = cb; }
     inline void setKDirOperator_Metacast_Callback(KDirOperator_Metacast_Callback cb) { kdiroperator_metacast_callback = cb; }
@@ -652,12 +547,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_metaobject_isbase) {
             kdiroperator_metaobject_isbase = false;
             return KDirOperator::metaObject();
-        } else if (kdiroperator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdiroperator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::metaObject();
         }
+        auto metaobject_cb = kdiroperator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDirOperator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,14 +561,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_metacast_isbase) {
             kdiroperator_metacast_isbase = false;
             return KDirOperator::qt_metacast(param1);
-        } else if (kdiroperator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdiroperator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdiroperator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirOperator::qt_metacast(param1);
         }
+        return KDirOperator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,16 +577,17 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_metacall_isbase) {
             kdiroperator_metacall_isbase = false;
             return KDirOperator::qt_metacall(param1, param2, param3);
-        } else if (kdiroperator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdiroperator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdiroperator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirOperator::qt_metacall(param1, param2, param3);
         }
+        return KDirOperator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,13 +595,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setshowhiddenfiles_isbase) {
             kdiroperator_setshowhiddenfiles_isbase = false;
             KDirOperator::setShowHiddenFiles(s);
-        } else if (kdiroperator_setshowhiddenfiles_callback != nullptr) {
+            return;
+        }
+        auto setshowhiddenfiles_cb = kdiroperator_setshowhiddenfiles_callback;
+        if (setshowhiddenfiles_cb) {
             bool cbval1 = s;
 
-            kdiroperator_setshowhiddenfiles_callback(this, cbval1);
-        } else {
-            KDirOperator::setShowHiddenFiles(s);
+            setshowhiddenfiles_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setShowHiddenFiles(s);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,16 +612,19 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_seturl_isbase) {
             kdiroperator_seturl_isbase = false;
             KDirOperator::setUrl(url, clearforward);
-        } else if (kdiroperator_seturl_callback != nullptr) {
+            return;
+        }
+        auto seturl_cb = kdiroperator_seturl_callback;
+        if (seturl_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             bool cbval2 = clearforward;
 
-            kdiroperator_seturl_callback(this, cbval1, cbval2);
-        } else {
-            KDirOperator::setUrl(url, clearforward);
+            seturl_cb(this, cbval1, cbval2);
+            return;
         }
+        KDirOperator::setUrl(url, clearforward);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,13 +632,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setmode_isbase) {
             kdiroperator_setmode_isbase = false;
             KDirOperator::setMode(m);
-        } else if (kdiroperator_setmode_callback != nullptr) {
+            return;
+        }
+        auto setmode_cb = kdiroperator_setmode_callback;
+        if (setmode_cb) {
             int cbval1 = static_cast<int>(m);
 
-            kdiroperator_setmode_callback(this, cbval1);
-        } else {
-            KDirOperator::setMode(m);
+            setmode_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setMode(m);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,13 +649,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setpreviewwidget_isbase) {
             kdiroperator_setpreviewwidget_isbase = false;
             KDirOperator::setPreviewWidget(w);
-        } else if (kdiroperator_setpreviewwidget_callback != nullptr) {
+            return;
+        }
+        auto setpreviewwidget_cb = kdiroperator_setpreviewwidget_callback;
+        if (setpreviewwidget_cb) {
             KPreviewWidgetBase* cbval1 = w;
 
-            kdiroperator_setpreviewwidget_callback(this, cbval1);
-        } else {
-            KDirOperator::setPreviewWidget(w);
+            setpreviewwidget_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setPreviewWidget(w);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,15 +666,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setviewconfig_isbase) {
             kdiroperator_setviewconfig_isbase = false;
             KDirOperator::setViewConfig(configGroup);
-        } else if (kdiroperator_setviewconfig_callback != nullptr) {
+            return;
+        }
+        auto setviewconfig_cb = kdiroperator_setviewconfig_callback;
+        if (setviewconfig_cb) {
             KConfigGroup& configGroup_ret = configGroup;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &configGroup_ret;
 
-            kdiroperator_setviewconfig_callback(this, cbval1);
-        } else {
-            KDirOperator::setViewConfig(configGroup);
+            setviewconfig_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setViewConfig(configGroup);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,15 +685,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_readconfig_isbase) {
             kdiroperator_readconfig_isbase = false;
             KDirOperator::readConfig(configGroup);
-        } else if (kdiroperator_readconfig_callback != nullptr) {
+            return;
+        }
+        auto readconfig_cb = kdiroperator_readconfig_callback;
+        if (readconfig_cb) {
             const KConfigGroup& configGroup_ret = configGroup;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&configGroup_ret);
 
-            kdiroperator_readconfig_callback(this, cbval1);
-        } else {
-            KDirOperator::readConfig(configGroup);
+            readconfig_cb(this, cbval1);
+            return;
         }
+        KDirOperator::readConfig(configGroup);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,15 +704,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_writeconfig_isbase) {
             kdiroperator_writeconfig_isbase = false;
             KDirOperator::writeConfig(configGroup);
-        } else if (kdiroperator_writeconfig_callback != nullptr) {
+            return;
+        }
+        auto writeconfig_cb = kdiroperator_writeconfig_callback;
+        if (writeconfig_cb) {
             KConfigGroup& configGroup_ret = configGroup;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &configGroup_ret;
 
-            kdiroperator_writeconfig_callback(this, cbval1);
-        } else {
-            KDirOperator::writeConfig(configGroup);
+            writeconfig_cb(this, cbval1);
+            return;
         }
+        KDirOperator::writeConfig(configGroup);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,7 +723,9 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_del_isbase) {
             kdiroperator_del_isbase = false;
             return KDirOperator::del(items, parent, ask, showProgress);
-        } else if (kdiroperator_del_callback != nullptr) {
+        }
+        auto del_cb = kdiroperator_del_callback;
+        if (del_cb) {
             const KFileItemList& items_ret = items;
             // Cast returned reference into pointer
             KFileItemList* cbval1 = const_cast<KFileItemList*>(&items_ret);
@@ -812,11 +733,10 @@ class VirtualKDirOperator final : public KDirOperator {
             bool cbval3 = ask;
             bool cbval4 = showProgress;
 
-            KIO__DeleteJob* callback_ret = kdiroperator_del_callback(this, cbval1, cbval2, cbval3, cbval4);
+            KIO__DeleteJob* callback_ret = del_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KDirOperator::del(items, parent, ask, showProgress);
         }
+        return KDirOperator::del(items, parent, ask, showProgress);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +744,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setenabledirhighlighting_isbase) {
             kdiroperator_setenabledirhighlighting_isbase = false;
             KDirOperator::setEnableDirHighlighting(enable);
-        } else if (kdiroperator_setenabledirhighlighting_callback != nullptr) {
+            return;
+        }
+        auto setenabledirhighlighting_cb = kdiroperator_setenabledirhighlighting_callback;
+        if (setenabledirhighlighting_cb) {
             bool cbval1 = enable;
 
-            kdiroperator_setenabledirhighlighting_callback(this, cbval1);
-        } else {
-            KDirOperator::setEnableDirHighlighting(enable);
+            setenabledirhighlighting_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setEnableDirHighlighting(enable);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +761,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setacceptdrops_isbase) {
             kdiroperator_setacceptdrops_isbase = false;
             KDirOperator::setAcceptDrops(b);
-        } else if (kdiroperator_setacceptdrops_callback != nullptr) {
+            return;
+        }
+        auto setacceptdrops_cb = kdiroperator_setacceptdrops_callback;
+        if (setacceptdrops_cb) {
             bool cbval1 = b;
 
-            kdiroperator_setacceptdrops_callback(this, cbval1);
-        } else {
-            KDirOperator::setAcceptDrops(b);
+            setacceptdrops_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setAcceptDrops(b);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +778,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setdropoptions_isbase) {
             kdiroperator_setdropoptions_isbase = false;
             KDirOperator::setDropOptions(options);
-        } else if (kdiroperator_setdropoptions_callback != nullptr) {
+            return;
+        }
+        auto setdropoptions_cb = kdiroperator_setdropoptions_callback;
+        if (setdropoptions_cb) {
             int cbval1 = options;
 
-            kdiroperator_setdropoptions_callback(this, cbval1);
-        } else {
-            KDirOperator::setDropOptions(options);
+            setdropoptions_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setDropOptions(options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,7 +795,9 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_trash_isbase) {
             kdiroperator_trash_isbase = false;
             return KDirOperator::trash(items, parent, ask, showProgress);
-        } else if (kdiroperator_trash_callback != nullptr) {
+        }
+        auto trash_cb = kdiroperator_trash_callback;
+        if (trash_cb) {
             const KFileItemList& items_ret = items;
             // Cast returned reference into pointer
             KFileItemList* cbval1 = const_cast<KFileItemList*>(&items_ret);
@@ -874,11 +805,10 @@ class VirtualKDirOperator final : public KDirOperator {
             bool cbval3 = ask;
             bool cbval4 = showProgress;
 
-            KIO__CopyJob* callback_ret = kdiroperator_trash_callback(this, cbval1, cbval2, cbval3, cbval4);
+            KIO__CopyJob* callback_ret = trash_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KDirOperator::trash(items, parent, ask, showProgress);
         }
+        return KDirOperator::trash(items, parent, ask, showProgress);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,15 +816,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_createview_isbase) {
             kdiroperator_createview_isbase = false;
             return KDirOperator::createView(parent, viewKind);
-        } else if (kdiroperator_createview_callback != nullptr) {
+        }
+        auto createview_cb = kdiroperator_createview_callback;
+        if (createview_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = static_cast<int>(viewKind);
 
-            QAbstractItemView* callback_ret = kdiroperator_createview_callback(this, cbval1, cbval2);
+            QAbstractItemView* callback_ret = createview_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDirOperator::createView(parent, viewKind);
         }
+        return KDirOperator::createView(parent, viewKind);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +833,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setdirlister_isbase) {
             kdiroperator_setdirlister_isbase = false;
             KDirOperator::setDirLister(lister);
-        } else if (kdiroperator_setdirlister_callback != nullptr) {
+            return;
+        }
+        auto setdirlister_cb = kdiroperator_setdirlister_callback;
+        if (setdirlister_cb) {
             KDirLister* cbval1 = lister;
 
-            kdiroperator_setdirlister_callback(this, cbval1);
-        } else {
-            KDirOperator::setDirLister(lister);
+            setdirlister_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setDirLister(lister);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +850,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_resizeevent_isbase) {
             kdiroperator_resizeevent_isbase = false;
             KDirOperator::resizeEvent(event);
-        } else if (kdiroperator_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kdiroperator_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kdiroperator_resizeevent_callback(this, cbval1);
-        } else {
-            KDirOperator::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,7 +867,10 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_activatedmenu_isbase) {
             kdiroperator_activatedmenu_isbase = false;
             KDirOperator::activatedMenu(item, pos);
-        } else if (kdiroperator_activatedmenu_callback != nullptr) {
+            return;
+        }
+        auto activatedmenu_cb = kdiroperator_activatedmenu_callback;
+        if (activatedmenu_cb) {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
@@ -938,10 +878,10 @@ class VirtualKDirOperator final : public KDirOperator {
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&pos_ret);
 
-            kdiroperator_activatedmenu_callback(this, cbval1, cbval2);
-        } else {
-            KDirOperator::activatedMenu(item, pos);
+            activatedmenu_cb(this, cbval1, cbval2);
+            return;
         }
+        KDirOperator::activatedMenu(item, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +889,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_changeevent_isbase) {
             kdiroperator_changeevent_isbase = false;
             KDirOperator::changeEvent(event);
-        } else if (kdiroperator_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kdiroperator_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            kdiroperator_changeevent_callback(this, cbval1);
-        } else {
-            KDirOperator::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,15 +906,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_eventfilter_isbase) {
             kdiroperator_eventfilter_isbase = false;
             return KDirOperator::eventFilter(watched, event);
-        } else if (kdiroperator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdiroperator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdiroperator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDirOperator::eventFilter(watched, event);
         }
+        return KDirOperator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -979,11 +923,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_back_isbase) {
             kdiroperator_back_isbase = false;
             KDirOperator::back();
-        } else if (kdiroperator_back_callback != nullptr) {
-            kdiroperator_back_callback();
-        } else {
-            KDirOperator::back();
+            return;
         }
+        auto back_cb = kdiroperator_back_callback;
+        if (back_cb) {
+            back_cb();
+            return;
+        }
+        KDirOperator::back();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,11 +938,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_forward_isbase) {
             kdiroperator_forward_isbase = false;
             KDirOperator::forward();
-        } else if (kdiroperator_forward_callback != nullptr) {
-            kdiroperator_forward_callback();
-        } else {
-            KDirOperator::forward();
+            return;
         }
+        auto forward_cb = kdiroperator_forward_callback;
+        if (forward_cb) {
+            forward_cb();
+            return;
+        }
+        KDirOperator::forward();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,11 +953,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_home_isbase) {
             kdiroperator_home_isbase = false;
             KDirOperator::home();
-        } else if (kdiroperator_home_callback != nullptr) {
-            kdiroperator_home_callback();
-        } else {
-            KDirOperator::home();
+            return;
         }
+        auto home_cb = kdiroperator_home_callback;
+        if (home_cb) {
+            home_cb();
+            return;
+        }
+        KDirOperator::home();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1015,11 +968,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_cdup_isbase) {
             kdiroperator_cdup_isbase = false;
             KDirOperator::cdUp();
-        } else if (kdiroperator_cdup_callback != nullptr) {
-            kdiroperator_cdup_callback();
-        } else {
-            KDirOperator::cdUp();
+            return;
         }
+        auto cdup_cb = kdiroperator_cdup_callback;
+        if (cdup_cb) {
+            cdup_cb();
+            return;
+        }
+        KDirOperator::cdUp();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,11 +983,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_rereaddir_isbase) {
             kdiroperator_rereaddir_isbase = false;
             KDirOperator::rereadDir();
-        } else if (kdiroperator_rereaddir_callback != nullptr) {
-            kdiroperator_rereaddir_callback();
-        } else {
-            KDirOperator::rereadDir();
+            return;
         }
+        auto rereaddir_cb = kdiroperator_rereaddir_callback;
+        if (rereaddir_cb) {
+            rereaddir_cb();
+            return;
+        }
+        KDirOperator::rereadDir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,11 +998,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_mkdir_isbase) {
             kdiroperator_mkdir_isbase = false;
             KDirOperator::mkdir();
-        } else if (kdiroperator_mkdir_callback != nullptr) {
-            kdiroperator_mkdir_callback();
-        } else {
-            KDirOperator::mkdir();
+            return;
         }
+        auto mkdir_cb = kdiroperator_mkdir_callback;
+        if (mkdir_cb) {
+            mkdir_cb();
+            return;
+        }
+        KDirOperator::mkdir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,11 +1013,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_deleteselected_isbase) {
             kdiroperator_deleteselected_isbase = false;
             KDirOperator::deleteSelected();
-        } else if (kdiroperator_deleteselected_callback != nullptr) {
-            kdiroperator_deleteselected_callback();
-        } else {
-            KDirOperator::deleteSelected();
+            return;
         }
+        auto deleteselected_cb = kdiroperator_deleteselected_callback;
+        if (deleteselected_cb) {
+            deleteselected_cb();
+            return;
+        }
+        KDirOperator::deleteSelected();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,11 +1028,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_trashselected_isbase) {
             kdiroperator_trashselected_isbase = false;
             KDirOperator::trashSelected();
-        } else if (kdiroperator_trashselected_callback != nullptr) {
-            kdiroperator_trashselected_callback();
-        } else {
-            KDirOperator::trashSelected();
+            return;
         }
+        auto trashselected_cb = kdiroperator_trashselected_callback;
+        if (trashselected_cb) {
+            trashselected_cb();
+            return;
+        }
+        KDirOperator::trashSelected();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1075,15 +1043,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_selectdir_isbase) {
             kdiroperator_selectdir_isbase = false;
             KDirOperator::selectDir(item);
-        } else if (kdiroperator_selectdir_callback != nullptr) {
+            return;
+        }
+        auto selectdir_cb = kdiroperator_selectdir_callback;
+        if (selectdir_cb) {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
 
-            kdiroperator_selectdir_callback(this, cbval1);
-        } else {
-            KDirOperator::selectDir(item);
+            selectdir_cb(this, cbval1);
+            return;
         }
+        KDirOperator::selectDir(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,12 +1062,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_devtype_isbase) {
             kdiroperator_devtype_isbase = false;
             return KDirOperator::devType();
-        } else if (kdiroperator_devtype_callback != nullptr) {
-            int callback_ret = kdiroperator_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDirOperator::devType();
         }
+        auto devtype_cb = kdiroperator_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDirOperator::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1104,13 +1076,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setvisible_isbase) {
             kdiroperator_setvisible_isbase = false;
             KDirOperator::setVisible(visible);
-        } else if (kdiroperator_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kdiroperator_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kdiroperator_setvisible_callback(this, cbval1);
-        } else {
-            KDirOperator::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KDirOperator::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,12 +1093,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sizehint_isbase) {
             kdiroperator_sizehint_isbase = false;
             return KDirOperator::sizeHint();
-        } else if (kdiroperator_sizehint_callback != nullptr) {
-            QSize* callback_ret = kdiroperator_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDirOperator::sizeHint();
         }
+        auto sizehint_cb = kdiroperator_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KDirOperator::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,12 +1107,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_minimumsizehint_isbase) {
             kdiroperator_minimumsizehint_isbase = false;
             return KDirOperator::minimumSizeHint();
-        } else if (kdiroperator_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kdiroperator_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDirOperator::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kdiroperator_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KDirOperator::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,14 +1121,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_heightforwidth_isbase) {
             kdiroperator_heightforwidth_isbase = false;
             return KDirOperator::heightForWidth(param1);
-        } else if (kdiroperator_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kdiroperator_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kdiroperator_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirOperator::heightForWidth(param1);
         }
+        return KDirOperator::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,12 +1137,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_hasheightforwidth_isbase) {
             kdiroperator_hasheightforwidth_isbase = false;
             return KDirOperator::hasHeightForWidth();
-        } else if (kdiroperator_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kdiroperator_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kdiroperator_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KDirOperator::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,12 +1151,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_paintengine_isbase) {
             kdiroperator_paintengine_isbase = false;
             return KDirOperator::paintEngine();
-        } else if (kdiroperator_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kdiroperator_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::paintEngine();
         }
+        auto paintengine_cb = kdiroperator_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KDirOperator::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1185,14 +1165,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_event_isbase) {
             kdiroperator_event_isbase = false;
             return KDirOperator::event(event);
-        } else if (kdiroperator_event_callback != nullptr) {
+        }
+        auto event_cb = kdiroperator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kdiroperator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirOperator::event(event);
         }
+        return KDirOperator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,13 +1181,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_mousepressevent_isbase) {
             kdiroperator_mousepressevent_isbase = false;
             KDirOperator::mousePressEvent(event);
-        } else if (kdiroperator_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kdiroperator_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdiroperator_mousepressevent_callback(this, cbval1);
-        } else {
-            KDirOperator::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1214,13 +1198,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_mousereleaseevent_isbase) {
             kdiroperator_mousereleaseevent_isbase = false;
             KDirOperator::mouseReleaseEvent(event);
-        } else if (kdiroperator_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kdiroperator_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdiroperator_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KDirOperator::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,13 +1215,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_mousedoubleclickevent_isbase) {
             kdiroperator_mousedoubleclickevent_isbase = false;
             KDirOperator::mouseDoubleClickEvent(event);
-        } else if (kdiroperator_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kdiroperator_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdiroperator_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KDirOperator::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,13 +1232,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_mousemoveevent_isbase) {
             kdiroperator_mousemoveevent_isbase = false;
             KDirOperator::mouseMoveEvent(event);
-        } else if (kdiroperator_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kdiroperator_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdiroperator_mousemoveevent_callback(this, cbval1);
-        } else {
-            KDirOperator::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,13 +1249,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_wheelevent_isbase) {
             kdiroperator_wheelevent_isbase = false;
             KDirOperator::wheelEvent(event);
-        } else if (kdiroperator_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kdiroperator_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kdiroperator_wheelevent_callback(this, cbval1);
-        } else {
-            KDirOperator::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,13 +1266,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_keypressevent_isbase) {
             kdiroperator_keypressevent_isbase = false;
             KDirOperator::keyPressEvent(event);
-        } else if (kdiroperator_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kdiroperator_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kdiroperator_keypressevent_callback(this, cbval1);
-        } else {
-            KDirOperator::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,13 +1283,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_keyreleaseevent_isbase) {
             kdiroperator_keyreleaseevent_isbase = false;
             KDirOperator::keyReleaseEvent(event);
-        } else if (kdiroperator_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kdiroperator_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kdiroperator_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KDirOperator::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1298,13 +1300,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_focusinevent_isbase) {
             kdiroperator_focusinevent_isbase = false;
             KDirOperator::focusInEvent(event);
-        } else if (kdiroperator_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kdiroperator_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdiroperator_focusinevent_callback(this, cbval1);
-        } else {
-            KDirOperator::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1312,13 +1317,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_focusoutevent_isbase) {
             kdiroperator_focusoutevent_isbase = false;
             KDirOperator::focusOutEvent(event);
-        } else if (kdiroperator_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kdiroperator_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdiroperator_focusoutevent_callback(this, cbval1);
-        } else {
-            KDirOperator::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,13 +1334,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_enterevent_isbase) {
             kdiroperator_enterevent_isbase = false;
             KDirOperator::enterEvent(event);
-        } else if (kdiroperator_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kdiroperator_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kdiroperator_enterevent_callback(this, cbval1);
-        } else {
-            KDirOperator::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1340,13 +1351,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_leaveevent_isbase) {
             kdiroperator_leaveevent_isbase = false;
             KDirOperator::leaveEvent(event);
-        } else if (kdiroperator_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kdiroperator_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kdiroperator_leaveevent_callback(this, cbval1);
-        } else {
-            KDirOperator::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,13 +1368,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_paintevent_isbase) {
             kdiroperator_paintevent_isbase = false;
             KDirOperator::paintEvent(event);
-        } else if (kdiroperator_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kdiroperator_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kdiroperator_paintevent_callback(this, cbval1);
-        } else {
-            KDirOperator::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1368,13 +1385,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_moveevent_isbase) {
             kdiroperator_moveevent_isbase = false;
             KDirOperator::moveEvent(event);
-        } else if (kdiroperator_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kdiroperator_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kdiroperator_moveevent_callback(this, cbval1);
-        } else {
-            KDirOperator::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1382,13 +1402,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_closeevent_isbase) {
             kdiroperator_closeevent_isbase = false;
             KDirOperator::closeEvent(event);
-        } else if (kdiroperator_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kdiroperator_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kdiroperator_closeevent_callback(this, cbval1);
-        } else {
-            KDirOperator::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1396,13 +1419,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_contextmenuevent_isbase) {
             kdiroperator_contextmenuevent_isbase = false;
             KDirOperator::contextMenuEvent(event);
-        } else if (kdiroperator_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kdiroperator_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kdiroperator_contextmenuevent_callback(this, cbval1);
-        } else {
-            KDirOperator::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1410,13 +1436,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_tabletevent_isbase) {
             kdiroperator_tabletevent_isbase = false;
             KDirOperator::tabletEvent(event);
-        } else if (kdiroperator_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kdiroperator_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kdiroperator_tabletevent_callback(this, cbval1);
-        } else {
-            KDirOperator::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1424,13 +1453,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_actionevent_isbase) {
             kdiroperator_actionevent_isbase = false;
             KDirOperator::actionEvent(event);
-        } else if (kdiroperator_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kdiroperator_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kdiroperator_actionevent_callback(this, cbval1);
-        } else {
-            KDirOperator::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1438,13 +1470,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_dragenterevent_isbase) {
             kdiroperator_dragenterevent_isbase = false;
             KDirOperator::dragEnterEvent(event);
-        } else if (kdiroperator_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kdiroperator_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kdiroperator_dragenterevent_callback(this, cbval1);
-        } else {
-            KDirOperator::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1452,13 +1487,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_dragmoveevent_isbase) {
             kdiroperator_dragmoveevent_isbase = false;
             KDirOperator::dragMoveEvent(event);
-        } else if (kdiroperator_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kdiroperator_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kdiroperator_dragmoveevent_callback(this, cbval1);
-        } else {
-            KDirOperator::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1466,13 +1504,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_dragleaveevent_isbase) {
             kdiroperator_dragleaveevent_isbase = false;
             KDirOperator::dragLeaveEvent(event);
-        } else if (kdiroperator_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kdiroperator_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kdiroperator_dragleaveevent_callback(this, cbval1);
-        } else {
-            KDirOperator::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1480,13 +1521,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_dropevent_isbase) {
             kdiroperator_dropevent_isbase = false;
             KDirOperator::dropEvent(event);
-        } else if (kdiroperator_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kdiroperator_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kdiroperator_dropevent_callback(this, cbval1);
-        } else {
-            KDirOperator::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1494,13 +1538,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_showevent_isbase) {
             kdiroperator_showevent_isbase = false;
             KDirOperator::showEvent(event);
-        } else if (kdiroperator_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kdiroperator_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kdiroperator_showevent_callback(this, cbval1);
-        } else {
-            KDirOperator::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,13 +1555,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_hideevent_isbase) {
             kdiroperator_hideevent_isbase = false;
             KDirOperator::hideEvent(event);
-        } else if (kdiroperator_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kdiroperator_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kdiroperator_hideevent_callback(this, cbval1);
-        } else {
-            KDirOperator::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1522,7 +1572,9 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_nativeevent_isbase) {
             kdiroperator_nativeevent_isbase = false;
             return KDirOperator::nativeEvent(eventType, message, result);
-        } else if (kdiroperator_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kdiroperator_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1533,12 +1585,11 @@ class VirtualKDirOperator final : public KDirOperator {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kdiroperator_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KDirOperator::nativeEvent(eventType, message, result);
         }
+        return KDirOperator::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1546,14 +1597,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_metric_isbase) {
             kdiroperator_metric_isbase = false;
             return KDirOperator::metric(param1);
-        } else if (kdiroperator_metric_callback != nullptr) {
+        }
+        auto metric_cb = kdiroperator_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kdiroperator_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirOperator::metric(param1);
         }
+        return KDirOperator::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1561,13 +1613,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_initpainter_isbase) {
             kdiroperator_initpainter_isbase = false;
             KDirOperator::initPainter(painter);
-        } else if (kdiroperator_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kdiroperator_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kdiroperator_initpainter_callback(this, cbval1);
-        } else {
-            KDirOperator::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KDirOperator::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1575,14 +1630,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_redirected_isbase) {
             kdiroperator_redirected_isbase = false;
             return KDirOperator::redirected(offset);
-        } else if (kdiroperator_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kdiroperator_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kdiroperator_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirOperator::redirected(offset);
         }
+        return KDirOperator::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1590,12 +1646,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sharedpainter_isbase) {
             kdiroperator_sharedpainter_isbase = false;
             return KDirOperator::sharedPainter();
-        } else if (kdiroperator_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kdiroperator_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::sharedPainter();
         }
+        auto sharedpainter_cb = kdiroperator_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KDirOperator::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1603,13 +1660,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_inputmethodevent_isbase) {
             kdiroperator_inputmethodevent_isbase = false;
             KDirOperator::inputMethodEvent(param1);
-        } else if (kdiroperator_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kdiroperator_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kdiroperator_inputmethodevent_callback(this, cbval1);
-        } else {
-            KDirOperator::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1617,14 +1677,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_inputmethodquery_isbase) {
             kdiroperator_inputmethodquery_isbase = false;
             return KDirOperator::inputMethodQuery(param1);
-        } else if (kdiroperator_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kdiroperator_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kdiroperator_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDirOperator::inputMethodQuery(param1);
         }
+        return KDirOperator::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1632,14 +1693,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_focusnextprevchild_isbase) {
             kdiroperator_focusnextprevchild_isbase = false;
             return KDirOperator::focusNextPrevChild(next);
-        } else if (kdiroperator_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kdiroperator_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kdiroperator_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirOperator::focusNextPrevChild(next);
         }
+        return KDirOperator::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1647,13 +1709,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_timerevent_isbase) {
             kdiroperator_timerevent_isbase = false;
             KDirOperator::timerEvent(event);
-        } else if (kdiroperator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdiroperator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdiroperator_timerevent_callback(this, cbval1);
-        } else {
-            KDirOperator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1661,13 +1726,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_childevent_isbase) {
             kdiroperator_childevent_isbase = false;
             KDirOperator::childEvent(event);
-        } else if (kdiroperator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdiroperator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdiroperator_childevent_callback(this, cbval1);
-        } else {
-            KDirOperator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1675,13 +1743,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_customevent_isbase) {
             kdiroperator_customevent_isbase = false;
             KDirOperator::customEvent(event);
-        } else if (kdiroperator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdiroperator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdiroperator_customevent_callback(this, cbval1);
-        } else {
-            KDirOperator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDirOperator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1689,15 +1760,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_connectnotify_isbase) {
             kdiroperator_connectnotify_isbase = false;
             KDirOperator::connectNotify(signal);
-        } else if (kdiroperator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdiroperator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdiroperator_connectnotify_callback(this, cbval1);
-        } else {
-            KDirOperator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDirOperator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1705,15 +1779,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_disconnectnotify_isbase) {
             kdiroperator_disconnectnotify_isbase = false;
             KDirOperator::disconnectNotify(signal);
-        } else if (kdiroperator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdiroperator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdiroperator_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDirOperator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDirOperator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1721,11 +1798,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setupactions_isbase) {
             kdiroperator_setupactions_isbase = false;
             KDirOperator::setupActions();
-        } else if (kdiroperator_setupactions_callback != nullptr) {
-            kdiroperator_setupactions_callback();
-        } else {
-            KDirOperator::setupActions();
+            return;
         }
+        auto setupactions_cb = kdiroperator_setupactions_callback;
+        if (setupactions_cb) {
+            setupactions_cb();
+            return;
+        }
+        KDirOperator::setupActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1733,11 +1813,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_updatesortactions_isbase) {
             kdiroperator_updatesortactions_isbase = false;
             KDirOperator::updateSortActions();
-        } else if (kdiroperator_updatesortactions_callback != nullptr) {
-            kdiroperator_updatesortactions_callback();
-        } else {
-            KDirOperator::updateSortActions();
+            return;
         }
+        auto updatesortactions_cb = kdiroperator_updatesortactions_callback;
+        if (updatesortactions_cb) {
+            updatesortactions_cb();
+            return;
+        }
+        KDirOperator::updateSortActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1745,11 +1828,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_updateviewactions_isbase) {
             kdiroperator_updateviewactions_isbase = false;
             KDirOperator::updateViewActions();
-        } else if (kdiroperator_updateviewactions_callback != nullptr) {
-            kdiroperator_updateviewactions_callback();
-        } else {
-            KDirOperator::updateViewActions();
+            return;
         }
+        auto updateviewactions_cb = kdiroperator_updateviewactions_callback;
+        if (updateviewactions_cb) {
+            updateviewactions_cb();
+            return;
+        }
+        KDirOperator::updateViewActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1757,11 +1843,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_setupmenu2_isbase) {
             kdiroperator_setupmenu2_isbase = false;
             KDirOperator::setupMenu();
-        } else if (kdiroperator_setupmenu2_callback != nullptr) {
-            kdiroperator_setupmenu2_callback();
-        } else {
-            KDirOperator::setupMenu();
+            return;
         }
+        auto setupmenu2_cb = kdiroperator_setupmenu2_callback;
+        if (setupmenu2_cb) {
+            setupmenu2_cb();
+            return;
+        }
+        KDirOperator::setupMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1769,11 +1858,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_preparecompletionobjects_isbase) {
             kdiroperator_preparecompletionobjects_isbase = false;
             KDirOperator::prepareCompletionObjects();
-        } else if (kdiroperator_preparecompletionobjects_callback != nullptr) {
-            kdiroperator_preparecompletionobjects_callback();
-        } else {
-            KDirOperator::prepareCompletionObjects();
+            return;
         }
+        auto preparecompletionobjects_cb = kdiroperator_preparecompletionobjects_callback;
+        if (preparecompletionobjects_cb) {
+            preparecompletionobjects_cb();
+            return;
+        }
+        KDirOperator::prepareCompletionObjects();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1781,12 +1873,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_checkpreviewsupport_isbase) {
             kdiroperator_checkpreviewsupport_isbase = false;
             return KDirOperator::checkPreviewSupport();
-        } else if (kdiroperator_checkpreviewsupport_callback != nullptr) {
-            bool callback_ret = kdiroperator_checkpreviewsupport_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::checkPreviewSupport();
         }
+        auto checkpreviewsupport_cb = kdiroperator_checkpreviewsupport_callback;
+        if (checkpreviewsupport_cb) {
+            bool callback_ret = checkpreviewsupport_cb();
+            return callback_ret;
+        }
+        return KDirOperator::checkPreviewSupport();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1794,11 +1887,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_resetcursor_isbase) {
             kdiroperator_resetcursor_isbase = false;
             KDirOperator::resetCursor();
-        } else if (kdiroperator_resetcursor_callback != nullptr) {
-            kdiroperator_resetcursor_callback();
-        } else {
-            KDirOperator::resetCursor();
+            return;
         }
+        auto resetcursor_cb = kdiroperator_resetcursor_callback;
+        if (resetcursor_cb) {
+            resetcursor_cb();
+            return;
+        }
+        KDirOperator::resetCursor();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1806,11 +1902,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_pathchanged_isbase) {
             kdiroperator_pathchanged_isbase = false;
             KDirOperator::pathChanged();
-        } else if (kdiroperator_pathchanged_callback != nullptr) {
-            kdiroperator_pathchanged_callback();
-        } else {
-            KDirOperator::pathChanged();
+            return;
         }
+        auto pathchanged_cb = kdiroperator_pathchanged_callback;
+        if (pathchanged_cb) {
+            pathchanged_cb();
+            return;
+        }
+        KDirOperator::pathChanged();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1818,15 +1917,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_selectfile_isbase) {
             kdiroperator_selectfile_isbase = false;
             KDirOperator::selectFile(item);
-        } else if (kdiroperator_selectfile_callback != nullptr) {
+            return;
+        }
+        auto selectfile_cb = kdiroperator_selectfile_callback;
+        if (selectfile_cb) {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
 
-            kdiroperator_selectfile_callback(this, cbval1);
-        } else {
-            KDirOperator::selectFile(item);
+            selectfile_cb(this, cbval1);
+            return;
         }
+        KDirOperator::selectFile(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1834,15 +1936,18 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_highlightfile_isbase) {
             kdiroperator_highlightfile_isbase = false;
             KDirOperator::highlightFile(item);
-        } else if (kdiroperator_highlightfile_callback != nullptr) {
+            return;
+        }
+        auto highlightfile_cb = kdiroperator_highlightfile_callback;
+        if (highlightfile_cb) {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
 
-            kdiroperator_highlightfile_callback(this, cbval1);
-        } else {
-            KDirOperator::highlightFile(item);
+            highlightfile_cb(this, cbval1);
+            return;
         }
+        KDirOperator::highlightFile(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1850,11 +1955,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sortbyname_isbase) {
             kdiroperator_sortbyname_isbase = false;
             KDirOperator::sortByName();
-        } else if (kdiroperator_sortbyname_callback != nullptr) {
-            kdiroperator_sortbyname_callback();
-        } else {
-            KDirOperator::sortByName();
+            return;
         }
+        auto sortbyname_cb = kdiroperator_sortbyname_callback;
+        if (sortbyname_cb) {
+            sortbyname_cb();
+            return;
+        }
+        KDirOperator::sortByName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1862,11 +1970,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sortbysize_isbase) {
             kdiroperator_sortbysize_isbase = false;
             KDirOperator::sortBySize();
-        } else if (kdiroperator_sortbysize_callback != nullptr) {
-            kdiroperator_sortbysize_callback();
-        } else {
-            KDirOperator::sortBySize();
+            return;
         }
+        auto sortbysize_cb = kdiroperator_sortbysize_callback;
+        if (sortbysize_cb) {
+            sortbysize_cb();
+            return;
+        }
+        KDirOperator::sortBySize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1874,11 +1985,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sortbydate_isbase) {
             kdiroperator_sortbydate_isbase = false;
             KDirOperator::sortByDate();
-        } else if (kdiroperator_sortbydate_callback != nullptr) {
-            kdiroperator_sortbydate_callback();
-        } else {
-            KDirOperator::sortByDate();
+            return;
         }
+        auto sortbydate_cb = kdiroperator_sortbydate_callback;
+        if (sortbydate_cb) {
+            sortbydate_cb();
+            return;
+        }
+        KDirOperator::sortByDate();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1886,11 +2000,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sortbytype_isbase) {
             kdiroperator_sortbytype_isbase = false;
             KDirOperator::sortByType();
-        } else if (kdiroperator_sortbytype_callback != nullptr) {
-            kdiroperator_sortbytype_callback();
-        } else {
-            KDirOperator::sortByType();
+            return;
         }
+        auto sortbytype_cb = kdiroperator_sortbytype_callback;
+        if (sortbytype_cb) {
+            sortbytype_cb();
+            return;
+        }
+        KDirOperator::sortByType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1898,11 +2015,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sortreversed_isbase) {
             kdiroperator_sortreversed_isbase = false;
             KDirOperator::sortReversed();
-        } else if (kdiroperator_sortreversed_callback != nullptr) {
-            kdiroperator_sortreversed_callback();
-        } else {
-            KDirOperator::sortReversed();
+            return;
         }
+        auto sortreversed_cb = kdiroperator_sortreversed_callback;
+        if (sortreversed_cb) {
+            sortreversed_cb();
+            return;
+        }
+        KDirOperator::sortReversed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1910,11 +2030,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_toggledirsfirst_isbase) {
             kdiroperator_toggledirsfirst_isbase = false;
             KDirOperator::toggleDirsFirst();
-        } else if (kdiroperator_toggledirsfirst_callback != nullptr) {
-            kdiroperator_toggledirsfirst_callback();
-        } else {
-            KDirOperator::toggleDirsFirst();
+            return;
         }
+        auto toggledirsfirst_cb = kdiroperator_toggledirsfirst_callback;
+        if (toggledirsfirst_cb) {
+            toggledirsfirst_cb();
+            return;
+        }
+        KDirOperator::toggleDirsFirst();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1922,11 +2045,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_toggleignorecase_isbase) {
             kdiroperator_toggleignorecase_isbase = false;
             KDirOperator::toggleIgnoreCase();
-        } else if (kdiroperator_toggleignorecase_callback != nullptr) {
-            kdiroperator_toggleignorecase_callback();
-        } else {
-            KDirOperator::toggleIgnoreCase();
+            return;
         }
+        auto toggleignorecase_cb = kdiroperator_toggleignorecase_callback;
+        if (toggleignorecase_cb) {
+            toggleignorecase_cb();
+            return;
+        }
+        KDirOperator::toggleIgnoreCase();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1934,7 +2060,10 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_slotcompletionmatch_isbase) {
             kdiroperator_slotcompletionmatch_isbase = false;
             KDirOperator::slotCompletionMatch(match);
-        } else if (kdiroperator_slotcompletionmatch_callback != nullptr) {
+            return;
+        }
+        auto slotcompletionmatch_cb = kdiroperator_slotcompletionmatch_callback;
+        if (slotcompletionmatch_cb) {
             const QString match_ret = match;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray match_b = match_ret.toUtf8();
@@ -1944,11 +2073,11 @@ class VirtualKDirOperator final : public KDirOperator {
             ((char*)match_str)[match_str_len] = '\0';
             const char* cbval1 = match_str;
 
-            kdiroperator_slotcompletionmatch_callback(this, cbval1);
+            slotcompletionmatch_cb(this, cbval1);
             libqt_free(match_str);
-        } else {
-            KDirOperator::slotCompletionMatch(match);
+            return;
         }
+        KDirOperator::slotCompletionMatch(match);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1956,11 +2085,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_updatemicrofocus_isbase) {
             kdiroperator_updatemicrofocus_isbase = false;
             KDirOperator::updateMicroFocus();
-        } else if (kdiroperator_updatemicrofocus_callback != nullptr) {
-            kdiroperator_updatemicrofocus_callback();
-        } else {
-            KDirOperator::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kdiroperator_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KDirOperator::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1968,11 +2100,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_create_isbase) {
             kdiroperator_create_isbase = false;
             KDirOperator::create();
-        } else if (kdiroperator_create_callback != nullptr) {
-            kdiroperator_create_callback();
-        } else {
-            KDirOperator::create();
+            return;
         }
+        auto create_cb = kdiroperator_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KDirOperator::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1980,11 +2115,14 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_destroy_isbase) {
             kdiroperator_destroy_isbase = false;
             KDirOperator::destroy();
-        } else if (kdiroperator_destroy_callback != nullptr) {
-            kdiroperator_destroy_callback();
-        } else {
-            KDirOperator::destroy();
+            return;
         }
+        auto destroy_cb = kdiroperator_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KDirOperator::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1992,12 +2130,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_focusnextchild_isbase) {
             kdiroperator_focusnextchild_isbase = false;
             return KDirOperator::focusNextChild();
-        } else if (kdiroperator_focusnextchild_callback != nullptr) {
-            bool callback_ret = kdiroperator_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::focusNextChild();
         }
+        auto focusnextchild_cb = kdiroperator_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KDirOperator::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2005,12 +2144,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_focuspreviouschild_isbase) {
             kdiroperator_focuspreviouschild_isbase = false;
             return KDirOperator::focusPreviousChild();
-        } else if (kdiroperator_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kdiroperator_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kdiroperator_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KDirOperator::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2018,12 +2158,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sender_isbase) {
             kdiroperator_sender_isbase = false;
             return KDirOperator::sender();
-        } else if (kdiroperator_sender_callback != nullptr) {
-            QObject* callback_ret = kdiroperator_sender_callback();
-            return callback_ret;
-        } else {
-            return KDirOperator::sender();
         }
+        auto sender_cb = kdiroperator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDirOperator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2031,12 +2172,13 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_sendersignalindex_isbase) {
             kdiroperator_sendersignalindex_isbase = false;
             return KDirOperator::senderSignalIndex();
-        } else if (kdiroperator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdiroperator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDirOperator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdiroperator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDirOperator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2044,14 +2186,15 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_receivers_isbase) {
             kdiroperator_receivers_isbase = false;
             return KDirOperator::receivers(signal);
-        } else if (kdiroperator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdiroperator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdiroperator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirOperator::receivers(signal);
         }
+        return KDirOperator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2059,16 +2202,17 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_issignalconnected_isbase) {
             kdiroperator_issignalconnected_isbase = false;
             return KDirOperator::isSignalConnected(signal);
-        } else if (kdiroperator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdiroperator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdiroperator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirOperator::isSignalConnected(signal);
         }
+        return KDirOperator::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2076,15 +2220,16 @@ class VirtualKDirOperator final : public KDirOperator {
         if (kdiroperator_getdecodedmetricf_isbase) {
             kdiroperator_getdecodedmetricf_isbase = false;
             return KDirOperator::getDecodedMetricF(metricA, metricB);
-        } else if (kdiroperator_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kdiroperator_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kdiroperator_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KDirOperator::getDecodedMetricF(metricA, metricB);
         }
+        return KDirOperator::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

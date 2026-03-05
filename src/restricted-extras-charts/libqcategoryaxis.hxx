@@ -72,24 +72,6 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     VirtualQCategoryAxis() : QCategoryAxis() {};
     VirtualQCategoryAxis(QObject* parent) : QCategoryAxis(parent) {};
 
-    ~VirtualQCategoryAxis() {
-        qcategoryaxis_metaobject_callback = nullptr;
-        qcategoryaxis_metacast_callback = nullptr;
-        qcategoryaxis_metacall_callback = nullptr;
-        qcategoryaxis_type_callback = nullptr;
-        qcategoryaxis_event_callback = nullptr;
-        qcategoryaxis_eventfilter_callback = nullptr;
-        qcategoryaxis_timerevent_callback = nullptr;
-        qcategoryaxis_childevent_callback = nullptr;
-        qcategoryaxis_customevent_callback = nullptr;
-        qcategoryaxis_connectnotify_callback = nullptr;
-        qcategoryaxis_disconnectnotify_callback = nullptr;
-        qcategoryaxis_sender_callback = nullptr;
-        qcategoryaxis_sendersignalindex_callback = nullptr;
-        qcategoryaxis_receivers_callback = nullptr;
-        qcategoryaxis_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQCategoryAxis_MetaObject_Callback(QCategoryAxis_MetaObject_Callback cb) { qcategoryaxis_metaobject_callback = cb; }
     inline void setQCategoryAxis_Metacast_Callback(QCategoryAxis_Metacast_Callback cb) { qcategoryaxis_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_metaobject_isbase) {
             qcategoryaxis_metaobject_isbase = false;
             return QCategoryAxis::metaObject();
-        } else if (qcategoryaxis_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcategoryaxis_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QCategoryAxis::metaObject();
         }
+        auto metaobject_cb = qcategoryaxis_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QCategoryAxis::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_metacast_isbase) {
             qcategoryaxis_metacast_isbase = false;
             return QCategoryAxis::qt_metacast(param1);
-        } else if (qcategoryaxis_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcategoryaxis_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcategoryaxis_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCategoryAxis::qt_metacast(param1);
         }
+        return QCategoryAxis::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_metacall_isbase) {
             qcategoryaxis_metacall_isbase = false;
             return QCategoryAxis::qt_metacall(param1, param2, param3);
-        } else if (qcategoryaxis_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcategoryaxis_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcategoryaxis_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCategoryAxis::qt_metacall(param1, param2, param3);
         }
+        return QCategoryAxis::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_type_isbase) {
             qcategoryaxis_type_isbase = false;
             return QCategoryAxis::type();
-        } else if (qcategoryaxis_type_callback != nullptr) {
-            int callback_ret = qcategoryaxis_type_callback();
-            return static_cast<QAbstractAxis::AxisType>(callback_ret);
-        } else {
-            return QCategoryAxis::type();
         }
+        auto type_cb = qcategoryaxis_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractAxis::AxisType>(callback_ret);
+        }
+        return QCategoryAxis::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_event_isbase) {
             qcategoryaxis_event_isbase = false;
             return QCategoryAxis::event(event);
-        } else if (qcategoryaxis_event_callback != nullptr) {
+        }
+        auto event_cb = qcategoryaxis_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qcategoryaxis_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCategoryAxis::event(event);
         }
+        return QCategoryAxis::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_eventfilter_isbase) {
             qcategoryaxis_eventfilter_isbase = false;
             return QCategoryAxis::eventFilter(watched, event);
-        } else if (qcategoryaxis_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcategoryaxis_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qcategoryaxis_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QCategoryAxis::eventFilter(watched, event);
         }
+        return QCategoryAxis::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_timerevent_isbase) {
             qcategoryaxis_timerevent_isbase = false;
             QCategoryAxis::timerEvent(event);
-        } else if (qcategoryaxis_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcategoryaxis_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qcategoryaxis_timerevent_callback(this, cbval1);
-        } else {
-            QCategoryAxis::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QCategoryAxis::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_childevent_isbase) {
             qcategoryaxis_childevent_isbase = false;
             QCategoryAxis::childEvent(event);
-        } else if (qcategoryaxis_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcategoryaxis_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcategoryaxis_childevent_callback(this, cbval1);
-        } else {
-            QCategoryAxis::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QCategoryAxis::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_customevent_isbase) {
             qcategoryaxis_customevent_isbase = false;
             QCategoryAxis::customEvent(event);
-        } else if (qcategoryaxis_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcategoryaxis_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcategoryaxis_customevent_callback(this, cbval1);
-        } else {
-            QCategoryAxis::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QCategoryAxis::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_connectnotify_isbase) {
             qcategoryaxis_connectnotify_isbase = false;
             QCategoryAxis::connectNotify(signal);
-        } else if (qcategoryaxis_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcategoryaxis_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcategoryaxis_connectnotify_callback(this, cbval1);
-        } else {
-            QCategoryAxis::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QCategoryAxis::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_disconnectnotify_isbase) {
             qcategoryaxis_disconnectnotify_isbase = false;
             QCategoryAxis::disconnectNotify(signal);
-        } else if (qcategoryaxis_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcategoryaxis_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcategoryaxis_disconnectnotify_callback(this, cbval1);
-        } else {
-            QCategoryAxis::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QCategoryAxis::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_sender_isbase) {
             qcategoryaxis_sender_isbase = false;
             return QCategoryAxis::sender();
-        } else if (qcategoryaxis_sender_callback != nullptr) {
-            QObject* callback_ret = qcategoryaxis_sender_callback();
-            return callback_ret;
-        } else {
-            return QCategoryAxis::sender();
         }
+        auto sender_cb = qcategoryaxis_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QCategoryAxis::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_sendersignalindex_isbase) {
             qcategoryaxis_sendersignalindex_isbase = false;
             return QCategoryAxis::senderSignalIndex();
-        } else if (qcategoryaxis_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcategoryaxis_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QCategoryAxis::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcategoryaxis_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QCategoryAxis::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_receivers_isbase) {
             qcategoryaxis_receivers_isbase = false;
             return QCategoryAxis::receivers(signal);
-        } else if (qcategoryaxis_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcategoryaxis_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcategoryaxis_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCategoryAxis::receivers(signal);
         }
+        return QCategoryAxis::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
         if (qcategoryaxis_issignalconnected_isbase) {
             qcategoryaxis_issignalconnected_isbase = false;
             return QCategoryAxis::isSignalConnected(signal);
-        } else if (qcategoryaxis_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcategoryaxis_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcategoryaxis_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCategoryAxis::isSignalConnected(signal);
         }
+        return QCategoryAxis::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -1395,25 +1395,6 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 			}
 			ret.WriteString("\n")
 
-			classDestructor := "~" + overriddenClassName + "() "
-			if len(privateCallbackVars) > 0 {
-				classDestructor += "{"
-				for _, callbackVar := range privateCallbackVars {
-					classDestructor += "\n\t\t" + callbackVar + " = nullptr;"
-				}
-				classDestructor += "\n\t}\n\n"
-			} else {
-				classDestructor = "\tvirtual ~" + classDestructor
-				classDestructor += "= default;\n\n"
-			}
-
-			if !c.CanDelete {
-				ret.WriteString("protected:\n" + classDestructor +
-					"public:\n")
-			} else {
-				ret.WriteString(classDestructor)
-			}
-
 			ret.WriteString("// Callback setters\n" + strings.Join(callbackSetters, "") + "\n")
 			ret.WriteString("// Base flag setters\n" + strings.Join(baseSetters, "") + "\n")
 
@@ -1425,7 +1406,8 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 				}
 
 				var showHiddenParams bool
-				baseName := methodPrefixName + "_" + m.SafeMethodName()
+				mSafeMethodName := m.SafeMethodName()
+				baseName := methodPrefixName + "_" + mSafeMethodName
 				if b, ok := seenVirtuals[m.MethodName]; ok && b {
 					continue
 				}
@@ -1440,6 +1422,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 					continue
 				}
 
+				cppMethodName := m.CppCallTarget()
 				maybeReturn := ifv(!m.ReturnType.Void(), "return ", "")
 				maybeOverride := ifv(m.IsVirtual || (m.IsProtected && m.IsVirtual), "override ", "")
 				maybeVirtual := ifv(m.IsVirtual, "virtual ", "")
@@ -1452,14 +1435,14 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 					retTransformP, retTransformF = emitCABI2CppForwarding(returnParam, "\t\t", cppClassName, true)
 				}
 
-				var customCallback, maybeElse, maybeThis, signalCode, sigCleanup string
+				var customCallback, maybeThis, signalCode, sigCleanup string
 				if showHiddenParams && len(m.HiddenParams) == 0 {
 					continue
 				}
 				maybeParams := emitParameterNames(m, showHiddenParams)
 				maybeFunc := emitParametersCpp(m, showHiddenParams)
 				indent := "\t\t"
-				methodExec := maybeReturn + methodPrefixName + "::" + m.CppCallTarget() + "(" + maybeParams + ");"
+				methodExec := maybeReturn + methodPrefixName + "::" + cppMethodName + "(" + maybeParams + ");"
 				callbackName := strings.ToLower(baseName) + "_callback"
 				isBaseName := strings.ToLower(baseName) + "_isbase"
 
@@ -1483,14 +1466,15 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 					sigCleanup += renderCleanupType(p.ParameterName, cleanupType)
 				}
 
+				cbName := strings.ToLower(mSafeMethodName) + "_cb"
 				returnDecl := m.ReturnType.RenderTypeQtCpp()
 				retString := ifv(len(signalCode) > 0, signalCode+"\n", "")
 				if IsKnownClass(m.ReturnType.ParameterType) && !m.ReturnType.Pointer && m.ReturnType.ParameterType != "QByteArrayView" {
-					retString += maybeReturn2 + callbackName + "(" + strings.Join(paramArgs, ", ") + ");\n"
+					retString += maybeReturn2 + cbName + "(" + strings.Join(paramArgs, ", ") + ");\n"
 					retString += sigCleanup
 					retString += "return *callback_ret;\n"
 				} else {
-					retString += maybeReturn2 + callbackName + "(" + strings.Join(paramArgs, ", ") + ");\n"
+					retString += maybeReturn2 + cbName + "(" + strings.Join(paramArgs, ", ") + ");\n"
 					retString += retTransformP + sigCleanup + ifv(returnDecl == "void", "", "return "+retTransformF+";\n")
 				}
 
@@ -1498,13 +1482,15 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 					customCallback += indent + "if (" + isBaseName + ") {\n"
 					customCallback += indent + "\t" + isBaseName + " = false;\n"
 					customCallback += indent + "\t" + methodExec + "\n"
-					customCallback += indent + "}"
-					maybeElse = "else "
+					customCallback += ifv(returnDecl == "void", indent+"\t"+"return;\n", "")
+					customCallback += indent + "}\n"
 				}
 
+				customCallback += indent + "auto " + cbName + " = " + callbackName + ";\n"
+				customCallback += indent + "if (" + cbName + ") {\n"
+				customCallback += indent + "\t" + retString
+
 				if m.IsPureVirtual || m.IsPrivate {
-					customCallback += indent + "if (" + callbackName + " != nullptr) {\n"
-					customCallback += indent + "\t" + retString
 					if returnDecl != "void" {
 						ret := "{}"
 						if c.ClassName == "KIO::ThumbnailCreator" && m.MethodName == "create" {
@@ -1513,22 +1499,22 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 						if strings.HasPrefix(c.ClassName, "QCP") && m.MethodName == "selectTestRect" {
 							ret = m.ReturnType.ParameterType + "()"
 						}
-						customCallback += indent + "} else {\n"
+						customCallback += indent + "}\n"
 						customCallback += indent + "\t" + maybeReturn + ret + ";\n"
+					} else {
+						customCallback += indent + "}\n"
 					}
-					customCallback += indent + "}\n"
+
 				} else {
-					customCallback += indent + maybeElse + "if (" + callbackName + " != nullptr) {\n"
-					customCallback += indent + "\t" + retString
-					customCallback += indent + "} else {\n"
-					customCallback += indent + "\t" + methodExec + "\n"
+					customCallback += ifv(returnDecl == "void", indent+"return;\n", "")
 					customCallback += indent + "}\n"
+					customCallback += indent + "\t" + methodExec + "\n"
 				}
 
 				maybeConst := ifv(m.IsConst, "const ", "")
 
 				ret.WriteString("\n\t// Virtual method for C ABI access and custom callback\n" +
-					"\t" + maybeVirtual + returnDecl + " " + m.CppCallTarget() + "(" + maybeFunc + ") " +
+					"\t" + maybeVirtual + returnDecl + " " + cppMethodName + "(" + maybeFunc + ") " +
 					maybeConst + maybeOverride + "{\n" + customCallback + "\t}\n")
 			}
 

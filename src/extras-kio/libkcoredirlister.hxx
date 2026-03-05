@@ -72,24 +72,6 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     VirtualKCoreDirLister() : KCoreDirLister() {};
     VirtualKCoreDirLister(QObject* parent) : KCoreDirLister(parent) {};
 
-    ~VirtualKCoreDirLister() {
-        kcoredirlister_metaobject_callback = nullptr;
-        kcoredirlister_metacast_callback = nullptr;
-        kcoredirlister_metacall_callback = nullptr;
-        kcoredirlister_jobstarted_callback = nullptr;
-        kcoredirlister_event_callback = nullptr;
-        kcoredirlister_eventfilter_callback = nullptr;
-        kcoredirlister_timerevent_callback = nullptr;
-        kcoredirlister_childevent_callback = nullptr;
-        kcoredirlister_customevent_callback = nullptr;
-        kcoredirlister_connectnotify_callback = nullptr;
-        kcoredirlister_disconnectnotify_callback = nullptr;
-        kcoredirlister_sender_callback = nullptr;
-        kcoredirlister_sendersignalindex_callback = nullptr;
-        kcoredirlister_receivers_callback = nullptr;
-        kcoredirlister_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCoreDirLister_MetaObject_Callback(KCoreDirLister_MetaObject_Callback cb) { kcoredirlister_metaobject_callback = cb; }
     inline void setKCoreDirLister_Metacast_Callback(KCoreDirLister_Metacast_Callback cb) { kcoredirlister_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_metaobject_isbase) {
             kcoredirlister_metaobject_isbase = false;
             return KCoreDirLister::metaObject();
-        } else if (kcoredirlister_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcoredirlister_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCoreDirLister::metaObject();
         }
+        auto metaobject_cb = kcoredirlister_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCoreDirLister::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_metacast_isbase) {
             kcoredirlister_metacast_isbase = false;
             return KCoreDirLister::qt_metacast(param1);
-        } else if (kcoredirlister_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcoredirlister_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcoredirlister_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCoreDirLister::qt_metacast(param1);
         }
+        return KCoreDirLister::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_metacall_isbase) {
             kcoredirlister_metacall_isbase = false;
             return KCoreDirLister::qt_metacall(param1, param2, param3);
-        } else if (kcoredirlister_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcoredirlister_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcoredirlister_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCoreDirLister::qt_metacall(param1, param2, param3);
         }
+        return KCoreDirLister::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,13 +159,16 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_jobstarted_isbase) {
             kcoredirlister_jobstarted_isbase = false;
             KCoreDirLister::jobStarted(param1);
-        } else if (kcoredirlister_jobstarted_callback != nullptr) {
+            return;
+        }
+        auto jobstarted_cb = kcoredirlister_jobstarted_callback;
+        if (jobstarted_cb) {
             KIO__ListJob* cbval1 = param1;
 
-            kcoredirlister_jobstarted_callback(this, cbval1);
-        } else {
-            KCoreDirLister::jobStarted(param1);
+            jobstarted_cb(this, cbval1);
+            return;
         }
+        KCoreDirLister::jobStarted(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,14 +176,15 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_event_isbase) {
             kcoredirlister_event_isbase = false;
             return KCoreDirLister::event(event);
-        } else if (kcoredirlister_event_callback != nullptr) {
+        }
+        auto event_cb = kcoredirlister_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcoredirlister_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCoreDirLister::event(event);
         }
+        return KCoreDirLister::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,15 +192,16 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_eventfilter_isbase) {
             kcoredirlister_eventfilter_isbase = false;
             return KCoreDirLister::eventFilter(watched, event);
-        } else if (kcoredirlister_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcoredirlister_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcoredirlister_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCoreDirLister::eventFilter(watched, event);
         }
+        return KCoreDirLister::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +209,16 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_timerevent_isbase) {
             kcoredirlister_timerevent_isbase = false;
             KCoreDirLister::timerEvent(event);
-        } else if (kcoredirlister_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcoredirlister_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcoredirlister_timerevent_callback(this, cbval1);
-        } else {
-            KCoreDirLister::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCoreDirLister::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +226,16 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_childevent_isbase) {
             kcoredirlister_childevent_isbase = false;
             KCoreDirLister::childEvent(event);
-        } else if (kcoredirlister_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcoredirlister_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcoredirlister_childevent_callback(this, cbval1);
-        } else {
-            KCoreDirLister::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCoreDirLister::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +243,16 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_customevent_isbase) {
             kcoredirlister_customevent_isbase = false;
             KCoreDirLister::customEvent(event);
-        } else if (kcoredirlister_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcoredirlister_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcoredirlister_customevent_callback(this, cbval1);
-        } else {
-            KCoreDirLister::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCoreDirLister::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +260,18 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_connectnotify_isbase) {
             kcoredirlister_connectnotify_isbase = false;
             KCoreDirLister::connectNotify(signal);
-        } else if (kcoredirlister_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcoredirlister_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcoredirlister_connectnotify_callback(this, cbval1);
-        } else {
-            KCoreDirLister::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCoreDirLister::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,15 +279,18 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_disconnectnotify_isbase) {
             kcoredirlister_disconnectnotify_isbase = false;
             KCoreDirLister::disconnectNotify(signal);
-        } else if (kcoredirlister_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcoredirlister_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcoredirlister_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCoreDirLister::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCoreDirLister::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,12 +298,13 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_sender_isbase) {
             kcoredirlister_sender_isbase = false;
             return KCoreDirLister::sender();
-        } else if (kcoredirlister_sender_callback != nullptr) {
-            QObject* callback_ret = kcoredirlister_sender_callback();
-            return callback_ret;
-        } else {
-            return KCoreDirLister::sender();
         }
+        auto sender_cb = kcoredirlister_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCoreDirLister::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,12 +312,13 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_sendersignalindex_isbase) {
             kcoredirlister_sendersignalindex_isbase = false;
             return KCoreDirLister::senderSignalIndex();
-        } else if (kcoredirlister_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcoredirlister_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCoreDirLister::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcoredirlister_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCoreDirLister::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,14 +326,15 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_receivers_isbase) {
             kcoredirlister_receivers_isbase = false;
             return KCoreDirLister::receivers(signal);
-        } else if (kcoredirlister_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcoredirlister_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcoredirlister_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCoreDirLister::receivers(signal);
         }
+        return KCoreDirLister::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,16 +342,17 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
         if (kcoredirlister_issignalconnected_isbase) {
             kcoredirlister_issignalconnected_isbase = false;
             return KCoreDirLister::isSignalConnected(signal);
-        } else if (kcoredirlister_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcoredirlister_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcoredirlister_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCoreDirLister::isSignalConnected(signal);
         }
+        return KCoreDirLister::isSignalConnected(signal);
     }
 
     // Friend functions

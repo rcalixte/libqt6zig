@@ -240,80 +240,6 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     VirtualKFilePlacesModel() : KFilePlacesModel() {};
     VirtualKFilePlacesModel(QObject* parent) : KFilePlacesModel(parent) {};
 
-    ~VirtualKFilePlacesModel() {
-        kfileplacesmodel_metaobject_callback = nullptr;
-        kfileplacesmodel_metacast_callback = nullptr;
-        kfileplacesmodel_metacall_callback = nullptr;
-        kfileplacesmodel_data_callback = nullptr;
-        kfileplacesmodel_index_callback = nullptr;
-        kfileplacesmodel_parent_callback = nullptr;
-        kfileplacesmodel_rolenames_callback = nullptr;
-        kfileplacesmodel_rowcount_callback = nullptr;
-        kfileplacesmodel_columncount_callback = nullptr;
-        kfileplacesmodel_supporteddropactions_callback = nullptr;
-        kfileplacesmodel_flags_callback = nullptr;
-        kfileplacesmodel_mimetypes_callback = nullptr;
-        kfileplacesmodel_mimedata_callback = nullptr;
-        kfileplacesmodel_dropmimedata_callback = nullptr;
-        kfileplacesmodel_sibling_callback = nullptr;
-        kfileplacesmodel_haschildren_callback = nullptr;
-        kfileplacesmodel_setdata_callback = nullptr;
-        kfileplacesmodel_headerdata_callback = nullptr;
-        kfileplacesmodel_setheaderdata_callback = nullptr;
-        kfileplacesmodel_itemdata_callback = nullptr;
-        kfileplacesmodel_setitemdata_callback = nullptr;
-        kfileplacesmodel_clearitemdata_callback = nullptr;
-        kfileplacesmodel_candropmimedata_callback = nullptr;
-        kfileplacesmodel_supporteddragactions_callback = nullptr;
-        kfileplacesmodel_insertrows_callback = nullptr;
-        kfileplacesmodel_insertcolumns_callback = nullptr;
-        kfileplacesmodel_removerows_callback = nullptr;
-        kfileplacesmodel_removecolumns_callback = nullptr;
-        kfileplacesmodel_moverows_callback = nullptr;
-        kfileplacesmodel_movecolumns_callback = nullptr;
-        kfileplacesmodel_fetchmore_callback = nullptr;
-        kfileplacesmodel_canfetchmore_callback = nullptr;
-        kfileplacesmodel_sort_callback = nullptr;
-        kfileplacesmodel_buddy_callback = nullptr;
-        kfileplacesmodel_match_callback = nullptr;
-        kfileplacesmodel_span_callback = nullptr;
-        kfileplacesmodel_multidata_callback = nullptr;
-        kfileplacesmodel_submit_callback = nullptr;
-        kfileplacesmodel_revert_callback = nullptr;
-        kfileplacesmodel_resetinternaldata_callback = nullptr;
-        kfileplacesmodel_event_callback = nullptr;
-        kfileplacesmodel_eventfilter_callback = nullptr;
-        kfileplacesmodel_timerevent_callback = nullptr;
-        kfileplacesmodel_childevent_callback = nullptr;
-        kfileplacesmodel_customevent_callback = nullptr;
-        kfileplacesmodel_connectnotify_callback = nullptr;
-        kfileplacesmodel_disconnectnotify_callback = nullptr;
-        kfileplacesmodel_createindex_callback = nullptr;
-        kfileplacesmodel_encodedata_callback = nullptr;
-        kfileplacesmodel_decodedata_callback = nullptr;
-        kfileplacesmodel_begininsertrows_callback = nullptr;
-        kfileplacesmodel_endinsertrows_callback = nullptr;
-        kfileplacesmodel_beginremoverows_callback = nullptr;
-        kfileplacesmodel_endremoverows_callback = nullptr;
-        kfileplacesmodel_beginmoverows_callback = nullptr;
-        kfileplacesmodel_endmoverows_callback = nullptr;
-        kfileplacesmodel_begininsertcolumns_callback = nullptr;
-        kfileplacesmodel_endinsertcolumns_callback = nullptr;
-        kfileplacesmodel_beginremovecolumns_callback = nullptr;
-        kfileplacesmodel_endremovecolumns_callback = nullptr;
-        kfileplacesmodel_beginmovecolumns_callback = nullptr;
-        kfileplacesmodel_endmovecolumns_callback = nullptr;
-        kfileplacesmodel_beginresetmodel_callback = nullptr;
-        kfileplacesmodel_endresetmodel_callback = nullptr;
-        kfileplacesmodel_changepersistentindex_callback = nullptr;
-        kfileplacesmodel_changepersistentindexlist_callback = nullptr;
-        kfileplacesmodel_persistentindexlist_callback = nullptr;
-        kfileplacesmodel_sender_callback = nullptr;
-        kfileplacesmodel_sendersignalindex_callback = nullptr;
-        kfileplacesmodel_receivers_callback = nullptr;
-        kfileplacesmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFilePlacesModel_MetaObject_Callback(KFilePlacesModel_MetaObject_Callback cb) { kfileplacesmodel_metaobject_callback = cb; }
     inline void setKFilePlacesModel_Metacast_Callback(KFilePlacesModel_Metacast_Callback cb) { kfileplacesmodel_metacast_callback = cb; }
@@ -465,12 +391,13 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_metaobject_isbase) {
             kfileplacesmodel_metaobject_isbase = false;
             return KFilePlacesModel::metaObject();
-        } else if (kfileplacesmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfileplacesmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesModel::metaObject();
         }
+        auto metaobject_cb = kfileplacesmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFilePlacesModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -478,14 +405,15 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_metacast_isbase) {
             kfileplacesmodel_metacast_isbase = false;
             return KFilePlacesModel::qt_metacast(param1);
-        } else if (kfileplacesmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfileplacesmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfileplacesmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::qt_metacast(param1);
         }
+        return KFilePlacesModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,16 +421,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_metacall_isbase) {
             kfileplacesmodel_metacall_isbase = false;
             return KFilePlacesModel::qt_metacall(param1, param2, param3);
-        } else if (kfileplacesmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfileplacesmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfileplacesmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesModel::qt_metacall(param1, param2, param3);
         }
+        return KFilePlacesModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,17 +439,18 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_data_isbase) {
             kfileplacesmodel_data_isbase = false;
             return KFilePlacesModel::data(index, role);
-        } else if (kfileplacesmodel_data_callback != nullptr) {
+        }
+        auto data_cb = kfileplacesmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = kfileplacesmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::data(index, role);
         }
+        return KFilePlacesModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,18 +458,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_index_isbase) {
             kfileplacesmodel_index_isbase = false;
             return KFilePlacesModel::index(row, column, parent);
-        } else if (kfileplacesmodel_index_callback != nullptr) {
+        }
+        auto index_cb = kfileplacesmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = kfileplacesmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::index(row, column, parent);
         }
+        return KFilePlacesModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,16 +478,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_parent_isbase) {
             kfileplacesmodel_parent_isbase = false;
             return KFilePlacesModel::parent(child);
-        } else if (kfileplacesmodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = kfileplacesmodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = kfileplacesmodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::parent(child);
         }
+        return KFilePlacesModel::parent(child);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,8 +496,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_rolenames_isbase) {
             kfileplacesmodel_rolenames_isbase = false;
             return KFilePlacesModel::roleNames();
-        } else if (kfileplacesmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = kfileplacesmodel_rolenames_callback();
+        }
+        auto rolenames_cb = kfileplacesmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -575,9 +509,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KFilePlacesModel::roleNames();
         }
+        return KFilePlacesModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,16 +518,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_rowcount_isbase) {
             kfileplacesmodel_rowcount_isbase = false;
             return KFilePlacesModel::rowCount(parent);
-        } else if (kfileplacesmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = kfileplacesmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kfileplacesmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesModel::rowCount(parent);
         }
+        return KFilePlacesModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,16 +536,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_columncount_isbase) {
             kfileplacesmodel_columncount_isbase = false;
             return KFilePlacesModel::columnCount(parent);
-        } else if (kfileplacesmodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = kfileplacesmodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kfileplacesmodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesModel::columnCount(parent);
         }
+        return KFilePlacesModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,12 +554,13 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_supporteddropactions_isbase) {
             kfileplacesmodel_supporteddropactions_isbase = false;
             return KFilePlacesModel::supportedDropActions();
-        } else if (kfileplacesmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = kfileplacesmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KFilePlacesModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = kfileplacesmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KFilePlacesModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,16 +568,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_flags_isbase) {
             kfileplacesmodel_flags_isbase = false;
             return KFilePlacesModel::flags(index);
-        } else if (kfileplacesmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = kfileplacesmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = kfileplacesmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KFilePlacesModel::flags(index);
         }
+        return KFilePlacesModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,8 +586,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_mimetypes_isbase) {
             kfileplacesmodel_mimetypes_isbase = false;
             return KFilePlacesModel::mimeTypes();
-        } else if (kfileplacesmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = kfileplacesmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = kfileplacesmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -661,9 +600,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KFilePlacesModel::mimeTypes();
         }
+        return KFilePlacesModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,7 +609,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_mimedata_isbase) {
             kfileplacesmodel_mimedata_isbase = false;
             return KFilePlacesModel::mimeData(indexes);
-        } else if (kfileplacesmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kfileplacesmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -683,12 +623,11 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = kfileplacesmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::mimeData(indexes);
         }
+        return KFilePlacesModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,7 +635,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_dropmimedata_isbase) {
             kfileplacesmodel_dropmimedata_isbase = false;
             return KFilePlacesModel::dropMimeData(data, action, row, column, parent);
-        } else if (kfileplacesmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kfileplacesmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -705,11 +646,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::dropMimeData(data, action, row, column, parent);
         }
+        return KFilePlacesModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,18 +657,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_sibling_isbase) {
             kfileplacesmodel_sibling_isbase = false;
             return KFilePlacesModel::sibling(row, column, idx);
-        } else if (kfileplacesmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = kfileplacesmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = kfileplacesmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::sibling(row, column, idx);
         }
+        return KFilePlacesModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,16 +677,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_haschildren_isbase) {
             kfileplacesmodel_haschildren_isbase = false;
             return KFilePlacesModel::hasChildren(parent);
-        } else if (kfileplacesmodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = kfileplacesmodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::hasChildren(parent);
         }
+        return KFilePlacesModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,7 +695,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_setdata_isbase) {
             kfileplacesmodel_setdata_isbase = false;
             return KFilePlacesModel::setData(index, value, role);
-        } else if (kfileplacesmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = kfileplacesmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -762,11 +706,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = kfileplacesmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::setData(index, value, role);
         }
+        return KFilePlacesModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,16 +717,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_headerdata_isbase) {
             kfileplacesmodel_headerdata_isbase = false;
             return KFilePlacesModel::headerData(section, orientation, role);
-        } else if (kfileplacesmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = kfileplacesmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = kfileplacesmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::headerData(section, orientation, role);
         }
+        return KFilePlacesModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,7 +735,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_setheaderdata_isbase) {
             kfileplacesmodel_setheaderdata_isbase = false;
             return KFilePlacesModel::setHeaderData(section, orientation, value, role);
-        } else if (kfileplacesmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = kfileplacesmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -799,11 +745,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = kfileplacesmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::setHeaderData(section, orientation, value, role);
         }
+        return KFilePlacesModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,12 +756,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_itemdata_isbase) {
             kfileplacesmodel_itemdata_isbase = false;
             return KFilePlacesModel::itemData(index);
-        } else if (kfileplacesmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = kfileplacesmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = kfileplacesmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -824,9 +771,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KFilePlacesModel::itemData(index);
         }
+        return KFilePlacesModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -834,7 +780,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_setitemdata_isbase) {
             kfileplacesmodel_setitemdata_isbase = false;
             return KFilePlacesModel::setItemData(index, roles);
-        } else if (kfileplacesmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = kfileplacesmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -854,11 +802,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = kfileplacesmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::setItemData(index, roles);
         }
+        return KFilePlacesModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,16 +813,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_clearitemdata_isbase) {
             kfileplacesmodel_clearitemdata_isbase = false;
             return KFilePlacesModel::clearItemData(index);
-        } else if (kfileplacesmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = kfileplacesmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kfileplacesmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::clearItemData(index);
         }
+        return KFilePlacesModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,7 +831,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_candropmimedata_isbase) {
             kfileplacesmodel_candropmimedata_isbase = false;
             return KFilePlacesModel::canDropMimeData(data, action, row, column, parent);
-        } else if (kfileplacesmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = kfileplacesmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -892,11 +842,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KFilePlacesModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -904,12 +853,13 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_supporteddragactions_isbase) {
             kfileplacesmodel_supporteddragactions_isbase = false;
             return KFilePlacesModel::supportedDragActions();
-        } else if (kfileplacesmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = kfileplacesmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KFilePlacesModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = kfileplacesmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KFilePlacesModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -917,18 +867,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_insertrows_isbase) {
             kfileplacesmodel_insertrows_isbase = false;
             return KFilePlacesModel::insertRows(row, count, parent);
-        } else if (kfileplacesmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = kfileplacesmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::insertRows(row, count, parent);
         }
+        return KFilePlacesModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,18 +887,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_insertcolumns_isbase) {
             kfileplacesmodel_insertcolumns_isbase = false;
             return KFilePlacesModel::insertColumns(column, count, parent);
-        } else if (kfileplacesmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = kfileplacesmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::insertColumns(column, count, parent);
         }
+        return KFilePlacesModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,18 +907,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_removerows_isbase) {
             kfileplacesmodel_removerows_isbase = false;
             return KFilePlacesModel::removeRows(row, count, parent);
-        } else if (kfileplacesmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = kfileplacesmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::removeRows(row, count, parent);
         }
+        return KFilePlacesModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,18 +927,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_removecolumns_isbase) {
             kfileplacesmodel_removecolumns_isbase = false;
             return KFilePlacesModel::removeColumns(column, count, parent);
-        } else if (kfileplacesmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = kfileplacesmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::removeColumns(column, count, parent);
         }
+        return KFilePlacesModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,7 +947,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_moverows_isbase) {
             kfileplacesmodel_moverows_isbase = false;
             return KFilePlacesModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (kfileplacesmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = kfileplacesmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1004,11 +960,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kfileplacesmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KFilePlacesModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1016,7 +971,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_movecolumns_isbase) {
             kfileplacesmodel_movecolumns_isbase = false;
             return KFilePlacesModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (kfileplacesmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = kfileplacesmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1027,11 +984,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kfileplacesmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KFilePlacesModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,15 +995,18 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_fetchmore_isbase) {
             kfileplacesmodel_fetchmore_isbase = false;
             KFilePlacesModel::fetchMore(parent);
-        } else if (kfileplacesmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = kfileplacesmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            kfileplacesmodel_fetchmore_callback(this, cbval1);
-        } else {
-            KFilePlacesModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KFilePlacesModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,16 +1014,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_canfetchmore_isbase) {
             kfileplacesmodel_canfetchmore_isbase = false;
             return KFilePlacesModel::canFetchMore(parent);
-        } else if (kfileplacesmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = kfileplacesmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kfileplacesmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::canFetchMore(parent);
         }
+        return KFilePlacesModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,14 +1032,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_sort_isbase) {
             kfileplacesmodel_sort_isbase = false;
             KFilePlacesModel::sort(column, order);
-        } else if (kfileplacesmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = kfileplacesmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            kfileplacesmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,16 +1050,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_buddy_isbase) {
             kfileplacesmodel_buddy_isbase = false;
             return KFilePlacesModel::buddy(index);
-        } else if (kfileplacesmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = kfileplacesmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kfileplacesmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::buddy(index);
         }
+        return KFilePlacesModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1104,7 +1068,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_match_isbase) {
             kfileplacesmodel_match_isbase = false;
             return KFilePlacesModel::match(start, role, value, hits, flags);
-        } else if (kfileplacesmodel_match_callback != nullptr) {
+        }
+        auto match_cb = kfileplacesmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1115,7 +1081,7 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = kfileplacesmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1124,9 +1090,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KFilePlacesModel::match(start, role, value, hits, flags);
         }
+        return KFilePlacesModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,16 +1099,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_span_isbase) {
             kfileplacesmodel_span_isbase = false;
             return KFilePlacesModel::span(index);
-        } else if (kfileplacesmodel_span_callback != nullptr) {
+        }
+        auto span_cb = kfileplacesmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kfileplacesmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::span(index);
         }
+        return KFilePlacesModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,16 +1117,19 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_multidata_isbase) {
             kfileplacesmodel_multidata_isbase = false;
             KFilePlacesModel::multiData(index, roleDataSpan);
-        } else if (kfileplacesmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = kfileplacesmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            kfileplacesmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1168,12 +1137,13 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_submit_isbase) {
             kfileplacesmodel_submit_isbase = false;
             return KFilePlacesModel::submit();
-        } else if (kfileplacesmodel_submit_callback != nullptr) {
-            bool callback_ret = kfileplacesmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesModel::submit();
         }
+        auto submit_cb = kfileplacesmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KFilePlacesModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,11 +1151,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_revert_isbase) {
             kfileplacesmodel_revert_isbase = false;
             KFilePlacesModel::revert();
-        } else if (kfileplacesmodel_revert_callback != nullptr) {
-            kfileplacesmodel_revert_callback();
-        } else {
-            KFilePlacesModel::revert();
+            return;
         }
+        auto revert_cb = kfileplacesmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KFilePlacesModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,11 +1166,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_resetinternaldata_isbase) {
             kfileplacesmodel_resetinternaldata_isbase = false;
             KFilePlacesModel::resetInternalData();
-        } else if (kfileplacesmodel_resetinternaldata_callback != nullptr) {
-            kfileplacesmodel_resetinternaldata_callback();
-        } else {
-            KFilePlacesModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = kfileplacesmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KFilePlacesModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,14 +1181,15 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_event_isbase) {
             kfileplacesmodel_event_isbase = false;
             return KFilePlacesModel::event(event);
-        } else if (kfileplacesmodel_event_callback != nullptr) {
+        }
+        auto event_cb = kfileplacesmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfileplacesmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::event(event);
         }
+        return KFilePlacesModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,15 +1197,16 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_eventfilter_isbase) {
             kfileplacesmodel_eventfilter_isbase = false;
             return KFilePlacesModel::eventFilter(watched, event);
-        } else if (kfileplacesmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfileplacesmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kfileplacesmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::eventFilter(watched, event);
         }
+        return KFilePlacesModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1236,13 +1214,16 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_timerevent_isbase) {
             kfileplacesmodel_timerevent_isbase = false;
             KFilePlacesModel::timerEvent(event);
-        } else if (kfileplacesmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfileplacesmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfileplacesmodel_timerevent_callback(this, cbval1);
-        } else {
-            KFilePlacesModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,13 +1231,16 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_childevent_isbase) {
             kfileplacesmodel_childevent_isbase = false;
             KFilePlacesModel::childEvent(event);
-        } else if (kfileplacesmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfileplacesmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfileplacesmodel_childevent_callback(this, cbval1);
-        } else {
-            KFilePlacesModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1264,13 +1248,16 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_customevent_isbase) {
             kfileplacesmodel_customevent_isbase = false;
             KFilePlacesModel::customEvent(event);
-        } else if (kfileplacesmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfileplacesmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfileplacesmodel_customevent_callback(this, cbval1);
-        } else {
-            KFilePlacesModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFilePlacesModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,15 +1265,18 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_connectnotify_isbase) {
             kfileplacesmodel_connectnotify_isbase = false;
             KFilePlacesModel::connectNotify(signal);
-        } else if (kfileplacesmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfileplacesmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileplacesmodel_connectnotify_callback(this, cbval1);
-        } else {
-            KFilePlacesModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePlacesModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,15 +1284,18 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_disconnectnotify_isbase) {
             kfileplacesmodel_disconnectnotify_isbase = false;
             KFilePlacesModel::disconnectNotify(signal);
-        } else if (kfileplacesmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfileplacesmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileplacesmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFilePlacesModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePlacesModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1310,15 +1303,16 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_createindex_isbase) {
             kfileplacesmodel_createindex_isbase = false;
             return KFilePlacesModel::createIndex(row, column);
-        } else if (kfileplacesmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = kfileplacesmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = kfileplacesmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KFilePlacesModel::createIndex(row, column);
         }
+        return KFilePlacesModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,7 +1320,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_encodedata_isbase) {
             kfileplacesmodel_encodedata_isbase = false;
             KFilePlacesModel::encodeData(indexes, stream);
-        } else if (kfileplacesmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = kfileplacesmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1341,11 +1338,11 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            kfileplacesmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KFilePlacesModel::encodeData(indexes, stream);
+            return;
         }
+        KFilePlacesModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,7 +1350,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_decodedata_isbase) {
             kfileplacesmodel_decodedata_isbase = false;
             return KFilePlacesModel::decodeData(row, column, parent, stream);
-        } else if (kfileplacesmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = kfileplacesmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1363,11 +1362,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = kfileplacesmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::decodeData(row, column, parent, stream);
         }
+        return KFilePlacesModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1375,17 +1373,20 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_begininsertrows_isbase) {
             kfileplacesmodel_begininsertrows_isbase = false;
             KFilePlacesModel::beginInsertRows(parent, first, last);
-        } else if (kfileplacesmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = kfileplacesmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kfileplacesmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFilePlacesModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFilePlacesModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1393,11 +1394,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endinsertrows_isbase) {
             kfileplacesmodel_endinsertrows_isbase = false;
             KFilePlacesModel::endInsertRows();
-        } else if (kfileplacesmodel_endinsertrows_callback != nullptr) {
-            kfileplacesmodel_endinsertrows_callback();
-        } else {
-            KFilePlacesModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = kfileplacesmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KFilePlacesModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,17 +1409,20 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_beginremoverows_isbase) {
             kfileplacesmodel_beginremoverows_isbase = false;
             KFilePlacesModel::beginRemoveRows(parent, first, last);
-        } else if (kfileplacesmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = kfileplacesmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kfileplacesmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFilePlacesModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFilePlacesModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1423,11 +1430,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endremoverows_isbase) {
             kfileplacesmodel_endremoverows_isbase = false;
             KFilePlacesModel::endRemoveRows();
-        } else if (kfileplacesmodel_endremoverows_callback != nullptr) {
-            kfileplacesmodel_endremoverows_callback();
-        } else {
-            KFilePlacesModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = kfileplacesmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KFilePlacesModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1435,7 +1445,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_beginmoverows_isbase) {
             kfileplacesmodel_beginmoverows_isbase = false;
             return KFilePlacesModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (kfileplacesmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = kfileplacesmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1446,11 +1458,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = kfileplacesmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KFilePlacesModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1458,11 +1469,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endmoverows_isbase) {
             kfileplacesmodel_endmoverows_isbase = false;
             KFilePlacesModel::endMoveRows();
-        } else if (kfileplacesmodel_endmoverows_callback != nullptr) {
-            kfileplacesmodel_endmoverows_callback();
-        } else {
-            KFilePlacesModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = kfileplacesmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KFilePlacesModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,17 +1484,20 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_begininsertcolumns_isbase) {
             kfileplacesmodel_begininsertcolumns_isbase = false;
             KFilePlacesModel::beginInsertColumns(parent, first, last);
-        } else if (kfileplacesmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = kfileplacesmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kfileplacesmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFilePlacesModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFilePlacesModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1488,11 +1505,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endinsertcolumns_isbase) {
             kfileplacesmodel_endinsertcolumns_isbase = false;
             KFilePlacesModel::endInsertColumns();
-        } else if (kfileplacesmodel_endinsertcolumns_callback != nullptr) {
-            kfileplacesmodel_endinsertcolumns_callback();
-        } else {
-            KFilePlacesModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = kfileplacesmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KFilePlacesModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1500,17 +1520,20 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_beginremovecolumns_isbase) {
             kfileplacesmodel_beginremovecolumns_isbase = false;
             KFilePlacesModel::beginRemoveColumns(parent, first, last);
-        } else if (kfileplacesmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = kfileplacesmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kfileplacesmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KFilePlacesModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KFilePlacesModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1518,11 +1541,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endremovecolumns_isbase) {
             kfileplacesmodel_endremovecolumns_isbase = false;
             KFilePlacesModel::endRemoveColumns();
-        } else if (kfileplacesmodel_endremovecolumns_callback != nullptr) {
-            kfileplacesmodel_endremovecolumns_callback();
-        } else {
-            KFilePlacesModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = kfileplacesmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KFilePlacesModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1530,7 +1556,9 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_beginmovecolumns_isbase) {
             kfileplacesmodel_beginmovecolumns_isbase = false;
             return KFilePlacesModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (kfileplacesmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = kfileplacesmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1541,11 +1569,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = kfileplacesmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KFilePlacesModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1553,11 +1580,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endmovecolumns_isbase) {
             kfileplacesmodel_endmovecolumns_isbase = false;
             KFilePlacesModel::endMoveColumns();
-        } else if (kfileplacesmodel_endmovecolumns_callback != nullptr) {
-            kfileplacesmodel_endmovecolumns_callback();
-        } else {
-            KFilePlacesModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = kfileplacesmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KFilePlacesModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1565,11 +1595,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_beginresetmodel_isbase) {
             kfileplacesmodel_beginresetmodel_isbase = false;
             KFilePlacesModel::beginResetModel();
-        } else if (kfileplacesmodel_beginresetmodel_callback != nullptr) {
-            kfileplacesmodel_beginresetmodel_callback();
-        } else {
-            KFilePlacesModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = kfileplacesmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KFilePlacesModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1577,11 +1610,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_endresetmodel_isbase) {
             kfileplacesmodel_endresetmodel_isbase = false;
             KFilePlacesModel::endResetModel();
-        } else if (kfileplacesmodel_endresetmodel_callback != nullptr) {
-            kfileplacesmodel_endresetmodel_callback();
-        } else {
-            KFilePlacesModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = kfileplacesmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KFilePlacesModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1589,7 +1625,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_changepersistentindex_isbase) {
             kfileplacesmodel_changepersistentindex_isbase = false;
             KFilePlacesModel::changePersistentIndex(from, to);
-        } else if (kfileplacesmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = kfileplacesmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1597,10 +1636,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            kfileplacesmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KFilePlacesModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KFilePlacesModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1608,7 +1647,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_changepersistentindexlist_isbase) {
             kfileplacesmodel_changepersistentindexlist_isbase = false;
             KFilePlacesModel::changePersistentIndexList(from, to);
-        } else if (kfileplacesmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = kfileplacesmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1630,12 +1672,12 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            kfileplacesmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KFilePlacesModel::changePersistentIndexList(from, to);
+            return;
         }
+        KFilePlacesModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1643,8 +1685,10 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_persistentindexlist_isbase) {
             kfileplacesmodel_persistentindexlist_isbase = false;
             return KFilePlacesModel::persistentIndexList();
-        } else if (kfileplacesmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kfileplacesmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = kfileplacesmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1653,9 +1697,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KFilePlacesModel::persistentIndexList();
         }
+        return KFilePlacesModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1663,12 +1706,13 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_sender_isbase) {
             kfileplacesmodel_sender_isbase = false;
             return KFilePlacesModel::sender();
-        } else if (kfileplacesmodel_sender_callback != nullptr) {
-            QObject* callback_ret = kfileplacesmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KFilePlacesModel::sender();
         }
+        auto sender_cb = kfileplacesmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFilePlacesModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1676,12 +1720,13 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_sendersignalindex_isbase) {
             kfileplacesmodel_sendersignalindex_isbase = false;
             return KFilePlacesModel::senderSignalIndex();
-        } else if (kfileplacesmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfileplacesmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfileplacesmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlacesModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1689,14 +1734,15 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_receivers_isbase) {
             kfileplacesmodel_receivers_isbase = false;
             return KFilePlacesModel::receivers(signal);
-        } else if (kfileplacesmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfileplacesmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfileplacesmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlacesModel::receivers(signal);
         }
+        return KFilePlacesModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1704,16 +1750,17 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
         if (kfileplacesmodel_issignalconnected_isbase) {
             kfileplacesmodel_issignalconnected_isbase = false;
             return KFilePlacesModel::isSignalConnected(signal);
-        } else if (kfileplacesmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfileplacesmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfileplacesmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlacesModel::isSignalConnected(signal);
         }
+        return KFilePlacesModel::isSignalConnected(signal);
     }
 
     // Friend functions

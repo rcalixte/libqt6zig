@@ -266,89 +266,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
   public:
     VirtualKConfigDialog(QWidget* parent, const QString& name, KCoreConfigSkeleton* config) : KConfigDialog(parent, name, config) {};
 
-    ~VirtualKConfigDialog() {
-        kconfigdialog_metaobject_callback = nullptr;
-        kconfigdialog_metacast_callback = nullptr;
-        kconfigdialog_metacall_callback = nullptr;
-        kconfigdialog_updatesettings_callback = nullptr;
-        kconfigdialog_updatewidgets_callback = nullptr;
-        kconfigdialog_updatewidgetsdefault_callback = nullptr;
-        kconfigdialog_showhelp_callback = nullptr;
-        kconfigdialog_haschanged_callback = nullptr;
-        kconfigdialog_isdefault_callback = nullptr;
-        kconfigdialog_showevent_callback = nullptr;
-        kconfigdialog_setvisible_callback = nullptr;
-        kconfigdialog_sizehint_callback = nullptr;
-        kconfigdialog_minimumsizehint_callback = nullptr;
-        kconfigdialog_open_callback = nullptr;
-        kconfigdialog_exec_callback = nullptr;
-        kconfigdialog_done_callback = nullptr;
-        kconfigdialog_accept_callback = nullptr;
-        kconfigdialog_reject_callback = nullptr;
-        kconfigdialog_keypressevent_callback = nullptr;
-        kconfigdialog_closeevent_callback = nullptr;
-        kconfigdialog_resizeevent_callback = nullptr;
-        kconfigdialog_contextmenuevent_callback = nullptr;
-        kconfigdialog_eventfilter_callback = nullptr;
-        kconfigdialog_devtype_callback = nullptr;
-        kconfigdialog_heightforwidth_callback = nullptr;
-        kconfigdialog_hasheightforwidth_callback = nullptr;
-        kconfigdialog_paintengine_callback = nullptr;
-        kconfigdialog_event_callback = nullptr;
-        kconfigdialog_mousepressevent_callback = nullptr;
-        kconfigdialog_mousereleaseevent_callback = nullptr;
-        kconfigdialog_mousedoubleclickevent_callback = nullptr;
-        kconfigdialog_mousemoveevent_callback = nullptr;
-        kconfigdialog_wheelevent_callback = nullptr;
-        kconfigdialog_keyreleaseevent_callback = nullptr;
-        kconfigdialog_focusinevent_callback = nullptr;
-        kconfigdialog_focusoutevent_callback = nullptr;
-        kconfigdialog_enterevent_callback = nullptr;
-        kconfigdialog_leaveevent_callback = nullptr;
-        kconfigdialog_paintevent_callback = nullptr;
-        kconfigdialog_moveevent_callback = nullptr;
-        kconfigdialog_tabletevent_callback = nullptr;
-        kconfigdialog_actionevent_callback = nullptr;
-        kconfigdialog_dragenterevent_callback = nullptr;
-        kconfigdialog_dragmoveevent_callback = nullptr;
-        kconfigdialog_dragleaveevent_callback = nullptr;
-        kconfigdialog_dropevent_callback = nullptr;
-        kconfigdialog_hideevent_callback = nullptr;
-        kconfigdialog_nativeevent_callback = nullptr;
-        kconfigdialog_changeevent_callback = nullptr;
-        kconfigdialog_metric_callback = nullptr;
-        kconfigdialog_initpainter_callback = nullptr;
-        kconfigdialog_redirected_callback = nullptr;
-        kconfigdialog_sharedpainter_callback = nullptr;
-        kconfigdialog_inputmethodevent_callback = nullptr;
-        kconfigdialog_inputmethodquery_callback = nullptr;
-        kconfigdialog_focusnextprevchild_callback = nullptr;
-        kconfigdialog_timerevent_callback = nullptr;
-        kconfigdialog_childevent_callback = nullptr;
-        kconfigdialog_customevent_callback = nullptr;
-        kconfigdialog_connectnotify_callback = nullptr;
-        kconfigdialog_disconnectnotify_callback = nullptr;
-        kconfigdialog_updatebuttons_callback = nullptr;
-        kconfigdialog_settingschangedslot_callback = nullptr;
-        kconfigdialog_sethelp_callback = nullptr;
-        kconfigdialog_sethelp2_callback = nullptr;
-        kconfigdialog_pagewidget_callback = nullptr;
-        kconfigdialog_setpagewidget_callback = nullptr;
-        kconfigdialog_buttonbox_callback = nullptr;
-        kconfigdialog_setbuttonbox_callback = nullptr;
-        kconfigdialog_adjustposition_callback = nullptr;
-        kconfigdialog_updatemicrofocus_callback = nullptr;
-        kconfigdialog_create_callback = nullptr;
-        kconfigdialog_destroy_callback = nullptr;
-        kconfigdialog_focusnextchild_callback = nullptr;
-        kconfigdialog_focuspreviouschild_callback = nullptr;
-        kconfigdialog_sender_callback = nullptr;
-        kconfigdialog_sendersignalindex_callback = nullptr;
-        kconfigdialog_receivers_callback = nullptr;
-        kconfigdialog_issignalconnected_callback = nullptr;
-        kconfigdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigDialog_MetaObject_Callback(KConfigDialog_MetaObject_Callback cb) { kconfigdialog_metaobject_callback = cb; }
     inline void setKConfigDialog_Metacast_Callback(KConfigDialog_Metacast_Callback cb) { kconfigdialog_metacast_callback = cb; }
@@ -518,12 +435,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_metaobject_isbase) {
             kconfigdialog_metaobject_isbase = false;
             return KConfigDialog::metaObject();
-        } else if (kconfigdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kconfigdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::metaObject();
         }
+        auto metaobject_cb = kconfigdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,14 +449,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_metacast_isbase) {
             kconfigdialog_metacast_isbase = false;
             return KConfigDialog::qt_metacast(param1);
-        } else if (kconfigdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kconfigdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kconfigdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialog::qt_metacast(param1);
         }
+        return KConfigDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,16 +465,17 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_metacall_isbase) {
             kconfigdialog_metacall_isbase = false;
             return KConfigDialog::qt_metacall(param1, param2, param3);
-        } else if (kconfigdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kconfigdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kconfigdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::qt_metacall(param1, param2, param3);
         }
+        return KConfigDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,11 +483,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_updatesettings_isbase) {
             kconfigdialog_updatesettings_isbase = false;
             KConfigDialog::updateSettings();
-        } else if (kconfigdialog_updatesettings_callback != nullptr) {
-            kconfigdialog_updatesettings_callback();
-        } else {
-            KConfigDialog::updateSettings();
+            return;
         }
+        auto updatesettings_cb = kconfigdialog_updatesettings_callback;
+        if (updatesettings_cb) {
+            updatesettings_cb();
+            return;
+        }
+        KConfigDialog::updateSettings();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,11 +498,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_updatewidgets_isbase) {
             kconfigdialog_updatewidgets_isbase = false;
             KConfigDialog::updateWidgets();
-        } else if (kconfigdialog_updatewidgets_callback != nullptr) {
-            kconfigdialog_updatewidgets_callback();
-        } else {
-            KConfigDialog::updateWidgets();
+            return;
         }
+        auto updatewidgets_cb = kconfigdialog_updatewidgets_callback;
+        if (updatewidgets_cb) {
+            updatewidgets_cb();
+            return;
+        }
+        KConfigDialog::updateWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,11 +513,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_updatewidgetsdefault_isbase) {
             kconfigdialog_updatewidgetsdefault_isbase = false;
             KConfigDialog::updateWidgetsDefault();
-        } else if (kconfigdialog_updatewidgetsdefault_callback != nullptr) {
-            kconfigdialog_updatewidgetsdefault_callback();
-        } else {
-            KConfigDialog::updateWidgetsDefault();
+            return;
         }
+        auto updatewidgetsdefault_cb = kconfigdialog_updatewidgetsdefault_callback;
+        if (updatewidgetsdefault_cb) {
+            updatewidgetsdefault_cb();
+            return;
+        }
+        KConfigDialog::updateWidgetsDefault();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,11 +528,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_showhelp_isbase) {
             kconfigdialog_showhelp_isbase = false;
             KConfigDialog::showHelp();
-        } else if (kconfigdialog_showhelp_callback != nullptr) {
-            kconfigdialog_showhelp_callback();
-        } else {
-            KConfigDialog::showHelp();
+            return;
         }
+        auto showhelp_cb = kconfigdialog_showhelp_callback;
+        if (showhelp_cb) {
+            showhelp_cb();
+            return;
+        }
+        KConfigDialog::showHelp();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,12 +543,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_haschanged_isbase) {
             kconfigdialog_haschanged_isbase = false;
             return KConfigDialog::hasChanged();
-        } else if (kconfigdialog_haschanged_callback != nullptr) {
-            bool callback_ret = kconfigdialog_haschanged_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::hasChanged();
         }
+        auto haschanged_cb = kconfigdialog_haschanged_callback;
+        if (haschanged_cb) {
+            bool callback_ret = haschanged_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::hasChanged();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,12 +557,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_isdefault_isbase) {
             kconfigdialog_isdefault_isbase = false;
             return KConfigDialog::isDefault();
-        } else if (kconfigdialog_isdefault_callback != nullptr) {
-            bool callback_ret = kconfigdialog_isdefault_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::isDefault();
         }
+        auto isdefault_cb = kconfigdialog_isdefault_callback;
+        if (isdefault_cb) {
+            bool callback_ret = isdefault_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::isDefault();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +571,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_showevent_isbase) {
             kconfigdialog_showevent_isbase = false;
             KConfigDialog::showEvent(e);
-        } else if (kconfigdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kconfigdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = e;
 
-            kconfigdialog_showevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::showEvent(e);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::showEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +588,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_setvisible_isbase) {
             kconfigdialog_setvisible_isbase = false;
             KConfigDialog::setVisible(visible);
-        } else if (kconfigdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kconfigdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kconfigdialog_setvisible_callback(this, cbval1);
-        } else {
-            KConfigDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,12 +605,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_sizehint_isbase) {
             kconfigdialog_sizehint_isbase = false;
             return KConfigDialog::sizeHint();
-        } else if (kconfigdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kconfigdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KConfigDialog::sizeHint();
         }
+        auto sizehint_cb = kconfigdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KConfigDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,12 +619,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_minimumsizehint_isbase) {
             kconfigdialog_minimumsizehint_isbase = false;
             return KConfigDialog::minimumSizeHint();
-        } else if (kconfigdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kconfigdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KConfigDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kconfigdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KConfigDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,11 +633,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_open_isbase) {
             kconfigdialog_open_isbase = false;
             KConfigDialog::open();
-        } else if (kconfigdialog_open_callback != nullptr) {
-            kconfigdialog_open_callback();
-        } else {
-            KConfigDialog::open();
+            return;
         }
+        auto open_cb = kconfigdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KConfigDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,12 +648,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_exec_isbase) {
             kconfigdialog_exec_isbase = false;
             return KConfigDialog::exec();
-        } else if (kconfigdialog_exec_callback != nullptr) {
-            int callback_ret = kconfigdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::exec();
         }
+        auto exec_cb = kconfigdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KConfigDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,13 +662,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_done_isbase) {
             kconfigdialog_done_isbase = false;
             KConfigDialog::done(param1);
-        } else if (kconfigdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kconfigdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kconfigdialog_done_callback(this, cbval1);
-        } else {
-            KConfigDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,11 +679,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_accept_isbase) {
             kconfigdialog_accept_isbase = false;
             KConfigDialog::accept();
-        } else if (kconfigdialog_accept_callback != nullptr) {
-            kconfigdialog_accept_callback();
-        } else {
-            KConfigDialog::accept();
+            return;
         }
+        auto accept_cb = kconfigdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KConfigDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,11 +694,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_reject_isbase) {
             kconfigdialog_reject_isbase = false;
             KConfigDialog::reject();
-        } else if (kconfigdialog_reject_callback != nullptr) {
-            kconfigdialog_reject_callback();
-        } else {
-            KConfigDialog::reject();
+            return;
         }
+        auto reject_cb = kconfigdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KConfigDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +709,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_keypressevent_isbase) {
             kconfigdialog_keypressevent_isbase = false;
             KConfigDialog::keyPressEvent(param1);
-        } else if (kconfigdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kconfigdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kconfigdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +726,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_closeevent_isbase) {
             kconfigdialog_closeevent_isbase = false;
             KConfigDialog::closeEvent(param1);
-        } else if (kconfigdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kconfigdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kconfigdialog_closeevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +743,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_resizeevent_isbase) {
             kconfigdialog_resizeevent_isbase = false;
             KConfigDialog::resizeEvent(param1);
-        } else if (kconfigdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kconfigdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kconfigdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +760,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_contextmenuevent_isbase) {
             kconfigdialog_contextmenuevent_isbase = false;
             KConfigDialog::contextMenuEvent(param1);
-        } else if (kconfigdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kconfigdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kconfigdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,15 +777,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_eventfilter_isbase) {
             kconfigdialog_eventfilter_isbase = false;
             return KConfigDialog::eventFilter(param1, param2);
-        } else if (kconfigdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kconfigdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kconfigdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KConfigDialog::eventFilter(param1, param2);
         }
+        return KConfigDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,12 +794,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_devtype_isbase) {
             kconfigdialog_devtype_isbase = false;
             return KConfigDialog::devType();
-        } else if (kconfigdialog_devtype_callback != nullptr) {
-            int callback_ret = kconfigdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::devType();
         }
+        auto devtype_cb = kconfigdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KConfigDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,14 +808,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_heightforwidth_isbase) {
             kconfigdialog_heightforwidth_isbase = false;
             return KConfigDialog::heightForWidth(param1);
-        } else if (kconfigdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kconfigdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kconfigdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::heightForWidth(param1);
         }
+        return KConfigDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,12 +824,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_hasheightforwidth_isbase) {
             kconfigdialog_hasheightforwidth_isbase = false;
             return KConfigDialog::hasHeightForWidth();
-        } else if (kconfigdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kconfigdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kconfigdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,12 +838,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_paintengine_isbase) {
             kconfigdialog_paintengine_isbase = false;
             return KConfigDialog::paintEngine();
-        } else if (kconfigdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kconfigdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::paintEngine();
         }
+        auto paintengine_cb = kconfigdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,14 +852,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_event_isbase) {
             kconfigdialog_event_isbase = false;
             return KConfigDialog::event(event);
-        } else if (kconfigdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kconfigdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kconfigdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialog::event(event);
         }
+        return KConfigDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,13 +868,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_mousepressevent_isbase) {
             kconfigdialog_mousepressevent_isbase = false;
             KConfigDialog::mousePressEvent(event);
-        } else if (kconfigdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kconfigdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kconfigdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,13 +885,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_mousereleaseevent_isbase) {
             kconfigdialog_mousereleaseevent_isbase = false;
             KConfigDialog::mouseReleaseEvent(event);
-        } else if (kconfigdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kconfigdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kconfigdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -923,13 +902,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_mousedoubleclickevent_isbase) {
             kconfigdialog_mousedoubleclickevent_isbase = false;
             KConfigDialog::mouseDoubleClickEvent(event);
-        } else if (kconfigdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kconfigdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kconfigdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,13 +919,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_mousemoveevent_isbase) {
             kconfigdialog_mousemoveevent_isbase = false;
             KConfigDialog::mouseMoveEvent(event);
-        } else if (kconfigdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kconfigdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kconfigdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -951,13 +936,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_wheelevent_isbase) {
             kconfigdialog_wheelevent_isbase = false;
             KConfigDialog::wheelEvent(event);
-        } else if (kconfigdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kconfigdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kconfigdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -965,13 +953,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_keyreleaseevent_isbase) {
             kconfigdialog_keyreleaseevent_isbase = false;
             KConfigDialog::keyReleaseEvent(event);
-        } else if (kconfigdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kconfigdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kconfigdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -979,13 +970,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_focusinevent_isbase) {
             kconfigdialog_focusinevent_isbase = false;
             KConfigDialog::focusInEvent(event);
-        } else if (kconfigdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kconfigdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kconfigdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,13 +987,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_focusoutevent_isbase) {
             kconfigdialog_focusoutevent_isbase = false;
             KConfigDialog::focusOutEvent(event);
-        } else if (kconfigdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kconfigdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kconfigdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,13 +1004,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_enterevent_isbase) {
             kconfigdialog_enterevent_isbase = false;
             KConfigDialog::enterEvent(event);
-        } else if (kconfigdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kconfigdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kconfigdialog_enterevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,13 +1021,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_leaveevent_isbase) {
             kconfigdialog_leaveevent_isbase = false;
             KConfigDialog::leaveEvent(event);
-        } else if (kconfigdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kconfigdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kconfigdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,13 +1038,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_paintevent_isbase) {
             kconfigdialog_paintevent_isbase = false;
             KConfigDialog::paintEvent(event);
-        } else if (kconfigdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kconfigdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kconfigdialog_paintevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,13 +1055,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_moveevent_isbase) {
             kconfigdialog_moveevent_isbase = false;
             KConfigDialog::moveEvent(event);
-        } else if (kconfigdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kconfigdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kconfigdialog_moveevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1072,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_tabletevent_isbase) {
             kconfigdialog_tabletevent_isbase = false;
             KConfigDialog::tabletEvent(event);
-        } else if (kconfigdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kconfigdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kconfigdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,13 +1089,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_actionevent_isbase) {
             kconfigdialog_actionevent_isbase = false;
             KConfigDialog::actionEvent(event);
-        } else if (kconfigdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kconfigdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kconfigdialog_actionevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,13 +1106,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_dragenterevent_isbase) {
             kconfigdialog_dragenterevent_isbase = false;
             KConfigDialog::dragEnterEvent(event);
-        } else if (kconfigdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kconfigdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kconfigdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1123,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_dragmoveevent_isbase) {
             kconfigdialog_dragmoveevent_isbase = false;
             KConfigDialog::dragMoveEvent(event);
-        } else if (kconfigdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kconfigdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kconfigdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,13 +1140,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_dragleaveevent_isbase) {
             kconfigdialog_dragleaveevent_isbase = false;
             KConfigDialog::dragLeaveEvent(event);
-        } else if (kconfigdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kconfigdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kconfigdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1133,13 +1157,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_dropevent_isbase) {
             kconfigdialog_dropevent_isbase = false;
             KConfigDialog::dropEvent(event);
-        } else if (kconfigdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kconfigdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kconfigdialog_dropevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1147,13 +1174,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_hideevent_isbase) {
             kconfigdialog_hideevent_isbase = false;
             KConfigDialog::hideEvent(event);
-        } else if (kconfigdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kconfigdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kconfigdialog_hideevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1161,7 +1191,9 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_nativeevent_isbase) {
             kconfigdialog_nativeevent_isbase = false;
             return KConfigDialog::nativeEvent(eventType, message, result);
-        } else if (kconfigdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kconfigdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1172,12 +1204,11 @@ class VirtualKConfigDialog final : public KConfigDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kconfigdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KConfigDialog::nativeEvent(eventType, message, result);
         }
+        return KConfigDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1185,13 +1216,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_changeevent_isbase) {
             kconfigdialog_changeevent_isbase = false;
             KConfigDialog::changeEvent(param1);
-        } else if (kconfigdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kconfigdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kconfigdialog_changeevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,14 +1233,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_metric_isbase) {
             kconfigdialog_metric_isbase = false;
             return KConfigDialog::metric(param1);
-        } else if (kconfigdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kconfigdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kconfigdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::metric(param1);
         }
+        return KConfigDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1214,13 +1249,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_initpainter_isbase) {
             kconfigdialog_initpainter_isbase = false;
             KConfigDialog::initPainter(painter);
-        } else if (kconfigdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kconfigdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kconfigdialog_initpainter_callback(this, cbval1);
-        } else {
-            KConfigDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,14 +1266,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_redirected_isbase) {
             kconfigdialog_redirected_isbase = false;
             return KConfigDialog::redirected(offset);
-        } else if (kconfigdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kconfigdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kconfigdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialog::redirected(offset);
         }
+        return KConfigDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,12 +1282,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_sharedpainter_isbase) {
             kconfigdialog_sharedpainter_isbase = false;
             return KConfigDialog::sharedPainter();
-        } else if (kconfigdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kconfigdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kconfigdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,13 +1296,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_inputmethodevent_isbase) {
             kconfigdialog_inputmethodevent_isbase = false;
             KConfigDialog::inputMethodEvent(param1);
-        } else if (kconfigdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kconfigdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kconfigdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,14 +1313,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_inputmethodquery_isbase) {
             kconfigdialog_inputmethodquery_isbase = false;
             return KConfigDialog::inputMethodQuery(param1);
-        } else if (kconfigdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kconfigdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kconfigdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KConfigDialog::inputMethodQuery(param1);
         }
+        return KConfigDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,14 +1329,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_focusnextprevchild_isbase) {
             kconfigdialog_focusnextprevchild_isbase = false;
             return KConfigDialog::focusNextPrevChild(next);
-        } else if (kconfigdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kconfigdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kconfigdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialog::focusNextPrevChild(next);
         }
+        return KConfigDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,13 +1345,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_timerevent_isbase) {
             kconfigdialog_timerevent_isbase = false;
             KConfigDialog::timerEvent(event);
-        } else if (kconfigdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kconfigdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kconfigdialog_timerevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1314,13 +1362,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_childevent_isbase) {
             kconfigdialog_childevent_isbase = false;
             KConfigDialog::childEvent(event);
-        } else if (kconfigdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kconfigdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kconfigdialog_childevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1328,13 +1379,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_customevent_isbase) {
             kconfigdialog_customevent_isbase = false;
             KConfigDialog::customEvent(event);
-        } else if (kconfigdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kconfigdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kconfigdialog_customevent_callback(this, cbval1);
-        } else {
-            KConfigDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1342,15 +1396,18 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_connectnotify_isbase) {
             kconfigdialog_connectnotify_isbase = false;
             KConfigDialog::connectNotify(signal);
-        } else if (kconfigdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kconfigdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KConfigDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,15 +1415,18 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_disconnectnotify_isbase) {
             kconfigdialog_disconnectnotify_isbase = false;
             KConfigDialog::disconnectNotify(signal);
-        } else if (kconfigdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kconfigdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KConfigDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1374,11 +1434,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_updatebuttons_isbase) {
             kconfigdialog_updatebuttons_isbase = false;
             KConfigDialog::updateButtons();
-        } else if (kconfigdialog_updatebuttons_callback != nullptr) {
-            kconfigdialog_updatebuttons_callback();
-        } else {
-            KConfigDialog::updateButtons();
+            return;
         }
+        auto updatebuttons_cb = kconfigdialog_updatebuttons_callback;
+        if (updatebuttons_cb) {
+            updatebuttons_cb();
+            return;
+        }
+        KConfigDialog::updateButtons();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1386,11 +1449,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_settingschangedslot_isbase) {
             kconfigdialog_settingschangedslot_isbase = false;
             KConfigDialog::settingsChangedSlot();
-        } else if (kconfigdialog_settingschangedslot_callback != nullptr) {
-            kconfigdialog_settingschangedslot_callback();
-        } else {
-            KConfigDialog::settingsChangedSlot();
+            return;
         }
+        auto settingschangedslot_cb = kconfigdialog_settingschangedslot_callback;
+        if (settingschangedslot_cb) {
+            settingschangedslot_cb();
+            return;
+        }
+        KConfigDialog::settingsChangedSlot();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1398,7 +1464,10 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_sethelp_isbase) {
             kconfigdialog_sethelp_isbase = false;
             KConfigDialog::setHelp(anchor);
-        } else if (kconfigdialog_sethelp_callback != nullptr) {
+            return;
+        }
+        auto sethelp_cb = kconfigdialog_sethelp_callback;
+        if (sethelp_cb) {
             const QString anchor_ret = anchor;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray anchor_b = anchor_ret.toUtf8();
@@ -1408,11 +1477,11 @@ class VirtualKConfigDialog final : public KConfigDialog {
             ((char*)anchor_str)[anchor_str_len] = '\0';
             const char* cbval1 = anchor_str;
 
-            kconfigdialog_sethelp_callback(this, cbval1);
+            sethelp_cb(this, cbval1);
             libqt_free(anchor_str);
-        } else {
-            KConfigDialog::setHelp(anchor);
+            return;
         }
+        KConfigDialog::setHelp(anchor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1420,7 +1489,10 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_sethelp2_isbase) {
             kconfigdialog_sethelp2_isbase = false;
             KConfigDialog::setHelp(anchor, appname);
-        } else if (kconfigdialog_sethelp2_callback != nullptr) {
+            return;
+        }
+        auto sethelp2_cb = kconfigdialog_sethelp2_callback;
+        if (sethelp2_cb) {
             const QString anchor_ret = anchor;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray anchor_b = anchor_ret.toUtf8();
@@ -1438,12 +1510,12 @@ class VirtualKConfigDialog final : public KConfigDialog {
             ((char*)appname_str)[appname_str_len] = '\0';
             const char* cbval2 = appname_str;
 
-            kconfigdialog_sethelp2_callback(this, cbval1, cbval2);
+            sethelp2_cb(this, cbval1, cbval2);
             libqt_free(anchor_str);
             libqt_free(appname_str);
-        } else {
-            KConfigDialog::setHelp(anchor, appname);
+            return;
         }
+        KConfigDialog::setHelp(anchor, appname);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1451,12 +1523,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_pagewidget_isbase) {
             kconfigdialog_pagewidget_isbase = false;
             return KConfigDialog::pageWidget();
-        } else if (kconfigdialog_pagewidget_callback != nullptr) {
-            KPageWidget* callback_ret = kconfigdialog_pagewidget_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::pageWidget();
         }
+        auto pagewidget_cb = kconfigdialog_pagewidget_callback;
+        if (pagewidget_cb) {
+            KPageWidget* callback_ret = pagewidget_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::pageWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1464,13 +1537,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_setpagewidget_isbase) {
             kconfigdialog_setpagewidget_isbase = false;
             KConfigDialog::setPageWidget(widget);
-        } else if (kconfigdialog_setpagewidget_callback != nullptr) {
+            return;
+        }
+        auto setpagewidget_cb = kconfigdialog_setpagewidget_callback;
+        if (setpagewidget_cb) {
             KPageWidget* cbval1 = widget;
 
-            kconfigdialog_setpagewidget_callback(this, cbval1);
-        } else {
-            KConfigDialog::setPageWidget(widget);
+            setpagewidget_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::setPageWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1478,12 +1554,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_buttonbox_isbase) {
             kconfigdialog_buttonbox_isbase = false;
             return KConfigDialog::buttonBox();
-        } else if (kconfigdialog_buttonbox_callback != nullptr) {
-            QDialogButtonBox* callback_ret = kconfigdialog_buttonbox_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::buttonBox();
         }
+        auto buttonbox_cb = kconfigdialog_buttonbox_callback;
+        if (buttonbox_cb) {
+            QDialogButtonBox* callback_ret = buttonbox_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::buttonBox();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1491,13 +1568,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_setbuttonbox_isbase) {
             kconfigdialog_setbuttonbox_isbase = false;
             KConfigDialog::setButtonBox(box);
-        } else if (kconfigdialog_setbuttonbox_callback != nullptr) {
+            return;
+        }
+        auto setbuttonbox_cb = kconfigdialog_setbuttonbox_callback;
+        if (setbuttonbox_cb) {
             QDialogButtonBox* cbval1 = box;
 
-            kconfigdialog_setbuttonbox_callback(this, cbval1);
-        } else {
-            KConfigDialog::setButtonBox(box);
+            setbuttonbox_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::setButtonBox(box);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1505,13 +1585,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_adjustposition_isbase) {
             kconfigdialog_adjustposition_isbase = false;
             KConfigDialog::adjustPosition(param1);
-        } else if (kconfigdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kconfigdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kconfigdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KConfigDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KConfigDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1519,11 +1602,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_updatemicrofocus_isbase) {
             kconfigdialog_updatemicrofocus_isbase = false;
             KConfigDialog::updateMicroFocus();
-        } else if (kconfigdialog_updatemicrofocus_callback != nullptr) {
-            kconfigdialog_updatemicrofocus_callback();
-        } else {
-            KConfigDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kconfigdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KConfigDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1531,11 +1617,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_create_isbase) {
             kconfigdialog_create_isbase = false;
             KConfigDialog::create();
-        } else if (kconfigdialog_create_callback != nullptr) {
-            kconfigdialog_create_callback();
-        } else {
-            KConfigDialog::create();
+            return;
         }
+        auto create_cb = kconfigdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KConfigDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1543,11 +1632,14 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_destroy_isbase) {
             kconfigdialog_destroy_isbase = false;
             KConfigDialog::destroy();
-        } else if (kconfigdialog_destroy_callback != nullptr) {
-            kconfigdialog_destroy_callback();
-        } else {
-            KConfigDialog::destroy();
+            return;
         }
+        auto destroy_cb = kconfigdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KConfigDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1555,12 +1647,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_focusnextchild_isbase) {
             kconfigdialog_focusnextchild_isbase = false;
             return KConfigDialog::focusNextChild();
-        } else if (kconfigdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kconfigdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kconfigdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1568,12 +1661,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_focuspreviouschild_isbase) {
             kconfigdialog_focuspreviouschild_isbase = false;
             return KConfigDialog::focusPreviousChild();
-        } else if (kconfigdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kconfigdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kconfigdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1581,12 +1675,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_sender_isbase) {
             kconfigdialog_sender_isbase = false;
             return KConfigDialog::sender();
-        } else if (kconfigdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kconfigdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialog::sender();
         }
+        auto sender_cb = kconfigdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KConfigDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,12 +1689,13 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_sendersignalindex_isbase) {
             kconfigdialog_sendersignalindex_isbase = false;
             return KConfigDialog::senderSignalIndex();
-        } else if (kconfigdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kconfigdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kconfigdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KConfigDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1607,14 +1703,15 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_receivers_isbase) {
             kconfigdialog_receivers_isbase = false;
             return KConfigDialog::receivers(signal);
-        } else if (kconfigdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kconfigdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kconfigdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialog::receivers(signal);
         }
+        return KConfigDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1622,16 +1719,17 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_issignalconnected_isbase) {
             kconfigdialog_issignalconnected_isbase = false;
             return KConfigDialog::isSignalConnected(signal);
-        } else if (kconfigdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kconfigdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kconfigdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialog::isSignalConnected(signal);
         }
+        return KConfigDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1639,15 +1737,16 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (kconfigdialog_getdecodedmetricf_isbase) {
             kconfigdialog_getdecodedmetricf_isbase = false;
             return KConfigDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kconfigdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kconfigdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kconfigdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KConfigDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KConfigDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -78,26 +78,6 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
     VirtualKToolBarLabelAction(const QString& text, QObject* parent) : KToolBarLabelAction(text, parent) {};
     VirtualKToolBarLabelAction(QAction* buddy, const QString& text, QObject* parent) : KToolBarLabelAction(buddy, text, parent) {};
 
-    ~VirtualKToolBarLabelAction() {
-        ktoolbarlabelaction_metaobject_callback = nullptr;
-        ktoolbarlabelaction_metacast_callback = nullptr;
-        ktoolbarlabelaction_metacall_callback = nullptr;
-        ktoolbarlabelaction_createwidget_callback = nullptr;
-        ktoolbarlabelaction_event_callback = nullptr;
-        ktoolbarlabelaction_eventfilter_callback = nullptr;
-        ktoolbarlabelaction_deletewidget_callback = nullptr;
-        ktoolbarlabelaction_timerevent_callback = nullptr;
-        ktoolbarlabelaction_childevent_callback = nullptr;
-        ktoolbarlabelaction_customevent_callback = nullptr;
-        ktoolbarlabelaction_connectnotify_callback = nullptr;
-        ktoolbarlabelaction_disconnectnotify_callback = nullptr;
-        ktoolbarlabelaction_createdwidgets_callback = nullptr;
-        ktoolbarlabelaction_sender_callback = nullptr;
-        ktoolbarlabelaction_sendersignalindex_callback = nullptr;
-        ktoolbarlabelaction_receivers_callback = nullptr;
-        ktoolbarlabelaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKToolBarLabelAction_MetaObject_Callback(KToolBarLabelAction_MetaObject_Callback cb) { ktoolbarlabelaction_metaobject_callback = cb; }
     inline void setKToolBarLabelAction_Metacast_Callback(KToolBarLabelAction_Metacast_Callback cb) { ktoolbarlabelaction_metacast_callback = cb; }
@@ -141,12 +121,13 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_metaobject_isbase) {
             ktoolbarlabelaction_metaobject_isbase = false;
             return KToolBarLabelAction::metaObject();
-        } else if (ktoolbarlabelaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktoolbarlabelaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KToolBarLabelAction::metaObject();
         }
+        auto metaobject_cb = ktoolbarlabelaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KToolBarLabelAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,14 +135,15 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_metacast_isbase) {
             ktoolbarlabelaction_metacast_isbase = false;
             return KToolBarLabelAction::qt_metacast(param1);
-        } else if (ktoolbarlabelaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktoolbarlabelaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktoolbarlabelaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarLabelAction::qt_metacast(param1);
         }
+        return KToolBarLabelAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,16 +151,17 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_metacall_isbase) {
             ktoolbarlabelaction_metacall_isbase = false;
             return KToolBarLabelAction::qt_metacall(param1, param2, param3);
-        } else if (ktoolbarlabelaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktoolbarlabelaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktoolbarlabelaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBarLabelAction::qt_metacall(param1, param2, param3);
         }
+        return KToolBarLabelAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,14 +169,15 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_createwidget_isbase) {
             ktoolbarlabelaction_createwidget_isbase = false;
             return KToolBarLabelAction::createWidget(parent);
-        } else if (ktoolbarlabelaction_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = ktoolbarlabelaction_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = ktoolbarlabelaction_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarLabelAction::createWidget(parent);
         }
+        return KToolBarLabelAction::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,14 +185,15 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_event_isbase) {
             ktoolbarlabelaction_event_isbase = false;
             return KToolBarLabelAction::event(param1);
-        } else if (ktoolbarlabelaction_event_callback != nullptr) {
+        }
+        auto event_cb = ktoolbarlabelaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = ktoolbarlabelaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarLabelAction::event(param1);
         }
+        return KToolBarLabelAction::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,15 +201,16 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_eventfilter_isbase) {
             ktoolbarlabelaction_eventfilter_isbase = false;
             return KToolBarLabelAction::eventFilter(watched, event);
-        } else if (ktoolbarlabelaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktoolbarlabelaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktoolbarlabelaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KToolBarLabelAction::eventFilter(watched, event);
         }
+        return KToolBarLabelAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +218,16 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_deletewidget_isbase) {
             ktoolbarlabelaction_deletewidget_isbase = false;
             KToolBarLabelAction::deleteWidget(widget);
-        } else if (ktoolbarlabelaction_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = ktoolbarlabelaction_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            ktoolbarlabelaction_deletewidget_callback(this, cbval1);
-        } else {
-            KToolBarLabelAction::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KToolBarLabelAction::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +235,16 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_timerevent_isbase) {
             ktoolbarlabelaction_timerevent_isbase = false;
             KToolBarLabelAction::timerEvent(event);
-        } else if (ktoolbarlabelaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktoolbarlabelaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktoolbarlabelaction_timerevent_callback(this, cbval1);
-        } else {
-            KToolBarLabelAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KToolBarLabelAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,13 +252,16 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_childevent_isbase) {
             ktoolbarlabelaction_childevent_isbase = false;
             KToolBarLabelAction::childEvent(event);
-        } else if (ktoolbarlabelaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktoolbarlabelaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktoolbarlabelaction_childevent_callback(this, cbval1);
-        } else {
-            KToolBarLabelAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KToolBarLabelAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,13 +269,16 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_customevent_isbase) {
             ktoolbarlabelaction_customevent_isbase = false;
             KToolBarLabelAction::customEvent(event);
-        } else if (ktoolbarlabelaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktoolbarlabelaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktoolbarlabelaction_customevent_callback(this, cbval1);
-        } else {
-            KToolBarLabelAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KToolBarLabelAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,15 +286,18 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_connectnotify_isbase) {
             ktoolbarlabelaction_connectnotify_isbase = false;
             KToolBarLabelAction::connectNotify(signal);
-        } else if (ktoolbarlabelaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktoolbarlabelaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoolbarlabelaction_connectnotify_callback(this, cbval1);
-        } else {
-            KToolBarLabelAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KToolBarLabelAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,15 +305,18 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_disconnectnotify_isbase) {
             ktoolbarlabelaction_disconnectnotify_isbase = false;
             KToolBarLabelAction::disconnectNotify(signal);
-        } else if (ktoolbarlabelaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktoolbarlabelaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktoolbarlabelaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KToolBarLabelAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KToolBarLabelAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,8 +324,10 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_createdwidgets_isbase) {
             ktoolbarlabelaction_createdwidgets_isbase = false;
             return KToolBarLabelAction::createdWidgets();
-        } else if (ktoolbarlabelaction_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = ktoolbarlabelaction_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = ktoolbarlabelaction_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -330,9 +336,8 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KToolBarLabelAction::createdWidgets();
         }
+        return KToolBarLabelAction::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,12 +345,13 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_sender_isbase) {
             ktoolbarlabelaction_sender_isbase = false;
             return KToolBarLabelAction::sender();
-        } else if (ktoolbarlabelaction_sender_callback != nullptr) {
-            QObject* callback_ret = ktoolbarlabelaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KToolBarLabelAction::sender();
         }
+        auto sender_cb = ktoolbarlabelaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KToolBarLabelAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -353,12 +359,13 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_sendersignalindex_isbase) {
             ktoolbarlabelaction_sendersignalindex_isbase = false;
             return KToolBarLabelAction::senderSignalIndex();
-        } else if (ktoolbarlabelaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktoolbarlabelaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KToolBarLabelAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktoolbarlabelaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KToolBarLabelAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,14 +373,15 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_receivers_isbase) {
             ktoolbarlabelaction_receivers_isbase = false;
             return KToolBarLabelAction::receivers(signal);
-        } else if (ktoolbarlabelaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktoolbarlabelaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktoolbarlabelaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KToolBarLabelAction::receivers(signal);
         }
+        return KToolBarLabelAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -381,16 +389,17 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
         if (ktoolbarlabelaction_issignalconnected_isbase) {
             ktoolbarlabelaction_issignalconnected_isbase = false;
             return KToolBarLabelAction::isSignalConnected(signal);
-        } else if (ktoolbarlabelaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktoolbarlabelaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktoolbarlabelaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KToolBarLabelAction::isSignalConnected(signal);
         }
+        return KToolBarLabelAction::isSignalConnected(signal);
     }
 
     // Friend functions

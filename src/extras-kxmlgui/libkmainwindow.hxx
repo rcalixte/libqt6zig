@@ -250,83 +250,6 @@ class VirtualKMainWindow final : public KMainWindow {
     VirtualKMainWindow() : KMainWindow() {};
     VirtualKMainWindow(QWidget* parent, Qt::WindowFlags flags) : KMainWindow(parent, flags) {};
 
-    ~VirtualKMainWindow() {
-        kmainwindow_metaobject_callback = nullptr;
-        kmainwindow_metacast_callback = nullptr;
-        kmainwindow_metacall_callback = nullptr;
-        kmainwindow_applymainwindowsettings_callback = nullptr;
-        kmainwindow_setcaption_callback = nullptr;
-        kmainwindow_setcaption2_callback = nullptr;
-        kmainwindow_setplaincaption_callback = nullptr;
-        kmainwindow_event_callback = nullptr;
-        kmainwindow_keypressevent_callback = nullptr;
-        kmainwindow_closeevent_callback = nullptr;
-        kmainwindow_queryclose_callback = nullptr;
-        kmainwindow_saveproperties_callback = nullptr;
-        kmainwindow_readproperties_callback = nullptr;
-        kmainwindow_saveglobalproperties_callback = nullptr;
-        kmainwindow_readglobalproperties_callback = nullptr;
-        kmainwindow_createpopupmenu_callback = nullptr;
-        kmainwindow_contextmenuevent_callback = nullptr;
-        kmainwindow_devtype_callback = nullptr;
-        kmainwindow_setvisible_callback = nullptr;
-        kmainwindow_sizehint_callback = nullptr;
-        kmainwindow_minimumsizehint_callback = nullptr;
-        kmainwindow_heightforwidth_callback = nullptr;
-        kmainwindow_hasheightforwidth_callback = nullptr;
-        kmainwindow_paintengine_callback = nullptr;
-        kmainwindow_mousepressevent_callback = nullptr;
-        kmainwindow_mousereleaseevent_callback = nullptr;
-        kmainwindow_mousedoubleclickevent_callback = nullptr;
-        kmainwindow_mousemoveevent_callback = nullptr;
-        kmainwindow_wheelevent_callback = nullptr;
-        kmainwindow_keyreleaseevent_callback = nullptr;
-        kmainwindow_focusinevent_callback = nullptr;
-        kmainwindow_focusoutevent_callback = nullptr;
-        kmainwindow_enterevent_callback = nullptr;
-        kmainwindow_leaveevent_callback = nullptr;
-        kmainwindow_paintevent_callback = nullptr;
-        kmainwindow_moveevent_callback = nullptr;
-        kmainwindow_resizeevent_callback = nullptr;
-        kmainwindow_tabletevent_callback = nullptr;
-        kmainwindow_actionevent_callback = nullptr;
-        kmainwindow_dragenterevent_callback = nullptr;
-        kmainwindow_dragmoveevent_callback = nullptr;
-        kmainwindow_dragleaveevent_callback = nullptr;
-        kmainwindow_dropevent_callback = nullptr;
-        kmainwindow_showevent_callback = nullptr;
-        kmainwindow_hideevent_callback = nullptr;
-        kmainwindow_nativeevent_callback = nullptr;
-        kmainwindow_changeevent_callback = nullptr;
-        kmainwindow_metric_callback = nullptr;
-        kmainwindow_initpainter_callback = nullptr;
-        kmainwindow_redirected_callback = nullptr;
-        kmainwindow_sharedpainter_callback = nullptr;
-        kmainwindow_inputmethodevent_callback = nullptr;
-        kmainwindow_inputmethodquery_callback = nullptr;
-        kmainwindow_focusnextprevchild_callback = nullptr;
-        kmainwindow_eventfilter_callback = nullptr;
-        kmainwindow_timerevent_callback = nullptr;
-        kmainwindow_childevent_callback = nullptr;
-        kmainwindow_customevent_callback = nullptr;
-        kmainwindow_connectnotify_callback = nullptr;
-        kmainwindow_disconnectnotify_callback = nullptr;
-        kmainwindow_savepropertiesinternal_callback = nullptr;
-        kmainwindow_readpropertiesinternal_callback = nullptr;
-        kmainwindow_settingsdirty_callback = nullptr;
-        kmainwindow_saveautosavesettings_callback = nullptr;
-        kmainwindow_updatemicrofocus_callback = nullptr;
-        kmainwindow_create_callback = nullptr;
-        kmainwindow_destroy_callback = nullptr;
-        kmainwindow_focusnextchild_callback = nullptr;
-        kmainwindow_focuspreviouschild_callback = nullptr;
-        kmainwindow_sender_callback = nullptr;
-        kmainwindow_sendersignalindex_callback = nullptr;
-        kmainwindow_receivers_callback = nullptr;
-        kmainwindow_issignalconnected_callback = nullptr;
-        kmainwindow_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKMainWindow_MetaObject_Callback(KMainWindow_MetaObject_Callback cb) { kmainwindow_metaobject_callback = cb; }
     inline void setKMainWindow_Metacast_Callback(KMainWindow_Metacast_Callback cb) { kmainwindow_metacast_callback = cb; }
@@ -484,12 +407,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_metaobject_isbase) {
             kmainwindow_metaobject_isbase = false;
             return KMainWindow::metaObject();
-        } else if (kmainwindow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kmainwindow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::metaObject();
         }
+        auto metaobject_cb = kmainwindow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KMainWindow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,14 +421,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_metacast_isbase) {
             kmainwindow_metacast_isbase = false;
             return KMainWindow::qt_metacast(param1);
-        } else if (kmainwindow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kmainwindow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kmainwindow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMainWindow::qt_metacast(param1);
         }
+        return KMainWindow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,16 +437,17 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_metacall_isbase) {
             kmainwindow_metacall_isbase = false;
             return KMainWindow::qt_metacall(param1, param2, param3);
-        } else if (kmainwindow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kmainwindow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kmainwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMainWindow::qt_metacall(param1, param2, param3);
         }
+        return KMainWindow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,15 +455,18 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_applymainwindowsettings_isbase) {
             kmainwindow_applymainwindowsettings_isbase = false;
             KMainWindow::applyMainWindowSettings(config);
-        } else if (kmainwindow_applymainwindowsettings_callback != nullptr) {
+            return;
+        }
+        auto applymainwindowsettings_cb = kmainwindow_applymainwindowsettings_callback;
+        if (applymainwindowsettings_cb) {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
 
-            kmainwindow_applymainwindowsettings_callback(this, cbval1);
-        } else {
-            KMainWindow::applyMainWindowSettings(config);
+            applymainwindowsettings_cb(this, cbval1);
+            return;
         }
+        KMainWindow::applyMainWindowSettings(config);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -545,7 +474,10 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_setcaption_isbase) {
             kmainwindow_setcaption_isbase = false;
             KMainWindow::setCaption(caption);
-        } else if (kmainwindow_setcaption_callback != nullptr) {
+            return;
+        }
+        auto setcaption_cb = kmainwindow_setcaption_callback;
+        if (setcaption_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -555,11 +487,11 @@ class VirtualKMainWindow final : public KMainWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
 
-            kmainwindow_setcaption_callback(this, cbval1);
+            setcaption_cb(this, cbval1);
             libqt_free(caption_str);
-        } else {
-            KMainWindow::setCaption(caption);
+            return;
         }
+        KMainWindow::setCaption(caption);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,7 +499,10 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_setcaption2_isbase) {
             kmainwindow_setcaption2_isbase = false;
             KMainWindow::setCaption(caption, modified);
-        } else if (kmainwindow_setcaption2_callback != nullptr) {
+            return;
+        }
+        auto setcaption2_cb = kmainwindow_setcaption2_callback;
+        if (setcaption2_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -578,11 +513,11 @@ class VirtualKMainWindow final : public KMainWindow {
             const char* cbval1 = caption_str;
             bool cbval2 = modified;
 
-            kmainwindow_setcaption2_callback(this, cbval1, cbval2);
+            setcaption2_cb(this, cbval1, cbval2);
             libqt_free(caption_str);
-        } else {
-            KMainWindow::setCaption(caption, modified);
+            return;
         }
+        KMainWindow::setCaption(caption, modified);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,7 +525,10 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_setplaincaption_isbase) {
             kmainwindow_setplaincaption_isbase = false;
             KMainWindow::setPlainCaption(caption);
-        } else if (kmainwindow_setplaincaption_callback != nullptr) {
+            return;
+        }
+        auto setplaincaption_cb = kmainwindow_setplaincaption_callback;
+        if (setplaincaption_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -600,11 +538,11 @@ class VirtualKMainWindow final : public KMainWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
 
-            kmainwindow_setplaincaption_callback(this, cbval1);
+            setplaincaption_cb(this, cbval1);
             libqt_free(caption_str);
-        } else {
-            KMainWindow::setPlainCaption(caption);
+            return;
         }
+        KMainWindow::setPlainCaption(caption);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,14 +550,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_event_isbase) {
             kmainwindow_event_isbase = false;
             return KMainWindow::event(event);
-        } else if (kmainwindow_event_callback != nullptr) {
+        }
+        auto event_cb = kmainwindow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kmainwindow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMainWindow::event(event);
         }
+        return KMainWindow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +566,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_keypressevent_isbase) {
             kmainwindow_keypressevent_isbase = false;
             KMainWindow::keyPressEvent(keyEvent);
-        } else if (kmainwindow_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kmainwindow_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = keyEvent;
 
-            kmainwindow_keypressevent_callback(this, cbval1);
-        } else {
-            KMainWindow::keyPressEvent(keyEvent);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::keyPressEvent(keyEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +583,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_closeevent_isbase) {
             kmainwindow_closeevent_isbase = false;
             KMainWindow::closeEvent(param1);
-        } else if (kmainwindow_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kmainwindow_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kmainwindow_closeevent_callback(this, cbval1);
-        } else {
-            KMainWindow::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,12 +600,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_queryclose_isbase) {
             kmainwindow_queryclose_isbase = false;
             return KMainWindow::queryClose();
-        } else if (kmainwindow_queryclose_callback != nullptr) {
-            bool callback_ret = kmainwindow_queryclose_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::queryClose();
         }
+        auto queryclose_cb = kmainwindow_queryclose_callback;
+        if (queryclose_cb) {
+            bool callback_ret = queryclose_cb();
+            return callback_ret;
+        }
+        return KMainWindow::queryClose();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,15 +614,18 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_saveproperties_isbase) {
             kmainwindow_saveproperties_isbase = false;
             KMainWindow::saveProperties(param1);
-        } else if (kmainwindow_saveproperties_callback != nullptr) {
+            return;
+        }
+        auto saveproperties_cb = kmainwindow_saveproperties_callback;
+        if (saveproperties_cb) {
             KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &param1_ret;
 
-            kmainwindow_saveproperties_callback(this, cbval1);
-        } else {
-            KMainWindow::saveProperties(param1);
+            saveproperties_cb(this, cbval1);
+            return;
         }
+        KMainWindow::saveProperties(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,15 +633,18 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_readproperties_isbase) {
             kmainwindow_readproperties_isbase = false;
             KMainWindow::readProperties(param1);
-        } else if (kmainwindow_readproperties_callback != nullptr) {
+            return;
+        }
+        auto readproperties_cb = kmainwindow_readproperties_callback;
+        if (readproperties_cb) {
             const KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&param1_ret);
 
-            kmainwindow_readproperties_callback(this, cbval1);
-        } else {
-            KMainWindow::readProperties(param1);
+            readproperties_cb(this, cbval1);
+            return;
         }
+        KMainWindow::readProperties(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,13 +652,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_saveglobalproperties_isbase) {
             kmainwindow_saveglobalproperties_isbase = false;
             KMainWindow::saveGlobalProperties(sessionConfig);
-        } else if (kmainwindow_saveglobalproperties_callback != nullptr) {
+            return;
+        }
+        auto saveglobalproperties_cb = kmainwindow_saveglobalproperties_callback;
+        if (saveglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
 
-            kmainwindow_saveglobalproperties_callback(this, cbval1);
-        } else {
-            KMainWindow::saveGlobalProperties(sessionConfig);
+            saveglobalproperties_cb(this, cbval1);
+            return;
         }
+        KMainWindow::saveGlobalProperties(sessionConfig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,13 +669,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_readglobalproperties_isbase) {
             kmainwindow_readglobalproperties_isbase = false;
             KMainWindow::readGlobalProperties(sessionConfig);
-        } else if (kmainwindow_readglobalproperties_callback != nullptr) {
+            return;
+        }
+        auto readglobalproperties_cb = kmainwindow_readglobalproperties_callback;
+        if (readglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
 
-            kmainwindow_readglobalproperties_callback(this, cbval1);
-        } else {
-            KMainWindow::readGlobalProperties(sessionConfig);
+            readglobalproperties_cb(this, cbval1);
+            return;
         }
+        KMainWindow::readGlobalProperties(sessionConfig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,12 +686,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_createpopupmenu_isbase) {
             kmainwindow_createpopupmenu_isbase = false;
             return KMainWindow::createPopupMenu();
-        } else if (kmainwindow_createpopupmenu_callback != nullptr) {
-            QMenu* callback_ret = kmainwindow_createpopupmenu_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::createPopupMenu();
         }
+        auto createpopupmenu_cb = kmainwindow_createpopupmenu_callback;
+        if (createpopupmenu_cb) {
+            QMenu* callback_ret = createpopupmenu_cb();
+            return callback_ret;
+        }
+        return KMainWindow::createPopupMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,13 +700,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_contextmenuevent_isbase) {
             kmainwindow_contextmenuevent_isbase = false;
             KMainWindow::contextMenuEvent(event);
-        } else if (kmainwindow_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kmainwindow_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kmainwindow_contextmenuevent_callback(this, cbval1);
-        } else {
-            KMainWindow::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,12 +717,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_devtype_isbase) {
             kmainwindow_devtype_isbase = false;
             return KMainWindow::devType();
-        } else if (kmainwindow_devtype_callback != nullptr) {
-            int callback_ret = kmainwindow_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMainWindow::devType();
         }
+        auto devtype_cb = kmainwindow_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMainWindow::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +731,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_setvisible_isbase) {
             kmainwindow_setvisible_isbase = false;
             KMainWindow::setVisible(visible);
-        } else if (kmainwindow_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kmainwindow_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kmainwindow_setvisible_callback(this, cbval1);
-        } else {
-            KMainWindow::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KMainWindow::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,12 +748,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_sizehint_isbase) {
             kmainwindow_sizehint_isbase = false;
             return KMainWindow::sizeHint();
-        } else if (kmainwindow_sizehint_callback != nullptr) {
-            QSize* callback_ret = kmainwindow_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KMainWindow::sizeHint();
         }
+        auto sizehint_cb = kmainwindow_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KMainWindow::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,12 +762,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_minimumsizehint_isbase) {
             kmainwindow_minimumsizehint_isbase = false;
             return KMainWindow::minimumSizeHint();
-        } else if (kmainwindow_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kmainwindow_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KMainWindow::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kmainwindow_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KMainWindow::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,14 +776,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_heightforwidth_isbase) {
             kmainwindow_heightforwidth_isbase = false;
             return KMainWindow::heightForWidth(param1);
-        } else if (kmainwindow_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kmainwindow_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kmainwindow_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMainWindow::heightForWidth(param1);
         }
+        return KMainWindow::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,12 +792,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_hasheightforwidth_isbase) {
             kmainwindow_hasheightforwidth_isbase = false;
             return KMainWindow::hasHeightForWidth();
-        } else if (kmainwindow_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kmainwindow_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kmainwindow_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KMainWindow::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,12 +806,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_paintengine_isbase) {
             kmainwindow_paintengine_isbase = false;
             return KMainWindow::paintEngine();
-        } else if (kmainwindow_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kmainwindow_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::paintEngine();
         }
+        auto paintengine_cb = kmainwindow_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KMainWindow::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +820,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_mousepressevent_isbase) {
             kmainwindow_mousepressevent_isbase = false;
             KMainWindow::mousePressEvent(event);
-        } else if (kmainwindow_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kmainwindow_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmainwindow_mousepressevent_callback(this, cbval1);
-        } else {
-            KMainWindow::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +837,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_mousereleaseevent_isbase) {
             kmainwindow_mousereleaseevent_isbase = false;
             KMainWindow::mouseReleaseEvent(event);
-        } else if (kmainwindow_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kmainwindow_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmainwindow_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KMainWindow::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +854,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_mousedoubleclickevent_isbase) {
             kmainwindow_mousedoubleclickevent_isbase = false;
             KMainWindow::mouseDoubleClickEvent(event);
-        } else if (kmainwindow_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kmainwindow_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmainwindow_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KMainWindow::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +871,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_mousemoveevent_isbase) {
             kmainwindow_mousemoveevent_isbase = false;
             KMainWindow::mouseMoveEvent(event);
-        } else if (kmainwindow_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kmainwindow_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmainwindow_mousemoveevent_callback(this, cbval1);
-        } else {
-            KMainWindow::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +888,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_wheelevent_isbase) {
             kmainwindow_wheelevent_isbase = false;
             KMainWindow::wheelEvent(event);
-        } else if (kmainwindow_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kmainwindow_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kmainwindow_wheelevent_callback(this, cbval1);
-        } else {
-            KMainWindow::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +905,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_keyreleaseevent_isbase) {
             kmainwindow_keyreleaseevent_isbase = false;
             KMainWindow::keyReleaseEvent(event);
-        } else if (kmainwindow_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kmainwindow_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kmainwindow_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KMainWindow::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +922,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_focusinevent_isbase) {
             kmainwindow_focusinevent_isbase = false;
             KMainWindow::focusInEvent(event);
-        } else if (kmainwindow_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kmainwindow_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kmainwindow_focusinevent_callback(this, cbval1);
-        } else {
-            KMainWindow::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +939,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_focusoutevent_isbase) {
             kmainwindow_focusoutevent_isbase = false;
             KMainWindow::focusOutEvent(event);
-        } else if (kmainwindow_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kmainwindow_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kmainwindow_focusoutevent_callback(this, cbval1);
-        } else {
-            KMainWindow::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,13 +956,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_enterevent_isbase) {
             kmainwindow_enterevent_isbase = false;
             KMainWindow::enterEvent(event);
-        } else if (kmainwindow_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kmainwindow_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kmainwindow_enterevent_callback(this, cbval1);
-        } else {
-            KMainWindow::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,13 +973,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_leaveevent_isbase) {
             kmainwindow_leaveevent_isbase = false;
             KMainWindow::leaveEvent(event);
-        } else if (kmainwindow_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kmainwindow_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kmainwindow_leaveevent_callback(this, cbval1);
-        } else {
-            KMainWindow::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -989,13 +990,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_paintevent_isbase) {
             kmainwindow_paintevent_isbase = false;
             KMainWindow::paintEvent(event);
-        } else if (kmainwindow_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kmainwindow_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kmainwindow_paintevent_callback(this, cbval1);
-        } else {
-            KMainWindow::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,13 +1007,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_moveevent_isbase) {
             kmainwindow_moveevent_isbase = false;
             KMainWindow::moveEvent(event);
-        } else if (kmainwindow_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kmainwindow_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kmainwindow_moveevent_callback(this, cbval1);
-        } else {
-            KMainWindow::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1017,13 +1024,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_resizeevent_isbase) {
             kmainwindow_resizeevent_isbase = false;
             KMainWindow::resizeEvent(event);
-        } else if (kmainwindow_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kmainwindow_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kmainwindow_resizeevent_callback(this, cbval1);
-        } else {
-            KMainWindow::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,13 +1041,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_tabletevent_isbase) {
             kmainwindow_tabletevent_isbase = false;
             KMainWindow::tabletEvent(event);
-        } else if (kmainwindow_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kmainwindow_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kmainwindow_tabletevent_callback(this, cbval1);
-        } else {
-            KMainWindow::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1045,13 +1058,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_actionevent_isbase) {
             kmainwindow_actionevent_isbase = false;
             KMainWindow::actionEvent(event);
-        } else if (kmainwindow_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kmainwindow_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kmainwindow_actionevent_callback(this, cbval1);
-        } else {
-            KMainWindow::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1075,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_dragenterevent_isbase) {
             kmainwindow_dragenterevent_isbase = false;
             KMainWindow::dragEnterEvent(event);
-        } else if (kmainwindow_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kmainwindow_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kmainwindow_dragenterevent_callback(this, cbval1);
-        } else {
-            KMainWindow::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,13 +1092,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_dragmoveevent_isbase) {
             kmainwindow_dragmoveevent_isbase = false;
             KMainWindow::dragMoveEvent(event);
-        } else if (kmainwindow_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kmainwindow_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kmainwindow_dragmoveevent_callback(this, cbval1);
-        } else {
-            KMainWindow::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,13 +1109,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_dragleaveevent_isbase) {
             kmainwindow_dragleaveevent_isbase = false;
             KMainWindow::dragLeaveEvent(event);
-        } else if (kmainwindow_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kmainwindow_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kmainwindow_dragleaveevent_callback(this, cbval1);
-        } else {
-            KMainWindow::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1126,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_dropevent_isbase) {
             kmainwindow_dropevent_isbase = false;
             KMainWindow::dropEvent(event);
-        } else if (kmainwindow_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kmainwindow_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kmainwindow_dropevent_callback(this, cbval1);
-        } else {
-            KMainWindow::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,13 +1143,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_showevent_isbase) {
             kmainwindow_showevent_isbase = false;
             KMainWindow::showEvent(event);
-        } else if (kmainwindow_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kmainwindow_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kmainwindow_showevent_callback(this, cbval1);
-        } else {
-            KMainWindow::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,13 +1160,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_hideevent_isbase) {
             kmainwindow_hideevent_isbase = false;
             KMainWindow::hideEvent(event);
-        } else if (kmainwindow_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kmainwindow_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kmainwindow_hideevent_callback(this, cbval1);
-        } else {
-            KMainWindow::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,7 +1177,9 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_nativeevent_isbase) {
             kmainwindow_nativeevent_isbase = false;
             return KMainWindow::nativeEvent(eventType, message, result);
-        } else if (kmainwindow_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kmainwindow_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1154,12 +1190,11 @@ class VirtualKMainWindow final : public KMainWindow {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kmainwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KMainWindow::nativeEvent(eventType, message, result);
         }
+        return KMainWindow::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,13 +1202,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_changeevent_isbase) {
             kmainwindow_changeevent_isbase = false;
             KMainWindow::changeEvent(param1);
-        } else if (kmainwindow_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kmainwindow_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kmainwindow_changeevent_callback(this, cbval1);
-        } else {
-            KMainWindow::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,14 +1219,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_metric_isbase) {
             kmainwindow_metric_isbase = false;
             return KMainWindow::metric(param1);
-        } else if (kmainwindow_metric_callback != nullptr) {
+        }
+        auto metric_cb = kmainwindow_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kmainwindow_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMainWindow::metric(param1);
         }
+        return KMainWindow::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,13 +1235,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_initpainter_isbase) {
             kmainwindow_initpainter_isbase = false;
             KMainWindow::initPainter(painter);
-        } else if (kmainwindow_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kmainwindow_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kmainwindow_initpainter_callback(this, cbval1);
-        } else {
-            KMainWindow::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KMainWindow::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,14 +1252,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_redirected_isbase) {
             kmainwindow_redirected_isbase = false;
             return KMainWindow::redirected(offset);
-        } else if (kmainwindow_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kmainwindow_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kmainwindow_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMainWindow::redirected(offset);
         }
+        return KMainWindow::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,12 +1268,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_sharedpainter_isbase) {
             kmainwindow_sharedpainter_isbase = false;
             return KMainWindow::sharedPainter();
-        } else if (kmainwindow_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kmainwindow_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::sharedPainter();
         }
+        auto sharedpainter_cb = kmainwindow_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KMainWindow::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,13 +1282,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_inputmethodevent_isbase) {
             kmainwindow_inputmethodevent_isbase = false;
             KMainWindow::inputMethodEvent(param1);
-        } else if (kmainwindow_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kmainwindow_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kmainwindow_inputmethodevent_callback(this, cbval1);
-        } else {
-            KMainWindow::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1252,14 +1299,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_inputmethodquery_isbase) {
             kmainwindow_inputmethodquery_isbase = false;
             return KMainWindow::inputMethodQuery(param1);
-        } else if (kmainwindow_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kmainwindow_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kmainwindow_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KMainWindow::inputMethodQuery(param1);
         }
+        return KMainWindow::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1267,14 +1315,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_focusnextprevchild_isbase) {
             kmainwindow_focusnextprevchild_isbase = false;
             return KMainWindow::focusNextPrevChild(next);
-        } else if (kmainwindow_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kmainwindow_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kmainwindow_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMainWindow::focusNextPrevChild(next);
         }
+        return KMainWindow::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,15 +1331,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_eventfilter_isbase) {
             kmainwindow_eventfilter_isbase = false;
             return KMainWindow::eventFilter(watched, event);
-        } else if (kmainwindow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kmainwindow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kmainwindow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KMainWindow::eventFilter(watched, event);
         }
+        return KMainWindow::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1298,13 +1348,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_timerevent_isbase) {
             kmainwindow_timerevent_isbase = false;
             KMainWindow::timerEvent(event);
-        } else if (kmainwindow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kmainwindow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kmainwindow_timerevent_callback(this, cbval1);
-        } else {
-            KMainWindow::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1312,13 +1365,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_childevent_isbase) {
             kmainwindow_childevent_isbase = false;
             KMainWindow::childEvent(event);
-        } else if (kmainwindow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kmainwindow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kmainwindow_childevent_callback(this, cbval1);
-        } else {
-            KMainWindow::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,13 +1382,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_customevent_isbase) {
             kmainwindow_customevent_isbase = false;
             KMainWindow::customEvent(event);
-        } else if (kmainwindow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kmainwindow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kmainwindow_customevent_callback(this, cbval1);
-        } else {
-            KMainWindow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KMainWindow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1340,15 +1399,18 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_connectnotify_isbase) {
             kmainwindow_connectnotify_isbase = false;
             KMainWindow::connectNotify(signal);
-        } else if (kmainwindow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kmainwindow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmainwindow_connectnotify_callback(this, cbval1);
-        } else {
-            KMainWindow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KMainWindow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1356,15 +1418,18 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_disconnectnotify_isbase) {
             kmainwindow_disconnectnotify_isbase = false;
             KMainWindow::disconnectNotify(signal);
-        } else if (kmainwindow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kmainwindow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmainwindow_disconnectnotify_callback(this, cbval1);
-        } else {
-            KMainWindow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KMainWindow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1372,14 +1437,17 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_savepropertiesinternal_isbase) {
             kmainwindow_savepropertiesinternal_isbase = false;
             KMainWindow::savePropertiesInternal(param1, param2);
-        } else if (kmainwindow_savepropertiesinternal_callback != nullptr) {
+            return;
+        }
+        auto savepropertiesinternal_cb = kmainwindow_savepropertiesinternal_callback;
+        if (savepropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
 
-            kmainwindow_savepropertiesinternal_callback(this, cbval1, cbval2);
-        } else {
-            KMainWindow::savePropertiesInternal(param1, param2);
+            savepropertiesinternal_cb(this, cbval1, cbval2);
+            return;
         }
+        KMainWindow::savePropertiesInternal(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1387,15 +1455,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_readpropertiesinternal_isbase) {
             kmainwindow_readpropertiesinternal_isbase = false;
             return KMainWindow::readPropertiesInternal(param1, param2);
-        } else if (kmainwindow_readpropertiesinternal_callback != nullptr) {
+        }
+        auto readpropertiesinternal_cb = kmainwindow_readpropertiesinternal_callback;
+        if (readpropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
 
-            bool callback_ret = kmainwindow_readpropertiesinternal_callback(this, cbval1, cbval2);
+            bool callback_ret = readpropertiesinternal_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KMainWindow::readPropertiesInternal(param1, param2);
         }
+        return KMainWindow::readPropertiesInternal(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1403,12 +1472,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_settingsdirty_isbase) {
             kmainwindow_settingsdirty_isbase = false;
             return KMainWindow::settingsDirty();
-        } else if (kmainwindow_settingsdirty_callback != nullptr) {
-            bool callback_ret = kmainwindow_settingsdirty_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::settingsDirty();
         }
+        auto settingsdirty_cb = kmainwindow_settingsdirty_callback;
+        if (settingsdirty_cb) {
+            bool callback_ret = settingsdirty_cb();
+            return callback_ret;
+        }
+        return KMainWindow::settingsDirty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1416,11 +1486,14 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_saveautosavesettings_isbase) {
             kmainwindow_saveautosavesettings_isbase = false;
             KMainWindow::saveAutoSaveSettings();
-        } else if (kmainwindow_saveautosavesettings_callback != nullptr) {
-            kmainwindow_saveautosavesettings_callback();
-        } else {
-            KMainWindow::saveAutoSaveSettings();
+            return;
         }
+        auto saveautosavesettings_cb = kmainwindow_saveautosavesettings_callback;
+        if (saveautosavesettings_cb) {
+            saveautosavesettings_cb();
+            return;
+        }
+        KMainWindow::saveAutoSaveSettings();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1428,11 +1501,14 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_updatemicrofocus_isbase) {
             kmainwindow_updatemicrofocus_isbase = false;
             KMainWindow::updateMicroFocus();
-        } else if (kmainwindow_updatemicrofocus_callback != nullptr) {
-            kmainwindow_updatemicrofocus_callback();
-        } else {
-            KMainWindow::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kmainwindow_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KMainWindow::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1440,11 +1516,14 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_create_isbase) {
             kmainwindow_create_isbase = false;
             KMainWindow::create();
-        } else if (kmainwindow_create_callback != nullptr) {
-            kmainwindow_create_callback();
-        } else {
-            KMainWindow::create();
+            return;
         }
+        auto create_cb = kmainwindow_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KMainWindow::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1452,11 +1531,14 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_destroy_isbase) {
             kmainwindow_destroy_isbase = false;
             KMainWindow::destroy();
-        } else if (kmainwindow_destroy_callback != nullptr) {
-            kmainwindow_destroy_callback();
-        } else {
-            KMainWindow::destroy();
+            return;
         }
+        auto destroy_cb = kmainwindow_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KMainWindow::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1464,12 +1546,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_focusnextchild_isbase) {
             kmainwindow_focusnextchild_isbase = false;
             return KMainWindow::focusNextChild();
-        } else if (kmainwindow_focusnextchild_callback != nullptr) {
-            bool callback_ret = kmainwindow_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::focusNextChild();
         }
+        auto focusnextchild_cb = kmainwindow_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KMainWindow::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1477,12 +1560,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_focuspreviouschild_isbase) {
             kmainwindow_focuspreviouschild_isbase = false;
             return KMainWindow::focusPreviousChild();
-        } else if (kmainwindow_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kmainwindow_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kmainwindow_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KMainWindow::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1490,12 +1574,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_sender_isbase) {
             kmainwindow_sender_isbase = false;
             return KMainWindow::sender();
-        } else if (kmainwindow_sender_callback != nullptr) {
-            QObject* callback_ret = kmainwindow_sender_callback();
-            return callback_ret;
-        } else {
-            return KMainWindow::sender();
         }
+        auto sender_cb = kmainwindow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KMainWindow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1503,12 +1588,13 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_sendersignalindex_isbase) {
             kmainwindow_sendersignalindex_isbase = false;
             return KMainWindow::senderSignalIndex();
-        } else if (kmainwindow_sendersignalindex_callback != nullptr) {
-            int callback_ret = kmainwindow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMainWindow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kmainwindow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMainWindow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1516,14 +1602,15 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_receivers_isbase) {
             kmainwindow_receivers_isbase = false;
             return KMainWindow::receivers(signal);
-        } else if (kmainwindow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kmainwindow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kmainwindow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMainWindow::receivers(signal);
         }
+        return KMainWindow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1531,16 +1618,17 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_issignalconnected_isbase) {
             kmainwindow_issignalconnected_isbase = false;
             return KMainWindow::isSignalConnected(signal);
-        } else if (kmainwindow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kmainwindow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kmainwindow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMainWindow::isSignalConnected(signal);
         }
+        return KMainWindow::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1548,15 +1636,16 @@ class VirtualKMainWindow final : public KMainWindow {
         if (kmainwindow_getdecodedmetricf_isbase) {
             kmainwindow_getdecodedmetricf_isbase = false;
             return KMainWindow::getDecodedMetricF(metricA, metricB);
-        } else if (kmainwindow_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kmainwindow_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kmainwindow_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KMainWindow::getDecodedMetricF(metricA, metricB);
         }
+        return KMainWindow::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

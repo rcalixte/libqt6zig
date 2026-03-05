@@ -68,23 +68,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
   public:
     VirtualQDesignerMemberSheetExtension() : QDesignerMemberSheetExtension() {};
 
-    ~VirtualQDesignerMemberSheetExtension() {
-        qdesignermembersheetextension_count_callback = nullptr;
-        qdesignermembersheetextension_indexof_callback = nullptr;
-        qdesignermembersheetextension_membername_callback = nullptr;
-        qdesignermembersheetextension_membergroup_callback = nullptr;
-        qdesignermembersheetextension_setmembergroup_callback = nullptr;
-        qdesignermembersheetextension_isvisible_callback = nullptr;
-        qdesignermembersheetextension_setvisible_callback = nullptr;
-        qdesignermembersheetextension_issignal_callback = nullptr;
-        qdesignermembersheetextension_isslot_callback = nullptr;
-        qdesignermembersheetextension_inheritedfromwidget_callback = nullptr;
-        qdesignermembersheetextension_declaredinclass_callback = nullptr;
-        qdesignermembersheetextension_signature_callback = nullptr;
-        qdesignermembersheetextension_parametertypes_callback = nullptr;
-        qdesignermembersheetextension_parameternames_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerMemberSheetExtension_Count_Callback(QDesignerMemberSheetExtension_Count_Callback cb) { qdesignermembersheetextension_count_callback = cb; }
     inline void setQDesignerMemberSheetExtension_IndexOf_Callback(QDesignerMemberSheetExtension_IndexOf_Callback cb) { qdesignermembersheetextension_indexof_callback = cb; }
@@ -119,17 +102,18 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
 
     // Virtual method for C ABI access and custom callback
     virtual int count() const override {
-        if (qdesignermembersheetextension_count_callback != nullptr) {
-            int callback_ret = qdesignermembersheetextension_count_callback();
+        auto count_cb = qdesignermembersheetextension_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int indexOf(const QString& name) const override {
-        if (qdesignermembersheetextension_indexof_callback != nullptr) {
+        auto indexof_cb = qdesignermembersheetextension_indexof_callback;
+        if (indexof_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -139,43 +123,43 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            int callback_ret = qdesignermembersheetextension_indexof_callback(this, cbval1);
+            int callback_ret = indexof_cb(this, cbval1);
             libqt_free(name_str);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString memberName(int index) const override {
-        if (qdesignermembersheetextension_membername_callback != nullptr) {
+        auto membername_cb = qdesignermembersheetextension_membername_callback;
+        if (membername_cb) {
             int cbval1 = index;
 
-            const char* callback_ret = qdesignermembersheetextension_membername_callback(this, cbval1);
+            const char* callback_ret = membername_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString memberGroup(int index) const override {
-        if (qdesignermembersheetextension_membergroup_callback != nullptr) {
+        auto membergroup_cb = qdesignermembersheetextension_membergroup_callback;
+        if (membergroup_cb) {
             int cbval1 = index;
 
-            const char* callback_ret = qdesignermembersheetextension_membergroup_callback(this, cbval1);
+            const char* callback_ret = membergroup_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setMemberGroup(int index, const QString& group) override {
-        if (qdesignermembersheetextension_setmembergroup_callback != nullptr) {
+        auto setmembergroup_cb = qdesignermembersheetextension_setmembergroup_callback;
+        if (setmembergroup_cb) {
             int cbval1 = index;
             const QString group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -186,101 +170,103 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval2 = group_str;
 
-            qdesignermembersheetextension_setmembergroup_callback(this, cbval1, cbval2);
+            setmembergroup_cb(this, cbval1, cbval2);
             libqt_free(group_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isVisible(int index) const override {
-        if (qdesignermembersheetextension_isvisible_callback != nullptr) {
+        auto isvisible_cb = qdesignermembersheetextension_isvisible_callback;
+        if (isvisible_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignermembersheetextension_isvisible_callback(this, cbval1);
+            bool callback_ret = isvisible_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(int index, bool b) override {
-        if (qdesignermembersheetextension_setvisible_callback != nullptr) {
+        auto setvisible_cb = qdesignermembersheetextension_setvisible_callback;
+        if (setvisible_cb) {
             int cbval1 = index;
             bool cbval2 = b;
 
-            qdesignermembersheetextension_setvisible_callback(this, cbval1, cbval2);
+            setvisible_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isSignal(int index) const override {
-        if (qdesignermembersheetextension_issignal_callback != nullptr) {
+        auto issignal_cb = qdesignermembersheetextension_issignal_callback;
+        if (issignal_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignermembersheetextension_issignal_callback(this, cbval1);
+            bool callback_ret = issignal_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isSlot(int index) const override {
-        if (qdesignermembersheetextension_isslot_callback != nullptr) {
+        auto isslot_cb = qdesignermembersheetextension_isslot_callback;
+        if (isslot_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignermembersheetextension_isslot_callback(this, cbval1);
+            bool callback_ret = isslot_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool inheritedFromWidget(int index) const override {
-        if (qdesignermembersheetextension_inheritedfromwidget_callback != nullptr) {
+        auto inheritedfromwidget_cb = qdesignermembersheetextension_inheritedfromwidget_callback;
+        if (inheritedfromwidget_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignermembersheetextension_inheritedfromwidget_callback(this, cbval1);
+            bool callback_ret = inheritedfromwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString declaredInClass(int index) const override {
-        if (qdesignermembersheetextension_declaredinclass_callback != nullptr) {
+        auto declaredinclass_cb = qdesignermembersheetextension_declaredinclass_callback;
+        if (declaredinclass_cb) {
             int cbval1 = index;
 
-            const char* callback_ret = qdesignermembersheetextension_declaredinclass_callback(this, cbval1);
+            const char* callback_ret = declaredinclass_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString signature(int index) const override {
-        if (qdesignermembersheetextension_signature_callback != nullptr) {
+        auto signature_cb = qdesignermembersheetextension_signature_callback;
+        if (signature_cb) {
             int cbval1 = index;
 
-            const char* callback_ret = qdesignermembersheetextension_signature_callback(this, cbval1);
+            const char* callback_ret = signature_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QByteArray> parameterTypes(int index) const override {
-        if (qdesignermembersheetextension_parametertypes_callback != nullptr) {
+        auto parametertypes_cb = qdesignermembersheetextension_parametertypes_callback;
+        if (parametertypes_cb) {
             int cbval1 = index;
 
-            const char** callback_ret = qdesignermembersheetextension_parametertypes_callback(this, cbval1);
+            const char** callback_ret = parametertypes_cb(this, cbval1);
             QList<QByteArray> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -291,17 +277,17 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QByteArray> parameterNames(int index) const override {
-        if (qdesignermembersheetextension_parameternames_callback != nullptr) {
+        auto parameternames_cb = qdesignermembersheetextension_parameternames_callback;
+        if (parameternames_cb) {
             int cbval1 = index;
 
-            const char** callback_ret = qdesignermembersheetextension_parameternames_callback(this, cbval1);
+            const char** callback_ret = parameternames_cb(this, cbval1);
             QList<QByteArray> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -312,9 +298,8 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 

@@ -212,71 +212,6 @@ class VirtualKCommandBar final : public KCommandBar {
   public:
     VirtualKCommandBar(QWidget* parent) : KCommandBar(parent) {};
 
-    ~VirtualKCommandBar() {
-        kcommandbar_metaobject_callback = nullptr;
-        kcommandbar_metacast_callback = nullptr;
-        kcommandbar_metacall_callback = nullptr;
-        kcommandbar_eventfilter_callback = nullptr;
-        kcommandbar_sizehint_callback = nullptr;
-        kcommandbar_event_callback = nullptr;
-        kcommandbar_paintevent_callback = nullptr;
-        kcommandbar_changeevent_callback = nullptr;
-        kcommandbar_initstyleoption_callback = nullptr;
-        kcommandbar_devtype_callback = nullptr;
-        kcommandbar_setvisible_callback = nullptr;
-        kcommandbar_minimumsizehint_callback = nullptr;
-        kcommandbar_heightforwidth_callback = nullptr;
-        kcommandbar_hasheightforwidth_callback = nullptr;
-        kcommandbar_paintengine_callback = nullptr;
-        kcommandbar_mousepressevent_callback = nullptr;
-        kcommandbar_mousereleaseevent_callback = nullptr;
-        kcommandbar_mousedoubleclickevent_callback = nullptr;
-        kcommandbar_mousemoveevent_callback = nullptr;
-        kcommandbar_wheelevent_callback = nullptr;
-        kcommandbar_keypressevent_callback = nullptr;
-        kcommandbar_keyreleaseevent_callback = nullptr;
-        kcommandbar_focusinevent_callback = nullptr;
-        kcommandbar_focusoutevent_callback = nullptr;
-        kcommandbar_enterevent_callback = nullptr;
-        kcommandbar_leaveevent_callback = nullptr;
-        kcommandbar_moveevent_callback = nullptr;
-        kcommandbar_resizeevent_callback = nullptr;
-        kcommandbar_closeevent_callback = nullptr;
-        kcommandbar_contextmenuevent_callback = nullptr;
-        kcommandbar_tabletevent_callback = nullptr;
-        kcommandbar_actionevent_callback = nullptr;
-        kcommandbar_dragenterevent_callback = nullptr;
-        kcommandbar_dragmoveevent_callback = nullptr;
-        kcommandbar_dragleaveevent_callback = nullptr;
-        kcommandbar_dropevent_callback = nullptr;
-        kcommandbar_showevent_callback = nullptr;
-        kcommandbar_hideevent_callback = nullptr;
-        kcommandbar_nativeevent_callback = nullptr;
-        kcommandbar_metric_callback = nullptr;
-        kcommandbar_initpainter_callback = nullptr;
-        kcommandbar_redirected_callback = nullptr;
-        kcommandbar_sharedpainter_callback = nullptr;
-        kcommandbar_inputmethodevent_callback = nullptr;
-        kcommandbar_inputmethodquery_callback = nullptr;
-        kcommandbar_focusnextprevchild_callback = nullptr;
-        kcommandbar_timerevent_callback = nullptr;
-        kcommandbar_childevent_callback = nullptr;
-        kcommandbar_customevent_callback = nullptr;
-        kcommandbar_connectnotify_callback = nullptr;
-        kcommandbar_disconnectnotify_callback = nullptr;
-        kcommandbar_drawframe_callback = nullptr;
-        kcommandbar_updatemicrofocus_callback = nullptr;
-        kcommandbar_create_callback = nullptr;
-        kcommandbar_destroy_callback = nullptr;
-        kcommandbar_focusnextchild_callback = nullptr;
-        kcommandbar_focuspreviouschild_callback = nullptr;
-        kcommandbar_sender_callback = nullptr;
-        kcommandbar_sendersignalindex_callback = nullptr;
-        kcommandbar_receivers_callback = nullptr;
-        kcommandbar_issignalconnected_callback = nullptr;
-        kcommandbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCommandBar_MetaObject_Callback(KCommandBar_MetaObject_Callback cb) { kcommandbar_metaobject_callback = cb; }
     inline void setKCommandBar_Metacast_Callback(KCommandBar_Metacast_Callback cb) { kcommandbar_metacast_callback = cb; }
@@ -410,12 +345,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_metaobject_isbase) {
             kcommandbar_metaobject_isbase = false;
             return KCommandBar::metaObject();
-        } else if (kcommandbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcommandbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::metaObject();
         }
+        auto metaobject_cb = kcommandbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCommandBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,14 +359,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_metacast_isbase) {
             kcommandbar_metacast_isbase = false;
             return KCommandBar::qt_metacast(param1);
-        } else if (kcommandbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcommandbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcommandbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCommandBar::qt_metacast(param1);
         }
+        return KCommandBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,16 +375,17 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_metacall_isbase) {
             kcommandbar_metacall_isbase = false;
             return KCommandBar::qt_metacall(param1, param2, param3);
-        } else if (kcommandbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcommandbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcommandbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCommandBar::qt_metacall(param1, param2, param3);
         }
+        return KCommandBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,15 +393,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_eventfilter_isbase) {
             kcommandbar_eventfilter_isbase = false;
             return KCommandBar::eventFilter(obj, event);
-        } else if (kcommandbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcommandbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcommandbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCommandBar::eventFilter(obj, event);
         }
+        return KCommandBar::eventFilter(obj, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +410,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_sizehint_isbase) {
             kcommandbar_sizehint_isbase = false;
             return KCommandBar::sizeHint();
-        } else if (kcommandbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcommandbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCommandBar::sizeHint();
         }
+        auto sizehint_cb = kcommandbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KCommandBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,14 +424,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_event_isbase) {
             kcommandbar_event_isbase = false;
             return KCommandBar::event(e);
-        } else if (kcommandbar_event_callback != nullptr) {
+        }
+        auto event_cb = kcommandbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kcommandbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCommandBar::event(e);
         }
+        return KCommandBar::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,13 +440,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_paintevent_isbase) {
             kcommandbar_paintevent_isbase = false;
             KCommandBar::paintEvent(param1);
-        } else if (kcommandbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcommandbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kcommandbar_paintevent_callback(this, cbval1);
-        } else {
-            KCommandBar::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +457,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_changeevent_isbase) {
             kcommandbar_changeevent_isbase = false;
             KCommandBar::changeEvent(param1);
-        } else if (kcommandbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcommandbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcommandbar_changeevent_callback(this, cbval1);
-        } else {
-            KCommandBar::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,13 +474,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_initstyleoption_isbase) {
             kcommandbar_initstyleoption_isbase = false;
             KCommandBar::initStyleOption(option);
-        } else if (kcommandbar_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kcommandbar_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kcommandbar_initstyleoption_callback(this, cbval1);
-        } else {
-            KCommandBar::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KCommandBar::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,12 +491,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_devtype_isbase) {
             kcommandbar_devtype_isbase = false;
             return KCommandBar::devType();
-        } else if (kcommandbar_devtype_callback != nullptr) {
-            int callback_ret = kcommandbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCommandBar::devType();
         }
+        auto devtype_cb = kcommandbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCommandBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,13 +505,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_setvisible_isbase) {
             kcommandbar_setvisible_isbase = false;
             KCommandBar::setVisible(visible);
-        } else if (kcommandbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcommandbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcommandbar_setvisible_callback(this, cbval1);
-        } else {
-            KCommandBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KCommandBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,12 +522,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_minimumsizehint_isbase) {
             kcommandbar_minimumsizehint_isbase = false;
             return KCommandBar::minimumSizeHint();
-        } else if (kcommandbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcommandbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCommandBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcommandbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KCommandBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,14 +536,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_heightforwidth_isbase) {
             kcommandbar_heightforwidth_isbase = false;
             return KCommandBar::heightForWidth(param1);
-        } else if (kcommandbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcommandbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcommandbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCommandBar::heightForWidth(param1);
         }
+        return KCommandBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,12 +552,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_hasheightforwidth_isbase) {
             kcommandbar_hasheightforwidth_isbase = false;
             return KCommandBar::hasHeightForWidth();
-        } else if (kcommandbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcommandbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcommandbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KCommandBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,12 +566,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_paintengine_isbase) {
             kcommandbar_paintengine_isbase = false;
             return KCommandBar::paintEngine();
-        } else if (kcommandbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcommandbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::paintEngine();
         }
+        auto paintengine_cb = kcommandbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KCommandBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,13 +580,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_mousepressevent_isbase) {
             kcommandbar_mousepressevent_isbase = false;
             KCommandBar::mousePressEvent(event);
-        } else if (kcommandbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcommandbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcommandbar_mousepressevent_callback(this, cbval1);
-        } else {
-            KCommandBar::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,13 +597,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_mousereleaseevent_isbase) {
             kcommandbar_mousereleaseevent_isbase = false;
             KCommandBar::mouseReleaseEvent(event);
-        } else if (kcommandbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcommandbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcommandbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KCommandBar::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,13 +614,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_mousedoubleclickevent_isbase) {
             kcommandbar_mousedoubleclickevent_isbase = false;
             KCommandBar::mouseDoubleClickEvent(event);
-        } else if (kcommandbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcommandbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcommandbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KCommandBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -664,13 +631,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_mousemoveevent_isbase) {
             kcommandbar_mousemoveevent_isbase = false;
             KCommandBar::mouseMoveEvent(event);
-        } else if (kcommandbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcommandbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcommandbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            KCommandBar::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -678,13 +648,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_wheelevent_isbase) {
             kcommandbar_wheelevent_isbase = false;
             KCommandBar::wheelEvent(event);
-        } else if (kcommandbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcommandbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kcommandbar_wheelevent_callback(this, cbval1);
-        } else {
-            KCommandBar::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,13 +665,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_keypressevent_isbase) {
             kcommandbar_keypressevent_isbase = false;
             KCommandBar::keyPressEvent(event);
-        } else if (kcommandbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcommandbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcommandbar_keypressevent_callback(this, cbval1);
-        } else {
-            KCommandBar::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,13 +682,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_keyreleaseevent_isbase) {
             kcommandbar_keyreleaseevent_isbase = false;
             KCommandBar::keyReleaseEvent(event);
-        } else if (kcommandbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcommandbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcommandbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KCommandBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -720,13 +699,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_focusinevent_isbase) {
             kcommandbar_focusinevent_isbase = false;
             KCommandBar::focusInEvent(event);
-        } else if (kcommandbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcommandbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcommandbar_focusinevent_callback(this, cbval1);
-        } else {
-            KCommandBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -734,13 +716,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_focusoutevent_isbase) {
             kcommandbar_focusoutevent_isbase = false;
             KCommandBar::focusOutEvent(event);
-        } else if (kcommandbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcommandbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcommandbar_focusoutevent_callback(this, cbval1);
-        } else {
-            KCommandBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -748,13 +733,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_enterevent_isbase) {
             kcommandbar_enterevent_isbase = false;
             KCommandBar::enterEvent(event);
-        } else if (kcommandbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcommandbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcommandbar_enterevent_callback(this, cbval1);
-        } else {
-            KCommandBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +750,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_leaveevent_isbase) {
             kcommandbar_leaveevent_isbase = false;
             KCommandBar::leaveEvent(event);
-        } else if (kcommandbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcommandbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kcommandbar_leaveevent_callback(this, cbval1);
-        } else {
-            KCommandBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +767,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_moveevent_isbase) {
             kcommandbar_moveevent_isbase = false;
             KCommandBar::moveEvent(event);
-        } else if (kcommandbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcommandbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcommandbar_moveevent_callback(this, cbval1);
-        } else {
-            KCommandBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +784,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_resizeevent_isbase) {
             kcommandbar_resizeevent_isbase = false;
             KCommandBar::resizeEvent(event);
-        } else if (kcommandbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcommandbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kcommandbar_resizeevent_callback(this, cbval1);
-        } else {
-            KCommandBar::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +801,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_closeevent_isbase) {
             kcommandbar_closeevent_isbase = false;
             KCommandBar::closeEvent(event);
-        } else if (kcommandbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcommandbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcommandbar_closeevent_callback(this, cbval1);
-        } else {
-            KCommandBar::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +818,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_contextmenuevent_isbase) {
             kcommandbar_contextmenuevent_isbase = false;
             KCommandBar::contextMenuEvent(event);
-        } else if (kcommandbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcommandbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kcommandbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            KCommandBar::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +835,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_tabletevent_isbase) {
             kcommandbar_tabletevent_isbase = false;
             KCommandBar::tabletEvent(event);
-        } else if (kcommandbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcommandbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcommandbar_tabletevent_callback(this, cbval1);
-        } else {
-            KCommandBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +852,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_actionevent_isbase) {
             kcommandbar_actionevent_isbase = false;
             KCommandBar::actionEvent(event);
-        } else if (kcommandbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcommandbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcommandbar_actionevent_callback(this, cbval1);
-        } else {
-            KCommandBar::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +869,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_dragenterevent_isbase) {
             kcommandbar_dragenterevent_isbase = false;
             KCommandBar::dragEnterEvent(event);
-        } else if (kcommandbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcommandbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcommandbar_dragenterevent_callback(this, cbval1);
-        } else {
-            KCommandBar::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +886,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_dragmoveevent_isbase) {
             kcommandbar_dragmoveevent_isbase = false;
             KCommandBar::dragMoveEvent(event);
-        } else if (kcommandbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcommandbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcommandbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            KCommandBar::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +903,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_dragleaveevent_isbase) {
             kcommandbar_dragleaveevent_isbase = false;
             KCommandBar::dragLeaveEvent(event);
-        } else if (kcommandbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcommandbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcommandbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            KCommandBar::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +920,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_dropevent_isbase) {
             kcommandbar_dropevent_isbase = false;
             KCommandBar::dropEvent(event);
-        } else if (kcommandbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcommandbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcommandbar_dropevent_callback(this, cbval1);
-        } else {
-            KCommandBar::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +937,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_showevent_isbase) {
             kcommandbar_showevent_isbase = false;
             KCommandBar::showEvent(event);
-        } else if (kcommandbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcommandbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcommandbar_showevent_callback(this, cbval1);
-        } else {
-            KCommandBar::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +954,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_hideevent_isbase) {
             kcommandbar_hideevent_isbase = false;
             KCommandBar::hideEvent(event);
-        } else if (kcommandbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcommandbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcommandbar_hideevent_callback(this, cbval1);
-        } else {
-            KCommandBar::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,7 +971,9 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_nativeevent_isbase) {
             kcommandbar_nativeevent_isbase = false;
             return KCommandBar::nativeEvent(eventType, message, result);
-        } else if (kcommandbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcommandbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -955,12 +984,11 @@ class VirtualKCommandBar final : public KCommandBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcommandbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KCommandBar::nativeEvent(eventType, message, result);
         }
+        return KCommandBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,14 +996,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_metric_isbase) {
             kcommandbar_metric_isbase = false;
             return KCommandBar::metric(param1);
-        } else if (kcommandbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcommandbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcommandbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCommandBar::metric(param1);
         }
+        return KCommandBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +1012,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_initpainter_isbase) {
             kcommandbar_initpainter_isbase = false;
             KCommandBar::initPainter(painter);
-        } else if (kcommandbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcommandbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcommandbar_initpainter_callback(this, cbval1);
-        } else {
-            KCommandBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KCommandBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,14 +1029,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_redirected_isbase) {
             kcommandbar_redirected_isbase = false;
             return KCommandBar::redirected(offset);
-        } else if (kcommandbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcommandbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcommandbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCommandBar::redirected(offset);
         }
+        return KCommandBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1012,12 +1045,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_sharedpainter_isbase) {
             kcommandbar_sharedpainter_isbase = false;
             return KCommandBar::sharedPainter();
-        } else if (kcommandbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcommandbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::sharedPainter();
         }
+        auto sharedpainter_cb = kcommandbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KCommandBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,13 +1059,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_inputmethodevent_isbase) {
             kcommandbar_inputmethodevent_isbase = false;
             KCommandBar::inputMethodEvent(param1);
-        } else if (kcommandbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcommandbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kcommandbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            KCommandBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,14 +1076,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_inputmethodquery_isbase) {
             kcommandbar_inputmethodquery_isbase = false;
             return KCommandBar::inputMethodQuery(param1);
-        } else if (kcommandbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcommandbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kcommandbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCommandBar::inputMethodQuery(param1);
         }
+        return KCommandBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1054,14 +1092,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_focusnextprevchild_isbase) {
             kcommandbar_focusnextprevchild_isbase = false;
             return KCommandBar::focusNextPrevChild(next);
-        } else if (kcommandbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcommandbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcommandbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCommandBar::focusNextPrevChild(next);
         }
+        return KCommandBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1108,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_timerevent_isbase) {
             kcommandbar_timerevent_isbase = false;
             KCommandBar::timerEvent(event);
-        } else if (kcommandbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcommandbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcommandbar_timerevent_callback(this, cbval1);
-        } else {
-            KCommandBar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,13 +1125,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_childevent_isbase) {
             kcommandbar_childevent_isbase = false;
             KCommandBar::childEvent(event);
-        } else if (kcommandbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcommandbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcommandbar_childevent_callback(this, cbval1);
-        } else {
-            KCommandBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,13 +1142,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_customevent_isbase) {
             kcommandbar_customevent_isbase = false;
             KCommandBar::customEvent(event);
-        } else if (kcommandbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcommandbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcommandbar_customevent_callback(this, cbval1);
-        } else {
-            KCommandBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCommandBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1111,15 +1159,18 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_connectnotify_isbase) {
             kcommandbar_connectnotify_isbase = false;
             KCommandBar::connectNotify(signal);
-        } else if (kcommandbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcommandbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcommandbar_connectnotify_callback(this, cbval1);
-        } else {
-            KCommandBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCommandBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,15 +1178,18 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_disconnectnotify_isbase) {
             kcommandbar_disconnectnotify_isbase = false;
             KCommandBar::disconnectNotify(signal);
-        } else if (kcommandbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcommandbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcommandbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCommandBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCommandBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,13 +1197,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_drawframe_isbase) {
             kcommandbar_drawframe_isbase = false;
             KCommandBar::drawFrame(param1);
-        } else if (kcommandbar_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kcommandbar_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kcommandbar_drawframe_callback(this, cbval1);
-        } else {
-            KCommandBar::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KCommandBar::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,11 +1214,14 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_updatemicrofocus_isbase) {
             kcommandbar_updatemicrofocus_isbase = false;
             KCommandBar::updateMicroFocus();
-        } else if (kcommandbar_updatemicrofocus_callback != nullptr) {
-            kcommandbar_updatemicrofocus_callback();
-        } else {
-            KCommandBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcommandbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KCommandBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,11 +1229,14 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_create_isbase) {
             kcommandbar_create_isbase = false;
             KCommandBar::create();
-        } else if (kcommandbar_create_callback != nullptr) {
-            kcommandbar_create_callback();
-        } else {
-            KCommandBar::create();
+            return;
         }
+        auto create_cb = kcommandbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KCommandBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,11 +1244,14 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_destroy_isbase) {
             kcommandbar_destroy_isbase = false;
             KCommandBar::destroy();
-        } else if (kcommandbar_destroy_callback != nullptr) {
-            kcommandbar_destroy_callback();
-        } else {
-            KCommandBar::destroy();
+            return;
         }
+        auto destroy_cb = kcommandbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KCommandBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1259,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_focusnextchild_isbase) {
             kcommandbar_focusnextchild_isbase = false;
             return KCommandBar::focusNextChild();
-        } else if (kcommandbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcommandbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::focusNextChild();
         }
+        auto focusnextchild_cb = kcommandbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KCommandBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,12 +1273,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_focuspreviouschild_isbase) {
             kcommandbar_focuspreviouschild_isbase = false;
             return KCommandBar::focusPreviousChild();
-        } else if (kcommandbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcommandbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcommandbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KCommandBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,12 +1287,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_sender_isbase) {
             kcommandbar_sender_isbase = false;
             return KCommandBar::sender();
-        } else if (kcommandbar_sender_callback != nullptr) {
-            QObject* callback_ret = kcommandbar_sender_callback();
-            return callback_ret;
-        } else {
-            return KCommandBar::sender();
         }
+        auto sender_cb = kcommandbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCommandBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,12 +1301,13 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_sendersignalindex_isbase) {
             kcommandbar_sendersignalindex_isbase = false;
             return KCommandBar::senderSignalIndex();
-        } else if (kcommandbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcommandbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCommandBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcommandbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCommandBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,14 +1315,15 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_receivers_isbase) {
             kcommandbar_receivers_isbase = false;
             return KCommandBar::receivers(signal);
-        } else if (kcommandbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcommandbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcommandbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCommandBar::receivers(signal);
         }
+        return KCommandBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,16 +1331,17 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_issignalconnected_isbase) {
             kcommandbar_issignalconnected_isbase = false;
             return KCommandBar::isSignalConnected(signal);
-        } else if (kcommandbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcommandbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcommandbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCommandBar::isSignalConnected(signal);
         }
+        return KCommandBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1277,15 +1349,16 @@ class VirtualKCommandBar final : public KCommandBar {
         if (kcommandbar_getdecodedmetricf_isbase) {
             kcommandbar_getdecodedmetricf_isbase = false;
             return KCommandBar::getDecodedMetricF(metricA, metricB);
-        } else if (kcommandbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcommandbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcommandbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KCommandBar::getDecodedMetricF(metricA, metricB);
         }
+        return KCommandBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

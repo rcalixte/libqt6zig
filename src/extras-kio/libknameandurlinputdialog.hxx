@@ -224,75 +224,6 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
   public:
     VirtualKNameAndUrlInputDialog(const QString& nameLabel, const QString& urlLabel, const QUrl& startDir, QWidget* parent) : KNameAndUrlInputDialog(nameLabel, urlLabel, startDir, parent) {};
 
-    ~VirtualKNameAndUrlInputDialog() {
-        knameandurlinputdialog_metaobject_callback = nullptr;
-        knameandurlinputdialog_metacast_callback = nullptr;
-        knameandurlinputdialog_metacall_callback = nullptr;
-        knameandurlinputdialog_setvisible_callback = nullptr;
-        knameandurlinputdialog_sizehint_callback = nullptr;
-        knameandurlinputdialog_minimumsizehint_callback = nullptr;
-        knameandurlinputdialog_open_callback = nullptr;
-        knameandurlinputdialog_exec_callback = nullptr;
-        knameandurlinputdialog_done_callback = nullptr;
-        knameandurlinputdialog_accept_callback = nullptr;
-        knameandurlinputdialog_reject_callback = nullptr;
-        knameandurlinputdialog_keypressevent_callback = nullptr;
-        knameandurlinputdialog_closeevent_callback = nullptr;
-        knameandurlinputdialog_showevent_callback = nullptr;
-        knameandurlinputdialog_resizeevent_callback = nullptr;
-        knameandurlinputdialog_contextmenuevent_callback = nullptr;
-        knameandurlinputdialog_eventfilter_callback = nullptr;
-        knameandurlinputdialog_devtype_callback = nullptr;
-        knameandurlinputdialog_heightforwidth_callback = nullptr;
-        knameandurlinputdialog_hasheightforwidth_callback = nullptr;
-        knameandurlinputdialog_paintengine_callback = nullptr;
-        knameandurlinputdialog_event_callback = nullptr;
-        knameandurlinputdialog_mousepressevent_callback = nullptr;
-        knameandurlinputdialog_mousereleaseevent_callback = nullptr;
-        knameandurlinputdialog_mousedoubleclickevent_callback = nullptr;
-        knameandurlinputdialog_mousemoveevent_callback = nullptr;
-        knameandurlinputdialog_wheelevent_callback = nullptr;
-        knameandurlinputdialog_keyreleaseevent_callback = nullptr;
-        knameandurlinputdialog_focusinevent_callback = nullptr;
-        knameandurlinputdialog_focusoutevent_callback = nullptr;
-        knameandurlinputdialog_enterevent_callback = nullptr;
-        knameandurlinputdialog_leaveevent_callback = nullptr;
-        knameandurlinputdialog_paintevent_callback = nullptr;
-        knameandurlinputdialog_moveevent_callback = nullptr;
-        knameandurlinputdialog_tabletevent_callback = nullptr;
-        knameandurlinputdialog_actionevent_callback = nullptr;
-        knameandurlinputdialog_dragenterevent_callback = nullptr;
-        knameandurlinputdialog_dragmoveevent_callback = nullptr;
-        knameandurlinputdialog_dragleaveevent_callback = nullptr;
-        knameandurlinputdialog_dropevent_callback = nullptr;
-        knameandurlinputdialog_hideevent_callback = nullptr;
-        knameandurlinputdialog_nativeevent_callback = nullptr;
-        knameandurlinputdialog_changeevent_callback = nullptr;
-        knameandurlinputdialog_metric_callback = nullptr;
-        knameandurlinputdialog_initpainter_callback = nullptr;
-        knameandurlinputdialog_redirected_callback = nullptr;
-        knameandurlinputdialog_sharedpainter_callback = nullptr;
-        knameandurlinputdialog_inputmethodevent_callback = nullptr;
-        knameandurlinputdialog_inputmethodquery_callback = nullptr;
-        knameandurlinputdialog_focusnextprevchild_callback = nullptr;
-        knameandurlinputdialog_timerevent_callback = nullptr;
-        knameandurlinputdialog_childevent_callback = nullptr;
-        knameandurlinputdialog_customevent_callback = nullptr;
-        knameandurlinputdialog_connectnotify_callback = nullptr;
-        knameandurlinputdialog_disconnectnotify_callback = nullptr;
-        knameandurlinputdialog_adjustposition_callback = nullptr;
-        knameandurlinputdialog_updatemicrofocus_callback = nullptr;
-        knameandurlinputdialog_create_callback = nullptr;
-        knameandurlinputdialog_destroy_callback = nullptr;
-        knameandurlinputdialog_focusnextchild_callback = nullptr;
-        knameandurlinputdialog_focuspreviouschild_callback = nullptr;
-        knameandurlinputdialog_sender_callback = nullptr;
-        knameandurlinputdialog_sendersignalindex_callback = nullptr;
-        knameandurlinputdialog_receivers_callback = nullptr;
-        knameandurlinputdialog_issignalconnected_callback = nullptr;
-        knameandurlinputdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNameAndUrlInputDialog_MetaObject_Callback(KNameAndUrlInputDialog_MetaObject_Callback cb) { knameandurlinputdialog_metaobject_callback = cb; }
     inline void setKNameAndUrlInputDialog_Metacast_Callback(KNameAndUrlInputDialog_Metacast_Callback cb) { knameandurlinputdialog_metacast_callback = cb; }
@@ -434,12 +365,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_metaobject_isbase) {
             knameandurlinputdialog_metaobject_isbase = false;
             return KNameAndUrlInputDialog::metaObject();
-        } else if (knameandurlinputdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knameandurlinputdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::metaObject();
         }
+        auto metaobject_cb = knameandurlinputdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -447,14 +379,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_metacast_isbase) {
             knameandurlinputdialog_metacast_isbase = false;
             return KNameAndUrlInputDialog::qt_metacast(param1);
-        } else if (knameandurlinputdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knameandurlinputdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knameandurlinputdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::qt_metacast(param1);
         }
+        return KNameAndUrlInputDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -462,16 +395,17 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_metacall_isbase) {
             knameandurlinputdialog_metacall_isbase = false;
             return KNameAndUrlInputDialog::qt_metacall(param1, param2, param3);
-        } else if (knameandurlinputdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knameandurlinputdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knameandurlinputdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::qt_metacall(param1, param2, param3);
         }
+        return KNameAndUrlInputDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,13 +413,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_setvisible_isbase) {
             knameandurlinputdialog_setvisible_isbase = false;
             KNameAndUrlInputDialog::setVisible(visible);
-        } else if (knameandurlinputdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = knameandurlinputdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            knameandurlinputdialog_setvisible_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,12 +430,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_sizehint_isbase) {
             knameandurlinputdialog_sizehint_isbase = false;
             return KNameAndUrlInputDialog::sizeHint();
-        } else if (knameandurlinputdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = knameandurlinputdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::sizeHint();
         }
+        auto sizehint_cb = knameandurlinputdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KNameAndUrlInputDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,12 +444,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_minimumsizehint_isbase) {
             knameandurlinputdialog_minimumsizehint_isbase = false;
             return KNameAndUrlInputDialog::minimumSizeHint();
-        } else if (knameandurlinputdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = knameandurlinputdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = knameandurlinputdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KNameAndUrlInputDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -519,11 +458,14 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_open_isbase) {
             knameandurlinputdialog_open_isbase = false;
             KNameAndUrlInputDialog::open();
-        } else if (knameandurlinputdialog_open_callback != nullptr) {
-            knameandurlinputdialog_open_callback();
-        } else {
-            KNameAndUrlInputDialog::open();
+            return;
         }
+        auto open_cb = knameandurlinputdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KNameAndUrlInputDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,12 +473,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_exec_isbase) {
             knameandurlinputdialog_exec_isbase = false;
             return KNameAndUrlInputDialog::exec();
-        } else if (knameandurlinputdialog_exec_callback != nullptr) {
-            int callback_ret = knameandurlinputdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::exec();
         }
+        auto exec_cb = knameandurlinputdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNameAndUrlInputDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,13 +487,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_done_isbase) {
             knameandurlinputdialog_done_isbase = false;
             KNameAndUrlInputDialog::done(param1);
-        } else if (knameandurlinputdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = knameandurlinputdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            knameandurlinputdialog_done_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,11 +504,14 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_accept_isbase) {
             knameandurlinputdialog_accept_isbase = false;
             KNameAndUrlInputDialog::accept();
-        } else if (knameandurlinputdialog_accept_callback != nullptr) {
-            knameandurlinputdialog_accept_callback();
-        } else {
-            KNameAndUrlInputDialog::accept();
+            return;
         }
+        auto accept_cb = knameandurlinputdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KNameAndUrlInputDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,11 +519,14 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_reject_isbase) {
             knameandurlinputdialog_reject_isbase = false;
             KNameAndUrlInputDialog::reject();
-        } else if (knameandurlinputdialog_reject_callback != nullptr) {
-            knameandurlinputdialog_reject_callback();
-        } else {
-            KNameAndUrlInputDialog::reject();
+            return;
         }
+        auto reject_cb = knameandurlinputdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KNameAndUrlInputDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +534,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_keypressevent_isbase) {
             knameandurlinputdialog_keypressevent_isbase = false;
             KNameAndUrlInputDialog::keyPressEvent(param1);
-        } else if (knameandurlinputdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = knameandurlinputdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            knameandurlinputdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,13 +551,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_closeevent_isbase) {
             knameandurlinputdialog_closeevent_isbase = false;
             KNameAndUrlInputDialog::closeEvent(param1);
-        } else if (knameandurlinputdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = knameandurlinputdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            knameandurlinputdialog_closeevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,13 +568,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_showevent_isbase) {
             knameandurlinputdialog_showevent_isbase = false;
             KNameAndUrlInputDialog::showEvent(param1);
-        } else if (knameandurlinputdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = knameandurlinputdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            knameandurlinputdialog_showevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,13 +585,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_resizeevent_isbase) {
             knameandurlinputdialog_resizeevent_isbase = false;
             KNameAndUrlInputDialog::resizeEvent(param1);
-        } else if (knameandurlinputdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = knameandurlinputdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            knameandurlinputdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,13 +602,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_contextmenuevent_isbase) {
             knameandurlinputdialog_contextmenuevent_isbase = false;
             KNameAndUrlInputDialog::contextMenuEvent(param1);
-        } else if (knameandurlinputdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = knameandurlinputdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            knameandurlinputdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,15 +619,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_eventfilter_isbase) {
             knameandurlinputdialog_eventfilter_isbase = false;
             return KNameAndUrlInputDialog::eventFilter(param1, param2);
-        } else if (knameandurlinputdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knameandurlinputdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = knameandurlinputdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::eventFilter(param1, param2);
         }
+        return KNameAndUrlInputDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,12 +636,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_devtype_isbase) {
             knameandurlinputdialog_devtype_isbase = false;
             return KNameAndUrlInputDialog::devType();
-        } else if (knameandurlinputdialog_devtype_callback != nullptr) {
-            int callback_ret = knameandurlinputdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::devType();
         }
+        auto devtype_cb = knameandurlinputdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNameAndUrlInputDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,14 +650,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_heightforwidth_isbase) {
             knameandurlinputdialog_heightforwidth_isbase = false;
             return KNameAndUrlInputDialog::heightForWidth(param1);
-        } else if (knameandurlinputdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = knameandurlinputdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = knameandurlinputdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::heightForWidth(param1);
         }
+        return KNameAndUrlInputDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,12 +666,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_hasheightforwidth_isbase) {
             knameandurlinputdialog_hasheightforwidth_isbase = false;
             return KNameAndUrlInputDialog::hasHeightForWidth();
-        } else if (knameandurlinputdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = knameandurlinputdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = knameandurlinputdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,12 +680,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_paintengine_isbase) {
             knameandurlinputdialog_paintengine_isbase = false;
             return KNameAndUrlInputDialog::paintEngine();
-        } else if (knameandurlinputdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = knameandurlinputdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::paintEngine();
         }
+        auto paintengine_cb = knameandurlinputdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,14 +694,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_event_isbase) {
             knameandurlinputdialog_event_isbase = false;
             return KNameAndUrlInputDialog::event(event);
-        } else if (knameandurlinputdialog_event_callback != nullptr) {
+        }
+        auto event_cb = knameandurlinputdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = knameandurlinputdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::event(event);
         }
+        return KNameAndUrlInputDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +710,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_mousepressevent_isbase) {
             knameandurlinputdialog_mousepressevent_isbase = false;
             KNameAndUrlInputDialog::mousePressEvent(event);
-        } else if (knameandurlinputdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = knameandurlinputdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knameandurlinputdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +727,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_mousereleaseevent_isbase) {
             knameandurlinputdialog_mousereleaseevent_isbase = false;
             KNameAndUrlInputDialog::mouseReleaseEvent(event);
-        } else if (knameandurlinputdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = knameandurlinputdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knameandurlinputdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +744,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_mousedoubleclickevent_isbase) {
             knameandurlinputdialog_mousedoubleclickevent_isbase = false;
             KNameAndUrlInputDialog::mouseDoubleClickEvent(event);
-        } else if (knameandurlinputdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = knameandurlinputdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knameandurlinputdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +761,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_mousemoveevent_isbase) {
             knameandurlinputdialog_mousemoveevent_isbase = false;
             KNameAndUrlInputDialog::mouseMoveEvent(event);
-        } else if (knameandurlinputdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = knameandurlinputdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knameandurlinputdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +778,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_wheelevent_isbase) {
             knameandurlinputdialog_wheelevent_isbase = false;
             KNameAndUrlInputDialog::wheelEvent(event);
-        } else if (knameandurlinputdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = knameandurlinputdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            knameandurlinputdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +795,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_keyreleaseevent_isbase) {
             knameandurlinputdialog_keyreleaseevent_isbase = false;
             KNameAndUrlInputDialog::keyReleaseEvent(event);
-        } else if (knameandurlinputdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = knameandurlinputdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            knameandurlinputdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +812,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_focusinevent_isbase) {
             knameandurlinputdialog_focusinevent_isbase = false;
             KNameAndUrlInputDialog::focusInEvent(event);
-        } else if (knameandurlinputdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = knameandurlinputdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            knameandurlinputdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +829,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_focusoutevent_isbase) {
             knameandurlinputdialog_focusoutevent_isbase = false;
             KNameAndUrlInputDialog::focusOutEvent(event);
-        } else if (knameandurlinputdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = knameandurlinputdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            knameandurlinputdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +846,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_enterevent_isbase) {
             knameandurlinputdialog_enterevent_isbase = false;
             KNameAndUrlInputDialog::enterEvent(event);
-        } else if (knameandurlinputdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = knameandurlinputdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            knameandurlinputdialog_enterevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +863,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_leaveevent_isbase) {
             knameandurlinputdialog_leaveevent_isbase = false;
             KNameAndUrlInputDialog::leaveEvent(event);
-        } else if (knameandurlinputdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = knameandurlinputdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            knameandurlinputdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +880,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_paintevent_isbase) {
             knameandurlinputdialog_paintevent_isbase = false;
             KNameAndUrlInputDialog::paintEvent(event);
-        } else if (knameandurlinputdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = knameandurlinputdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            knameandurlinputdialog_paintevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +897,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_moveevent_isbase) {
             knameandurlinputdialog_moveevent_isbase = false;
             KNameAndUrlInputDialog::moveEvent(event);
-        } else if (knameandurlinputdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = knameandurlinputdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            knameandurlinputdialog_moveevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +914,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_tabletevent_isbase) {
             knameandurlinputdialog_tabletevent_isbase = false;
             KNameAndUrlInputDialog::tabletEvent(event);
-        } else if (knameandurlinputdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = knameandurlinputdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            knameandurlinputdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +931,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_actionevent_isbase) {
             knameandurlinputdialog_actionevent_isbase = false;
             KNameAndUrlInputDialog::actionEvent(event);
-        } else if (knameandurlinputdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = knameandurlinputdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            knameandurlinputdialog_actionevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +948,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_dragenterevent_isbase) {
             knameandurlinputdialog_dragenterevent_isbase = false;
             KNameAndUrlInputDialog::dragEnterEvent(event);
-        } else if (knameandurlinputdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = knameandurlinputdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            knameandurlinputdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +965,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_dragmoveevent_isbase) {
             knameandurlinputdialog_dragmoveevent_isbase = false;
             KNameAndUrlInputDialog::dragMoveEvent(event);
-        } else if (knameandurlinputdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = knameandurlinputdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            knameandurlinputdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,13 +982,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_dragleaveevent_isbase) {
             knameandurlinputdialog_dragleaveevent_isbase = false;
             KNameAndUrlInputDialog::dragLeaveEvent(event);
-        } else if (knameandurlinputdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = knameandurlinputdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            knameandurlinputdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,13 +999,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_dropevent_isbase) {
             knameandurlinputdialog_dropevent_isbase = false;
             KNameAndUrlInputDialog::dropEvent(event);
-        } else if (knameandurlinputdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = knameandurlinputdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            knameandurlinputdialog_dropevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -989,13 +1016,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_hideevent_isbase) {
             knameandurlinputdialog_hideevent_isbase = false;
             KNameAndUrlInputDialog::hideEvent(event);
-        } else if (knameandurlinputdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = knameandurlinputdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            knameandurlinputdialog_hideevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,7 +1033,9 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_nativeevent_isbase) {
             knameandurlinputdialog_nativeevent_isbase = false;
             return KNameAndUrlInputDialog::nativeEvent(eventType, message, result);
-        } else if (knameandurlinputdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = knameandurlinputdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1014,12 +1046,11 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = knameandurlinputdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::nativeEvent(eventType, message, result);
         }
+        return KNameAndUrlInputDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,13 +1058,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_changeevent_isbase) {
             knameandurlinputdialog_changeevent_isbase = false;
             KNameAndUrlInputDialog::changeEvent(param1);
-        } else if (knameandurlinputdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = knameandurlinputdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            knameandurlinputdialog_changeevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,14 +1075,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_metric_isbase) {
             knameandurlinputdialog_metric_isbase = false;
             return KNameAndUrlInputDialog::metric(param1);
-        } else if (knameandurlinputdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = knameandurlinputdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = knameandurlinputdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::metric(param1);
         }
+        return KNameAndUrlInputDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,13 +1091,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_initpainter_isbase) {
             knameandurlinputdialog_initpainter_isbase = false;
             KNameAndUrlInputDialog::initPainter(painter);
-        } else if (knameandurlinputdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = knameandurlinputdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            knameandurlinputdialog_initpainter_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,14 +1108,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_redirected_isbase) {
             knameandurlinputdialog_redirected_isbase = false;
             return KNameAndUrlInputDialog::redirected(offset);
-        } else if (knameandurlinputdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = knameandurlinputdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = knameandurlinputdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::redirected(offset);
         }
+        return KNameAndUrlInputDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,12 +1124,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_sharedpainter_isbase) {
             knameandurlinputdialog_sharedpainter_isbase = false;
             return KNameAndUrlInputDialog::sharedPainter();
-        } else if (knameandurlinputdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = knameandurlinputdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::sharedPainter();
         }
+        auto sharedpainter_cb = knameandurlinputdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1138,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_inputmethodevent_isbase) {
             knameandurlinputdialog_inputmethodevent_isbase = false;
             KNameAndUrlInputDialog::inputMethodEvent(param1);
-        } else if (knameandurlinputdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = knameandurlinputdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            knameandurlinputdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,14 +1155,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_inputmethodquery_isbase) {
             knameandurlinputdialog_inputmethodquery_isbase = false;
             return KNameAndUrlInputDialog::inputMethodQuery(param1);
-        } else if (knameandurlinputdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = knameandurlinputdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = knameandurlinputdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::inputMethodQuery(param1);
         }
+        return KNameAndUrlInputDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,14 +1171,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_focusnextprevchild_isbase) {
             knameandurlinputdialog_focusnextprevchild_isbase = false;
             return KNameAndUrlInputDialog::focusNextPrevChild(next);
-        } else if (knameandurlinputdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = knameandurlinputdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = knameandurlinputdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::focusNextPrevChild(next);
         }
+        return KNameAndUrlInputDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,13 +1187,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_timerevent_isbase) {
             knameandurlinputdialog_timerevent_isbase = false;
             KNameAndUrlInputDialog::timerEvent(event);
-        } else if (knameandurlinputdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knameandurlinputdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            knameandurlinputdialog_timerevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,13 +1204,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_childevent_isbase) {
             knameandurlinputdialog_childevent_isbase = false;
             KNameAndUrlInputDialog::childEvent(event);
-        } else if (knameandurlinputdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knameandurlinputdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knameandurlinputdialog_childevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,13 +1221,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_customevent_isbase) {
             knameandurlinputdialog_customevent_isbase = false;
             KNameAndUrlInputDialog::customEvent(event);
-        } else if (knameandurlinputdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knameandurlinputdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knameandurlinputdialog_customevent_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,15 +1238,18 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_connectnotify_isbase) {
             knameandurlinputdialog_connectnotify_isbase = false;
             KNameAndUrlInputDialog::connectNotify(signal);
-        } else if (knameandurlinputdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knameandurlinputdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knameandurlinputdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,15 +1257,18 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_disconnectnotify_isbase) {
             knameandurlinputdialog_disconnectnotify_isbase = false;
             KNameAndUrlInputDialog::disconnectNotify(signal);
-        } else if (knameandurlinputdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knameandurlinputdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knameandurlinputdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1216,13 +1276,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_adjustposition_isbase) {
             knameandurlinputdialog_adjustposition_isbase = false;
             KNameAndUrlInputDialog::adjustPosition(param1);
-        } else if (knameandurlinputdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = knameandurlinputdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            knameandurlinputdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KNameAndUrlInputDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KNameAndUrlInputDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,11 +1293,14 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_updatemicrofocus_isbase) {
             knameandurlinputdialog_updatemicrofocus_isbase = false;
             KNameAndUrlInputDialog::updateMicroFocus();
-        } else if (knameandurlinputdialog_updatemicrofocus_callback != nullptr) {
-            knameandurlinputdialog_updatemicrofocus_callback();
-        } else {
-            KNameAndUrlInputDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = knameandurlinputdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KNameAndUrlInputDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,11 +1308,14 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_create_isbase) {
             knameandurlinputdialog_create_isbase = false;
             KNameAndUrlInputDialog::create();
-        } else if (knameandurlinputdialog_create_callback != nullptr) {
-            knameandurlinputdialog_create_callback();
-        } else {
-            KNameAndUrlInputDialog::create();
+            return;
         }
+        auto create_cb = knameandurlinputdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KNameAndUrlInputDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,11 +1323,14 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_destroy_isbase) {
             knameandurlinputdialog_destroy_isbase = false;
             KNameAndUrlInputDialog::destroy();
-        } else if (knameandurlinputdialog_destroy_callback != nullptr) {
-            knameandurlinputdialog_destroy_callback();
-        } else {
-            KNameAndUrlInputDialog::destroy();
+            return;
         }
+        auto destroy_cb = knameandurlinputdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KNameAndUrlInputDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,12 +1338,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_focusnextchild_isbase) {
             knameandurlinputdialog_focusnextchild_isbase = false;
             return KNameAndUrlInputDialog::focusNextChild();
-        } else if (knameandurlinputdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = knameandurlinputdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::focusNextChild();
         }
+        auto focusnextchild_cb = knameandurlinputdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1279,12 +1352,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_focuspreviouschild_isbase) {
             knameandurlinputdialog_focuspreviouschild_isbase = false;
             return KNameAndUrlInputDialog::focusPreviousChild();
-        } else if (knameandurlinputdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = knameandurlinputdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = knameandurlinputdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,12 +1366,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_sender_isbase) {
             knameandurlinputdialog_sender_isbase = false;
             return KNameAndUrlInputDialog::sender();
-        } else if (knameandurlinputdialog_sender_callback != nullptr) {
-            QObject* callback_ret = knameandurlinputdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::sender();
         }
+        auto sender_cb = knameandurlinputdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNameAndUrlInputDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,12 +1380,13 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_sendersignalindex_isbase) {
             knameandurlinputdialog_sendersignalindex_isbase = false;
             return KNameAndUrlInputDialog::senderSignalIndex();
-        } else if (knameandurlinputdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = knameandurlinputdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knameandurlinputdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNameAndUrlInputDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,14 +1394,15 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_receivers_isbase) {
             knameandurlinputdialog_receivers_isbase = false;
             return KNameAndUrlInputDialog::receivers(signal);
-        } else if (knameandurlinputdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knameandurlinputdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knameandurlinputdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::receivers(signal);
         }
+        return KNameAndUrlInputDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1333,16 +1410,17 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_issignalconnected_isbase) {
             knameandurlinputdialog_issignalconnected_isbase = false;
             return KNameAndUrlInputDialog::isSignalConnected(signal);
-        } else if (knameandurlinputdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knameandurlinputdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knameandurlinputdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNameAndUrlInputDialog::isSignalConnected(signal);
         }
+        return KNameAndUrlInputDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,15 +1428,16 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
         if (knameandurlinputdialog_getdecodedmetricf_isbase) {
             knameandurlinputdialog_getdecodedmetricf_isbase = false;
             return KNameAndUrlInputDialog::getDecodedMetricF(metricA, metricB);
-        } else if (knameandurlinputdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = knameandurlinputdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = knameandurlinputdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KNameAndUrlInputDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KNameAndUrlInputDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

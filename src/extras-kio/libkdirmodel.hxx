@@ -228,76 +228,6 @@ class VirtualKDirModel final : public KDirModel {
     VirtualKDirModel() : KDirModel() {};
     VirtualKDirModel(QObject* parent) : KDirModel(parent) {};
 
-    ~VirtualKDirModel() {
-        kdirmodel_metaobject_callback = nullptr;
-        kdirmodel_metacast_callback = nullptr;
-        kdirmodel_metacall_callback = nullptr;
-        kdirmodel_canfetchmore_callback = nullptr;
-        kdirmodel_columncount_callback = nullptr;
-        kdirmodel_data_callback = nullptr;
-        kdirmodel_dropmimedata_callback = nullptr;
-        kdirmodel_fetchmore_callback = nullptr;
-        kdirmodel_flags_callback = nullptr;
-        kdirmodel_haschildren_callback = nullptr;
-        kdirmodel_headerdata_callback = nullptr;
-        kdirmodel_index_callback = nullptr;
-        kdirmodel_mimedata_callback = nullptr;
-        kdirmodel_mimetypes_callback = nullptr;
-        kdirmodel_parent_callback = nullptr;
-        kdirmodel_sibling_callback = nullptr;
-        kdirmodel_rowcount_callback = nullptr;
-        kdirmodel_setdata_callback = nullptr;
-        kdirmodel_sort_callback = nullptr;
-        kdirmodel_rolenames_callback = nullptr;
-        kdirmodel_supporteddropactions_callback = nullptr;
-        kdirmodel_setheaderdata_callback = nullptr;
-        kdirmodel_itemdata_callback = nullptr;
-        kdirmodel_setitemdata_callback = nullptr;
-        kdirmodel_clearitemdata_callback = nullptr;
-        kdirmodel_candropmimedata_callback = nullptr;
-        kdirmodel_supporteddragactions_callback = nullptr;
-        kdirmodel_moverows_callback = nullptr;
-        kdirmodel_movecolumns_callback = nullptr;
-        kdirmodel_buddy_callback = nullptr;
-        kdirmodel_match_callback = nullptr;
-        kdirmodel_span_callback = nullptr;
-        kdirmodel_multidata_callback = nullptr;
-        kdirmodel_submit_callback = nullptr;
-        kdirmodel_revert_callback = nullptr;
-        kdirmodel_resetinternaldata_callback = nullptr;
-        kdirmodel_event_callback = nullptr;
-        kdirmodel_eventfilter_callback = nullptr;
-        kdirmodel_timerevent_callback = nullptr;
-        kdirmodel_childevent_callback = nullptr;
-        kdirmodel_customevent_callback = nullptr;
-        kdirmodel_connectnotify_callback = nullptr;
-        kdirmodel_disconnectnotify_callback = nullptr;
-        kdirmodel_createindex_callback = nullptr;
-        kdirmodel_encodedata_callback = nullptr;
-        kdirmodel_decodedata_callback = nullptr;
-        kdirmodel_begininsertrows_callback = nullptr;
-        kdirmodel_endinsertrows_callback = nullptr;
-        kdirmodel_beginremoverows_callback = nullptr;
-        kdirmodel_endremoverows_callback = nullptr;
-        kdirmodel_beginmoverows_callback = nullptr;
-        kdirmodel_endmoverows_callback = nullptr;
-        kdirmodel_begininsertcolumns_callback = nullptr;
-        kdirmodel_endinsertcolumns_callback = nullptr;
-        kdirmodel_beginremovecolumns_callback = nullptr;
-        kdirmodel_endremovecolumns_callback = nullptr;
-        kdirmodel_beginmovecolumns_callback = nullptr;
-        kdirmodel_endmovecolumns_callback = nullptr;
-        kdirmodel_beginresetmodel_callback = nullptr;
-        kdirmodel_endresetmodel_callback = nullptr;
-        kdirmodel_changepersistentindex_callback = nullptr;
-        kdirmodel_changepersistentindexlist_callback = nullptr;
-        kdirmodel_persistentindexlist_callback = nullptr;
-        kdirmodel_sender_callback = nullptr;
-        kdirmodel_sendersignalindex_callback = nullptr;
-        kdirmodel_receivers_callback = nullptr;
-        kdirmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDirModel_MetaObject_Callback(KDirModel_MetaObject_Callback cb) { kdirmodel_metaobject_callback = cb; }
     inline void setKDirModel_Metacast_Callback(KDirModel_Metacast_Callback cb) { kdirmodel_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_metaobject_isbase) {
             kdirmodel_metaobject_isbase = false;
             return KDirModel::metaObject();
-        } else if (kdirmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdirmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDirModel::metaObject();
         }
+        auto metaobject_cb = kdirmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDirModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_metacast_isbase) {
             kdirmodel_metacast_isbase = false;
             return KDirModel::qt_metacast(param1);
-        } else if (kdirmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdirmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdirmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirModel::qt_metacast(param1);
         }
+        return KDirModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_metacall_isbase) {
             kdirmodel_metacall_isbase = false;
             return KDirModel::qt_metacall(param1, param2, param3);
-        } else if (kdirmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdirmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdirmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirModel::qt_metacall(param1, param2, param3);
         }
+        return KDirModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,16 +419,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_canfetchmore_isbase) {
             kdirmodel_canfetchmore_isbase = false;
             return KDirModel::canFetchMore(parent);
-        } else if (kdirmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = kdirmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kdirmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirModel::canFetchMore(parent);
         }
+        return KDirModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -503,16 +437,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_columncount_isbase) {
             kdirmodel_columncount_isbase = false;
             return KDirModel::columnCount(parent);
-        } else if (kdirmodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = kdirmodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kdirmodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirModel::columnCount(parent);
         }
+        return KDirModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -520,17 +455,18 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_data_isbase) {
             kdirmodel_data_isbase = false;
             return KDirModel::data(index, role);
-        } else if (kdirmodel_data_callback != nullptr) {
+        }
+        auto data_cb = kdirmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = kdirmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KDirModel::data(index, role);
         }
+        return KDirModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,7 +474,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_dropmimedata_isbase) {
             kdirmodel_dropmimedata_isbase = false;
             return KDirModel::dropMimeData(data, action, row, column, parent);
-        } else if (kdirmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kdirmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -547,11 +485,10 @@ class VirtualKDirModel final : public KDirModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kdirmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KDirModel::dropMimeData(data, action, row, column, parent);
         }
+        return KDirModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,15 +496,18 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_fetchmore_isbase) {
             kdirmodel_fetchmore_isbase = false;
             KDirModel::fetchMore(parent);
-        } else if (kdirmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = kdirmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            kdirmodel_fetchmore_callback(this, cbval1);
-        } else {
-            KDirModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KDirModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -575,16 +515,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_flags_isbase) {
             kdirmodel_flags_isbase = false;
             return KDirModel::flags(index);
-        } else if (kdirmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = kdirmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = kdirmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KDirModel::flags(index);
         }
+        return KDirModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,16 +533,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_haschildren_isbase) {
             kdirmodel_haschildren_isbase = false;
             return KDirModel::hasChildren(parent);
-        } else if (kdirmodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = kdirmodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kdirmodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirModel::hasChildren(parent);
         }
+        return KDirModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,16 +551,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_headerdata_isbase) {
             kdirmodel_headerdata_isbase = false;
             return KDirModel::headerData(section, orientation, role);
-        } else if (kdirmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = kdirmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = kdirmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KDirModel::headerData(section, orientation, role);
         }
+        return KDirModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,18 +569,19 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_index_isbase) {
             kdirmodel_index_isbase = false;
             return KDirModel::index(row, column, parent);
-        } else if (kdirmodel_index_callback != nullptr) {
+        }
+        auto index_cb = kdirmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = kdirmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KDirModel::index(row, column, parent);
         }
+        return KDirModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,7 +589,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_mimedata_isbase) {
             kdirmodel_mimedata_isbase = false;
             return KDirModel::mimeData(indexes);
-        } else if (kdirmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kdirmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -657,12 +603,11 @@ class VirtualKDirModel final : public KDirModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = kdirmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KDirModel::mimeData(indexes);
         }
+        return KDirModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -670,8 +615,10 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_mimetypes_isbase) {
             kdirmodel_mimetypes_isbase = false;
             return KDirModel::mimeTypes();
-        } else if (kdirmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = kdirmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = kdirmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -682,9 +629,8 @@ class VirtualKDirModel final : public KDirModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KDirModel::mimeTypes();
         }
+        return KDirModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -692,16 +638,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_parent_isbase) {
             kdirmodel_parent_isbase = false;
             return KDirModel::parent(index);
-        } else if (kdirmodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = kdirmodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kdirmodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDirModel::parent(index);
         }
+        return KDirModel::parent(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,18 +656,19 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_sibling_isbase) {
             kdirmodel_sibling_isbase = false;
             return KDirModel::sibling(row, column, index);
-        } else if (kdirmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = kdirmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kdirmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KDirModel::sibling(row, column, index);
         }
+        return KDirModel::sibling(row, column, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,16 +676,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_rowcount_isbase) {
             kdirmodel_rowcount_isbase = false;
             return KDirModel::rowCount(parent);
-        } else if (kdirmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = kdirmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kdirmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirModel::rowCount(parent);
         }
+        return KDirModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,7 +694,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_setdata_isbase) {
             kdirmodel_setdata_isbase = false;
             return KDirModel::setData(index, value, role);
-        } else if (kdirmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = kdirmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -754,11 +705,10 @@ class VirtualKDirModel final : public KDirModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = kdirmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KDirModel::setData(index, value, role);
         }
+        return KDirModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,14 +716,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_sort_isbase) {
             kdirmodel_sort_isbase = false;
             KDirModel::sort(column, order);
-        } else if (kdirmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = kdirmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            kdirmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KDirModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KDirModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,8 +734,10 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_rolenames_isbase) {
             kdirmodel_rolenames_isbase = false;
             return KDirModel::roleNames();
-        } else if (kdirmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = kdirmodel_rolenames_callback();
+        }
+        auto rolenames_cb = kdirmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -792,9 +747,8 @@ class VirtualKDirModel final : public KDirModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KDirModel::roleNames();
         }
+        return KDirModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,12 +756,13 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_supporteddropactions_isbase) {
             kdirmodel_supporteddropactions_isbase = false;
             return KDirModel::supportedDropActions();
-        } else if (kdirmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = kdirmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KDirModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = kdirmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KDirModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,7 +770,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_setheaderdata_isbase) {
             kdirmodel_setheaderdata_isbase = false;
             return KDirModel::setHeaderData(section, orientation, value, role);
-        } else if (kdirmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = kdirmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -823,11 +780,10 @@ class VirtualKDirModel final : public KDirModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = kdirmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KDirModel::setHeaderData(section, orientation, value, role);
         }
+        return KDirModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,12 +791,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_itemdata_isbase) {
             kdirmodel_itemdata_isbase = false;
             return KDirModel::itemData(index);
-        } else if (kdirmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = kdirmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = kdirmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -848,9 +806,8 @@ class VirtualKDirModel final : public KDirModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KDirModel::itemData(index);
         }
+        return KDirModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,7 +815,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_setitemdata_isbase) {
             kdirmodel_setitemdata_isbase = false;
             return KDirModel::setItemData(index, roles);
-        } else if (kdirmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = kdirmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -878,11 +837,10 @@ class VirtualKDirModel final : public KDirModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = kdirmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDirModel::setItemData(index, roles);
         }
+        return KDirModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -890,16 +848,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_clearitemdata_isbase) {
             kdirmodel_clearitemdata_isbase = false;
             return KDirModel::clearItemData(index);
-        } else if (kdirmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = kdirmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kdirmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirModel::clearItemData(index);
         }
+        return KDirModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,7 +866,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_candropmimedata_isbase) {
             kdirmodel_candropmimedata_isbase = false;
             return KDirModel::canDropMimeData(data, action, row, column, parent);
-        } else if (kdirmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = kdirmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -916,11 +877,10 @@ class VirtualKDirModel final : public KDirModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kdirmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KDirModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KDirModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -928,12 +888,13 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_supporteddragactions_isbase) {
             kdirmodel_supporteddragactions_isbase = false;
             return KDirModel::supportedDragActions();
-        } else if (kdirmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = kdirmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KDirModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = kdirmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KDirModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,7 +902,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_moverows_isbase) {
             kdirmodel_moverows_isbase = false;
             return KDirModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (kdirmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = kdirmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -952,11 +915,10 @@ class VirtualKDirModel final : public KDirModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kdirmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KDirModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KDirModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,7 +926,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_movecolumns_isbase) {
             kdirmodel_movecolumns_isbase = false;
             return KDirModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (kdirmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = kdirmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -975,11 +939,10 @@ class VirtualKDirModel final : public KDirModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kdirmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KDirModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KDirModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,16 +950,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_buddy_isbase) {
             kdirmodel_buddy_isbase = false;
             return KDirModel::buddy(index);
-        } else if (kdirmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = kdirmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kdirmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDirModel::buddy(index);
         }
+        return KDirModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,7 +968,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_match_isbase) {
             kdirmodel_match_isbase = false;
             return KDirModel::match(start, role, value, hits, flags);
-        } else if (kdirmodel_match_callback != nullptr) {
+        }
+        auto match_cb = kdirmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1015,7 +981,7 @@ class VirtualKDirModel final : public KDirModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = kdirmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1024,9 +990,8 @@ class VirtualKDirModel final : public KDirModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KDirModel::match(start, role, value, hits, flags);
         }
+        return KDirModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,16 +999,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_span_isbase) {
             kdirmodel_span_isbase = false;
             return KDirModel::span(index);
-        } else if (kdirmodel_span_callback != nullptr) {
+        }
+        auto span_cb = kdirmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kdirmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDirModel::span(index);
         }
+        return KDirModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,16 +1017,19 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_multidata_isbase) {
             kdirmodel_multidata_isbase = false;
             KDirModel::multiData(index, roleDataSpan);
-        } else if (kdirmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = kdirmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            kdirmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KDirModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KDirModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,12 +1037,13 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_submit_isbase) {
             kdirmodel_submit_isbase = false;
             return KDirModel::submit();
-        } else if (kdirmodel_submit_callback != nullptr) {
-            bool callback_ret = kdirmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KDirModel::submit();
         }
+        auto submit_cb = kdirmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KDirModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,11 +1051,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_revert_isbase) {
             kdirmodel_revert_isbase = false;
             KDirModel::revert();
-        } else if (kdirmodel_revert_callback != nullptr) {
-            kdirmodel_revert_callback();
-        } else {
-            KDirModel::revert();
+            return;
         }
+        auto revert_cb = kdirmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KDirModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,11 +1066,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_resetinternaldata_isbase) {
             kdirmodel_resetinternaldata_isbase = false;
             KDirModel::resetInternalData();
-        } else if (kdirmodel_resetinternaldata_callback != nullptr) {
-            kdirmodel_resetinternaldata_callback();
-        } else {
-            KDirModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = kdirmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KDirModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,14 +1081,15 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_event_isbase) {
             kdirmodel_event_isbase = false;
             return KDirModel::event(event);
-        } else if (kdirmodel_event_callback != nullptr) {
+        }
+        auto event_cb = kdirmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kdirmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirModel::event(event);
         }
+        return KDirModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,15 +1097,16 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_eventfilter_isbase) {
             kdirmodel_eventfilter_isbase = false;
             return KDirModel::eventFilter(watched, event);
-        } else if (kdirmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdirmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdirmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDirModel::eventFilter(watched, event);
         }
+        return KDirModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,13 +1114,16 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_timerevent_isbase) {
             kdirmodel_timerevent_isbase = false;
             KDirModel::timerEvent(event);
-        } else if (kdirmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdirmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdirmodel_timerevent_callback(this, cbval1);
-        } else {
-            KDirModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDirModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,13 +1131,16 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_childevent_isbase) {
             kdirmodel_childevent_isbase = false;
             KDirModel::childEvent(event);
-        } else if (kdirmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdirmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdirmodel_childevent_callback(this, cbval1);
-        } else {
-            KDirModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDirModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,13 +1148,16 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_customevent_isbase) {
             kdirmodel_customevent_isbase = false;
             KDirModel::customEvent(event);
-        } else if (kdirmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdirmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdirmodel_customevent_callback(this, cbval1);
-        } else {
-            KDirModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDirModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,15 +1165,18 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_connectnotify_isbase) {
             kdirmodel_connectnotify_isbase = false;
             KDirModel::connectNotify(signal);
-        } else if (kdirmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdirmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdirmodel_connectnotify_callback(this, cbval1);
-        } else {
-            KDirModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDirModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,15 +1184,18 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_disconnectnotify_isbase) {
             kdirmodel_disconnectnotify_isbase = false;
             KDirModel::disconnectNotify(signal);
-        } else if (kdirmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdirmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdirmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDirModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDirModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,15 +1203,16 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_createindex_isbase) {
             kdirmodel_createindex_isbase = false;
             return KDirModel::createIndex(row, column);
-        } else if (kdirmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = kdirmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = kdirmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KDirModel::createIndex(row, column);
         }
+        return KDirModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,7 +1220,10 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_encodedata_isbase) {
             kdirmodel_encodedata_isbase = false;
             KDirModel::encodeData(indexes, stream);
-        } else if (kdirmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = kdirmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1241,11 +1238,11 @@ class VirtualKDirModel final : public KDirModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            kdirmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KDirModel::encodeData(indexes, stream);
+            return;
         }
+        KDirModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,7 +1250,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_decodedata_isbase) {
             kdirmodel_decodedata_isbase = false;
             return KDirModel::decodeData(row, column, parent, stream);
-        } else if (kdirmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = kdirmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1263,11 +1262,10 @@ class VirtualKDirModel final : public KDirModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = kdirmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KDirModel::decodeData(row, column, parent, stream);
         }
+        return KDirModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1275,17 +1273,20 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_begininsertrows_isbase) {
             kdirmodel_begininsertrows_isbase = false;
             KDirModel::beginInsertRows(parent, first, last);
-        } else if (kdirmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = kdirmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kdirmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KDirModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KDirModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1293,11 +1294,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endinsertrows_isbase) {
             kdirmodel_endinsertrows_isbase = false;
             KDirModel::endInsertRows();
-        } else if (kdirmodel_endinsertrows_callback != nullptr) {
-            kdirmodel_endinsertrows_callback();
-        } else {
-            KDirModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = kdirmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KDirModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,17 +1309,20 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_beginremoverows_isbase) {
             kdirmodel_beginremoverows_isbase = false;
             KDirModel::beginRemoveRows(parent, first, last);
-        } else if (kdirmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = kdirmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kdirmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KDirModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KDirModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,11 +1330,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endremoverows_isbase) {
             kdirmodel_endremoverows_isbase = false;
             KDirModel::endRemoveRows();
-        } else if (kdirmodel_endremoverows_callback != nullptr) {
-            kdirmodel_endremoverows_callback();
-        } else {
-            KDirModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = kdirmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KDirModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,7 +1345,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_beginmoverows_isbase) {
             kdirmodel_beginmoverows_isbase = false;
             return KDirModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (kdirmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = kdirmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1346,11 +1358,10 @@ class VirtualKDirModel final : public KDirModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = kdirmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KDirModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KDirModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,11 +1369,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endmoverows_isbase) {
             kdirmodel_endmoverows_isbase = false;
             KDirModel::endMoveRows();
-        } else if (kdirmodel_endmoverows_callback != nullptr) {
-            kdirmodel_endmoverows_callback();
-        } else {
-            KDirModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = kdirmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KDirModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1370,17 +1384,20 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_begininsertcolumns_isbase) {
             kdirmodel_begininsertcolumns_isbase = false;
             KDirModel::beginInsertColumns(parent, first, last);
-        } else if (kdirmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = kdirmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kdirmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KDirModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KDirModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1388,11 +1405,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endinsertcolumns_isbase) {
             kdirmodel_endinsertcolumns_isbase = false;
             KDirModel::endInsertColumns();
-        } else if (kdirmodel_endinsertcolumns_callback != nullptr) {
-            kdirmodel_endinsertcolumns_callback();
-        } else {
-            KDirModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = kdirmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KDirModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1400,17 +1420,20 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_beginremovecolumns_isbase) {
             kdirmodel_beginremovecolumns_isbase = false;
             KDirModel::beginRemoveColumns(parent, first, last);
-        } else if (kdirmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = kdirmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kdirmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KDirModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KDirModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1418,11 +1441,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endremovecolumns_isbase) {
             kdirmodel_endremovecolumns_isbase = false;
             KDirModel::endRemoveColumns();
-        } else if (kdirmodel_endremovecolumns_callback != nullptr) {
-            kdirmodel_endremovecolumns_callback();
-        } else {
-            KDirModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = kdirmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KDirModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1430,7 +1456,9 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_beginmovecolumns_isbase) {
             kdirmodel_beginmovecolumns_isbase = false;
             return KDirModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (kdirmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = kdirmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1441,11 +1469,10 @@ class VirtualKDirModel final : public KDirModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = kdirmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KDirModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KDirModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1453,11 +1480,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endmovecolumns_isbase) {
             kdirmodel_endmovecolumns_isbase = false;
             KDirModel::endMoveColumns();
-        } else if (kdirmodel_endmovecolumns_callback != nullptr) {
-            kdirmodel_endmovecolumns_callback();
-        } else {
-            KDirModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = kdirmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KDirModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1465,11 +1495,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_beginresetmodel_isbase) {
             kdirmodel_beginresetmodel_isbase = false;
             KDirModel::beginResetModel();
-        } else if (kdirmodel_beginresetmodel_callback != nullptr) {
-            kdirmodel_beginresetmodel_callback();
-        } else {
-            KDirModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = kdirmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KDirModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1477,11 +1510,14 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_endresetmodel_isbase) {
             kdirmodel_endresetmodel_isbase = false;
             KDirModel::endResetModel();
-        } else if (kdirmodel_endresetmodel_callback != nullptr) {
-            kdirmodel_endresetmodel_callback();
-        } else {
-            KDirModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = kdirmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KDirModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1489,7 +1525,10 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_changepersistentindex_isbase) {
             kdirmodel_changepersistentindex_isbase = false;
             KDirModel::changePersistentIndex(from, to);
-        } else if (kdirmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = kdirmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1497,10 +1536,10 @@ class VirtualKDirModel final : public KDirModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            kdirmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KDirModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KDirModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,7 +1547,10 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_changepersistentindexlist_isbase) {
             kdirmodel_changepersistentindexlist_isbase = false;
             KDirModel::changePersistentIndexList(from, to);
-        } else if (kdirmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = kdirmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1530,12 +1572,12 @@ class VirtualKDirModel final : public KDirModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            kdirmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KDirModel::changePersistentIndexList(from, to);
+            return;
         }
+        KDirModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1543,8 +1585,10 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_persistentindexlist_isbase) {
             kdirmodel_persistentindexlist_isbase = false;
             return KDirModel::persistentIndexList();
-        } else if (kdirmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kdirmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = kdirmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1553,9 +1597,8 @@ class VirtualKDirModel final : public KDirModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KDirModel::persistentIndexList();
         }
+        return KDirModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1563,12 +1606,13 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_sender_isbase) {
             kdirmodel_sender_isbase = false;
             return KDirModel::sender();
-        } else if (kdirmodel_sender_callback != nullptr) {
-            QObject* callback_ret = kdirmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KDirModel::sender();
         }
+        auto sender_cb = kdirmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDirModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1576,12 +1620,13 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_sendersignalindex_isbase) {
             kdirmodel_sendersignalindex_isbase = false;
             return KDirModel::senderSignalIndex();
-        } else if (kdirmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdirmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDirModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdirmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDirModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1589,14 +1634,15 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_receivers_isbase) {
             kdirmodel_receivers_isbase = false;
             return KDirModel::receivers(signal);
-        } else if (kdirmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdirmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdirmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirModel::receivers(signal);
         }
+        return KDirModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1604,16 +1650,17 @@ class VirtualKDirModel final : public KDirModel {
         if (kdirmodel_issignalconnected_isbase) {
             kdirmodel_issignalconnected_isbase = false;
             return KDirModel::isSignalConnected(signal);
-        } else if (kdirmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdirmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdirmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirModel::isSignalConnected(signal);
         }
+        return KDirModel::isSignalConnected(signal);
     }
 
     // Friend functions

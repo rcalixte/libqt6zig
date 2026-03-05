@@ -219,72 +219,6 @@ class VirtualKUrlLabel final : public KUrlLabel {
     VirtualKUrlLabel(const QString& url, const QString& text) : KUrlLabel(url, text) {};
     VirtualKUrlLabel(const QString& url, const QString& text, QWidget* parent) : KUrlLabel(url, text, parent) {};
 
-    ~VirtualKUrlLabel() {
-        kurllabel_metaobject_callback = nullptr;
-        kurllabel_metacast_callback = nullptr;
-        kurllabel_metacall_callback = nullptr;
-        kurllabel_setfont_callback = nullptr;
-        kurllabel_mousereleaseevent_callback = nullptr;
-        kurllabel_enterevent_callback = nullptr;
-        kurllabel_leaveevent_callback = nullptr;
-        kurllabel_event_callback = nullptr;
-        kurllabel_sizehint_callback = nullptr;
-        kurllabel_minimumsizehint_callback = nullptr;
-        kurllabel_heightforwidth_callback = nullptr;
-        kurllabel_keypressevent_callback = nullptr;
-        kurllabel_paintevent_callback = nullptr;
-        kurllabel_changeevent_callback = nullptr;
-        kurllabel_mousepressevent_callback = nullptr;
-        kurllabel_mousemoveevent_callback = nullptr;
-        kurllabel_contextmenuevent_callback = nullptr;
-        kurllabel_focusinevent_callback = nullptr;
-        kurllabel_focusoutevent_callback = nullptr;
-        kurllabel_focusnextprevchild_callback = nullptr;
-        kurllabel_initstyleoption_callback = nullptr;
-        kurllabel_devtype_callback = nullptr;
-        kurllabel_setvisible_callback = nullptr;
-        kurllabel_hasheightforwidth_callback = nullptr;
-        kurllabel_paintengine_callback = nullptr;
-        kurllabel_mousedoubleclickevent_callback = nullptr;
-        kurllabel_wheelevent_callback = nullptr;
-        kurllabel_keyreleaseevent_callback = nullptr;
-        kurllabel_moveevent_callback = nullptr;
-        kurllabel_resizeevent_callback = nullptr;
-        kurllabel_closeevent_callback = nullptr;
-        kurllabel_tabletevent_callback = nullptr;
-        kurllabel_actionevent_callback = nullptr;
-        kurllabel_dragenterevent_callback = nullptr;
-        kurllabel_dragmoveevent_callback = nullptr;
-        kurllabel_dragleaveevent_callback = nullptr;
-        kurllabel_dropevent_callback = nullptr;
-        kurllabel_showevent_callback = nullptr;
-        kurllabel_hideevent_callback = nullptr;
-        kurllabel_nativeevent_callback = nullptr;
-        kurllabel_metric_callback = nullptr;
-        kurllabel_initpainter_callback = nullptr;
-        kurllabel_redirected_callback = nullptr;
-        kurllabel_sharedpainter_callback = nullptr;
-        kurllabel_inputmethodevent_callback = nullptr;
-        kurllabel_inputmethodquery_callback = nullptr;
-        kurllabel_eventfilter_callback = nullptr;
-        kurllabel_timerevent_callback = nullptr;
-        kurllabel_childevent_callback = nullptr;
-        kurllabel_customevent_callback = nullptr;
-        kurllabel_connectnotify_callback = nullptr;
-        kurllabel_disconnectnotify_callback = nullptr;
-        kurllabel_drawframe_callback = nullptr;
-        kurllabel_updatemicrofocus_callback = nullptr;
-        kurllabel_create_callback = nullptr;
-        kurllabel_destroy_callback = nullptr;
-        kurllabel_focusnextchild_callback = nullptr;
-        kurllabel_focuspreviouschild_callback = nullptr;
-        kurllabel_sender_callback = nullptr;
-        kurllabel_sendersignalindex_callback = nullptr;
-        kurllabel_receivers_callback = nullptr;
-        kurllabel_issignalconnected_callback = nullptr;
-        kurllabel_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKUrlLabel_MetaObject_Callback(KUrlLabel_MetaObject_Callback cb) { kurllabel_metaobject_callback = cb; }
     inline void setKUrlLabel_Metacast_Callback(KUrlLabel_Metacast_Callback cb) { kurllabel_metacast_callback = cb; }
@@ -420,12 +354,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_metaobject_isbase) {
             kurllabel_metaobject_isbase = false;
             return KUrlLabel::metaObject();
-        } else if (kurllabel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kurllabel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::metaObject();
         }
+        auto metaobject_cb = kurllabel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,14 +368,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_metacast_isbase) {
             kurllabel_metacast_isbase = false;
             return KUrlLabel::qt_metacast(param1);
-        } else if (kurllabel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kurllabel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kurllabel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlLabel::qt_metacast(param1);
         }
+        return KUrlLabel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -448,16 +384,17 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_metacall_isbase) {
             kurllabel_metacall_isbase = false;
             return KUrlLabel::qt_metacall(param1, param2, param3);
-        } else if (kurllabel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kurllabel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kurllabel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlLabel::qt_metacall(param1, param2, param3);
         }
+        return KUrlLabel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,15 +402,18 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_setfont_isbase) {
             kurllabel_setfont_isbase = false;
             KUrlLabel::setFont(font);
-        } else if (kurllabel_setfont_callback != nullptr) {
+            return;
+        }
+        auto setfont_cb = kurllabel_setfont_callback;
+        if (setfont_cb) {
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&font_ret);
 
-            kurllabel_setfont_callback(this, cbval1);
-        } else {
-            KUrlLabel::setFont(font);
+            setfont_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::setFont(font);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,13 +421,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_mousereleaseevent_isbase) {
             kurllabel_mousereleaseevent_isbase = false;
             KUrlLabel::mouseReleaseEvent(param1);
-        } else if (kurllabel_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kurllabel_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kurllabel_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,13 +438,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_enterevent_isbase) {
             kurllabel_enterevent_isbase = false;
             KUrlLabel::enterEvent(event);
-        } else if (kurllabel_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kurllabel_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kurllabel_enterevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +455,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_leaveevent_isbase) {
             kurllabel_leaveevent_isbase = false;
             KUrlLabel::leaveEvent(param1);
-        } else if (kurllabel_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kurllabel_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            kurllabel_leaveevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,14 +472,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_event_isbase) {
             kurllabel_event_isbase = false;
             return KUrlLabel::event(param1);
-        } else if (kurllabel_event_callback != nullptr) {
+        }
+        auto event_cb = kurllabel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kurllabel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlLabel::event(param1);
         }
+        return KUrlLabel::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,12 +488,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_sizehint_isbase) {
             kurllabel_sizehint_isbase = false;
             return KUrlLabel::sizeHint();
-        } else if (kurllabel_sizehint_callback != nullptr) {
-            QSize* callback_ret = kurllabel_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlLabel::sizeHint();
         }
+        auto sizehint_cb = kurllabel_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlLabel::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,12 +502,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_minimumsizehint_isbase) {
             kurllabel_minimumsizehint_isbase = false;
             return KUrlLabel::minimumSizeHint();
-        } else if (kurllabel_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kurllabel_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlLabel::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kurllabel_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlLabel::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,14 +516,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_heightforwidth_isbase) {
             kurllabel_heightforwidth_isbase = false;
             return KUrlLabel::heightForWidth(param1);
-        } else if (kurllabel_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kurllabel_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kurllabel_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlLabel::heightForWidth(param1);
         }
+        return KUrlLabel::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,13 +532,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_keypressevent_isbase) {
             kurllabel_keypressevent_isbase = false;
             KUrlLabel::keyPressEvent(ev);
-        } else if (kurllabel_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kurllabel_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            kurllabel_keypressevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,13 +549,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_paintevent_isbase) {
             kurllabel_paintevent_isbase = false;
             KUrlLabel::paintEvent(param1);
-        } else if (kurllabel_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kurllabel_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kurllabel_paintevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +566,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_changeevent_isbase) {
             kurllabel_changeevent_isbase = false;
             KUrlLabel::changeEvent(param1);
-        } else if (kurllabel_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kurllabel_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kurllabel_changeevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,13 +583,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_mousepressevent_isbase) {
             kurllabel_mousepressevent_isbase = false;
             KUrlLabel::mousePressEvent(ev);
-        } else if (kurllabel_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kurllabel_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            kurllabel_mousepressevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::mousePressEvent(ev);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::mousePressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +600,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_mousemoveevent_isbase) {
             kurllabel_mousemoveevent_isbase = false;
             KUrlLabel::mouseMoveEvent(ev);
-        } else if (kurllabel_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kurllabel_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = ev;
 
-            kurllabel_mousemoveevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::mouseMoveEvent(ev);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::mouseMoveEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +617,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_contextmenuevent_isbase) {
             kurllabel_contextmenuevent_isbase = false;
             KUrlLabel::contextMenuEvent(ev);
-        } else if (kurllabel_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kurllabel_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = ev;
 
-            kurllabel_contextmenuevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::contextMenuEvent(ev);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::contextMenuEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +634,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_focusinevent_isbase) {
             kurllabel_focusinevent_isbase = false;
             KUrlLabel::focusInEvent(ev);
-        } else if (kurllabel_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kurllabel_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = ev;
 
-            kurllabel_focusinevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::focusInEvent(ev);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::focusInEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +651,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_focusoutevent_isbase) {
             kurllabel_focusoutevent_isbase = false;
             KUrlLabel::focusOutEvent(ev);
-        } else if (kurllabel_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kurllabel_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = ev;
 
-            kurllabel_focusoutevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::focusOutEvent(ev);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::focusOutEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,14 +668,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_focusnextprevchild_isbase) {
             kurllabel_focusnextprevchild_isbase = false;
             return KUrlLabel::focusNextPrevChild(next);
-        } else if (kurllabel_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kurllabel_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kurllabel_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlLabel::focusNextPrevChild(next);
         }
+        return KUrlLabel::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,13 +684,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_initstyleoption_isbase) {
             kurllabel_initstyleoption_isbase = false;
             KUrlLabel::initStyleOption(option);
-        } else if (kurllabel_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kurllabel_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kurllabel_initstyleoption_callback(this, cbval1);
-        } else {
-            KUrlLabel::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -720,12 +701,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_devtype_isbase) {
             kurllabel_devtype_isbase = false;
             return KUrlLabel::devType();
-        } else if (kurllabel_devtype_callback != nullptr) {
-            int callback_ret = kurllabel_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlLabel::devType();
         }
+        auto devtype_cb = kurllabel_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlLabel::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +715,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_setvisible_isbase) {
             kurllabel_setvisible_isbase = false;
             KUrlLabel::setVisible(visible);
-        } else if (kurllabel_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kurllabel_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kurllabel_setvisible_callback(this, cbval1);
-        } else {
-            KUrlLabel::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,12 +732,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_hasheightforwidth_isbase) {
             kurllabel_hasheightforwidth_isbase = false;
             return KUrlLabel::hasHeightForWidth();
-        } else if (kurllabel_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kurllabel_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kurllabel_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,12 +746,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_paintengine_isbase) {
             kurllabel_paintengine_isbase = false;
             return KUrlLabel::paintEngine();
-        } else if (kurllabel_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kurllabel_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::paintEngine();
         }
+        auto paintengine_cb = kurllabel_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +760,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_mousedoubleclickevent_isbase) {
             kurllabel_mousedoubleclickevent_isbase = false;
             KUrlLabel::mouseDoubleClickEvent(event);
-        } else if (kurllabel_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kurllabel_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurllabel_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +777,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_wheelevent_isbase) {
             kurllabel_wheelevent_isbase = false;
             KUrlLabel::wheelEvent(event);
-        } else if (kurllabel_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kurllabel_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kurllabel_wheelevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +794,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_keyreleaseevent_isbase) {
             kurllabel_keyreleaseevent_isbase = false;
             KUrlLabel::keyReleaseEvent(event);
-        } else if (kurllabel_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kurllabel_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kurllabel_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +811,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_moveevent_isbase) {
             kurllabel_moveevent_isbase = false;
             KUrlLabel::moveEvent(event);
-        } else if (kurllabel_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kurllabel_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kurllabel_moveevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +828,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_resizeevent_isbase) {
             kurllabel_resizeevent_isbase = false;
             KUrlLabel::resizeEvent(event);
-        } else if (kurllabel_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kurllabel_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kurllabel_resizeevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +845,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_closeevent_isbase) {
             kurllabel_closeevent_isbase = false;
             KUrlLabel::closeEvent(event);
-        } else if (kurllabel_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kurllabel_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kurllabel_closeevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +862,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_tabletevent_isbase) {
             kurllabel_tabletevent_isbase = false;
             KUrlLabel::tabletEvent(event);
-        } else if (kurllabel_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kurllabel_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kurllabel_tabletevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +879,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_actionevent_isbase) {
             kurllabel_actionevent_isbase = false;
             KUrlLabel::actionEvent(event);
-        } else if (kurllabel_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kurllabel_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kurllabel_actionevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +896,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_dragenterevent_isbase) {
             kurllabel_dragenterevent_isbase = false;
             KUrlLabel::dragEnterEvent(event);
-        } else if (kurllabel_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kurllabel_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kurllabel_dragenterevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +913,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_dragmoveevent_isbase) {
             kurllabel_dragmoveevent_isbase = false;
             KUrlLabel::dragMoveEvent(event);
-        } else if (kurllabel_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kurllabel_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kurllabel_dragmoveevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +930,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_dragleaveevent_isbase) {
             kurllabel_dragleaveevent_isbase = false;
             KUrlLabel::dragLeaveEvent(event);
-        } else if (kurllabel_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kurllabel_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kurllabel_dragleaveevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +947,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_dropevent_isbase) {
             kurllabel_dropevent_isbase = false;
             KUrlLabel::dropEvent(event);
-        } else if (kurllabel_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kurllabel_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kurllabel_dropevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +964,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_showevent_isbase) {
             kurllabel_showevent_isbase = false;
             KUrlLabel::showEvent(event);
-        } else if (kurllabel_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kurllabel_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kurllabel_showevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +981,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_hideevent_isbase) {
             kurllabel_hideevent_isbase = false;
             KUrlLabel::hideEvent(event);
-        } else if (kurllabel_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kurllabel_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kurllabel_hideevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,7 +998,9 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_nativeevent_isbase) {
             kurllabel_nativeevent_isbase = false;
             return KUrlLabel::nativeEvent(eventType, message, result);
-        } else if (kurllabel_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kurllabel_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -980,12 +1011,11 @@ class VirtualKUrlLabel final : public KUrlLabel {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kurllabel_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KUrlLabel::nativeEvent(eventType, message, result);
         }
+        return KUrlLabel::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,14 +1023,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_metric_isbase) {
             kurllabel_metric_isbase = false;
             return KUrlLabel::metric(param1);
-        } else if (kurllabel_metric_callback != nullptr) {
+        }
+        auto metric_cb = kurllabel_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kurllabel_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlLabel::metric(param1);
         }
+        return KUrlLabel::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,13 +1039,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_initpainter_isbase) {
             kurllabel_initpainter_isbase = false;
             KUrlLabel::initPainter(painter);
-        } else if (kurllabel_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kurllabel_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kurllabel_initpainter_callback(this, cbval1);
-        } else {
-            KUrlLabel::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,14 +1056,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_redirected_isbase) {
             kurllabel_redirected_isbase = false;
             return KUrlLabel::redirected(offset);
-        } else if (kurllabel_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kurllabel_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kurllabel_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlLabel::redirected(offset);
         }
+        return KUrlLabel::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,12 +1072,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_sharedpainter_isbase) {
             kurllabel_sharedpainter_isbase = false;
             return KUrlLabel::sharedPainter();
-        } else if (kurllabel_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kurllabel_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::sharedPainter();
         }
+        auto sharedpainter_cb = kurllabel_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,13 +1086,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_inputmethodevent_isbase) {
             kurllabel_inputmethodevent_isbase = false;
             KUrlLabel::inputMethodEvent(param1);
-        } else if (kurllabel_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kurllabel_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kurllabel_inputmethodevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,14 +1103,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_inputmethodquery_isbase) {
             kurllabel_inputmethodquery_isbase = false;
             return KUrlLabel::inputMethodQuery(param1);
-        } else if (kurllabel_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kurllabel_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kurllabel_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KUrlLabel::inputMethodQuery(param1);
         }
+        return KUrlLabel::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,15 +1119,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_eventfilter_isbase) {
             kurllabel_eventfilter_isbase = false;
             return KUrlLabel::eventFilter(watched, event);
-        } else if (kurllabel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kurllabel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kurllabel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KUrlLabel::eventFilter(watched, event);
         }
+        return KUrlLabel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1095,13 +1136,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_timerevent_isbase) {
             kurllabel_timerevent_isbase = false;
             KUrlLabel::timerEvent(event);
-        } else if (kurllabel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kurllabel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kurllabel_timerevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1109,13 +1153,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_childevent_isbase) {
             kurllabel_childevent_isbase = false;
             KUrlLabel::childEvent(event);
-        } else if (kurllabel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kurllabel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kurllabel_childevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1123,13 +1170,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_customevent_isbase) {
             kurllabel_customevent_isbase = false;
             KUrlLabel::customEvent(event);
-        } else if (kurllabel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kurllabel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kurllabel_customevent_callback(this, cbval1);
-        } else {
-            KUrlLabel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,15 +1187,18 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_connectnotify_isbase) {
             kurllabel_connectnotify_isbase = false;
             KUrlLabel::connectNotify(signal);
-        } else if (kurllabel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kurllabel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurllabel_connectnotify_callback(this, cbval1);
-        } else {
-            KUrlLabel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,15 +1206,18 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_disconnectnotify_isbase) {
             kurllabel_disconnectnotify_isbase = false;
             KUrlLabel::disconnectNotify(signal);
-        } else if (kurllabel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kurllabel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurllabel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KUrlLabel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,13 +1225,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_drawframe_isbase) {
             kurllabel_drawframe_isbase = false;
             KUrlLabel::drawFrame(param1);
-        } else if (kurllabel_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kurllabel_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kurllabel_drawframe_callback(this, cbval1);
-        } else {
-            KUrlLabel::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KUrlLabel::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,11 +1242,14 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_updatemicrofocus_isbase) {
             kurllabel_updatemicrofocus_isbase = false;
             KUrlLabel::updateMicroFocus();
-        } else if (kurllabel_updatemicrofocus_callback != nullptr) {
-            kurllabel_updatemicrofocus_callback();
-        } else {
-            KUrlLabel::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kurllabel_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KUrlLabel::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,11 +1257,14 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_create_isbase) {
             kurllabel_create_isbase = false;
             KUrlLabel::create();
-        } else if (kurllabel_create_callback != nullptr) {
-            kurllabel_create_callback();
-        } else {
-            KUrlLabel::create();
+            return;
         }
+        auto create_cb = kurllabel_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KUrlLabel::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,11 +1272,14 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_destroy_isbase) {
             kurllabel_destroy_isbase = false;
             KUrlLabel::destroy();
-        } else if (kurllabel_destroy_callback != nullptr) {
-            kurllabel_destroy_callback();
-        } else {
-            KUrlLabel::destroy();
+            return;
         }
+        auto destroy_cb = kurllabel_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KUrlLabel::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,12 +1287,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_focusnextchild_isbase) {
             kurllabel_focusnextchild_isbase = false;
             return KUrlLabel::focusNextChild();
-        } else if (kurllabel_focusnextchild_callback != nullptr) {
-            bool callback_ret = kurllabel_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::focusNextChild();
         }
+        auto focusnextchild_cb = kurllabel_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,12 +1301,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_focuspreviouschild_isbase) {
             kurllabel_focuspreviouschild_isbase = false;
             return KUrlLabel::focusPreviousChild();
-        } else if (kurllabel_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kurllabel_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kurllabel_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,12 +1315,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_sender_isbase) {
             kurllabel_sender_isbase = false;
             return KUrlLabel::sender();
-        } else if (kurllabel_sender_callback != nullptr) {
-            QObject* callback_ret = kurllabel_sender_callback();
-            return callback_ret;
-        } else {
-            return KUrlLabel::sender();
         }
+        auto sender_cb = kurllabel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KUrlLabel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,12 +1329,13 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_sendersignalindex_isbase) {
             kurllabel_sendersignalindex_isbase = false;
             return KUrlLabel::senderSignalIndex();
-        } else if (kurllabel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kurllabel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlLabel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kurllabel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlLabel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,14 +1343,15 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_receivers_isbase) {
             kurllabel_receivers_isbase = false;
             return KUrlLabel::receivers(signal);
-        } else if (kurllabel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kurllabel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kurllabel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlLabel::receivers(signal);
         }
+        return KUrlLabel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1286,16 +1359,17 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_issignalconnected_isbase) {
             kurllabel_issignalconnected_isbase = false;
             return KUrlLabel::isSignalConnected(signal);
-        } else if (kurllabel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kurllabel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kurllabel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlLabel::isSignalConnected(signal);
         }
+        return KUrlLabel::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1303,15 +1377,16 @@ class VirtualKUrlLabel final : public KUrlLabel {
         if (kurllabel_getdecodedmetricf_isbase) {
             kurllabel_getdecodedmetricf_isbase = false;
             return KUrlLabel::getDecodedMetricF(metricA, metricB);
-        } else if (kurllabel_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kurllabel_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kurllabel_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KUrlLabel::getDecodedMetricF(metricA, metricB);
         }
+        return KUrlLabel::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

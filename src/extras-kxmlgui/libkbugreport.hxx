@@ -228,76 +228,6 @@ class VirtualKBugReport final : public KBugReport {
     VirtualKBugReport(const KAboutData& aboutData) : KBugReport(aboutData) {};
     VirtualKBugReport(const KAboutData& aboutData, QWidget* parent) : KBugReport(aboutData, parent) {};
 
-    ~VirtualKBugReport() {
-        kbugreport_metaobject_callback = nullptr;
-        kbugreport_metacast_callback = nullptr;
-        kbugreport_metacall_callback = nullptr;
-        kbugreport_accept_callback = nullptr;
-        kbugreport_setvisible_callback = nullptr;
-        kbugreport_sizehint_callback = nullptr;
-        kbugreport_minimumsizehint_callback = nullptr;
-        kbugreport_open_callback = nullptr;
-        kbugreport_exec_callback = nullptr;
-        kbugreport_done_callback = nullptr;
-        kbugreport_reject_callback = nullptr;
-        kbugreport_keypressevent_callback = nullptr;
-        kbugreport_closeevent_callback = nullptr;
-        kbugreport_showevent_callback = nullptr;
-        kbugreport_resizeevent_callback = nullptr;
-        kbugreport_contextmenuevent_callback = nullptr;
-        kbugreport_eventfilter_callback = nullptr;
-        kbugreport_devtype_callback = nullptr;
-        kbugreport_heightforwidth_callback = nullptr;
-        kbugreport_hasheightforwidth_callback = nullptr;
-        kbugreport_paintengine_callback = nullptr;
-        kbugreport_event_callback = nullptr;
-        kbugreport_mousepressevent_callback = nullptr;
-        kbugreport_mousereleaseevent_callback = nullptr;
-        kbugreport_mousedoubleclickevent_callback = nullptr;
-        kbugreport_mousemoveevent_callback = nullptr;
-        kbugreport_wheelevent_callback = nullptr;
-        kbugreport_keyreleaseevent_callback = nullptr;
-        kbugreport_focusinevent_callback = nullptr;
-        kbugreport_focusoutevent_callback = nullptr;
-        kbugreport_enterevent_callback = nullptr;
-        kbugreport_leaveevent_callback = nullptr;
-        kbugreport_paintevent_callback = nullptr;
-        kbugreport_moveevent_callback = nullptr;
-        kbugreport_tabletevent_callback = nullptr;
-        kbugreport_actionevent_callback = nullptr;
-        kbugreport_dragenterevent_callback = nullptr;
-        kbugreport_dragmoveevent_callback = nullptr;
-        kbugreport_dragleaveevent_callback = nullptr;
-        kbugreport_dropevent_callback = nullptr;
-        kbugreport_hideevent_callback = nullptr;
-        kbugreport_nativeevent_callback = nullptr;
-        kbugreport_changeevent_callback = nullptr;
-        kbugreport_metric_callback = nullptr;
-        kbugreport_initpainter_callback = nullptr;
-        kbugreport_redirected_callback = nullptr;
-        kbugreport_sharedpainter_callback = nullptr;
-        kbugreport_inputmethodevent_callback = nullptr;
-        kbugreport_inputmethodquery_callback = nullptr;
-        kbugreport_focusnextprevchild_callback = nullptr;
-        kbugreport_timerevent_callback = nullptr;
-        kbugreport_childevent_callback = nullptr;
-        kbugreport_customevent_callback = nullptr;
-        kbugreport_connectnotify_callback = nullptr;
-        kbugreport_disconnectnotify_callback = nullptr;
-        kbugreport_sendbugreport_callback = nullptr;
-        kbugreport_adjustposition_callback = nullptr;
-        kbugreport_updatemicrofocus_callback = nullptr;
-        kbugreport_create_callback = nullptr;
-        kbugreport_destroy_callback = nullptr;
-        kbugreport_focusnextchild_callback = nullptr;
-        kbugreport_focuspreviouschild_callback = nullptr;
-        kbugreport_sender_callback = nullptr;
-        kbugreport_sendersignalindex_callback = nullptr;
-        kbugreport_receivers_callback = nullptr;
-        kbugreport_issignalconnected_callback = nullptr;
-        kbugreport_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKBugReport_MetaObject_Callback(KBugReport_MetaObject_Callback cb) { kbugreport_metaobject_callback = cb; }
     inline void setKBugReport_Metacast_Callback(KBugReport_Metacast_Callback cb) { kbugreport_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_metaobject_isbase) {
             kbugreport_metaobject_isbase = false;
             return KBugReport::metaObject();
-        } else if (kbugreport_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kbugreport_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::metaObject();
         }
+        auto metaobject_cb = kbugreport_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KBugReport::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_metacast_isbase) {
             kbugreport_metacast_isbase = false;
             return KBugReport::qt_metacast(param1);
-        } else if (kbugreport_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kbugreport_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kbugreport_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBugReport::qt_metacast(param1);
         }
+        return KBugReport::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_metacall_isbase) {
             kbugreport_metacall_isbase = false;
             return KBugReport::qt_metacall(param1, param2, param3);
-        } else if (kbugreport_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kbugreport_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kbugreport_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::qt_metacall(param1, param2, param3);
         }
+        return KBugReport::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,11 +419,14 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_accept_isbase) {
             kbugreport_accept_isbase = false;
             KBugReport::accept();
-        } else if (kbugreport_accept_callback != nullptr) {
-            kbugreport_accept_callback();
-        } else {
-            KBugReport::accept();
+            return;
         }
+        auto accept_cb = kbugreport_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KBugReport::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,13 +434,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_setvisible_isbase) {
             kbugreport_setvisible_isbase = false;
             KBugReport::setVisible(visible);
-        } else if (kbugreport_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kbugreport_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kbugreport_setvisible_callback(this, cbval1);
-        } else {
-            KBugReport::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KBugReport::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +451,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_sizehint_isbase) {
             kbugreport_sizehint_isbase = false;
             return KBugReport::sizeHint();
-        } else if (kbugreport_sizehint_callback != nullptr) {
-            QSize* callback_ret = kbugreport_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KBugReport::sizeHint();
         }
+        auto sizehint_cb = kbugreport_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KBugReport::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +465,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_minimumsizehint_isbase) {
             kbugreport_minimumsizehint_isbase = false;
             return KBugReport::minimumSizeHint();
-        } else if (kbugreport_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kbugreport_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KBugReport::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kbugreport_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KBugReport::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,11 +479,14 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_open_isbase) {
             kbugreport_open_isbase = false;
             KBugReport::open();
-        } else if (kbugreport_open_callback != nullptr) {
-            kbugreport_open_callback();
-        } else {
-            KBugReport::open();
+            return;
         }
+        auto open_cb = kbugreport_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KBugReport::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,12 +494,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_exec_isbase) {
             kbugreport_exec_isbase = false;
             return KBugReport::exec();
-        } else if (kbugreport_exec_callback != nullptr) {
-            int callback_ret = kbugreport_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::exec();
         }
+        auto exec_cb = kbugreport_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBugReport::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -563,13 +508,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_done_isbase) {
             kbugreport_done_isbase = false;
             KBugReport::done(param1);
-        } else if (kbugreport_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kbugreport_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kbugreport_done_callback(this, cbval1);
-        } else {
-            KBugReport::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KBugReport::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,11 +525,14 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_reject_isbase) {
             kbugreport_reject_isbase = false;
             KBugReport::reject();
-        } else if (kbugreport_reject_callback != nullptr) {
-            kbugreport_reject_callback();
-        } else {
-            KBugReport::reject();
+            return;
         }
+        auto reject_cb = kbugreport_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KBugReport::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -589,13 +540,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_keypressevent_isbase) {
             kbugreport_keypressevent_isbase = false;
             KBugReport::keyPressEvent(param1);
-        } else if (kbugreport_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kbugreport_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kbugreport_keypressevent_callback(this, cbval1);
-        } else {
-            KBugReport::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,13 +557,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_closeevent_isbase) {
             kbugreport_closeevent_isbase = false;
             KBugReport::closeEvent(param1);
-        } else if (kbugreport_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kbugreport_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kbugreport_closeevent_callback(this, cbval1);
-        } else {
-            KBugReport::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +574,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_showevent_isbase) {
             kbugreport_showevent_isbase = false;
             KBugReport::showEvent(param1);
-        } else if (kbugreport_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kbugreport_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kbugreport_showevent_callback(this, cbval1);
-        } else {
-            KBugReport::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +591,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_resizeevent_isbase) {
             kbugreport_resizeevent_isbase = false;
             KBugReport::resizeEvent(param1);
-        } else if (kbugreport_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kbugreport_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kbugreport_resizeevent_callback(this, cbval1);
-        } else {
-            KBugReport::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +608,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_contextmenuevent_isbase) {
             kbugreport_contextmenuevent_isbase = false;
             KBugReport::contextMenuEvent(param1);
-        } else if (kbugreport_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kbugreport_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kbugreport_contextmenuevent_callback(this, cbval1);
-        } else {
-            KBugReport::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,15 +625,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_eventfilter_isbase) {
             kbugreport_eventfilter_isbase = false;
             return KBugReport::eventFilter(param1, param2);
-        } else if (kbugreport_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kbugreport_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kbugreport_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KBugReport::eventFilter(param1, param2);
         }
+        return KBugReport::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,12 +642,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_devtype_isbase) {
             kbugreport_devtype_isbase = false;
             return KBugReport::devType();
-        } else if (kbugreport_devtype_callback != nullptr) {
-            int callback_ret = kbugreport_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::devType();
         }
+        auto devtype_cb = kbugreport_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBugReport::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,14 +656,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_heightforwidth_isbase) {
             kbugreport_heightforwidth_isbase = false;
             return KBugReport::heightForWidth(param1);
-        } else if (kbugreport_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kbugreport_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kbugreport_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::heightForWidth(param1);
         }
+        return KBugReport::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,12 +672,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_hasheightforwidth_isbase) {
             kbugreport_hasheightforwidth_isbase = false;
             return KBugReport::hasHeightForWidth();
-        } else if (kbugreport_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kbugreport_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kbugreport_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KBugReport::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,12 +686,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_paintengine_isbase) {
             kbugreport_paintengine_isbase = false;
             return KBugReport::paintEngine();
-        } else if (kbugreport_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kbugreport_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::paintEngine();
         }
+        auto paintengine_cb = kbugreport_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KBugReport::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,14 +700,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_event_isbase) {
             kbugreport_event_isbase = false;
             return KBugReport::event(event);
-        } else if (kbugreport_event_callback != nullptr) {
+        }
+        auto event_cb = kbugreport_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kbugreport_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBugReport::event(event);
         }
+        return KBugReport::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +716,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_mousepressevent_isbase) {
             kbugreport_mousepressevent_isbase = false;
             KBugReport::mousePressEvent(event);
-        } else if (kbugreport_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kbugreport_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbugreport_mousepressevent_callback(this, cbval1);
-        } else {
-            KBugReport::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +733,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_mousereleaseevent_isbase) {
             kbugreport_mousereleaseevent_isbase = false;
             KBugReport::mouseReleaseEvent(event);
-        } else if (kbugreport_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kbugreport_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbugreport_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KBugReport::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +750,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_mousedoubleclickevent_isbase) {
             kbugreport_mousedoubleclickevent_isbase = false;
             KBugReport::mouseDoubleClickEvent(event);
-        } else if (kbugreport_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kbugreport_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbugreport_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KBugReport::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +767,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_mousemoveevent_isbase) {
             kbugreport_mousemoveevent_isbase = false;
             KBugReport::mouseMoveEvent(event);
-        } else if (kbugreport_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kbugreport_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kbugreport_mousemoveevent_callback(this, cbval1);
-        } else {
-            KBugReport::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +784,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_wheelevent_isbase) {
             kbugreport_wheelevent_isbase = false;
             KBugReport::wheelEvent(event);
-        } else if (kbugreport_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kbugreport_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kbugreport_wheelevent_callback(this, cbval1);
-        } else {
-            KBugReport::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +801,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_keyreleaseevent_isbase) {
             kbugreport_keyreleaseevent_isbase = false;
             KBugReport::keyReleaseEvent(event);
-        } else if (kbugreport_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kbugreport_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kbugreport_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KBugReport::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +818,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_focusinevent_isbase) {
             kbugreport_focusinevent_isbase = false;
             KBugReport::focusInEvent(event);
-        } else if (kbugreport_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kbugreport_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kbugreport_focusinevent_callback(this, cbval1);
-        } else {
-            KBugReport::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +835,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_focusoutevent_isbase) {
             kbugreport_focusoutevent_isbase = false;
             KBugReport::focusOutEvent(event);
-        } else if (kbugreport_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kbugreport_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kbugreport_focusoutevent_callback(this, cbval1);
-        } else {
-            KBugReport::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +852,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_enterevent_isbase) {
             kbugreport_enterevent_isbase = false;
             KBugReport::enterEvent(event);
-        } else if (kbugreport_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kbugreport_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kbugreport_enterevent_callback(this, cbval1);
-        } else {
-            KBugReport::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +869,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_leaveevent_isbase) {
             kbugreport_leaveevent_isbase = false;
             KBugReport::leaveEvent(event);
-        } else if (kbugreport_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kbugreport_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kbugreport_leaveevent_callback(this, cbval1);
-        } else {
-            KBugReport::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +886,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_paintevent_isbase) {
             kbugreport_paintevent_isbase = false;
             KBugReport::paintEvent(event);
-        } else if (kbugreport_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kbugreport_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kbugreport_paintevent_callback(this, cbval1);
-        } else {
-            KBugReport::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +903,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_moveevent_isbase) {
             kbugreport_moveevent_isbase = false;
             KBugReport::moveEvent(event);
-        } else if (kbugreport_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kbugreport_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kbugreport_moveevent_callback(this, cbval1);
-        } else {
-            KBugReport::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +920,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_tabletevent_isbase) {
             kbugreport_tabletevent_isbase = false;
             KBugReport::tabletEvent(event);
-        } else if (kbugreport_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kbugreport_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kbugreport_tabletevent_callback(this, cbval1);
-        } else {
-            KBugReport::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +937,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_actionevent_isbase) {
             kbugreport_actionevent_isbase = false;
             KBugReport::actionEvent(event);
-        } else if (kbugreport_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kbugreport_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kbugreport_actionevent_callback(this, cbval1);
-        } else {
-            KBugReport::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +954,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_dragenterevent_isbase) {
             kbugreport_dragenterevent_isbase = false;
             KBugReport::dragEnterEvent(event);
-        } else if (kbugreport_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kbugreport_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kbugreport_dragenterevent_callback(this, cbval1);
-        } else {
-            KBugReport::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +971,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_dragmoveevent_isbase) {
             kbugreport_dragmoveevent_isbase = false;
             KBugReport::dragMoveEvent(event);
-        } else if (kbugreport_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kbugreport_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kbugreport_dragmoveevent_callback(this, cbval1);
-        } else {
-            KBugReport::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +988,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_dragleaveevent_isbase) {
             kbugreport_dragleaveevent_isbase = false;
             KBugReport::dragLeaveEvent(event);
-        } else if (kbugreport_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kbugreport_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kbugreport_dragleaveevent_callback(this, cbval1);
-        } else {
-            KBugReport::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1005,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_dropevent_isbase) {
             kbugreport_dropevent_isbase = false;
             KBugReport::dropEvent(event);
-        } else if (kbugreport_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kbugreport_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kbugreport_dropevent_callback(this, cbval1);
-        } else {
-            KBugReport::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,13 +1022,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_hideevent_isbase) {
             kbugreport_hideevent_isbase = false;
             KBugReport::hideEvent(event);
-        } else if (kbugreport_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kbugreport_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kbugreport_hideevent_callback(this, cbval1);
-        } else {
-            KBugReport::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,7 +1039,9 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_nativeevent_isbase) {
             kbugreport_nativeevent_isbase = false;
             return KBugReport::nativeEvent(eventType, message, result);
-        } else if (kbugreport_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kbugreport_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1021,12 +1052,11 @@ class VirtualKBugReport final : public KBugReport {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kbugreport_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KBugReport::nativeEvent(eventType, message, result);
         }
+        return KBugReport::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,13 +1064,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_changeevent_isbase) {
             kbugreport_changeevent_isbase = false;
             KBugReport::changeEvent(param1);
-        } else if (kbugreport_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kbugreport_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kbugreport_changeevent_callback(this, cbval1);
-        } else {
-            KBugReport::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1081,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_metric_isbase) {
             kbugreport_metric_isbase = false;
             return KBugReport::metric(param1);
-        } else if (kbugreport_metric_callback != nullptr) {
+        }
+        auto metric_cb = kbugreport_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kbugreport_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::metric(param1);
         }
+        return KBugReport::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1097,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_initpainter_isbase) {
             kbugreport_initpainter_isbase = false;
             KBugReport::initPainter(painter);
-        } else if (kbugreport_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kbugreport_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kbugreport_initpainter_callback(this, cbval1);
-        } else {
-            KBugReport::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KBugReport::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,14 +1114,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_redirected_isbase) {
             kbugreport_redirected_isbase = false;
             return KBugReport::redirected(offset);
-        } else if (kbugreport_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kbugreport_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kbugreport_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBugReport::redirected(offset);
         }
+        return KBugReport::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,12 +1130,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_sharedpainter_isbase) {
             kbugreport_sharedpainter_isbase = false;
             return KBugReport::sharedPainter();
-        } else if (kbugreport_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kbugreport_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::sharedPainter();
         }
+        auto sharedpainter_cb = kbugreport_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KBugReport::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1144,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_inputmethodevent_isbase) {
             kbugreport_inputmethodevent_isbase = false;
             KBugReport::inputMethodEvent(param1);
-        } else if (kbugreport_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kbugreport_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kbugreport_inputmethodevent_callback(this, cbval1);
-        } else {
-            KBugReport::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,14 +1161,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_inputmethodquery_isbase) {
             kbugreport_inputmethodquery_isbase = false;
             return KBugReport::inputMethodQuery(param1);
-        } else if (kbugreport_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kbugreport_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kbugreport_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KBugReport::inputMethodQuery(param1);
         }
+        return KBugReport::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,14 +1177,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_focusnextprevchild_isbase) {
             kbugreport_focusnextprevchild_isbase = false;
             return KBugReport::focusNextPrevChild(next);
-        } else if (kbugreport_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kbugreport_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kbugreport_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBugReport::focusNextPrevChild(next);
         }
+        return KBugReport::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1149,13 +1193,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_timerevent_isbase) {
             kbugreport_timerevent_isbase = false;
             KBugReport::timerEvent(event);
-        } else if (kbugreport_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kbugreport_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kbugreport_timerevent_callback(this, cbval1);
-        } else {
-            KBugReport::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1163,13 +1210,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_childevent_isbase) {
             kbugreport_childevent_isbase = false;
             KBugReport::childEvent(event);
-        } else if (kbugreport_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kbugreport_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kbugreport_childevent_callback(this, cbval1);
-        } else {
-            KBugReport::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,13 +1227,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_customevent_isbase) {
             kbugreport_customevent_isbase = false;
             KBugReport::customEvent(event);
-        } else if (kbugreport_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kbugreport_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kbugreport_customevent_callback(this, cbval1);
-        } else {
-            KBugReport::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KBugReport::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,15 +1244,18 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_connectnotify_isbase) {
             kbugreport_connectnotify_isbase = false;
             KBugReport::connectNotify(signal);
-        } else if (kbugreport_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kbugreport_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbugreport_connectnotify_callback(this, cbval1);
-        } else {
-            KBugReport::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KBugReport::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,15 +1263,18 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_disconnectnotify_isbase) {
             kbugreport_disconnectnotify_isbase = false;
             KBugReport::disconnectNotify(signal);
-        } else if (kbugreport_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kbugreport_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kbugreport_disconnectnotify_callback(this, cbval1);
-        } else {
-            KBugReport::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KBugReport::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,12 +1282,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_sendbugreport_isbase) {
             kbugreport_sendbugreport_isbase = false;
             return KBugReport::sendBugReport();
-        } else if (kbugreport_sendbugreport_callback != nullptr) {
-            bool callback_ret = kbugreport_sendbugreport_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::sendBugReport();
         }
+        auto sendbugreport_cb = kbugreport_sendbugreport_callback;
+        if (sendbugreport_cb) {
+            bool callback_ret = sendbugreport_cb();
+            return callback_ret;
+        }
+        return KBugReport::sendBugReport();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1236,13 +1296,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_adjustposition_isbase) {
             kbugreport_adjustposition_isbase = false;
             KBugReport::adjustPosition(param1);
-        } else if (kbugreport_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kbugreport_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kbugreport_adjustposition_callback(this, cbval1);
-        } else {
-            KBugReport::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KBugReport::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,11 +1313,14 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_updatemicrofocus_isbase) {
             kbugreport_updatemicrofocus_isbase = false;
             KBugReport::updateMicroFocus();
-        } else if (kbugreport_updatemicrofocus_callback != nullptr) {
-            kbugreport_updatemicrofocus_callback();
-        } else {
-            KBugReport::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kbugreport_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KBugReport::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,11 +1328,14 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_create_isbase) {
             kbugreport_create_isbase = false;
             KBugReport::create();
-        } else if (kbugreport_create_callback != nullptr) {
-            kbugreport_create_callback();
-        } else {
-            KBugReport::create();
+            return;
         }
+        auto create_cb = kbugreport_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KBugReport::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1274,11 +1343,14 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_destroy_isbase) {
             kbugreport_destroy_isbase = false;
             KBugReport::destroy();
-        } else if (kbugreport_destroy_callback != nullptr) {
-            kbugreport_destroy_callback();
-        } else {
-            KBugReport::destroy();
+            return;
         }
+        auto destroy_cb = kbugreport_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KBugReport::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1286,12 +1358,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_focusnextchild_isbase) {
             kbugreport_focusnextchild_isbase = false;
             return KBugReport::focusNextChild();
-        } else if (kbugreport_focusnextchild_callback != nullptr) {
-            bool callback_ret = kbugreport_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::focusNextChild();
         }
+        auto focusnextchild_cb = kbugreport_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KBugReport::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1299,12 +1372,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_focuspreviouschild_isbase) {
             kbugreport_focuspreviouschild_isbase = false;
             return KBugReport::focusPreviousChild();
-        } else if (kbugreport_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kbugreport_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kbugreport_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KBugReport::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1312,12 +1386,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_sender_isbase) {
             kbugreport_sender_isbase = false;
             return KBugReport::sender();
-        } else if (kbugreport_sender_callback != nullptr) {
-            QObject* callback_ret = kbugreport_sender_callback();
-            return callback_ret;
-        } else {
-            return KBugReport::sender();
         }
+        auto sender_cb = kbugreport_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KBugReport::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1325,12 +1400,13 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_sendersignalindex_isbase) {
             kbugreport_sendersignalindex_isbase = false;
             return KBugReport::senderSignalIndex();
-        } else if (kbugreport_sendersignalindex_callback != nullptr) {
-            int callback_ret = kbugreport_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kbugreport_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KBugReport::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1338,14 +1414,15 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_receivers_isbase) {
             kbugreport_receivers_isbase = false;
             return KBugReport::receivers(signal);
-        } else if (kbugreport_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kbugreport_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kbugreport_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KBugReport::receivers(signal);
         }
+        return KBugReport::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,16 +1430,17 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_issignalconnected_isbase) {
             kbugreport_issignalconnected_isbase = false;
             return KBugReport::isSignalConnected(signal);
-        } else if (kbugreport_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kbugreport_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kbugreport_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KBugReport::isSignalConnected(signal);
         }
+        return KBugReport::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1370,15 +1448,16 @@ class VirtualKBugReport final : public KBugReport {
         if (kbugreport_getdecodedmetricf_isbase) {
             kbugreport_getdecodedmetricf_isbase = false;
             return KBugReport::getDecodedMetricF(metricA, metricB);
-        } else if (kbugreport_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kbugreport_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kbugreport_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KBugReport::getDecodedMetricF(metricA, metricB);
         }
+        return KBugReport::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

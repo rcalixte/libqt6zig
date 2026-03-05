@@ -213,71 +213,6 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     VirtualQDesignerResourceBrowserInterface(QWidget* parent) : QDesignerResourceBrowserInterface(parent) {};
     VirtualQDesignerResourceBrowserInterface() : QDesignerResourceBrowserInterface() {};
 
-    ~VirtualQDesignerResourceBrowserInterface() {
-        qdesignerresourcebrowserinterface_metaobject_callback = nullptr;
-        qdesignerresourcebrowserinterface_metacast_callback = nullptr;
-        qdesignerresourcebrowserinterface_metacall_callback = nullptr;
-        qdesignerresourcebrowserinterface_setcurrentpath_callback = nullptr;
-        qdesignerresourcebrowserinterface_currentpath_callback = nullptr;
-        qdesignerresourcebrowserinterface_devtype_callback = nullptr;
-        qdesignerresourcebrowserinterface_setvisible_callback = nullptr;
-        qdesignerresourcebrowserinterface_sizehint_callback = nullptr;
-        qdesignerresourcebrowserinterface_minimumsizehint_callback = nullptr;
-        qdesignerresourcebrowserinterface_heightforwidth_callback = nullptr;
-        qdesignerresourcebrowserinterface_hasheightforwidth_callback = nullptr;
-        qdesignerresourcebrowserinterface_paintengine_callback = nullptr;
-        qdesignerresourcebrowserinterface_event_callback = nullptr;
-        qdesignerresourcebrowserinterface_mousepressevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_mousereleaseevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_mousedoubleclickevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_mousemoveevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_wheelevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_keypressevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_keyreleaseevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_focusinevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_focusoutevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_enterevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_leaveevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_paintevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_moveevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_resizeevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_closeevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_contextmenuevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_tabletevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_actionevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_dragenterevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_dragmoveevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_dragleaveevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_dropevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_showevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_hideevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_nativeevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_changeevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_metric_callback = nullptr;
-        qdesignerresourcebrowserinterface_initpainter_callback = nullptr;
-        qdesignerresourcebrowserinterface_redirected_callback = nullptr;
-        qdesignerresourcebrowserinterface_sharedpainter_callback = nullptr;
-        qdesignerresourcebrowserinterface_inputmethodevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_inputmethodquery_callback = nullptr;
-        qdesignerresourcebrowserinterface_focusnextprevchild_callback = nullptr;
-        qdesignerresourcebrowserinterface_eventfilter_callback = nullptr;
-        qdesignerresourcebrowserinterface_timerevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_childevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_customevent_callback = nullptr;
-        qdesignerresourcebrowserinterface_connectnotify_callback = nullptr;
-        qdesignerresourcebrowserinterface_disconnectnotify_callback = nullptr;
-        qdesignerresourcebrowserinterface_updatemicrofocus_callback = nullptr;
-        qdesignerresourcebrowserinterface_create_callback = nullptr;
-        qdesignerresourcebrowserinterface_destroy_callback = nullptr;
-        qdesignerresourcebrowserinterface_focusnextchild_callback = nullptr;
-        qdesignerresourcebrowserinterface_focuspreviouschild_callback = nullptr;
-        qdesignerresourcebrowserinterface_sender_callback = nullptr;
-        qdesignerresourcebrowserinterface_sendersignalindex_callback = nullptr;
-        qdesignerresourcebrowserinterface_receivers_callback = nullptr;
-        qdesignerresourcebrowserinterface_issignalconnected_callback = nullptr;
-        qdesignerresourcebrowserinterface_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerResourceBrowserInterface_MetaObject_Callback(QDesignerResourceBrowserInterface_MetaObject_Callback cb) { qdesignerresourcebrowserinterface_metaobject_callback = cb; }
     inline void setQDesignerResourceBrowserInterface_Metacast_Callback(QDesignerResourceBrowserInterface_Metacast_Callback cb) { qdesignerresourcebrowserinterface_metacast_callback = cb; }
@@ -411,12 +346,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_metaobject_isbase) {
             qdesignerresourcebrowserinterface_metaobject_isbase = false;
             return QDesignerResourceBrowserInterface::metaObject();
-        } else if (qdesignerresourcebrowserinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdesignerresourcebrowserinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::metaObject();
         }
+        auto metaobject_cb = qdesignerresourcebrowserinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,14 +360,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_metacast_isbase) {
             qdesignerresourcebrowserinterface_metacast_isbase = false;
             return QDesignerResourceBrowserInterface::qt_metacast(param1);
-        } else if (qdesignerresourcebrowserinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdesignerresourcebrowserinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdesignerresourcebrowserinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::qt_metacast(param1);
         }
+        return QDesignerResourceBrowserInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,21 +376,23 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_metacall_isbase) {
             qdesignerresourcebrowserinterface_metacall_isbase = false;
             return QDesignerResourceBrowserInterface::qt_metacall(param1, param2, param3);
-        } else if (qdesignerresourcebrowserinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdesignerresourcebrowserinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdesignerresourcebrowserinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::qt_metacall(param1, param2, param3);
         }
+        return QDesignerResourceBrowserInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setCurrentPath(const QString& filePath) override {
-        if (qdesignerresourcebrowserinterface_setcurrentpath_callback != nullptr) {
+        auto setcurrentpath_cb = qdesignerresourcebrowserinterface_setcurrentpath_callback;
+        if (setcurrentpath_cb) {
             const QString filePath_ret = filePath;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filePath_b = filePath_ret.toUtf8();
@@ -463,20 +402,20 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
             ((char*)filePath_str)[filePath_str_len] = '\0';
             const char* cbval1 = filePath_str;
 
-            qdesignerresourcebrowserinterface_setcurrentpath_callback(this, cbval1);
+            setcurrentpath_cb(this, cbval1);
             libqt_free(filePath_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString currentPath() const override {
-        if (qdesignerresourcebrowserinterface_currentpath_callback != nullptr) {
-            const char* callback_ret = qdesignerresourcebrowserinterface_currentpath_callback();
+        auto currentpath_cb = qdesignerresourcebrowserinterface_currentpath_callback;
+        if (currentpath_cb) {
+            const char* callback_ret = currentpath_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,12 +423,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_devtype_isbase) {
             qdesignerresourcebrowserinterface_devtype_isbase = false;
             return QDesignerResourceBrowserInterface::devType();
-        } else if (qdesignerresourcebrowserinterface_devtype_callback != nullptr) {
-            int callback_ret = qdesignerresourcebrowserinterface_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::devType();
         }
+        auto devtype_cb = qdesignerresourcebrowserinterface_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerResourceBrowserInterface::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,13 +437,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_setvisible_isbase) {
             qdesignerresourcebrowserinterface_setvisible_isbase = false;
             QDesignerResourceBrowserInterface::setVisible(visible);
-        } else if (qdesignerresourcebrowserinterface_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdesignerresourcebrowserinterface_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdesignerresourcebrowserinterface_setvisible_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,12 +454,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_sizehint_isbase) {
             qdesignerresourcebrowserinterface_sizehint_isbase = false;
             return QDesignerResourceBrowserInterface::sizeHint();
-        } else if (qdesignerresourcebrowserinterface_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdesignerresourcebrowserinterface_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::sizeHint();
         }
+        auto sizehint_cb = qdesignerresourcebrowserinterface_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,12 +468,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_minimumsizehint_isbase) {
             qdesignerresourcebrowserinterface_minimumsizehint_isbase = false;
             return QDesignerResourceBrowserInterface::minimumSizeHint();
-        } else if (qdesignerresourcebrowserinterface_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdesignerresourcebrowserinterface_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdesignerresourcebrowserinterface_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,14 +482,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_heightforwidth_isbase) {
             qdesignerresourcebrowserinterface_heightforwidth_isbase = false;
             return QDesignerResourceBrowserInterface::heightForWidth(param1);
-        } else if (qdesignerresourcebrowserinterface_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdesignerresourcebrowserinterface_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdesignerresourcebrowserinterface_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::heightForWidth(param1);
         }
+        return QDesignerResourceBrowserInterface::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,12 +498,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_hasheightforwidth_isbase) {
             qdesignerresourcebrowserinterface_hasheightforwidth_isbase = false;
             return QDesignerResourceBrowserInterface::hasHeightForWidth();
-        } else if (qdesignerresourcebrowserinterface_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdesignerresourcebrowserinterface_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdesignerresourcebrowserinterface_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,12 +512,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_paintengine_isbase) {
             qdesignerresourcebrowserinterface_paintengine_isbase = false;
             return QDesignerResourceBrowserInterface::paintEngine();
-        } else if (qdesignerresourcebrowserinterface_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdesignerresourcebrowserinterface_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::paintEngine();
         }
+        auto paintengine_cb = qdesignerresourcebrowserinterface_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,14 +526,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_event_isbase) {
             qdesignerresourcebrowserinterface_event_isbase = false;
             return QDesignerResourceBrowserInterface::event(event);
-        } else if (qdesignerresourcebrowserinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdesignerresourcebrowserinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdesignerresourcebrowserinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::event(event);
         }
+        return QDesignerResourceBrowserInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,13 +542,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_mousepressevent_isbase) {
             qdesignerresourcebrowserinterface_mousepressevent_isbase = false;
             QDesignerResourceBrowserInterface::mousePressEvent(event);
-        } else if (qdesignerresourcebrowserinterface_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdesignerresourcebrowserinterface_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_mousepressevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +559,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_mousereleaseevent_isbase) {
             qdesignerresourcebrowserinterface_mousereleaseevent_isbase = false;
             QDesignerResourceBrowserInterface::mouseReleaseEvent(event);
-        } else if (qdesignerresourcebrowserinterface_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdesignerresourcebrowserinterface_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,13 +576,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_mousedoubleclickevent_isbase) {
             qdesignerresourcebrowserinterface_mousedoubleclickevent_isbase = false;
             QDesignerResourceBrowserInterface::mouseDoubleClickEvent(event);
-        } else if (qdesignerresourcebrowserinterface_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdesignerresourcebrowserinterface_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +593,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_mousemoveevent_isbase) {
             qdesignerresourcebrowserinterface_mousemoveevent_isbase = false;
             QDesignerResourceBrowserInterface::mouseMoveEvent(event);
-        } else if (qdesignerresourcebrowserinterface_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdesignerresourcebrowserinterface_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,13 +610,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_wheelevent_isbase) {
             qdesignerresourcebrowserinterface_wheelevent_isbase = false;
             QDesignerResourceBrowserInterface::wheelEvent(event);
-        } else if (qdesignerresourcebrowserinterface_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdesignerresourcebrowserinterface_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_wheelevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +627,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_keypressevent_isbase) {
             qdesignerresourcebrowserinterface_keypressevent_isbase = false;
             QDesignerResourceBrowserInterface::keyPressEvent(event);
-        } else if (qdesignerresourcebrowserinterface_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdesignerresourcebrowserinterface_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_keypressevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +644,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_keyreleaseevent_isbase) {
             qdesignerresourcebrowserinterface_keyreleaseevent_isbase = false;
             QDesignerResourceBrowserInterface::keyReleaseEvent(event);
-        } else if (qdesignerresourcebrowserinterface_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdesignerresourcebrowserinterface_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +661,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_focusinevent_isbase) {
             qdesignerresourcebrowserinterface_focusinevent_isbase = false;
             QDesignerResourceBrowserInterface::focusInEvent(event);
-        } else if (qdesignerresourcebrowserinterface_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdesignerresourcebrowserinterface_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_focusinevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +678,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_focusoutevent_isbase) {
             qdesignerresourcebrowserinterface_focusoutevent_isbase = false;
             QDesignerResourceBrowserInterface::focusOutEvent(event);
-        } else if (qdesignerresourcebrowserinterface_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdesignerresourcebrowserinterface_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_focusoutevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +695,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_enterevent_isbase) {
             qdesignerresourcebrowserinterface_enterevent_isbase = false;
             QDesignerResourceBrowserInterface::enterEvent(event);
-        } else if (qdesignerresourcebrowserinterface_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdesignerresourcebrowserinterface_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_enterevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +712,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_leaveevent_isbase) {
             qdesignerresourcebrowserinterface_leaveevent_isbase = false;
             QDesignerResourceBrowserInterface::leaveEvent(event);
-        } else if (qdesignerresourcebrowserinterface_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdesignerresourcebrowserinterface_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_leaveevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +729,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_paintevent_isbase) {
             qdesignerresourcebrowserinterface_paintevent_isbase = false;
             QDesignerResourceBrowserInterface::paintEvent(event);
-        } else if (qdesignerresourcebrowserinterface_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdesignerresourcebrowserinterface_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_paintevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +746,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_moveevent_isbase) {
             qdesignerresourcebrowserinterface_moveevent_isbase = false;
             QDesignerResourceBrowserInterface::moveEvent(event);
-        } else if (qdesignerresourcebrowserinterface_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdesignerresourcebrowserinterface_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_moveevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +763,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_resizeevent_isbase) {
             qdesignerresourcebrowserinterface_resizeevent_isbase = false;
             QDesignerResourceBrowserInterface::resizeEvent(event);
-        } else if (qdesignerresourcebrowserinterface_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdesignerresourcebrowserinterface_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_resizeevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +780,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_closeevent_isbase) {
             qdesignerresourcebrowserinterface_closeevent_isbase = false;
             QDesignerResourceBrowserInterface::closeEvent(event);
-        } else if (qdesignerresourcebrowserinterface_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdesignerresourcebrowserinterface_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_closeevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +797,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_contextmenuevent_isbase) {
             qdesignerresourcebrowserinterface_contextmenuevent_isbase = false;
             QDesignerResourceBrowserInterface::contextMenuEvent(event);
-        } else if (qdesignerresourcebrowserinterface_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdesignerresourcebrowserinterface_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +814,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_tabletevent_isbase) {
             qdesignerresourcebrowserinterface_tabletevent_isbase = false;
             QDesignerResourceBrowserInterface::tabletEvent(event);
-        } else if (qdesignerresourcebrowserinterface_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdesignerresourcebrowserinterface_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_tabletevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +831,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_actionevent_isbase) {
             qdesignerresourcebrowserinterface_actionevent_isbase = false;
             QDesignerResourceBrowserInterface::actionEvent(event);
-        } else if (qdesignerresourcebrowserinterface_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdesignerresourcebrowserinterface_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_actionevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +848,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_dragenterevent_isbase) {
             qdesignerresourcebrowserinterface_dragenterevent_isbase = false;
             QDesignerResourceBrowserInterface::dragEnterEvent(event);
-        } else if (qdesignerresourcebrowserinterface_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdesignerresourcebrowserinterface_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_dragenterevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +865,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_dragmoveevent_isbase) {
             qdesignerresourcebrowserinterface_dragmoveevent_isbase = false;
             QDesignerResourceBrowserInterface::dragMoveEvent(event);
-        } else if (qdesignerresourcebrowserinterface_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdesignerresourcebrowserinterface_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +882,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_dragleaveevent_isbase) {
             qdesignerresourcebrowserinterface_dragleaveevent_isbase = false;
             QDesignerResourceBrowserInterface::dragLeaveEvent(event);
-        } else if (qdesignerresourcebrowserinterface_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdesignerresourcebrowserinterface_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +899,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_dropevent_isbase) {
             qdesignerresourcebrowserinterface_dropevent_isbase = false;
             QDesignerResourceBrowserInterface::dropEvent(event);
-        } else if (qdesignerresourcebrowserinterface_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdesignerresourcebrowserinterface_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_dropevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,13 +916,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_showevent_isbase) {
             qdesignerresourcebrowserinterface_showevent_isbase = false;
             QDesignerResourceBrowserInterface::showEvent(event);
-        } else if (qdesignerresourcebrowserinterface_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdesignerresourcebrowserinterface_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_showevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +933,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_hideevent_isbase) {
             qdesignerresourcebrowserinterface_hideevent_isbase = false;
             QDesignerResourceBrowserInterface::hideEvent(event);
-        } else if (qdesignerresourcebrowserinterface_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdesignerresourcebrowserinterface_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_hideevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,7 +950,9 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_nativeevent_isbase) {
             qdesignerresourcebrowserinterface_nativeevent_isbase = false;
             return QDesignerResourceBrowserInterface::nativeEvent(eventType, message, result);
-        } else if (qdesignerresourcebrowserinterface_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdesignerresourcebrowserinterface_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -940,12 +963,11 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdesignerresourcebrowserinterface_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::nativeEvent(eventType, message, result);
         }
+        return QDesignerResourceBrowserInterface::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +975,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_changeevent_isbase) {
             qdesignerresourcebrowserinterface_changeevent_isbase = false;
             QDesignerResourceBrowserInterface::changeEvent(param1);
-        } else if (qdesignerresourcebrowserinterface_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdesignerresourcebrowserinterface_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qdesignerresourcebrowserinterface_changeevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,14 +992,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_metric_isbase) {
             qdesignerresourcebrowserinterface_metric_isbase = false;
             return QDesignerResourceBrowserInterface::metric(param1);
-        } else if (qdesignerresourcebrowserinterface_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdesignerresourcebrowserinterface_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdesignerresourcebrowserinterface_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::metric(param1);
         }
+        return QDesignerResourceBrowserInterface::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1008,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_initpainter_isbase) {
             qdesignerresourcebrowserinterface_initpainter_isbase = false;
             QDesignerResourceBrowserInterface::initPainter(painter);
-        } else if (qdesignerresourcebrowserinterface_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdesignerresourcebrowserinterface_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdesignerresourcebrowserinterface_initpainter_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,14 +1025,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_redirected_isbase) {
             qdesignerresourcebrowserinterface_redirected_isbase = false;
             return QDesignerResourceBrowserInterface::redirected(offset);
-        } else if (qdesignerresourcebrowserinterface_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdesignerresourcebrowserinterface_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdesignerresourcebrowserinterface_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::redirected(offset);
         }
+        return QDesignerResourceBrowserInterface::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,12 +1041,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_sharedpainter_isbase) {
             qdesignerresourcebrowserinterface_sharedpainter_isbase = false;
             return QDesignerResourceBrowserInterface::sharedPainter();
-        } else if (qdesignerresourcebrowserinterface_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdesignerresourcebrowserinterface_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::sharedPainter();
         }
+        auto sharedpainter_cb = qdesignerresourcebrowserinterface_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,13 +1055,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_inputmethodevent_isbase) {
             qdesignerresourcebrowserinterface_inputmethodevent_isbase = false;
             QDesignerResourceBrowserInterface::inputMethodEvent(param1);
-        } else if (qdesignerresourcebrowserinterface_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdesignerresourcebrowserinterface_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdesignerresourcebrowserinterface_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,14 +1072,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_inputmethodquery_isbase) {
             qdesignerresourcebrowserinterface_inputmethodquery_isbase = false;
             return QDesignerResourceBrowserInterface::inputMethodQuery(param1);
-        } else if (qdesignerresourcebrowserinterface_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdesignerresourcebrowserinterface_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdesignerresourcebrowserinterface_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::inputMethodQuery(param1);
         }
+        return QDesignerResourceBrowserInterface::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,14 +1088,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_focusnextprevchild_isbase) {
             qdesignerresourcebrowserinterface_focusnextprevchild_isbase = false;
             return QDesignerResourceBrowserInterface::focusNextPrevChild(next);
-        } else if (qdesignerresourcebrowserinterface_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdesignerresourcebrowserinterface_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdesignerresourcebrowserinterface_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::focusNextPrevChild(next);
         }
+        return QDesignerResourceBrowserInterface::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,15 +1104,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_eventfilter_isbase) {
             qdesignerresourcebrowserinterface_eventfilter_isbase = false;
             return QDesignerResourceBrowserInterface::eventFilter(watched, event);
-        } else if (qdesignerresourcebrowserinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdesignerresourcebrowserinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdesignerresourcebrowserinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::eventFilter(watched, event);
         }
+        return QDesignerResourceBrowserInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,13 +1121,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_timerevent_isbase) {
             qdesignerresourcebrowserinterface_timerevent_isbase = false;
             QDesignerResourceBrowserInterface::timerEvent(event);
-        } else if (qdesignerresourcebrowserinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdesignerresourcebrowserinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1138,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_childevent_isbase) {
             qdesignerresourcebrowserinterface_childevent_isbase = false;
             QDesignerResourceBrowserInterface::childEvent(event);
-        } else if (qdesignerresourcebrowserinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdesignerresourcebrowserinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_childevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,13 +1155,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_customevent_isbase) {
             qdesignerresourcebrowserinterface_customevent_isbase = false;
             QDesignerResourceBrowserInterface::customEvent(event);
-        } else if (qdesignerresourcebrowserinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdesignerresourcebrowserinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerresourcebrowserinterface_customevent_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,15 +1172,18 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_connectnotify_isbase) {
             qdesignerresourcebrowserinterface_connectnotify_isbase = false;
             QDesignerResourceBrowserInterface::connectNotify(signal);
-        } else if (qdesignerresourcebrowserinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdesignerresourcebrowserinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerresourcebrowserinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,15 +1191,18 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_disconnectnotify_isbase) {
             qdesignerresourcebrowserinterface_disconnectnotify_isbase = false;
             QDesignerResourceBrowserInterface::disconnectNotify(signal);
-        } else if (qdesignerresourcebrowserinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdesignerresourcebrowserinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerresourcebrowserinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDesignerResourceBrowserInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerResourceBrowserInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,11 +1210,14 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_updatemicrofocus_isbase) {
             qdesignerresourcebrowserinterface_updatemicrofocus_isbase = false;
             QDesignerResourceBrowserInterface::updateMicroFocus();
-        } else if (qdesignerresourcebrowserinterface_updatemicrofocus_callback != nullptr) {
-            qdesignerresourcebrowserinterface_updatemicrofocus_callback();
-        } else {
-            QDesignerResourceBrowserInterface::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdesignerresourcebrowserinterface_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDesignerResourceBrowserInterface::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,11 +1225,14 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_create_isbase) {
             qdesignerresourcebrowserinterface_create_isbase = false;
             QDesignerResourceBrowserInterface::create();
-        } else if (qdesignerresourcebrowserinterface_create_callback != nullptr) {
-            qdesignerresourcebrowserinterface_create_callback();
-        } else {
-            QDesignerResourceBrowserInterface::create();
+            return;
         }
+        auto create_cb = qdesignerresourcebrowserinterface_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDesignerResourceBrowserInterface::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,11 +1240,14 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_destroy_isbase) {
             qdesignerresourcebrowserinterface_destroy_isbase = false;
             QDesignerResourceBrowserInterface::destroy();
-        } else if (qdesignerresourcebrowserinterface_destroy_callback != nullptr) {
-            qdesignerresourcebrowserinterface_destroy_callback();
-        } else {
-            QDesignerResourceBrowserInterface::destroy();
+            return;
         }
+        auto destroy_cb = qdesignerresourcebrowserinterface_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDesignerResourceBrowserInterface::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,12 +1255,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_focusnextchild_isbase) {
             qdesignerresourcebrowserinterface_focusnextchild_isbase = false;
             return QDesignerResourceBrowserInterface::focusNextChild();
-        } else if (qdesignerresourcebrowserinterface_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdesignerresourcebrowserinterface_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::focusNextChild();
         }
+        auto focusnextchild_cb = qdesignerresourcebrowserinterface_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,12 +1269,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_focuspreviouschild_isbase) {
             qdesignerresourcebrowserinterface_focuspreviouschild_isbase = false;
             return QDesignerResourceBrowserInterface::focusPreviousChild();
-        } else if (qdesignerresourcebrowserinterface_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdesignerresourcebrowserinterface_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdesignerresourcebrowserinterface_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,12 +1283,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_sender_isbase) {
             qdesignerresourcebrowserinterface_sender_isbase = false;
             return QDesignerResourceBrowserInterface::sender();
-        } else if (qdesignerresourcebrowserinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdesignerresourcebrowserinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::sender();
         }
+        auto sender_cb = qdesignerresourcebrowserinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDesignerResourceBrowserInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1297,13 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_sendersignalindex_isbase) {
             qdesignerresourcebrowserinterface_sendersignalindex_isbase = false;
             return QDesignerResourceBrowserInterface::senderSignalIndex();
-        } else if (qdesignerresourcebrowserinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdesignerresourcebrowserinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdesignerresourcebrowserinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerResourceBrowserInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,14 +1311,15 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_receivers_isbase) {
             qdesignerresourcebrowserinterface_receivers_isbase = false;
             return QDesignerResourceBrowserInterface::receivers(signal);
-        } else if (qdesignerresourcebrowserinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdesignerresourcebrowserinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdesignerresourcebrowserinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::receivers(signal);
         }
+        return QDesignerResourceBrowserInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,16 +1327,17 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_issignalconnected_isbase) {
             qdesignerresourcebrowserinterface_issignalconnected_isbase = false;
             return QDesignerResourceBrowserInterface::isSignalConnected(signal);
-        } else if (qdesignerresourcebrowserinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdesignerresourcebrowserinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdesignerresourcebrowserinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerResourceBrowserInterface::isSignalConnected(signal);
         }
+        return QDesignerResourceBrowserInterface::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,15 +1345,16 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
         if (qdesignerresourcebrowserinterface_getdecodedmetricf_isbase) {
             qdesignerresourcebrowserinterface_getdecodedmetricf_isbase = false;
             return QDesignerResourceBrowserInterface::getDecodedMetricF(metricA, metricB);
-        } else if (qdesignerresourcebrowserinterface_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdesignerresourcebrowserinterface_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdesignerresourcebrowserinterface_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDesignerResourceBrowserInterface::getDecodedMetricF(metricA, metricB);
         }
+        return QDesignerResourceBrowserInterface::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

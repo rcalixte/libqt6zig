@@ -322,107 +322,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     VirtualKXmlGuiWindow() : KXmlGuiWindow() {};
     VirtualKXmlGuiWindow(QWidget* parent, Qt::WindowFlags flags) : KXmlGuiWindow(parent, flags) {};
 
-    ~VirtualKXmlGuiWindow() {
-        kxmlguiwindow_metaobject_callback = nullptr;
-        kxmlguiwindow_metacast_callback = nullptr;
-        kxmlguiwindow_metacall_callback = nullptr;
-        kxmlguiwindow_guifactory_callback = nullptr;
-        kxmlguiwindow_applymainwindowsettings_callback = nullptr;
-        kxmlguiwindow_configuretoolbars_callback = nullptr;
-        kxmlguiwindow_slotstatechanged_callback = nullptr;
-        kxmlguiwindow_event_callback = nullptr;
-        kxmlguiwindow_savenewtoolbarconfig_callback = nullptr;
-        kxmlguiwindow_setcaption_callback = nullptr;
-        kxmlguiwindow_setplaincaption_callback = nullptr;
-        kxmlguiwindow_keypressevent_callback = nullptr;
-        kxmlguiwindow_closeevent_callback = nullptr;
-        kxmlguiwindow_queryclose_callback = nullptr;
-        kxmlguiwindow_saveproperties_callback = nullptr;
-        kxmlguiwindow_readproperties_callback = nullptr;
-        kxmlguiwindow_saveglobalproperties_callback = nullptr;
-        kxmlguiwindow_readglobalproperties_callback = nullptr;
-        kxmlguiwindow_createpopupmenu_callback = nullptr;
-        kxmlguiwindow_contextmenuevent_callback = nullptr;
-        kxmlguiwindow_devtype_callback = nullptr;
-        kxmlguiwindow_setvisible_callback = nullptr;
-        kxmlguiwindow_sizehint_callback = nullptr;
-        kxmlguiwindow_minimumsizehint_callback = nullptr;
-        kxmlguiwindow_heightforwidth_callback = nullptr;
-        kxmlguiwindow_hasheightforwidth_callback = nullptr;
-        kxmlguiwindow_paintengine_callback = nullptr;
-        kxmlguiwindow_mousepressevent_callback = nullptr;
-        kxmlguiwindow_mousereleaseevent_callback = nullptr;
-        kxmlguiwindow_mousedoubleclickevent_callback = nullptr;
-        kxmlguiwindow_mousemoveevent_callback = nullptr;
-        kxmlguiwindow_wheelevent_callback = nullptr;
-        kxmlguiwindow_keyreleaseevent_callback = nullptr;
-        kxmlguiwindow_focusinevent_callback = nullptr;
-        kxmlguiwindow_focusoutevent_callback = nullptr;
-        kxmlguiwindow_enterevent_callback = nullptr;
-        kxmlguiwindow_leaveevent_callback = nullptr;
-        kxmlguiwindow_paintevent_callback = nullptr;
-        kxmlguiwindow_moveevent_callback = nullptr;
-        kxmlguiwindow_resizeevent_callback = nullptr;
-        kxmlguiwindow_tabletevent_callback = nullptr;
-        kxmlguiwindow_actionevent_callback = nullptr;
-        kxmlguiwindow_dragenterevent_callback = nullptr;
-        kxmlguiwindow_dragmoveevent_callback = nullptr;
-        kxmlguiwindow_dragleaveevent_callback = nullptr;
-        kxmlguiwindow_dropevent_callback = nullptr;
-        kxmlguiwindow_showevent_callback = nullptr;
-        kxmlguiwindow_hideevent_callback = nullptr;
-        kxmlguiwindow_nativeevent_callback = nullptr;
-        kxmlguiwindow_changeevent_callback = nullptr;
-        kxmlguiwindow_metric_callback = nullptr;
-        kxmlguiwindow_initpainter_callback = nullptr;
-        kxmlguiwindow_redirected_callback = nullptr;
-        kxmlguiwindow_sharedpainter_callback = nullptr;
-        kxmlguiwindow_inputmethodevent_callback = nullptr;
-        kxmlguiwindow_inputmethodquery_callback = nullptr;
-        kxmlguiwindow_focusnextprevchild_callback = nullptr;
-        kxmlguiwindow_eventfilter_callback = nullptr;
-        kxmlguiwindow_timerevent_callback = nullptr;
-        kxmlguiwindow_childevent_callback = nullptr;
-        kxmlguiwindow_customevent_callback = nullptr;
-        kxmlguiwindow_connectnotify_callback = nullptr;
-        kxmlguiwindow_disconnectnotify_callback = nullptr;
-        kxmlguiwindow_containertags_callback = nullptr;
-        kxmlguiwindow_createcontainer_callback = nullptr;
-        kxmlguiwindow_removecontainer_callback = nullptr;
-        kxmlguiwindow_customtags_callback = nullptr;
-        kxmlguiwindow_createcustomelement_callback = nullptr;
-        kxmlguiwindow_finalizegui_callback = nullptr;
-        kxmlguiwindow_action2_callback = nullptr;
-        kxmlguiwindow_actioncollection_callback = nullptr;
-        kxmlguiwindow_componentname_callback = nullptr;
-        kxmlguiwindow_domdocument_callback = nullptr;
-        kxmlguiwindow_xmlfile_callback = nullptr;
-        kxmlguiwindow_localxmlfile_callback = nullptr;
-        kxmlguiwindow_setcomponentname_callback = nullptr;
-        kxmlguiwindow_setxmlfile_callback = nullptr;
-        kxmlguiwindow_setlocalxmlfile_callback = nullptr;
-        kxmlguiwindow_setxml_callback = nullptr;
-        kxmlguiwindow_setdomdocument_callback = nullptr;
-        kxmlguiwindow_statechanged_callback = nullptr;
-        kxmlguiwindow_checkambiguousshortcuts_callback = nullptr;
-        kxmlguiwindow_savepropertiesinternal_callback = nullptr;
-        kxmlguiwindow_readpropertiesinternal_callback = nullptr;
-        kxmlguiwindow_settingsdirty_callback = nullptr;
-        kxmlguiwindow_saveautosavesettings_callback = nullptr;
-        kxmlguiwindow_updatemicrofocus_callback = nullptr;
-        kxmlguiwindow_create_callback = nullptr;
-        kxmlguiwindow_destroy_callback = nullptr;
-        kxmlguiwindow_focusnextchild_callback = nullptr;
-        kxmlguiwindow_focuspreviouschild_callback = nullptr;
-        kxmlguiwindow_sender_callback = nullptr;
-        kxmlguiwindow_sendersignalindex_callback = nullptr;
-        kxmlguiwindow_receivers_callback = nullptr;
-        kxmlguiwindow_issignalconnected_callback = nullptr;
-        kxmlguiwindow_getdecodedmetricf_callback = nullptr;
-        kxmlguiwindow_standardsxmlfilelocation_callback = nullptr;
-        kxmlguiwindow_loadstandardsxmlfile_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKXmlGuiWindow_MetaObject_Callback(KXmlGuiWindow_MetaObject_Callback cb) { kxmlguiwindow_metaobject_callback = cb; }
     inline void setKXmlGuiWindow_Metacast_Callback(KXmlGuiWindow_Metacast_Callback cb) { kxmlguiwindow_metacast_callback = cb; }
@@ -628,12 +527,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_metaobject_isbase) {
             kxmlguiwindow_metaobject_isbase = false;
             return KXmlGuiWindow::metaObject();
-        } else if (kxmlguiwindow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kxmlguiwindow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::metaObject();
         }
+        auto metaobject_cb = kxmlguiwindow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,14 +541,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_metacast_isbase) {
             kxmlguiwindow_metacast_isbase = false;
             return KXmlGuiWindow::qt_metacast(param1);
-        } else if (kxmlguiwindow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kxmlguiwindow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kxmlguiwindow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::qt_metacast(param1);
         }
+        return KXmlGuiWindow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,16 +557,17 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_metacall_isbase) {
             kxmlguiwindow_metacall_isbase = false;
             return KXmlGuiWindow::qt_metacall(param1, param2, param3);
-        } else if (kxmlguiwindow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kxmlguiwindow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kxmlguiwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXmlGuiWindow::qt_metacall(param1, param2, param3);
         }
+        return KXmlGuiWindow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -673,12 +575,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_guifactory_isbase) {
             kxmlguiwindow_guifactory_isbase = false;
             return KXmlGuiWindow::guiFactory();
-        } else if (kxmlguiwindow_guifactory_callback != nullptr) {
-            KXMLGUIFactory* callback_ret = kxmlguiwindow_guifactory_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::guiFactory();
         }
+        auto guifactory_cb = kxmlguiwindow_guifactory_callback;
+        if (guifactory_cb) {
+            KXMLGUIFactory* callback_ret = guifactory_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::guiFactory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,15 +589,18 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_applymainwindowsettings_isbase) {
             kxmlguiwindow_applymainwindowsettings_isbase = false;
             KXmlGuiWindow::applyMainWindowSettings(config);
-        } else if (kxmlguiwindow_applymainwindowsettings_callback != nullptr) {
+            return;
+        }
+        auto applymainwindowsettings_cb = kxmlguiwindow_applymainwindowsettings_callback;
+        if (applymainwindowsettings_cb) {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
 
-            kxmlguiwindow_applymainwindowsettings_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::applyMainWindowSettings(config);
+            applymainwindowsettings_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::applyMainWindowSettings(config);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,11 +608,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_configuretoolbars_isbase) {
             kxmlguiwindow_configuretoolbars_isbase = false;
             KXmlGuiWindow::configureToolbars();
-        } else if (kxmlguiwindow_configuretoolbars_callback != nullptr) {
-            kxmlguiwindow_configuretoolbars_callback();
-        } else {
-            KXmlGuiWindow::configureToolbars();
+            return;
         }
+        auto configuretoolbars_cb = kxmlguiwindow_configuretoolbars_callback;
+        if (configuretoolbars_cb) {
+            configuretoolbars_cb();
+            return;
+        }
+        KXmlGuiWindow::configureToolbars();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,7 +623,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_slotstatechanged_isbase) {
             kxmlguiwindow_slotstatechanged_isbase = false;
             KXmlGuiWindow::slotStateChanged(newstate);
-        } else if (kxmlguiwindow_slotstatechanged_callback != nullptr) {
+            return;
+        }
+        auto slotstatechanged_cb = kxmlguiwindow_slotstatechanged_callback;
+        if (slotstatechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -724,11 +636,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
 
-            kxmlguiwindow_slotstatechanged_callback(this, cbval1);
+            slotstatechanged_cb(this, cbval1);
             libqt_free(newstate_str);
-        } else {
-            KXmlGuiWindow::slotStateChanged(newstate);
+            return;
         }
+        KXmlGuiWindow::slotStateChanged(newstate);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,14 +648,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_event_isbase) {
             kxmlguiwindow_event_isbase = false;
             return KXmlGuiWindow::event(event);
-        } else if (kxmlguiwindow_event_callback != nullptr) {
+        }
+        auto event_cb = kxmlguiwindow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kxmlguiwindow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::event(event);
         }
+        return KXmlGuiWindow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,11 +664,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_savenewtoolbarconfig_isbase) {
             kxmlguiwindow_savenewtoolbarconfig_isbase = false;
             KXmlGuiWindow::saveNewToolbarConfig();
-        } else if (kxmlguiwindow_savenewtoolbarconfig_callback != nullptr) {
-            kxmlguiwindow_savenewtoolbarconfig_callback();
-        } else {
-            KXmlGuiWindow::saveNewToolbarConfig();
+            return;
         }
+        auto savenewtoolbarconfig_cb = kxmlguiwindow_savenewtoolbarconfig_callback;
+        if (savenewtoolbarconfig_cb) {
+            savenewtoolbarconfig_cb();
+            return;
+        }
+        KXmlGuiWindow::saveNewToolbarConfig();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,7 +679,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setcaption_isbase) {
             kxmlguiwindow_setcaption_isbase = false;
             KXmlGuiWindow::setCaption(caption);
-        } else if (kxmlguiwindow_setcaption_callback != nullptr) {
+            return;
+        }
+        auto setcaption_cb = kxmlguiwindow_setcaption_callback;
+        if (setcaption_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -773,11 +692,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
 
-            kxmlguiwindow_setcaption_callback(this, cbval1);
+            setcaption_cb(this, cbval1);
             libqt_free(caption_str);
-        } else {
-            KXmlGuiWindow::setCaption(caption);
+            return;
         }
+        KXmlGuiWindow::setCaption(caption);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,7 +704,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setplaincaption_isbase) {
             kxmlguiwindow_setplaincaption_isbase = false;
             KXmlGuiWindow::setPlainCaption(caption);
-        } else if (kxmlguiwindow_setplaincaption_callback != nullptr) {
+            return;
+        }
+        auto setplaincaption_cb = kxmlguiwindow_setplaincaption_callback;
+        if (setplaincaption_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -795,11 +717,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
 
-            kxmlguiwindow_setplaincaption_callback(this, cbval1);
+            setplaincaption_cb(this, cbval1);
             libqt_free(caption_str);
-        } else {
-            KXmlGuiWindow::setPlainCaption(caption);
+            return;
         }
+        KXmlGuiWindow::setPlainCaption(caption);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +729,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_keypressevent_isbase) {
             kxmlguiwindow_keypressevent_isbase = false;
             KXmlGuiWindow::keyPressEvent(keyEvent);
-        } else if (kxmlguiwindow_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kxmlguiwindow_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = keyEvent;
 
-            kxmlguiwindow_keypressevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::keyPressEvent(keyEvent);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::keyPressEvent(keyEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +746,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_closeevent_isbase) {
             kxmlguiwindow_closeevent_isbase = false;
             KXmlGuiWindow::closeEvent(param1);
-        } else if (kxmlguiwindow_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kxmlguiwindow_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kxmlguiwindow_closeevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,12 +763,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_queryclose_isbase) {
             kxmlguiwindow_queryclose_isbase = false;
             return KXmlGuiWindow::queryClose();
-        } else if (kxmlguiwindow_queryclose_callback != nullptr) {
-            bool callback_ret = kxmlguiwindow_queryclose_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::queryClose();
         }
+        auto queryclose_cb = kxmlguiwindow_queryclose_callback;
+        if (queryclose_cb) {
+            bool callback_ret = queryclose_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::queryClose();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,15 +777,18 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_saveproperties_isbase) {
             kxmlguiwindow_saveproperties_isbase = false;
             KXmlGuiWindow::saveProperties(param1);
-        } else if (kxmlguiwindow_saveproperties_callback != nullptr) {
+            return;
+        }
+        auto saveproperties_cb = kxmlguiwindow_saveproperties_callback;
+        if (saveproperties_cb) {
             KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &param1_ret;
 
-            kxmlguiwindow_saveproperties_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::saveProperties(param1);
+            saveproperties_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::saveProperties(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -864,15 +796,18 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_readproperties_isbase) {
             kxmlguiwindow_readproperties_isbase = false;
             KXmlGuiWindow::readProperties(param1);
-        } else if (kxmlguiwindow_readproperties_callback != nullptr) {
+            return;
+        }
+        auto readproperties_cb = kxmlguiwindow_readproperties_callback;
+        if (readproperties_cb) {
             const KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&param1_ret);
 
-            kxmlguiwindow_readproperties_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::readProperties(param1);
+            readproperties_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::readProperties(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +815,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_saveglobalproperties_isbase) {
             kxmlguiwindow_saveglobalproperties_isbase = false;
             KXmlGuiWindow::saveGlobalProperties(sessionConfig);
-        } else if (kxmlguiwindow_saveglobalproperties_callback != nullptr) {
+            return;
+        }
+        auto saveglobalproperties_cb = kxmlguiwindow_saveglobalproperties_callback;
+        if (saveglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
 
-            kxmlguiwindow_saveglobalproperties_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::saveGlobalProperties(sessionConfig);
+            saveglobalproperties_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::saveGlobalProperties(sessionConfig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +832,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_readglobalproperties_isbase) {
             kxmlguiwindow_readglobalproperties_isbase = false;
             KXmlGuiWindow::readGlobalProperties(sessionConfig);
-        } else if (kxmlguiwindow_readglobalproperties_callback != nullptr) {
+            return;
+        }
+        auto readglobalproperties_cb = kxmlguiwindow_readglobalproperties_callback;
+        if (readglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
 
-            kxmlguiwindow_readglobalproperties_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::readGlobalProperties(sessionConfig);
+            readglobalproperties_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::readGlobalProperties(sessionConfig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,12 +849,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_createpopupmenu_isbase) {
             kxmlguiwindow_createpopupmenu_isbase = false;
             return KXmlGuiWindow::createPopupMenu();
-        } else if (kxmlguiwindow_createpopupmenu_callback != nullptr) {
-            QMenu* callback_ret = kxmlguiwindow_createpopupmenu_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::createPopupMenu();
         }
+        auto createpopupmenu_cb = kxmlguiwindow_createpopupmenu_callback;
+        if (createpopupmenu_cb) {
+            QMenu* callback_ret = createpopupmenu_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::createPopupMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,13 +863,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_contextmenuevent_isbase) {
             kxmlguiwindow_contextmenuevent_isbase = false;
             KXmlGuiWindow::contextMenuEvent(event);
-        } else if (kxmlguiwindow_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kxmlguiwindow_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kxmlguiwindow_contextmenuevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,12 +880,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_devtype_isbase) {
             kxmlguiwindow_devtype_isbase = false;
             return KXmlGuiWindow::devType();
-        } else if (kxmlguiwindow_devtype_callback != nullptr) {
-            int callback_ret = kxmlguiwindow_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KXmlGuiWindow::devType();
         }
+        auto devtype_cb = kxmlguiwindow_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KXmlGuiWindow::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,13 +894,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setvisible_isbase) {
             kxmlguiwindow_setvisible_isbase = false;
             KXmlGuiWindow::setVisible(visible);
-        } else if (kxmlguiwindow_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kxmlguiwindow_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kxmlguiwindow_setvisible_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,12 +911,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_sizehint_isbase) {
             kxmlguiwindow_sizehint_isbase = false;
             return KXmlGuiWindow::sizeHint();
-        } else if (kxmlguiwindow_sizehint_callback != nullptr) {
-            QSize* callback_ret = kxmlguiwindow_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KXmlGuiWindow::sizeHint();
         }
+        auto sizehint_cb = kxmlguiwindow_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KXmlGuiWindow::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,12 +925,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_minimumsizehint_isbase) {
             kxmlguiwindow_minimumsizehint_isbase = false;
             return KXmlGuiWindow::minimumSizeHint();
-        } else if (kxmlguiwindow_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kxmlguiwindow_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KXmlGuiWindow::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kxmlguiwindow_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KXmlGuiWindow::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -988,14 +939,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_heightforwidth_isbase) {
             kxmlguiwindow_heightforwidth_isbase = false;
             return KXmlGuiWindow::heightForWidth(param1);
-        } else if (kxmlguiwindow_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kxmlguiwindow_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kxmlguiwindow_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXmlGuiWindow::heightForWidth(param1);
         }
+        return KXmlGuiWindow::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,12 +955,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_hasheightforwidth_isbase) {
             kxmlguiwindow_hasheightforwidth_isbase = false;
             return KXmlGuiWindow::hasHeightForWidth();
-        } else if (kxmlguiwindow_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kxmlguiwindow_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kxmlguiwindow_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1016,12 +969,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_paintengine_isbase) {
             kxmlguiwindow_paintengine_isbase = false;
             return KXmlGuiWindow::paintEngine();
-        } else if (kxmlguiwindow_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kxmlguiwindow_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::paintEngine();
         }
+        auto paintengine_cb = kxmlguiwindow_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,13 +983,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_mousepressevent_isbase) {
             kxmlguiwindow_mousepressevent_isbase = false;
             KXmlGuiWindow::mousePressEvent(event);
-        } else if (kxmlguiwindow_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kxmlguiwindow_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kxmlguiwindow_mousepressevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,13 +1000,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_mousereleaseevent_isbase) {
             kxmlguiwindow_mousereleaseevent_isbase = false;
             KXmlGuiWindow::mouseReleaseEvent(event);
-        } else if (kxmlguiwindow_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kxmlguiwindow_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kxmlguiwindow_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1057,13 +1017,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_mousedoubleclickevent_isbase) {
             kxmlguiwindow_mousedoubleclickevent_isbase = false;
             KXmlGuiWindow::mouseDoubleClickEvent(event);
-        } else if (kxmlguiwindow_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kxmlguiwindow_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kxmlguiwindow_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,13 +1034,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_mousemoveevent_isbase) {
             kxmlguiwindow_mousemoveevent_isbase = false;
             KXmlGuiWindow::mouseMoveEvent(event);
-        } else if (kxmlguiwindow_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kxmlguiwindow_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kxmlguiwindow_mousemoveevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,13 +1051,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_wheelevent_isbase) {
             kxmlguiwindow_wheelevent_isbase = false;
             KXmlGuiWindow::wheelEvent(event);
-        } else if (kxmlguiwindow_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kxmlguiwindow_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kxmlguiwindow_wheelevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,13 +1068,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_keyreleaseevent_isbase) {
             kxmlguiwindow_keyreleaseevent_isbase = false;
             KXmlGuiWindow::keyReleaseEvent(event);
-        } else if (kxmlguiwindow_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kxmlguiwindow_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kxmlguiwindow_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1113,13 +1085,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_focusinevent_isbase) {
             kxmlguiwindow_focusinevent_isbase = false;
             KXmlGuiWindow::focusInEvent(event);
-        } else if (kxmlguiwindow_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kxmlguiwindow_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kxmlguiwindow_focusinevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,13 +1102,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_focusoutevent_isbase) {
             kxmlguiwindow_focusoutevent_isbase = false;
             KXmlGuiWindow::focusOutEvent(event);
-        } else if (kxmlguiwindow_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kxmlguiwindow_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kxmlguiwindow_focusoutevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,13 +1119,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_enterevent_isbase) {
             kxmlguiwindow_enterevent_isbase = false;
             KXmlGuiWindow::enterEvent(event);
-        } else if (kxmlguiwindow_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kxmlguiwindow_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kxmlguiwindow_enterevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,13 +1136,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_leaveevent_isbase) {
             kxmlguiwindow_leaveevent_isbase = false;
             KXmlGuiWindow::leaveEvent(event);
-        } else if (kxmlguiwindow_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kxmlguiwindow_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kxmlguiwindow_leaveevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,13 +1153,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_paintevent_isbase) {
             kxmlguiwindow_paintevent_isbase = false;
             KXmlGuiWindow::paintEvent(event);
-        } else if (kxmlguiwindow_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kxmlguiwindow_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kxmlguiwindow_paintevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1183,13 +1170,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_moveevent_isbase) {
             kxmlguiwindow_moveevent_isbase = false;
             KXmlGuiWindow::moveEvent(event);
-        } else if (kxmlguiwindow_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kxmlguiwindow_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kxmlguiwindow_moveevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,13 +1187,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_resizeevent_isbase) {
             kxmlguiwindow_resizeevent_isbase = false;
             KXmlGuiWindow::resizeEvent(event);
-        } else if (kxmlguiwindow_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kxmlguiwindow_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kxmlguiwindow_resizeevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,13 +1204,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_tabletevent_isbase) {
             kxmlguiwindow_tabletevent_isbase = false;
             KXmlGuiWindow::tabletEvent(event);
-        } else if (kxmlguiwindow_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kxmlguiwindow_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kxmlguiwindow_tabletevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,13 +1221,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_actionevent_isbase) {
             kxmlguiwindow_actionevent_isbase = false;
             KXmlGuiWindow::actionEvent(event);
-        } else if (kxmlguiwindow_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kxmlguiwindow_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kxmlguiwindow_actionevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1239,13 +1238,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_dragenterevent_isbase) {
             kxmlguiwindow_dragenterevent_isbase = false;
             KXmlGuiWindow::dragEnterEvent(event);
-        } else if (kxmlguiwindow_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kxmlguiwindow_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kxmlguiwindow_dragenterevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,13 +1255,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_dragmoveevent_isbase) {
             kxmlguiwindow_dragmoveevent_isbase = false;
             KXmlGuiWindow::dragMoveEvent(event);
-        } else if (kxmlguiwindow_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kxmlguiwindow_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kxmlguiwindow_dragmoveevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1267,13 +1272,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_dragleaveevent_isbase) {
             kxmlguiwindow_dragleaveevent_isbase = false;
             KXmlGuiWindow::dragLeaveEvent(event);
-        } else if (kxmlguiwindow_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kxmlguiwindow_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kxmlguiwindow_dragleaveevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1281,13 +1289,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_dropevent_isbase) {
             kxmlguiwindow_dropevent_isbase = false;
             KXmlGuiWindow::dropEvent(event);
-        } else if (kxmlguiwindow_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kxmlguiwindow_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kxmlguiwindow_dropevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,13 +1306,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_showevent_isbase) {
             kxmlguiwindow_showevent_isbase = false;
             KXmlGuiWindow::showEvent(event);
-        } else if (kxmlguiwindow_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kxmlguiwindow_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kxmlguiwindow_showevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,13 +1323,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_hideevent_isbase) {
             kxmlguiwindow_hideevent_isbase = false;
             KXmlGuiWindow::hideEvent(event);
-        } else if (kxmlguiwindow_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kxmlguiwindow_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kxmlguiwindow_hideevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,7 +1340,9 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_nativeevent_isbase) {
             kxmlguiwindow_nativeevent_isbase = false;
             return KXmlGuiWindow::nativeEvent(eventType, message, result);
-        } else if (kxmlguiwindow_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kxmlguiwindow_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1334,12 +1353,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kxmlguiwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::nativeEvent(eventType, message, result);
         }
+        return KXmlGuiWindow::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1347,13 +1365,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_changeevent_isbase) {
             kxmlguiwindow_changeevent_isbase = false;
             KXmlGuiWindow::changeEvent(param1);
-        } else if (kxmlguiwindow_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kxmlguiwindow_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kxmlguiwindow_changeevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1361,14 +1382,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_metric_isbase) {
             kxmlguiwindow_metric_isbase = false;
             return KXmlGuiWindow::metric(param1);
-        } else if (kxmlguiwindow_metric_callback != nullptr) {
+        }
+        auto metric_cb = kxmlguiwindow_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kxmlguiwindow_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXmlGuiWindow::metric(param1);
         }
+        return KXmlGuiWindow::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1376,13 +1398,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_initpainter_isbase) {
             kxmlguiwindow_initpainter_isbase = false;
             KXmlGuiWindow::initPainter(painter);
-        } else if (kxmlguiwindow_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kxmlguiwindow_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kxmlguiwindow_initpainter_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1390,14 +1415,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_redirected_isbase) {
             kxmlguiwindow_redirected_isbase = false;
             return KXmlGuiWindow::redirected(offset);
-        } else if (kxmlguiwindow_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kxmlguiwindow_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kxmlguiwindow_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::redirected(offset);
         }
+        return KXmlGuiWindow::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,12 +1431,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_sharedpainter_isbase) {
             kxmlguiwindow_sharedpainter_isbase = false;
             return KXmlGuiWindow::sharedPainter();
-        } else if (kxmlguiwindow_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kxmlguiwindow_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::sharedPainter();
         }
+        auto sharedpainter_cb = kxmlguiwindow_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1418,13 +1445,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_inputmethodevent_isbase) {
             kxmlguiwindow_inputmethodevent_isbase = false;
             KXmlGuiWindow::inputMethodEvent(param1);
-        } else if (kxmlguiwindow_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kxmlguiwindow_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kxmlguiwindow_inputmethodevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1432,14 +1462,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_inputmethodquery_isbase) {
             kxmlguiwindow_inputmethodquery_isbase = false;
             return KXmlGuiWindow::inputMethodQuery(param1);
-        } else if (kxmlguiwindow_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kxmlguiwindow_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kxmlguiwindow_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KXmlGuiWindow::inputMethodQuery(param1);
         }
+        return KXmlGuiWindow::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1447,14 +1478,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_focusnextprevchild_isbase) {
             kxmlguiwindow_focusnextprevchild_isbase = false;
             return KXmlGuiWindow::focusNextPrevChild(next);
-        } else if (kxmlguiwindow_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kxmlguiwindow_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kxmlguiwindow_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::focusNextPrevChild(next);
         }
+        return KXmlGuiWindow::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1462,15 +1494,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_eventfilter_isbase) {
             kxmlguiwindow_eventfilter_isbase = false;
             return KXmlGuiWindow::eventFilter(watched, event);
-        } else if (kxmlguiwindow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kxmlguiwindow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kxmlguiwindow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::eventFilter(watched, event);
         }
+        return KXmlGuiWindow::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1478,13 +1511,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_timerevent_isbase) {
             kxmlguiwindow_timerevent_isbase = false;
             KXmlGuiWindow::timerEvent(event);
-        } else if (kxmlguiwindow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kxmlguiwindow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kxmlguiwindow_timerevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1492,13 +1528,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_childevent_isbase) {
             kxmlguiwindow_childevent_isbase = false;
             KXmlGuiWindow::childEvent(event);
-        } else if (kxmlguiwindow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kxmlguiwindow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kxmlguiwindow_childevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1506,13 +1545,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_customevent_isbase) {
             kxmlguiwindow_customevent_isbase = false;
             KXmlGuiWindow::customEvent(event);
-        } else if (kxmlguiwindow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kxmlguiwindow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kxmlguiwindow_customevent_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1520,15 +1562,18 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_connectnotify_isbase) {
             kxmlguiwindow_connectnotify_isbase = false;
             KXmlGuiWindow::connectNotify(signal);
-        } else if (kxmlguiwindow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kxmlguiwindow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kxmlguiwindow_connectnotify_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1536,15 +1581,18 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_disconnectnotify_isbase) {
             kxmlguiwindow_disconnectnotify_isbase = false;
             KXmlGuiWindow::disconnectNotify(signal);
-        } else if (kxmlguiwindow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kxmlguiwindow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kxmlguiwindow_disconnectnotify_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1552,8 +1600,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_containertags_isbase) {
             kxmlguiwindow_containertags_isbase = false;
             return KXmlGuiWindow::containerTags();
-        } else if (kxmlguiwindow_containertags_callback != nullptr) {
-            const char** callback_ret = kxmlguiwindow_containertags_callback();
+        }
+        auto containertags_cb = kxmlguiwindow_containertags_callback;
+        if (containertags_cb) {
+            const char** callback_ret = containertags_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1564,9 +1614,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KXmlGuiWindow::containerTags();
         }
+        return KXmlGuiWindow::containerTags();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,7 +1623,9 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_createcontainer_isbase) {
             kxmlguiwindow_createcontainer_isbase = false;
             return KXmlGuiWindow::createContainer(parent, index, element, containerAction);
-        } else if (kxmlguiwindow_createcontainer_callback != nullptr) {
+        }
+        auto createcontainer_cb = kxmlguiwindow_createcontainer_callback;
+        if (createcontainer_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
@@ -1584,11 +1635,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             // Cast returned reference into pointer
             QAction** cbval4 = &containerAction_ret;
 
-            QWidget* callback_ret = kxmlguiwindow_createcontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QWidget* callback_ret = createcontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::createContainer(parent, index, element, containerAction);
         }
+        return KXmlGuiWindow::createContainer(parent, index, element, containerAction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1596,7 +1646,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_removecontainer_isbase) {
             kxmlguiwindow_removecontainer_isbase = false;
             KXmlGuiWindow::removeContainer(container, parent, element, containerAction);
-        } else if (kxmlguiwindow_removecontainer_callback != nullptr) {
+            return;
+        }
+        auto removecontainer_cb = kxmlguiwindow_removecontainer_callback;
+        if (removecontainer_cb) {
             QWidget* cbval1 = container;
             QWidget* cbval2 = parent;
             QDomElement& element_ret = element;
@@ -1604,10 +1657,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             QDomElement* cbval3 = &element_ret;
             QAction* cbval4 = containerAction;
 
-            kxmlguiwindow_removecontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KXmlGuiWindow::removeContainer(container, parent, element, containerAction);
+            removecontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KXmlGuiWindow::removeContainer(container, parent, element, containerAction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1615,8 +1668,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_customtags_isbase) {
             kxmlguiwindow_customtags_isbase = false;
             return KXmlGuiWindow::customTags();
-        } else if (kxmlguiwindow_customtags_callback != nullptr) {
-            const char** callback_ret = kxmlguiwindow_customtags_callback();
+        }
+        auto customtags_cb = kxmlguiwindow_customtags_callback;
+        if (customtags_cb) {
+            const char** callback_ret = customtags_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1627,9 +1682,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KXmlGuiWindow::customTags();
         }
+        return KXmlGuiWindow::customTags();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1637,18 +1691,19 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_createcustomelement_isbase) {
             kxmlguiwindow_createcustomelement_isbase = false;
             return KXmlGuiWindow::createCustomElement(parent, index, element);
-        } else if (kxmlguiwindow_createcustomelement_callback != nullptr) {
+        }
+        auto createcustomelement_cb = kxmlguiwindow_createcustomelement_callback;
+        if (createcustomelement_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kxmlguiwindow_createcustomelement_callback(this, cbval1, cbval2, cbval3);
+            QAction* callback_ret = createcustomelement_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::createCustomElement(parent, index, element);
         }
+        return KXmlGuiWindow::createCustomElement(parent, index, element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1656,13 +1711,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_finalizegui_isbase) {
             kxmlguiwindow_finalizegui_isbase = false;
             KXmlGuiWindow::finalizeGUI(client);
-        } else if (kxmlguiwindow_finalizegui_callback != nullptr) {
+            return;
+        }
+        auto finalizegui_cb = kxmlguiwindow_finalizegui_callback;
+        if (finalizegui_cb) {
             KXMLGUIClient* cbval1 = client;
 
-            kxmlguiwindow_finalizegui_callback(this, cbval1);
-        } else {
-            KXmlGuiWindow::finalizeGUI(client);
+            finalizegui_cb(this, cbval1);
+            return;
         }
+        KXmlGuiWindow::finalizeGUI(client);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1670,16 +1728,17 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_action2_isbase) {
             kxmlguiwindow_action2_isbase = false;
             return KXmlGuiWindow::action(element);
-        } else if (kxmlguiwindow_action2_callback != nullptr) {
+        }
+        auto action2_cb = kxmlguiwindow_action2_callback;
+        if (action2_cb) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kxmlguiwindow_action2_callback(this, cbval1);
+            QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::action(element);
         }
+        return KXmlGuiWindow::action(element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1687,12 +1746,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_actioncollection_isbase) {
             kxmlguiwindow_actioncollection_isbase = false;
             return KXmlGuiWindow::actionCollection();
-        } else if (kxmlguiwindow_actioncollection_callback != nullptr) {
-            KActionCollection* callback_ret = kxmlguiwindow_actioncollection_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::actionCollection();
         }
+        auto actioncollection_cb = kxmlguiwindow_actioncollection_callback;
+        if (actioncollection_cb) {
+            KActionCollection* callback_ret = actioncollection_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::actionCollection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1700,13 +1760,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_componentname_isbase) {
             kxmlguiwindow_componentname_isbase = false;
             return KXmlGuiWindow::componentName();
-        } else if (kxmlguiwindow_componentname_callback != nullptr) {
-            const char* callback_ret = kxmlguiwindow_componentname_callback();
+        }
+        auto componentname_cb = kxmlguiwindow_componentname_callback;
+        if (componentname_cb) {
+            const char* callback_ret = componentname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXmlGuiWindow::componentName();
         }
+        return KXmlGuiWindow::componentName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1714,12 +1775,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_domdocument_isbase) {
             kxmlguiwindow_domdocument_isbase = false;
             return KXmlGuiWindow::domDocument();
-        } else if (kxmlguiwindow_domdocument_callback != nullptr) {
-            QDomDocument* callback_ret = kxmlguiwindow_domdocument_callback();
-            return *callback_ret;
-        } else {
-            return KXmlGuiWindow::domDocument();
         }
+        auto domdocument_cb = kxmlguiwindow_domdocument_callback;
+        if (domdocument_cb) {
+            QDomDocument* callback_ret = domdocument_cb();
+            return *callback_ret;
+        }
+        return KXmlGuiWindow::domDocument();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1727,13 +1789,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_xmlfile_isbase) {
             kxmlguiwindow_xmlfile_isbase = false;
             return KXmlGuiWindow::xmlFile();
-        } else if (kxmlguiwindow_xmlfile_callback != nullptr) {
-            const char* callback_ret = kxmlguiwindow_xmlfile_callback();
+        }
+        auto xmlfile_cb = kxmlguiwindow_xmlfile_callback;
+        if (xmlfile_cb) {
+            const char* callback_ret = xmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXmlGuiWindow::xmlFile();
         }
+        return KXmlGuiWindow::xmlFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1741,13 +1804,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_localxmlfile_isbase) {
             kxmlguiwindow_localxmlfile_isbase = false;
             return KXmlGuiWindow::localXMLFile();
-        } else if (kxmlguiwindow_localxmlfile_callback != nullptr) {
-            const char* callback_ret = kxmlguiwindow_localxmlfile_callback();
+        }
+        auto localxmlfile_cb = kxmlguiwindow_localxmlfile_callback;
+        if (localxmlfile_cb) {
+            const char* callback_ret = localxmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXmlGuiWindow::localXMLFile();
         }
+        return KXmlGuiWindow::localXMLFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1755,7 +1819,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setcomponentname_isbase) {
             kxmlguiwindow_setcomponentname_isbase = false;
             KXmlGuiWindow::setComponentName(componentName, componentDisplayName);
-        } else if (kxmlguiwindow_setcomponentname_callback != nullptr) {
+            return;
+        }
+        auto setcomponentname_cb = kxmlguiwindow_setcomponentname_callback;
+        if (setcomponentname_cb) {
             const QString componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -1773,12 +1840,12 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
 
-            kxmlguiwindow_setcomponentname_callback(this, cbval1, cbval2);
+            setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
-        } else {
-            KXmlGuiWindow::setComponentName(componentName, componentDisplayName);
+            return;
         }
+        KXmlGuiWindow::setComponentName(componentName, componentDisplayName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1786,7 +1853,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setxmlfile_isbase) {
             kxmlguiwindow_setxmlfile_isbase = false;
             KXmlGuiWindow::setXMLFile(file, merge, setXMLDoc);
-        } else if (kxmlguiwindow_setxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setxmlfile_cb = kxmlguiwindow_setxmlfile_callback;
+        if (setxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -1798,11 +1868,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
-            kxmlguiwindow_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
-        } else {
-            KXmlGuiWindow::setXMLFile(file, merge, setXMLDoc);
+            return;
         }
+        KXmlGuiWindow::setXMLFile(file, merge, setXMLDoc);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1810,7 +1880,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setlocalxmlfile_isbase) {
             kxmlguiwindow_setlocalxmlfile_isbase = false;
             KXmlGuiWindow::setLocalXMLFile(file);
-        } else if (kxmlguiwindow_setlocalxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setlocalxmlfile_cb = kxmlguiwindow_setlocalxmlfile_callback;
+        if (setlocalxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -1820,11 +1893,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
 
-            kxmlguiwindow_setlocalxmlfile_callback(this, cbval1);
+            setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
-        } else {
-            KXmlGuiWindow::setLocalXMLFile(file);
+            return;
         }
+        KXmlGuiWindow::setLocalXMLFile(file);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1832,7 +1905,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setxml_isbase) {
             kxmlguiwindow_setxml_isbase = false;
             KXmlGuiWindow::setXML(document, merge);
-        } else if (kxmlguiwindow_setxml_callback != nullptr) {
+            return;
+        }
+        auto setxml_cb = kxmlguiwindow_setxml_callback;
+        if (setxml_cb) {
             const QString document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -1843,11 +1919,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const char* cbval1 = document_str;
             bool cbval2 = merge;
 
-            kxmlguiwindow_setxml_callback(this, cbval1, cbval2);
+            setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
-        } else {
-            KXmlGuiWindow::setXML(document, merge);
+            return;
         }
+        KXmlGuiWindow::setXML(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1855,16 +1931,19 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_setdomdocument_isbase) {
             kxmlguiwindow_setdomdocument_isbase = false;
             KXmlGuiWindow::setDOMDocument(document, merge);
-        } else if (kxmlguiwindow_setdomdocument_callback != nullptr) {
+            return;
+        }
+        auto setdomdocument_cb = kxmlguiwindow_setdomdocument_callback;
+        if (setdomdocument_cb) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
 
-            kxmlguiwindow_setdomdocument_callback(this, cbval1, cbval2);
-        } else {
-            KXmlGuiWindow::setDOMDocument(document, merge);
+            setdomdocument_cb(this, cbval1, cbval2);
+            return;
         }
+        KXmlGuiWindow::setDOMDocument(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1872,7 +1951,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_statechanged_isbase) {
             kxmlguiwindow_statechanged_isbase = false;
             KXmlGuiWindow::stateChanged(newstate, reverse);
-        } else if (kxmlguiwindow_statechanged_callback != nullptr) {
+            return;
+        }
+        auto statechanged_cb = kxmlguiwindow_statechanged_callback;
+        if (statechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -1883,11 +1965,11 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
-            kxmlguiwindow_statechanged_callback(this, cbval1, cbval2);
+            statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
-        } else {
-            KXmlGuiWindow::stateChanged(newstate, reverse);
+            return;
         }
+        KXmlGuiWindow::stateChanged(newstate, reverse);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1895,11 +1977,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_checkambiguousshortcuts_isbase) {
             kxmlguiwindow_checkambiguousshortcuts_isbase = false;
             KXmlGuiWindow::checkAmbiguousShortcuts();
-        } else if (kxmlguiwindow_checkambiguousshortcuts_callback != nullptr) {
-            kxmlguiwindow_checkambiguousshortcuts_callback();
-        } else {
-            KXmlGuiWindow::checkAmbiguousShortcuts();
+            return;
         }
+        auto checkambiguousshortcuts_cb = kxmlguiwindow_checkambiguousshortcuts_callback;
+        if (checkambiguousshortcuts_cb) {
+            checkambiguousshortcuts_cb();
+            return;
+        }
+        KXmlGuiWindow::checkAmbiguousShortcuts();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1907,14 +1992,17 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_savepropertiesinternal_isbase) {
             kxmlguiwindow_savepropertiesinternal_isbase = false;
             KXmlGuiWindow::savePropertiesInternal(param1, param2);
-        } else if (kxmlguiwindow_savepropertiesinternal_callback != nullptr) {
+            return;
+        }
+        auto savepropertiesinternal_cb = kxmlguiwindow_savepropertiesinternal_callback;
+        if (savepropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
 
-            kxmlguiwindow_savepropertiesinternal_callback(this, cbval1, cbval2);
-        } else {
-            KXmlGuiWindow::savePropertiesInternal(param1, param2);
+            savepropertiesinternal_cb(this, cbval1, cbval2);
+            return;
         }
+        KXmlGuiWindow::savePropertiesInternal(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1922,15 +2010,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_readpropertiesinternal_isbase) {
             kxmlguiwindow_readpropertiesinternal_isbase = false;
             return KXmlGuiWindow::readPropertiesInternal(param1, param2);
-        } else if (kxmlguiwindow_readpropertiesinternal_callback != nullptr) {
+        }
+        auto readpropertiesinternal_cb = kxmlguiwindow_readpropertiesinternal_callback;
+        if (readpropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
 
-            bool callback_ret = kxmlguiwindow_readpropertiesinternal_callback(this, cbval1, cbval2);
+            bool callback_ret = readpropertiesinternal_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::readPropertiesInternal(param1, param2);
         }
+        return KXmlGuiWindow::readPropertiesInternal(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1938,12 +2027,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_settingsdirty_isbase) {
             kxmlguiwindow_settingsdirty_isbase = false;
             return KXmlGuiWindow::settingsDirty();
-        } else if (kxmlguiwindow_settingsdirty_callback != nullptr) {
-            bool callback_ret = kxmlguiwindow_settingsdirty_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::settingsDirty();
         }
+        auto settingsdirty_cb = kxmlguiwindow_settingsdirty_callback;
+        if (settingsdirty_cb) {
+            bool callback_ret = settingsdirty_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::settingsDirty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1951,11 +2041,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_saveautosavesettings_isbase) {
             kxmlguiwindow_saveautosavesettings_isbase = false;
             KXmlGuiWindow::saveAutoSaveSettings();
-        } else if (kxmlguiwindow_saveautosavesettings_callback != nullptr) {
-            kxmlguiwindow_saveautosavesettings_callback();
-        } else {
-            KXmlGuiWindow::saveAutoSaveSettings();
+            return;
         }
+        auto saveautosavesettings_cb = kxmlguiwindow_saveautosavesettings_callback;
+        if (saveautosavesettings_cb) {
+            saveautosavesettings_cb();
+            return;
+        }
+        KXmlGuiWindow::saveAutoSaveSettings();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1963,11 +2056,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_updatemicrofocus_isbase) {
             kxmlguiwindow_updatemicrofocus_isbase = false;
             KXmlGuiWindow::updateMicroFocus();
-        } else if (kxmlguiwindow_updatemicrofocus_callback != nullptr) {
-            kxmlguiwindow_updatemicrofocus_callback();
-        } else {
-            KXmlGuiWindow::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kxmlguiwindow_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KXmlGuiWindow::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1975,11 +2071,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_create_isbase) {
             kxmlguiwindow_create_isbase = false;
             KXmlGuiWindow::create();
-        } else if (kxmlguiwindow_create_callback != nullptr) {
-            kxmlguiwindow_create_callback();
-        } else {
-            KXmlGuiWindow::create();
+            return;
         }
+        auto create_cb = kxmlguiwindow_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KXmlGuiWindow::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1987,11 +2086,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_destroy_isbase) {
             kxmlguiwindow_destroy_isbase = false;
             KXmlGuiWindow::destroy();
-        } else if (kxmlguiwindow_destroy_callback != nullptr) {
-            kxmlguiwindow_destroy_callback();
-        } else {
-            KXmlGuiWindow::destroy();
+            return;
         }
+        auto destroy_cb = kxmlguiwindow_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KXmlGuiWindow::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1999,12 +2101,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_focusnextchild_isbase) {
             kxmlguiwindow_focusnextchild_isbase = false;
             return KXmlGuiWindow::focusNextChild();
-        } else if (kxmlguiwindow_focusnextchild_callback != nullptr) {
-            bool callback_ret = kxmlguiwindow_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::focusNextChild();
         }
+        auto focusnextchild_cb = kxmlguiwindow_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2012,12 +2115,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_focuspreviouschild_isbase) {
             kxmlguiwindow_focuspreviouschild_isbase = false;
             return KXmlGuiWindow::focusPreviousChild();
-        } else if (kxmlguiwindow_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kxmlguiwindow_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kxmlguiwindow_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2025,12 +2129,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_sender_isbase) {
             kxmlguiwindow_sender_isbase = false;
             return KXmlGuiWindow::sender();
-        } else if (kxmlguiwindow_sender_callback != nullptr) {
-            QObject* callback_ret = kxmlguiwindow_sender_callback();
-            return callback_ret;
-        } else {
-            return KXmlGuiWindow::sender();
         }
+        auto sender_cb = kxmlguiwindow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KXmlGuiWindow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2038,12 +2143,13 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_sendersignalindex_isbase) {
             kxmlguiwindow_sendersignalindex_isbase = false;
             return KXmlGuiWindow::senderSignalIndex();
-        } else if (kxmlguiwindow_sendersignalindex_callback != nullptr) {
-            int callback_ret = kxmlguiwindow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KXmlGuiWindow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kxmlguiwindow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KXmlGuiWindow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2051,14 +2157,15 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_receivers_isbase) {
             kxmlguiwindow_receivers_isbase = false;
             return KXmlGuiWindow::receivers(signal);
-        } else if (kxmlguiwindow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kxmlguiwindow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kxmlguiwindow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXmlGuiWindow::receivers(signal);
         }
+        return KXmlGuiWindow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2066,16 +2173,17 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_issignalconnected_isbase) {
             kxmlguiwindow_issignalconnected_isbase = false;
             return KXmlGuiWindow::isSignalConnected(signal);
-        } else if (kxmlguiwindow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kxmlguiwindow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kxmlguiwindow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXmlGuiWindow::isSignalConnected(signal);
         }
+        return KXmlGuiWindow::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2083,15 +2191,16 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_getdecodedmetricf_isbase) {
             kxmlguiwindow_getdecodedmetricf_isbase = false;
             return KXmlGuiWindow::getDecodedMetricF(metricA, metricB);
-        } else if (kxmlguiwindow_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kxmlguiwindow_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kxmlguiwindow_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KXmlGuiWindow::getDecodedMetricF(metricA, metricB);
         }
+        return KXmlGuiWindow::getDecodedMetricF(metricA, metricB);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2099,13 +2208,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_standardsxmlfilelocation_isbase) {
             kxmlguiwindow_standardsxmlfilelocation_isbase = false;
             return KXmlGuiWindow::standardsXmlFileLocation();
-        } else if (kxmlguiwindow_standardsxmlfilelocation_callback != nullptr) {
-            const char* callback_ret = kxmlguiwindow_standardsxmlfilelocation_callback();
+        }
+        auto standardsxmlfilelocation_cb = kxmlguiwindow_standardsxmlfilelocation_callback;
+        if (standardsxmlfilelocation_cb) {
+            const char* callback_ret = standardsxmlfilelocation_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KXmlGuiWindow::standardsXmlFileLocation();
         }
+        return KXmlGuiWindow::standardsXmlFileLocation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2113,11 +2223,14 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (kxmlguiwindow_loadstandardsxmlfile_isbase) {
             kxmlguiwindow_loadstandardsxmlfile_isbase = false;
             KXmlGuiWindow::loadStandardsXmlFile();
-        } else if (kxmlguiwindow_loadstandardsxmlfile_callback != nullptr) {
-            kxmlguiwindow_loadstandardsxmlfile_callback();
-        } else {
-            KXmlGuiWindow::loadStandardsXmlFile();
+            return;
         }
+        auto loadstandardsxmlfile_cb = kxmlguiwindow_loadstandardsxmlfile_callback;
+        if (loadstandardsxmlfile_cb) {
+            loadstandardsxmlfile_cb();
+            return;
+        }
+        KXmlGuiWindow::loadStandardsXmlFile();
     }
 
     // Friend functions

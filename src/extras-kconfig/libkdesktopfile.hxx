@@ -57,19 +57,6 @@ class VirtualKDesktopFile final : public KDesktopFile {
     VirtualKDesktopFile(QStandardPaths::StandardLocation resourceType, const QString& fileName) : KDesktopFile(resourceType, fileName) {};
     VirtualKDesktopFile(const QString& fileName) : KDesktopFile(fileName) {};
 
-    ~VirtualKDesktopFile() {
-        kdesktopfile_sync_callback = nullptr;
-        kdesktopfile_markasclean_callback = nullptr;
-        kdesktopfile_accessmode_callback = nullptr;
-        kdesktopfile_isimmutable_callback = nullptr;
-        kdesktopfile_grouplist_callback = nullptr;
-        kdesktopfile_hasgroupimpl_callback = nullptr;
-        kdesktopfile_groupimpl_callback = nullptr;
-        kdesktopfile_deletegroupimpl_callback = nullptr;
-        kdesktopfile_isgroupimmutableimpl_callback = nullptr;
-        kdesktopfile_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDesktopFile_Sync_Callback(KDesktopFile_Sync_Callback cb) { kdesktopfile_sync_callback = cb; }
     inline void setKDesktopFile_MarkAsClean_Callback(KDesktopFile_MarkAsClean_Callback cb) { kdesktopfile_markasclean_callback = cb; }
@@ -99,12 +86,13 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_sync_isbase) {
             kdesktopfile_sync_isbase = false;
             return KDesktopFile::sync();
-        } else if (kdesktopfile_sync_callback != nullptr) {
-            bool callback_ret = kdesktopfile_sync_callback();
-            return callback_ret;
-        } else {
-            return KDesktopFile::sync();
         }
+        auto sync_cb = kdesktopfile_sync_callback;
+        if (sync_cb) {
+            bool callback_ret = sync_cb();
+            return callback_ret;
+        }
+        return KDesktopFile::sync();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -112,11 +100,14 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_markasclean_isbase) {
             kdesktopfile_markasclean_isbase = false;
             KDesktopFile::markAsClean();
-        } else if (kdesktopfile_markasclean_callback != nullptr) {
-            kdesktopfile_markasclean_callback();
-        } else {
-            KDesktopFile::markAsClean();
+            return;
         }
+        auto markasclean_cb = kdesktopfile_markasclean_callback;
+        if (markasclean_cb) {
+            markasclean_cb();
+            return;
+        }
+        KDesktopFile::markAsClean();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -124,12 +115,13 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_accessmode_isbase) {
             kdesktopfile_accessmode_isbase = false;
             return KDesktopFile::accessMode();
-        } else if (kdesktopfile_accessmode_callback != nullptr) {
-            int callback_ret = kdesktopfile_accessmode_callback();
-            return static_cast<KConfigBase::AccessMode>(callback_ret);
-        } else {
-            return KDesktopFile::accessMode();
         }
+        auto accessmode_cb = kdesktopfile_accessmode_callback;
+        if (accessmode_cb) {
+            int callback_ret = accessmode_cb();
+            return static_cast<KConfigBase::AccessMode>(callback_ret);
+        }
+        return KDesktopFile::accessMode();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -137,12 +129,13 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_isimmutable_isbase) {
             kdesktopfile_isimmutable_isbase = false;
             return KDesktopFile::isImmutable();
-        } else if (kdesktopfile_isimmutable_callback != nullptr) {
-            bool callback_ret = kdesktopfile_isimmutable_callback();
-            return callback_ret;
-        } else {
-            return KDesktopFile::isImmutable();
         }
+        auto isimmutable_cb = kdesktopfile_isimmutable_callback;
+        if (isimmutable_cb) {
+            bool callback_ret = isimmutable_cb();
+            return callback_ret;
+        }
+        return KDesktopFile::isImmutable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,8 +143,10 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_grouplist_isbase) {
             kdesktopfile_grouplist_isbase = false;
             return KDesktopFile::groupList();
-        } else if (kdesktopfile_grouplist_callback != nullptr) {
-            const char** callback_ret = kdesktopfile_grouplist_callback();
+        }
+        auto grouplist_cb = kdesktopfile_grouplist_callback;
+        if (grouplist_cb) {
+            const char** callback_ret = grouplist_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -162,9 +157,8 @@ class VirtualKDesktopFile final : public KDesktopFile {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KDesktopFile::groupList();
         }
+        return KDesktopFile::groupList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -172,7 +166,9 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_hasgroupimpl_isbase) {
             kdesktopfile_hasgroupimpl_isbase = false;
             return KDesktopFile::hasGroupImpl(groupName);
-        } else if (kdesktopfile_hasgroupimpl_callback != nullptr) {
+        }
+        auto hasgroupimpl_cb = kdesktopfile_hasgroupimpl_callback;
+        if (hasgroupimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -182,12 +178,11 @@ class VirtualKDesktopFile final : public KDesktopFile {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            bool callback_ret = kdesktopfile_hasgroupimpl_callback(this, cbval1);
+            bool callback_ret = hasgroupimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return callback_ret;
-        } else {
-            return KDesktopFile::hasGroupImpl(groupName);
         }
+        return KDesktopFile::hasGroupImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,7 +190,9 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_groupimpl_isbase) {
             kdesktopfile_groupimpl_isbase = false;
             return KDesktopFile::groupImpl(groupName);
-        } else if (kdesktopfile_groupimpl_callback != nullptr) {
+        }
+        auto groupimpl_cb = kdesktopfile_groupimpl_callback;
+        if (groupimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -205,12 +202,11 @@ class VirtualKDesktopFile final : public KDesktopFile {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            KConfigGroup* callback_ret = kdesktopfile_groupimpl_callback(this, cbval1);
+            KConfigGroup* callback_ret = groupimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return *callback_ret;
-        } else {
-            return KDesktopFile::groupImpl(groupName);
         }
+        return KDesktopFile::groupImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,7 +214,10 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_deletegroupimpl_isbase) {
             kdesktopfile_deletegroupimpl_isbase = false;
             KDesktopFile::deleteGroupImpl(groupName, flags);
-        } else if (kdesktopfile_deletegroupimpl_callback != nullptr) {
+            return;
+        }
+        auto deletegroupimpl_cb = kdesktopfile_deletegroupimpl_callback;
+        if (deletegroupimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -229,11 +228,11 @@ class VirtualKDesktopFile final : public KDesktopFile {
             const char* cbval1 = groupName_str;
             int cbval2 = static_cast<int>(flags);
 
-            kdesktopfile_deletegroupimpl_callback(this, cbval1, cbval2);
+            deletegroupimpl_cb(this, cbval1, cbval2);
             libqt_free(groupName_str);
-        } else {
-            KDesktopFile::deleteGroupImpl(groupName, flags);
+            return;
         }
+        KDesktopFile::deleteGroupImpl(groupName, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,7 +240,9 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_isgroupimmutableimpl_isbase) {
             kdesktopfile_isgroupimmutableimpl_isbase = false;
             return KDesktopFile::isGroupImmutableImpl(groupName);
-        } else if (kdesktopfile_isgroupimmutableimpl_callback != nullptr) {
+        }
+        auto isgroupimmutableimpl_cb = kdesktopfile_isgroupimmutableimpl_callback;
+        if (isgroupimmutableimpl_cb) {
             const QString groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
@@ -251,12 +252,11 @@ class VirtualKDesktopFile final : public KDesktopFile {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
 
-            bool callback_ret = kdesktopfile_isgroupimmutableimpl_callback(this, cbval1);
+            bool callback_ret = isgroupimmutableimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return callback_ret;
-        } else {
-            return KDesktopFile::isGroupImmutableImpl(groupName);
         }
+        return KDesktopFile::isGroupImmutableImpl(groupName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,14 +264,17 @@ class VirtualKDesktopFile final : public KDesktopFile {
         if (kdesktopfile_virtualhook_isbase) {
             kdesktopfile_virtualhook_isbase = false;
             KDesktopFile::virtual_hook(id, data);
-        } else if (kdesktopfile_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kdesktopfile_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kdesktopfile_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KDesktopFile::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KDesktopFile::virtual_hook(id, data);
     }
 
     // Friend functions

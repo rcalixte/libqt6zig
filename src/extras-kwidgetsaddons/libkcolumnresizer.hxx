@@ -69,23 +69,6 @@ class VirtualKColumnResizer final : public KColumnResizer {
     VirtualKColumnResizer() : KColumnResizer() {};
     VirtualKColumnResizer(QObject* parent) : KColumnResizer(parent) {};
 
-    ~VirtualKColumnResizer() {
-        kcolumnresizer_metaobject_callback = nullptr;
-        kcolumnresizer_metacast_callback = nullptr;
-        kcolumnresizer_metacall_callback = nullptr;
-        kcolumnresizer_eventfilter_callback = nullptr;
-        kcolumnresizer_event_callback = nullptr;
-        kcolumnresizer_timerevent_callback = nullptr;
-        kcolumnresizer_childevent_callback = nullptr;
-        kcolumnresizer_customevent_callback = nullptr;
-        kcolumnresizer_connectnotify_callback = nullptr;
-        kcolumnresizer_disconnectnotify_callback = nullptr;
-        kcolumnresizer_sender_callback = nullptr;
-        kcolumnresizer_sendersignalindex_callback = nullptr;
-        kcolumnresizer_receivers_callback = nullptr;
-        kcolumnresizer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKColumnResizer_MetaObject_Callback(KColumnResizer_MetaObject_Callback cb) { kcolumnresizer_metaobject_callback = cb; }
     inline void setKColumnResizer_Metacast_Callback(KColumnResizer_Metacast_Callback cb) { kcolumnresizer_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_metaobject_isbase) {
             kcolumnresizer_metaobject_isbase = false;
             return KColumnResizer::metaObject();
-        } else if (kcolumnresizer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcolumnresizer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KColumnResizer::metaObject();
         }
+        auto metaobject_cb = kcolumnresizer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KColumnResizer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_metacast_isbase) {
             kcolumnresizer_metacast_isbase = false;
             return KColumnResizer::qt_metacast(param1);
-        } else if (kcolumnresizer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcolumnresizer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcolumnresizer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnResizer::qt_metacast(param1);
         }
+        return KColumnResizer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_metacall_isbase) {
             kcolumnresizer_metacall_isbase = false;
             return KColumnResizer::qt_metacall(param1, param2, param3);
-        } else if (kcolumnresizer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcolumnresizer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcolumnresizer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColumnResizer::qt_metacall(param1, param2, param3);
         }
+        return KColumnResizer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,15 +154,16 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_eventfilter_isbase) {
             kcolumnresizer_eventfilter_isbase = false;
             return KColumnResizer::eventFilter(param1, event);
-        } else if (kcolumnresizer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcolumnresizer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcolumnresizer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KColumnResizer::eventFilter(param1, event);
         }
+        return KColumnResizer::eventFilter(param1, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,14 +171,15 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_event_isbase) {
             kcolumnresizer_event_isbase = false;
             return KColumnResizer::event(event);
-        } else if (kcolumnresizer_event_callback != nullptr) {
+        }
+        auto event_cb = kcolumnresizer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcolumnresizer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnResizer::event(event);
         }
+        return KColumnResizer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_timerevent_isbase) {
             kcolumnresizer_timerevent_isbase = false;
             KColumnResizer::timerEvent(event);
-        } else if (kcolumnresizer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcolumnresizer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcolumnresizer_timerevent_callback(this, cbval1);
-        } else {
-            KColumnResizer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KColumnResizer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_childevent_isbase) {
             kcolumnresizer_childevent_isbase = false;
             KColumnResizer::childEvent(event);
-        } else if (kcolumnresizer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcolumnresizer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcolumnresizer_childevent_callback(this, cbval1);
-        } else {
-            KColumnResizer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KColumnResizer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_customevent_isbase) {
             kcolumnresizer_customevent_isbase = false;
             KColumnResizer::customEvent(event);
-        } else if (kcolumnresizer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcolumnresizer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcolumnresizer_customevent_callback(this, cbval1);
-        } else {
-            KColumnResizer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KColumnResizer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_connectnotify_isbase) {
             kcolumnresizer_connectnotify_isbase = false;
             KColumnResizer::connectNotify(signal);
-        } else if (kcolumnresizer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcolumnresizer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolumnresizer_connectnotify_callback(this, cbval1);
-        } else {
-            KColumnResizer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KColumnResizer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_disconnectnotify_isbase) {
             kcolumnresizer_disconnectnotify_isbase = false;
             KColumnResizer::disconnectNotify(signal);
-        } else if (kcolumnresizer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcolumnresizer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcolumnresizer_disconnectnotify_callback(this, cbval1);
-        } else {
-            KColumnResizer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KColumnResizer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_sender_isbase) {
             kcolumnresizer_sender_isbase = false;
             return KColumnResizer::sender();
-        } else if (kcolumnresizer_sender_callback != nullptr) {
-            QObject* callback_ret = kcolumnresizer_sender_callback();
-            return callback_ret;
-        } else {
-            return KColumnResizer::sender();
         }
+        auto sender_cb = kcolumnresizer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KColumnResizer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_sendersignalindex_isbase) {
             kcolumnresizer_sendersignalindex_isbase = false;
             return KColumnResizer::senderSignalIndex();
-        } else if (kcolumnresizer_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcolumnresizer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KColumnResizer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcolumnresizer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KColumnResizer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_receivers_isbase) {
             kcolumnresizer_receivers_isbase = false;
             return KColumnResizer::receivers(signal);
-        } else if (kcolumnresizer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcolumnresizer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcolumnresizer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KColumnResizer::receivers(signal);
         }
+        return KColumnResizer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKColumnResizer final : public KColumnResizer {
         if (kcolumnresizer_issignalconnected_isbase) {
             kcolumnresizer_issignalconnected_isbase = false;
             return KColumnResizer::isSignalConnected(signal);
-        } else if (kcolumnresizer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcolumnresizer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcolumnresizer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KColumnResizer::isSignalConnected(signal);
         }
+        return KColumnResizer::isSignalConnected(signal);
     }
 
     // Friend functions

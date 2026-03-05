@@ -401,133 +401,6 @@ class VirtualQTermWidget final : public QTermWidget {
     VirtualQTermWidget() : QTermWidget() {};
     VirtualQTermWidget(int startnow, QWidget* parent) : QTermWidget(startnow, parent) {};
 
-    ~VirtualQTermWidget() {
-        qtermwidget_metaobject_callback = nullptr;
-        qtermwidget_metacast_callback = nullptr;
-        qtermwidget_metacall_callback = nullptr;
-        qtermwidget_sizehint_callback = nullptr;
-        qtermwidget_setterminalsizehint_callback = nullptr;
-        qtermwidget_terminalsizehint_callback = nullptr;
-        qtermwidget_startshellprogram_callback = nullptr;
-        qtermwidget_startterminalteletype_callback = nullptr;
-        qtermwidget_getshellpid_callback = nullptr;
-        qtermwidget_getforegroundprocessid_callback = nullptr;
-        qtermwidget_changedir_callback = nullptr;
-        qtermwidget_setterminalfont_callback = nullptr;
-        qtermwidget_getterminalfont_callback = nullptr;
-        qtermwidget_setterminalopacity_callback = nullptr;
-        qtermwidget_setterminalbackgroundimage_callback = nullptr;
-        qtermwidget_setterminalbackgroundmode_callback = nullptr;
-        qtermwidget_setenvironment_callback = nullptr;
-        qtermwidget_setshellprogram_callback = nullptr;
-        qtermwidget_setworkingdirectory_callback = nullptr;
-        qtermwidget_workingdirectory_callback = nullptr;
-        qtermwidget_setargs_callback = nullptr;
-        qtermwidget_setcolorscheme_callback = nullptr;
-        qtermwidget_getavailablecolorschemes_callback = nullptr;
-        qtermwidget_sethistorysize_callback = nullptr;
-        qtermwidget_historysize_callback = nullptr;
-        qtermwidget_setscrollbarposition_callback = nullptr;
-        qtermwidget_scrolltoend_callback = nullptr;
-        qtermwidget_sendtext_callback = nullptr;
-        qtermwidget_sendkeyevent_callback = nullptr;
-        qtermwidget_setflowcontrolenabled_callback = nullptr;
-        qtermwidget_flowcontrolenabled_callback = nullptr;
-        qtermwidget_setflowcontrolwarningenabled_callback = nullptr;
-        qtermwidget_keybindings_callback = nullptr;
-        qtermwidget_setmotionafterpasting_callback = nullptr;
-        qtermwidget_historylinescount_callback = nullptr;
-        qtermwidget_screencolumnscount_callback = nullptr;
-        qtermwidget_screenlinescount_callback = nullptr;
-        qtermwidget_setselectionstart_callback = nullptr;
-        qtermwidget_setselectionend_callback = nullptr;
-        qtermwidget_getselectionstart_callback = nullptr;
-        qtermwidget_getselectionend_callback = nullptr;
-        qtermwidget_selectedtext_callback = nullptr;
-        qtermwidget_setmonitoractivity_callback = nullptr;
-        qtermwidget_setmonitorsilence_callback = nullptr;
-        qtermwidget_setsilencetimeout_callback = nullptr;
-        qtermwidget_filteractions_callback = nullptr;
-        qtermwidget_getptyslavefd_callback = nullptr;
-        qtermwidget_setblinkingcursor_callback = nullptr;
-        qtermwidget_setbidienabled_callback = nullptr;
-        qtermwidget_isbidienabled_callback = nullptr;
-        qtermwidget_setautoclose_callback = nullptr;
-        qtermwidget_title_callback = nullptr;
-        qtermwidget_icon_callback = nullptr;
-        qtermwidget_istitlechanged_callback = nullptr;
-        qtermwidget_brackettext_callback = nullptr;
-        qtermwidget_disablebracketedpastemode_callback = nullptr;
-        qtermwidget_bracketedpastemodeisdisabled_callback = nullptr;
-        qtermwidget_setmargin_callback = nullptr;
-        qtermwidget_getmargin_callback = nullptr;
-        qtermwidget_setdrawlinechars_callback = nullptr;
-        qtermwidget_setboldintense_callback = nullptr;
-        qtermwidget_setconfirmmultilinepaste_callback = nullptr;
-        qtermwidget_settrimpastedtrailingnewlines_callback = nullptr;
-        qtermwidget_wordcharacters_callback = nullptr;
-        qtermwidget_setwordcharacters_callback = nullptr;
-        qtermwidget_createwidget_callback = nullptr;
-        qtermwidget_resizeevent_callback = nullptr;
-        qtermwidget_devtype_callback = nullptr;
-        qtermwidget_setvisible_callback = nullptr;
-        qtermwidget_minimumsizehint_callback = nullptr;
-        qtermwidget_heightforwidth_callback = nullptr;
-        qtermwidget_hasheightforwidth_callback = nullptr;
-        qtermwidget_paintengine_callback = nullptr;
-        qtermwidget_event_callback = nullptr;
-        qtermwidget_mousepressevent_callback = nullptr;
-        qtermwidget_mousereleaseevent_callback = nullptr;
-        qtermwidget_mousedoubleclickevent_callback = nullptr;
-        qtermwidget_mousemoveevent_callback = nullptr;
-        qtermwidget_wheelevent_callback = nullptr;
-        qtermwidget_keypressevent_callback = nullptr;
-        qtermwidget_keyreleaseevent_callback = nullptr;
-        qtermwidget_focusinevent_callback = nullptr;
-        qtermwidget_focusoutevent_callback = nullptr;
-        qtermwidget_enterevent_callback = nullptr;
-        qtermwidget_leaveevent_callback = nullptr;
-        qtermwidget_paintevent_callback = nullptr;
-        qtermwidget_moveevent_callback = nullptr;
-        qtermwidget_closeevent_callback = nullptr;
-        qtermwidget_contextmenuevent_callback = nullptr;
-        qtermwidget_tabletevent_callback = nullptr;
-        qtermwidget_actionevent_callback = nullptr;
-        qtermwidget_dragenterevent_callback = nullptr;
-        qtermwidget_dragmoveevent_callback = nullptr;
-        qtermwidget_dragleaveevent_callback = nullptr;
-        qtermwidget_dropevent_callback = nullptr;
-        qtermwidget_showevent_callback = nullptr;
-        qtermwidget_hideevent_callback = nullptr;
-        qtermwidget_nativeevent_callback = nullptr;
-        qtermwidget_changeevent_callback = nullptr;
-        qtermwidget_metric_callback = nullptr;
-        qtermwidget_initpainter_callback = nullptr;
-        qtermwidget_redirected_callback = nullptr;
-        qtermwidget_sharedpainter_callback = nullptr;
-        qtermwidget_inputmethodevent_callback = nullptr;
-        qtermwidget_inputmethodquery_callback = nullptr;
-        qtermwidget_focusnextprevchild_callback = nullptr;
-        qtermwidget_eventfilter_callback = nullptr;
-        qtermwidget_timerevent_callback = nullptr;
-        qtermwidget_childevent_callback = nullptr;
-        qtermwidget_customevent_callback = nullptr;
-        qtermwidget_connectnotify_callback = nullptr;
-        qtermwidget_disconnectnotify_callback = nullptr;
-        qtermwidget_sessionfinished_callback = nullptr;
-        qtermwidget_selectionchanged_callback = nullptr;
-        qtermwidget_updatemicrofocus_callback = nullptr;
-        qtermwidget_create_callback = nullptr;
-        qtermwidget_destroy_callback = nullptr;
-        qtermwidget_focusnextchild_callback = nullptr;
-        qtermwidget_focuspreviouschild_callback = nullptr;
-        qtermwidget_sender_callback = nullptr;
-        qtermwidget_sendersignalindex_callback = nullptr;
-        qtermwidget_receivers_callback = nullptr;
-        qtermwidget_issignalconnected_callback = nullptr;
-        qtermwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTermWidget_MetaObject_Callback(QTermWidget_MetaObject_Callback cb) { qtermwidget_metaobject_callback = cb; }
     inline void setQTermWidget_Metacast_Callback(QTermWidget_Metacast_Callback cb) { qtermwidget_metacast_callback = cb; }
@@ -785,12 +658,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_metaobject_isbase) {
             qtermwidget_metaobject_isbase = false;
             return QTermWidget::metaObject();
-        } else if (qtermwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtermwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::metaObject();
         }
+        auto metaobject_cb = qtermwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTermWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,14 +672,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_metacast_isbase) {
             qtermwidget_metacast_isbase = false;
             return QTermWidget::qt_metacast(param1);
-        } else if (qtermwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtermwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtermwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTermWidget::qt_metacast(param1);
         }
+        return QTermWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,16 +688,17 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_metacall_isbase) {
             qtermwidget_metacall_isbase = false;
             return QTermWidget::qt_metacall(param1, param2, param3);
-        } else if (qtermwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtermwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtermwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::qt_metacall(param1, param2, param3);
         }
+        return QTermWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,12 +706,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sizehint_isbase) {
             qtermwidget_sizehint_isbase = false;
             return QTermWidget::sizeHint();
-        } else if (qtermwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtermwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTermWidget::sizeHint();
         }
+        auto sizehint_cb = qtermwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QTermWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +720,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setterminalsizehint_isbase) {
             qtermwidget_setterminalsizehint_isbase = false;
             QTermWidget::setTerminalSizeHint(enabled);
-        } else if (qtermwidget_setterminalsizehint_callback != nullptr) {
+            return;
+        }
+        auto setterminalsizehint_cb = qtermwidget_setterminalsizehint_callback;
+        if (setterminalsizehint_cb) {
             bool cbval1 = enabled;
 
-            qtermwidget_setterminalsizehint_callback(this, cbval1);
-        } else {
-            QTermWidget::setTerminalSizeHint(enabled);
+            setterminalsizehint_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setTerminalSizeHint(enabled);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,12 +737,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_terminalsizehint_isbase) {
             qtermwidget_terminalsizehint_isbase = false;
             return QTermWidget::terminalSizeHint();
-        } else if (qtermwidget_terminalsizehint_callback != nullptr) {
-            bool callback_ret = qtermwidget_terminalsizehint_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::terminalSizeHint();
         }
+        auto terminalsizehint_cb = qtermwidget_terminalsizehint_callback;
+        if (terminalsizehint_cb) {
+            bool callback_ret = terminalsizehint_cb();
+            return callback_ret;
+        }
+        return QTermWidget::terminalSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,11 +751,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_startshellprogram_isbase) {
             qtermwidget_startshellprogram_isbase = false;
             QTermWidget::startShellProgram();
-        } else if (qtermwidget_startshellprogram_callback != nullptr) {
-            qtermwidget_startshellprogram_callback();
-        } else {
-            QTermWidget::startShellProgram();
+            return;
         }
+        auto startshellprogram_cb = qtermwidget_startshellprogram_callback;
+        if (startshellprogram_cb) {
+            startshellprogram_cb();
+            return;
+        }
+        QTermWidget::startShellProgram();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,11 +766,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_startterminalteletype_isbase) {
             qtermwidget_startterminalteletype_isbase = false;
             QTermWidget::startTerminalTeletype();
-        } else if (qtermwidget_startterminalteletype_callback != nullptr) {
-            qtermwidget_startterminalteletype_callback();
-        } else {
-            QTermWidget::startTerminalTeletype();
+            return;
         }
+        auto startterminalteletype_cb = qtermwidget_startterminalteletype_callback;
+        if (startterminalteletype_cb) {
+            startterminalteletype_cb();
+            return;
+        }
+        QTermWidget::startTerminalTeletype();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,12 +781,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getshellpid_isbase) {
             qtermwidget_getshellpid_isbase = false;
             return QTermWidget::getShellPID();
-        } else if (qtermwidget_getshellpid_callback != nullptr) {
-            int callback_ret = qtermwidget_getshellpid_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::getShellPID();
         }
+        auto getshellpid_cb = qtermwidget_getshellpid_callback;
+        if (getshellpid_cb) {
+            int callback_ret = getshellpid_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::getShellPID();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,12 +795,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getforegroundprocessid_isbase) {
             qtermwidget_getforegroundprocessid_isbase = false;
             return QTermWidget::getForegroundProcessId();
-        } else if (qtermwidget_getforegroundprocessid_callback != nullptr) {
-            int callback_ret = qtermwidget_getforegroundprocessid_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::getForegroundProcessId();
         }
+        auto getforegroundprocessid_cb = qtermwidget_getforegroundprocessid_callback;
+        if (getforegroundprocessid_cb) {
+            int callback_ret = getforegroundprocessid_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::getForegroundProcessId();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,7 +809,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_changedir_isbase) {
             qtermwidget_changedir_isbase = false;
             QTermWidget::changeDir(dir);
-        } else if (qtermwidget_changedir_callback != nullptr) {
+            return;
+        }
+        auto changedir_cb = qtermwidget_changedir_callback;
+        if (changedir_cb) {
             const QString dir_ret = dir;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dir_b = dir_ret.toUtf8();
@@ -930,11 +822,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)dir_str)[dir_str_len] = '\0';
             const char* cbval1 = dir_str;
 
-            qtermwidget_changedir_callback(this, cbval1);
+            changedir_cb(this, cbval1);
             libqt_free(dir_str);
-        } else {
-            QTermWidget::changeDir(dir);
+            return;
         }
+        QTermWidget::changeDir(dir);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,15 +834,18 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setterminalfont_isbase) {
             qtermwidget_setterminalfont_isbase = false;
             QTermWidget::setTerminalFont(font);
-        } else if (qtermwidget_setterminalfont_callback != nullptr) {
+            return;
+        }
+        auto setterminalfont_cb = qtermwidget_setterminalfont_callback;
+        if (setterminalfont_cb) {
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&font_ret);
 
-            qtermwidget_setterminalfont_callback(this, cbval1);
-        } else {
-            QTermWidget::setTerminalFont(font);
+            setterminalfont_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setTerminalFont(font);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,12 +853,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getterminalfont_isbase) {
             qtermwidget_getterminalfont_isbase = false;
             return QTermWidget::getTerminalFont();
-        } else if (qtermwidget_getterminalfont_callback != nullptr) {
-            QFont* callback_ret = qtermwidget_getterminalfont_callback();
-            return *callback_ret;
-        } else {
-            return QTermWidget::getTerminalFont();
         }
+        auto getterminalfont_cb = qtermwidget_getterminalfont_callback;
+        if (getterminalfont_cb) {
+            QFont* callback_ret = getterminalfont_cb();
+            return *callback_ret;
+        }
+        return QTermWidget::getTerminalFont();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,13 +867,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setterminalopacity_isbase) {
             qtermwidget_setterminalopacity_isbase = false;
             QTermWidget::setTerminalOpacity(level);
-        } else if (qtermwidget_setterminalopacity_callback != nullptr) {
+            return;
+        }
+        auto setterminalopacity_cb = qtermwidget_setterminalopacity_callback;
+        if (setterminalopacity_cb) {
             double cbval1 = static_cast<double>(level);
 
-            qtermwidget_setterminalopacity_callback(this, cbval1);
-        } else {
-            QTermWidget::setTerminalOpacity(level);
+            setterminalopacity_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setTerminalOpacity(level);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -985,7 +884,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setterminalbackgroundimage_isbase) {
             qtermwidget_setterminalbackgroundimage_isbase = false;
             QTermWidget::setTerminalBackgroundImage(backgroundImage);
-        } else if (qtermwidget_setterminalbackgroundimage_callback != nullptr) {
+            return;
+        }
+        auto setterminalbackgroundimage_cb = qtermwidget_setterminalbackgroundimage_callback;
+        if (setterminalbackgroundimage_cb) {
             const QString backgroundImage_ret = backgroundImage;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray backgroundImage_b = backgroundImage_ret.toUtf8();
@@ -995,11 +897,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)backgroundImage_str)[backgroundImage_str_len] = '\0';
             const char* cbval1 = backgroundImage_str;
 
-            qtermwidget_setterminalbackgroundimage_callback(this, cbval1);
+            setterminalbackgroundimage_cb(this, cbval1);
             libqt_free(backgroundImage_str);
-        } else {
-            QTermWidget::setTerminalBackgroundImage(backgroundImage);
+            return;
         }
+        QTermWidget::setTerminalBackgroundImage(backgroundImage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,13 +909,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setterminalbackgroundmode_isbase) {
             qtermwidget_setterminalbackgroundmode_isbase = false;
             QTermWidget::setTerminalBackgroundMode(mode);
-        } else if (qtermwidget_setterminalbackgroundmode_callback != nullptr) {
+            return;
+        }
+        auto setterminalbackgroundmode_cb = qtermwidget_setterminalbackgroundmode_callback;
+        if (setterminalbackgroundmode_cb) {
             int cbval1 = mode;
 
-            qtermwidget_setterminalbackgroundmode_callback(this, cbval1);
-        } else {
-            QTermWidget::setTerminalBackgroundMode(mode);
+            setterminalbackgroundmode_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setTerminalBackgroundMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,7 +926,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setenvironment_isbase) {
             qtermwidget_setenvironment_isbase = false;
             QTermWidget::setEnvironment(environment);
-        } else if (qtermwidget_setenvironment_callback != nullptr) {
+            return;
+        }
+        auto setenvironment_cb = qtermwidget_setenvironment_callback;
+        if (setenvironment_cb) {
             const QList<QString>& environment_ret = environment;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** environment_arr = static_cast<const char**>(malloc(sizeof(const char*) * (environment_ret.size() + 1)));
@@ -1037,11 +945,11 @@ class VirtualQTermWidget final : public QTermWidget {
             environment_arr[environment_ret.size()] = nullptr;
             const char** cbval1 = environment_arr;
 
-            qtermwidget_setenvironment_callback(this, cbval1);
+            setenvironment_cb(this, cbval1);
             libqt_free(environment_arr);
-        } else {
-            QTermWidget::setEnvironment(environment);
+            return;
         }
+        QTermWidget::setEnvironment(environment);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,7 +957,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setshellprogram_isbase) {
             qtermwidget_setshellprogram_isbase = false;
             QTermWidget::setShellProgram(program);
-        } else if (qtermwidget_setshellprogram_callback != nullptr) {
+            return;
+        }
+        auto setshellprogram_cb = qtermwidget_setshellprogram_callback;
+        if (setshellprogram_cb) {
             const QString program_ret = program;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray program_b = program_ret.toUtf8();
@@ -1059,11 +970,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)program_str)[program_str_len] = '\0';
             const char* cbval1 = program_str;
 
-            qtermwidget_setshellprogram_callback(this, cbval1);
+            setshellprogram_cb(this, cbval1);
             libqt_free(program_str);
-        } else {
-            QTermWidget::setShellProgram(program);
+            return;
         }
+        QTermWidget::setShellProgram(program);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,7 +982,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setworkingdirectory_isbase) {
             qtermwidget_setworkingdirectory_isbase = false;
             QTermWidget::setWorkingDirectory(dir);
-        } else if (qtermwidget_setworkingdirectory_callback != nullptr) {
+            return;
+        }
+        auto setworkingdirectory_cb = qtermwidget_setworkingdirectory_callback;
+        if (setworkingdirectory_cb) {
             const QString dir_ret = dir;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dir_b = dir_ret.toUtf8();
@@ -1081,11 +995,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)dir_str)[dir_str_len] = '\0';
             const char* cbval1 = dir_str;
 
-            qtermwidget_setworkingdirectory_callback(this, cbval1);
+            setworkingdirectory_cb(this, cbval1);
             libqt_free(dir_str);
-        } else {
-            QTermWidget::setWorkingDirectory(dir);
+            return;
         }
+        QTermWidget::setWorkingDirectory(dir);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,13 +1007,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_workingdirectory_isbase) {
             qtermwidget_workingdirectory_isbase = false;
             return QTermWidget::workingDirectory();
-        } else if (qtermwidget_workingdirectory_callback != nullptr) {
-            const char* callback_ret = qtermwidget_workingdirectory_callback();
+        }
+        auto workingdirectory_cb = qtermwidget_workingdirectory_callback;
+        if (workingdirectory_cb) {
+            const char* callback_ret = workingdirectory_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTermWidget::workingDirectory();
         }
+        return QTermWidget::workingDirectory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1107,7 +1022,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setargs_isbase) {
             qtermwidget_setargs_isbase = false;
             QTermWidget::setArgs(args);
-        } else if (qtermwidget_setargs_callback != nullptr) {
+            return;
+        }
+        auto setargs_cb = qtermwidget_setargs_callback;
+        if (setargs_cb) {
             const QList<QString>& args_ret = args;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** args_arr = static_cast<const char**>(malloc(sizeof(const char*) * (args_ret.size() + 1)));
@@ -1123,11 +1041,11 @@ class VirtualQTermWidget final : public QTermWidget {
             args_arr[args_ret.size()] = nullptr;
             const char** cbval1 = args_arr;
 
-            qtermwidget_setargs_callback(this, cbval1);
+            setargs_cb(this, cbval1);
             libqt_free(args_arr);
-        } else {
-            QTermWidget::setArgs(args);
+            return;
         }
+        QTermWidget::setArgs(args);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1135,7 +1053,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setcolorscheme_isbase) {
             qtermwidget_setcolorscheme_isbase = false;
             QTermWidget::setColorScheme(name);
-        } else if (qtermwidget_setcolorscheme_callback != nullptr) {
+            return;
+        }
+        auto setcolorscheme_cb = qtermwidget_setcolorscheme_callback;
+        if (setcolorscheme_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -1145,11 +1066,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            qtermwidget_setcolorscheme_callback(this, cbval1);
+            setcolorscheme_cb(this, cbval1);
             libqt_free(name_str);
-        } else {
-            QTermWidget::setColorScheme(name);
+            return;
         }
+        QTermWidget::setColorScheme(name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,8 +1078,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getavailablecolorschemes_isbase) {
             qtermwidget_getavailablecolorschemes_isbase = false;
             return QTermWidget::getAvailableColorSchemes();
-        } else if (qtermwidget_getavailablecolorschemes_callback != nullptr) {
-            const char** callback_ret = qtermwidget_getavailablecolorschemes_callback();
+        }
+        auto getavailablecolorschemes_cb = qtermwidget_getavailablecolorschemes_callback;
+        if (getavailablecolorschemes_cb) {
+            const char** callback_ret = getavailablecolorschemes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1169,9 +1092,8 @@ class VirtualQTermWidget final : public QTermWidget {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QTermWidget::getAvailableColorSchemes();
         }
+        return QTermWidget::getAvailableColorSchemes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1179,13 +1101,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sethistorysize_isbase) {
             qtermwidget_sethistorysize_isbase = false;
             QTermWidget::setHistorySize(lines);
-        } else if (qtermwidget_sethistorysize_callback != nullptr) {
+            return;
+        }
+        auto sethistorysize_cb = qtermwidget_sethistorysize_callback;
+        if (sethistorysize_cb) {
             int cbval1 = lines;
 
-            qtermwidget_sethistorysize_callback(this, cbval1);
-        } else {
-            QTermWidget::setHistorySize(lines);
+            sethistorysize_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setHistorySize(lines);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1118,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_historysize_isbase) {
             qtermwidget_historysize_isbase = false;
             return QTermWidget::historySize();
-        } else if (qtermwidget_historysize_callback != nullptr) {
-            int callback_ret = qtermwidget_historysize_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::historySize();
         }
+        auto historysize_cb = qtermwidget_historysize_callback;
+        if (historysize_cb) {
+            int callback_ret = historysize_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::historySize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,13 +1132,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setscrollbarposition_isbase) {
             qtermwidget_setscrollbarposition_isbase = false;
             QTermWidget::setScrollBarPosition(scrollBarPosition);
-        } else if (qtermwidget_setscrollbarposition_callback != nullptr) {
+            return;
+        }
+        auto setscrollbarposition_cb = qtermwidget_setscrollbarposition_callback;
+        if (setscrollbarposition_cb) {
             int cbval1 = static_cast<int>(scrollBarPosition);
 
-            qtermwidget_setscrollbarposition_callback(this, cbval1);
-        } else {
-            QTermWidget::setScrollBarPosition(scrollBarPosition);
+            setscrollbarposition_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setScrollBarPosition(scrollBarPosition);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,11 +1149,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_scrolltoend_isbase) {
             qtermwidget_scrolltoend_isbase = false;
             QTermWidget::scrollToEnd();
-        } else if (qtermwidget_scrolltoend_callback != nullptr) {
-            qtermwidget_scrolltoend_callback();
-        } else {
-            QTermWidget::scrollToEnd();
+            return;
         }
+        auto scrolltoend_cb = qtermwidget_scrolltoend_callback;
+        if (scrolltoend_cb) {
+            scrolltoend_cb();
+            return;
+        }
+        QTermWidget::scrollToEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,7 +1164,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sendtext_isbase) {
             qtermwidget_sendtext_isbase = false;
             QTermWidget::sendText(text);
-        } else if (qtermwidget_sendtext_callback != nullptr) {
+            return;
+        }
+        auto sendtext_cb = qtermwidget_sendtext_callback;
+        if (sendtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -1242,11 +1177,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            qtermwidget_sendtext_callback(this, cbval1);
+            sendtext_cb(this, cbval1);
             libqt_free(text_str);
-        } else {
-            QTermWidget::sendText(text);
+            return;
         }
+        QTermWidget::sendText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,13 +1189,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sendkeyevent_isbase) {
             qtermwidget_sendkeyevent_isbase = false;
             QTermWidget::sendKeyEvent(e);
-        } else if (qtermwidget_sendkeyevent_callback != nullptr) {
+            return;
+        }
+        auto sendkeyevent_cb = qtermwidget_sendkeyevent_callback;
+        if (sendkeyevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qtermwidget_sendkeyevent_callback(this, cbval1);
-        } else {
-            QTermWidget::sendKeyEvent(e);
+            sendkeyevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::sendKeyEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1268,13 +1206,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setflowcontrolenabled_isbase) {
             qtermwidget_setflowcontrolenabled_isbase = false;
             QTermWidget::setFlowControlEnabled(enabled);
-        } else if (qtermwidget_setflowcontrolenabled_callback != nullptr) {
+            return;
+        }
+        auto setflowcontrolenabled_cb = qtermwidget_setflowcontrolenabled_callback;
+        if (setflowcontrolenabled_cb) {
             bool cbval1 = enabled;
 
-            qtermwidget_setflowcontrolenabled_callback(this, cbval1);
-        } else {
-            QTermWidget::setFlowControlEnabled(enabled);
+            setflowcontrolenabled_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setFlowControlEnabled(enabled);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1223,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_flowcontrolenabled_isbase) {
             qtermwidget_flowcontrolenabled_isbase = false;
             return QTermWidget::flowControlEnabled();
-        } else if (qtermwidget_flowcontrolenabled_callback != nullptr) {
-            bool callback_ret = qtermwidget_flowcontrolenabled_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::flowControlEnabled();
         }
+        auto flowcontrolenabled_cb = qtermwidget_flowcontrolenabled_callback;
+        if (flowcontrolenabled_cb) {
+            bool callback_ret = flowcontrolenabled_cb();
+            return callback_ret;
+        }
+        return QTermWidget::flowControlEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,13 +1237,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setflowcontrolwarningenabled_isbase) {
             qtermwidget_setflowcontrolwarningenabled_isbase = false;
             QTermWidget::setFlowControlWarningEnabled(enabled);
-        } else if (qtermwidget_setflowcontrolwarningenabled_callback != nullptr) {
+            return;
+        }
+        auto setflowcontrolwarningenabled_cb = qtermwidget_setflowcontrolwarningenabled_callback;
+        if (setflowcontrolwarningenabled_cb) {
             bool cbval1 = enabled;
 
-            qtermwidget_setflowcontrolwarningenabled_callback(this, cbval1);
-        } else {
-            QTermWidget::setFlowControlWarningEnabled(enabled);
+            setflowcontrolwarningenabled_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setFlowControlWarningEnabled(enabled);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,13 +1254,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_keybindings_isbase) {
             qtermwidget_keybindings_isbase = false;
             return QTermWidget::keyBindings();
-        } else if (qtermwidget_keybindings_callback != nullptr) {
-            const char* callback_ret = qtermwidget_keybindings_callback();
+        }
+        auto keybindings_cb = qtermwidget_keybindings_callback;
+        if (keybindings_cb) {
+            const char* callback_ret = keybindings_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTermWidget::keyBindings();
         }
+        return QTermWidget::keyBindings();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,13 +1269,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setmotionafterpasting_isbase) {
             qtermwidget_setmotionafterpasting_isbase = false;
             QTermWidget::setMotionAfterPasting(motionAfterPasting);
-        } else if (qtermwidget_setmotionafterpasting_callback != nullptr) {
+            return;
+        }
+        auto setmotionafterpasting_cb = qtermwidget_setmotionafterpasting_callback;
+        if (setmotionafterpasting_cb) {
             int cbval1 = motionAfterPasting;
 
-            qtermwidget_setmotionafterpasting_callback(this, cbval1);
-        } else {
-            QTermWidget::setMotionAfterPasting(motionAfterPasting);
+            setmotionafterpasting_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setMotionAfterPasting(motionAfterPasting);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,12 +1286,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_historylinescount_isbase) {
             qtermwidget_historylinescount_isbase = false;
             return QTermWidget::historyLinesCount();
-        } else if (qtermwidget_historylinescount_callback != nullptr) {
-            int callback_ret = qtermwidget_historylinescount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::historyLinesCount();
         }
+        auto historylinescount_cb = qtermwidget_historylinescount_callback;
+        if (historylinescount_cb) {
+            int callback_ret = historylinescount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::historyLinesCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,12 +1300,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_screencolumnscount_isbase) {
             qtermwidget_screencolumnscount_isbase = false;
             return QTermWidget::screenColumnsCount();
-        } else if (qtermwidget_screencolumnscount_callback != nullptr) {
-            int callback_ret = qtermwidget_screencolumnscount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::screenColumnsCount();
         }
+        auto screencolumnscount_cb = qtermwidget_screencolumnscount_callback;
+        if (screencolumnscount_cb) {
+            int callback_ret = screencolumnscount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::screenColumnsCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,12 +1314,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_screenlinescount_isbase) {
             qtermwidget_screenlinescount_isbase = false;
             return QTermWidget::screenLinesCount();
-        } else if (qtermwidget_screenlinescount_callback != nullptr) {
-            int callback_ret = qtermwidget_screenlinescount_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::screenLinesCount();
         }
+        auto screenlinescount_cb = qtermwidget_screenlinescount_callback;
+        if (screenlinescount_cb) {
+            int callback_ret = screenlinescount_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::screenLinesCount();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1376,14 +1328,17 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setselectionstart_isbase) {
             qtermwidget_setselectionstart_isbase = false;
             QTermWidget::setSelectionStart(row, column);
-        } else if (qtermwidget_setselectionstart_callback != nullptr) {
+            return;
+        }
+        auto setselectionstart_cb = qtermwidget_setselectionstart_callback;
+        if (setselectionstart_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            qtermwidget_setselectionstart_callback(this, cbval1, cbval2);
-        } else {
-            QTermWidget::setSelectionStart(row, column);
+            setselectionstart_cb(this, cbval1, cbval2);
+            return;
         }
+        QTermWidget::setSelectionStart(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1391,14 +1346,17 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setselectionend_isbase) {
             qtermwidget_setselectionend_isbase = false;
             QTermWidget::setSelectionEnd(row, column);
-        } else if (qtermwidget_setselectionend_callback != nullptr) {
+            return;
+        }
+        auto setselectionend_cb = qtermwidget_setselectionend_callback;
+        if (setselectionend_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            qtermwidget_setselectionend_callback(this, cbval1, cbval2);
-        } else {
-            QTermWidget::setSelectionEnd(row, column);
+            setselectionend_cb(this, cbval1, cbval2);
+            return;
         }
+        QTermWidget::setSelectionEnd(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1406,14 +1364,17 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getselectionstart_isbase) {
             qtermwidget_getselectionstart_isbase = false;
             QTermWidget::getSelectionStart(row, column);
-        } else if (qtermwidget_getselectionstart_callback != nullptr) {
+            return;
+        }
+        auto getselectionstart_cb = qtermwidget_getselectionstart_callback;
+        if (getselectionstart_cb) {
             int* cbval1 = &row;
             int* cbval2 = &column;
 
-            qtermwidget_getselectionstart_callback(this, cbval1, cbval2);
-        } else {
-            QTermWidget::getSelectionStart(row, column);
+            getselectionstart_cb(this, cbval1, cbval2);
+            return;
         }
+        QTermWidget::getSelectionStart(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1421,14 +1382,17 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getselectionend_isbase) {
             qtermwidget_getselectionend_isbase = false;
             QTermWidget::getSelectionEnd(row, column);
-        } else if (qtermwidget_getselectionend_callback != nullptr) {
+            return;
+        }
+        auto getselectionend_cb = qtermwidget_getselectionend_callback;
+        if (getselectionend_cb) {
             int* cbval1 = &row;
             int* cbval2 = &column;
 
-            qtermwidget_getselectionend_callback(this, cbval1, cbval2);
-        } else {
-            QTermWidget::getSelectionEnd(row, column);
+            getselectionend_cb(this, cbval1, cbval2);
+            return;
         }
+        QTermWidget::getSelectionEnd(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1436,15 +1400,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_selectedtext_isbase) {
             qtermwidget_selectedtext_isbase = false;
             return QTermWidget::selectedText(preserveLineBreaks);
-        } else if (qtermwidget_selectedtext_callback != nullptr) {
+        }
+        auto selectedtext_cb = qtermwidget_selectedtext_callback;
+        if (selectedtext_cb) {
             bool cbval1 = preserveLineBreaks;
 
-            const char* callback_ret = qtermwidget_selectedtext_callback(this, cbval1);
+            const char* callback_ret = selectedtext_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTermWidget::selectedText(preserveLineBreaks);
         }
+        return QTermWidget::selectedText(preserveLineBreaks);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1452,13 +1417,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setmonitoractivity_isbase) {
             qtermwidget_setmonitoractivity_isbase = false;
             QTermWidget::setMonitorActivity(monitorActivity);
-        } else if (qtermwidget_setmonitoractivity_callback != nullptr) {
+            return;
+        }
+        auto setmonitoractivity_cb = qtermwidget_setmonitoractivity_callback;
+        if (setmonitoractivity_cb) {
             bool cbval1 = monitorActivity;
 
-            qtermwidget_setmonitoractivity_callback(this, cbval1);
-        } else {
-            QTermWidget::setMonitorActivity(monitorActivity);
+            setmonitoractivity_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setMonitorActivity(monitorActivity);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1466,13 +1434,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setmonitorsilence_isbase) {
             qtermwidget_setmonitorsilence_isbase = false;
             QTermWidget::setMonitorSilence(monitorSilence);
-        } else if (qtermwidget_setmonitorsilence_callback != nullptr) {
+            return;
+        }
+        auto setmonitorsilence_cb = qtermwidget_setmonitorsilence_callback;
+        if (setmonitorsilence_cb) {
             bool cbval1 = monitorSilence;
 
-            qtermwidget_setmonitorsilence_callback(this, cbval1);
-        } else {
-            QTermWidget::setMonitorSilence(monitorSilence);
+            setmonitorsilence_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setMonitorSilence(monitorSilence);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1480,13 +1451,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setsilencetimeout_isbase) {
             qtermwidget_setsilencetimeout_isbase = false;
             QTermWidget::setSilenceTimeout(seconds);
-        } else if (qtermwidget_setsilencetimeout_callback != nullptr) {
+            return;
+        }
+        auto setsilencetimeout_cb = qtermwidget_setsilencetimeout_callback;
+        if (setsilencetimeout_cb) {
             int cbval1 = seconds;
 
-            qtermwidget_setsilencetimeout_callback(this, cbval1);
-        } else {
-            QTermWidget::setSilenceTimeout(seconds);
+            setsilencetimeout_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setSilenceTimeout(seconds);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1494,12 +1468,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_filteractions_isbase) {
             qtermwidget_filteractions_isbase = false;
             return QTermWidget::filterActions(position);
-        } else if (qtermwidget_filteractions_callback != nullptr) {
+        }
+        auto filteractions_cb = qtermwidget_filteractions_callback;
+        if (filteractions_cb) {
             const QPoint& position_ret = position;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
 
-            libqt_list /* of QAction* */ callback_ret = qtermwidget_filteractions_callback(this, cbval1);
+            libqt_list /* of QAction* */ callback_ret = filteractions_cb(this, cbval1);
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -1508,9 +1484,8 @@ class VirtualQTermWidget final : public QTermWidget {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QTermWidget::filterActions(position);
         }
+        return QTermWidget::filterActions(position);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1518,12 +1493,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getptyslavefd_isbase) {
             qtermwidget_getptyslavefd_isbase = false;
             return QTermWidget::getPtySlaveFd();
-        } else if (qtermwidget_getptyslavefd_callback != nullptr) {
-            int callback_ret = qtermwidget_getptyslavefd_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::getPtySlaveFd();
         }
+        auto getptyslavefd_cb = qtermwidget_getptyslavefd_callback;
+        if (getptyslavefd_cb) {
+            int callback_ret = getptyslavefd_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::getPtySlaveFd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1531,13 +1507,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setblinkingcursor_isbase) {
             qtermwidget_setblinkingcursor_isbase = false;
             QTermWidget::setBlinkingCursor(blink);
-        } else if (qtermwidget_setblinkingcursor_callback != nullptr) {
+            return;
+        }
+        auto setblinkingcursor_cb = qtermwidget_setblinkingcursor_callback;
+        if (setblinkingcursor_cb) {
             bool cbval1 = blink;
 
-            qtermwidget_setblinkingcursor_callback(this, cbval1);
-        } else {
-            QTermWidget::setBlinkingCursor(blink);
+            setblinkingcursor_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setBlinkingCursor(blink);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1545,13 +1524,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setbidienabled_isbase) {
             qtermwidget_setbidienabled_isbase = false;
             QTermWidget::setBidiEnabled(enabled);
-        } else if (qtermwidget_setbidienabled_callback != nullptr) {
+            return;
+        }
+        auto setbidienabled_cb = qtermwidget_setbidienabled_callback;
+        if (setbidienabled_cb) {
             bool cbval1 = enabled;
 
-            qtermwidget_setbidienabled_callback(this, cbval1);
-        } else {
-            QTermWidget::setBidiEnabled(enabled);
+            setbidienabled_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setBidiEnabled(enabled);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1559,12 +1541,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_isbidienabled_isbase) {
             qtermwidget_isbidienabled_isbase = false;
             return QTermWidget::isBidiEnabled();
-        } else if (qtermwidget_isbidienabled_callback != nullptr) {
-            bool callback_ret = qtermwidget_isbidienabled_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::isBidiEnabled();
         }
+        auto isbidienabled_cb = qtermwidget_isbidienabled_callback;
+        if (isbidienabled_cb) {
+            bool callback_ret = isbidienabled_cb();
+            return callback_ret;
+        }
+        return QTermWidget::isBidiEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1572,13 +1555,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setautoclose_isbase) {
             qtermwidget_setautoclose_isbase = false;
             QTermWidget::setAutoClose(autoClose);
-        } else if (qtermwidget_setautoclose_callback != nullptr) {
+            return;
+        }
+        auto setautoclose_cb = qtermwidget_setautoclose_callback;
+        if (setautoclose_cb) {
             bool cbval1 = autoClose;
 
-            qtermwidget_setautoclose_callback(this, cbval1);
-        } else {
-            QTermWidget::setAutoClose(autoClose);
+            setautoclose_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setAutoClose(autoClose);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1586,13 +1572,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_title_isbase) {
             qtermwidget_title_isbase = false;
             return QTermWidget::title();
-        } else if (qtermwidget_title_callback != nullptr) {
-            const char* callback_ret = qtermwidget_title_callback();
+        }
+        auto title_cb = qtermwidget_title_callback;
+        if (title_cb) {
+            const char* callback_ret = title_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTermWidget::title();
         }
+        return QTermWidget::title();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1600,13 +1587,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_icon_isbase) {
             qtermwidget_icon_isbase = false;
             return QTermWidget::icon();
-        } else if (qtermwidget_icon_callback != nullptr) {
-            const char* callback_ret = qtermwidget_icon_callback();
+        }
+        auto icon_cb = qtermwidget_icon_callback;
+        if (icon_cb) {
+            const char* callback_ret = icon_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTermWidget::icon();
         }
+        return QTermWidget::icon();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1614,12 +1602,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_istitlechanged_isbase) {
             qtermwidget_istitlechanged_isbase = false;
             return QTermWidget::isTitleChanged();
-        } else if (qtermwidget_istitlechanged_callback != nullptr) {
-            bool callback_ret = qtermwidget_istitlechanged_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::isTitleChanged();
         }
+        auto istitlechanged_cb = qtermwidget_istitlechanged_callback;
+        if (istitlechanged_cb) {
+            bool callback_ret = istitlechanged_cb();
+            return callback_ret;
+        }
+        return QTermWidget::isTitleChanged();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1627,7 +1616,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_brackettext_isbase) {
             qtermwidget_brackettext_isbase = false;
             QTermWidget::bracketText(text);
-        } else if (qtermwidget_brackettext_callback != nullptr) {
+            return;
+        }
+        auto brackettext_cb = qtermwidget_brackettext_callback;
+        if (brackettext_cb) {
             QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -1637,11 +1629,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            qtermwidget_brackettext_callback(this, cbval1);
+            brackettext_cb(this, cbval1);
             libqt_free(text_str);
-        } else {
-            QTermWidget::bracketText(text);
+            return;
         }
+        QTermWidget::bracketText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1649,13 +1641,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_disablebracketedpastemode_isbase) {
             qtermwidget_disablebracketedpastemode_isbase = false;
             QTermWidget::disableBracketedPasteMode(disable);
-        } else if (qtermwidget_disablebracketedpastemode_callback != nullptr) {
+            return;
+        }
+        auto disablebracketedpastemode_cb = qtermwidget_disablebracketedpastemode_callback;
+        if (disablebracketedpastemode_cb) {
             bool cbval1 = disable;
 
-            qtermwidget_disablebracketedpastemode_callback(this, cbval1);
-        } else {
-            QTermWidget::disableBracketedPasteMode(disable);
+            disablebracketedpastemode_cb(this, cbval1);
+            return;
         }
+        QTermWidget::disableBracketedPasteMode(disable);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1663,12 +1658,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_bracketedpastemodeisdisabled_isbase) {
             qtermwidget_bracketedpastemodeisdisabled_isbase = false;
             return QTermWidget::bracketedPasteModeIsDisabled();
-        } else if (qtermwidget_bracketedpastemodeisdisabled_callback != nullptr) {
-            bool callback_ret = qtermwidget_bracketedpastemodeisdisabled_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::bracketedPasteModeIsDisabled();
         }
+        auto bracketedpastemodeisdisabled_cb = qtermwidget_bracketedpastemodeisdisabled_callback;
+        if (bracketedpastemodeisdisabled_cb) {
+            bool callback_ret = bracketedpastemodeisdisabled_cb();
+            return callback_ret;
+        }
+        return QTermWidget::bracketedPasteModeIsDisabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1676,13 +1672,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setmargin_isbase) {
             qtermwidget_setmargin_isbase = false;
             QTermWidget::setMargin(margin);
-        } else if (qtermwidget_setmargin_callback != nullptr) {
+            return;
+        }
+        auto setmargin_cb = qtermwidget_setmargin_callback;
+        if (setmargin_cb) {
             int cbval1 = margin;
 
-            qtermwidget_setmargin_callback(this, cbval1);
-        } else {
-            QTermWidget::setMargin(margin);
+            setmargin_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setMargin(margin);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1690,12 +1689,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getmargin_isbase) {
             qtermwidget_getmargin_isbase = false;
             return QTermWidget::getMargin();
-        } else if (qtermwidget_getmargin_callback != nullptr) {
-            int callback_ret = qtermwidget_getmargin_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::getMargin();
         }
+        auto getmargin_cb = qtermwidget_getmargin_callback;
+        if (getmargin_cb) {
+            int callback_ret = getmargin_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::getMargin();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1703,13 +1703,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setdrawlinechars_isbase) {
             qtermwidget_setdrawlinechars_isbase = false;
             QTermWidget::setDrawLineChars(drawLineChars);
-        } else if (qtermwidget_setdrawlinechars_callback != nullptr) {
+            return;
+        }
+        auto setdrawlinechars_cb = qtermwidget_setdrawlinechars_callback;
+        if (setdrawlinechars_cb) {
             bool cbval1 = drawLineChars;
 
-            qtermwidget_setdrawlinechars_callback(this, cbval1);
-        } else {
-            QTermWidget::setDrawLineChars(drawLineChars);
+            setdrawlinechars_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setDrawLineChars(drawLineChars);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1717,13 +1720,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setboldintense_isbase) {
             qtermwidget_setboldintense_isbase = false;
             QTermWidget::setBoldIntense(boldIntense);
-        } else if (qtermwidget_setboldintense_callback != nullptr) {
+            return;
+        }
+        auto setboldintense_cb = qtermwidget_setboldintense_callback;
+        if (setboldintense_cb) {
             bool cbval1 = boldIntense;
 
-            qtermwidget_setboldintense_callback(this, cbval1);
-        } else {
-            QTermWidget::setBoldIntense(boldIntense);
+            setboldintense_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setBoldIntense(boldIntense);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1731,13 +1737,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setconfirmmultilinepaste_isbase) {
             qtermwidget_setconfirmmultilinepaste_isbase = false;
             QTermWidget::setConfirmMultilinePaste(confirmMultilinePaste);
-        } else if (qtermwidget_setconfirmmultilinepaste_callback != nullptr) {
+            return;
+        }
+        auto setconfirmmultilinepaste_cb = qtermwidget_setconfirmmultilinepaste_callback;
+        if (setconfirmmultilinepaste_cb) {
             bool cbval1 = confirmMultilinePaste;
 
-            qtermwidget_setconfirmmultilinepaste_callback(this, cbval1);
-        } else {
-            QTermWidget::setConfirmMultilinePaste(confirmMultilinePaste);
+            setconfirmmultilinepaste_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setConfirmMultilinePaste(confirmMultilinePaste);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1745,13 +1754,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_settrimpastedtrailingnewlines_isbase) {
             qtermwidget_settrimpastedtrailingnewlines_isbase = false;
             QTermWidget::setTrimPastedTrailingNewlines(trimPastedTrailingNewlines);
-        } else if (qtermwidget_settrimpastedtrailingnewlines_callback != nullptr) {
+            return;
+        }
+        auto settrimpastedtrailingnewlines_cb = qtermwidget_settrimpastedtrailingnewlines_callback;
+        if (settrimpastedtrailingnewlines_cb) {
             bool cbval1 = trimPastedTrailingNewlines;
 
-            qtermwidget_settrimpastedtrailingnewlines_callback(this, cbval1);
-        } else {
-            QTermWidget::setTrimPastedTrailingNewlines(trimPastedTrailingNewlines);
+            settrimpastedtrailingnewlines_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setTrimPastedTrailingNewlines(trimPastedTrailingNewlines);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1759,13 +1771,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_wordcharacters_isbase) {
             qtermwidget_wordcharacters_isbase = false;
             return QTermWidget::wordCharacters();
-        } else if (qtermwidget_wordcharacters_callback != nullptr) {
-            const char* callback_ret = qtermwidget_wordcharacters_callback();
+        }
+        auto wordcharacters_cb = qtermwidget_wordcharacters_callback;
+        if (wordcharacters_cb) {
+            const char* callback_ret = wordcharacters_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTermWidget::wordCharacters();
         }
+        return QTermWidget::wordCharacters();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1773,7 +1786,10 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setwordcharacters_isbase) {
             qtermwidget_setwordcharacters_isbase = false;
             QTermWidget::setWordCharacters(chars);
-        } else if (qtermwidget_setwordcharacters_callback != nullptr) {
+            return;
+        }
+        auto setwordcharacters_cb = qtermwidget_setwordcharacters_callback;
+        if (setwordcharacters_cb) {
             const QString chars_ret = chars;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray chars_b = chars_ret.toUtf8();
@@ -1783,11 +1799,11 @@ class VirtualQTermWidget final : public QTermWidget {
             ((char*)chars_str)[chars_str_len] = '\0';
             const char* cbval1 = chars_str;
 
-            qtermwidget_setwordcharacters_callback(this, cbval1);
+            setwordcharacters_cb(this, cbval1);
             libqt_free(chars_str);
-        } else {
-            QTermWidget::setWordCharacters(chars);
+            return;
         }
+        QTermWidget::setWordCharacters(chars);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1795,14 +1811,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_createwidget_isbase) {
             qtermwidget_createwidget_isbase = false;
             return QTermWidget::createWidget(startnow);
-        } else if (qtermwidget_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = qtermwidget_createwidget_callback;
+        if (createwidget_cb) {
             int cbval1 = startnow;
 
-            QTermWidgetInterface* callback_ret = qtermwidget_createwidget_callback(this, cbval1);
+            QTermWidgetInterface* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTermWidget::createWidget(startnow);
         }
+        return QTermWidget::createWidget(startnow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1810,13 +1827,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_resizeevent_isbase) {
             qtermwidget_resizeevent_isbase = false;
             QTermWidget::resizeEvent(param1);
-        } else if (qtermwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtermwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qtermwidget_resizeevent_callback(this, cbval1);
-        } else {
-            QTermWidget::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1824,12 +1844,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_devtype_isbase) {
             qtermwidget_devtype_isbase = false;
             return QTermWidget::devType();
-        } else if (qtermwidget_devtype_callback != nullptr) {
-            int callback_ret = qtermwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::devType();
         }
+        auto devtype_cb = qtermwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1837,13 +1858,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_setvisible_isbase) {
             qtermwidget_setvisible_isbase = false;
             QTermWidget::setVisible(visible);
-        } else if (qtermwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtermwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtermwidget_setvisible_callback(this, cbval1);
-        } else {
-            QTermWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QTermWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1851,12 +1875,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_minimumsizehint_isbase) {
             qtermwidget_minimumsizehint_isbase = false;
             return QTermWidget::minimumSizeHint();
-        } else if (qtermwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtermwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTermWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtermwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QTermWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1864,14 +1889,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_heightforwidth_isbase) {
             qtermwidget_heightforwidth_isbase = false;
             return QTermWidget::heightForWidth(param1);
-        } else if (qtermwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtermwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qtermwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::heightForWidth(param1);
         }
+        return QTermWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1879,12 +1905,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_hasheightforwidth_isbase) {
             qtermwidget_hasheightforwidth_isbase = false;
             return QTermWidget::hasHeightForWidth();
-        } else if (qtermwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtermwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtermwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QTermWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1892,12 +1919,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_paintengine_isbase) {
             qtermwidget_paintengine_isbase = false;
             return QTermWidget::paintEngine();
-        } else if (qtermwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtermwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::paintEngine();
         }
+        auto paintengine_cb = qtermwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QTermWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1905,14 +1933,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_event_isbase) {
             qtermwidget_event_isbase = false;
             return QTermWidget::event(event);
-        } else if (qtermwidget_event_callback != nullptr) {
+        }
+        auto event_cb = qtermwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtermwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTermWidget::event(event);
         }
+        return QTermWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1920,13 +1949,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_mousepressevent_isbase) {
             qtermwidget_mousepressevent_isbase = false;
             QTermWidget::mousePressEvent(event);
-        } else if (qtermwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtermwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtermwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            QTermWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1934,13 +1966,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_mousereleaseevent_isbase) {
             qtermwidget_mousereleaseevent_isbase = false;
             QTermWidget::mouseReleaseEvent(event);
-        } else if (qtermwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtermwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtermwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QTermWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1948,13 +1983,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_mousedoubleclickevent_isbase) {
             qtermwidget_mousedoubleclickevent_isbase = false;
             QTermWidget::mouseDoubleClickEvent(event);
-        } else if (qtermwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtermwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtermwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QTermWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1962,13 +2000,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_mousemoveevent_isbase) {
             qtermwidget_mousemoveevent_isbase = false;
             QTermWidget::mouseMoveEvent(event);
-        } else if (qtermwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtermwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtermwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            QTermWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1976,13 +2017,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_wheelevent_isbase) {
             qtermwidget_wheelevent_isbase = false;
             QTermWidget::wheelEvent(event);
-        } else if (qtermwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtermwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qtermwidget_wheelevent_callback(this, cbval1);
-        } else {
-            QTermWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1990,13 +2034,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_keypressevent_isbase) {
             qtermwidget_keypressevent_isbase = false;
             QTermWidget::keyPressEvent(event);
-        } else if (qtermwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtermwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtermwidget_keypressevent_callback(this, cbval1);
-        } else {
-            QTermWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2004,13 +2051,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_keyreleaseevent_isbase) {
             qtermwidget_keyreleaseevent_isbase = false;
             QTermWidget::keyReleaseEvent(event);
-        } else if (qtermwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtermwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtermwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QTermWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2018,13 +2068,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_focusinevent_isbase) {
             qtermwidget_focusinevent_isbase = false;
             QTermWidget::focusInEvent(event);
-        } else if (qtermwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtermwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtermwidget_focusinevent_callback(this, cbval1);
-        } else {
-            QTermWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2032,13 +2085,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_focusoutevent_isbase) {
             qtermwidget_focusoutevent_isbase = false;
             QTermWidget::focusOutEvent(event);
-        } else if (qtermwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtermwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtermwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            QTermWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2046,13 +2102,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_enterevent_isbase) {
             qtermwidget_enterevent_isbase = false;
             QTermWidget::enterEvent(event);
-        } else if (qtermwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtermwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qtermwidget_enterevent_callback(this, cbval1);
-        } else {
-            QTermWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2060,13 +2119,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_leaveevent_isbase) {
             qtermwidget_leaveevent_isbase = false;
             QTermWidget::leaveEvent(event);
-        } else if (qtermwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtermwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qtermwidget_leaveevent_callback(this, cbval1);
-        } else {
-            QTermWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2074,13 +2136,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_paintevent_isbase) {
             qtermwidget_paintevent_isbase = false;
             QTermWidget::paintEvent(event);
-        } else if (qtermwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtermwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qtermwidget_paintevent_callback(this, cbval1);
-        } else {
-            QTermWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2088,13 +2153,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_moveevent_isbase) {
             qtermwidget_moveevent_isbase = false;
             QTermWidget::moveEvent(event);
-        } else if (qtermwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtermwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtermwidget_moveevent_callback(this, cbval1);
-        } else {
-            QTermWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2102,13 +2170,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_closeevent_isbase) {
             qtermwidget_closeevent_isbase = false;
             QTermWidget::closeEvent(event);
-        } else if (qtermwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtermwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtermwidget_closeevent_callback(this, cbval1);
-        } else {
-            QTermWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2116,13 +2187,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_contextmenuevent_isbase) {
             qtermwidget_contextmenuevent_isbase = false;
             QTermWidget::contextMenuEvent(event);
-        } else if (qtermwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtermwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qtermwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            QTermWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2130,13 +2204,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_tabletevent_isbase) {
             qtermwidget_tabletevent_isbase = false;
             QTermWidget::tabletEvent(event);
-        } else if (qtermwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtermwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtermwidget_tabletevent_callback(this, cbval1);
-        } else {
-            QTermWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2144,13 +2221,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_actionevent_isbase) {
             qtermwidget_actionevent_isbase = false;
             QTermWidget::actionEvent(event);
-        } else if (qtermwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtermwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qtermwidget_actionevent_callback(this, cbval1);
-        } else {
-            QTermWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2158,13 +2238,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_dragenterevent_isbase) {
             qtermwidget_dragenterevent_isbase = false;
             QTermWidget::dragEnterEvent(event);
-        } else if (qtermwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtermwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qtermwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            QTermWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2172,13 +2255,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_dragmoveevent_isbase) {
             qtermwidget_dragmoveevent_isbase = false;
             QTermWidget::dragMoveEvent(event);
-        } else if (qtermwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtermwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qtermwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            QTermWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2186,13 +2272,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_dragleaveevent_isbase) {
             qtermwidget_dragleaveevent_isbase = false;
             QTermWidget::dragLeaveEvent(event);
-        } else if (qtermwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtermwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qtermwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            QTermWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2200,13 +2289,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_dropevent_isbase) {
             qtermwidget_dropevent_isbase = false;
             QTermWidget::dropEvent(event);
-        } else if (qtermwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtermwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qtermwidget_dropevent_callback(this, cbval1);
-        } else {
-            QTermWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2214,13 +2306,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_showevent_isbase) {
             qtermwidget_showevent_isbase = false;
             QTermWidget::showEvent(event);
-        } else if (qtermwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtermwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qtermwidget_showevent_callback(this, cbval1);
-        } else {
-            QTermWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2228,13 +2323,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_hideevent_isbase) {
             qtermwidget_hideevent_isbase = false;
             QTermWidget::hideEvent(event);
-        } else if (qtermwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtermwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtermwidget_hideevent_callback(this, cbval1);
-        } else {
-            QTermWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2242,7 +2340,9 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_nativeevent_isbase) {
             qtermwidget_nativeevent_isbase = false;
             return QTermWidget::nativeEvent(eventType, message, result);
-        } else if (qtermwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtermwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2253,12 +2353,11 @@ class VirtualQTermWidget final : public QTermWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtermwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QTermWidget::nativeEvent(eventType, message, result);
         }
+        return QTermWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2266,13 +2365,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_changeevent_isbase) {
             qtermwidget_changeevent_isbase = false;
             QTermWidget::changeEvent(param1);
-        } else if (qtermwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtermwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qtermwidget_changeevent_callback(this, cbval1);
-        } else {
-            QTermWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2280,14 +2382,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_metric_isbase) {
             qtermwidget_metric_isbase = false;
             return QTermWidget::metric(param1);
-        } else if (qtermwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtermwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtermwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::metric(param1);
         }
+        return QTermWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2295,13 +2398,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_initpainter_isbase) {
             qtermwidget_initpainter_isbase = false;
             QTermWidget::initPainter(painter);
-        } else if (qtermwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtermwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtermwidget_initpainter_callback(this, cbval1);
-        } else {
-            QTermWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QTermWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2309,14 +2415,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_redirected_isbase) {
             qtermwidget_redirected_isbase = false;
             return QTermWidget::redirected(offset);
-        } else if (qtermwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtermwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtermwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTermWidget::redirected(offset);
         }
+        return QTermWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2324,12 +2431,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sharedpainter_isbase) {
             qtermwidget_sharedpainter_isbase = false;
             return QTermWidget::sharedPainter();
-        } else if (qtermwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtermwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::sharedPainter();
         }
+        auto sharedpainter_cb = qtermwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QTermWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2337,13 +2445,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_inputmethodevent_isbase) {
             qtermwidget_inputmethodevent_isbase = false;
             QTermWidget::inputMethodEvent(param1);
-        } else if (qtermwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtermwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qtermwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            QTermWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2351,14 +2462,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_inputmethodquery_isbase) {
             qtermwidget_inputmethodquery_isbase = false;
             return QTermWidget::inputMethodQuery(param1);
-        } else if (qtermwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtermwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qtermwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTermWidget::inputMethodQuery(param1);
         }
+        return QTermWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2366,14 +2478,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_focusnextprevchild_isbase) {
             qtermwidget_focusnextprevchild_isbase = false;
             return QTermWidget::focusNextPrevChild(next);
-        } else if (qtermwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtermwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtermwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTermWidget::focusNextPrevChild(next);
         }
+        return QTermWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2381,15 +2494,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_eventfilter_isbase) {
             qtermwidget_eventfilter_isbase = false;
             return QTermWidget::eventFilter(watched, event);
-        } else if (qtermwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtermwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtermwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTermWidget::eventFilter(watched, event);
         }
+        return QTermWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2397,13 +2511,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_timerevent_isbase) {
             qtermwidget_timerevent_isbase = false;
             QTermWidget::timerEvent(event);
-        } else if (qtermwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtermwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtermwidget_timerevent_callback(this, cbval1);
-        } else {
-            QTermWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2411,13 +2528,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_childevent_isbase) {
             qtermwidget_childevent_isbase = false;
             QTermWidget::childEvent(event);
-        } else if (qtermwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtermwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtermwidget_childevent_callback(this, cbval1);
-        } else {
-            QTermWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2425,13 +2545,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_customevent_isbase) {
             qtermwidget_customevent_isbase = false;
             QTermWidget::customEvent(event);
-        } else if (qtermwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtermwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtermwidget_customevent_callback(this, cbval1);
-        } else {
-            QTermWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTermWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2439,15 +2562,18 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_connectnotify_isbase) {
             qtermwidget_connectnotify_isbase = false;
             QTermWidget::connectNotify(signal);
-        } else if (qtermwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtermwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtermwidget_connectnotify_callback(this, cbval1);
-        } else {
-            QTermWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTermWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2455,15 +2581,18 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_disconnectnotify_isbase) {
             qtermwidget_disconnectnotify_isbase = false;
             QTermWidget::disconnectNotify(signal);
-        } else if (qtermwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtermwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtermwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTermWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTermWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2471,11 +2600,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sessionfinished_isbase) {
             qtermwidget_sessionfinished_isbase = false;
             QTermWidget::sessionFinished();
-        } else if (qtermwidget_sessionfinished_callback != nullptr) {
-            qtermwidget_sessionfinished_callback();
-        } else {
-            QTermWidget::sessionFinished();
+            return;
         }
+        auto sessionfinished_cb = qtermwidget_sessionfinished_callback;
+        if (sessionfinished_cb) {
+            sessionfinished_cb();
+            return;
+        }
+        QTermWidget::sessionFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2483,13 +2615,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_selectionchanged_isbase) {
             qtermwidget_selectionchanged_isbase = false;
             QTermWidget::selectionChanged(textSelected);
-        } else if (qtermwidget_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = qtermwidget_selectionchanged_callback;
+        if (selectionchanged_cb) {
             bool cbval1 = textSelected;
 
-            qtermwidget_selectionchanged_callback(this, cbval1);
-        } else {
-            QTermWidget::selectionChanged(textSelected);
+            selectionchanged_cb(this, cbval1);
+            return;
         }
+        QTermWidget::selectionChanged(textSelected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2497,11 +2632,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_updatemicrofocus_isbase) {
             qtermwidget_updatemicrofocus_isbase = false;
             QTermWidget::updateMicroFocus();
-        } else if (qtermwidget_updatemicrofocus_callback != nullptr) {
-            qtermwidget_updatemicrofocus_callback();
-        } else {
-            QTermWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtermwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QTermWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2509,11 +2647,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_create_isbase) {
             qtermwidget_create_isbase = false;
             QTermWidget::create();
-        } else if (qtermwidget_create_callback != nullptr) {
-            qtermwidget_create_callback();
-        } else {
-            QTermWidget::create();
+            return;
         }
+        auto create_cb = qtermwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QTermWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2521,11 +2662,14 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_destroy_isbase) {
             qtermwidget_destroy_isbase = false;
             QTermWidget::destroy();
-        } else if (qtermwidget_destroy_callback != nullptr) {
-            qtermwidget_destroy_callback();
-        } else {
-            QTermWidget::destroy();
+            return;
         }
+        auto destroy_cb = qtermwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QTermWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2533,12 +2677,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_focusnextchild_isbase) {
             qtermwidget_focusnextchild_isbase = false;
             return QTermWidget::focusNextChild();
-        } else if (qtermwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtermwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::focusNextChild();
         }
+        auto focusnextchild_cb = qtermwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QTermWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2546,12 +2691,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_focuspreviouschild_isbase) {
             qtermwidget_focuspreviouschild_isbase = false;
             return QTermWidget::focusPreviousChild();
-        } else if (qtermwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtermwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtermwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QTermWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2559,12 +2705,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sender_isbase) {
             qtermwidget_sender_isbase = false;
             return QTermWidget::sender();
-        } else if (qtermwidget_sender_callback != nullptr) {
-            QObject* callback_ret = qtermwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return QTermWidget::sender();
         }
+        auto sender_cb = qtermwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTermWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2572,12 +2719,13 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_sendersignalindex_isbase) {
             qtermwidget_sendersignalindex_isbase = false;
             return QTermWidget::senderSignalIndex();
-        } else if (qtermwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtermwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtermwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTermWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2585,14 +2733,15 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_receivers_isbase) {
             qtermwidget_receivers_isbase = false;
             return QTermWidget::receivers(signal);
-        } else if (qtermwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtermwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtermwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTermWidget::receivers(signal);
         }
+        return QTermWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2600,16 +2749,17 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_issignalconnected_isbase) {
             qtermwidget_issignalconnected_isbase = false;
             return QTermWidget::isSignalConnected(signal);
-        } else if (qtermwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtermwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtermwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTermWidget::isSignalConnected(signal);
         }
+        return QTermWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2617,15 +2767,16 @@ class VirtualQTermWidget final : public QTermWidget {
         if (qtermwidget_getdecodedmetricf_isbase) {
             qtermwidget_getdecodedmetricf_isbase = false;
             return QTermWidget::getDecodedMetricF(metricA, metricB);
-        } else if (qtermwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtermwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtermwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QTermWidget::getDecodedMetricF(metricA, metricB);
         }
+        return QTermWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

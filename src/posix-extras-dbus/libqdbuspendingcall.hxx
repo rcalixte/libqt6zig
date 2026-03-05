@@ -69,23 +69,6 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
     VirtualQDBusPendingCallWatcher(const QDBusPendingCall& call) : QDBusPendingCallWatcher(call) {};
     VirtualQDBusPendingCallWatcher(const QDBusPendingCall& call, QObject* parent) : QDBusPendingCallWatcher(call, parent) {};
 
-    ~VirtualQDBusPendingCallWatcher() {
-        qdbuspendingcallwatcher_metaobject_callback = nullptr;
-        qdbuspendingcallwatcher_metacast_callback = nullptr;
-        qdbuspendingcallwatcher_metacall_callback = nullptr;
-        qdbuspendingcallwatcher_event_callback = nullptr;
-        qdbuspendingcallwatcher_eventfilter_callback = nullptr;
-        qdbuspendingcallwatcher_timerevent_callback = nullptr;
-        qdbuspendingcallwatcher_childevent_callback = nullptr;
-        qdbuspendingcallwatcher_customevent_callback = nullptr;
-        qdbuspendingcallwatcher_connectnotify_callback = nullptr;
-        qdbuspendingcallwatcher_disconnectnotify_callback = nullptr;
-        qdbuspendingcallwatcher_sender_callback = nullptr;
-        qdbuspendingcallwatcher_sendersignalindex_callback = nullptr;
-        qdbuspendingcallwatcher_receivers_callback = nullptr;
-        qdbuspendingcallwatcher_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDBusPendingCallWatcher_MetaObject_Callback(QDBusPendingCallWatcher_MetaObject_Callback cb) { qdbuspendingcallwatcher_metaobject_callback = cb; }
     inline void setQDBusPendingCallWatcher_Metacast_Callback(QDBusPendingCallWatcher_Metacast_Callback cb) { qdbuspendingcallwatcher_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_metaobject_isbase) {
             qdbuspendingcallwatcher_metaobject_isbase = false;
             return QDBusPendingCallWatcher::metaObject();
-        } else if (qdbuspendingcallwatcher_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdbuspendingcallwatcher_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDBusPendingCallWatcher::metaObject();
         }
+        auto metaobject_cb = qdbuspendingcallwatcher_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDBusPendingCallWatcher::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_metacast_isbase) {
             qdbuspendingcallwatcher_metacast_isbase = false;
             return QDBusPendingCallWatcher::qt_metacast(param1);
-        } else if (qdbuspendingcallwatcher_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdbuspendingcallwatcher_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdbuspendingcallwatcher_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusPendingCallWatcher::qt_metacast(param1);
         }
+        return QDBusPendingCallWatcher::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_metacall_isbase) {
             qdbuspendingcallwatcher_metacall_isbase = false;
             return QDBusPendingCallWatcher::qt_metacall(param1, param2, param3);
-        } else if (qdbuspendingcallwatcher_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdbuspendingcallwatcher_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdbuspendingcallwatcher_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusPendingCallWatcher::qt_metacall(param1, param2, param3);
         }
+        return QDBusPendingCallWatcher::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_event_isbase) {
             qdbuspendingcallwatcher_event_isbase = false;
             return QDBusPendingCallWatcher::event(event);
-        } else if (qdbuspendingcallwatcher_event_callback != nullptr) {
+        }
+        auto event_cb = qdbuspendingcallwatcher_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdbuspendingcallwatcher_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusPendingCallWatcher::event(event);
         }
+        return QDBusPendingCallWatcher::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_eventfilter_isbase) {
             qdbuspendingcallwatcher_eventfilter_isbase = false;
             return QDBusPendingCallWatcher::eventFilter(watched, event);
-        } else if (qdbuspendingcallwatcher_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdbuspendingcallwatcher_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdbuspendingcallwatcher_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDBusPendingCallWatcher::eventFilter(watched, event);
         }
+        return QDBusPendingCallWatcher::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_timerevent_isbase) {
             qdbuspendingcallwatcher_timerevent_isbase = false;
             QDBusPendingCallWatcher::timerEvent(event);
-        } else if (qdbuspendingcallwatcher_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdbuspendingcallwatcher_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdbuspendingcallwatcher_timerevent_callback(this, cbval1);
-        } else {
-            QDBusPendingCallWatcher::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDBusPendingCallWatcher::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_childevent_isbase) {
             qdbuspendingcallwatcher_childevent_isbase = false;
             QDBusPendingCallWatcher::childEvent(event);
-        } else if (qdbuspendingcallwatcher_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdbuspendingcallwatcher_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdbuspendingcallwatcher_childevent_callback(this, cbval1);
-        } else {
-            QDBusPendingCallWatcher::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDBusPendingCallWatcher::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_customevent_isbase) {
             qdbuspendingcallwatcher_customevent_isbase = false;
             QDBusPendingCallWatcher::customEvent(event);
-        } else if (qdbuspendingcallwatcher_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdbuspendingcallwatcher_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdbuspendingcallwatcher_customevent_callback(this, cbval1);
-        } else {
-            QDBusPendingCallWatcher::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDBusPendingCallWatcher::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_connectnotify_isbase) {
             qdbuspendingcallwatcher_connectnotify_isbase = false;
             QDBusPendingCallWatcher::connectNotify(signal);
-        } else if (qdbuspendingcallwatcher_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdbuspendingcallwatcher_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbuspendingcallwatcher_connectnotify_callback(this, cbval1);
-        } else {
-            QDBusPendingCallWatcher::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusPendingCallWatcher::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_disconnectnotify_isbase) {
             qdbuspendingcallwatcher_disconnectnotify_isbase = false;
             QDBusPendingCallWatcher::disconnectNotify(signal);
-        } else if (qdbuspendingcallwatcher_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdbuspendingcallwatcher_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbuspendingcallwatcher_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDBusPendingCallWatcher::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusPendingCallWatcher::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_sender_isbase) {
             qdbuspendingcallwatcher_sender_isbase = false;
             return QDBusPendingCallWatcher::sender();
-        } else if (qdbuspendingcallwatcher_sender_callback != nullptr) {
-            QObject* callback_ret = qdbuspendingcallwatcher_sender_callback();
-            return callback_ret;
-        } else {
-            return QDBusPendingCallWatcher::sender();
         }
+        auto sender_cb = qdbuspendingcallwatcher_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDBusPendingCallWatcher::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_sendersignalindex_isbase) {
             qdbuspendingcallwatcher_sendersignalindex_isbase = false;
             return QDBusPendingCallWatcher::senderSignalIndex();
-        } else if (qdbuspendingcallwatcher_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdbuspendingcallwatcher_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDBusPendingCallWatcher::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdbuspendingcallwatcher_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDBusPendingCallWatcher::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_receivers_isbase) {
             qdbuspendingcallwatcher_receivers_isbase = false;
             return QDBusPendingCallWatcher::receivers(signal);
-        } else if (qdbuspendingcallwatcher_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdbuspendingcallwatcher_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdbuspendingcallwatcher_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusPendingCallWatcher::receivers(signal);
         }
+        return QDBusPendingCallWatcher::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
         if (qdbuspendingcallwatcher_issignalconnected_isbase) {
             qdbuspendingcallwatcher_issignalconnected_isbase = false;
             return QDBusPendingCallWatcher::isSignalConnected(signal);
-        } else if (qdbuspendingcallwatcher_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdbuspendingcallwatcher_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdbuspendingcallwatcher_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusPendingCallWatcher::isSignalConnected(signal);
         }
+        return QDBusPendingCallWatcher::isSignalConnected(signal);
     }
 
     // Friend functions

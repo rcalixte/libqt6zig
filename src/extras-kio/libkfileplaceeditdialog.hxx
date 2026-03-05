@@ -227,75 +227,6 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     VirtualKFilePlaceEditDialog(bool allowGlobal, const QUrl& url, const QString& label, const QString& icon, bool isAddingNewPlace, bool appLocal, int iconSize) : KFilePlaceEditDialog(allowGlobal, url, label, icon, isAddingNewPlace, appLocal, iconSize) {};
     VirtualKFilePlaceEditDialog(bool allowGlobal, const QUrl& url, const QString& label, const QString& icon, bool isAddingNewPlace, bool appLocal, int iconSize, QWidget* parent) : KFilePlaceEditDialog(allowGlobal, url, label, icon, isAddingNewPlace, appLocal, iconSize, parent) {};
 
-    ~VirtualKFilePlaceEditDialog() {
-        kfileplaceeditdialog_metaobject_callback = nullptr;
-        kfileplaceeditdialog_metacast_callback = nullptr;
-        kfileplaceeditdialog_metacall_callback = nullptr;
-        kfileplaceeditdialog_setvisible_callback = nullptr;
-        kfileplaceeditdialog_sizehint_callback = nullptr;
-        kfileplaceeditdialog_minimumsizehint_callback = nullptr;
-        kfileplaceeditdialog_open_callback = nullptr;
-        kfileplaceeditdialog_exec_callback = nullptr;
-        kfileplaceeditdialog_done_callback = nullptr;
-        kfileplaceeditdialog_accept_callback = nullptr;
-        kfileplaceeditdialog_reject_callback = nullptr;
-        kfileplaceeditdialog_keypressevent_callback = nullptr;
-        kfileplaceeditdialog_closeevent_callback = nullptr;
-        kfileplaceeditdialog_showevent_callback = nullptr;
-        kfileplaceeditdialog_resizeevent_callback = nullptr;
-        kfileplaceeditdialog_contextmenuevent_callback = nullptr;
-        kfileplaceeditdialog_eventfilter_callback = nullptr;
-        kfileplaceeditdialog_devtype_callback = nullptr;
-        kfileplaceeditdialog_heightforwidth_callback = nullptr;
-        kfileplaceeditdialog_hasheightforwidth_callback = nullptr;
-        kfileplaceeditdialog_paintengine_callback = nullptr;
-        kfileplaceeditdialog_event_callback = nullptr;
-        kfileplaceeditdialog_mousepressevent_callback = nullptr;
-        kfileplaceeditdialog_mousereleaseevent_callback = nullptr;
-        kfileplaceeditdialog_mousedoubleclickevent_callback = nullptr;
-        kfileplaceeditdialog_mousemoveevent_callback = nullptr;
-        kfileplaceeditdialog_wheelevent_callback = nullptr;
-        kfileplaceeditdialog_keyreleaseevent_callback = nullptr;
-        kfileplaceeditdialog_focusinevent_callback = nullptr;
-        kfileplaceeditdialog_focusoutevent_callback = nullptr;
-        kfileplaceeditdialog_enterevent_callback = nullptr;
-        kfileplaceeditdialog_leaveevent_callback = nullptr;
-        kfileplaceeditdialog_paintevent_callback = nullptr;
-        kfileplaceeditdialog_moveevent_callback = nullptr;
-        kfileplaceeditdialog_tabletevent_callback = nullptr;
-        kfileplaceeditdialog_actionevent_callback = nullptr;
-        kfileplaceeditdialog_dragenterevent_callback = nullptr;
-        kfileplaceeditdialog_dragmoveevent_callback = nullptr;
-        kfileplaceeditdialog_dragleaveevent_callback = nullptr;
-        kfileplaceeditdialog_dropevent_callback = nullptr;
-        kfileplaceeditdialog_hideevent_callback = nullptr;
-        kfileplaceeditdialog_nativeevent_callback = nullptr;
-        kfileplaceeditdialog_changeevent_callback = nullptr;
-        kfileplaceeditdialog_metric_callback = nullptr;
-        kfileplaceeditdialog_initpainter_callback = nullptr;
-        kfileplaceeditdialog_redirected_callback = nullptr;
-        kfileplaceeditdialog_sharedpainter_callback = nullptr;
-        kfileplaceeditdialog_inputmethodevent_callback = nullptr;
-        kfileplaceeditdialog_inputmethodquery_callback = nullptr;
-        kfileplaceeditdialog_focusnextprevchild_callback = nullptr;
-        kfileplaceeditdialog_timerevent_callback = nullptr;
-        kfileplaceeditdialog_childevent_callback = nullptr;
-        kfileplaceeditdialog_customevent_callback = nullptr;
-        kfileplaceeditdialog_connectnotify_callback = nullptr;
-        kfileplaceeditdialog_disconnectnotify_callback = nullptr;
-        kfileplaceeditdialog_adjustposition_callback = nullptr;
-        kfileplaceeditdialog_updatemicrofocus_callback = nullptr;
-        kfileplaceeditdialog_create_callback = nullptr;
-        kfileplaceeditdialog_destroy_callback = nullptr;
-        kfileplaceeditdialog_focusnextchild_callback = nullptr;
-        kfileplaceeditdialog_focuspreviouschild_callback = nullptr;
-        kfileplaceeditdialog_sender_callback = nullptr;
-        kfileplaceeditdialog_sendersignalindex_callback = nullptr;
-        kfileplaceeditdialog_receivers_callback = nullptr;
-        kfileplaceeditdialog_issignalconnected_callback = nullptr;
-        kfileplaceeditdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFilePlaceEditDialog_MetaObject_Callback(KFilePlaceEditDialog_MetaObject_Callback cb) { kfileplaceeditdialog_metaobject_callback = cb; }
     inline void setKFilePlaceEditDialog_Metacast_Callback(KFilePlaceEditDialog_Metacast_Callback cb) { kfileplaceeditdialog_metacast_callback = cb; }
@@ -437,12 +368,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_metaobject_isbase) {
             kfileplaceeditdialog_metaobject_isbase = false;
             return KFilePlaceEditDialog::metaObject();
-        } else if (kfileplaceeditdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kfileplaceeditdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::metaObject();
         }
+        auto metaobject_cb = kfileplaceeditdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +382,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_metacast_isbase) {
             kfileplaceeditdialog_metacast_isbase = false;
             return KFilePlaceEditDialog::qt_metacast(param1);
-        } else if (kfileplaceeditdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kfileplaceeditdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kfileplaceeditdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::qt_metacast(param1);
         }
+        return KFilePlaceEditDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,16 +398,17 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_metacall_isbase) {
             kfileplaceeditdialog_metacall_isbase = false;
             return KFilePlaceEditDialog::qt_metacall(param1, param2, param3);
-        } else if (kfileplaceeditdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kfileplaceeditdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kfileplaceeditdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::qt_metacall(param1, param2, param3);
         }
+        return KFilePlaceEditDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +416,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_setvisible_isbase) {
             kfileplaceeditdialog_setvisible_isbase = false;
             KFilePlaceEditDialog::setVisible(visible);
-        } else if (kfileplaceeditdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kfileplaceeditdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kfileplaceeditdialog_setvisible_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,12 +433,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_sizehint_isbase) {
             kfileplaceeditdialog_sizehint_isbase = false;
             return KFilePlaceEditDialog::sizeHint();
-        } else if (kfileplaceeditdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kfileplaceeditdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlaceEditDialog::sizeHint();
         }
+        auto sizehint_cb = kfileplaceeditdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KFilePlaceEditDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,12 +447,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_minimumsizehint_isbase) {
             kfileplaceeditdialog_minimumsizehint_isbase = false;
             return KFilePlaceEditDialog::minimumSizeHint();
-        } else if (kfileplaceeditdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kfileplaceeditdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KFilePlaceEditDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kfileplaceeditdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KFilePlaceEditDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,11 +461,14 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_open_isbase) {
             kfileplaceeditdialog_open_isbase = false;
             KFilePlaceEditDialog::open();
-        } else if (kfileplaceeditdialog_open_callback != nullptr) {
-            kfileplaceeditdialog_open_callback();
-        } else {
-            KFilePlaceEditDialog::open();
+            return;
         }
+        auto open_cb = kfileplaceeditdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KFilePlaceEditDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -534,12 +476,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_exec_isbase) {
             kfileplaceeditdialog_exec_isbase = false;
             return KFilePlaceEditDialog::exec();
-        } else if (kfileplaceeditdialog_exec_callback != nullptr) {
-            int callback_ret = kfileplaceeditdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::exec();
         }
+        auto exec_cb = kfileplaceeditdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlaceEditDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,13 +490,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_done_isbase) {
             kfileplaceeditdialog_done_isbase = false;
             KFilePlaceEditDialog::done(param1);
-        } else if (kfileplaceeditdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kfileplaceeditdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kfileplaceeditdialog_done_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +507,14 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_accept_isbase) {
             kfileplaceeditdialog_accept_isbase = false;
             KFilePlaceEditDialog::accept();
-        } else if (kfileplaceeditdialog_accept_callback != nullptr) {
-            kfileplaceeditdialog_accept_callback();
-        } else {
-            KFilePlaceEditDialog::accept();
+            return;
         }
+        auto accept_cb = kfileplaceeditdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KFilePlaceEditDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,11 +522,14 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_reject_isbase) {
             kfileplaceeditdialog_reject_isbase = false;
             KFilePlaceEditDialog::reject();
-        } else if (kfileplaceeditdialog_reject_callback != nullptr) {
-            kfileplaceeditdialog_reject_callback();
-        } else {
-            KFilePlaceEditDialog::reject();
+            return;
         }
+        auto reject_cb = kfileplaceeditdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KFilePlaceEditDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +537,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_keypressevent_isbase) {
             kfileplaceeditdialog_keypressevent_isbase = false;
             KFilePlaceEditDialog::keyPressEvent(param1);
-        } else if (kfileplaceeditdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kfileplaceeditdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +554,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_closeevent_isbase) {
             kfileplaceeditdialog_closeevent_isbase = false;
             KFilePlaceEditDialog::closeEvent(param1);
-        } else if (kfileplaceeditdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kfileplaceeditdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_closeevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +571,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_showevent_isbase) {
             kfileplaceeditdialog_showevent_isbase = false;
             KFilePlaceEditDialog::showEvent(param1);
-        } else if (kfileplaceeditdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kfileplaceeditdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_showevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +588,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_resizeevent_isbase) {
             kfileplaceeditdialog_resizeevent_isbase = false;
             KFilePlaceEditDialog::resizeEvent(param1);
-        } else if (kfileplaceeditdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kfileplaceeditdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +605,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_contextmenuevent_isbase) {
             kfileplaceeditdialog_contextmenuevent_isbase = false;
             KFilePlaceEditDialog::contextMenuEvent(param1);
-        } else if (kfileplaceeditdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kfileplaceeditdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,15 +622,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_eventfilter_isbase) {
             kfileplaceeditdialog_eventfilter_isbase = false;
             return KFilePlaceEditDialog::eventFilter(param1, param2);
-        } else if (kfileplaceeditdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kfileplaceeditdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kfileplaceeditdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::eventFilter(param1, param2);
         }
+        return KFilePlaceEditDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,12 +639,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_devtype_isbase) {
             kfileplaceeditdialog_devtype_isbase = false;
             return KFilePlaceEditDialog::devType();
-        } else if (kfileplaceeditdialog_devtype_callback != nullptr) {
-            int callback_ret = kfileplaceeditdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::devType();
         }
+        auto devtype_cb = kfileplaceeditdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlaceEditDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -684,14 +653,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_heightforwidth_isbase) {
             kfileplaceeditdialog_heightforwidth_isbase = false;
             return KFilePlaceEditDialog::heightForWidth(param1);
-        } else if (kfileplaceeditdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kfileplaceeditdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kfileplaceeditdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::heightForWidth(param1);
         }
+        return KFilePlaceEditDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,12 +669,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_hasheightforwidth_isbase) {
             kfileplaceeditdialog_hasheightforwidth_isbase = false;
             return KFilePlaceEditDialog::hasHeightForWidth();
-        } else if (kfileplaceeditdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kfileplaceeditdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kfileplaceeditdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,12 +683,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_paintengine_isbase) {
             kfileplaceeditdialog_paintengine_isbase = false;
             return KFilePlaceEditDialog::paintEngine();
-        } else if (kfileplaceeditdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kfileplaceeditdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::paintEngine();
         }
+        auto paintengine_cb = kfileplaceeditdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,14 +697,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_event_isbase) {
             kfileplaceeditdialog_event_isbase = false;
             return KFilePlaceEditDialog::event(event);
-        } else if (kfileplaceeditdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kfileplaceeditdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kfileplaceeditdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::event(event);
         }
+        return KFilePlaceEditDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -740,13 +713,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_mousepressevent_isbase) {
             kfileplaceeditdialog_mousepressevent_isbase = false;
             KFilePlaceEditDialog::mousePressEvent(event);
-        } else if (kfileplaceeditdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kfileplaceeditdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfileplaceeditdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,13 +730,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_mousereleaseevent_isbase) {
             kfileplaceeditdialog_mousereleaseevent_isbase = false;
             KFilePlaceEditDialog::mouseReleaseEvent(event);
-        } else if (kfileplaceeditdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kfileplaceeditdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfileplaceeditdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -768,13 +747,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_mousedoubleclickevent_isbase) {
             kfileplaceeditdialog_mousedoubleclickevent_isbase = false;
             KFilePlaceEditDialog::mouseDoubleClickEvent(event);
-        } else if (kfileplaceeditdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kfileplaceeditdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfileplaceeditdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +764,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_mousemoveevent_isbase) {
             kfileplaceeditdialog_mousemoveevent_isbase = false;
             KFilePlaceEditDialog::mouseMoveEvent(event);
-        } else if (kfileplaceeditdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kfileplaceeditdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kfileplaceeditdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,13 +781,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_wheelevent_isbase) {
             kfileplaceeditdialog_wheelevent_isbase = false;
             KFilePlaceEditDialog::wheelEvent(event);
-        } else if (kfileplaceeditdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kfileplaceeditdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kfileplaceeditdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -810,13 +798,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_keyreleaseevent_isbase) {
             kfileplaceeditdialog_keyreleaseevent_isbase = false;
             KFilePlaceEditDialog::keyReleaseEvent(event);
-        } else if (kfileplaceeditdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kfileplaceeditdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kfileplaceeditdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,13 +815,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_focusinevent_isbase) {
             kfileplaceeditdialog_focusinevent_isbase = false;
             KFilePlaceEditDialog::focusInEvent(event);
-        } else if (kfileplaceeditdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kfileplaceeditdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfileplaceeditdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,13 +832,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_focusoutevent_isbase) {
             kfileplaceeditdialog_focusoutevent_isbase = false;
             KFilePlaceEditDialog::focusOutEvent(event);
-        } else if (kfileplaceeditdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kfileplaceeditdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kfileplaceeditdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -852,13 +849,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_enterevent_isbase) {
             kfileplaceeditdialog_enterevent_isbase = false;
             KFilePlaceEditDialog::enterEvent(event);
-        } else if (kfileplaceeditdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kfileplaceeditdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kfileplaceeditdialog_enterevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,13 +866,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_leaveevent_isbase) {
             kfileplaceeditdialog_leaveevent_isbase = false;
             KFilePlaceEditDialog::leaveEvent(event);
-        } else if (kfileplaceeditdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kfileplaceeditdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kfileplaceeditdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -880,13 +883,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_paintevent_isbase) {
             kfileplaceeditdialog_paintevent_isbase = false;
             KFilePlaceEditDialog::paintEvent(event);
-        } else if (kfileplaceeditdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kfileplaceeditdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kfileplaceeditdialog_paintevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -894,13 +900,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_moveevent_isbase) {
             kfileplaceeditdialog_moveevent_isbase = false;
             KFilePlaceEditDialog::moveEvent(event);
-        } else if (kfileplaceeditdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kfileplaceeditdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kfileplaceeditdialog_moveevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,13 +917,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_tabletevent_isbase) {
             kfileplaceeditdialog_tabletevent_isbase = false;
             KFilePlaceEditDialog::tabletEvent(event);
-        } else if (kfileplaceeditdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kfileplaceeditdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kfileplaceeditdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -922,13 +934,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_actionevent_isbase) {
             kfileplaceeditdialog_actionevent_isbase = false;
             KFilePlaceEditDialog::actionEvent(event);
-        } else if (kfileplaceeditdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kfileplaceeditdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kfileplaceeditdialog_actionevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,13 +951,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_dragenterevent_isbase) {
             kfileplaceeditdialog_dragenterevent_isbase = false;
             KFilePlaceEditDialog::dragEnterEvent(event);
-        } else if (kfileplaceeditdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kfileplaceeditdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kfileplaceeditdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,13 +968,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_dragmoveevent_isbase) {
             kfileplaceeditdialog_dragmoveevent_isbase = false;
             KFilePlaceEditDialog::dragMoveEvent(event);
-        } else if (kfileplaceeditdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kfileplaceeditdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kfileplaceeditdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -964,13 +985,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_dragleaveevent_isbase) {
             kfileplaceeditdialog_dragleaveevent_isbase = false;
             KFilePlaceEditDialog::dragLeaveEvent(event);
-        } else if (kfileplaceeditdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kfileplaceeditdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kfileplaceeditdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,13 +1002,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_dropevent_isbase) {
             kfileplaceeditdialog_dropevent_isbase = false;
             KFilePlaceEditDialog::dropEvent(event);
-        } else if (kfileplaceeditdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kfileplaceeditdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kfileplaceeditdialog_dropevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -992,13 +1019,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_hideevent_isbase) {
             kfileplaceeditdialog_hideevent_isbase = false;
             KFilePlaceEditDialog::hideEvent(event);
-        } else if (kfileplaceeditdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kfileplaceeditdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kfileplaceeditdialog_hideevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,7 +1036,9 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_nativeevent_isbase) {
             kfileplaceeditdialog_nativeevent_isbase = false;
             return KFilePlaceEditDialog::nativeEvent(eventType, message, result);
-        } else if (kfileplaceeditdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kfileplaceeditdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1017,12 +1049,11 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kfileplaceeditdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::nativeEvent(eventType, message, result);
         }
+        return KFilePlaceEditDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,13 +1061,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_changeevent_isbase) {
             kfileplaceeditdialog_changeevent_isbase = false;
             KFilePlaceEditDialog::changeEvent(param1);
-        } else if (kfileplaceeditdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kfileplaceeditdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_changeevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,14 +1078,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_metric_isbase) {
             kfileplaceeditdialog_metric_isbase = false;
             return KFilePlaceEditDialog::metric(param1);
-        } else if (kfileplaceeditdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kfileplaceeditdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kfileplaceeditdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::metric(param1);
         }
+        return KFilePlaceEditDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1059,13 +1094,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_initpainter_isbase) {
             kfileplaceeditdialog_initpainter_isbase = false;
             KFilePlaceEditDialog::initPainter(painter);
-        } else if (kfileplaceeditdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kfileplaceeditdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kfileplaceeditdialog_initpainter_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1073,14 +1111,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_redirected_isbase) {
             kfileplaceeditdialog_redirected_isbase = false;
             return KFilePlaceEditDialog::redirected(offset);
-        } else if (kfileplaceeditdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kfileplaceeditdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kfileplaceeditdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::redirected(offset);
         }
+        return KFilePlaceEditDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,12 +1127,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_sharedpainter_isbase) {
             kfileplaceeditdialog_sharedpainter_isbase = false;
             return KFilePlaceEditDialog::sharedPainter();
-        } else if (kfileplaceeditdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kfileplaceeditdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kfileplaceeditdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1101,13 +1141,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_inputmethodevent_isbase) {
             kfileplaceeditdialog_inputmethodevent_isbase = false;
             KFilePlaceEditDialog::inputMethodEvent(param1);
-        } else if (kfileplaceeditdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kfileplaceeditdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kfileplaceeditdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,14 +1158,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_inputmethodquery_isbase) {
             kfileplaceeditdialog_inputmethodquery_isbase = false;
             return KFilePlaceEditDialog::inputMethodQuery(param1);
-        } else if (kfileplaceeditdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kfileplaceeditdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kfileplaceeditdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KFilePlaceEditDialog::inputMethodQuery(param1);
         }
+        return KFilePlaceEditDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,14 +1174,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_focusnextprevchild_isbase) {
             kfileplaceeditdialog_focusnextprevchild_isbase = false;
             return KFilePlaceEditDialog::focusNextPrevChild(next);
-        } else if (kfileplaceeditdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kfileplaceeditdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kfileplaceeditdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::focusNextPrevChild(next);
         }
+        return KFilePlaceEditDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1190,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_timerevent_isbase) {
             kfileplaceeditdialog_timerevent_isbase = false;
             KFilePlaceEditDialog::timerEvent(event);
-        } else if (kfileplaceeditdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kfileplaceeditdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kfileplaceeditdialog_timerevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1207,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_childevent_isbase) {
             kfileplaceeditdialog_childevent_isbase = false;
             KFilePlaceEditDialog::childEvent(event);
-        } else if (kfileplaceeditdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kfileplaceeditdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kfileplaceeditdialog_childevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1224,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_customevent_isbase) {
             kfileplaceeditdialog_customevent_isbase = false;
             KFilePlaceEditDialog::customEvent(event);
-        } else if (kfileplaceeditdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kfileplaceeditdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kfileplaceeditdialog_customevent_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1241,18 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_connectnotify_isbase) {
             kfileplaceeditdialog_connectnotify_isbase = false;
             KFilePlaceEditDialog::connectNotify(signal);
-        } else if (kfileplaceeditdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kfileplaceeditdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileplaceeditdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,15 +1260,18 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_disconnectnotify_isbase) {
             kfileplaceeditdialog_disconnectnotify_isbase = false;
             KFilePlaceEditDialog::disconnectNotify(signal);
-        } else if (kfileplaceeditdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kfileplaceeditdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kfileplaceeditdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,13 +1279,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_adjustposition_isbase) {
             kfileplaceeditdialog_adjustposition_isbase = false;
             KFilePlaceEditDialog::adjustPosition(param1);
-        } else if (kfileplaceeditdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kfileplaceeditdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kfileplaceeditdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KFilePlaceEditDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KFilePlaceEditDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,11 +1296,14 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_updatemicrofocus_isbase) {
             kfileplaceeditdialog_updatemicrofocus_isbase = false;
             KFilePlaceEditDialog::updateMicroFocus();
-        } else if (kfileplaceeditdialog_updatemicrofocus_callback != nullptr) {
-            kfileplaceeditdialog_updatemicrofocus_callback();
-        } else {
-            KFilePlaceEditDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kfileplaceeditdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KFilePlaceEditDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,11 +1311,14 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_create_isbase) {
             kfileplaceeditdialog_create_isbase = false;
             KFilePlaceEditDialog::create();
-        } else if (kfileplaceeditdialog_create_callback != nullptr) {
-            kfileplaceeditdialog_create_callback();
-        } else {
-            KFilePlaceEditDialog::create();
+            return;
         }
+        auto create_cb = kfileplaceeditdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KFilePlaceEditDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,11 +1326,14 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_destroy_isbase) {
             kfileplaceeditdialog_destroy_isbase = false;
             KFilePlaceEditDialog::destroy();
-        } else if (kfileplaceeditdialog_destroy_callback != nullptr) {
-            kfileplaceeditdialog_destroy_callback();
-        } else {
-            KFilePlaceEditDialog::destroy();
+            return;
         }
+        auto destroy_cb = kfileplaceeditdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KFilePlaceEditDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1269,12 +1341,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_focusnextchild_isbase) {
             kfileplaceeditdialog_focusnextchild_isbase = false;
             return KFilePlaceEditDialog::focusNextChild();
-        } else if (kfileplaceeditdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kfileplaceeditdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kfileplaceeditdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,12 +1355,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_focuspreviouschild_isbase) {
             kfileplaceeditdialog_focuspreviouschild_isbase = false;
             return KFilePlaceEditDialog::focusPreviousChild();
-        } else if (kfileplaceeditdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kfileplaceeditdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kfileplaceeditdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1369,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_sender_isbase) {
             kfileplaceeditdialog_sender_isbase = false;
             return KFilePlaceEditDialog::sender();
-        } else if (kfileplaceeditdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kfileplaceeditdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::sender();
         }
+        auto sender_cb = kfileplaceeditdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KFilePlaceEditDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1383,13 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_sendersignalindex_isbase) {
             kfileplaceeditdialog_sendersignalindex_isbase = false;
             return KFilePlaceEditDialog::senderSignalIndex();
-        } else if (kfileplaceeditdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kfileplaceeditdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kfileplaceeditdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KFilePlaceEditDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,14 +1397,15 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_receivers_isbase) {
             kfileplaceeditdialog_receivers_isbase = false;
             return KFilePlaceEditDialog::receivers(signal);
-        } else if (kfileplaceeditdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kfileplaceeditdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kfileplaceeditdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::receivers(signal);
         }
+        return KFilePlaceEditDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,16 +1413,17 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_issignalconnected_isbase) {
             kfileplaceeditdialog_issignalconnected_isbase = false;
             return KFilePlaceEditDialog::isSignalConnected(signal);
-        } else if (kfileplaceeditdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kfileplaceeditdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kfileplaceeditdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KFilePlaceEditDialog::isSignalConnected(signal);
         }
+        return KFilePlaceEditDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1353,15 +1431,16 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
         if (kfileplaceeditdialog_getdecodedmetricf_isbase) {
             kfileplaceeditdialog_getdecodedmetricf_isbase = false;
             return KFilePlaceEditDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kfileplaceeditdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kfileplaceeditdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kfileplaceeditdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KFilePlaceEditDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KFilePlaceEditDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

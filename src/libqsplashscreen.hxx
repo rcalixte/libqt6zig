@@ -214,70 +214,6 @@ class VirtualQSplashScreen final : public QSplashScreen {
     VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap) : QSplashScreen(screen, pixmap) {};
     VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(screen, pixmap, f) {};
 
-    ~VirtualQSplashScreen() {
-        qsplashscreen_metaobject_callback = nullptr;
-        qsplashscreen_metacast_callback = nullptr;
-        qsplashscreen_metacall_callback = nullptr;
-        qsplashscreen_event_callback = nullptr;
-        qsplashscreen_drawcontents_callback = nullptr;
-        qsplashscreen_mousepressevent_callback = nullptr;
-        qsplashscreen_devtype_callback = nullptr;
-        qsplashscreen_setvisible_callback = nullptr;
-        qsplashscreen_sizehint_callback = nullptr;
-        qsplashscreen_minimumsizehint_callback = nullptr;
-        qsplashscreen_heightforwidth_callback = nullptr;
-        qsplashscreen_hasheightforwidth_callback = nullptr;
-        qsplashscreen_paintengine_callback = nullptr;
-        qsplashscreen_mousereleaseevent_callback = nullptr;
-        qsplashscreen_mousedoubleclickevent_callback = nullptr;
-        qsplashscreen_mousemoveevent_callback = nullptr;
-        qsplashscreen_wheelevent_callback = nullptr;
-        qsplashscreen_keypressevent_callback = nullptr;
-        qsplashscreen_keyreleaseevent_callback = nullptr;
-        qsplashscreen_focusinevent_callback = nullptr;
-        qsplashscreen_focusoutevent_callback = nullptr;
-        qsplashscreen_enterevent_callback = nullptr;
-        qsplashscreen_leaveevent_callback = nullptr;
-        qsplashscreen_paintevent_callback = nullptr;
-        qsplashscreen_moveevent_callback = nullptr;
-        qsplashscreen_resizeevent_callback = nullptr;
-        qsplashscreen_closeevent_callback = nullptr;
-        qsplashscreen_contextmenuevent_callback = nullptr;
-        qsplashscreen_tabletevent_callback = nullptr;
-        qsplashscreen_actionevent_callback = nullptr;
-        qsplashscreen_dragenterevent_callback = nullptr;
-        qsplashscreen_dragmoveevent_callback = nullptr;
-        qsplashscreen_dragleaveevent_callback = nullptr;
-        qsplashscreen_dropevent_callback = nullptr;
-        qsplashscreen_showevent_callback = nullptr;
-        qsplashscreen_hideevent_callback = nullptr;
-        qsplashscreen_nativeevent_callback = nullptr;
-        qsplashscreen_changeevent_callback = nullptr;
-        qsplashscreen_metric_callback = nullptr;
-        qsplashscreen_initpainter_callback = nullptr;
-        qsplashscreen_redirected_callback = nullptr;
-        qsplashscreen_sharedpainter_callback = nullptr;
-        qsplashscreen_inputmethodevent_callback = nullptr;
-        qsplashscreen_inputmethodquery_callback = nullptr;
-        qsplashscreen_focusnextprevchild_callback = nullptr;
-        qsplashscreen_eventfilter_callback = nullptr;
-        qsplashscreen_timerevent_callback = nullptr;
-        qsplashscreen_childevent_callback = nullptr;
-        qsplashscreen_customevent_callback = nullptr;
-        qsplashscreen_connectnotify_callback = nullptr;
-        qsplashscreen_disconnectnotify_callback = nullptr;
-        qsplashscreen_updatemicrofocus_callback = nullptr;
-        qsplashscreen_create_callback = nullptr;
-        qsplashscreen_destroy_callback = nullptr;
-        qsplashscreen_focusnextchild_callback = nullptr;
-        qsplashscreen_focuspreviouschild_callback = nullptr;
-        qsplashscreen_sender_callback = nullptr;
-        qsplashscreen_sendersignalindex_callback = nullptr;
-        qsplashscreen_receivers_callback = nullptr;
-        qsplashscreen_issignalconnected_callback = nullptr;
-        qsplashscreen_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSplashScreen_MetaObject_Callback(QSplashScreen_MetaObject_Callback cb) { qsplashscreen_metaobject_callback = cb; }
     inline void setQSplashScreen_Metacast_Callback(QSplashScreen_Metacast_Callback cb) { qsplashscreen_metacast_callback = cb; }
@@ -409,12 +345,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_metaobject_isbase) {
             qsplashscreen_metaobject_isbase = false;
             return QSplashScreen::metaObject();
-        } else if (qsplashscreen_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsplashscreen_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::metaObject();
         }
+        auto metaobject_cb = qsplashscreen_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -422,14 +359,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_metacast_isbase) {
             qsplashscreen_metacast_isbase = false;
             return QSplashScreen::qt_metacast(param1);
-        } else if (qsplashscreen_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsplashscreen_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsplashscreen_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplashScreen::qt_metacast(param1);
         }
+        return QSplashScreen::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,16 +375,17 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_metacall_isbase) {
             qsplashscreen_metacall_isbase = false;
             return QSplashScreen::qt_metacall(param1, param2, param3);
-        } else if (qsplashscreen_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsplashscreen_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsplashscreen_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplashScreen::qt_metacall(param1, param2, param3);
         }
+        return QSplashScreen::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +393,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_event_isbase) {
             qsplashscreen_event_isbase = false;
             return QSplashScreen::event(e);
-        } else if (qsplashscreen_event_callback != nullptr) {
+        }
+        auto event_cb = qsplashscreen_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qsplashscreen_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplashScreen::event(e);
         }
+        return QSplashScreen::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,13 +409,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_drawcontents_isbase) {
             qsplashscreen_drawcontents_isbase = false;
             QSplashScreen::drawContents(painter);
-        } else if (qsplashscreen_drawcontents_callback != nullptr) {
+            return;
+        }
+        auto drawcontents_cb = qsplashscreen_drawcontents_callback;
+        if (drawcontents_cb) {
             QPainter* cbval1 = painter;
 
-            qsplashscreen_drawcontents_callback(this, cbval1);
-        } else {
-            QSplashScreen::drawContents(painter);
+            drawcontents_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::drawContents(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,13 +426,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_mousepressevent_isbase) {
             qsplashscreen_mousepressevent_isbase = false;
             QSplashScreen::mousePressEvent(param1);
-        } else if (qsplashscreen_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qsplashscreen_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qsplashscreen_mousepressevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,12 +443,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_devtype_isbase) {
             qsplashscreen_devtype_isbase = false;
             return QSplashScreen::devType();
-        } else if (qsplashscreen_devtype_callback != nullptr) {
-            int callback_ret = qsplashscreen_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSplashScreen::devType();
         }
+        auto devtype_cb = qsplashscreen_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSplashScreen::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +457,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_setvisible_isbase) {
             qsplashscreen_setvisible_isbase = false;
             QSplashScreen::setVisible(visible);
-        } else if (qsplashscreen_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qsplashscreen_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qsplashscreen_setvisible_callback(this, cbval1);
-        } else {
-            QSplashScreen::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,12 +474,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_sizehint_isbase) {
             qsplashscreen_sizehint_isbase = false;
             return QSplashScreen::sizeHint();
-        } else if (qsplashscreen_sizehint_callback != nullptr) {
-            QSize* callback_ret = qsplashscreen_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QSplashScreen::sizeHint();
         }
+        auto sizehint_cb = qsplashscreen_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QSplashScreen::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,12 +488,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_minimumsizehint_isbase) {
             qsplashscreen_minimumsizehint_isbase = false;
             return QSplashScreen::minimumSizeHint();
-        } else if (qsplashscreen_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qsplashscreen_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QSplashScreen::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qsplashscreen_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QSplashScreen::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,14 +502,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_heightforwidth_isbase) {
             qsplashscreen_heightforwidth_isbase = false;
             return QSplashScreen::heightForWidth(param1);
-        } else if (qsplashscreen_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qsplashscreen_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qsplashscreen_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplashScreen::heightForWidth(param1);
         }
+        return QSplashScreen::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,12 +518,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_hasheightforwidth_isbase) {
             qsplashscreen_hasheightforwidth_isbase = false;
             return QSplashScreen::hasHeightForWidth();
-        } else if (qsplashscreen_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qsplashscreen_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qsplashscreen_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,12 +532,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_paintengine_isbase) {
             qsplashscreen_paintengine_isbase = false;
             return QSplashScreen::paintEngine();
-        } else if (qsplashscreen_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qsplashscreen_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::paintEngine();
         }
+        auto paintengine_cb = qsplashscreen_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,13 +546,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_mousereleaseevent_isbase) {
             qsplashscreen_mousereleaseevent_isbase = false;
             QSplashScreen::mouseReleaseEvent(event);
-        } else if (qsplashscreen_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qsplashscreen_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplashscreen_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,13 +563,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_mousedoubleclickevent_isbase) {
             qsplashscreen_mousedoubleclickevent_isbase = false;
             QSplashScreen::mouseDoubleClickEvent(event);
-        } else if (qsplashscreen_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qsplashscreen_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplashscreen_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +580,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_mousemoveevent_isbase) {
             qsplashscreen_mousemoveevent_isbase = false;
             QSplashScreen::mouseMoveEvent(event);
-        } else if (qsplashscreen_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qsplashscreen_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qsplashscreen_mousemoveevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,13 +597,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_wheelevent_isbase) {
             qsplashscreen_wheelevent_isbase = false;
             QSplashScreen::wheelEvent(event);
-        } else if (qsplashscreen_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qsplashscreen_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qsplashscreen_wheelevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,13 +614,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_keypressevent_isbase) {
             qsplashscreen_keypressevent_isbase = false;
             QSplashScreen::keyPressEvent(event);
-        } else if (qsplashscreen_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qsplashscreen_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qsplashscreen_keypressevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,13 +631,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_keyreleaseevent_isbase) {
             qsplashscreen_keyreleaseevent_isbase = false;
             QSplashScreen::keyReleaseEvent(event);
-        } else if (qsplashscreen_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qsplashscreen_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qsplashscreen_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +648,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_focusinevent_isbase) {
             qsplashscreen_focusinevent_isbase = false;
             QSplashScreen::focusInEvent(event);
-        } else if (qsplashscreen_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qsplashscreen_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qsplashscreen_focusinevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +665,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_focusoutevent_isbase) {
             qsplashscreen_focusoutevent_isbase = false;
             QSplashScreen::focusOutEvent(event);
-        } else if (qsplashscreen_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qsplashscreen_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qsplashscreen_focusoutevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,13 +682,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_enterevent_isbase) {
             qsplashscreen_enterevent_isbase = false;
             QSplashScreen::enterEvent(event);
-        } else if (qsplashscreen_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qsplashscreen_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qsplashscreen_enterevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +699,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_leaveevent_isbase) {
             qsplashscreen_leaveevent_isbase = false;
             QSplashScreen::leaveEvent(event);
-        } else if (qsplashscreen_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qsplashscreen_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qsplashscreen_leaveevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,13 +716,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_paintevent_isbase) {
             qsplashscreen_paintevent_isbase = false;
             QSplashScreen::paintEvent(event);
-        } else if (qsplashscreen_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qsplashscreen_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qsplashscreen_paintevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,13 +733,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_moveevent_isbase) {
             qsplashscreen_moveevent_isbase = false;
             QSplashScreen::moveEvent(event);
-        } else if (qsplashscreen_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qsplashscreen_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qsplashscreen_moveevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +750,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_resizeevent_isbase) {
             qsplashscreen_resizeevent_isbase = false;
             QSplashScreen::resizeEvent(event);
-        } else if (qsplashscreen_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qsplashscreen_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qsplashscreen_resizeevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +767,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_closeevent_isbase) {
             qsplashscreen_closeevent_isbase = false;
             QSplashScreen::closeEvent(event);
-        } else if (qsplashscreen_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qsplashscreen_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qsplashscreen_closeevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +784,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_contextmenuevent_isbase) {
             qsplashscreen_contextmenuevent_isbase = false;
             QSplashScreen::contextMenuEvent(event);
-        } else if (qsplashscreen_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qsplashscreen_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qsplashscreen_contextmenuevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +801,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_tabletevent_isbase) {
             qsplashscreen_tabletevent_isbase = false;
             QSplashScreen::tabletEvent(event);
-        } else if (qsplashscreen_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qsplashscreen_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qsplashscreen_tabletevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +818,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_actionevent_isbase) {
             qsplashscreen_actionevent_isbase = false;
             QSplashScreen::actionEvent(event);
-        } else if (qsplashscreen_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qsplashscreen_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qsplashscreen_actionevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +835,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_dragenterevent_isbase) {
             qsplashscreen_dragenterevent_isbase = false;
             QSplashScreen::dragEnterEvent(event);
-        } else if (qsplashscreen_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qsplashscreen_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qsplashscreen_dragenterevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +852,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_dragmoveevent_isbase) {
             qsplashscreen_dragmoveevent_isbase = false;
             QSplashScreen::dragMoveEvent(event);
-        } else if (qsplashscreen_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qsplashscreen_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qsplashscreen_dragmoveevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +869,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_dragleaveevent_isbase) {
             qsplashscreen_dragleaveevent_isbase = false;
             QSplashScreen::dragLeaveEvent(event);
-        } else if (qsplashscreen_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qsplashscreen_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qsplashscreen_dragleaveevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +886,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_dropevent_isbase) {
             qsplashscreen_dropevent_isbase = false;
             QSplashScreen::dropEvent(event);
-        } else if (qsplashscreen_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qsplashscreen_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qsplashscreen_dropevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +903,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_showevent_isbase) {
             qsplashscreen_showevent_isbase = false;
             QSplashScreen::showEvent(event);
-        } else if (qsplashscreen_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qsplashscreen_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qsplashscreen_showevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +920,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_hideevent_isbase) {
             qsplashscreen_hideevent_isbase = false;
             QSplashScreen::hideEvent(event);
-        } else if (qsplashscreen_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qsplashscreen_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qsplashscreen_hideevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,7 +937,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_nativeevent_isbase) {
             qsplashscreen_nativeevent_isbase = false;
             return QSplashScreen::nativeEvent(eventType, message, result);
-        } else if (qsplashscreen_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qsplashscreen_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -924,12 +950,11 @@ class VirtualQSplashScreen final : public QSplashScreen {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qsplashscreen_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QSplashScreen::nativeEvent(eventType, message, result);
         }
+        return QSplashScreen::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,13 +962,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_changeevent_isbase) {
             qsplashscreen_changeevent_isbase = false;
             QSplashScreen::changeEvent(param1);
-        } else if (qsplashscreen_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qsplashscreen_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qsplashscreen_changeevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -951,14 +979,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_metric_isbase) {
             qsplashscreen_metric_isbase = false;
             return QSplashScreen::metric(param1);
-        } else if (qsplashscreen_metric_callback != nullptr) {
+        }
+        auto metric_cb = qsplashscreen_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qsplashscreen_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplashScreen::metric(param1);
         }
+        return QSplashScreen::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,13 +995,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_initpainter_isbase) {
             qsplashscreen_initpainter_isbase = false;
             QSplashScreen::initPainter(painter);
-        } else if (qsplashscreen_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qsplashscreen_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qsplashscreen_initpainter_callback(this, cbval1);
-        } else {
-            QSplashScreen::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,14 +1012,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_redirected_isbase) {
             qsplashscreen_redirected_isbase = false;
             return QSplashScreen::redirected(offset);
-        } else if (qsplashscreen_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qsplashscreen_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qsplashscreen_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplashScreen::redirected(offset);
         }
+        return QSplashScreen::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,12 +1028,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_sharedpainter_isbase) {
             qsplashscreen_sharedpainter_isbase = false;
             return QSplashScreen::sharedPainter();
-        } else if (qsplashscreen_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qsplashscreen_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::sharedPainter();
         }
+        auto sharedpainter_cb = qsplashscreen_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,13 +1042,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_inputmethodevent_isbase) {
             qsplashscreen_inputmethodevent_isbase = false;
             QSplashScreen::inputMethodEvent(param1);
-        } else if (qsplashscreen_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qsplashscreen_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qsplashscreen_inputmethodevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,14 +1059,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_inputmethodquery_isbase) {
             qsplashscreen_inputmethodquery_isbase = false;
             return QSplashScreen::inputMethodQuery(param1);
-        } else if (qsplashscreen_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qsplashscreen_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qsplashscreen_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSplashScreen::inputMethodQuery(param1);
         }
+        return QSplashScreen::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1037,14 +1075,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_focusnextprevchild_isbase) {
             qsplashscreen_focusnextprevchild_isbase = false;
             return QSplashScreen::focusNextPrevChild(next);
-        } else if (qsplashscreen_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qsplashscreen_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qsplashscreen_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplashScreen::focusNextPrevChild(next);
         }
+        return QSplashScreen::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1052,15 +1091,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_eventfilter_isbase) {
             qsplashscreen_eventfilter_isbase = false;
             return QSplashScreen::eventFilter(watched, event);
-        } else if (qsplashscreen_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsplashscreen_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsplashscreen_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSplashScreen::eventFilter(watched, event);
         }
+        return QSplashScreen::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,13 +1108,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_timerevent_isbase) {
             qsplashscreen_timerevent_isbase = false;
             QSplashScreen::timerEvent(event);
-        } else if (qsplashscreen_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsplashscreen_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsplashscreen_timerevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,13 +1125,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_childevent_isbase) {
             qsplashscreen_childevent_isbase = false;
             QSplashScreen::childEvent(event);
-        } else if (qsplashscreen_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsplashscreen_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsplashscreen_childevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,13 +1142,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_customevent_isbase) {
             qsplashscreen_customevent_isbase = false;
             QSplashScreen::customEvent(event);
-        } else if (qsplashscreen_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsplashscreen_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsplashscreen_customevent_callback(this, cbval1);
-        } else {
-            QSplashScreen::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,15 +1159,18 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_connectnotify_isbase) {
             qsplashscreen_connectnotify_isbase = false;
             QSplashScreen::connectNotify(signal);
-        } else if (qsplashscreen_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsplashscreen_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsplashscreen_connectnotify_callback(this, cbval1);
-        } else {
-            QSplashScreen::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1126,15 +1178,18 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_disconnectnotify_isbase) {
             qsplashscreen_disconnectnotify_isbase = false;
             QSplashScreen::disconnectNotify(signal);
-        } else if (qsplashscreen_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsplashscreen_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsplashscreen_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSplashScreen::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSplashScreen::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1197,14 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_updatemicrofocus_isbase) {
             qsplashscreen_updatemicrofocus_isbase = false;
             QSplashScreen::updateMicroFocus();
-        } else if (qsplashscreen_updatemicrofocus_callback != nullptr) {
-            qsplashscreen_updatemicrofocus_callback();
-        } else {
-            QSplashScreen::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qsplashscreen_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QSplashScreen::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,11 +1212,14 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_create_isbase) {
             qsplashscreen_create_isbase = false;
             QSplashScreen::create();
-        } else if (qsplashscreen_create_callback != nullptr) {
-            qsplashscreen_create_callback();
-        } else {
-            QSplashScreen::create();
+            return;
         }
+        auto create_cb = qsplashscreen_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QSplashScreen::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,11 +1227,14 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_destroy_isbase) {
             qsplashscreen_destroy_isbase = false;
             QSplashScreen::destroy();
-        } else if (qsplashscreen_destroy_callback != nullptr) {
-            qsplashscreen_destroy_callback();
-        } else {
-            QSplashScreen::destroy();
+            return;
         }
+        auto destroy_cb = qsplashscreen_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QSplashScreen::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,12 +1242,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_focusnextchild_isbase) {
             qsplashscreen_focusnextchild_isbase = false;
             return QSplashScreen::focusNextChild();
-        } else if (qsplashscreen_focusnextchild_callback != nullptr) {
-            bool callback_ret = qsplashscreen_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::focusNextChild();
         }
+        auto focusnextchild_cb = qsplashscreen_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,12 +1256,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_focuspreviouschild_isbase) {
             qsplashscreen_focuspreviouschild_isbase = false;
             return QSplashScreen::focusPreviousChild();
-        } else if (qsplashscreen_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qsplashscreen_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qsplashscreen_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1204,12 +1270,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_sender_isbase) {
             qsplashscreen_sender_isbase = false;
             return QSplashScreen::sender();
-        } else if (qsplashscreen_sender_callback != nullptr) {
-            QObject* callback_ret = qsplashscreen_sender_callback();
-            return callback_ret;
-        } else {
-            return QSplashScreen::sender();
         }
+        auto sender_cb = qsplashscreen_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSplashScreen::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,12 +1284,13 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_sendersignalindex_isbase) {
             qsplashscreen_sendersignalindex_isbase = false;
             return QSplashScreen::senderSignalIndex();
-        } else if (qsplashscreen_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsplashscreen_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSplashScreen::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsplashscreen_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSplashScreen::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,14 +1298,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_receivers_isbase) {
             qsplashscreen_receivers_isbase = false;
             return QSplashScreen::receivers(signal);
-        } else if (qsplashscreen_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsplashscreen_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsplashscreen_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSplashScreen::receivers(signal);
         }
+        return QSplashScreen::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,16 +1314,17 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_issignalconnected_isbase) {
             qsplashscreen_issignalconnected_isbase = false;
             return QSplashScreen::isSignalConnected(signal);
-        } else if (qsplashscreen_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsplashscreen_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsplashscreen_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSplashScreen::isSignalConnected(signal);
         }
+        return QSplashScreen::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,15 +1332,16 @@ class VirtualQSplashScreen final : public QSplashScreen {
         if (qsplashscreen_getdecodedmetricf_isbase) {
             qsplashscreen_getdecodedmetricf_isbase = false;
             return QSplashScreen::getDecodedMetricF(metricA, metricB);
-        } else if (qsplashscreen_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qsplashscreen_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qsplashscreen_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QSplashScreen::getDecodedMetricF(metricA, metricB);
         }
+        return QSplashScreen::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

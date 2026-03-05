@@ -211,69 +211,6 @@ class VirtualKEditListWidget final : public KEditListWidget {
     VirtualKEditListWidget(const KEditListWidget::CustomEditor& customEditor, QWidget* parent, bool checkAtEntering) : KEditListWidget(customEditor, parent, checkAtEntering) {};
     VirtualKEditListWidget(const KEditListWidget::CustomEditor& customEditor, QWidget* parent, bool checkAtEntering, KEditListWidget::Buttons buttons) : KEditListWidget(customEditor, parent, checkAtEntering, buttons) {};
 
-    ~VirtualKEditListWidget() {
-        keditlistwidget_metaobject_callback = nullptr;
-        keditlistwidget_metacast_callback = nullptr;
-        keditlistwidget_metacall_callback = nullptr;
-        keditlistwidget_eventfilter_callback = nullptr;
-        keditlistwidget_devtype_callback = nullptr;
-        keditlistwidget_setvisible_callback = nullptr;
-        keditlistwidget_sizehint_callback = nullptr;
-        keditlistwidget_minimumsizehint_callback = nullptr;
-        keditlistwidget_heightforwidth_callback = nullptr;
-        keditlistwidget_hasheightforwidth_callback = nullptr;
-        keditlistwidget_paintengine_callback = nullptr;
-        keditlistwidget_event_callback = nullptr;
-        keditlistwidget_mousepressevent_callback = nullptr;
-        keditlistwidget_mousereleaseevent_callback = nullptr;
-        keditlistwidget_mousedoubleclickevent_callback = nullptr;
-        keditlistwidget_mousemoveevent_callback = nullptr;
-        keditlistwidget_wheelevent_callback = nullptr;
-        keditlistwidget_keypressevent_callback = nullptr;
-        keditlistwidget_keyreleaseevent_callback = nullptr;
-        keditlistwidget_focusinevent_callback = nullptr;
-        keditlistwidget_focusoutevent_callback = nullptr;
-        keditlistwidget_enterevent_callback = nullptr;
-        keditlistwidget_leaveevent_callback = nullptr;
-        keditlistwidget_paintevent_callback = nullptr;
-        keditlistwidget_moveevent_callback = nullptr;
-        keditlistwidget_resizeevent_callback = nullptr;
-        keditlistwidget_closeevent_callback = nullptr;
-        keditlistwidget_contextmenuevent_callback = nullptr;
-        keditlistwidget_tabletevent_callback = nullptr;
-        keditlistwidget_actionevent_callback = nullptr;
-        keditlistwidget_dragenterevent_callback = nullptr;
-        keditlistwidget_dragmoveevent_callback = nullptr;
-        keditlistwidget_dragleaveevent_callback = nullptr;
-        keditlistwidget_dropevent_callback = nullptr;
-        keditlistwidget_showevent_callback = nullptr;
-        keditlistwidget_hideevent_callback = nullptr;
-        keditlistwidget_nativeevent_callback = nullptr;
-        keditlistwidget_changeevent_callback = nullptr;
-        keditlistwidget_metric_callback = nullptr;
-        keditlistwidget_initpainter_callback = nullptr;
-        keditlistwidget_redirected_callback = nullptr;
-        keditlistwidget_sharedpainter_callback = nullptr;
-        keditlistwidget_inputmethodevent_callback = nullptr;
-        keditlistwidget_inputmethodquery_callback = nullptr;
-        keditlistwidget_focusnextprevchild_callback = nullptr;
-        keditlistwidget_timerevent_callback = nullptr;
-        keditlistwidget_childevent_callback = nullptr;
-        keditlistwidget_customevent_callback = nullptr;
-        keditlistwidget_connectnotify_callback = nullptr;
-        keditlistwidget_disconnectnotify_callback = nullptr;
-        keditlistwidget_updatemicrofocus_callback = nullptr;
-        keditlistwidget_create_callback = nullptr;
-        keditlistwidget_destroy_callback = nullptr;
-        keditlistwidget_focusnextchild_callback = nullptr;
-        keditlistwidget_focuspreviouschild_callback = nullptr;
-        keditlistwidget_sender_callback = nullptr;
-        keditlistwidget_sendersignalindex_callback = nullptr;
-        keditlistwidget_receivers_callback = nullptr;
-        keditlistwidget_issignalconnected_callback = nullptr;
-        keditlistwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKEditListWidget_MetaObject_Callback(KEditListWidget_MetaObject_Callback cb) { keditlistwidget_metaobject_callback = cb; }
     inline void setKEditListWidget_Metacast_Callback(KEditListWidget_Metacast_Callback cb) { keditlistwidget_metacast_callback = cb; }
@@ -403,12 +340,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_metaobject_isbase) {
             keditlistwidget_metaobject_isbase = false;
             return KEditListWidget::metaObject();
-        } else if (keditlistwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = keditlistwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::metaObject();
         }
+        auto metaobject_cb = keditlistwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,14 +354,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_metacast_isbase) {
             keditlistwidget_metacast_isbase = false;
             return KEditListWidget::qt_metacast(param1);
-        } else if (keditlistwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = keditlistwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = keditlistwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditListWidget::qt_metacast(param1);
         }
+        return KEditListWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,16 +370,17 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_metacall_isbase) {
             keditlistwidget_metacall_isbase = false;
             return KEditListWidget::qt_metacall(param1, param2, param3);
-        } else if (keditlistwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = keditlistwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = keditlistwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditListWidget::qt_metacall(param1, param2, param3);
         }
+        return KEditListWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -448,15 +388,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_eventfilter_isbase) {
             keditlistwidget_eventfilter_isbase = false;
             return KEditListWidget::eventFilter(o, e);
-        } else if (keditlistwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = keditlistwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = o;
             QEvent* cbval2 = e;
 
-            bool callback_ret = keditlistwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KEditListWidget::eventFilter(o, e);
         }
+        return KEditListWidget::eventFilter(o, e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,12 +405,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_devtype_isbase) {
             keditlistwidget_devtype_isbase = false;
             return KEditListWidget::devType();
-        } else if (keditlistwidget_devtype_callback != nullptr) {
-            int callback_ret = keditlistwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEditListWidget::devType();
         }
+        auto devtype_cb = keditlistwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEditListWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,13 +419,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_setvisible_isbase) {
             keditlistwidget_setvisible_isbase = false;
             KEditListWidget::setVisible(visible);
-        } else if (keditlistwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = keditlistwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            keditlistwidget_setvisible_callback(this, cbval1);
-        } else {
-            KEditListWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,12 +436,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_sizehint_isbase) {
             keditlistwidget_sizehint_isbase = false;
             return KEditListWidget::sizeHint();
-        } else if (keditlistwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = keditlistwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KEditListWidget::sizeHint();
         }
+        auto sizehint_cb = keditlistwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KEditListWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -504,12 +450,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_minimumsizehint_isbase) {
             keditlistwidget_minimumsizehint_isbase = false;
             return KEditListWidget::minimumSizeHint();
-        } else if (keditlistwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = keditlistwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KEditListWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = keditlistwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KEditListWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,14 +464,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_heightforwidth_isbase) {
             keditlistwidget_heightforwidth_isbase = false;
             return KEditListWidget::heightForWidth(param1);
-        } else if (keditlistwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = keditlistwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = keditlistwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditListWidget::heightForWidth(param1);
         }
+        return KEditListWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,12 +480,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_hasheightforwidth_isbase) {
             keditlistwidget_hasheightforwidth_isbase = false;
             return KEditListWidget::hasHeightForWidth();
-        } else if (keditlistwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = keditlistwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = keditlistwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -545,12 +494,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_paintengine_isbase) {
             keditlistwidget_paintengine_isbase = false;
             return KEditListWidget::paintEngine();
-        } else if (keditlistwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = keditlistwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::paintEngine();
         }
+        auto paintengine_cb = keditlistwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,14 +508,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_event_isbase) {
             keditlistwidget_event_isbase = false;
             return KEditListWidget::event(event);
-        } else if (keditlistwidget_event_callback != nullptr) {
+        }
+        auto event_cb = keditlistwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = keditlistwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditListWidget::event(event);
         }
+        return KEditListWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,13 +524,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_mousepressevent_isbase) {
             keditlistwidget_mousepressevent_isbase = false;
             KEditListWidget::mousePressEvent(event);
-        } else if (keditlistwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = keditlistwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            keditlistwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,13 +541,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_mousereleaseevent_isbase) {
             keditlistwidget_mousereleaseevent_isbase = false;
             KEditListWidget::mouseReleaseEvent(event);
-        } else if (keditlistwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = keditlistwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            keditlistwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,13 +558,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_mousedoubleclickevent_isbase) {
             keditlistwidget_mousedoubleclickevent_isbase = false;
             KEditListWidget::mouseDoubleClickEvent(event);
-        } else if (keditlistwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = keditlistwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            keditlistwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -615,13 +575,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_mousemoveevent_isbase) {
             keditlistwidget_mousemoveevent_isbase = false;
             KEditListWidget::mouseMoveEvent(event);
-        } else if (keditlistwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = keditlistwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            keditlistwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,13 +592,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_wheelevent_isbase) {
             keditlistwidget_wheelevent_isbase = false;
             KEditListWidget::wheelEvent(event);
-        } else if (keditlistwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = keditlistwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            keditlistwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +609,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_keypressevent_isbase) {
             keditlistwidget_keypressevent_isbase = false;
             KEditListWidget::keyPressEvent(event);
-        } else if (keditlistwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = keditlistwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            keditlistwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,13 +626,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_keyreleaseevent_isbase) {
             keditlistwidget_keyreleaseevent_isbase = false;
             KEditListWidget::keyReleaseEvent(event);
-        } else if (keditlistwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = keditlistwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            keditlistwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -671,13 +643,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_focusinevent_isbase) {
             keditlistwidget_focusinevent_isbase = false;
             KEditListWidget::focusInEvent(event);
-        } else if (keditlistwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = keditlistwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            keditlistwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,13 +660,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_focusoutevent_isbase) {
             keditlistwidget_focusoutevent_isbase = false;
             KEditListWidget::focusOutEvent(event);
-        } else if (keditlistwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = keditlistwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            keditlistwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -699,13 +677,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_enterevent_isbase) {
             keditlistwidget_enterevent_isbase = false;
             KEditListWidget::enterEvent(event);
-        } else if (keditlistwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = keditlistwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            keditlistwidget_enterevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,13 +694,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_leaveevent_isbase) {
             keditlistwidget_leaveevent_isbase = false;
             KEditListWidget::leaveEvent(event);
-        } else if (keditlistwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = keditlistwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            keditlistwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,13 +711,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_paintevent_isbase) {
             keditlistwidget_paintevent_isbase = false;
             KEditListWidget::paintEvent(event);
-        } else if (keditlistwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = keditlistwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            keditlistwidget_paintevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,13 +728,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_moveevent_isbase) {
             keditlistwidget_moveevent_isbase = false;
             KEditListWidget::moveEvent(event);
-        } else if (keditlistwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = keditlistwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            keditlistwidget_moveevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,13 +745,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_resizeevent_isbase) {
             keditlistwidget_resizeevent_isbase = false;
             KEditListWidget::resizeEvent(event);
-        } else if (keditlistwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = keditlistwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            keditlistwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,13 +762,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_closeevent_isbase) {
             keditlistwidget_closeevent_isbase = false;
             KEditListWidget::closeEvent(event);
-        } else if (keditlistwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = keditlistwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            keditlistwidget_closeevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,13 +779,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_contextmenuevent_isbase) {
             keditlistwidget_contextmenuevent_isbase = false;
             KEditListWidget::contextMenuEvent(event);
-        } else if (keditlistwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = keditlistwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            keditlistwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -797,13 +796,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_tabletevent_isbase) {
             keditlistwidget_tabletevent_isbase = false;
             KEditListWidget::tabletEvent(event);
-        } else if (keditlistwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = keditlistwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            keditlistwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,13 +813,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_actionevent_isbase) {
             keditlistwidget_actionevent_isbase = false;
             KEditListWidget::actionEvent(event);
-        } else if (keditlistwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = keditlistwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            keditlistwidget_actionevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -825,13 +830,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_dragenterevent_isbase) {
             keditlistwidget_dragenterevent_isbase = false;
             KEditListWidget::dragEnterEvent(event);
-        } else if (keditlistwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = keditlistwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            keditlistwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,13 +847,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_dragmoveevent_isbase) {
             keditlistwidget_dragmoveevent_isbase = false;
             KEditListWidget::dragMoveEvent(event);
-        } else if (keditlistwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = keditlistwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            keditlistwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,13 +864,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_dragleaveevent_isbase) {
             keditlistwidget_dragleaveevent_isbase = false;
             KEditListWidget::dragLeaveEvent(event);
-        } else if (keditlistwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = keditlistwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            keditlistwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +881,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_dropevent_isbase) {
             keditlistwidget_dropevent_isbase = false;
             KEditListWidget::dropEvent(event);
-        } else if (keditlistwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = keditlistwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            keditlistwidget_dropevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +898,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_showevent_isbase) {
             keditlistwidget_showevent_isbase = false;
             KEditListWidget::showEvent(event);
-        } else if (keditlistwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = keditlistwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            keditlistwidget_showevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,13 +915,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_hideevent_isbase) {
             keditlistwidget_hideevent_isbase = false;
             KEditListWidget::hideEvent(event);
-        } else if (keditlistwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = keditlistwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            keditlistwidget_hideevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,7 +932,9 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_nativeevent_isbase) {
             keditlistwidget_nativeevent_isbase = false;
             return KEditListWidget::nativeEvent(eventType, message, result);
-        } else if (keditlistwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = keditlistwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -920,12 +945,11 @@ class VirtualKEditListWidget final : public KEditListWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = keditlistwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KEditListWidget::nativeEvent(eventType, message, result);
         }
+        return KEditListWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +957,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_changeevent_isbase) {
             keditlistwidget_changeevent_isbase = false;
             KEditListWidget::changeEvent(param1);
-        } else if (keditlistwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = keditlistwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            keditlistwidget_changeevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,14 +974,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_metric_isbase) {
             keditlistwidget_metric_isbase = false;
             return KEditListWidget::metric(param1);
-        } else if (keditlistwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = keditlistwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = keditlistwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditListWidget::metric(param1);
         }
+        return KEditListWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,13 +990,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_initpainter_isbase) {
             keditlistwidget_initpainter_isbase = false;
             KEditListWidget::initPainter(painter);
-        } else if (keditlistwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = keditlistwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            keditlistwidget_initpainter_callback(this, cbval1);
-        } else {
-            KEditListWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -976,14 +1007,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_redirected_isbase) {
             keditlistwidget_redirected_isbase = false;
             return KEditListWidget::redirected(offset);
-        } else if (keditlistwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = keditlistwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = keditlistwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditListWidget::redirected(offset);
         }
+        return KEditListWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,12 +1023,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_sharedpainter_isbase) {
             keditlistwidget_sharedpainter_isbase = false;
             return KEditListWidget::sharedPainter();
-        } else if (keditlistwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = keditlistwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::sharedPainter();
         }
+        auto sharedpainter_cb = keditlistwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,13 +1037,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_inputmethodevent_isbase) {
             keditlistwidget_inputmethodevent_isbase = false;
             KEditListWidget::inputMethodEvent(param1);
-        } else if (keditlistwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = keditlistwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            keditlistwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,14 +1054,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_inputmethodquery_isbase) {
             keditlistwidget_inputmethodquery_isbase = false;
             return KEditListWidget::inputMethodQuery(param1);
-        } else if (keditlistwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = keditlistwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = keditlistwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KEditListWidget::inputMethodQuery(param1);
         }
+        return KEditListWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,14 +1070,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_focusnextprevchild_isbase) {
             keditlistwidget_focusnextprevchild_isbase = false;
             return KEditListWidget::focusNextPrevChild(next);
-        } else if (keditlistwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = keditlistwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = keditlistwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditListWidget::focusNextPrevChild(next);
         }
+        return KEditListWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,13 +1086,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_timerevent_isbase) {
             keditlistwidget_timerevent_isbase = false;
             KEditListWidget::timerEvent(event);
-        } else if (keditlistwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = keditlistwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            keditlistwidget_timerevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1062,13 +1103,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_childevent_isbase) {
             keditlistwidget_childevent_isbase = false;
             KEditListWidget::childEvent(event);
-        } else if (keditlistwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = keditlistwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            keditlistwidget_childevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,13 +1120,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_customevent_isbase) {
             keditlistwidget_customevent_isbase = false;
             KEditListWidget::customEvent(event);
-        } else if (keditlistwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = keditlistwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            keditlistwidget_customevent_callback(this, cbval1);
-        } else {
-            KEditListWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,15 +1137,18 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_connectnotify_isbase) {
             keditlistwidget_connectnotify_isbase = false;
             KEditListWidget::connectNotify(signal);
-        } else if (keditlistwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = keditlistwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            keditlistwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KEditListWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,15 +1156,18 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_disconnectnotify_isbase) {
             keditlistwidget_disconnectnotify_isbase = false;
             KEditListWidget::disconnectNotify(signal);
-        } else if (keditlistwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = keditlistwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            keditlistwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KEditListWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KEditListWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,11 +1175,14 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_updatemicrofocus_isbase) {
             keditlistwidget_updatemicrofocus_isbase = false;
             KEditListWidget::updateMicroFocus();
-        } else if (keditlistwidget_updatemicrofocus_callback != nullptr) {
-            keditlistwidget_updatemicrofocus_callback();
-        } else {
-            KEditListWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = keditlistwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KEditListWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,11 +1190,14 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_create_isbase) {
             keditlistwidget_create_isbase = false;
             KEditListWidget::create();
-        } else if (keditlistwidget_create_callback != nullptr) {
-            keditlistwidget_create_callback();
-        } else {
-            KEditListWidget::create();
+            return;
         }
+        auto create_cb = keditlistwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KEditListWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,11 +1205,14 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_destroy_isbase) {
             keditlistwidget_destroy_isbase = false;
             KEditListWidget::destroy();
-        } else if (keditlistwidget_destroy_callback != nullptr) {
-            keditlistwidget_destroy_callback();
-        } else {
-            KEditListWidget::destroy();
+            return;
         }
+        auto destroy_cb = keditlistwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KEditListWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,12 +1220,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_focusnextchild_isbase) {
             keditlistwidget_focusnextchild_isbase = false;
             return KEditListWidget::focusNextChild();
-        } else if (keditlistwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = keditlistwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::focusNextChild();
         }
+        auto focusnextchild_cb = keditlistwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,12 +1234,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_focuspreviouschild_isbase) {
             keditlistwidget_focuspreviouschild_isbase = false;
             return KEditListWidget::focusPreviousChild();
-        } else if (keditlistwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = keditlistwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = keditlistwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,12 +1248,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_sender_isbase) {
             keditlistwidget_sender_isbase = false;
             return KEditListWidget::sender();
-        } else if (keditlistwidget_sender_callback != nullptr) {
-            QObject* callback_ret = keditlistwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget::sender();
         }
+        auto sender_cb = keditlistwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KEditListWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,12 +1262,13 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_sendersignalindex_isbase) {
             keditlistwidget_sendersignalindex_isbase = false;
             return KEditListWidget::senderSignalIndex();
-        } else if (keditlistwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = keditlistwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEditListWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = keditlistwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEditListWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,14 +1276,15 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_receivers_isbase) {
             keditlistwidget_receivers_isbase = false;
             return KEditListWidget::receivers(signal);
-        } else if (keditlistwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = keditlistwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = keditlistwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEditListWidget::receivers(signal);
         }
+        return KEditListWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,16 +1292,17 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_issignalconnected_isbase) {
             keditlistwidget_issignalconnected_isbase = false;
             return KEditListWidget::isSignalConnected(signal);
-        } else if (keditlistwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = keditlistwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = keditlistwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEditListWidget::isSignalConnected(signal);
         }
+        return KEditListWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,15 +1310,16 @@ class VirtualKEditListWidget final : public KEditListWidget {
         if (keditlistwidget_getdecodedmetricf_isbase) {
             keditlistwidget_getdecodedmetricf_isbase = false;
             return KEditListWidget::getDecodedMetricF(metricA, metricB);
-        } else if (keditlistwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = keditlistwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = keditlistwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KEditListWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KEditListWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions
@@ -1377,11 +1446,6 @@ class VirtualKEditListWidgetCustomEditor final : public KEditListWidget::CustomE
     VirtualKEditListWidgetCustomEditor(QWidget* repWidget, QLineEdit* edit) : KEditListWidget::CustomEditor(repWidget, edit) {};
     VirtualKEditListWidgetCustomEditor(QComboBox* combo) : KEditListWidget::CustomEditor(combo) {};
 
-    ~VirtualKEditListWidgetCustomEditor() {
-        keditlistwidget__customeditor_representationwidget_callback = nullptr;
-        keditlistwidget__customeditor_lineedit_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKEditListWidget__CustomEditor_RepresentationWidget_Callback(KEditListWidget__CustomEditor_RepresentationWidget_Callback cb) { keditlistwidget__customeditor_representationwidget_callback = cb; }
     inline void setKEditListWidget__CustomEditor_LineEdit_Callback(KEditListWidget__CustomEditor_LineEdit_Callback cb) { keditlistwidget__customeditor_lineedit_callback = cb; }
@@ -1395,12 +1459,13 @@ class VirtualKEditListWidgetCustomEditor final : public KEditListWidget::CustomE
         if (keditlistwidget__customeditor_representationwidget_isbase) {
             keditlistwidget__customeditor_representationwidget_isbase = false;
             return KEditListWidget__CustomEditor::representationWidget();
-        } else if (keditlistwidget__customeditor_representationwidget_callback != nullptr) {
-            QWidget* callback_ret = keditlistwidget__customeditor_representationwidget_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget__CustomEditor::representationWidget();
         }
+        auto representationwidget_cb = keditlistwidget__customeditor_representationwidget_callback;
+        if (representationwidget_cb) {
+            QWidget* callback_ret = representationwidget_cb();
+            return callback_ret;
+        }
+        return KEditListWidget__CustomEditor::representationWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1408,12 +1473,13 @@ class VirtualKEditListWidgetCustomEditor final : public KEditListWidget::CustomE
         if (keditlistwidget__customeditor_lineedit_isbase) {
             keditlistwidget__customeditor_lineedit_isbase = false;
             return KEditListWidget__CustomEditor::lineEdit();
-        } else if (keditlistwidget__customeditor_lineedit_callback != nullptr) {
-            QLineEdit* callback_ret = keditlistwidget__customeditor_lineedit_callback();
-            return callback_ret;
-        } else {
-            return KEditListWidget__CustomEditor::lineEdit();
         }
+        auto lineedit_cb = keditlistwidget__customeditor_lineedit_callback;
+        if (lineedit_cb) {
+            QLineEdit* callback_ret = lineedit_cb();
+            return callback_ret;
+        }
+        return KEditListWidget__CustomEditor::lineEdit();
     }
 };
 

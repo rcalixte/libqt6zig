@@ -111,37 +111,6 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     VirtualKWidgetItemDelegate(QAbstractItemView* itemView) : KWidgetItemDelegate(itemView) {};
     VirtualKWidgetItemDelegate(QAbstractItemView* itemView, QObject* parent) : KWidgetItemDelegate(itemView, parent) {};
 
-    ~VirtualKWidgetItemDelegate() {
-        kwidgetitemdelegate_metaobject_callback = nullptr;
-        kwidgetitemdelegate_metacast_callback = nullptr;
-        kwidgetitemdelegate_metacall_callback = nullptr;
-        kwidgetitemdelegate_createitemwidgets_callback = nullptr;
-        kwidgetitemdelegate_updateitemwidgets_callback = nullptr;
-        kwidgetitemdelegate_paint_callback = nullptr;
-        kwidgetitemdelegate_sizehint_callback = nullptr;
-        kwidgetitemdelegate_createeditor_callback = nullptr;
-        kwidgetitemdelegate_destroyeditor_callback = nullptr;
-        kwidgetitemdelegate_seteditordata_callback = nullptr;
-        kwidgetitemdelegate_setmodeldata_callback = nullptr;
-        kwidgetitemdelegate_updateeditorgeometry_callback = nullptr;
-        kwidgetitemdelegate_editorevent_callback = nullptr;
-        kwidgetitemdelegate_helpevent_callback = nullptr;
-        kwidgetitemdelegate_paintingroles_callback = nullptr;
-        kwidgetitemdelegate_event_callback = nullptr;
-        kwidgetitemdelegate_eventfilter_callback = nullptr;
-        kwidgetitemdelegate_timerevent_callback = nullptr;
-        kwidgetitemdelegate_childevent_callback = nullptr;
-        kwidgetitemdelegate_customevent_callback = nullptr;
-        kwidgetitemdelegate_connectnotify_callback = nullptr;
-        kwidgetitemdelegate_disconnectnotify_callback = nullptr;
-        kwidgetitemdelegate_setblockedeventtypes_callback = nullptr;
-        kwidgetitemdelegate_blockedeventtypes_callback = nullptr;
-        kwidgetitemdelegate_sender_callback = nullptr;
-        kwidgetitemdelegate_sendersignalindex_callback = nullptr;
-        kwidgetitemdelegate_receivers_callback = nullptr;
-        kwidgetitemdelegate_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKWidgetItemDelegate_MetaObject_Callback(KWidgetItemDelegate_MetaObject_Callback cb) { kwidgetitemdelegate_metaobject_callback = cb; }
     inline void setKWidgetItemDelegate_Metacast_Callback(KWidgetItemDelegate_Metacast_Callback cb) { kwidgetitemdelegate_metacast_callback = cb; }
@@ -207,12 +176,13 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_metaobject_isbase) {
             kwidgetitemdelegate_metaobject_isbase = false;
             return KWidgetItemDelegate::metaObject();
-        } else if (kwidgetitemdelegate_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kwidgetitemdelegate_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KWidgetItemDelegate::metaObject();
         }
+        auto metaobject_cb = kwidgetitemdelegate_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KWidgetItemDelegate::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,14 +190,15 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_metacast_isbase) {
             kwidgetitemdelegate_metacast_isbase = false;
             return KWidgetItemDelegate::qt_metacast(param1);
-        } else if (kwidgetitemdelegate_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kwidgetitemdelegate_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kwidgetitemdelegate_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::qt_metacast(param1);
         }
+        return KWidgetItemDelegate::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,26 +206,28 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_metacall_isbase) {
             kwidgetitemdelegate_metacall_isbase = false;
             return KWidgetItemDelegate::qt_metacall(param1, param2, param3);
-        } else if (kwidgetitemdelegate_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kwidgetitemdelegate_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kwidgetitemdelegate_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWidgetItemDelegate::qt_metacall(param1, param2, param3);
         }
+        return KWidgetItemDelegate::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QWidget*> createItemWidgets(const QModelIndex& index) const override {
-        if (kwidgetitemdelegate_createitemwidgets_callback != nullptr) {
+        auto createitemwidgets_cb = kwidgetitemdelegate_createitemwidgets_callback;
+        if (createitemwidgets_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_list /* of QWidget* */ callback_ret = kwidgetitemdelegate_createitemwidgets_callback(this, cbval1);
+            libqt_list /* of QWidget* */ callback_ret = createitemwidgets_cb(this, cbval1);
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -263,14 +236,14 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void updateItemWidgets(const QList<QWidget*>& widgets, const QStyleOptionViewItem& option, const QPersistentModelIndex& index) const override {
-        if (kwidgetitemdelegate_updateitemwidgets_callback != nullptr) {
+        auto updateitemwidgets_cb = kwidgetitemdelegate_updateitemwidgets_callback;
+        if (updateitemwidgets_cb) {
             const QList<QWidget*>& widgets_ret = widgets;
             // Convert QList<> from C++ memory to manually-managed C memory
             QWidget** widgets_arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (widgets_ret.size())));
@@ -288,14 +261,15 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QPersistentModelIndex* cbval3 = const_cast<QPersistentModelIndex*>(&index_ret);
 
-            kwidgetitemdelegate_updateitemwidgets_callback(this, cbval1, cbval2, cbval3);
+            updateitemwidgets_cb(this, cbval1, cbval2, cbval3);
             free(widgets_arr);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        if (kwidgetitemdelegate_paint_callback != nullptr) {
+        auto paint_cb = kwidgetitemdelegate_paint_callback;
+        if (paint_cb) {
             QPainter* cbval1 = painter;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -304,13 +278,14 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kwidgetitemdelegate_paint_callback(this, cbval1, cbval2, cbval3);
+            paint_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        if (kwidgetitemdelegate_sizehint_callback != nullptr) {
+        auto sizehint_cb = kwidgetitemdelegate_sizehint_callback;
+        if (sizehint_cb) {
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
             QStyleOptionViewItem* cbval1 = const_cast<QStyleOptionViewItem*>(&option_ret);
@@ -318,11 +293,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kwidgetitemdelegate_sizehint_callback(this, cbval1, cbval2);
+            QSize* callback_ret = sizehint_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,7 +304,9 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_createeditor_isbase) {
             kwidgetitemdelegate_createeditor_isbase = false;
             return KWidgetItemDelegate::createEditor(parent, option, index);
-        } else if (kwidgetitemdelegate_createeditor_callback != nullptr) {
+        }
+        auto createeditor_cb = kwidgetitemdelegate_createeditor_callback;
+        if (createeditor_cb) {
             QWidget* cbval1 = parent;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -339,11 +315,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            QWidget* callback_ret = kwidgetitemdelegate_createeditor_callback(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::createEditor(parent, option, index);
         }
+        return KWidgetItemDelegate::createEditor(parent, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -351,16 +326,19 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_destroyeditor_isbase) {
             kwidgetitemdelegate_destroyeditor_isbase = false;
             KWidgetItemDelegate::destroyEditor(editor, index);
-        } else if (kwidgetitemdelegate_destroyeditor_callback != nullptr) {
+            return;
+        }
+        auto destroyeditor_cb = kwidgetitemdelegate_destroyeditor_callback;
+        if (destroyeditor_cb) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kwidgetitemdelegate_destroyeditor_callback(this, cbval1, cbval2);
-        } else {
-            KWidgetItemDelegate::destroyEditor(editor, index);
+            destroyeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        KWidgetItemDelegate::destroyEditor(editor, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -368,16 +346,19 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_seteditordata_isbase) {
             kwidgetitemdelegate_seteditordata_isbase = false;
             KWidgetItemDelegate::setEditorData(editor, index);
-        } else if (kwidgetitemdelegate_seteditordata_callback != nullptr) {
+            return;
+        }
+        auto seteditordata_cb = kwidgetitemdelegate_seteditordata_callback;
+        if (seteditordata_cb) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kwidgetitemdelegate_seteditordata_callback(this, cbval1, cbval2);
-        } else {
-            KWidgetItemDelegate::setEditorData(editor, index);
+            seteditordata_cb(this, cbval1, cbval2);
+            return;
         }
+        KWidgetItemDelegate::setEditorData(editor, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,17 +366,20 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_setmodeldata_isbase) {
             kwidgetitemdelegate_setmodeldata_isbase = false;
             KWidgetItemDelegate::setModelData(editor, model, index);
-        } else if (kwidgetitemdelegate_setmodeldata_callback != nullptr) {
+            return;
+        }
+        auto setmodeldata_cb = kwidgetitemdelegate_setmodeldata_callback;
+        if (setmodeldata_cb) {
             QWidget* cbval1 = editor;
             QAbstractItemModel* cbval2 = model;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kwidgetitemdelegate_setmodeldata_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KWidgetItemDelegate::setModelData(editor, model, index);
+            setmodeldata_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KWidgetItemDelegate::setModelData(editor, model, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,7 +387,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_updateeditorgeometry_isbase) {
             kwidgetitemdelegate_updateeditorgeometry_isbase = false;
             KWidgetItemDelegate::updateEditorGeometry(editor, option, index);
-        } else if (kwidgetitemdelegate_updateeditorgeometry_callback != nullptr) {
+            return;
+        }
+        auto updateeditorgeometry_cb = kwidgetitemdelegate_updateeditorgeometry_callback;
+        if (updateeditorgeometry_cb) {
             QWidget* cbval1 = editor;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -412,10 +399,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
 
-            kwidgetitemdelegate_updateeditorgeometry_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KWidgetItemDelegate::updateEditorGeometry(editor, option, index);
+            updateeditorgeometry_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KWidgetItemDelegate::updateEditorGeometry(editor, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,7 +410,9 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_editorevent_isbase) {
             kwidgetitemdelegate_editorevent_isbase = false;
             return KWidgetItemDelegate::editorEvent(event, model, option, index);
-        } else if (kwidgetitemdelegate_editorevent_callback != nullptr) {
+        }
+        auto editorevent_cb = kwidgetitemdelegate_editorevent_callback;
+        if (editorevent_cb) {
             QEvent* cbval1 = event;
             QAbstractItemModel* cbval2 = model;
             const QStyleOptionViewItem& option_ret = option;
@@ -433,11 +422,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kwidgetitemdelegate_editorevent_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = editorevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::editorEvent(event, model, option, index);
         }
+        return KWidgetItemDelegate::editorEvent(event, model, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,7 +433,9 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_helpevent_isbase) {
             kwidgetitemdelegate_helpevent_isbase = false;
             return KWidgetItemDelegate::helpEvent(event, view, option, index);
-        } else if (kwidgetitemdelegate_helpevent_callback != nullptr) {
+        }
+        auto helpevent_cb = kwidgetitemdelegate_helpevent_callback;
+        if (helpevent_cb) {
             QHelpEvent* cbval1 = event;
             QAbstractItemView* cbval2 = view;
             const QStyleOptionViewItem& option_ret = option;
@@ -455,11 +445,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kwidgetitemdelegate_helpevent_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = helpevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::helpEvent(event, view, option, index);
         }
+        return KWidgetItemDelegate::helpEvent(event, view, option, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,8 +456,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_paintingroles_isbase) {
             kwidgetitemdelegate_paintingroles_isbase = false;
             return KWidgetItemDelegate::paintingRoles();
-        } else if (kwidgetitemdelegate_paintingroles_callback != nullptr) {
-            libqt_list /* of int */ callback_ret = kwidgetitemdelegate_paintingroles_callback();
+        }
+        auto paintingroles_cb = kwidgetitemdelegate_paintingroles_callback;
+        if (paintingroles_cb) {
+            libqt_list /* of int */ callback_ret = paintingroles_cb();
             QList<int> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             int* callback_ret_arr = static_cast<int*>(callback_ret.data);
@@ -477,9 +468,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KWidgetItemDelegate::paintingRoles();
         }
+        return KWidgetItemDelegate::paintingRoles();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,14 +477,15 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_event_isbase) {
             kwidgetitemdelegate_event_isbase = false;
             return KWidgetItemDelegate::event(event);
-        } else if (kwidgetitemdelegate_event_callback != nullptr) {
+        }
+        auto event_cb = kwidgetitemdelegate_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kwidgetitemdelegate_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::event(event);
         }
+        return KWidgetItemDelegate::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,15 +493,16 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_eventfilter_isbase) {
             kwidgetitemdelegate_eventfilter_isbase = false;
             return KWidgetItemDelegate::eventFilter(watched, event);
-        } else if (kwidgetitemdelegate_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kwidgetitemdelegate_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kwidgetitemdelegate_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::eventFilter(watched, event);
         }
+        return KWidgetItemDelegate::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,13 +510,16 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_timerevent_isbase) {
             kwidgetitemdelegate_timerevent_isbase = false;
             KWidgetItemDelegate::timerEvent(event);
-        } else if (kwidgetitemdelegate_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kwidgetitemdelegate_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kwidgetitemdelegate_timerevent_callback(this, cbval1);
-        } else {
-            KWidgetItemDelegate::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KWidgetItemDelegate::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,13 +527,16 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_childevent_isbase) {
             kwidgetitemdelegate_childevent_isbase = false;
             KWidgetItemDelegate::childEvent(event);
-        } else if (kwidgetitemdelegate_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kwidgetitemdelegate_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kwidgetitemdelegate_childevent_callback(this, cbval1);
-        } else {
-            KWidgetItemDelegate::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KWidgetItemDelegate::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +544,16 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_customevent_isbase) {
             kwidgetitemdelegate_customevent_isbase = false;
             KWidgetItemDelegate::customEvent(event);
-        } else if (kwidgetitemdelegate_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kwidgetitemdelegate_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kwidgetitemdelegate_customevent_callback(this, cbval1);
-        } else {
-            KWidgetItemDelegate::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KWidgetItemDelegate::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,15 +561,18 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_connectnotify_isbase) {
             kwidgetitemdelegate_connectnotify_isbase = false;
             KWidgetItemDelegate::connectNotify(signal);
-        } else if (kwidgetitemdelegate_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kwidgetitemdelegate_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwidgetitemdelegate_connectnotify_callback(this, cbval1);
-        } else {
-            KWidgetItemDelegate::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KWidgetItemDelegate::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -576,15 +580,18 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_disconnectnotify_isbase) {
             kwidgetitemdelegate_disconnectnotify_isbase = false;
             KWidgetItemDelegate::disconnectNotify(signal);
-        } else if (kwidgetitemdelegate_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kwidgetitemdelegate_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwidgetitemdelegate_disconnectnotify_callback(this, cbval1);
-        } else {
-            KWidgetItemDelegate::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KWidgetItemDelegate::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,7 +599,10 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_setblockedeventtypes_isbase) {
             kwidgetitemdelegate_setblockedeventtypes_isbase = false;
             KWidgetItemDelegate::setBlockedEventTypes(widget, types);
-        } else if (kwidgetitemdelegate_setblockedeventtypes_callback != nullptr) {
+            return;
+        }
+        auto setblockedeventtypes_cb = kwidgetitemdelegate_setblockedeventtypes_callback;
+        if (setblockedeventtypes_cb) {
             QWidget* cbval1 = widget;
             const QList<QEvent::Type>& types_ret = types;
             // Convert QList<> from C++ memory to manually-managed C memory
@@ -605,11 +615,11 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             types_out.data = static_cast<void*>(types_arr);
             libqt_list /* of int */ cbval2 = types_out;
 
-            kwidgetitemdelegate_setblockedeventtypes_callback(this, cbval1, cbval2);
+            setblockedeventtypes_cb(this, cbval1, cbval2);
             free(types_arr);
-        } else {
-            KWidgetItemDelegate::setBlockedEventTypes(widget, types);
+            return;
         }
+        KWidgetItemDelegate::setBlockedEventTypes(widget, types);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,10 +627,12 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_blockedeventtypes_isbase) {
             kwidgetitemdelegate_blockedeventtypes_isbase = false;
             return KWidgetItemDelegate::blockedEventTypes(widget);
-        } else if (kwidgetitemdelegate_blockedeventtypes_callback != nullptr) {
+        }
+        auto blockedeventtypes_cb = kwidgetitemdelegate_blockedeventtypes_callback;
+        if (blockedeventtypes_cb) {
             QWidget* cbval1 = widget;
 
-            libqt_list /* of int */ callback_ret = kwidgetitemdelegate_blockedeventtypes_callback(this, cbval1);
+            libqt_list /* of int */ callback_ret = blockedeventtypes_cb(this, cbval1);
             QList<QEvent::Type> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             int* callback_ret_arr = static_cast<int*>(callback_ret.data);
@@ -629,9 +641,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KWidgetItemDelegate::blockedEventTypes(widget);
         }
+        return KWidgetItemDelegate::blockedEventTypes(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,12 +650,13 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_sender_isbase) {
             kwidgetitemdelegate_sender_isbase = false;
             return KWidgetItemDelegate::sender();
-        } else if (kwidgetitemdelegate_sender_callback != nullptr) {
-            QObject* callback_ret = kwidgetitemdelegate_sender_callback();
-            return callback_ret;
-        } else {
-            return KWidgetItemDelegate::sender();
         }
+        auto sender_cb = kwidgetitemdelegate_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KWidgetItemDelegate::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,12 +664,13 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_sendersignalindex_isbase) {
             kwidgetitemdelegate_sendersignalindex_isbase = false;
             return KWidgetItemDelegate::senderSignalIndex();
-        } else if (kwidgetitemdelegate_sendersignalindex_callback != nullptr) {
-            int callback_ret = kwidgetitemdelegate_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KWidgetItemDelegate::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kwidgetitemdelegate_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KWidgetItemDelegate::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,14 +678,15 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_receivers_isbase) {
             kwidgetitemdelegate_receivers_isbase = false;
             return KWidgetItemDelegate::receivers(signal);
-        } else if (kwidgetitemdelegate_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kwidgetitemdelegate_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kwidgetitemdelegate_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWidgetItemDelegate::receivers(signal);
         }
+        return KWidgetItemDelegate::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,16 +694,17 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_issignalconnected_isbase) {
             kwidgetitemdelegate_issignalconnected_isbase = false;
             return KWidgetItemDelegate::isSignalConnected(signal);
-        } else if (kwidgetitemdelegate_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kwidgetitemdelegate_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kwidgetitemdelegate_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWidgetItemDelegate::isSignalConnected(signal);
         }
+        return KWidgetItemDelegate::isSignalConnected(signal);
     }
 
     // Friend functions

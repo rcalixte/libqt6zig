@@ -70,23 +70,6 @@ class VirtualKXMessages final : public KXMessages {
     VirtualKXMessages(const char* accept_broadcast) : KXMessages(accept_broadcast) {};
     VirtualKXMessages(const char* accept_broadcast, QObject* parent) : KXMessages(accept_broadcast, parent) {};
 
-    ~VirtualKXMessages() {
-        kxmessages_metaobject_callback = nullptr;
-        kxmessages_metacast_callback = nullptr;
-        kxmessages_metacall_callback = nullptr;
-        kxmessages_event_callback = nullptr;
-        kxmessages_eventfilter_callback = nullptr;
-        kxmessages_timerevent_callback = nullptr;
-        kxmessages_childevent_callback = nullptr;
-        kxmessages_customevent_callback = nullptr;
-        kxmessages_connectnotify_callback = nullptr;
-        kxmessages_disconnectnotify_callback = nullptr;
-        kxmessages_sender_callback = nullptr;
-        kxmessages_sendersignalindex_callback = nullptr;
-        kxmessages_receivers_callback = nullptr;
-        kxmessages_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKXMessages_MetaObject_Callback(KXMessages_MetaObject_Callback cb) { kxmessages_metaobject_callback = cb; }
     inline void setKXMessages_Metacast_Callback(KXMessages_Metacast_Callback cb) { kxmessages_metacast_callback = cb; }
@@ -124,12 +107,13 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_metaobject_isbase) {
             kxmessages_metaobject_isbase = false;
             return KXMessages::metaObject();
-        } else if (kxmessages_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kxmessages_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KXMessages::metaObject();
         }
+        auto metaobject_cb = kxmessages_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KXMessages::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -137,14 +121,15 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_metacast_isbase) {
             kxmessages_metacast_isbase = false;
             return KXMessages::qt_metacast(param1);
-        } else if (kxmessages_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kxmessages_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kxmessages_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMessages::qt_metacast(param1);
         }
+        return KXMessages::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -152,16 +137,17 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_metacall_isbase) {
             kxmessages_metacall_isbase = false;
             return KXMessages::qt_metacall(param1, param2, param3);
-        } else if (kxmessages_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kxmessages_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kxmessages_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXMessages::qt_metacall(param1, param2, param3);
         }
+        return KXMessages::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,14 +155,15 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_event_isbase) {
             kxmessages_event_isbase = false;
             return KXMessages::event(event);
-        } else if (kxmessages_event_callback != nullptr) {
+        }
+        auto event_cb = kxmessages_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kxmessages_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMessages::event(event);
         }
+        return KXMessages::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,15 +171,16 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_eventfilter_isbase) {
             kxmessages_eventfilter_isbase = false;
             return KXMessages::eventFilter(watched, event);
-        } else if (kxmessages_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kxmessages_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kxmessages_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KXMessages::eventFilter(watched, event);
         }
+        return KXMessages::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,13 +188,16 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_timerevent_isbase) {
             kxmessages_timerevent_isbase = false;
             KXMessages::timerEvent(event);
-        } else if (kxmessages_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kxmessages_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kxmessages_timerevent_callback(this, cbval1);
-        } else {
-            KXMessages::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KXMessages::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,13 +205,16 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_childevent_isbase) {
             kxmessages_childevent_isbase = false;
             KXMessages::childEvent(event);
-        } else if (kxmessages_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kxmessages_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kxmessages_childevent_callback(this, cbval1);
-        } else {
-            KXMessages::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KXMessages::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +222,16 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_customevent_isbase) {
             kxmessages_customevent_isbase = false;
             KXMessages::customEvent(event);
-        } else if (kxmessages_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kxmessages_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kxmessages_customevent_callback(this, cbval1);
-        } else {
-            KXMessages::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KXMessages::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,15 +239,18 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_connectnotify_isbase) {
             kxmessages_connectnotify_isbase = false;
             KXMessages::connectNotify(signal);
-        } else if (kxmessages_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kxmessages_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kxmessages_connectnotify_callback(this, cbval1);
-        } else {
-            KXMessages::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KXMessages::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,15 +258,18 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_disconnectnotify_isbase) {
             kxmessages_disconnectnotify_isbase = false;
             KXMessages::disconnectNotify(signal);
-        } else if (kxmessages_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kxmessages_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kxmessages_disconnectnotify_callback(this, cbval1);
-        } else {
-            KXMessages::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KXMessages::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,12 +277,13 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_sender_isbase) {
             kxmessages_sender_isbase = false;
             return KXMessages::sender();
-        } else if (kxmessages_sender_callback != nullptr) {
-            QObject* callback_ret = kxmessages_sender_callback();
-            return callback_ret;
-        } else {
-            return KXMessages::sender();
         }
+        auto sender_cb = kxmessages_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KXMessages::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,12 +291,13 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_sendersignalindex_isbase) {
             kxmessages_sendersignalindex_isbase = false;
             return KXMessages::senderSignalIndex();
-        } else if (kxmessages_sendersignalindex_callback != nullptr) {
-            int callback_ret = kxmessages_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KXMessages::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kxmessages_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KXMessages::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,14 +305,15 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_receivers_isbase) {
             kxmessages_receivers_isbase = false;
             return KXMessages::receivers(signal);
-        } else if (kxmessages_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kxmessages_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kxmessages_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KXMessages::receivers(signal);
         }
+        return KXMessages::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,16 +321,17 @@ class VirtualKXMessages final : public KXMessages {
         if (kxmessages_issignalconnected_isbase) {
             kxmessages_issignalconnected_isbase = false;
             return KXMessages::isSignalConnected(signal);
-        } else if (kxmessages_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kxmessages_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kxmessages_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KXMessages::isSignalConnected(signal);
         }
+        return KXMessages::isSignalConnected(signal);
     }
 
     // Friend functions

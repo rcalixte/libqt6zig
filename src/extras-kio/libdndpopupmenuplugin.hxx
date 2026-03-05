@@ -71,24 +71,6 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
   public:
     VirtualKIODndPopupMenuPlugin(QObject* parent) : KIO::DndPopupMenuPlugin(parent) {};
 
-    ~VirtualKIODndPopupMenuPlugin() {
-        kio__dndpopupmenuplugin_metaobject_callback = nullptr;
-        kio__dndpopupmenuplugin_metacast_callback = nullptr;
-        kio__dndpopupmenuplugin_metacall_callback = nullptr;
-        kio__dndpopupmenuplugin_setup_callback = nullptr;
-        kio__dndpopupmenuplugin_event_callback = nullptr;
-        kio__dndpopupmenuplugin_eventfilter_callback = nullptr;
-        kio__dndpopupmenuplugin_timerevent_callback = nullptr;
-        kio__dndpopupmenuplugin_childevent_callback = nullptr;
-        kio__dndpopupmenuplugin_customevent_callback = nullptr;
-        kio__dndpopupmenuplugin_connectnotify_callback = nullptr;
-        kio__dndpopupmenuplugin_disconnectnotify_callback = nullptr;
-        kio__dndpopupmenuplugin_sender_callback = nullptr;
-        kio__dndpopupmenuplugin_sendersignalindex_callback = nullptr;
-        kio__dndpopupmenuplugin_receivers_callback = nullptr;
-        kio__dndpopupmenuplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__DndPopupMenuPlugin_MetaObject_Callback(KIO__DndPopupMenuPlugin_MetaObject_Callback cb) { kio__dndpopupmenuplugin_metaobject_callback = cb; }
     inline void setKIO__DndPopupMenuPlugin_Metacast_Callback(KIO__DndPopupMenuPlugin_Metacast_Callback cb) { kio__dndpopupmenuplugin_metacast_callback = cb; }
@@ -128,12 +110,13 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_metaobject_isbase) {
             kio__dndpopupmenuplugin_metaobject_isbase = false;
             return KIO__DndPopupMenuPlugin::metaObject();
-        } else if (kio__dndpopupmenuplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__dndpopupmenuplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__DndPopupMenuPlugin::metaObject();
         }
+        auto metaobject_cb = kio__dndpopupmenuplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__DndPopupMenuPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +124,15 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_metacast_isbase) {
             kio__dndpopupmenuplugin_metacast_isbase = false;
             return KIO__DndPopupMenuPlugin::qt_metacast(param1);
-        } else if (kio__dndpopupmenuplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__dndpopupmenuplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__dndpopupmenuplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DndPopupMenuPlugin::qt_metacast(param1);
         }
+        return KIO__DndPopupMenuPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,21 +140,23 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_metacall_isbase) {
             kio__dndpopupmenuplugin_metacall_isbase = false;
             return KIO__DndPopupMenuPlugin::qt_metacall(param1, param2, param3);
-        } else if (kio__dndpopupmenuplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__dndpopupmenuplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__dndpopupmenuplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__DndPopupMenuPlugin::qt_metacall(param1, param2, param3);
         }
+        return KIO__DndPopupMenuPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QAction*> setup(const KFileItemListProperties& popupMenuInfo, const QUrl& destination) override {
-        if (kio__dndpopupmenuplugin_setup_callback != nullptr) {
+        auto setup_cb = kio__dndpopupmenuplugin_setup_callback;
+        if (setup_cb) {
             const KFileItemListProperties& popupMenuInfo_ret = popupMenuInfo;
             // Cast returned reference into pointer
             KFileItemListProperties* cbval1 = const_cast<KFileItemListProperties*>(&popupMenuInfo_ret);
@@ -178,7 +164,7 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&destination_ret);
 
-            libqt_list /* of QAction* */ callback_ret = kio__dndpopupmenuplugin_setup_callback(this, cbval1, cbval2);
+            libqt_list /* of QAction* */ callback_ret = setup_cb(this, cbval1, cbval2);
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -187,9 +173,8 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -197,14 +182,15 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_event_isbase) {
             kio__dndpopupmenuplugin_event_isbase = false;
             return KIO__DndPopupMenuPlugin::event(event);
-        } else if (kio__dndpopupmenuplugin_event_callback != nullptr) {
+        }
+        auto event_cb = kio__dndpopupmenuplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__dndpopupmenuplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DndPopupMenuPlugin::event(event);
         }
+        return KIO__DndPopupMenuPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,15 +198,16 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_eventfilter_isbase) {
             kio__dndpopupmenuplugin_eventfilter_isbase = false;
             return KIO__DndPopupMenuPlugin::eventFilter(watched, event);
-        } else if (kio__dndpopupmenuplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__dndpopupmenuplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kio__dndpopupmenuplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__DndPopupMenuPlugin::eventFilter(watched, event);
         }
+        return KIO__DndPopupMenuPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +215,16 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_timerevent_isbase) {
             kio__dndpopupmenuplugin_timerevent_isbase = false;
             KIO__DndPopupMenuPlugin::timerEvent(event);
-        } else if (kio__dndpopupmenuplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__dndpopupmenuplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__dndpopupmenuplugin_timerevent_callback(this, cbval1);
-        } else {
-            KIO__DndPopupMenuPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__DndPopupMenuPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +232,16 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_childevent_isbase) {
             kio__dndpopupmenuplugin_childevent_isbase = false;
             KIO__DndPopupMenuPlugin::childEvent(event);
-        } else if (kio__dndpopupmenuplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__dndpopupmenuplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__dndpopupmenuplugin_childevent_callback(this, cbval1);
-        } else {
-            KIO__DndPopupMenuPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__DndPopupMenuPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,13 +249,16 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_customevent_isbase) {
             kio__dndpopupmenuplugin_customevent_isbase = false;
             KIO__DndPopupMenuPlugin::customEvent(event);
-        } else if (kio__dndpopupmenuplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__dndpopupmenuplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__dndpopupmenuplugin_customevent_callback(this, cbval1);
-        } else {
-            KIO__DndPopupMenuPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__DndPopupMenuPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,15 +266,18 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_connectnotify_isbase) {
             kio__dndpopupmenuplugin_connectnotify_isbase = false;
             KIO__DndPopupMenuPlugin::connectNotify(signal);
-        } else if (kio__dndpopupmenuplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__dndpopupmenuplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__dndpopupmenuplugin_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__DndPopupMenuPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__DndPopupMenuPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,15 +285,18 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_disconnectnotify_isbase) {
             kio__dndpopupmenuplugin_disconnectnotify_isbase = false;
             KIO__DndPopupMenuPlugin::disconnectNotify(signal);
-        } else if (kio__dndpopupmenuplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__dndpopupmenuplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__dndpopupmenuplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__DndPopupMenuPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__DndPopupMenuPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,12 +304,13 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_sender_isbase) {
             kio__dndpopupmenuplugin_sender_isbase = false;
             return KIO__DndPopupMenuPlugin::sender();
-        } else if (kio__dndpopupmenuplugin_sender_callback != nullptr) {
-            QObject* callback_ret = kio__dndpopupmenuplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__DndPopupMenuPlugin::sender();
         }
+        auto sender_cb = kio__dndpopupmenuplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__DndPopupMenuPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,12 +318,13 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_sendersignalindex_isbase) {
             kio__dndpopupmenuplugin_sendersignalindex_isbase = false;
             return KIO__DndPopupMenuPlugin::senderSignalIndex();
-        } else if (kio__dndpopupmenuplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__dndpopupmenuplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__DndPopupMenuPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__dndpopupmenuplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__DndPopupMenuPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -328,14 +332,15 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_receivers_isbase) {
             kio__dndpopupmenuplugin_receivers_isbase = false;
             return KIO__DndPopupMenuPlugin::receivers(signal);
-        } else if (kio__dndpopupmenuplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__dndpopupmenuplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__dndpopupmenuplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__DndPopupMenuPlugin::receivers(signal);
         }
+        return KIO__DndPopupMenuPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,16 +348,17 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
         if (kio__dndpopupmenuplugin_issignalconnected_isbase) {
             kio__dndpopupmenuplugin_issignalconnected_isbase = false;
             return KIO__DndPopupMenuPlugin::isSignalConnected(signal);
-        } else if (kio__dndpopupmenuplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__dndpopupmenuplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__dndpopupmenuplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DndPopupMenuPlugin::isSignalConnected(signal);
         }
+        return KIO__DndPopupMenuPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

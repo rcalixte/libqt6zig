@@ -207,69 +207,6 @@ class VirtualKActionSelector final : public KActionSelector {
     VirtualKActionSelector(QWidget* parent) : KActionSelector(parent) {};
     VirtualKActionSelector() : KActionSelector() {};
 
-    ~VirtualKActionSelector() {
-        kactionselector_metaobject_callback = nullptr;
-        kactionselector_metacast_callback = nullptr;
-        kactionselector_metacall_callback = nullptr;
-        kactionselector_keypressevent_callback = nullptr;
-        kactionselector_eventfilter_callback = nullptr;
-        kactionselector_devtype_callback = nullptr;
-        kactionselector_setvisible_callback = nullptr;
-        kactionselector_sizehint_callback = nullptr;
-        kactionselector_minimumsizehint_callback = nullptr;
-        kactionselector_heightforwidth_callback = nullptr;
-        kactionselector_hasheightforwidth_callback = nullptr;
-        kactionselector_paintengine_callback = nullptr;
-        kactionselector_event_callback = nullptr;
-        kactionselector_mousepressevent_callback = nullptr;
-        kactionselector_mousereleaseevent_callback = nullptr;
-        kactionselector_mousedoubleclickevent_callback = nullptr;
-        kactionselector_mousemoveevent_callback = nullptr;
-        kactionselector_wheelevent_callback = nullptr;
-        kactionselector_keyreleaseevent_callback = nullptr;
-        kactionselector_focusinevent_callback = nullptr;
-        kactionselector_focusoutevent_callback = nullptr;
-        kactionselector_enterevent_callback = nullptr;
-        kactionselector_leaveevent_callback = nullptr;
-        kactionselector_paintevent_callback = nullptr;
-        kactionselector_moveevent_callback = nullptr;
-        kactionselector_resizeevent_callback = nullptr;
-        kactionselector_closeevent_callback = nullptr;
-        kactionselector_contextmenuevent_callback = nullptr;
-        kactionselector_tabletevent_callback = nullptr;
-        kactionselector_actionevent_callback = nullptr;
-        kactionselector_dragenterevent_callback = nullptr;
-        kactionselector_dragmoveevent_callback = nullptr;
-        kactionselector_dragleaveevent_callback = nullptr;
-        kactionselector_dropevent_callback = nullptr;
-        kactionselector_showevent_callback = nullptr;
-        kactionselector_hideevent_callback = nullptr;
-        kactionselector_nativeevent_callback = nullptr;
-        kactionselector_changeevent_callback = nullptr;
-        kactionselector_metric_callback = nullptr;
-        kactionselector_initpainter_callback = nullptr;
-        kactionselector_redirected_callback = nullptr;
-        kactionselector_sharedpainter_callback = nullptr;
-        kactionselector_inputmethodevent_callback = nullptr;
-        kactionselector_inputmethodquery_callback = nullptr;
-        kactionselector_focusnextprevchild_callback = nullptr;
-        kactionselector_timerevent_callback = nullptr;
-        kactionselector_childevent_callback = nullptr;
-        kactionselector_customevent_callback = nullptr;
-        kactionselector_connectnotify_callback = nullptr;
-        kactionselector_disconnectnotify_callback = nullptr;
-        kactionselector_updatemicrofocus_callback = nullptr;
-        kactionselector_create_callback = nullptr;
-        kactionselector_destroy_callback = nullptr;
-        kactionselector_focusnextchild_callback = nullptr;
-        kactionselector_focuspreviouschild_callback = nullptr;
-        kactionselector_sender_callback = nullptr;
-        kactionselector_sendersignalindex_callback = nullptr;
-        kactionselector_receivers_callback = nullptr;
-        kactionselector_issignalconnected_callback = nullptr;
-        kactionselector_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKActionSelector_MetaObject_Callback(KActionSelector_MetaObject_Callback cb) { kactionselector_metaobject_callback = cb; }
     inline void setKActionSelector_Metacast_Callback(KActionSelector_Metacast_Callback cb) { kactionselector_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_metaobject_isbase) {
             kactionselector_metaobject_isbase = false;
             return KActionSelector::metaObject();
-        } else if (kactionselector_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kactionselector_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::metaObject();
         }
+        auto metaobject_cb = kactionselector_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KActionSelector::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_metacast_isbase) {
             kactionselector_metacast_isbase = false;
             return KActionSelector::qt_metacast(param1);
-        } else if (kactionselector_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kactionselector_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kactionselector_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionSelector::qt_metacast(param1);
         }
+        return KActionSelector::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_metacall_isbase) {
             kactionselector_metacall_isbase = false;
             return KActionSelector::qt_metacall(param1, param2, param3);
-        } else if (kactionselector_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kactionselector_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kactionselector_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionSelector::qt_metacall(param1, param2, param3);
         }
+        return KActionSelector::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,13 +384,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_keypressevent_isbase) {
             kactionselector_keypressevent_isbase = false;
             KActionSelector::keyPressEvent(param1);
-        } else if (kactionselector_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kactionselector_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kactionselector_keypressevent_callback(this, cbval1);
-        } else {
-            KActionSelector::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,15 +401,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_eventfilter_isbase) {
             kactionselector_eventfilter_isbase = false;
             return KActionSelector::eventFilter(param1, param2);
-        } else if (kactionselector_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kactionselector_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kactionselector_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KActionSelector::eventFilter(param1, param2);
         }
+        return KActionSelector::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,12 +418,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_devtype_isbase) {
             kactionselector_devtype_isbase = false;
             return KActionSelector::devType();
-        } else if (kactionselector_devtype_callback != nullptr) {
-            int callback_ret = kactionselector_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KActionSelector::devType();
         }
+        auto devtype_cb = kactionselector_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KActionSelector::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,13 +432,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_setvisible_isbase) {
             kactionselector_setvisible_isbase = false;
             KActionSelector::setVisible(visible);
-        } else if (kactionselector_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kactionselector_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kactionselector_setvisible_callback(this, cbval1);
-        } else {
-            KActionSelector::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KActionSelector::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -501,12 +449,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_sizehint_isbase) {
             kactionselector_sizehint_isbase = false;
             return KActionSelector::sizeHint();
-        } else if (kactionselector_sizehint_callback != nullptr) {
-            QSize* callback_ret = kactionselector_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KActionSelector::sizeHint();
         }
+        auto sizehint_cb = kactionselector_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KActionSelector::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,12 +463,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_minimumsizehint_isbase) {
             kactionselector_minimumsizehint_isbase = false;
             return KActionSelector::minimumSizeHint();
-        } else if (kactionselector_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kactionselector_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KActionSelector::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kactionselector_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KActionSelector::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,14 +477,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_heightforwidth_isbase) {
             kactionselector_heightforwidth_isbase = false;
             return KActionSelector::heightForWidth(param1);
-        } else if (kactionselector_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kactionselector_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kactionselector_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionSelector::heightForWidth(param1);
         }
+        return KActionSelector::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,12 +493,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_hasheightforwidth_isbase) {
             kactionselector_hasheightforwidth_isbase = false;
             return KActionSelector::hasHeightForWidth();
-        } else if (kactionselector_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kactionselector_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kactionselector_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KActionSelector::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,12 +507,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_paintengine_isbase) {
             kactionselector_paintengine_isbase = false;
             return KActionSelector::paintEngine();
-        } else if (kactionselector_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kactionselector_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::paintEngine();
         }
+        auto paintengine_cb = kactionselector_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KActionSelector::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,14 +521,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_event_isbase) {
             kactionselector_event_isbase = false;
             return KActionSelector::event(event);
-        } else if (kactionselector_event_callback != nullptr) {
+        }
+        auto event_cb = kactionselector_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kactionselector_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionSelector::event(event);
         }
+        return KActionSelector::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,13 +537,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_mousepressevent_isbase) {
             kactionselector_mousepressevent_isbase = false;
             KActionSelector::mousePressEvent(event);
-        } else if (kactionselector_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kactionselector_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kactionselector_mousepressevent_callback(this, cbval1);
-        } else {
-            KActionSelector::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +554,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_mousereleaseevent_isbase) {
             kactionselector_mousereleaseevent_isbase = false;
             KActionSelector::mouseReleaseEvent(event);
-        } else if (kactionselector_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kactionselector_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kactionselector_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KActionSelector::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +571,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_mousedoubleclickevent_isbase) {
             kactionselector_mousedoubleclickevent_isbase = false;
             KActionSelector::mouseDoubleClickEvent(event);
-        } else if (kactionselector_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kactionselector_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kactionselector_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KActionSelector::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +588,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_mousemoveevent_isbase) {
             kactionselector_mousemoveevent_isbase = false;
             KActionSelector::mouseMoveEvent(event);
-        } else if (kactionselector_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kactionselector_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kactionselector_mousemoveevent_callback(this, cbval1);
-        } else {
-            KActionSelector::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +605,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_wheelevent_isbase) {
             kactionselector_wheelevent_isbase = false;
             KActionSelector::wheelEvent(event);
-        } else if (kactionselector_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kactionselector_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kactionselector_wheelevent_callback(this, cbval1);
-        } else {
-            KActionSelector::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +622,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_keyreleaseevent_isbase) {
             kactionselector_keyreleaseevent_isbase = false;
             KActionSelector::keyReleaseEvent(event);
-        } else if (kactionselector_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kactionselector_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kactionselector_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KActionSelector::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +639,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_focusinevent_isbase) {
             kactionselector_focusinevent_isbase = false;
             KActionSelector::focusInEvent(event);
-        } else if (kactionselector_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kactionselector_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kactionselector_focusinevent_callback(this, cbval1);
-        } else {
-            KActionSelector::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +656,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_focusoutevent_isbase) {
             kactionselector_focusoutevent_isbase = false;
             KActionSelector::focusOutEvent(event);
-        } else if (kactionselector_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kactionselector_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kactionselector_focusoutevent_callback(this, cbval1);
-        } else {
-            KActionSelector::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +673,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_enterevent_isbase) {
             kactionselector_enterevent_isbase = false;
             KActionSelector::enterEvent(event);
-        } else if (kactionselector_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kactionselector_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kactionselector_enterevent_callback(this, cbval1);
-        } else {
-            KActionSelector::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +690,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_leaveevent_isbase) {
             kactionselector_leaveevent_isbase = false;
             KActionSelector::leaveEvent(event);
-        } else if (kactionselector_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kactionselector_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kactionselector_leaveevent_callback(this, cbval1);
-        } else {
-            KActionSelector::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +707,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_paintevent_isbase) {
             kactionselector_paintevent_isbase = false;
             KActionSelector::paintEvent(event);
-        } else if (kactionselector_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kactionselector_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kactionselector_paintevent_callback(this, cbval1);
-        } else {
-            KActionSelector::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +724,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_moveevent_isbase) {
             kactionselector_moveevent_isbase = false;
             KActionSelector::moveEvent(event);
-        } else if (kactionselector_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kactionselector_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kactionselector_moveevent_callback(this, cbval1);
-        } else {
-            KActionSelector::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +741,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_resizeevent_isbase) {
             kactionselector_resizeevent_isbase = false;
             KActionSelector::resizeEvent(event);
-        } else if (kactionselector_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kactionselector_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kactionselector_resizeevent_callback(this, cbval1);
-        } else {
-            KActionSelector::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +758,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_closeevent_isbase) {
             kactionselector_closeevent_isbase = false;
             KActionSelector::closeEvent(event);
-        } else if (kactionselector_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kactionselector_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kactionselector_closeevent_callback(this, cbval1);
-        } else {
-            KActionSelector::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +775,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_contextmenuevent_isbase) {
             kactionselector_contextmenuevent_isbase = false;
             KActionSelector::contextMenuEvent(event);
-        } else if (kactionselector_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kactionselector_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kactionselector_contextmenuevent_callback(this, cbval1);
-        } else {
-            KActionSelector::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +792,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_tabletevent_isbase) {
             kactionselector_tabletevent_isbase = false;
             KActionSelector::tabletEvent(event);
-        } else if (kactionselector_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kactionselector_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kactionselector_tabletevent_callback(this, cbval1);
-        } else {
-            KActionSelector::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +809,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_actionevent_isbase) {
             kactionselector_actionevent_isbase = false;
             KActionSelector::actionEvent(event);
-        } else if (kactionselector_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kactionselector_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kactionselector_actionevent_callback(this, cbval1);
-        } else {
-            KActionSelector::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +826,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_dragenterevent_isbase) {
             kactionselector_dragenterevent_isbase = false;
             KActionSelector::dragEnterEvent(event);
-        } else if (kactionselector_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kactionselector_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kactionselector_dragenterevent_callback(this, cbval1);
-        } else {
-            KActionSelector::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +843,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_dragmoveevent_isbase) {
             kactionselector_dragmoveevent_isbase = false;
             KActionSelector::dragMoveEvent(event);
-        } else if (kactionselector_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kactionselector_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kactionselector_dragmoveevent_callback(this, cbval1);
-        } else {
-            KActionSelector::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +860,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_dragleaveevent_isbase) {
             kactionselector_dragleaveevent_isbase = false;
             KActionSelector::dragLeaveEvent(event);
-        } else if (kactionselector_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kactionselector_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kactionselector_dragleaveevent_callback(this, cbval1);
-        } else {
-            KActionSelector::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +877,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_dropevent_isbase) {
             kactionselector_dropevent_isbase = false;
             KActionSelector::dropEvent(event);
-        } else if (kactionselector_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kactionselector_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kactionselector_dropevent_callback(this, cbval1);
-        } else {
-            KActionSelector::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +894,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_showevent_isbase) {
             kactionselector_showevent_isbase = false;
             KActionSelector::showEvent(event);
-        } else if (kactionselector_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kactionselector_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kactionselector_showevent_callback(this, cbval1);
-        } else {
-            KActionSelector::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +911,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_hideevent_isbase) {
             kactionselector_hideevent_isbase = false;
             KActionSelector::hideEvent(event);
-        } else if (kactionselector_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kactionselector_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kactionselector_hideevent_callback(this, cbval1);
-        } else {
-            KActionSelector::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,7 +928,9 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_nativeevent_isbase) {
             kactionselector_nativeevent_isbase = false;
             return KActionSelector::nativeEvent(eventType, message, result);
-        } else if (kactionselector_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kactionselector_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -916,12 +941,11 @@ class VirtualKActionSelector final : public KActionSelector {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kactionselector_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KActionSelector::nativeEvent(eventType, message, result);
         }
+        return KActionSelector::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,13 +953,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_changeevent_isbase) {
             kactionselector_changeevent_isbase = false;
             KActionSelector::changeEvent(param1);
-        } else if (kactionselector_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kactionselector_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kactionselector_changeevent_callback(this, cbval1);
-        } else {
-            KActionSelector::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -943,14 +970,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_metric_isbase) {
             kactionselector_metric_isbase = false;
             return KActionSelector::metric(param1);
-        } else if (kactionselector_metric_callback != nullptr) {
+        }
+        auto metric_cb = kactionselector_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kactionselector_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionSelector::metric(param1);
         }
+        return KActionSelector::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +986,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_initpainter_isbase) {
             kactionselector_initpainter_isbase = false;
             KActionSelector::initPainter(painter);
-        } else if (kactionselector_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kactionselector_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kactionselector_initpainter_callback(this, cbval1);
-        } else {
-            KActionSelector::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KActionSelector::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,14 +1003,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_redirected_isbase) {
             kactionselector_redirected_isbase = false;
             return KActionSelector::redirected(offset);
-        } else if (kactionselector_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kactionselector_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kactionselector_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionSelector::redirected(offset);
         }
+        return KActionSelector::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,12 +1019,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_sharedpainter_isbase) {
             kactionselector_sharedpainter_isbase = false;
             return KActionSelector::sharedPainter();
-        } else if (kactionselector_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kactionselector_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::sharedPainter();
         }
+        auto sharedpainter_cb = kactionselector_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KActionSelector::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1033,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_inputmethodevent_isbase) {
             kactionselector_inputmethodevent_isbase = false;
             KActionSelector::inputMethodEvent(param1);
-        } else if (kactionselector_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kactionselector_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kactionselector_inputmethodevent_callback(this, cbval1);
-        } else {
-            KActionSelector::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,14 +1050,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_inputmethodquery_isbase) {
             kactionselector_inputmethodquery_isbase = false;
             return KActionSelector::inputMethodQuery(param1);
-        } else if (kactionselector_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kactionselector_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kactionselector_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KActionSelector::inputMethodQuery(param1);
         }
+        return KActionSelector::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,14 +1066,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_focusnextprevchild_isbase) {
             kactionselector_focusnextprevchild_isbase = false;
             return KActionSelector::focusNextPrevChild(next);
-        } else if (kactionselector_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kactionselector_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kactionselector_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionSelector::focusNextPrevChild(next);
         }
+        return KActionSelector::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_timerevent_isbase) {
             kactionselector_timerevent_isbase = false;
             KActionSelector::timerEvent(event);
-        } else if (kactionselector_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kactionselector_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kactionselector_timerevent_callback(this, cbval1);
-        } else {
-            KActionSelector::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_childevent_isbase) {
             kactionselector_childevent_isbase = false;
             KActionSelector::childEvent(event);
-        } else if (kactionselector_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kactionselector_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kactionselector_childevent_callback(this, cbval1);
-        } else {
-            KActionSelector::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_customevent_isbase) {
             kactionselector_customevent_isbase = false;
             KActionSelector::customEvent(event);
-        } else if (kactionselector_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kactionselector_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kactionselector_customevent_callback(this, cbval1);
-        } else {
-            KActionSelector::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KActionSelector::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_connectnotify_isbase) {
             kactionselector_connectnotify_isbase = false;
             KActionSelector::connectNotify(signal);
-        } else if (kactionselector_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kactionselector_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kactionselector_connectnotify_callback(this, cbval1);
-        } else {
-            KActionSelector::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KActionSelector::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_disconnectnotify_isbase) {
             kactionselector_disconnectnotify_isbase = false;
             KActionSelector::disconnectNotify(signal);
-        } else if (kactionselector_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kactionselector_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kactionselector_disconnectnotify_callback(this, cbval1);
-        } else {
-            KActionSelector::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KActionSelector::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_updatemicrofocus_isbase) {
             kactionselector_updatemicrofocus_isbase = false;
             KActionSelector::updateMicroFocus();
-        } else if (kactionselector_updatemicrofocus_callback != nullptr) {
-            kactionselector_updatemicrofocus_callback();
-        } else {
-            KActionSelector::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kactionselector_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KActionSelector::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_create_isbase) {
             kactionselector_create_isbase = false;
             KActionSelector::create();
-        } else if (kactionselector_create_callback != nullptr) {
-            kactionselector_create_callback();
-        } else {
-            KActionSelector::create();
+            return;
         }
+        auto create_cb = kactionselector_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KActionSelector::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_destroy_isbase) {
             kactionselector_destroy_isbase = false;
             KActionSelector::destroy();
-        } else if (kactionselector_destroy_callback != nullptr) {
-            kactionselector_destroy_callback();
-        } else {
-            KActionSelector::destroy();
+            return;
         }
+        auto destroy_cb = kactionselector_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KActionSelector::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_focusnextchild_isbase) {
             kactionselector_focusnextchild_isbase = false;
             return KActionSelector::focusNextChild();
-        } else if (kactionselector_focusnextchild_callback != nullptr) {
-            bool callback_ret = kactionselector_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::focusNextChild();
         }
+        auto focusnextchild_cb = kactionselector_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KActionSelector::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_focuspreviouschild_isbase) {
             kactionselector_focuspreviouschild_isbase = false;
             return KActionSelector::focusPreviousChild();
-        } else if (kactionselector_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kactionselector_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kactionselector_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KActionSelector::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_sender_isbase) {
             kactionselector_sender_isbase = false;
             return KActionSelector::sender();
-        } else if (kactionselector_sender_callback != nullptr) {
-            QObject* callback_ret = kactionselector_sender_callback();
-            return callback_ret;
-        } else {
-            return KActionSelector::sender();
         }
+        auto sender_cb = kactionselector_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KActionSelector::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_sendersignalindex_isbase) {
             kactionselector_sendersignalindex_isbase = false;
             return KActionSelector::senderSignalIndex();
-        } else if (kactionselector_sendersignalindex_callback != nullptr) {
-            int callback_ret = kactionselector_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KActionSelector::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kactionselector_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KActionSelector::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_receivers_isbase) {
             kactionselector_receivers_isbase = false;
             return KActionSelector::receivers(signal);
-        } else if (kactionselector_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kactionselector_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kactionselector_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KActionSelector::receivers(signal);
         }
+        return KActionSelector::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_issignalconnected_isbase) {
             kactionselector_issignalconnected_isbase = false;
             return KActionSelector::isSignalConnected(signal);
-        } else if (kactionselector_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kactionselector_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kactionselector_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KActionSelector::isSignalConnected(signal);
         }
+        return KActionSelector::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKActionSelector final : public KActionSelector {
         if (kactionselector_getdecodedmetricf_isbase) {
             kactionselector_getdecodedmetricf_isbase = false;
             return KActionSelector::getDecodedMetricF(metricA, metricB);
-        } else if (kactionselector_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kactionselector_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kactionselector_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KActionSelector::getDecodedMetricF(metricA, metricB);
         }
+        return KActionSelector::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

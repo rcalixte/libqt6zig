@@ -81,27 +81,6 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     VirtualQParallelAnimationGroup() : QParallelAnimationGroup() {};
     VirtualQParallelAnimationGroup(QObject* parent) : QParallelAnimationGroup(parent) {};
 
-    ~VirtualQParallelAnimationGroup() {
-        qparallelanimationgroup_metaobject_callback = nullptr;
-        qparallelanimationgroup_metacast_callback = nullptr;
-        qparallelanimationgroup_metacall_callback = nullptr;
-        qparallelanimationgroup_duration_callback = nullptr;
-        qparallelanimationgroup_event_callback = nullptr;
-        qparallelanimationgroup_updatecurrenttime_callback = nullptr;
-        qparallelanimationgroup_updatestate_callback = nullptr;
-        qparallelanimationgroup_updatedirection_callback = nullptr;
-        qparallelanimationgroup_eventfilter_callback = nullptr;
-        qparallelanimationgroup_timerevent_callback = nullptr;
-        qparallelanimationgroup_childevent_callback = nullptr;
-        qparallelanimationgroup_customevent_callback = nullptr;
-        qparallelanimationgroup_connectnotify_callback = nullptr;
-        qparallelanimationgroup_disconnectnotify_callback = nullptr;
-        qparallelanimationgroup_sender_callback = nullptr;
-        qparallelanimationgroup_sendersignalindex_callback = nullptr;
-        qparallelanimationgroup_receivers_callback = nullptr;
-        qparallelanimationgroup_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQParallelAnimationGroup_MetaObject_Callback(QParallelAnimationGroup_MetaObject_Callback cb) { qparallelanimationgroup_metaobject_callback = cb; }
     inline void setQParallelAnimationGroup_Metacast_Callback(QParallelAnimationGroup_Metacast_Callback cb) { qparallelanimationgroup_metacast_callback = cb; }
@@ -147,12 +126,13 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_metaobject_isbase) {
             qparallelanimationgroup_metaobject_isbase = false;
             return QParallelAnimationGroup::metaObject();
-        } else if (qparallelanimationgroup_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qparallelanimationgroup_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QParallelAnimationGroup::metaObject();
         }
+        auto metaobject_cb = qparallelanimationgroup_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QParallelAnimationGroup::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +140,15 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_metacast_isbase) {
             qparallelanimationgroup_metacast_isbase = false;
             return QParallelAnimationGroup::qt_metacast(param1);
-        } else if (qparallelanimationgroup_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qparallelanimationgroup_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qparallelanimationgroup_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QParallelAnimationGroup::qt_metacast(param1);
         }
+        return QParallelAnimationGroup::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,16 +156,17 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_metacall_isbase) {
             qparallelanimationgroup_metacall_isbase = false;
             return QParallelAnimationGroup::qt_metacall(param1, param2, param3);
-        } else if (qparallelanimationgroup_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qparallelanimationgroup_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qparallelanimationgroup_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QParallelAnimationGroup::qt_metacall(param1, param2, param3);
         }
+        return QParallelAnimationGroup::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,12 +174,13 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_duration_isbase) {
             qparallelanimationgroup_duration_isbase = false;
             return QParallelAnimationGroup::duration();
-        } else if (qparallelanimationgroup_duration_callback != nullptr) {
-            int callback_ret = qparallelanimationgroup_duration_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QParallelAnimationGroup::duration();
         }
+        auto duration_cb = qparallelanimationgroup_duration_callback;
+        if (duration_cb) {
+            int callback_ret = duration_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QParallelAnimationGroup::duration();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,14 +188,15 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_event_isbase) {
             qparallelanimationgroup_event_isbase = false;
             return QParallelAnimationGroup::event(event);
-        } else if (qparallelanimationgroup_event_callback != nullptr) {
+        }
+        auto event_cb = qparallelanimationgroup_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qparallelanimationgroup_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QParallelAnimationGroup::event(event);
         }
+        return QParallelAnimationGroup::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,13 +204,16 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_updatecurrenttime_isbase) {
             qparallelanimationgroup_updatecurrenttime_isbase = false;
             QParallelAnimationGroup::updateCurrentTime(currentTime);
-        } else if (qparallelanimationgroup_updatecurrenttime_callback != nullptr) {
+            return;
+        }
+        auto updatecurrenttime_cb = qparallelanimationgroup_updatecurrenttime_callback;
+        if (updatecurrenttime_cb) {
             int cbval1 = currentTime;
 
-            qparallelanimationgroup_updatecurrenttime_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::updateCurrentTime(currentTime);
+            updatecurrenttime_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::updateCurrentTime(currentTime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,14 +221,17 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_updatestate_isbase) {
             qparallelanimationgroup_updatestate_isbase = false;
             QParallelAnimationGroup::updateState(newState, oldState);
-        } else if (qparallelanimationgroup_updatestate_callback != nullptr) {
+            return;
+        }
+        auto updatestate_cb = qparallelanimationgroup_updatestate_callback;
+        if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
 
-            qparallelanimationgroup_updatestate_callback(this, cbval1, cbval2);
-        } else {
-            QParallelAnimationGroup::updateState(newState, oldState);
+            updatestate_cb(this, cbval1, cbval2);
+            return;
         }
+        QParallelAnimationGroup::updateState(newState, oldState);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,13 +239,16 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_updatedirection_isbase) {
             qparallelanimationgroup_updatedirection_isbase = false;
             QParallelAnimationGroup::updateDirection(direction);
-        } else if (qparallelanimationgroup_updatedirection_callback != nullptr) {
+            return;
+        }
+        auto updatedirection_cb = qparallelanimationgroup_updatedirection_callback;
+        if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
 
-            qparallelanimationgroup_updatedirection_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::updateDirection(direction);
+            updatedirection_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::updateDirection(direction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +256,16 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_eventfilter_isbase) {
             qparallelanimationgroup_eventfilter_isbase = false;
             return QParallelAnimationGroup::eventFilter(watched, event);
-        } else if (qparallelanimationgroup_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qparallelanimationgroup_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qparallelanimationgroup_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QParallelAnimationGroup::eventFilter(watched, event);
         }
+        return QParallelAnimationGroup::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,13 +273,16 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_timerevent_isbase) {
             qparallelanimationgroup_timerevent_isbase = false;
             QParallelAnimationGroup::timerEvent(event);
-        } else if (qparallelanimationgroup_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qparallelanimationgroup_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qparallelanimationgroup_timerevent_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,13 +290,16 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_childevent_isbase) {
             qparallelanimationgroup_childevent_isbase = false;
             QParallelAnimationGroup::childEvent(event);
-        } else if (qparallelanimationgroup_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qparallelanimationgroup_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qparallelanimationgroup_childevent_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,13 +307,16 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_customevent_isbase) {
             qparallelanimationgroup_customevent_isbase = false;
             QParallelAnimationGroup::customEvent(event);
-        } else if (qparallelanimationgroup_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qparallelanimationgroup_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qparallelanimationgroup_customevent_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,15 +324,18 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_connectnotify_isbase) {
             qparallelanimationgroup_connectnotify_isbase = false;
             QParallelAnimationGroup::connectNotify(signal);
-        } else if (qparallelanimationgroup_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qparallelanimationgroup_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qparallelanimationgroup_connectnotify_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,15 +343,18 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_disconnectnotify_isbase) {
             qparallelanimationgroup_disconnectnotify_isbase = false;
             QParallelAnimationGroup::disconnectNotify(signal);
-        } else if (qparallelanimationgroup_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qparallelanimationgroup_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qparallelanimationgroup_disconnectnotify_callback(this, cbval1);
-        } else {
-            QParallelAnimationGroup::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QParallelAnimationGroup::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -353,12 +362,13 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_sender_isbase) {
             qparallelanimationgroup_sender_isbase = false;
             return QParallelAnimationGroup::sender();
-        } else if (qparallelanimationgroup_sender_callback != nullptr) {
-            QObject* callback_ret = qparallelanimationgroup_sender_callback();
-            return callback_ret;
-        } else {
-            return QParallelAnimationGroup::sender();
         }
+        auto sender_cb = qparallelanimationgroup_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QParallelAnimationGroup::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,12 +376,13 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_sendersignalindex_isbase) {
             qparallelanimationgroup_sendersignalindex_isbase = false;
             return QParallelAnimationGroup::senderSignalIndex();
-        } else if (qparallelanimationgroup_sendersignalindex_callback != nullptr) {
-            int callback_ret = qparallelanimationgroup_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QParallelAnimationGroup::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qparallelanimationgroup_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QParallelAnimationGroup::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,14 +390,15 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_receivers_isbase) {
             qparallelanimationgroup_receivers_isbase = false;
             return QParallelAnimationGroup::receivers(signal);
-        } else if (qparallelanimationgroup_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qparallelanimationgroup_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qparallelanimationgroup_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QParallelAnimationGroup::receivers(signal);
         }
+        return QParallelAnimationGroup::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,16 +406,17 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
         if (qparallelanimationgroup_issignalconnected_isbase) {
             qparallelanimationgroup_issignalconnected_isbase = false;
             return QParallelAnimationGroup::isSignalConnected(signal);
-        } else if (qparallelanimationgroup_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qparallelanimationgroup_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qparallelanimationgroup_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QParallelAnimationGroup::isSignalConnected(signal);
         }
+        return QParallelAnimationGroup::isSignalConnected(signal);
     }
 
     // Friend functions

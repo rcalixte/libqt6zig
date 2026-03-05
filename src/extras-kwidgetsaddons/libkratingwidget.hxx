@@ -213,71 +213,6 @@ class VirtualKRatingWidget final : public KRatingWidget {
     VirtualKRatingWidget(QWidget* parent) : KRatingWidget(parent) {};
     VirtualKRatingWidget() : KRatingWidget() {};
 
-    ~VirtualKRatingWidget() {
-        kratingwidget_metaobject_callback = nullptr;
-        kratingwidget_metacast_callback = nullptr;
-        kratingwidget_metacall_callback = nullptr;
-        kratingwidget_sizehint_callback = nullptr;
-        kratingwidget_mousepressevent_callback = nullptr;
-        kratingwidget_mousemoveevent_callback = nullptr;
-        kratingwidget_leaveevent_callback = nullptr;
-        kratingwidget_paintevent_callback = nullptr;
-        kratingwidget_resizeevent_callback = nullptr;
-        kratingwidget_event_callback = nullptr;
-        kratingwidget_changeevent_callback = nullptr;
-        kratingwidget_initstyleoption_callback = nullptr;
-        kratingwidget_devtype_callback = nullptr;
-        kratingwidget_setvisible_callback = nullptr;
-        kratingwidget_minimumsizehint_callback = nullptr;
-        kratingwidget_heightforwidth_callback = nullptr;
-        kratingwidget_hasheightforwidth_callback = nullptr;
-        kratingwidget_paintengine_callback = nullptr;
-        kratingwidget_mousereleaseevent_callback = nullptr;
-        kratingwidget_mousedoubleclickevent_callback = nullptr;
-        kratingwidget_wheelevent_callback = nullptr;
-        kratingwidget_keypressevent_callback = nullptr;
-        kratingwidget_keyreleaseevent_callback = nullptr;
-        kratingwidget_focusinevent_callback = nullptr;
-        kratingwidget_focusoutevent_callback = nullptr;
-        kratingwidget_enterevent_callback = nullptr;
-        kratingwidget_moveevent_callback = nullptr;
-        kratingwidget_closeevent_callback = nullptr;
-        kratingwidget_contextmenuevent_callback = nullptr;
-        kratingwidget_tabletevent_callback = nullptr;
-        kratingwidget_actionevent_callback = nullptr;
-        kratingwidget_dragenterevent_callback = nullptr;
-        kratingwidget_dragmoveevent_callback = nullptr;
-        kratingwidget_dragleaveevent_callback = nullptr;
-        kratingwidget_dropevent_callback = nullptr;
-        kratingwidget_showevent_callback = nullptr;
-        kratingwidget_hideevent_callback = nullptr;
-        kratingwidget_nativeevent_callback = nullptr;
-        kratingwidget_metric_callback = nullptr;
-        kratingwidget_initpainter_callback = nullptr;
-        kratingwidget_redirected_callback = nullptr;
-        kratingwidget_sharedpainter_callback = nullptr;
-        kratingwidget_inputmethodevent_callback = nullptr;
-        kratingwidget_inputmethodquery_callback = nullptr;
-        kratingwidget_focusnextprevchild_callback = nullptr;
-        kratingwidget_eventfilter_callback = nullptr;
-        kratingwidget_timerevent_callback = nullptr;
-        kratingwidget_childevent_callback = nullptr;
-        kratingwidget_customevent_callback = nullptr;
-        kratingwidget_connectnotify_callback = nullptr;
-        kratingwidget_disconnectnotify_callback = nullptr;
-        kratingwidget_drawframe_callback = nullptr;
-        kratingwidget_updatemicrofocus_callback = nullptr;
-        kratingwidget_create_callback = nullptr;
-        kratingwidget_destroy_callback = nullptr;
-        kratingwidget_focusnextchild_callback = nullptr;
-        kratingwidget_focuspreviouschild_callback = nullptr;
-        kratingwidget_sender_callback = nullptr;
-        kratingwidget_sendersignalindex_callback = nullptr;
-        kratingwidget_receivers_callback = nullptr;
-        kratingwidget_issignalconnected_callback = nullptr;
-        kratingwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRatingWidget_MetaObject_Callback(KRatingWidget_MetaObject_Callback cb) { kratingwidget_metaobject_callback = cb; }
     inline void setKRatingWidget_Metacast_Callback(KRatingWidget_Metacast_Callback cb) { kratingwidget_metacast_callback = cb; }
@@ -411,12 +346,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_metaobject_isbase) {
             kratingwidget_metaobject_isbase = false;
             return KRatingWidget::metaObject();
-        } else if (kratingwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kratingwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::metaObject();
         }
+        auto metaobject_cb = kratingwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,14 +360,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_metacast_isbase) {
             kratingwidget_metacast_isbase = false;
             return KRatingWidget::qt_metacast(param1);
-        } else if (kratingwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kratingwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kratingwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRatingWidget::qt_metacast(param1);
         }
+        return KRatingWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,16 +376,17 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_metacall_isbase) {
             kratingwidget_metacall_isbase = false;
             return KRatingWidget::qt_metacall(param1, param2, param3);
-        } else if (kratingwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kratingwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kratingwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRatingWidget::qt_metacall(param1, param2, param3);
         }
+        return KRatingWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -456,12 +394,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_sizehint_isbase) {
             kratingwidget_sizehint_isbase = false;
             return KRatingWidget::sizeHint();
-        } else if (kratingwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = kratingwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRatingWidget::sizeHint();
         }
+        auto sizehint_cb = kratingwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KRatingWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,13 +408,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_mousepressevent_isbase) {
             kratingwidget_mousepressevent_isbase = false;
             KRatingWidget::mousePressEvent(e);
-        } else if (kratingwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kratingwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kratingwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,13 +425,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_mousemoveevent_isbase) {
             kratingwidget_mousemoveevent_isbase = false;
             KRatingWidget::mouseMoveEvent(e);
-        } else if (kratingwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kratingwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kratingwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,13 +442,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_leaveevent_isbase) {
             kratingwidget_leaveevent_isbase = false;
             KRatingWidget::leaveEvent(e);
-        } else if (kratingwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kratingwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = e;
 
-            kratingwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::leaveEvent(e);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::leaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,13 +459,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_paintevent_isbase) {
             kratingwidget_paintevent_isbase = false;
             KRatingWidget::paintEvent(e);
-        } else if (kratingwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kratingwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            kratingwidget_paintevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,13 +476,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_resizeevent_isbase) {
             kratingwidget_resizeevent_isbase = false;
             KRatingWidget::resizeEvent(e);
-        } else if (kratingwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kratingwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            kratingwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,14 +493,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_event_isbase) {
             kratingwidget_event_isbase = false;
             return KRatingWidget::event(e);
-        } else if (kratingwidget_event_callback != nullptr) {
+        }
+        auto event_cb = kratingwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kratingwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRatingWidget::event(e);
         }
+        return KRatingWidget::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,13 +509,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_changeevent_isbase) {
             kratingwidget_changeevent_isbase = false;
             KRatingWidget::changeEvent(param1);
-        } else if (kratingwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kratingwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kratingwidget_changeevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,13 +526,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_initstyleoption_isbase) {
             kratingwidget_initstyleoption_isbase = false;
             KRatingWidget::initStyleOption(option);
-        } else if (kratingwidget_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kratingwidget_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kratingwidget_initstyleoption_callback(this, cbval1);
-        } else {
-            KRatingWidget::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,12 +543,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_devtype_isbase) {
             kratingwidget_devtype_isbase = false;
             return KRatingWidget::devType();
-        } else if (kratingwidget_devtype_callback != nullptr) {
-            int callback_ret = kratingwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRatingWidget::devType();
         }
+        auto devtype_cb = kratingwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRatingWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,13 +557,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_setvisible_isbase) {
             kratingwidget_setvisible_isbase = false;
             KRatingWidget::setVisible(visible);
-        } else if (kratingwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kratingwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kratingwidget_setvisible_callback(this, cbval1);
-        } else {
-            KRatingWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,12 +574,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_minimumsizehint_isbase) {
             kratingwidget_minimumsizehint_isbase = false;
             return KRatingWidget::minimumSizeHint();
-        } else if (kratingwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kratingwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRatingWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kratingwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KRatingWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,14 +588,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_heightforwidth_isbase) {
             kratingwidget_heightforwidth_isbase = false;
             return KRatingWidget::heightForWidth(param1);
-        } else if (kratingwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kratingwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kratingwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRatingWidget::heightForWidth(param1);
         }
+        return KRatingWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,12 +604,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_hasheightforwidth_isbase) {
             kratingwidget_hasheightforwidth_isbase = false;
             return KRatingWidget::hasHeightForWidth();
-        } else if (kratingwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kratingwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kratingwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,12 +618,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_paintengine_isbase) {
             kratingwidget_paintengine_isbase = false;
             return KRatingWidget::paintEngine();
-        } else if (kratingwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kratingwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::paintEngine();
         }
+        auto paintengine_cb = kratingwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,13 +632,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_mousereleaseevent_isbase) {
             kratingwidget_mousereleaseevent_isbase = false;
             KRatingWidget::mouseReleaseEvent(event);
-        } else if (kratingwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kratingwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kratingwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,13 +649,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_mousedoubleclickevent_isbase) {
             kratingwidget_mousedoubleclickevent_isbase = false;
             KRatingWidget::mouseDoubleClickEvent(event);
-        } else if (kratingwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kratingwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kratingwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +666,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_wheelevent_isbase) {
             kratingwidget_wheelevent_isbase = false;
             KRatingWidget::wheelEvent(event);
-        } else if (kratingwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kratingwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kratingwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +683,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_keypressevent_isbase) {
             kratingwidget_keypressevent_isbase = false;
             KRatingWidget::keyPressEvent(event);
-        } else if (kratingwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kratingwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kratingwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +700,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_keyreleaseevent_isbase) {
             kratingwidget_keyreleaseevent_isbase = false;
             KRatingWidget::keyReleaseEvent(event);
-        } else if (kratingwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kratingwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kratingwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +717,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_focusinevent_isbase) {
             kratingwidget_focusinevent_isbase = false;
             KRatingWidget::focusInEvent(event);
-        } else if (kratingwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kratingwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kratingwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +734,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_focusoutevent_isbase) {
             kratingwidget_focusoutevent_isbase = false;
             KRatingWidget::focusOutEvent(event);
-        } else if (kratingwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kratingwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kratingwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +751,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_enterevent_isbase) {
             kratingwidget_enterevent_isbase = false;
             KRatingWidget::enterEvent(event);
-        } else if (kratingwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kratingwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kratingwidget_enterevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,13 +768,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_moveevent_isbase) {
             kratingwidget_moveevent_isbase = false;
             KRatingWidget::moveEvent(event);
-        } else if (kratingwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kratingwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kratingwidget_moveevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -789,13 +785,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_closeevent_isbase) {
             kratingwidget_closeevent_isbase = false;
             KRatingWidget::closeEvent(event);
-        } else if (kratingwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kratingwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kratingwidget_closeevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -803,13 +802,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_contextmenuevent_isbase) {
             kratingwidget_contextmenuevent_isbase = false;
             KRatingWidget::contextMenuEvent(event);
-        } else if (kratingwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kratingwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kratingwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,13 +819,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_tabletevent_isbase) {
             kratingwidget_tabletevent_isbase = false;
             KRatingWidget::tabletEvent(event);
-        } else if (kratingwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kratingwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kratingwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -831,13 +836,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_actionevent_isbase) {
             kratingwidget_actionevent_isbase = false;
             KRatingWidget::actionEvent(event);
-        } else if (kratingwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kratingwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kratingwidget_actionevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,13 +853,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_dragenterevent_isbase) {
             kratingwidget_dragenterevent_isbase = false;
             KRatingWidget::dragEnterEvent(event);
-        } else if (kratingwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kratingwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kratingwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -859,13 +870,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_dragmoveevent_isbase) {
             kratingwidget_dragmoveevent_isbase = false;
             KRatingWidget::dragMoveEvent(event);
-        } else if (kratingwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kratingwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kratingwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,13 +887,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_dragleaveevent_isbase) {
             kratingwidget_dragleaveevent_isbase = false;
             KRatingWidget::dragLeaveEvent(event);
-        } else if (kratingwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kratingwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kratingwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -887,13 +904,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_dropevent_isbase) {
             kratingwidget_dropevent_isbase = false;
             KRatingWidget::dropEvent(event);
-        } else if (kratingwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kratingwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kratingwidget_dropevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -901,13 +921,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_showevent_isbase) {
             kratingwidget_showevent_isbase = false;
             KRatingWidget::showEvent(event);
-        } else if (kratingwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kratingwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kratingwidget_showevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +938,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_hideevent_isbase) {
             kratingwidget_hideevent_isbase = false;
             KRatingWidget::hideEvent(event);
-        } else if (kratingwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kratingwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kratingwidget_hideevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,7 +955,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_nativeevent_isbase) {
             kratingwidget_nativeevent_isbase = false;
             return KRatingWidget::nativeEvent(eventType, message, result);
-        } else if (kratingwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kratingwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -940,12 +968,11 @@ class VirtualKRatingWidget final : public KRatingWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kratingwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KRatingWidget::nativeEvent(eventType, message, result);
         }
+        return KRatingWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,14 +980,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_metric_isbase) {
             kratingwidget_metric_isbase = false;
             return KRatingWidget::metric(param1);
-        } else if (kratingwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = kratingwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kratingwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRatingWidget::metric(param1);
         }
+        return KRatingWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +996,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_initpainter_isbase) {
             kratingwidget_initpainter_isbase = false;
             KRatingWidget::initPainter(painter);
-        } else if (kratingwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kratingwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kratingwidget_initpainter_callback(this, cbval1);
-        } else {
-            KRatingWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,14 +1013,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_redirected_isbase) {
             kratingwidget_redirected_isbase = false;
             return KRatingWidget::redirected(offset);
-        } else if (kratingwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kratingwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kratingwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRatingWidget::redirected(offset);
         }
+        return KRatingWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,12 +1029,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_sharedpainter_isbase) {
             kratingwidget_sharedpainter_isbase = false;
             return KRatingWidget::sharedPainter();
-        } else if (kratingwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kratingwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::sharedPainter();
         }
+        auto sharedpainter_cb = kratingwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,13 +1043,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_inputmethodevent_isbase) {
             kratingwidget_inputmethodevent_isbase = false;
             KRatingWidget::inputMethodEvent(param1);
-        } else if (kratingwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kratingwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kratingwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,14 +1060,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_inputmethodquery_isbase) {
             kratingwidget_inputmethodquery_isbase = false;
             return KRatingWidget::inputMethodQuery(param1);
-        } else if (kratingwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kratingwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kratingwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRatingWidget::inputMethodQuery(param1);
         }
+        return KRatingWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,14 +1076,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_focusnextprevchild_isbase) {
             kratingwidget_focusnextprevchild_isbase = false;
             return KRatingWidget::focusNextPrevChild(next);
-        } else if (kratingwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kratingwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kratingwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRatingWidget::focusNextPrevChild(next);
         }
+        return KRatingWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1054,15 +1092,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_eventfilter_isbase) {
             kratingwidget_eventfilter_isbase = false;
             return KRatingWidget::eventFilter(watched, event);
-        } else if (kratingwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kratingwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kratingwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRatingWidget::eventFilter(watched, event);
         }
+        return KRatingWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,13 +1109,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_timerevent_isbase) {
             kratingwidget_timerevent_isbase = false;
             KRatingWidget::timerEvent(event);
-        } else if (kratingwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kratingwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kratingwidget_timerevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,13 +1126,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_childevent_isbase) {
             kratingwidget_childevent_isbase = false;
             KRatingWidget::childEvent(event);
-        } else if (kratingwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kratingwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kratingwidget_childevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1143,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_customevent_isbase) {
             kratingwidget_customevent_isbase = false;
             KRatingWidget::customEvent(event);
-        } else if (kratingwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kratingwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kratingwidget_customevent_callback(this, cbval1);
-        } else {
-            KRatingWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,15 +1160,18 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_connectnotify_isbase) {
             kratingwidget_connectnotify_isbase = false;
             KRatingWidget::connectNotify(signal);
-        } else if (kratingwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kratingwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kratingwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KRatingWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1128,15 +1179,18 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_disconnectnotify_isbase) {
             kratingwidget_disconnectnotify_isbase = false;
             KRatingWidget::disconnectNotify(signal);
-        } else if (kratingwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kratingwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kratingwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KRatingWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,13 +1198,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_drawframe_isbase) {
             kratingwidget_drawframe_isbase = false;
             KRatingWidget::drawFrame(param1);
-        } else if (kratingwidget_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kratingwidget_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kratingwidget_drawframe_callback(this, cbval1);
-        } else {
-            KRatingWidget::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KRatingWidget::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,11 +1215,14 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_updatemicrofocus_isbase) {
             kratingwidget_updatemicrofocus_isbase = false;
             KRatingWidget::updateMicroFocus();
-        } else if (kratingwidget_updatemicrofocus_callback != nullptr) {
-            kratingwidget_updatemicrofocus_callback();
-        } else {
-            KRatingWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kratingwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KRatingWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,11 +1230,14 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_create_isbase) {
             kratingwidget_create_isbase = false;
             KRatingWidget::create();
-        } else if (kratingwidget_create_callback != nullptr) {
-            kratingwidget_create_callback();
-        } else {
-            KRatingWidget::create();
+            return;
         }
+        auto create_cb = kratingwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KRatingWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,11 +1245,14 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_destroy_isbase) {
             kratingwidget_destroy_isbase = false;
             KRatingWidget::destroy();
-        } else if (kratingwidget_destroy_callback != nullptr) {
-            kratingwidget_destroy_callback();
-        } else {
-            KRatingWidget::destroy();
+            return;
         }
+        auto destroy_cb = kratingwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KRatingWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1194,12 +1260,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_focusnextchild_isbase) {
             kratingwidget_focusnextchild_isbase = false;
             return KRatingWidget::focusNextChild();
-        } else if (kratingwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = kratingwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::focusNextChild();
         }
+        auto focusnextchild_cb = kratingwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,12 +1274,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_focuspreviouschild_isbase) {
             kratingwidget_focuspreviouschild_isbase = false;
             return KRatingWidget::focusPreviousChild();
-        } else if (kratingwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kratingwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kratingwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,12 +1288,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_sender_isbase) {
             kratingwidget_sender_isbase = false;
             return KRatingWidget::sender();
-        } else if (kratingwidget_sender_callback != nullptr) {
-            QObject* callback_ret = kratingwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KRatingWidget::sender();
         }
+        auto sender_cb = kratingwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KRatingWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1302,13 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_sendersignalindex_isbase) {
             kratingwidget_sendersignalindex_isbase = false;
             return KRatingWidget::senderSignalIndex();
-        } else if (kratingwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = kratingwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRatingWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kratingwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRatingWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,14 +1316,15 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_receivers_isbase) {
             kratingwidget_receivers_isbase = false;
             return KRatingWidget::receivers(signal);
-        } else if (kratingwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kratingwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kratingwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRatingWidget::receivers(signal);
         }
+        return KRatingWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,16 +1332,17 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_issignalconnected_isbase) {
             kratingwidget_issignalconnected_isbase = false;
             return KRatingWidget::isSignalConnected(signal);
-        } else if (kratingwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kratingwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kratingwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRatingWidget::isSignalConnected(signal);
         }
+        return KRatingWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,15 +1350,16 @@ class VirtualKRatingWidget final : public KRatingWidget {
         if (kratingwidget_getdecodedmetricf_isbase) {
             kratingwidget_getdecodedmetricf_isbase = false;
             return KRatingWidget::getDecodedMetricF(metricA, metricB);
-        } else if (kratingwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kratingwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kratingwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KRatingWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KRatingWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

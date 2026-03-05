@@ -77,25 +77,6 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
     VirtualQMouseEventTransition(QState* sourceState) : QMouseEventTransition(sourceState) {};
     VirtualQMouseEventTransition(QObject* object, QEvent::Type typeVal, Qt::MouseButton button, QState* sourceState) : QMouseEventTransition(object, typeVal, button, sourceState) {};
 
-    ~VirtualQMouseEventTransition() {
-        qmouseeventtransition_metaobject_callback = nullptr;
-        qmouseeventtransition_metacast_callback = nullptr;
-        qmouseeventtransition_metacall_callback = nullptr;
-        qmouseeventtransition_ontransition_callback = nullptr;
-        qmouseeventtransition_eventtest_callback = nullptr;
-        qmouseeventtransition_event_callback = nullptr;
-        qmouseeventtransition_eventfilter_callback = nullptr;
-        qmouseeventtransition_timerevent_callback = nullptr;
-        qmouseeventtransition_childevent_callback = nullptr;
-        qmouseeventtransition_customevent_callback = nullptr;
-        qmouseeventtransition_connectnotify_callback = nullptr;
-        qmouseeventtransition_disconnectnotify_callback = nullptr;
-        qmouseeventtransition_sender_callback = nullptr;
-        qmouseeventtransition_sendersignalindex_callback = nullptr;
-        qmouseeventtransition_receivers_callback = nullptr;
-        qmouseeventtransition_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMouseEventTransition_MetaObject_Callback(QMouseEventTransition_MetaObject_Callback cb) { qmouseeventtransition_metaobject_callback = cb; }
     inline void setQMouseEventTransition_Metacast_Callback(QMouseEventTransition_Metacast_Callback cb) { qmouseeventtransition_metacast_callback = cb; }
@@ -137,12 +118,13 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_metaobject_isbase) {
             qmouseeventtransition_metaobject_isbase = false;
             return QMouseEventTransition::metaObject();
-        } else if (qmouseeventtransition_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmouseeventtransition_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMouseEventTransition::metaObject();
         }
+        auto metaobject_cb = qmouseeventtransition_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMouseEventTransition::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,14 +132,15 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_metacast_isbase) {
             qmouseeventtransition_metacast_isbase = false;
             return QMouseEventTransition::qt_metacast(param1);
-        } else if (qmouseeventtransition_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmouseeventtransition_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmouseeventtransition_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMouseEventTransition::qt_metacast(param1);
         }
+        return QMouseEventTransition::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -165,16 +148,17 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_metacall_isbase) {
             qmouseeventtransition_metacall_isbase = false;
             return QMouseEventTransition::qt_metacall(param1, param2, param3);
-        } else if (qmouseeventtransition_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmouseeventtransition_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmouseeventtransition_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMouseEventTransition::qt_metacall(param1, param2, param3);
         }
+        return QMouseEventTransition::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,13 +166,16 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_ontransition_isbase) {
             qmouseeventtransition_ontransition_isbase = false;
             QMouseEventTransition::onTransition(event);
-        } else if (qmouseeventtransition_ontransition_callback != nullptr) {
+            return;
+        }
+        auto ontransition_cb = qmouseeventtransition_ontransition_callback;
+        if (ontransition_cb) {
             QEvent* cbval1 = event;
 
-            qmouseeventtransition_ontransition_callback(this, cbval1);
-        } else {
-            QMouseEventTransition::onTransition(event);
+            ontransition_cb(this, cbval1);
+            return;
         }
+        QMouseEventTransition::onTransition(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +183,15 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_eventtest_isbase) {
             qmouseeventtransition_eventtest_isbase = false;
             return QMouseEventTransition::eventTest(event);
-        } else if (qmouseeventtransition_eventtest_callback != nullptr) {
+        }
+        auto eventtest_cb = qmouseeventtransition_eventtest_callback;
+        if (eventtest_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmouseeventtransition_eventtest_callback(this, cbval1);
+            bool callback_ret = eventtest_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMouseEventTransition::eventTest(event);
         }
+        return QMouseEventTransition::eventTest(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,14 +199,15 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_event_isbase) {
             qmouseeventtransition_event_isbase = false;
             return QMouseEventTransition::event(e);
-        } else if (qmouseeventtransition_event_callback != nullptr) {
+        }
+        auto event_cb = qmouseeventtransition_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qmouseeventtransition_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMouseEventTransition::event(e);
         }
+        return QMouseEventTransition::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,15 +215,16 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_eventfilter_isbase) {
             qmouseeventtransition_eventfilter_isbase = false;
             return QMouseEventTransition::eventFilter(watched, event);
-        } else if (qmouseeventtransition_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmouseeventtransition_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmouseeventtransition_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMouseEventTransition::eventFilter(watched, event);
         }
+        return QMouseEventTransition::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +232,16 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_timerevent_isbase) {
             qmouseeventtransition_timerevent_isbase = false;
             QMouseEventTransition::timerEvent(event);
-        } else if (qmouseeventtransition_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmouseeventtransition_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmouseeventtransition_timerevent_callback(this, cbval1);
-        } else {
-            QMouseEventTransition::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMouseEventTransition::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,13 +249,16 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_childevent_isbase) {
             qmouseeventtransition_childevent_isbase = false;
             QMouseEventTransition::childEvent(event);
-        } else if (qmouseeventtransition_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmouseeventtransition_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmouseeventtransition_childevent_callback(this, cbval1);
-        } else {
-            QMouseEventTransition::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMouseEventTransition::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,13 +266,16 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_customevent_isbase) {
             qmouseeventtransition_customevent_isbase = false;
             QMouseEventTransition::customEvent(event);
-        } else if (qmouseeventtransition_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmouseeventtransition_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmouseeventtransition_customevent_callback(this, cbval1);
-        } else {
-            QMouseEventTransition::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMouseEventTransition::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,15 +283,18 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_connectnotify_isbase) {
             qmouseeventtransition_connectnotify_isbase = false;
             QMouseEventTransition::connectNotify(signal);
-        } else if (qmouseeventtransition_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmouseeventtransition_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmouseeventtransition_connectnotify_callback(this, cbval1);
-        } else {
-            QMouseEventTransition::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMouseEventTransition::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,15 +302,18 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_disconnectnotify_isbase) {
             qmouseeventtransition_disconnectnotify_isbase = false;
             QMouseEventTransition::disconnectNotify(signal);
-        } else if (qmouseeventtransition_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmouseeventtransition_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmouseeventtransition_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMouseEventTransition::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMouseEventTransition::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,12 +321,13 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_sender_isbase) {
             qmouseeventtransition_sender_isbase = false;
             return QMouseEventTransition::sender();
-        } else if (qmouseeventtransition_sender_callback != nullptr) {
-            QObject* callback_ret = qmouseeventtransition_sender_callback();
-            return callback_ret;
-        } else {
-            return QMouseEventTransition::sender();
         }
+        auto sender_cb = qmouseeventtransition_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMouseEventTransition::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,12 +335,13 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_sendersignalindex_isbase) {
             qmouseeventtransition_sendersignalindex_isbase = false;
             return QMouseEventTransition::senderSignalIndex();
-        } else if (qmouseeventtransition_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmouseeventtransition_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMouseEventTransition::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmouseeventtransition_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMouseEventTransition::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,14 +349,15 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_receivers_isbase) {
             qmouseeventtransition_receivers_isbase = false;
             return QMouseEventTransition::receivers(signal);
-        } else if (qmouseeventtransition_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmouseeventtransition_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmouseeventtransition_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMouseEventTransition::receivers(signal);
         }
+        return QMouseEventTransition::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,16 +365,17 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
         if (qmouseeventtransition_issignalconnected_isbase) {
             qmouseeventtransition_issignalconnected_isbase = false;
             return QMouseEventTransition::isSignalConnected(signal);
-        } else if (qmouseeventtransition_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmouseeventtransition_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmouseeventtransition_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMouseEventTransition::isSignalConnected(signal);
         }
+        return QMouseEventTransition::isSignalConnected(signal);
     }
 
     // Friend functions

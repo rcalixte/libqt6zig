@@ -69,23 +69,6 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     VirtualKWindowInsetsController() : KWindowInsetsController() {};
     VirtualKWindowInsetsController(QObject* parent) : KWindowInsetsController(parent) {};
 
-    ~VirtualKWindowInsetsController() {
-        kwindowinsetscontroller_metaobject_callback = nullptr;
-        kwindowinsetscontroller_metacast_callback = nullptr;
-        kwindowinsetscontroller_metacall_callback = nullptr;
-        kwindowinsetscontroller_event_callback = nullptr;
-        kwindowinsetscontroller_eventfilter_callback = nullptr;
-        kwindowinsetscontroller_timerevent_callback = nullptr;
-        kwindowinsetscontroller_childevent_callback = nullptr;
-        kwindowinsetscontroller_customevent_callback = nullptr;
-        kwindowinsetscontroller_connectnotify_callback = nullptr;
-        kwindowinsetscontroller_disconnectnotify_callback = nullptr;
-        kwindowinsetscontroller_sender_callback = nullptr;
-        kwindowinsetscontroller_sendersignalindex_callback = nullptr;
-        kwindowinsetscontroller_receivers_callback = nullptr;
-        kwindowinsetscontroller_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKWindowInsetsController_MetaObject_Callback(KWindowInsetsController_MetaObject_Callback cb) { kwindowinsetscontroller_metaobject_callback = cb; }
     inline void setKWindowInsetsController_Metacast_Callback(KWindowInsetsController_Metacast_Callback cb) { kwindowinsetscontroller_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_metaobject_isbase) {
             kwindowinsetscontroller_metaobject_isbase = false;
             return KWindowInsetsController::metaObject();
-        } else if (kwindowinsetscontroller_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kwindowinsetscontroller_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KWindowInsetsController::metaObject();
         }
+        auto metaobject_cb = kwindowinsetscontroller_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KWindowInsetsController::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_metacast_isbase) {
             kwindowinsetscontroller_metacast_isbase = false;
             return KWindowInsetsController::qt_metacast(param1);
-        } else if (kwindowinsetscontroller_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kwindowinsetscontroller_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kwindowinsetscontroller_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowInsetsController::qt_metacast(param1);
         }
+        return KWindowInsetsController::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_metacall_isbase) {
             kwindowinsetscontroller_metacall_isbase = false;
             return KWindowInsetsController::qt_metacall(param1, param2, param3);
-        } else if (kwindowinsetscontroller_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kwindowinsetscontroller_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kwindowinsetscontroller_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWindowInsetsController::qt_metacall(param1, param2, param3);
         }
+        return KWindowInsetsController::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_event_isbase) {
             kwindowinsetscontroller_event_isbase = false;
             return KWindowInsetsController::event(event);
-        } else if (kwindowinsetscontroller_event_callback != nullptr) {
+        }
+        auto event_cb = kwindowinsetscontroller_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kwindowinsetscontroller_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowInsetsController::event(event);
         }
+        return KWindowInsetsController::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_eventfilter_isbase) {
             kwindowinsetscontroller_eventfilter_isbase = false;
             return KWindowInsetsController::eventFilter(watched, event);
-        } else if (kwindowinsetscontroller_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kwindowinsetscontroller_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kwindowinsetscontroller_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KWindowInsetsController::eventFilter(watched, event);
         }
+        return KWindowInsetsController::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_timerevent_isbase) {
             kwindowinsetscontroller_timerevent_isbase = false;
             KWindowInsetsController::timerEvent(event);
-        } else if (kwindowinsetscontroller_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kwindowinsetscontroller_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kwindowinsetscontroller_timerevent_callback(this, cbval1);
-        } else {
-            KWindowInsetsController::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KWindowInsetsController::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_childevent_isbase) {
             kwindowinsetscontroller_childevent_isbase = false;
             KWindowInsetsController::childEvent(event);
-        } else if (kwindowinsetscontroller_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kwindowinsetscontroller_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kwindowinsetscontroller_childevent_callback(this, cbval1);
-        } else {
-            KWindowInsetsController::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KWindowInsetsController::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_customevent_isbase) {
             kwindowinsetscontroller_customevent_isbase = false;
             KWindowInsetsController::customEvent(event);
-        } else if (kwindowinsetscontroller_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kwindowinsetscontroller_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kwindowinsetscontroller_customevent_callback(this, cbval1);
-        } else {
-            KWindowInsetsController::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KWindowInsetsController::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_connectnotify_isbase) {
             kwindowinsetscontroller_connectnotify_isbase = false;
             KWindowInsetsController::connectNotify(signal);
-        } else if (kwindowinsetscontroller_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kwindowinsetscontroller_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwindowinsetscontroller_connectnotify_callback(this, cbval1);
-        } else {
-            KWindowInsetsController::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KWindowInsetsController::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_disconnectnotify_isbase) {
             kwindowinsetscontroller_disconnectnotify_isbase = false;
             KWindowInsetsController::disconnectNotify(signal);
-        } else if (kwindowinsetscontroller_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kwindowinsetscontroller_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwindowinsetscontroller_disconnectnotify_callback(this, cbval1);
-        } else {
-            KWindowInsetsController::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KWindowInsetsController::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_sender_isbase) {
             kwindowinsetscontroller_sender_isbase = false;
             return KWindowInsetsController::sender();
-        } else if (kwindowinsetscontroller_sender_callback != nullptr) {
-            QObject* callback_ret = kwindowinsetscontroller_sender_callback();
-            return callback_ret;
-        } else {
-            return KWindowInsetsController::sender();
         }
+        auto sender_cb = kwindowinsetscontroller_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KWindowInsetsController::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_sendersignalindex_isbase) {
             kwindowinsetscontroller_sendersignalindex_isbase = false;
             return KWindowInsetsController::senderSignalIndex();
-        } else if (kwindowinsetscontroller_sendersignalindex_callback != nullptr) {
-            int callback_ret = kwindowinsetscontroller_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KWindowInsetsController::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kwindowinsetscontroller_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KWindowInsetsController::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_receivers_isbase) {
             kwindowinsetscontroller_receivers_isbase = false;
             return KWindowInsetsController::receivers(signal);
-        } else if (kwindowinsetscontroller_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kwindowinsetscontroller_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kwindowinsetscontroller_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWindowInsetsController::receivers(signal);
         }
+        return KWindowInsetsController::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
         if (kwindowinsetscontroller_issignalconnected_isbase) {
             kwindowinsetscontroller_issignalconnected_isbase = false;
             return KWindowInsetsController::isSignalConnected(signal);
-        } else if (kwindowinsetscontroller_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kwindowinsetscontroller_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kwindowinsetscontroller_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowInsetsController::isSignalConnected(signal);
         }
+        return KWindowInsetsController::isSignalConnected(signal);
     }
 
     // Friend functions

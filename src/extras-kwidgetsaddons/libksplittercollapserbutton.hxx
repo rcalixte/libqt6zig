@@ -218,73 +218,6 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
   public:
     VirtualKSplitterCollapserButton(QWidget* childWidget, QSplitter* splitter) : KSplitterCollapserButton(childWidget, splitter) {};
 
-    ~VirtualKSplitterCollapserButton() {
-        ksplittercollapserbutton_metaobject_callback = nullptr;
-        ksplittercollapserbutton_metacast_callback = nullptr;
-        ksplittercollapserbutton_metacall_callback = nullptr;
-        ksplittercollapserbutton_sizehint_callback = nullptr;
-        ksplittercollapserbutton_eventfilter_callback = nullptr;
-        ksplittercollapserbutton_paintevent_callback = nullptr;
-        ksplittercollapserbutton_enterevent_callback = nullptr;
-        ksplittercollapserbutton_leaveevent_callback = nullptr;
-        ksplittercollapserbutton_showevent_callback = nullptr;
-        ksplittercollapserbutton_minimumsizehint_callback = nullptr;
-        ksplittercollapserbutton_event_callback = nullptr;
-        ksplittercollapserbutton_mousepressevent_callback = nullptr;
-        ksplittercollapserbutton_mousereleaseevent_callback = nullptr;
-        ksplittercollapserbutton_actionevent_callback = nullptr;
-        ksplittercollapserbutton_timerevent_callback = nullptr;
-        ksplittercollapserbutton_changeevent_callback = nullptr;
-        ksplittercollapserbutton_hitbutton_callback = nullptr;
-        ksplittercollapserbutton_checkstateset_callback = nullptr;
-        ksplittercollapserbutton_nextcheckstate_callback = nullptr;
-        ksplittercollapserbutton_initstyleoption_callback = nullptr;
-        ksplittercollapserbutton_keypressevent_callback = nullptr;
-        ksplittercollapserbutton_keyreleaseevent_callback = nullptr;
-        ksplittercollapserbutton_mousemoveevent_callback = nullptr;
-        ksplittercollapserbutton_focusinevent_callback = nullptr;
-        ksplittercollapserbutton_focusoutevent_callback = nullptr;
-        ksplittercollapserbutton_devtype_callback = nullptr;
-        ksplittercollapserbutton_setvisible_callback = nullptr;
-        ksplittercollapserbutton_heightforwidth_callback = nullptr;
-        ksplittercollapserbutton_hasheightforwidth_callback = nullptr;
-        ksplittercollapserbutton_paintengine_callback = nullptr;
-        ksplittercollapserbutton_mousedoubleclickevent_callback = nullptr;
-        ksplittercollapserbutton_wheelevent_callback = nullptr;
-        ksplittercollapserbutton_moveevent_callback = nullptr;
-        ksplittercollapserbutton_resizeevent_callback = nullptr;
-        ksplittercollapserbutton_closeevent_callback = nullptr;
-        ksplittercollapserbutton_contextmenuevent_callback = nullptr;
-        ksplittercollapserbutton_tabletevent_callback = nullptr;
-        ksplittercollapserbutton_dragenterevent_callback = nullptr;
-        ksplittercollapserbutton_dragmoveevent_callback = nullptr;
-        ksplittercollapserbutton_dragleaveevent_callback = nullptr;
-        ksplittercollapserbutton_dropevent_callback = nullptr;
-        ksplittercollapserbutton_hideevent_callback = nullptr;
-        ksplittercollapserbutton_nativeevent_callback = nullptr;
-        ksplittercollapserbutton_metric_callback = nullptr;
-        ksplittercollapserbutton_initpainter_callback = nullptr;
-        ksplittercollapserbutton_redirected_callback = nullptr;
-        ksplittercollapserbutton_sharedpainter_callback = nullptr;
-        ksplittercollapserbutton_inputmethodevent_callback = nullptr;
-        ksplittercollapserbutton_inputmethodquery_callback = nullptr;
-        ksplittercollapserbutton_focusnextprevchild_callback = nullptr;
-        ksplittercollapserbutton_childevent_callback = nullptr;
-        ksplittercollapserbutton_customevent_callback = nullptr;
-        ksplittercollapserbutton_connectnotify_callback = nullptr;
-        ksplittercollapserbutton_disconnectnotify_callback = nullptr;
-        ksplittercollapserbutton_updatemicrofocus_callback = nullptr;
-        ksplittercollapserbutton_create_callback = nullptr;
-        ksplittercollapserbutton_destroy_callback = nullptr;
-        ksplittercollapserbutton_focusnextchild_callback = nullptr;
-        ksplittercollapserbutton_focuspreviouschild_callback = nullptr;
-        ksplittercollapserbutton_sender_callback = nullptr;
-        ksplittercollapserbutton_sendersignalindex_callback = nullptr;
-        ksplittercollapserbutton_receivers_callback = nullptr;
-        ksplittercollapserbutton_issignalconnected_callback = nullptr;
-        ksplittercollapserbutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSplitterCollapserButton_MetaObject_Callback(KSplitterCollapserButton_MetaObject_Callback cb) { ksplittercollapserbutton_metaobject_callback = cb; }
     inline void setKSplitterCollapserButton_Metacast_Callback(KSplitterCollapserButton_Metacast_Callback cb) { ksplittercollapserbutton_metacast_callback = cb; }
@@ -422,12 +355,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_metaobject_isbase) {
             ksplittercollapserbutton_metaobject_isbase = false;
             return KSplitterCollapserButton::metaObject();
-        } else if (ksplittercollapserbutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksplittercollapserbutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::metaObject();
         }
+        auto metaobject_cb = ksplittercollapserbutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -435,14 +369,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_metacast_isbase) {
             ksplittercollapserbutton_metacast_isbase = false;
             return KSplitterCollapserButton::qt_metacast(param1);
-        } else if (ksplittercollapserbutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksplittercollapserbutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksplittercollapserbutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::qt_metacast(param1);
         }
+        return KSplitterCollapserButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,16 +385,17 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_metacall_isbase) {
             ksplittercollapserbutton_metacall_isbase = false;
             return KSplitterCollapserButton::qt_metacall(param1, param2, param3);
-        } else if (ksplittercollapserbutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksplittercollapserbutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksplittercollapserbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::qt_metacall(param1, param2, param3);
         }
+        return KSplitterCollapserButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,12 +403,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_sizehint_isbase) {
             ksplittercollapserbutton_sizehint_isbase = false;
             return KSplitterCollapserButton::sizeHint();
-        } else if (ksplittercollapserbutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = ksplittercollapserbutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSplitterCollapserButton::sizeHint();
         }
+        auto sizehint_cb = ksplittercollapserbutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KSplitterCollapserButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,15 +417,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_eventfilter_isbase) {
             ksplittercollapserbutton_eventfilter_isbase = false;
             return KSplitterCollapserButton::eventFilter(param1, param2);
-        } else if (ksplittercollapserbutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ksplittercollapserbutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = ksplittercollapserbutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::eventFilter(param1, param2);
         }
+        return KSplitterCollapserButton::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,13 +434,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_paintevent_isbase) {
             ksplittercollapserbutton_paintevent_isbase = false;
             KSplitterCollapserButton::paintEvent(param1);
-        } else if (ksplittercollapserbutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = ksplittercollapserbutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_paintevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +451,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_enterevent_isbase) {
             ksplittercollapserbutton_enterevent_isbase = false;
             KSplitterCollapserButton::enterEvent(event);
-        } else if (ksplittercollapserbutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = ksplittercollapserbutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            ksplittercollapserbutton_enterevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,13 +468,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_leaveevent_isbase) {
             ksplittercollapserbutton_leaveevent_isbase = false;
             KSplitterCollapserButton::leaveEvent(event);
-        } else if (ksplittercollapserbutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = ksplittercollapserbutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            ksplittercollapserbutton_leaveevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,13 +485,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_showevent_isbase) {
             ksplittercollapserbutton_showevent_isbase = false;
             KSplitterCollapserButton::showEvent(event);
-        } else if (ksplittercollapserbutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = ksplittercollapserbutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            ksplittercollapserbutton_showevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,12 +502,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_minimumsizehint_isbase) {
             ksplittercollapserbutton_minimumsizehint_isbase = false;
             return KSplitterCollapserButton::minimumSizeHint();
-        } else if (ksplittercollapserbutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = ksplittercollapserbutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSplitterCollapserButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = ksplittercollapserbutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KSplitterCollapserButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,14 +516,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_event_isbase) {
             ksplittercollapserbutton_event_isbase = false;
             return KSplitterCollapserButton::event(e);
-        } else if (ksplittercollapserbutton_event_callback != nullptr) {
+        }
+        auto event_cb = ksplittercollapserbutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = ksplittercollapserbutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::event(e);
         }
+        return KSplitterCollapserButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -580,13 +532,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_mousepressevent_isbase) {
             ksplittercollapserbutton_mousepressevent_isbase = false;
             KSplitterCollapserButton::mousePressEvent(param1);
-        } else if (ksplittercollapserbutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = ksplittercollapserbutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_mousepressevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,13 +549,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_mousereleaseevent_isbase) {
             ksplittercollapserbutton_mousereleaseevent_isbase = false;
             KSplitterCollapserButton::mouseReleaseEvent(param1);
-        } else if (ksplittercollapserbutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = ksplittercollapserbutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -608,13 +566,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_actionevent_isbase) {
             ksplittercollapserbutton_actionevent_isbase = false;
             KSplitterCollapserButton::actionEvent(param1);
-        } else if (ksplittercollapserbutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = ksplittercollapserbutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_actionevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,13 +583,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_timerevent_isbase) {
             ksplittercollapserbutton_timerevent_isbase = false;
             KSplitterCollapserButton::timerEvent(param1);
-        } else if (ksplittercollapserbutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksplittercollapserbutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_timerevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,13 +600,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_changeevent_isbase) {
             ksplittercollapserbutton_changeevent_isbase = false;
             KSplitterCollapserButton::changeEvent(param1);
-        } else if (ksplittercollapserbutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = ksplittercollapserbutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_changeevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,16 +617,17 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_hitbutton_isbase) {
             ksplittercollapserbutton_hitbutton_isbase = false;
             return KSplitterCollapserButton::hitButton(pos);
-        } else if (ksplittercollapserbutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = ksplittercollapserbutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = ksplittercollapserbutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::hitButton(pos);
         }
+        return KSplitterCollapserButton::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,11 +635,14 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_checkstateset_isbase) {
             ksplittercollapserbutton_checkstateset_isbase = false;
             KSplitterCollapserButton::checkStateSet();
-        } else if (ksplittercollapserbutton_checkstateset_callback != nullptr) {
-            ksplittercollapserbutton_checkstateset_callback();
-        } else {
-            KSplitterCollapserButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = ksplittercollapserbutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        KSplitterCollapserButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,11 +650,14 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_nextcheckstate_isbase) {
             ksplittercollapserbutton_nextcheckstate_isbase = false;
             KSplitterCollapserButton::nextCheckState();
-        } else if (ksplittercollapserbutton_nextcheckstate_callback != nullptr) {
-            ksplittercollapserbutton_nextcheckstate_callback();
-        } else {
-            KSplitterCollapserButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = ksplittercollapserbutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        KSplitterCollapserButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -691,13 +665,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_initstyleoption_isbase) {
             ksplittercollapserbutton_initstyleoption_isbase = false;
             KSplitterCollapserButton::initStyleOption(option);
-        } else if (ksplittercollapserbutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = ksplittercollapserbutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionToolButton* cbval1 = option;
 
-            ksplittercollapserbutton_initstyleoption_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,13 +682,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_keypressevent_isbase) {
             ksplittercollapserbutton_keypressevent_isbase = false;
             KSplitterCollapserButton::keyPressEvent(e);
-        } else if (ksplittercollapserbutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = ksplittercollapserbutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            ksplittercollapserbutton_keypressevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -719,13 +699,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_keyreleaseevent_isbase) {
             ksplittercollapserbutton_keyreleaseevent_isbase = false;
             KSplitterCollapserButton::keyReleaseEvent(e);
-        } else if (ksplittercollapserbutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = ksplittercollapserbutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            ksplittercollapserbutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,13 +716,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_mousemoveevent_isbase) {
             ksplittercollapserbutton_mousemoveevent_isbase = false;
             KSplitterCollapserButton::mouseMoveEvent(e);
-        } else if (ksplittercollapserbutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = ksplittercollapserbutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            ksplittercollapserbutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,13 +733,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_focusinevent_isbase) {
             ksplittercollapserbutton_focusinevent_isbase = false;
             KSplitterCollapserButton::focusInEvent(e);
-        } else if (ksplittercollapserbutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = ksplittercollapserbutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            ksplittercollapserbutton_focusinevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,13 +750,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_focusoutevent_isbase) {
             ksplittercollapserbutton_focusoutevent_isbase = false;
             KSplitterCollapserButton::focusOutEvent(e);
-        } else if (ksplittercollapserbutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = ksplittercollapserbutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            ksplittercollapserbutton_focusoutevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -775,12 +767,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_devtype_isbase) {
             ksplittercollapserbutton_devtype_isbase = false;
             return KSplitterCollapserButton::devType();
-        } else if (ksplittercollapserbutton_devtype_callback != nullptr) {
-            int callback_ret = ksplittercollapserbutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::devType();
         }
+        auto devtype_cb = ksplittercollapserbutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSplitterCollapserButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,13 +781,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_setvisible_isbase) {
             ksplittercollapserbutton_setvisible_isbase = false;
             KSplitterCollapserButton::setVisible(visible);
-        } else if (ksplittercollapserbutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = ksplittercollapserbutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            ksplittercollapserbutton_setvisible_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,14 +798,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_heightforwidth_isbase) {
             ksplittercollapserbutton_heightforwidth_isbase = false;
             return KSplitterCollapserButton::heightForWidth(param1);
-        } else if (ksplittercollapserbutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = ksplittercollapserbutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = ksplittercollapserbutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::heightForWidth(param1);
         }
+        return KSplitterCollapserButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -817,12 +814,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_hasheightforwidth_isbase) {
             ksplittercollapserbutton_hasheightforwidth_isbase = false;
             return KSplitterCollapserButton::hasHeightForWidth();
-        } else if (ksplittercollapserbutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = ksplittercollapserbutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = ksplittercollapserbutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,12 +828,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_paintengine_isbase) {
             ksplittercollapserbutton_paintengine_isbase = false;
             return KSplitterCollapserButton::paintEngine();
-        } else if (ksplittercollapserbutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = ksplittercollapserbutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::paintEngine();
         }
+        auto paintengine_cb = ksplittercollapserbutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +842,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_mousedoubleclickevent_isbase) {
             ksplittercollapserbutton_mousedoubleclickevent_isbase = false;
             KSplitterCollapserButton::mouseDoubleClickEvent(event);
-        } else if (ksplittercollapserbutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = ksplittercollapserbutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ksplittercollapserbutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +859,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_wheelevent_isbase) {
             ksplittercollapserbutton_wheelevent_isbase = false;
             KSplitterCollapserButton::wheelEvent(event);
-        } else if (ksplittercollapserbutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = ksplittercollapserbutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            ksplittercollapserbutton_wheelevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +876,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_moveevent_isbase) {
             ksplittercollapserbutton_moveevent_isbase = false;
             KSplitterCollapserButton::moveEvent(event);
-        } else if (ksplittercollapserbutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = ksplittercollapserbutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            ksplittercollapserbutton_moveevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +893,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_resizeevent_isbase) {
             ksplittercollapserbutton_resizeevent_isbase = false;
             KSplitterCollapserButton::resizeEvent(event);
-        } else if (ksplittercollapserbutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = ksplittercollapserbutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            ksplittercollapserbutton_resizeevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +910,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_closeevent_isbase) {
             ksplittercollapserbutton_closeevent_isbase = false;
             KSplitterCollapserButton::closeEvent(event);
-        } else if (ksplittercollapserbutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = ksplittercollapserbutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            ksplittercollapserbutton_closeevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +927,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_contextmenuevent_isbase) {
             ksplittercollapserbutton_contextmenuevent_isbase = false;
             KSplitterCollapserButton::contextMenuEvent(event);
-        } else if (ksplittercollapserbutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = ksplittercollapserbutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            ksplittercollapserbutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +944,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_tabletevent_isbase) {
             ksplittercollapserbutton_tabletevent_isbase = false;
             KSplitterCollapserButton::tabletEvent(event);
-        } else if (ksplittercollapserbutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = ksplittercollapserbutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            ksplittercollapserbutton_tabletevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +961,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_dragenterevent_isbase) {
             ksplittercollapserbutton_dragenterevent_isbase = false;
             KSplitterCollapserButton::dragEnterEvent(event);
-        } else if (ksplittercollapserbutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = ksplittercollapserbutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            ksplittercollapserbutton_dragenterevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +978,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_dragmoveevent_isbase) {
             ksplittercollapserbutton_dragmoveevent_isbase = false;
             KSplitterCollapserButton::dragMoveEvent(event);
-        } else if (ksplittercollapserbutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = ksplittercollapserbutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            ksplittercollapserbutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +995,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_dragleaveevent_isbase) {
             ksplittercollapserbutton_dragleaveevent_isbase = false;
             KSplitterCollapserButton::dragLeaveEvent(event);
-        } else if (ksplittercollapserbutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = ksplittercollapserbutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            ksplittercollapserbutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +1012,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_dropevent_isbase) {
             ksplittercollapserbutton_dropevent_isbase = false;
             KSplitterCollapserButton::dropEvent(event);
-        } else if (ksplittercollapserbutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = ksplittercollapserbutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            ksplittercollapserbutton_dropevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,13 +1029,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_hideevent_isbase) {
             ksplittercollapserbutton_hideevent_isbase = false;
             KSplitterCollapserButton::hideEvent(event);
-        } else if (ksplittercollapserbutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = ksplittercollapserbutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            ksplittercollapserbutton_hideevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,7 +1046,9 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_nativeevent_isbase) {
             ksplittercollapserbutton_nativeevent_isbase = false;
             return KSplitterCollapserButton::nativeEvent(eventType, message, result);
-        } else if (ksplittercollapserbutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = ksplittercollapserbutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1022,12 +1059,11 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = ksplittercollapserbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::nativeEvent(eventType, message, result);
         }
+        return KSplitterCollapserButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,14 +1071,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_metric_isbase) {
             ksplittercollapserbutton_metric_isbase = false;
             return KSplitterCollapserButton::metric(param1);
-        } else if (ksplittercollapserbutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = ksplittercollapserbutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = ksplittercollapserbutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::metric(param1);
         }
+        return KSplitterCollapserButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,13 +1087,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_initpainter_isbase) {
             ksplittercollapserbutton_initpainter_isbase = false;
             KSplitterCollapserButton::initPainter(painter);
-        } else if (ksplittercollapserbutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = ksplittercollapserbutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            ksplittercollapserbutton_initpainter_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,14 +1104,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_redirected_isbase) {
             ksplittercollapserbutton_redirected_isbase = false;
             return KSplitterCollapserButton::redirected(offset);
-        } else if (ksplittercollapserbutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = ksplittercollapserbutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = ksplittercollapserbutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::redirected(offset);
         }
+        return KSplitterCollapserButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1079,12 +1120,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_sharedpainter_isbase) {
             ksplittercollapserbutton_sharedpainter_isbase = false;
             return KSplitterCollapserButton::sharedPainter();
-        } else if (ksplittercollapserbutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = ksplittercollapserbutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::sharedPainter();
         }
+        auto sharedpainter_cb = ksplittercollapserbutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,13 +1134,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_inputmethodevent_isbase) {
             ksplittercollapserbutton_inputmethodevent_isbase = false;
             KSplitterCollapserButton::inputMethodEvent(param1);
-        } else if (ksplittercollapserbutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = ksplittercollapserbutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            ksplittercollapserbutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,14 +1151,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_inputmethodquery_isbase) {
             ksplittercollapserbutton_inputmethodquery_isbase = false;
             return KSplitterCollapserButton::inputMethodQuery(param1);
-        } else if (ksplittercollapserbutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = ksplittercollapserbutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = ksplittercollapserbutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KSplitterCollapserButton::inputMethodQuery(param1);
         }
+        return KSplitterCollapserButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,14 +1167,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_focusnextprevchild_isbase) {
             ksplittercollapserbutton_focusnextprevchild_isbase = false;
             return KSplitterCollapserButton::focusNextPrevChild(next);
-        } else if (ksplittercollapserbutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = ksplittercollapserbutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = ksplittercollapserbutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::focusNextPrevChild(next);
         }
+        return KSplitterCollapserButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,13 +1183,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_childevent_isbase) {
             ksplittercollapserbutton_childevent_isbase = false;
             KSplitterCollapserButton::childEvent(event);
-        } else if (ksplittercollapserbutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksplittercollapserbutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksplittercollapserbutton_childevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,13 +1200,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_customevent_isbase) {
             ksplittercollapserbutton_customevent_isbase = false;
             KSplitterCollapserButton::customEvent(event);
-        } else if (ksplittercollapserbutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksplittercollapserbutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksplittercollapserbutton_customevent_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,15 +1217,18 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_connectnotify_isbase) {
             ksplittercollapserbutton_connectnotify_isbase = false;
             KSplitterCollapserButton::connectNotify(signal);
-        } else if (ksplittercollapserbutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksplittercollapserbutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksplittercollapserbutton_connectnotify_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,15 +1236,18 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_disconnectnotify_isbase) {
             ksplittercollapserbutton_disconnectnotify_isbase = false;
             KSplitterCollapserButton::disconnectNotify(signal);
-        } else if (ksplittercollapserbutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksplittercollapserbutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksplittercollapserbutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSplitterCollapserButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSplitterCollapserButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,11 +1255,14 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_updatemicrofocus_isbase) {
             ksplittercollapserbutton_updatemicrofocus_isbase = false;
             KSplitterCollapserButton::updateMicroFocus();
-        } else if (ksplittercollapserbutton_updatemicrofocus_callback != nullptr) {
-            ksplittercollapserbutton_updatemicrofocus_callback();
-        } else {
-            KSplitterCollapserButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = ksplittercollapserbutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KSplitterCollapserButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,11 +1270,14 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_create_isbase) {
             ksplittercollapserbutton_create_isbase = false;
             KSplitterCollapserButton::create();
-        } else if (ksplittercollapserbutton_create_callback != nullptr) {
-            ksplittercollapserbutton_create_callback();
-        } else {
-            KSplitterCollapserButton::create();
+            return;
         }
+        auto create_cb = ksplittercollapserbutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KSplitterCollapserButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,11 +1285,14 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_destroy_isbase) {
             ksplittercollapserbutton_destroy_isbase = false;
             KSplitterCollapserButton::destroy();
-        } else if (ksplittercollapserbutton_destroy_callback != nullptr) {
-            ksplittercollapserbutton_destroy_callback();
-        } else {
-            KSplitterCollapserButton::destroy();
+            return;
         }
+        auto destroy_cb = ksplittercollapserbutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KSplitterCollapserButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,12 +1300,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_focusnextchild_isbase) {
             ksplittercollapserbutton_focusnextchild_isbase = false;
             return KSplitterCollapserButton::focusNextChild();
-        } else if (ksplittercollapserbutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = ksplittercollapserbutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::focusNextChild();
         }
+        auto focusnextchild_cb = ksplittercollapserbutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1245,12 +1314,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_focuspreviouschild_isbase) {
             ksplittercollapserbutton_focuspreviouschild_isbase = false;
             return KSplitterCollapserButton::focusPreviousChild();
-        } else if (ksplittercollapserbutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = ksplittercollapserbutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = ksplittercollapserbutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,12 +1328,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_sender_isbase) {
             ksplittercollapserbutton_sender_isbase = false;
             return KSplitterCollapserButton::sender();
-        } else if (ksplittercollapserbutton_sender_callback != nullptr) {
-            QObject* callback_ret = ksplittercollapserbutton_sender_callback();
-            return callback_ret;
-        } else {
-            return KSplitterCollapserButton::sender();
         }
+        auto sender_cb = ksplittercollapserbutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSplitterCollapserButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,12 +1342,13 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_sendersignalindex_isbase) {
             ksplittercollapserbutton_sendersignalindex_isbase = false;
             return KSplitterCollapserButton::senderSignalIndex();
-        } else if (ksplittercollapserbutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksplittercollapserbutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksplittercollapserbutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSplitterCollapserButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,14 +1356,15 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_receivers_isbase) {
             ksplittercollapserbutton_receivers_isbase = false;
             return KSplitterCollapserButton::receivers(signal);
-        } else if (ksplittercollapserbutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksplittercollapserbutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksplittercollapserbutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::receivers(signal);
         }
+        return KSplitterCollapserButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1299,16 +1372,17 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_issignalconnected_isbase) {
             ksplittercollapserbutton_issignalconnected_isbase = false;
             return KSplitterCollapserButton::isSignalConnected(signal);
-        } else if (ksplittercollapserbutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksplittercollapserbutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksplittercollapserbutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSplitterCollapserButton::isSignalConnected(signal);
         }
+        return KSplitterCollapserButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1316,15 +1390,16 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
         if (ksplittercollapserbutton_getdecodedmetricf_isbase) {
             ksplittercollapserbutton_getdecodedmetricf_isbase = false;
             return KSplitterCollapserButton::getDecodedMetricF(metricA, metricB);
-        } else if (ksplittercollapserbutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = ksplittercollapserbutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = ksplittercollapserbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KSplitterCollapserButton::getDecodedMetricF(metricA, metricB);
         }
+        return KSplitterCollapserButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

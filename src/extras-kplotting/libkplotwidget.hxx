@@ -222,74 +222,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
     VirtualKPlotWidget(QWidget* parent) : KPlotWidget(parent) {};
     VirtualKPlotWidget() : KPlotWidget() {};
 
-    ~VirtualKPlotWidget() {
-        kplotwidget_metaobject_callback = nullptr;
-        kplotwidget_metacast_callback = nullptr;
-        kplotwidget_metacall_callback = nullptr;
-        kplotwidget_minimumsizehint_callback = nullptr;
-        kplotwidget_sizehint_callback = nullptr;
-        kplotwidget_event_callback = nullptr;
-        kplotwidget_paintevent_callback = nullptr;
-        kplotwidget_resizeevent_callback = nullptr;
-        kplotwidget_drawaxes_callback = nullptr;
-        kplotwidget_changeevent_callback = nullptr;
-        kplotwidget_initstyleoption_callback = nullptr;
-        kplotwidget_devtype_callback = nullptr;
-        kplotwidget_setvisible_callback = nullptr;
-        kplotwidget_heightforwidth_callback = nullptr;
-        kplotwidget_hasheightforwidth_callback = nullptr;
-        kplotwidget_paintengine_callback = nullptr;
-        kplotwidget_mousepressevent_callback = nullptr;
-        kplotwidget_mousereleaseevent_callback = nullptr;
-        kplotwidget_mousedoubleclickevent_callback = nullptr;
-        kplotwidget_mousemoveevent_callback = nullptr;
-        kplotwidget_wheelevent_callback = nullptr;
-        kplotwidget_keypressevent_callback = nullptr;
-        kplotwidget_keyreleaseevent_callback = nullptr;
-        kplotwidget_focusinevent_callback = nullptr;
-        kplotwidget_focusoutevent_callback = nullptr;
-        kplotwidget_enterevent_callback = nullptr;
-        kplotwidget_leaveevent_callback = nullptr;
-        kplotwidget_moveevent_callback = nullptr;
-        kplotwidget_closeevent_callback = nullptr;
-        kplotwidget_contextmenuevent_callback = nullptr;
-        kplotwidget_tabletevent_callback = nullptr;
-        kplotwidget_actionevent_callback = nullptr;
-        kplotwidget_dragenterevent_callback = nullptr;
-        kplotwidget_dragmoveevent_callback = nullptr;
-        kplotwidget_dragleaveevent_callback = nullptr;
-        kplotwidget_dropevent_callback = nullptr;
-        kplotwidget_showevent_callback = nullptr;
-        kplotwidget_hideevent_callback = nullptr;
-        kplotwidget_nativeevent_callback = nullptr;
-        kplotwidget_metric_callback = nullptr;
-        kplotwidget_initpainter_callback = nullptr;
-        kplotwidget_redirected_callback = nullptr;
-        kplotwidget_sharedpainter_callback = nullptr;
-        kplotwidget_inputmethodevent_callback = nullptr;
-        kplotwidget_inputmethodquery_callback = nullptr;
-        kplotwidget_focusnextprevchild_callback = nullptr;
-        kplotwidget_eventfilter_callback = nullptr;
-        kplotwidget_timerevent_callback = nullptr;
-        kplotwidget_childevent_callback = nullptr;
-        kplotwidget_customevent_callback = nullptr;
-        kplotwidget_connectnotify_callback = nullptr;
-        kplotwidget_disconnectnotify_callback = nullptr;
-        kplotwidget_setpixrect_callback = nullptr;
-        kplotwidget_pointsunderpoint_callback = nullptr;
-        kplotwidget_drawframe_callback = nullptr;
-        kplotwidget_updatemicrofocus_callback = nullptr;
-        kplotwidget_create_callback = nullptr;
-        kplotwidget_destroy_callback = nullptr;
-        kplotwidget_focusnextchild_callback = nullptr;
-        kplotwidget_focuspreviouschild_callback = nullptr;
-        kplotwidget_sender_callback = nullptr;
-        kplotwidget_sendersignalindex_callback = nullptr;
-        kplotwidget_receivers_callback = nullptr;
-        kplotwidget_issignalconnected_callback = nullptr;
-        kplotwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPlotWidget_MetaObject_Callback(KPlotWidget_MetaObject_Callback cb) { kplotwidget_metaobject_callback = cb; }
     inline void setKPlotWidget_Metacast_Callback(KPlotWidget_Metacast_Callback cb) { kplotwidget_metacast_callback = cb; }
@@ -429,12 +361,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_metaobject_isbase) {
             kplotwidget_metaobject_isbase = false;
             return KPlotWidget::metaObject();
-        } else if (kplotwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kplotwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::metaObject();
         }
+        auto metaobject_cb = kplotwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -442,14 +375,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_metacast_isbase) {
             kplotwidget_metacast_isbase = false;
             return KPlotWidget::qt_metacast(param1);
-        } else if (kplotwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kplotwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kplotwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPlotWidget::qt_metacast(param1);
         }
+        return KPlotWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,16 +391,17 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_metacall_isbase) {
             kplotwidget_metacall_isbase = false;
             return KPlotWidget::qt_metacall(param1, param2, param3);
-        } else if (kplotwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kplotwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kplotwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPlotWidget::qt_metacall(param1, param2, param3);
         }
+        return KPlotWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,12 +409,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_minimumsizehint_isbase) {
             kplotwidget_minimumsizehint_isbase = false;
             return KPlotWidget::minimumSizeHint();
-        } else if (kplotwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kplotwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPlotWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kplotwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPlotWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,12 +423,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_sizehint_isbase) {
             kplotwidget_sizehint_isbase = false;
             return KPlotWidget::sizeHint();
-        } else if (kplotwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = kplotwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPlotWidget::sizeHint();
         }
+        auto sizehint_cb = kplotwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPlotWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,14 +437,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_event_isbase) {
             kplotwidget_event_isbase = false;
             return KPlotWidget::event(param1);
-        } else if (kplotwidget_event_callback != nullptr) {
+        }
+        auto event_cb = kplotwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = kplotwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPlotWidget::event(param1);
         }
+        return KPlotWidget::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,13 +453,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_paintevent_isbase) {
             kplotwidget_paintevent_isbase = false;
             KPlotWidget::paintEvent(param1);
-        } else if (kplotwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kplotwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kplotwidget_paintevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,13 +470,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_resizeevent_isbase) {
             kplotwidget_resizeevent_isbase = false;
             KPlotWidget::resizeEvent(param1);
-        } else if (kplotwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kplotwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kplotwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,13 +487,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_drawaxes_isbase) {
             kplotwidget_drawaxes_isbase = false;
             KPlotWidget::drawAxes(p);
-        } else if (kplotwidget_drawaxes_callback != nullptr) {
+            return;
+        }
+        auto drawaxes_cb = kplotwidget_drawaxes_callback;
+        if (drawaxes_cb) {
             QPainter* cbval1 = p;
 
-            kplotwidget_drawaxes_callback(this, cbval1);
-        } else {
-            KPlotWidget::drawAxes(p);
+            drawaxes_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::drawAxes(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,13 +504,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_changeevent_isbase) {
             kplotwidget_changeevent_isbase = false;
             KPlotWidget::changeEvent(param1);
-        } else if (kplotwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kplotwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kplotwidget_changeevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -571,13 +521,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_initstyleoption_isbase) {
             kplotwidget_initstyleoption_isbase = false;
             KPlotWidget::initStyleOption(option);
-        } else if (kplotwidget_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kplotwidget_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kplotwidget_initstyleoption_callback(this, cbval1);
-        } else {
-            KPlotWidget::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,12 +538,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_devtype_isbase) {
             kplotwidget_devtype_isbase = false;
             return KPlotWidget::devType();
-        } else if (kplotwidget_devtype_callback != nullptr) {
-            int callback_ret = kplotwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPlotWidget::devType();
         }
+        auto devtype_cb = kplotwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPlotWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +552,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_setvisible_isbase) {
             kplotwidget_setvisible_isbase = false;
             KPlotWidget::setVisible(visible);
-        } else if (kplotwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kplotwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kplotwidget_setvisible_callback(this, cbval1);
-        } else {
-            KPlotWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,14 +569,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_heightforwidth_isbase) {
             kplotwidget_heightforwidth_isbase = false;
             return KPlotWidget::heightForWidth(param1);
-        } else if (kplotwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kplotwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kplotwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPlotWidget::heightForWidth(param1);
         }
+        return KPlotWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,12 +585,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_hasheightforwidth_isbase) {
             kplotwidget_hasheightforwidth_isbase = false;
             return KPlotWidget::hasHeightForWidth();
-        } else if (kplotwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kplotwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kplotwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,12 +599,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_paintengine_isbase) {
             kplotwidget_paintengine_isbase = false;
             return KPlotWidget::paintEngine();
-        } else if (kplotwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kplotwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::paintEngine();
         }
+        auto paintengine_cb = kplotwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +613,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_mousepressevent_isbase) {
             kplotwidget_mousepressevent_isbase = false;
             KPlotWidget::mousePressEvent(event);
-        } else if (kplotwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kplotwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kplotwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +630,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_mousereleaseevent_isbase) {
             kplotwidget_mousereleaseevent_isbase = false;
             KPlotWidget::mouseReleaseEvent(event);
-        } else if (kplotwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kplotwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kplotwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +647,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_mousedoubleclickevent_isbase) {
             kplotwidget_mousedoubleclickevent_isbase = false;
             KPlotWidget::mouseDoubleClickEvent(event);
-        } else if (kplotwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kplotwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kplotwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +664,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_mousemoveevent_isbase) {
             kplotwidget_mousemoveevent_isbase = false;
             KPlotWidget::mouseMoveEvent(event);
-        } else if (kplotwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kplotwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kplotwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +681,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_wheelevent_isbase) {
             kplotwidget_wheelevent_isbase = false;
             KPlotWidget::wheelEvent(event);
-        } else if (kplotwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kplotwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kplotwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +698,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_keypressevent_isbase) {
             kplotwidget_keypressevent_isbase = false;
             KPlotWidget::keyPressEvent(event);
-        } else if (kplotwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kplotwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kplotwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +715,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_keyreleaseevent_isbase) {
             kplotwidget_keyreleaseevent_isbase = false;
             KPlotWidget::keyReleaseEvent(event);
-        } else if (kplotwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kplotwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kplotwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +732,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_focusinevent_isbase) {
             kplotwidget_focusinevent_isbase = false;
             KPlotWidget::focusInEvent(event);
-        } else if (kplotwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kplotwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kplotwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +749,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_focusoutevent_isbase) {
             kplotwidget_focusoutevent_isbase = false;
             KPlotWidget::focusOutEvent(event);
-        } else if (kplotwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kplotwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kplotwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +766,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_enterevent_isbase) {
             kplotwidget_enterevent_isbase = false;
             KPlotWidget::enterEvent(event);
-        } else if (kplotwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kplotwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kplotwidget_enterevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +783,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_leaveevent_isbase) {
             kplotwidget_leaveevent_isbase = false;
             KPlotWidget::leaveEvent(event);
-        } else if (kplotwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kplotwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kplotwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +800,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_moveevent_isbase) {
             kplotwidget_moveevent_isbase = false;
             KPlotWidget::moveEvent(event);
-        } else if (kplotwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kplotwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kplotwidget_moveevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +817,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_closeevent_isbase) {
             kplotwidget_closeevent_isbase = false;
             KPlotWidget::closeEvent(event);
-        } else if (kplotwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kplotwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kplotwidget_closeevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +834,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_contextmenuevent_isbase) {
             kplotwidget_contextmenuevent_isbase = false;
             KPlotWidget::contextMenuEvent(event);
-        } else if (kplotwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kplotwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kplotwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +851,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_tabletevent_isbase) {
             kplotwidget_tabletevent_isbase = false;
             KPlotWidget::tabletEvent(event);
-        } else if (kplotwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kplotwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kplotwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +868,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_actionevent_isbase) {
             kplotwidget_actionevent_isbase = false;
             KPlotWidget::actionEvent(event);
-        } else if (kplotwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kplotwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kplotwidget_actionevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +885,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_dragenterevent_isbase) {
             kplotwidget_dragenterevent_isbase = false;
             KPlotWidget::dragEnterEvent(event);
-        } else if (kplotwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kplotwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kplotwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +902,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_dragmoveevent_isbase) {
             kplotwidget_dragmoveevent_isbase = false;
             KPlotWidget::dragMoveEvent(event);
-        } else if (kplotwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kplotwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kplotwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +919,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_dragleaveevent_isbase) {
             kplotwidget_dragleaveevent_isbase = false;
             KPlotWidget::dragLeaveEvent(event);
-        } else if (kplotwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kplotwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kplotwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +936,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_dropevent_isbase) {
             kplotwidget_dropevent_isbase = false;
             KPlotWidget::dropEvent(event);
-        } else if (kplotwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kplotwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kplotwidget_dropevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +953,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_showevent_isbase) {
             kplotwidget_showevent_isbase = false;
             KPlotWidget::showEvent(event);
-        } else if (kplotwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kplotwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kplotwidget_showevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +970,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_hideevent_isbase) {
             kplotwidget_hideevent_isbase = false;
             KPlotWidget::hideEvent(event);
-        } else if (kplotwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kplotwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kplotwidget_hideevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,7 +987,9 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_nativeevent_isbase) {
             kplotwidget_nativeevent_isbase = false;
             return KPlotWidget::nativeEvent(eventType, message, result);
-        } else if (kplotwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kplotwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -972,12 +1000,11 @@ class VirtualKPlotWidget final : public KPlotWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kplotwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPlotWidget::nativeEvent(eventType, message, result);
         }
+        return KPlotWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -985,14 +1012,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_metric_isbase) {
             kplotwidget_metric_isbase = false;
             return KPlotWidget::metric(param1);
-        } else if (kplotwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = kplotwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kplotwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPlotWidget::metric(param1);
         }
+        return KPlotWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +1028,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_initpainter_isbase) {
             kplotwidget_initpainter_isbase = false;
             KPlotWidget::initPainter(painter);
-        } else if (kplotwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kplotwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kplotwidget_initpainter_callback(this, cbval1);
-        } else {
-            KPlotWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,14 +1045,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_redirected_isbase) {
             kplotwidget_redirected_isbase = false;
             return KPlotWidget::redirected(offset);
-        } else if (kplotwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kplotwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kplotwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPlotWidget::redirected(offset);
         }
+        return KPlotWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,12 +1061,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_sharedpainter_isbase) {
             kplotwidget_sharedpainter_isbase = false;
             return KPlotWidget::sharedPainter();
-        } else if (kplotwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kplotwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::sharedPainter();
         }
+        auto sharedpainter_cb = kplotwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,13 +1075,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_inputmethodevent_isbase) {
             kplotwidget_inputmethodevent_isbase = false;
             KPlotWidget::inputMethodEvent(param1);
-        } else if (kplotwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kplotwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kplotwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,14 +1092,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_inputmethodquery_isbase) {
             kplotwidget_inputmethodquery_isbase = false;
             return KPlotWidget::inputMethodQuery(param1);
-        } else if (kplotwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kplotwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kplotwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPlotWidget::inputMethodQuery(param1);
         }
+        return KPlotWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,14 +1108,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_focusnextprevchild_isbase) {
             kplotwidget_focusnextprevchild_isbase = false;
             return KPlotWidget::focusNextPrevChild(next);
-        } else if (kplotwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kplotwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kplotwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPlotWidget::focusNextPrevChild(next);
         }
+        return KPlotWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1124,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_eventfilter_isbase) {
             kplotwidget_eventfilter_isbase = false;
             return KPlotWidget::eventFilter(watched, event);
-        } else if (kplotwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kplotwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kplotwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPlotWidget::eventFilter(watched, event);
         }
+        return KPlotWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,13 +1141,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_timerevent_isbase) {
             kplotwidget_timerevent_isbase = false;
             KPlotWidget::timerEvent(event);
-        } else if (kplotwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kplotwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kplotwidget_timerevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,13 +1158,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_childevent_isbase) {
             kplotwidget_childevent_isbase = false;
             KPlotWidget::childEvent(event);
-        } else if (kplotwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kplotwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kplotwidget_childevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,13 +1175,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_customevent_isbase) {
             kplotwidget_customevent_isbase = false;
             KPlotWidget::customEvent(event);
-        } else if (kplotwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kplotwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kplotwidget_customevent_callback(this, cbval1);
-        } else {
-            KPlotWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,15 +1192,18 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_connectnotify_isbase) {
             kplotwidget_connectnotify_isbase = false;
             KPlotWidget::connectNotify(signal);
-        } else if (kplotwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kplotwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kplotwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KPlotWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,15 +1211,18 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_disconnectnotify_isbase) {
             kplotwidget_disconnectnotify_isbase = false;
             KPlotWidget::disconnectNotify(signal);
-        } else if (kplotwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kplotwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kplotwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPlotWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1176,11 +1230,14 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_setpixrect_isbase) {
             kplotwidget_setpixrect_isbase = false;
             KPlotWidget::setPixRect();
-        } else if (kplotwidget_setpixrect_callback != nullptr) {
-            kplotwidget_setpixrect_callback();
-        } else {
-            KPlotWidget::setPixRect();
+            return;
         }
+        auto setpixrect_cb = kplotwidget_setpixrect_callback;
+        if (setpixrect_cb) {
+            setpixrect_cb();
+            return;
+        }
+        KPlotWidget::setPixRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1188,12 +1245,14 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_pointsunderpoint_isbase) {
             kplotwidget_pointsunderpoint_isbase = false;
             return KPlotWidget::pointsUnderPoint(p);
-        } else if (kplotwidget_pointsunderpoint_callback != nullptr) {
+        }
+        auto pointsunderpoint_cb = kplotwidget_pointsunderpoint_callback;
+        if (pointsunderpoint_cb) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            libqt_list /* of KPlotPoint* */ callback_ret = kplotwidget_pointsunderpoint_callback(this, cbval1);
+            libqt_list /* of KPlotPoint* */ callback_ret = pointsunderpoint_cb(this, cbval1);
             QList<KPlotPoint*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             KPlotPoint** callback_ret_arr = static_cast<KPlotPoint**>(callback_ret.data);
@@ -1202,9 +1261,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KPlotWidget::pointsUnderPoint(p);
         }
+        return KPlotWidget::pointsUnderPoint(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,13 +1270,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_drawframe_isbase) {
             kplotwidget_drawframe_isbase = false;
             KPlotWidget::drawFrame(param1);
-        } else if (kplotwidget_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kplotwidget_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kplotwidget_drawframe_callback(this, cbval1);
-        } else {
-            KPlotWidget::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KPlotWidget::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,11 +1287,14 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_updatemicrofocus_isbase) {
             kplotwidget_updatemicrofocus_isbase = false;
             KPlotWidget::updateMicroFocus();
-        } else if (kplotwidget_updatemicrofocus_callback != nullptr) {
-            kplotwidget_updatemicrofocus_callback();
-        } else {
-            KPlotWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kplotwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPlotWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,11 +1302,14 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_create_isbase) {
             kplotwidget_create_isbase = false;
             KPlotWidget::create();
-        } else if (kplotwidget_create_callback != nullptr) {
-            kplotwidget_create_callback();
-        } else {
-            KPlotWidget::create();
+            return;
         }
+        auto create_cb = kplotwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPlotWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,11 +1317,14 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_destroy_isbase) {
             kplotwidget_destroy_isbase = false;
             KPlotWidget::destroy();
-        } else if (kplotwidget_destroy_callback != nullptr) {
-            kplotwidget_destroy_callback();
-        } else {
-            KPlotWidget::destroy();
+            return;
         }
+        auto destroy_cb = kplotwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPlotWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,12 +1332,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_focusnextchild_isbase) {
             kplotwidget_focusnextchild_isbase = false;
             return KPlotWidget::focusNextChild();
-        } else if (kplotwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = kplotwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::focusNextChild();
         }
+        auto focusnextchild_cb = kplotwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1275,12 +1346,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_focuspreviouschild_isbase) {
             kplotwidget_focuspreviouschild_isbase = false;
             return KPlotWidget::focusPreviousChild();
-        } else if (kplotwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kplotwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kplotwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1288,12 +1360,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_sender_isbase) {
             kplotwidget_sender_isbase = false;
             return KPlotWidget::sender();
-        } else if (kplotwidget_sender_callback != nullptr) {
-            QObject* callback_ret = kplotwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KPlotWidget::sender();
         }
+        auto sender_cb = kplotwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPlotWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1301,12 +1374,13 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_sendersignalindex_isbase) {
             kplotwidget_sendersignalindex_isbase = false;
             return KPlotWidget::senderSignalIndex();
-        } else if (kplotwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = kplotwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPlotWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kplotwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPlotWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1314,14 +1388,15 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_receivers_isbase) {
             kplotwidget_receivers_isbase = false;
             return KPlotWidget::receivers(signal);
-        } else if (kplotwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kplotwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kplotwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPlotWidget::receivers(signal);
         }
+        return KPlotWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1329,16 +1404,17 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_issignalconnected_isbase) {
             kplotwidget_issignalconnected_isbase = false;
             return KPlotWidget::isSignalConnected(signal);
-        } else if (kplotwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kplotwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kplotwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPlotWidget::isSignalConnected(signal);
         }
+        return KPlotWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1346,15 +1422,16 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (kplotwidget_getdecodedmetricf_isbase) {
             kplotwidget_getdecodedmetricf_isbase = false;
             return KPlotWidget::getDecodedMetricF(metricA, metricB);
-        } else if (kplotwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kplotwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kplotwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPlotWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KPlotWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

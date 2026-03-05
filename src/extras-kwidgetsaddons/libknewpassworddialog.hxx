@@ -228,76 +228,6 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     VirtualKNewPasswordDialog(QWidget* parent) : KNewPasswordDialog(parent) {};
     VirtualKNewPasswordDialog() : KNewPasswordDialog() {};
 
-    ~VirtualKNewPasswordDialog() {
-        knewpassworddialog_metaobject_callback = nullptr;
-        knewpassworddialog_metacast_callback = nullptr;
-        knewpassworddialog_metacall_callback = nullptr;
-        knewpassworddialog_accept_callback = nullptr;
-        knewpassworddialog_checkpassword_callback = nullptr;
-        knewpassworddialog_setvisible_callback = nullptr;
-        knewpassworddialog_sizehint_callback = nullptr;
-        knewpassworddialog_minimumsizehint_callback = nullptr;
-        knewpassworddialog_open_callback = nullptr;
-        knewpassworddialog_exec_callback = nullptr;
-        knewpassworddialog_done_callback = nullptr;
-        knewpassworddialog_reject_callback = nullptr;
-        knewpassworddialog_keypressevent_callback = nullptr;
-        knewpassworddialog_closeevent_callback = nullptr;
-        knewpassworddialog_showevent_callback = nullptr;
-        knewpassworddialog_resizeevent_callback = nullptr;
-        knewpassworddialog_contextmenuevent_callback = nullptr;
-        knewpassworddialog_eventfilter_callback = nullptr;
-        knewpassworddialog_devtype_callback = nullptr;
-        knewpassworddialog_heightforwidth_callback = nullptr;
-        knewpassworddialog_hasheightforwidth_callback = nullptr;
-        knewpassworddialog_paintengine_callback = nullptr;
-        knewpassworddialog_event_callback = nullptr;
-        knewpassworddialog_mousepressevent_callback = nullptr;
-        knewpassworddialog_mousereleaseevent_callback = nullptr;
-        knewpassworddialog_mousedoubleclickevent_callback = nullptr;
-        knewpassworddialog_mousemoveevent_callback = nullptr;
-        knewpassworddialog_wheelevent_callback = nullptr;
-        knewpassworddialog_keyreleaseevent_callback = nullptr;
-        knewpassworddialog_focusinevent_callback = nullptr;
-        knewpassworddialog_focusoutevent_callback = nullptr;
-        knewpassworddialog_enterevent_callback = nullptr;
-        knewpassworddialog_leaveevent_callback = nullptr;
-        knewpassworddialog_paintevent_callback = nullptr;
-        knewpassworddialog_moveevent_callback = nullptr;
-        knewpassworddialog_tabletevent_callback = nullptr;
-        knewpassworddialog_actionevent_callback = nullptr;
-        knewpassworddialog_dragenterevent_callback = nullptr;
-        knewpassworddialog_dragmoveevent_callback = nullptr;
-        knewpassworddialog_dragleaveevent_callback = nullptr;
-        knewpassworddialog_dropevent_callback = nullptr;
-        knewpassworddialog_hideevent_callback = nullptr;
-        knewpassworddialog_nativeevent_callback = nullptr;
-        knewpassworddialog_changeevent_callback = nullptr;
-        knewpassworddialog_metric_callback = nullptr;
-        knewpassworddialog_initpainter_callback = nullptr;
-        knewpassworddialog_redirected_callback = nullptr;
-        knewpassworddialog_sharedpainter_callback = nullptr;
-        knewpassworddialog_inputmethodevent_callback = nullptr;
-        knewpassworddialog_inputmethodquery_callback = nullptr;
-        knewpassworddialog_focusnextprevchild_callback = nullptr;
-        knewpassworddialog_timerevent_callback = nullptr;
-        knewpassworddialog_childevent_callback = nullptr;
-        knewpassworddialog_customevent_callback = nullptr;
-        knewpassworddialog_connectnotify_callback = nullptr;
-        knewpassworddialog_disconnectnotify_callback = nullptr;
-        knewpassworddialog_adjustposition_callback = nullptr;
-        knewpassworddialog_updatemicrofocus_callback = nullptr;
-        knewpassworddialog_create_callback = nullptr;
-        knewpassworddialog_destroy_callback = nullptr;
-        knewpassworddialog_focusnextchild_callback = nullptr;
-        knewpassworddialog_focuspreviouschild_callback = nullptr;
-        knewpassworddialog_sender_callback = nullptr;
-        knewpassworddialog_sendersignalindex_callback = nullptr;
-        knewpassworddialog_receivers_callback = nullptr;
-        knewpassworddialog_issignalconnected_callback = nullptr;
-        knewpassworddialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNewPasswordDialog_MetaObject_Callback(KNewPasswordDialog_MetaObject_Callback cb) { knewpassworddialog_metaobject_callback = cb; }
     inline void setKNewPasswordDialog_Metacast_Callback(KNewPasswordDialog_Metacast_Callback cb) { knewpassworddialog_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_metaobject_isbase) {
             knewpassworddialog_metaobject_isbase = false;
             return KNewPasswordDialog::metaObject();
-        } else if (knewpassworddialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knewpassworddialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::metaObject();
         }
+        auto metaobject_cb = knewpassworddialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_metacast_isbase) {
             knewpassworddialog_metacast_isbase = false;
             return KNewPasswordDialog::qt_metacast(param1);
-        } else if (knewpassworddialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knewpassworddialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knewpassworddialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::qt_metacast(param1);
         }
+        return KNewPasswordDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_metacall_isbase) {
             knewpassworddialog_metacall_isbase = false;
             return KNewPasswordDialog::qt_metacall(param1, param2, param3);
-        } else if (knewpassworddialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knewpassworddialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knewpassworddialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::qt_metacall(param1, param2, param3);
         }
+        return KNewPasswordDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,11 +419,14 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_accept_isbase) {
             knewpassworddialog_accept_isbase = false;
             KNewPasswordDialog::accept();
-        } else if (knewpassworddialog_accept_callback != nullptr) {
-            knewpassworddialog_accept_callback();
-        } else {
-            KNewPasswordDialog::accept();
+            return;
         }
+        auto accept_cb = knewpassworddialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KNewPasswordDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,7 +434,9 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_checkpassword_isbase) {
             knewpassworddialog_checkpassword_isbase = false;
             return KNewPasswordDialog::checkPassword(param1);
-        } else if (knewpassworddialog_checkpassword_callback != nullptr) {
+        }
+        auto checkpassword_cb = knewpassworddialog_checkpassword_callback;
+        if (checkpassword_cb) {
             const QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -508,12 +446,11 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            bool callback_ret = knewpassworddialog_checkpassword_callback(this, cbval1);
+            bool callback_ret = checkpassword_cb(this, cbval1);
             libqt_free(param1_str);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::checkPassword(param1);
         }
+        return KNewPasswordDialog::checkPassword(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,13 +458,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_setvisible_isbase) {
             knewpassworddialog_setvisible_isbase = false;
             KNewPasswordDialog::setVisible(visible);
-        } else if (knewpassworddialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = knewpassworddialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            knewpassworddialog_setvisible_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,12 +475,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_sizehint_isbase) {
             knewpassworddialog_sizehint_isbase = false;
             return KNewPasswordDialog::sizeHint();
-        } else if (knewpassworddialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = knewpassworddialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNewPasswordDialog::sizeHint();
         }
+        auto sizehint_cb = knewpassworddialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KNewPasswordDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,12 +489,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_minimumsizehint_isbase) {
             knewpassworddialog_minimumsizehint_isbase = false;
             return KNewPasswordDialog::minimumSizeHint();
-        } else if (knewpassworddialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = knewpassworddialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNewPasswordDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = knewpassworddialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KNewPasswordDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +503,14 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_open_isbase) {
             knewpassworddialog_open_isbase = false;
             KNewPasswordDialog::open();
-        } else if (knewpassworddialog_open_callback != nullptr) {
-            knewpassworddialog_open_callback();
-        } else {
-            KNewPasswordDialog::open();
+            return;
         }
+        auto open_cb = knewpassworddialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KNewPasswordDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,12 +518,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_exec_isbase) {
             knewpassworddialog_exec_isbase = false;
             return KNewPasswordDialog::exec();
-        } else if (knewpassworddialog_exec_callback != nullptr) {
-            int callback_ret = knewpassworddialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::exec();
         }
+        auto exec_cb = knewpassworddialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNewPasswordDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,13 +532,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_done_isbase) {
             knewpassworddialog_done_isbase = false;
             KNewPasswordDialog::done(param1);
-        } else if (knewpassworddialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = knewpassworddialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            knewpassworddialog_done_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,11 +549,14 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_reject_isbase) {
             knewpassworddialog_reject_isbase = false;
             KNewPasswordDialog::reject();
-        } else if (knewpassworddialog_reject_callback != nullptr) {
-            knewpassworddialog_reject_callback();
-        } else {
-            KNewPasswordDialog::reject();
+            return;
         }
+        auto reject_cb = knewpassworddialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KNewPasswordDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +564,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_keypressevent_isbase) {
             knewpassworddialog_keypressevent_isbase = false;
             KNewPasswordDialog::keyPressEvent(param1);
-        } else if (knewpassworddialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = knewpassworddialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            knewpassworddialog_keypressevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +581,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_closeevent_isbase) {
             knewpassworddialog_closeevent_isbase = false;
             KNewPasswordDialog::closeEvent(param1);
-        } else if (knewpassworddialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = knewpassworddialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            knewpassworddialog_closeevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +598,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_showevent_isbase) {
             knewpassworddialog_showevent_isbase = false;
             KNewPasswordDialog::showEvent(param1);
-        } else if (knewpassworddialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = knewpassworddialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            knewpassworddialog_showevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,13 +615,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_resizeevent_isbase) {
             knewpassworddialog_resizeevent_isbase = false;
             KNewPasswordDialog::resizeEvent(param1);
-        } else if (knewpassworddialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = knewpassworddialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            knewpassworddialog_resizeevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,13 +632,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_contextmenuevent_isbase) {
             knewpassworddialog_contextmenuevent_isbase = false;
             KNewPasswordDialog::contextMenuEvent(param1);
-        } else if (knewpassworddialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = knewpassworddialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            knewpassworddialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,15 +649,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_eventfilter_isbase) {
             knewpassworddialog_eventfilter_isbase = false;
             return KNewPasswordDialog::eventFilter(param1, param2);
-        } else if (knewpassworddialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knewpassworddialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = knewpassworddialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::eventFilter(param1, param2);
         }
+        return KNewPasswordDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,12 +666,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_devtype_isbase) {
             knewpassworddialog_devtype_isbase = false;
             return KNewPasswordDialog::devType();
-        } else if (knewpassworddialog_devtype_callback != nullptr) {
-            int callback_ret = knewpassworddialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::devType();
         }
+        auto devtype_cb = knewpassworddialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNewPasswordDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,14 +680,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_heightforwidth_isbase) {
             knewpassworddialog_heightforwidth_isbase = false;
             return KNewPasswordDialog::heightForWidth(param1);
-        } else if (knewpassworddialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = knewpassworddialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = knewpassworddialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::heightForWidth(param1);
         }
+        return KNewPasswordDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,12 +696,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_hasheightforwidth_isbase) {
             knewpassworddialog_hasheightforwidth_isbase = false;
             return KNewPasswordDialog::hasHeightForWidth();
-        } else if (knewpassworddialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = knewpassworddialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = knewpassworddialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,12 +710,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_paintengine_isbase) {
             knewpassworddialog_paintengine_isbase = false;
             return KNewPasswordDialog::paintEngine();
-        } else if (knewpassworddialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = knewpassworddialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::paintEngine();
         }
+        auto paintengine_cb = knewpassworddialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,14 +724,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_event_isbase) {
             knewpassworddialog_event_isbase = false;
             return KNewPasswordDialog::event(event);
-        } else if (knewpassworddialog_event_callback != nullptr) {
+        }
+        auto event_cb = knewpassworddialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = knewpassworddialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::event(event);
         }
+        return KNewPasswordDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +740,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_mousepressevent_isbase) {
             knewpassworddialog_mousepressevent_isbase = false;
             KNewPasswordDialog::mousePressEvent(event);
-        } else if (knewpassworddialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = knewpassworddialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpassworddialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +757,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_mousereleaseevent_isbase) {
             knewpassworddialog_mousereleaseevent_isbase = false;
             KNewPasswordDialog::mouseReleaseEvent(event);
-        } else if (knewpassworddialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = knewpassworddialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpassworddialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +774,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_mousedoubleclickevent_isbase) {
             knewpassworddialog_mousedoubleclickevent_isbase = false;
             KNewPasswordDialog::mouseDoubleClickEvent(event);
-        } else if (knewpassworddialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = knewpassworddialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpassworddialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +791,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_mousemoveevent_isbase) {
             knewpassworddialog_mousemoveevent_isbase = false;
             KNewPasswordDialog::mouseMoveEvent(event);
-        } else if (knewpassworddialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = knewpassworddialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpassworddialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,13 +808,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_wheelevent_isbase) {
             knewpassworddialog_wheelevent_isbase = false;
             KNewPasswordDialog::wheelEvent(event);
-        } else if (knewpassworddialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = knewpassworddialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            knewpassworddialog_wheelevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,13 +825,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_keyreleaseevent_isbase) {
             knewpassworddialog_keyreleaseevent_isbase = false;
             KNewPasswordDialog::keyReleaseEvent(event);
-        } else if (knewpassworddialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = knewpassworddialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            knewpassworddialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,13 +842,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_focusinevent_isbase) {
             knewpassworddialog_focusinevent_isbase = false;
             KNewPasswordDialog::focusInEvent(event);
-        } else if (knewpassworddialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = knewpassworddialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            knewpassworddialog_focusinevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,13 +859,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_focusoutevent_isbase) {
             knewpassworddialog_focusoutevent_isbase = false;
             KNewPasswordDialog::focusOutEvent(event);
-        } else if (knewpassworddialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = knewpassworddialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            knewpassworddialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -879,13 +876,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_enterevent_isbase) {
             knewpassworddialog_enterevent_isbase = false;
             KNewPasswordDialog::enterEvent(event);
-        } else if (knewpassworddialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = knewpassworddialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            knewpassworddialog_enterevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,13 +893,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_leaveevent_isbase) {
             knewpassworddialog_leaveevent_isbase = false;
             KNewPasswordDialog::leaveEvent(event);
-        } else if (knewpassworddialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = knewpassworddialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            knewpassworddialog_leaveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,13 +910,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_paintevent_isbase) {
             knewpassworddialog_paintevent_isbase = false;
             KNewPasswordDialog::paintEvent(event);
-        } else if (knewpassworddialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = knewpassworddialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            knewpassworddialog_paintevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,13 +927,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_moveevent_isbase) {
             knewpassworddialog_moveevent_isbase = false;
             KNewPasswordDialog::moveEvent(event);
-        } else if (knewpassworddialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = knewpassworddialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            knewpassworddialog_moveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,13 +944,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_tabletevent_isbase) {
             knewpassworddialog_tabletevent_isbase = false;
             KNewPasswordDialog::tabletEvent(event);
-        } else if (knewpassworddialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = knewpassworddialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            knewpassworddialog_tabletevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +961,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_actionevent_isbase) {
             knewpassworddialog_actionevent_isbase = false;
             KNewPasswordDialog::actionEvent(event);
-        } else if (knewpassworddialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = knewpassworddialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            knewpassworddialog_actionevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,13 +978,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_dragenterevent_isbase) {
             knewpassworddialog_dragenterevent_isbase = false;
             KNewPasswordDialog::dragEnterEvent(event);
-        } else if (knewpassworddialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = knewpassworddialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            knewpassworddialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +995,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_dragmoveevent_isbase) {
             knewpassworddialog_dragmoveevent_isbase = false;
             KNewPasswordDialog::dragMoveEvent(event);
-        } else if (knewpassworddialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = knewpassworddialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            knewpassworddialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,13 +1012,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_dragleaveevent_isbase) {
             knewpassworddialog_dragleaveevent_isbase = false;
             KNewPasswordDialog::dragLeaveEvent(event);
-        } else if (knewpassworddialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = knewpassworddialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            knewpassworddialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,13 +1029,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_dropevent_isbase) {
             knewpassworddialog_dropevent_isbase = false;
             KNewPasswordDialog::dropEvent(event);
-        } else if (knewpassworddialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = knewpassworddialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            knewpassworddialog_dropevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,13 +1046,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_hideevent_isbase) {
             knewpassworddialog_hideevent_isbase = false;
             KNewPasswordDialog::hideEvent(event);
-        } else if (knewpassworddialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = knewpassworddialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            knewpassworddialog_hideevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,7 +1063,9 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_nativeevent_isbase) {
             knewpassworddialog_nativeevent_isbase = false;
             return KNewPasswordDialog::nativeEvent(eventType, message, result);
-        } else if (knewpassworddialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = knewpassworddialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1044,12 +1076,11 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = knewpassworddialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::nativeEvent(eventType, message, result);
         }
+        return KNewPasswordDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1057,13 +1088,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_changeevent_isbase) {
             knewpassworddialog_changeevent_isbase = false;
             KNewPasswordDialog::changeEvent(param1);
-        } else if (knewpassworddialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = knewpassworddialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            knewpassworddialog_changeevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1071,14 +1105,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_metric_isbase) {
             knewpassworddialog_metric_isbase = false;
             return KNewPasswordDialog::metric(param1);
-        } else if (knewpassworddialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = knewpassworddialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = knewpassworddialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::metric(param1);
         }
+        return KNewPasswordDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,13 +1121,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_initpainter_isbase) {
             knewpassworddialog_initpainter_isbase = false;
             KNewPasswordDialog::initPainter(painter);
-        } else if (knewpassworddialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = knewpassworddialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            knewpassworddialog_initpainter_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,14 +1138,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_redirected_isbase) {
             knewpassworddialog_redirected_isbase = false;
             return KNewPasswordDialog::redirected(offset);
-        } else if (knewpassworddialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = knewpassworddialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = knewpassworddialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::redirected(offset);
         }
+        return KNewPasswordDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1115,12 +1154,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_sharedpainter_isbase) {
             knewpassworddialog_sharedpainter_isbase = false;
             return KNewPasswordDialog::sharedPainter();
-        } else if (knewpassworddialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = knewpassworddialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::sharedPainter();
         }
+        auto sharedpainter_cb = knewpassworddialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1128,13 +1168,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_inputmethodevent_isbase) {
             knewpassworddialog_inputmethodevent_isbase = false;
             KNewPasswordDialog::inputMethodEvent(param1);
-        } else if (knewpassworddialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = knewpassworddialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            knewpassworddialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,14 +1185,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_inputmethodquery_isbase) {
             knewpassworddialog_inputmethodquery_isbase = false;
             return KNewPasswordDialog::inputMethodQuery(param1);
-        } else if (knewpassworddialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = knewpassworddialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = knewpassworddialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KNewPasswordDialog::inputMethodQuery(param1);
         }
+        return KNewPasswordDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,14 +1201,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_focusnextprevchild_isbase) {
             knewpassworddialog_focusnextprevchild_isbase = false;
             return KNewPasswordDialog::focusNextPrevChild(next);
-        } else if (knewpassworddialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = knewpassworddialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = knewpassworddialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::focusNextPrevChild(next);
         }
+        return KNewPasswordDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,13 +1217,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_timerevent_isbase) {
             knewpassworddialog_timerevent_isbase = false;
             KNewPasswordDialog::timerEvent(event);
-        } else if (knewpassworddialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knewpassworddialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            knewpassworddialog_timerevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1186,13 +1234,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_childevent_isbase) {
             knewpassworddialog_childevent_isbase = false;
             KNewPasswordDialog::childEvent(event);
-        } else if (knewpassworddialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knewpassworddialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knewpassworddialog_childevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,13 +1251,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_customevent_isbase) {
             knewpassworddialog_customevent_isbase = false;
             KNewPasswordDialog::customEvent(event);
-        } else if (knewpassworddialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knewpassworddialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knewpassworddialog_customevent_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1214,15 +1268,18 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_connectnotify_isbase) {
             knewpassworddialog_connectnotify_isbase = false;
             KNewPasswordDialog::connectNotify(signal);
-        } else if (knewpassworddialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knewpassworddialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knewpassworddialog_connectnotify_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,15 +1287,18 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_disconnectnotify_isbase) {
             knewpassworddialog_disconnectnotify_isbase = false;
             KNewPasswordDialog::disconnectNotify(signal);
-        } else if (knewpassworddialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knewpassworddialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knewpassworddialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,13 +1306,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_adjustposition_isbase) {
             knewpassworddialog_adjustposition_isbase = false;
             KNewPasswordDialog::adjustPosition(param1);
-        } else if (knewpassworddialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = knewpassworddialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            knewpassworddialog_adjustposition_callback(this, cbval1);
-        } else {
-            KNewPasswordDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KNewPasswordDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,11 +1323,14 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_updatemicrofocus_isbase) {
             knewpassworddialog_updatemicrofocus_isbase = false;
             KNewPasswordDialog::updateMicroFocus();
-        } else if (knewpassworddialog_updatemicrofocus_callback != nullptr) {
-            knewpassworddialog_updatemicrofocus_callback();
-        } else {
-            KNewPasswordDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = knewpassworddialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KNewPasswordDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,11 +1338,14 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_create_isbase) {
             knewpassworddialog_create_isbase = false;
             KNewPasswordDialog::create();
-        } else if (knewpassworddialog_create_callback != nullptr) {
-            knewpassworddialog_create_callback();
-        } else {
-            KNewPasswordDialog::create();
+            return;
         }
+        auto create_cb = knewpassworddialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KNewPasswordDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,11 +1353,14 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_destroy_isbase) {
             knewpassworddialog_destroy_isbase = false;
             KNewPasswordDialog::destroy();
-        } else if (knewpassworddialog_destroy_callback != nullptr) {
-            knewpassworddialog_destroy_callback();
-        } else {
-            KNewPasswordDialog::destroy();
+            return;
         }
+        auto destroy_cb = knewpassworddialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KNewPasswordDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1296,12 +1368,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_focusnextchild_isbase) {
             knewpassworddialog_focusnextchild_isbase = false;
             return KNewPasswordDialog::focusNextChild();
-        } else if (knewpassworddialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = knewpassworddialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::focusNextChild();
         }
+        auto focusnextchild_cb = knewpassworddialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,12 +1382,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_focuspreviouschild_isbase) {
             knewpassworddialog_focuspreviouschild_isbase = false;
             return KNewPasswordDialog::focusPreviousChild();
-        } else if (knewpassworddialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = knewpassworddialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = knewpassworddialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1322,12 +1396,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_sender_isbase) {
             knewpassworddialog_sender_isbase = false;
             return KNewPasswordDialog::sender();
-        } else if (knewpassworddialog_sender_callback != nullptr) {
-            QObject* callback_ret = knewpassworddialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordDialog::sender();
         }
+        auto sender_cb = knewpassworddialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNewPasswordDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,12 +1410,13 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_sendersignalindex_isbase) {
             knewpassworddialog_sendersignalindex_isbase = false;
             return KNewPasswordDialog::senderSignalIndex();
-        } else if (knewpassworddialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = knewpassworddialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knewpassworddialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNewPasswordDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1348,14 +1424,15 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_receivers_isbase) {
             knewpassworddialog_receivers_isbase = false;
             return KNewPasswordDialog::receivers(signal);
-        } else if (knewpassworddialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knewpassworddialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knewpassworddialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordDialog::receivers(signal);
         }
+        return KNewPasswordDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,16 +1440,17 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_issignalconnected_isbase) {
             knewpassworddialog_issignalconnected_isbase = false;
             return KNewPasswordDialog::isSignalConnected(signal);
-        } else if (knewpassworddialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knewpassworddialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knewpassworddialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordDialog::isSignalConnected(signal);
         }
+        return KNewPasswordDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1380,15 +1458,16 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         if (knewpassworddialog_getdecodedmetricf_isbase) {
             knewpassworddialog_getdecodedmetricf_isbase = false;
             return KNewPasswordDialog::getDecodedMetricF(metricA, metricB);
-        } else if (knewpassworddialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = knewpassworddialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = knewpassworddialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KNewPasswordDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KNewPasswordDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

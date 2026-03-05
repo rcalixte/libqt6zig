@@ -89,30 +89,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
   public:
     VirtualKTextEditorInlineNoteProvider() : KTextEditor::InlineNoteProvider() {};
 
-    ~VirtualKTextEditorInlineNoteProvider() {
-        ktexteditor__inlinenoteprovider_metaobject_callback = nullptr;
-        ktexteditor__inlinenoteprovider_metacast_callback = nullptr;
-        ktexteditor__inlinenoteprovider_metacall_callback = nullptr;
-        ktexteditor__inlinenoteprovider_inlinenotes_callback = nullptr;
-        ktexteditor__inlinenoteprovider_inlinenotesize_callback = nullptr;
-        ktexteditor__inlinenoteprovider_paintinlinenote_callback = nullptr;
-        ktexteditor__inlinenoteprovider_inlinenoteactivated_callback = nullptr;
-        ktexteditor__inlinenoteprovider_inlinenotefocusinevent_callback = nullptr;
-        ktexteditor__inlinenoteprovider_inlinenotefocusoutevent_callback = nullptr;
-        ktexteditor__inlinenoteprovider_inlinenotemousemoveevent_callback = nullptr;
-        ktexteditor__inlinenoteprovider_event_callback = nullptr;
-        ktexteditor__inlinenoteprovider_eventfilter_callback = nullptr;
-        ktexteditor__inlinenoteprovider_timerevent_callback = nullptr;
-        ktexteditor__inlinenoteprovider_childevent_callback = nullptr;
-        ktexteditor__inlinenoteprovider_customevent_callback = nullptr;
-        ktexteditor__inlinenoteprovider_connectnotify_callback = nullptr;
-        ktexteditor__inlinenoteprovider_disconnectnotify_callback = nullptr;
-        ktexteditor__inlinenoteprovider_sender_callback = nullptr;
-        ktexteditor__inlinenoteprovider_sendersignalindex_callback = nullptr;
-        ktexteditor__inlinenoteprovider_receivers_callback = nullptr;
-        ktexteditor__inlinenoteprovider_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__InlineNoteProvider_MetaObject_Callback(KTextEditor__InlineNoteProvider_MetaObject_Callback cb) { ktexteditor__inlinenoteprovider_metaobject_callback = cb; }
     inline void setKTextEditor__InlineNoteProvider_Metacast_Callback(KTextEditor__InlineNoteProvider_Metacast_Callback cb) { ktexteditor__inlinenoteprovider_metacast_callback = cb; }
@@ -164,12 +140,13 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_metaobject_isbase) {
             ktexteditor__inlinenoteprovider_metaobject_isbase = false;
             return KTextEditor__InlineNoteProvider::metaObject();
-        } else if (ktexteditor__inlinenoteprovider_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktexteditor__inlinenoteprovider_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__InlineNoteProvider::metaObject();
         }
+        auto metaobject_cb = ktexteditor__inlinenoteprovider_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KTextEditor__InlineNoteProvider::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -177,14 +154,15 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_metacast_isbase) {
             ktexteditor__inlinenoteprovider_metacast_isbase = false;
             return KTextEditor__InlineNoteProvider::qt_metacast(param1);
-        } else if (ktexteditor__inlinenoteprovider_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktexteditor__inlinenoteprovider_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktexteditor__inlinenoteprovider_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__InlineNoteProvider::qt_metacast(param1);
         }
+        return KTextEditor__InlineNoteProvider::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,24 +170,26 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_metacall_isbase) {
             ktexteditor__inlinenoteprovider_metacall_isbase = false;
             return KTextEditor__InlineNoteProvider::qt_metacall(param1, param2, param3);
-        } else if (ktexteditor__inlinenoteprovider_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktexteditor__inlinenoteprovider_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktexteditor__inlinenoteprovider_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__InlineNoteProvider::qt_metacall(param1, param2, param3);
         }
+        return KTextEditor__InlineNoteProvider::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<int> inlineNotes(int line) const override {
-        if (ktexteditor__inlinenoteprovider_inlinenotes_callback != nullptr) {
+        auto inlinenotes_cb = ktexteditor__inlinenoteprovider_inlinenotes_callback;
+        if (inlinenotes_cb) {
             int cbval1 = line;
 
-            libqt_list /* of int */ callback_ret = ktexteditor__inlinenoteprovider_inlinenotes_callback(this, cbval1);
+            libqt_list /* of int */ callback_ret = inlinenotes_cb(this, cbval1);
             QList<int> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             int* callback_ret_arr = static_cast<int*>(callback_ret.data);
@@ -218,28 +198,28 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize inlineNoteSize(const KTextEditor::InlineNote& note) const override {
-        if (ktexteditor__inlinenoteprovider_inlinenotesize_callback != nullptr) {
+        auto inlinenotesize_cb = ktexteditor__inlinenoteprovider_inlinenotesize_callback;
+        if (inlinenotesize_cb) {
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
 
-            QSize* callback_ret = ktexteditor__inlinenoteprovider_inlinenotesize_callback(this, cbval1);
+            QSize* callback_ret = inlinenotesize_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void paintInlineNote(const KTextEditor::InlineNote& note, QPainter& painter, Qt::LayoutDirection direction) const override {
-        if (ktexteditor__inlinenoteprovider_paintinlinenote_callback != nullptr) {
+        auto paintinlinenote_cb = ktexteditor__inlinenoteprovider_paintinlinenote_callback;
+        if (paintinlinenote_cb) {
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
@@ -248,7 +228,7 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             QPainter* cbval2 = &painter_ret;
             int cbval3 = static_cast<int>(direction);
 
-            ktexteditor__inlinenoteprovider_paintinlinenote_callback(this, cbval1, cbval2, cbval3);
+            paintinlinenote_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -257,7 +237,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_inlinenoteactivated_isbase) {
             ktexteditor__inlinenoteprovider_inlinenoteactivated_isbase = false;
             KTextEditor__InlineNoteProvider::inlineNoteActivated(note, buttons, globalPos);
-        } else if (ktexteditor__inlinenoteprovider_inlinenoteactivated_callback != nullptr) {
+            return;
+        }
+        auto inlinenoteactivated_cb = ktexteditor__inlinenoteprovider_inlinenoteactivated_callback;
+        if (inlinenoteactivated_cb) {
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
@@ -266,10 +249,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             // Cast returned reference into pointer
             QPoint* cbval3 = const_cast<QPoint*>(&globalPos_ret);
 
-            ktexteditor__inlinenoteprovider_inlinenoteactivated_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KTextEditor__InlineNoteProvider::inlineNoteActivated(note, buttons, globalPos);
+            inlinenoteactivated_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KTextEditor__InlineNoteProvider::inlineNoteActivated(note, buttons, globalPos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,7 +260,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_inlinenotefocusinevent_isbase) {
             ktexteditor__inlinenoteprovider_inlinenotefocusinevent_isbase = false;
             KTextEditor__InlineNoteProvider::inlineNoteFocusInEvent(note, globalPos);
-        } else if (ktexteditor__inlinenoteprovider_inlinenotefocusinevent_callback != nullptr) {
+            return;
+        }
+        auto inlinenotefocusinevent_cb = ktexteditor__inlinenoteprovider_inlinenotefocusinevent_callback;
+        if (inlinenotefocusinevent_cb) {
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
@@ -285,10 +271,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&globalPos_ret);
 
-            ktexteditor__inlinenoteprovider_inlinenotefocusinevent_callback(this, cbval1, cbval2);
-        } else {
-            KTextEditor__InlineNoteProvider::inlineNoteFocusInEvent(note, globalPos);
+            inlinenotefocusinevent_cb(this, cbval1, cbval2);
+            return;
         }
+        KTextEditor__InlineNoteProvider::inlineNoteFocusInEvent(note, globalPos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -296,15 +282,18 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_inlinenotefocusoutevent_isbase) {
             ktexteditor__inlinenoteprovider_inlinenotefocusoutevent_isbase = false;
             KTextEditor__InlineNoteProvider::inlineNoteFocusOutEvent(note);
-        } else if (ktexteditor__inlinenoteprovider_inlinenotefocusoutevent_callback != nullptr) {
+            return;
+        }
+        auto inlinenotefocusoutevent_cb = ktexteditor__inlinenoteprovider_inlinenotefocusoutevent_callback;
+        if (inlinenotefocusoutevent_cb) {
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
 
-            ktexteditor__inlinenoteprovider_inlinenotefocusoutevent_callback(this, cbval1);
-        } else {
-            KTextEditor__InlineNoteProvider::inlineNoteFocusOutEvent(note);
+            inlinenotefocusoutevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__InlineNoteProvider::inlineNoteFocusOutEvent(note);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,7 +301,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_inlinenotemousemoveevent_isbase) {
             ktexteditor__inlinenoteprovider_inlinenotemousemoveevent_isbase = false;
             KTextEditor__InlineNoteProvider::inlineNoteMouseMoveEvent(note, globalPos);
-        } else if (ktexteditor__inlinenoteprovider_inlinenotemousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto inlinenotemousemoveevent_cb = ktexteditor__inlinenoteprovider_inlinenotemousemoveevent_callback;
+        if (inlinenotemousemoveevent_cb) {
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
@@ -320,10 +312,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&globalPos_ret);
 
-            ktexteditor__inlinenoteprovider_inlinenotemousemoveevent_callback(this, cbval1, cbval2);
-        } else {
-            KTextEditor__InlineNoteProvider::inlineNoteMouseMoveEvent(note, globalPos);
+            inlinenotemousemoveevent_cb(this, cbval1, cbval2);
+            return;
         }
+        KTextEditor__InlineNoteProvider::inlineNoteMouseMoveEvent(note, globalPos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,14 +323,15 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_event_isbase) {
             ktexteditor__inlinenoteprovider_event_isbase = false;
             return KTextEditor__InlineNoteProvider::event(event);
-        } else if (ktexteditor__inlinenoteprovider_event_callback != nullptr) {
+        }
+        auto event_cb = ktexteditor__inlinenoteprovider_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ktexteditor__inlinenoteprovider_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__InlineNoteProvider::event(event);
         }
+        return KTextEditor__InlineNoteProvider::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,15 +339,16 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_eventfilter_isbase) {
             ktexteditor__inlinenoteprovider_eventfilter_isbase = false;
             return KTextEditor__InlineNoteProvider::eventFilter(watched, event);
-        } else if (ktexteditor__inlinenoteprovider_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktexteditor__inlinenoteprovider_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktexteditor__inlinenoteprovider_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KTextEditor__InlineNoteProvider::eventFilter(watched, event);
         }
+        return KTextEditor__InlineNoteProvider::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,13 +356,16 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_timerevent_isbase) {
             ktexteditor__inlinenoteprovider_timerevent_isbase = false;
             KTextEditor__InlineNoteProvider::timerEvent(event);
-        } else if (ktexteditor__inlinenoteprovider_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktexteditor__inlinenoteprovider_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktexteditor__inlinenoteprovider_timerevent_callback(this, cbval1);
-        } else {
-            KTextEditor__InlineNoteProvider::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__InlineNoteProvider::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,13 +373,16 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_childevent_isbase) {
             ktexteditor__inlinenoteprovider_childevent_isbase = false;
             KTextEditor__InlineNoteProvider::childEvent(event);
-        } else if (ktexteditor__inlinenoteprovider_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktexteditor__inlinenoteprovider_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktexteditor__inlinenoteprovider_childevent_callback(this, cbval1);
-        } else {
-            KTextEditor__InlineNoteProvider::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__InlineNoteProvider::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -390,13 +390,16 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_customevent_isbase) {
             ktexteditor__inlinenoteprovider_customevent_isbase = false;
             KTextEditor__InlineNoteProvider::customEvent(event);
-        } else if (ktexteditor__inlinenoteprovider_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktexteditor__inlinenoteprovider_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktexteditor__inlinenoteprovider_customevent_callback(this, cbval1);
-        } else {
-            KTextEditor__InlineNoteProvider::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__InlineNoteProvider::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -404,15 +407,18 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_connectnotify_isbase) {
             ktexteditor__inlinenoteprovider_connectnotify_isbase = false;
             KTextEditor__InlineNoteProvider::connectNotify(signal);
-        } else if (ktexteditor__inlinenoteprovider_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktexteditor__inlinenoteprovider_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktexteditor__inlinenoteprovider_connectnotify_callback(this, cbval1);
-        } else {
-            KTextEditor__InlineNoteProvider::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KTextEditor__InlineNoteProvider::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -420,15 +426,18 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_disconnectnotify_isbase) {
             ktexteditor__inlinenoteprovider_disconnectnotify_isbase = false;
             KTextEditor__InlineNoteProvider::disconnectNotify(signal);
-        } else if (ktexteditor__inlinenoteprovider_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktexteditor__inlinenoteprovider_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktexteditor__inlinenoteprovider_disconnectnotify_callback(this, cbval1);
-        } else {
-            KTextEditor__InlineNoteProvider::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KTextEditor__InlineNoteProvider::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,12 +445,13 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_sender_isbase) {
             ktexteditor__inlinenoteprovider_sender_isbase = false;
             return KTextEditor__InlineNoteProvider::sender();
-        } else if (ktexteditor__inlinenoteprovider_sender_callback != nullptr) {
-            QObject* callback_ret = ktexteditor__inlinenoteprovider_sender_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__InlineNoteProvider::sender();
         }
+        auto sender_cb = ktexteditor__inlinenoteprovider_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KTextEditor__InlineNoteProvider::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,12 +459,13 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_sendersignalindex_isbase) {
             ktexteditor__inlinenoteprovider_sendersignalindex_isbase = false;
             return KTextEditor__InlineNoteProvider::senderSignalIndex();
-        } else if (ktexteditor__inlinenoteprovider_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktexteditor__inlinenoteprovider_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__InlineNoteProvider::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktexteditor__inlinenoteprovider_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KTextEditor__InlineNoteProvider::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -462,14 +473,15 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_receivers_isbase) {
             ktexteditor__inlinenoteprovider_receivers_isbase = false;
             return KTextEditor__InlineNoteProvider::receivers(signal);
-        } else if (ktexteditor__inlinenoteprovider_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktexteditor__inlinenoteprovider_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktexteditor__inlinenoteprovider_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__InlineNoteProvider::receivers(signal);
         }
+        return KTextEditor__InlineNoteProvider::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,16 +489,17 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_issignalconnected_isbase) {
             ktexteditor__inlinenoteprovider_issignalconnected_isbase = false;
             return KTextEditor__InlineNoteProvider::isSignalConnected(signal);
-        } else if (ktexteditor__inlinenoteprovider_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktexteditor__inlinenoteprovider_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktexteditor__inlinenoteprovider_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__InlineNoteProvider::isSignalConnected(signal);
         }
+        return KTextEditor__InlineNoteProvider::isSignalConnected(signal);
     }
 
     // Friend functions

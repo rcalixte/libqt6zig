@@ -224,75 +224,6 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
   public:
     VirtualKIOSkipDialog(QWidget* parent, KIO::SkipDialog_Options options, const QString& _error_text) : KIO::SkipDialog(parent, options, _error_text) {};
 
-    ~VirtualKIOSkipDialog() {
-        kio__skipdialog_metaobject_callback = nullptr;
-        kio__skipdialog_metacast_callback = nullptr;
-        kio__skipdialog_metacall_callback = nullptr;
-        kio__skipdialog_setvisible_callback = nullptr;
-        kio__skipdialog_sizehint_callback = nullptr;
-        kio__skipdialog_minimumsizehint_callback = nullptr;
-        kio__skipdialog_open_callback = nullptr;
-        kio__skipdialog_exec_callback = nullptr;
-        kio__skipdialog_done_callback = nullptr;
-        kio__skipdialog_accept_callback = nullptr;
-        kio__skipdialog_reject_callback = nullptr;
-        kio__skipdialog_keypressevent_callback = nullptr;
-        kio__skipdialog_closeevent_callback = nullptr;
-        kio__skipdialog_showevent_callback = nullptr;
-        kio__skipdialog_resizeevent_callback = nullptr;
-        kio__skipdialog_contextmenuevent_callback = nullptr;
-        kio__skipdialog_eventfilter_callback = nullptr;
-        kio__skipdialog_devtype_callback = nullptr;
-        kio__skipdialog_heightforwidth_callback = nullptr;
-        kio__skipdialog_hasheightforwidth_callback = nullptr;
-        kio__skipdialog_paintengine_callback = nullptr;
-        kio__skipdialog_event_callback = nullptr;
-        kio__skipdialog_mousepressevent_callback = nullptr;
-        kio__skipdialog_mousereleaseevent_callback = nullptr;
-        kio__skipdialog_mousedoubleclickevent_callback = nullptr;
-        kio__skipdialog_mousemoveevent_callback = nullptr;
-        kio__skipdialog_wheelevent_callback = nullptr;
-        kio__skipdialog_keyreleaseevent_callback = nullptr;
-        kio__skipdialog_focusinevent_callback = nullptr;
-        kio__skipdialog_focusoutevent_callback = nullptr;
-        kio__skipdialog_enterevent_callback = nullptr;
-        kio__skipdialog_leaveevent_callback = nullptr;
-        kio__skipdialog_paintevent_callback = nullptr;
-        kio__skipdialog_moveevent_callback = nullptr;
-        kio__skipdialog_tabletevent_callback = nullptr;
-        kio__skipdialog_actionevent_callback = nullptr;
-        kio__skipdialog_dragenterevent_callback = nullptr;
-        kio__skipdialog_dragmoveevent_callback = nullptr;
-        kio__skipdialog_dragleaveevent_callback = nullptr;
-        kio__skipdialog_dropevent_callback = nullptr;
-        kio__skipdialog_hideevent_callback = nullptr;
-        kio__skipdialog_nativeevent_callback = nullptr;
-        kio__skipdialog_changeevent_callback = nullptr;
-        kio__skipdialog_metric_callback = nullptr;
-        kio__skipdialog_initpainter_callback = nullptr;
-        kio__skipdialog_redirected_callback = nullptr;
-        kio__skipdialog_sharedpainter_callback = nullptr;
-        kio__skipdialog_inputmethodevent_callback = nullptr;
-        kio__skipdialog_inputmethodquery_callback = nullptr;
-        kio__skipdialog_focusnextprevchild_callback = nullptr;
-        kio__skipdialog_timerevent_callback = nullptr;
-        kio__skipdialog_childevent_callback = nullptr;
-        kio__skipdialog_customevent_callback = nullptr;
-        kio__skipdialog_connectnotify_callback = nullptr;
-        kio__skipdialog_disconnectnotify_callback = nullptr;
-        kio__skipdialog_adjustposition_callback = nullptr;
-        kio__skipdialog_updatemicrofocus_callback = nullptr;
-        kio__skipdialog_create_callback = nullptr;
-        kio__skipdialog_destroy_callback = nullptr;
-        kio__skipdialog_focusnextchild_callback = nullptr;
-        kio__skipdialog_focuspreviouschild_callback = nullptr;
-        kio__skipdialog_sender_callback = nullptr;
-        kio__skipdialog_sendersignalindex_callback = nullptr;
-        kio__skipdialog_receivers_callback = nullptr;
-        kio__skipdialog_issignalconnected_callback = nullptr;
-        kio__skipdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__SkipDialog_MetaObject_Callback(KIO__SkipDialog_MetaObject_Callback cb) { kio__skipdialog_metaobject_callback = cb; }
     inline void setKIO__SkipDialog_Metacast_Callback(KIO__SkipDialog_Metacast_Callback cb) { kio__skipdialog_metacast_callback = cb; }
@@ -434,12 +365,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_metaobject_isbase) {
             kio__skipdialog_metaobject_isbase = false;
             return KIO__SkipDialog::metaObject();
-        } else if (kio__skipdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__skipdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::metaObject();
         }
+        auto metaobject_cb = kio__skipdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -447,14 +379,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_metacast_isbase) {
             kio__skipdialog_metacast_isbase = false;
             return KIO__SkipDialog::qt_metacast(param1);
-        } else if (kio__skipdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__skipdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__skipdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::qt_metacast(param1);
         }
+        return KIO__SkipDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -462,16 +395,17 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_metacall_isbase) {
             kio__skipdialog_metacall_isbase = false;
             return KIO__SkipDialog::qt_metacall(param1, param2, param3);
-        } else if (kio__skipdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__skipdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__skipdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::qt_metacall(param1, param2, param3);
         }
+        return KIO__SkipDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,13 +413,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_setvisible_isbase) {
             kio__skipdialog_setvisible_isbase = false;
             KIO__SkipDialog::setVisible(visible);
-        } else if (kio__skipdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kio__skipdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kio__skipdialog_setvisible_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,12 +430,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_sizehint_isbase) {
             kio__skipdialog_sizehint_isbase = false;
             return KIO__SkipDialog::sizeHint();
-        } else if (kio__skipdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kio__skipdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KIO__SkipDialog::sizeHint();
         }
+        auto sizehint_cb = kio__skipdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KIO__SkipDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,12 +444,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_minimumsizehint_isbase) {
             kio__skipdialog_minimumsizehint_isbase = false;
             return KIO__SkipDialog::minimumSizeHint();
-        } else if (kio__skipdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kio__skipdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KIO__SkipDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kio__skipdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KIO__SkipDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -519,11 +458,14 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_open_isbase) {
             kio__skipdialog_open_isbase = false;
             KIO__SkipDialog::open();
-        } else if (kio__skipdialog_open_callback != nullptr) {
-            kio__skipdialog_open_callback();
-        } else {
-            KIO__SkipDialog::open();
+            return;
         }
+        auto open_cb = kio__skipdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KIO__SkipDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -531,12 +473,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_exec_isbase) {
             kio__skipdialog_exec_isbase = false;
             return KIO__SkipDialog::exec();
-        } else if (kio__skipdialog_exec_callback != nullptr) {
-            int callback_ret = kio__skipdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::exec();
         }
+        auto exec_cb = kio__skipdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__SkipDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,13 +487,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_done_isbase) {
             kio__skipdialog_done_isbase = false;
             KIO__SkipDialog::done(param1);
-        } else if (kio__skipdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kio__skipdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kio__skipdialog_done_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,11 +504,14 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_accept_isbase) {
             kio__skipdialog_accept_isbase = false;
             KIO__SkipDialog::accept();
-        } else if (kio__skipdialog_accept_callback != nullptr) {
-            kio__skipdialog_accept_callback();
-        } else {
-            KIO__SkipDialog::accept();
+            return;
         }
+        auto accept_cb = kio__skipdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KIO__SkipDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,11 +519,14 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_reject_isbase) {
             kio__skipdialog_reject_isbase = false;
             KIO__SkipDialog::reject();
-        } else if (kio__skipdialog_reject_callback != nullptr) {
-            kio__skipdialog_reject_callback();
-        } else {
-            KIO__SkipDialog::reject();
+            return;
         }
+        auto reject_cb = kio__skipdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KIO__SkipDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,13 +534,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_keypressevent_isbase) {
             kio__skipdialog_keypressevent_isbase = false;
             KIO__SkipDialog::keyPressEvent(param1);
-        } else if (kio__skipdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kio__skipdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kio__skipdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -596,13 +551,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_closeevent_isbase) {
             kio__skipdialog_closeevent_isbase = false;
             KIO__SkipDialog::closeEvent(param1);
-        } else if (kio__skipdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kio__skipdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kio__skipdialog_closeevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,13 +568,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_showevent_isbase) {
             kio__skipdialog_showevent_isbase = false;
             KIO__SkipDialog::showEvent(param1);
-        } else if (kio__skipdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kio__skipdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kio__skipdialog_showevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,13 +585,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_resizeevent_isbase) {
             kio__skipdialog_resizeevent_isbase = false;
             KIO__SkipDialog::resizeEvent(param1);
-        } else if (kio__skipdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kio__skipdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kio__skipdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,13 +602,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_contextmenuevent_isbase) {
             kio__skipdialog_contextmenuevent_isbase = false;
             KIO__SkipDialog::contextMenuEvent(param1);
-        } else if (kio__skipdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kio__skipdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kio__skipdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,15 +619,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_eventfilter_isbase) {
             kio__skipdialog_eventfilter_isbase = false;
             return KIO__SkipDialog::eventFilter(param1, param2);
-        } else if (kio__skipdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__skipdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kio__skipdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::eventFilter(param1, param2);
         }
+        return KIO__SkipDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,12 +636,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_devtype_isbase) {
             kio__skipdialog_devtype_isbase = false;
             return KIO__SkipDialog::devType();
-        } else if (kio__skipdialog_devtype_callback != nullptr) {
-            int callback_ret = kio__skipdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::devType();
         }
+        auto devtype_cb = kio__skipdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__SkipDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,14 +650,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_heightforwidth_isbase) {
             kio__skipdialog_heightforwidth_isbase = false;
             return KIO__SkipDialog::heightForWidth(param1);
-        } else if (kio__skipdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kio__skipdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kio__skipdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::heightForWidth(param1);
         }
+        return KIO__SkipDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,12 +666,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_hasheightforwidth_isbase) {
             kio__skipdialog_hasheightforwidth_isbase = false;
             return KIO__SkipDialog::hasHeightForWidth();
-        } else if (kio__skipdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kio__skipdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kio__skipdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,12 +680,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_paintengine_isbase) {
             kio__skipdialog_paintengine_isbase = false;
             return KIO__SkipDialog::paintEngine();
-        } else if (kio__skipdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kio__skipdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::paintEngine();
         }
+        auto paintengine_cb = kio__skipdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -722,14 +694,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_event_isbase) {
             kio__skipdialog_event_isbase = false;
             return KIO__SkipDialog::event(event);
-        } else if (kio__skipdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kio__skipdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__skipdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::event(event);
         }
+        return KIO__SkipDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +710,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_mousepressevent_isbase) {
             kio__skipdialog_mousepressevent_isbase = false;
             KIO__SkipDialog::mousePressEvent(event);
-        } else if (kio__skipdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kio__skipdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kio__skipdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +727,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_mousereleaseevent_isbase) {
             kio__skipdialog_mousereleaseevent_isbase = false;
             KIO__SkipDialog::mouseReleaseEvent(event);
-        } else if (kio__skipdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kio__skipdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kio__skipdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +744,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_mousedoubleclickevent_isbase) {
             kio__skipdialog_mousedoubleclickevent_isbase = false;
             KIO__SkipDialog::mouseDoubleClickEvent(event);
-        } else if (kio__skipdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kio__skipdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kio__skipdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +761,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_mousemoveevent_isbase) {
             kio__skipdialog_mousemoveevent_isbase = false;
             KIO__SkipDialog::mouseMoveEvent(event);
-        } else if (kio__skipdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kio__skipdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kio__skipdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +778,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_wheelevent_isbase) {
             kio__skipdialog_wheelevent_isbase = false;
             KIO__SkipDialog::wheelEvent(event);
-        } else if (kio__skipdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kio__skipdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kio__skipdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +795,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_keyreleaseevent_isbase) {
             kio__skipdialog_keyreleaseevent_isbase = false;
             KIO__SkipDialog::keyReleaseEvent(event);
-        } else if (kio__skipdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kio__skipdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kio__skipdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +812,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_focusinevent_isbase) {
             kio__skipdialog_focusinevent_isbase = false;
             KIO__SkipDialog::focusInEvent(event);
-        } else if (kio__skipdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kio__skipdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kio__skipdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +829,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_focusoutevent_isbase) {
             kio__skipdialog_focusoutevent_isbase = false;
             KIO__SkipDialog::focusOutEvent(event);
-        } else if (kio__skipdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kio__skipdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kio__skipdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +846,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_enterevent_isbase) {
             kio__skipdialog_enterevent_isbase = false;
             KIO__SkipDialog::enterEvent(event);
-        } else if (kio__skipdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kio__skipdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kio__skipdialog_enterevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +863,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_leaveevent_isbase) {
             kio__skipdialog_leaveevent_isbase = false;
             KIO__SkipDialog::leaveEvent(event);
-        } else if (kio__skipdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kio__skipdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__skipdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +880,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_paintevent_isbase) {
             kio__skipdialog_paintevent_isbase = false;
             KIO__SkipDialog::paintEvent(event);
-        } else if (kio__skipdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kio__skipdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kio__skipdialog_paintevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +897,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_moveevent_isbase) {
             kio__skipdialog_moveevent_isbase = false;
             KIO__SkipDialog::moveEvent(event);
-        } else if (kio__skipdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kio__skipdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kio__skipdialog_moveevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +914,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_tabletevent_isbase) {
             kio__skipdialog_tabletevent_isbase = false;
             KIO__SkipDialog::tabletEvent(event);
-        } else if (kio__skipdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kio__skipdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kio__skipdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +931,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_actionevent_isbase) {
             kio__skipdialog_actionevent_isbase = false;
             KIO__SkipDialog::actionEvent(event);
-        } else if (kio__skipdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kio__skipdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kio__skipdialog_actionevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +948,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_dragenterevent_isbase) {
             kio__skipdialog_dragenterevent_isbase = false;
             KIO__SkipDialog::dragEnterEvent(event);
-        } else if (kio__skipdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kio__skipdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kio__skipdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +965,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_dragmoveevent_isbase) {
             kio__skipdialog_dragmoveevent_isbase = false;
             KIO__SkipDialog::dragMoveEvent(event);
-        } else if (kio__skipdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kio__skipdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kio__skipdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,13 +982,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_dragleaveevent_isbase) {
             kio__skipdialog_dragleaveevent_isbase = false;
             KIO__SkipDialog::dragLeaveEvent(event);
-        } else if (kio__skipdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kio__skipdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kio__skipdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,13 +999,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_dropevent_isbase) {
             kio__skipdialog_dropevent_isbase = false;
             KIO__SkipDialog::dropEvent(event);
-        } else if (kio__skipdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kio__skipdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kio__skipdialog_dropevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -989,13 +1016,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_hideevent_isbase) {
             kio__skipdialog_hideevent_isbase = false;
             KIO__SkipDialog::hideEvent(event);
-        } else if (kio__skipdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kio__skipdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kio__skipdialog_hideevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,7 +1033,9 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_nativeevent_isbase) {
             kio__skipdialog_nativeevent_isbase = false;
             return KIO__SkipDialog::nativeEvent(eventType, message, result);
-        } else if (kio__skipdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kio__skipdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1014,12 +1046,11 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kio__skipdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::nativeEvent(eventType, message, result);
         }
+        return KIO__SkipDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,13 +1058,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_changeevent_isbase) {
             kio__skipdialog_changeevent_isbase = false;
             KIO__SkipDialog::changeEvent(param1);
-        } else if (kio__skipdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kio__skipdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kio__skipdialog_changeevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,14 +1075,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_metric_isbase) {
             kio__skipdialog_metric_isbase = false;
             return KIO__SkipDialog::metric(param1);
-        } else if (kio__skipdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kio__skipdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kio__skipdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::metric(param1);
         }
+        return KIO__SkipDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,13 +1091,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_initpainter_isbase) {
             kio__skipdialog_initpainter_isbase = false;
             KIO__SkipDialog::initPainter(painter);
-        } else if (kio__skipdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kio__skipdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kio__skipdialog_initpainter_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,14 +1108,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_redirected_isbase) {
             kio__skipdialog_redirected_isbase = false;
             return KIO__SkipDialog::redirected(offset);
-        } else if (kio__skipdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kio__skipdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kio__skipdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::redirected(offset);
         }
+        return KIO__SkipDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1085,12 +1124,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_sharedpainter_isbase) {
             kio__skipdialog_sharedpainter_isbase = false;
             return KIO__SkipDialog::sharedPainter();
-        } else if (kio__skipdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kio__skipdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kio__skipdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1098,13 +1138,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_inputmethodevent_isbase) {
             kio__skipdialog_inputmethodevent_isbase = false;
             KIO__SkipDialog::inputMethodEvent(param1);
-        } else if (kio__skipdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kio__skipdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kio__skipdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,14 +1155,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_inputmethodquery_isbase) {
             kio__skipdialog_inputmethodquery_isbase = false;
             return KIO__SkipDialog::inputMethodQuery(param1);
-        } else if (kio__skipdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kio__skipdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kio__skipdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIO__SkipDialog::inputMethodQuery(param1);
         }
+        return KIO__SkipDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,14 +1171,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_focusnextprevchild_isbase) {
             kio__skipdialog_focusnextprevchild_isbase = false;
             return KIO__SkipDialog::focusNextPrevChild(next);
-        } else if (kio__skipdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kio__skipdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kio__skipdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::focusNextPrevChild(next);
         }
+        return KIO__SkipDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,13 +1187,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_timerevent_isbase) {
             kio__skipdialog_timerevent_isbase = false;
             KIO__SkipDialog::timerEvent(event);
-        } else if (kio__skipdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__skipdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__skipdialog_timerevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,13 +1204,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_childevent_isbase) {
             kio__skipdialog_childevent_isbase = false;
             KIO__SkipDialog::childEvent(event);
-        } else if (kio__skipdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__skipdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__skipdialog_childevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1170,13 +1221,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_customevent_isbase) {
             kio__skipdialog_customevent_isbase = false;
             KIO__SkipDialog::customEvent(event);
-        } else if (kio__skipdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__skipdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__skipdialog_customevent_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,15 +1238,18 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_connectnotify_isbase) {
             kio__skipdialog_connectnotify_isbase = false;
             KIO__SkipDialog::connectNotify(signal);
-        } else if (kio__skipdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__skipdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__skipdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1200,15 +1257,18 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_disconnectnotify_isbase) {
             kio__skipdialog_disconnectnotify_isbase = false;
             KIO__SkipDialog::disconnectNotify(signal);
-        } else if (kio__skipdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__skipdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__skipdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1216,13 +1276,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_adjustposition_isbase) {
             kio__skipdialog_adjustposition_isbase = false;
             KIO__SkipDialog::adjustPosition(param1);
-        } else if (kio__skipdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kio__skipdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kio__skipdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KIO__SkipDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KIO__SkipDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1230,11 +1293,14 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_updatemicrofocus_isbase) {
             kio__skipdialog_updatemicrofocus_isbase = false;
             KIO__SkipDialog::updateMicroFocus();
-        } else if (kio__skipdialog_updatemicrofocus_callback != nullptr) {
-            kio__skipdialog_updatemicrofocus_callback();
-        } else {
-            KIO__SkipDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kio__skipdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KIO__SkipDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,11 +1308,14 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_create_isbase) {
             kio__skipdialog_create_isbase = false;
             KIO__SkipDialog::create();
-        } else if (kio__skipdialog_create_callback != nullptr) {
-            kio__skipdialog_create_callback();
-        } else {
-            KIO__SkipDialog::create();
+            return;
         }
+        auto create_cb = kio__skipdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KIO__SkipDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1254,11 +1323,14 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_destroy_isbase) {
             kio__skipdialog_destroy_isbase = false;
             KIO__SkipDialog::destroy();
-        } else if (kio__skipdialog_destroy_callback != nullptr) {
-            kio__skipdialog_destroy_callback();
-        } else {
-            KIO__SkipDialog::destroy();
+            return;
         }
+        auto destroy_cb = kio__skipdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KIO__SkipDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,12 +1338,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_focusnextchild_isbase) {
             kio__skipdialog_focusnextchild_isbase = false;
             return KIO__SkipDialog::focusNextChild();
-        } else if (kio__skipdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kio__skipdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kio__skipdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1279,12 +1352,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_focuspreviouschild_isbase) {
             kio__skipdialog_focuspreviouschild_isbase = false;
             return KIO__SkipDialog::focusPreviousChild();
-        } else if (kio__skipdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kio__skipdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kio__skipdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,12 +1366,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_sender_isbase) {
             kio__skipdialog_sender_isbase = false;
             return KIO__SkipDialog::sender();
-        } else if (kio__skipdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kio__skipdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__SkipDialog::sender();
         }
+        auto sender_cb = kio__skipdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__SkipDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1305,12 +1380,13 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_sendersignalindex_isbase) {
             kio__skipdialog_sendersignalindex_isbase = false;
             return KIO__SkipDialog::senderSignalIndex();
-        } else if (kio__skipdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__skipdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__skipdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__SkipDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,14 +1394,15 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_receivers_isbase) {
             kio__skipdialog_receivers_isbase = false;
             return KIO__SkipDialog::receivers(signal);
-        } else if (kio__skipdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__skipdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__skipdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__SkipDialog::receivers(signal);
         }
+        return KIO__SkipDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1333,16 +1410,17 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_issignalconnected_isbase) {
             kio__skipdialog_issignalconnected_isbase = false;
             return KIO__SkipDialog::isSignalConnected(signal);
-        } else if (kio__skipdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__skipdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__skipdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__SkipDialog::isSignalConnected(signal);
         }
+        return KIO__SkipDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1350,15 +1428,16 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
         if (kio__skipdialog_getdecodedmetricf_isbase) {
             kio__skipdialog_getdecodedmetricf_isbase = false;
             return KIO__SkipDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kio__skipdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kio__skipdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kio__skipdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KIO__SkipDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KIO__SkipDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

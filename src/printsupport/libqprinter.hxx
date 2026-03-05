@@ -71,23 +71,6 @@ class VirtualQPrinter final : public QPrinter {
     VirtualQPrinter(QPrinter::PrinterMode mode) : QPrinter(mode) {};
     VirtualQPrinter(const QPrinterInfo& printer, QPrinter::PrinterMode mode) : QPrinter(printer, mode) {};
 
-    ~VirtualQPrinter() {
-        qprinter_devtype_callback = nullptr;
-        qprinter_newpage_callback = nullptr;
-        qprinter_paintengine_callback = nullptr;
-        qprinter_metric_callback = nullptr;
-        qprinter_setpagelayout_callback = nullptr;
-        qprinter_setpagesize_callback = nullptr;
-        qprinter_setpageorientation_callback = nullptr;
-        qprinter_setpagemargins_callback = nullptr;
-        qprinter_setpageranges_callback = nullptr;
-        qprinter_initpainter_callback = nullptr;
-        qprinter_redirected_callback = nullptr;
-        qprinter_sharedpainter_callback = nullptr;
-        qprinter_setengines_callback = nullptr;
-        qprinter_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPrinter_DevType_Callback(QPrinter_DevType_Callback cb) { qprinter_devtype_callback = cb; }
     inline void setQPrinter_NewPage_Callback(QPrinter_NewPage_Callback cb) { qprinter_newpage_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_devtype_isbase) {
             qprinter_devtype_isbase = false;
             return QPrinter::devType();
-        } else if (qprinter_devtype_callback != nullptr) {
-            int callback_ret = qprinter_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPrinter::devType();
         }
+        auto devtype_cb = qprinter_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPrinter::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,12 +122,13 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_newpage_isbase) {
             qprinter_newpage_isbase = false;
             return QPrinter::newPage();
-        } else if (qprinter_newpage_callback != nullptr) {
-            bool callback_ret = qprinter_newpage_callback();
-            return callback_ret;
-        } else {
-            return QPrinter::newPage();
         }
+        auto newpage_cb = qprinter_newpage_callback;
+        if (newpage_cb) {
+            bool callback_ret = newpage_cb();
+            return callback_ret;
+        }
+        return QPrinter::newPage();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,12 +136,13 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_paintengine_isbase) {
             qprinter_paintengine_isbase = false;
             return QPrinter::paintEngine();
-        } else if (qprinter_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qprinter_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QPrinter::paintEngine();
         }
+        auto paintengine_cb = qprinter_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QPrinter::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -164,14 +150,15 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_metric_isbase) {
             qprinter_metric_isbase = false;
             return QPrinter::metric(param1);
-        } else if (qprinter_metric_callback != nullptr) {
+        }
+        auto metric_cb = qprinter_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qprinter_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPrinter::metric(param1);
         }
+        return QPrinter::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,16 +166,17 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_setpagelayout_isbase) {
             qprinter_setpagelayout_isbase = false;
             return QPrinter::setPageLayout(pageLayout);
-        } else if (qprinter_setpagelayout_callback != nullptr) {
+        }
+        auto setpagelayout_cb = qprinter_setpagelayout_callback;
+        if (setpagelayout_cb) {
             const QPageLayout& pageLayout_ret = pageLayout;
             // Cast returned reference into pointer
             QPageLayout* cbval1 = const_cast<QPageLayout*>(&pageLayout_ret);
 
-            bool callback_ret = qprinter_setpagelayout_callback(this, cbval1);
+            bool callback_ret = setpagelayout_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrinter::setPageLayout(pageLayout);
         }
+        return QPrinter::setPageLayout(pageLayout);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,16 +184,17 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_setpagesize_isbase) {
             qprinter_setpagesize_isbase = false;
             return QPrinter::setPageSize(pageSize);
-        } else if (qprinter_setpagesize_callback != nullptr) {
+        }
+        auto setpagesize_cb = qprinter_setpagesize_callback;
+        if (setpagesize_cb) {
             const QPageSize& pageSize_ret = pageSize;
             // Cast returned reference into pointer
             QPageSize* cbval1 = const_cast<QPageSize*>(&pageSize_ret);
 
-            bool callback_ret = qprinter_setpagesize_callback(this, cbval1);
+            bool callback_ret = setpagesize_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrinter::setPageSize(pageSize);
         }
+        return QPrinter::setPageSize(pageSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,14 +202,15 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_setpageorientation_isbase) {
             qprinter_setpageorientation_isbase = false;
             return QPrinter::setPageOrientation(orientation);
-        } else if (qprinter_setpageorientation_callback != nullptr) {
+        }
+        auto setpageorientation_cb = qprinter_setpageorientation_callback;
+        if (setpageorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
 
-            bool callback_ret = qprinter_setpageorientation_callback(this, cbval1);
+            bool callback_ret = setpageorientation_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrinter::setPageOrientation(orientation);
         }
+        return QPrinter::setPageOrientation(orientation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,17 +218,18 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_setpagemargins_isbase) {
             qprinter_setpagemargins_isbase = false;
             return QPrinter::setPageMargins(margins, units);
-        } else if (qprinter_setpagemargins_callback != nullptr) {
+        }
+        auto setpagemargins_cb = qprinter_setpagemargins_callback;
+        if (setpagemargins_cb) {
             const QMarginsF& margins_ret = margins;
             // Cast returned reference into pointer
             QMarginsF* cbval1 = const_cast<QMarginsF*>(&margins_ret);
             int cbval2 = static_cast<int>(units);
 
-            bool callback_ret = qprinter_setpagemargins_callback(this, cbval1, cbval2);
+            bool callback_ret = setpagemargins_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPrinter::setPageMargins(margins, units);
         }
+        return QPrinter::setPageMargins(margins, units);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,15 +237,18 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_setpageranges_isbase) {
             qprinter_setpageranges_isbase = false;
             QPrinter::setPageRanges(ranges);
-        } else if (qprinter_setpageranges_callback != nullptr) {
+            return;
+        }
+        auto setpageranges_cb = qprinter_setpageranges_callback;
+        if (setpageranges_cb) {
             const QPageRanges& ranges_ret = ranges;
             // Cast returned reference into pointer
             QPageRanges* cbval1 = const_cast<QPageRanges*>(&ranges_ret);
 
-            qprinter_setpageranges_callback(this, cbval1);
-        } else {
-            QPrinter::setPageRanges(ranges);
+            setpageranges_cb(this, cbval1);
+            return;
         }
+        QPrinter::setPageRanges(ranges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -262,13 +256,16 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_initpainter_isbase) {
             qprinter_initpainter_isbase = false;
             QPrinter::initPainter(painter);
-        } else if (qprinter_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qprinter_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qprinter_initpainter_callback(this, cbval1);
-        } else {
-            QPrinter::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QPrinter::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,14 +273,15 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_redirected_isbase) {
             qprinter_redirected_isbase = false;
             return QPrinter::redirected(offset);
-        } else if (qprinter_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qprinter_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qprinter_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPrinter::redirected(offset);
         }
+        return QPrinter::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,12 +289,13 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_sharedpainter_isbase) {
             qprinter_sharedpainter_isbase = false;
             return QPrinter::sharedPainter();
-        } else if (qprinter_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qprinter_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QPrinter::sharedPainter();
         }
+        auto sharedpainter_cb = qprinter_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QPrinter::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,14 +303,17 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_setengines_isbase) {
             qprinter_setengines_isbase = false;
             QPrinter::setEngines(printEngine, paintEngine);
-        } else if (qprinter_setengines_callback != nullptr) {
+            return;
+        }
+        auto setengines_cb = qprinter_setengines_callback;
+        if (setengines_cb) {
             QPrintEngine* cbval1 = printEngine;
             QPaintEngine* cbval2 = paintEngine;
 
-            qprinter_setengines_callback(this, cbval1, cbval2);
-        } else {
-            QPrinter::setEngines(printEngine, paintEngine);
+            setengines_cb(this, cbval1, cbval2);
+            return;
         }
+        QPrinter::setEngines(printEngine, paintEngine);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,15 +321,16 @@ class VirtualQPrinter final : public QPrinter {
         if (qprinter_getdecodedmetricf_isbase) {
             qprinter_getdecodedmetricf_isbase = false;
             return QPrinter::getDecodedMetricF(metricA, metricB);
-        } else if (qprinter_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qprinter_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qprinter_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QPrinter::getDecodedMetricF(metricA, metricB);
         }
+        return QPrinter::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

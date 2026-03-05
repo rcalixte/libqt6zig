@@ -219,73 +219,6 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     VirtualKNSWidgetsButton(QWidget* parent) : KNSWidgets::Button(parent) {};
     VirtualKNSWidgetsButton(const QString& text, const QString& configFile, QWidget* parent) : KNSWidgets::Button(text, configFile, parent) {};
 
-    ~VirtualKNSWidgetsButton() {
-        knswidgets__button_metaobject_callback = nullptr;
-        knswidgets__button_metacast_callback = nullptr;
-        knswidgets__button_metacall_callback = nullptr;
-        knswidgets__button_sizehint_callback = nullptr;
-        knswidgets__button_minimumsizehint_callback = nullptr;
-        knswidgets__button_event_callback = nullptr;
-        knswidgets__button_paintevent_callback = nullptr;
-        knswidgets__button_keypressevent_callback = nullptr;
-        knswidgets__button_focusinevent_callback = nullptr;
-        knswidgets__button_focusoutevent_callback = nullptr;
-        knswidgets__button_mousemoveevent_callback = nullptr;
-        knswidgets__button_initstyleoption_callback = nullptr;
-        knswidgets__button_hitbutton_callback = nullptr;
-        knswidgets__button_checkstateset_callback = nullptr;
-        knswidgets__button_nextcheckstate_callback = nullptr;
-        knswidgets__button_keyreleaseevent_callback = nullptr;
-        knswidgets__button_mousepressevent_callback = nullptr;
-        knswidgets__button_mousereleaseevent_callback = nullptr;
-        knswidgets__button_changeevent_callback = nullptr;
-        knswidgets__button_timerevent_callback = nullptr;
-        knswidgets__button_devtype_callback = nullptr;
-        knswidgets__button_setvisible_callback = nullptr;
-        knswidgets__button_heightforwidth_callback = nullptr;
-        knswidgets__button_hasheightforwidth_callback = nullptr;
-        knswidgets__button_paintengine_callback = nullptr;
-        knswidgets__button_mousedoubleclickevent_callback = nullptr;
-        knswidgets__button_wheelevent_callback = nullptr;
-        knswidgets__button_enterevent_callback = nullptr;
-        knswidgets__button_leaveevent_callback = nullptr;
-        knswidgets__button_moveevent_callback = nullptr;
-        knswidgets__button_resizeevent_callback = nullptr;
-        knswidgets__button_closeevent_callback = nullptr;
-        knswidgets__button_contextmenuevent_callback = nullptr;
-        knswidgets__button_tabletevent_callback = nullptr;
-        knswidgets__button_actionevent_callback = nullptr;
-        knswidgets__button_dragenterevent_callback = nullptr;
-        knswidgets__button_dragmoveevent_callback = nullptr;
-        knswidgets__button_dragleaveevent_callback = nullptr;
-        knswidgets__button_dropevent_callback = nullptr;
-        knswidgets__button_showevent_callback = nullptr;
-        knswidgets__button_hideevent_callback = nullptr;
-        knswidgets__button_nativeevent_callback = nullptr;
-        knswidgets__button_metric_callback = nullptr;
-        knswidgets__button_initpainter_callback = nullptr;
-        knswidgets__button_redirected_callback = nullptr;
-        knswidgets__button_sharedpainter_callback = nullptr;
-        knswidgets__button_inputmethodevent_callback = nullptr;
-        knswidgets__button_inputmethodquery_callback = nullptr;
-        knswidgets__button_focusnextprevchild_callback = nullptr;
-        knswidgets__button_eventfilter_callback = nullptr;
-        knswidgets__button_childevent_callback = nullptr;
-        knswidgets__button_customevent_callback = nullptr;
-        knswidgets__button_connectnotify_callback = nullptr;
-        knswidgets__button_disconnectnotify_callback = nullptr;
-        knswidgets__button_updatemicrofocus_callback = nullptr;
-        knswidgets__button_create_callback = nullptr;
-        knswidgets__button_destroy_callback = nullptr;
-        knswidgets__button_focusnextchild_callback = nullptr;
-        knswidgets__button_focuspreviouschild_callback = nullptr;
-        knswidgets__button_sender_callback = nullptr;
-        knswidgets__button_sendersignalindex_callback = nullptr;
-        knswidgets__button_receivers_callback = nullptr;
-        knswidgets__button_issignalconnected_callback = nullptr;
-        knswidgets__button_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNSWidgets__Button_MetaObject_Callback(KNSWidgets__Button_MetaObject_Callback cb) { knswidgets__button_metaobject_callback = cb; }
     inline void setKNSWidgets__Button_Metacast_Callback(KNSWidgets__Button_Metacast_Callback cb) { knswidgets__button_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_metaobject_isbase) {
             knswidgets__button_metaobject_isbase = false;
             return KNSWidgets__Button::metaObject();
-        } else if (knswidgets__button_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knswidgets__button_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::metaObject();
         }
+        auto metaobject_cb = knswidgets__button_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_metacast_isbase) {
             knswidgets__button_metacast_isbase = false;
             return KNSWidgets__Button::qt_metacast(param1);
-        } else if (knswidgets__button_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knswidgets__button_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knswidgets__button_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::qt_metacast(param1);
         }
+        return KNSWidgets__Button::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_metacall_isbase) {
             knswidgets__button_metacall_isbase = false;
             return KNSWidgets__Button::qt_metacall(param1, param2, param3);
-        } else if (knswidgets__button_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knswidgets__button_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knswidgets__button_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNSWidgets__Button::qt_metacall(param1, param2, param3);
         }
+        return KNSWidgets__Button::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +404,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_sizehint_isbase) {
             knswidgets__button_sizehint_isbase = false;
             return KNSWidgets__Button::sizeHint();
-        } else if (knswidgets__button_sizehint_callback != nullptr) {
-            QSize* callback_ret = knswidgets__button_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNSWidgets__Button::sizeHint();
         }
+        auto sizehint_cb = knswidgets__button_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KNSWidgets__Button::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +418,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_minimumsizehint_isbase) {
             knswidgets__button_minimumsizehint_isbase = false;
             return KNSWidgets__Button::minimumSizeHint();
-        } else if (knswidgets__button_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = knswidgets__button_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNSWidgets__Button::minimumSizeHint();
         }
+        auto minimumsizehint_cb = knswidgets__button_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KNSWidgets__Button::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +432,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_event_isbase) {
             knswidgets__button_event_isbase = false;
             return KNSWidgets__Button::event(e);
-        } else if (knswidgets__button_event_callback != nullptr) {
+        }
+        auto event_cb = knswidgets__button_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = knswidgets__button_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::event(e);
         }
+        return KNSWidgets__Button::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +448,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_paintevent_isbase) {
             knswidgets__button_paintevent_isbase = false;
             KNSWidgets__Button::paintEvent(param1);
-        } else if (knswidgets__button_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = knswidgets__button_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            knswidgets__button_paintevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,13 +465,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_keypressevent_isbase) {
             knswidgets__button_keypressevent_isbase = false;
             KNSWidgets__Button::keyPressEvent(param1);
-        } else if (knswidgets__button_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = knswidgets__button_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            knswidgets__button_keypressevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,13 +482,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_focusinevent_isbase) {
             knswidgets__button_focusinevent_isbase = false;
             KNSWidgets__Button::focusInEvent(param1);
-        } else if (knswidgets__button_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = knswidgets__button_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            knswidgets__button_focusinevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +499,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_focusoutevent_isbase) {
             knswidgets__button_focusoutevent_isbase = false;
             KNSWidgets__Button::focusOutEvent(param1);
-        } else if (knswidgets__button_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = knswidgets__button_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            knswidgets__button_focusoutevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,13 +516,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_mousemoveevent_isbase) {
             knswidgets__button_mousemoveevent_isbase = false;
             KNSWidgets__Button::mouseMoveEvent(param1);
-        } else if (knswidgets__button_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = knswidgets__button_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            knswidgets__button_mousemoveevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,13 +533,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_initstyleoption_isbase) {
             knswidgets__button_initstyleoption_isbase = false;
             KNSWidgets__Button::initStyleOption(option);
-        } else if (knswidgets__button_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = knswidgets__button_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionButton* cbval1 = option;
 
-            knswidgets__button_initstyleoption_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,16 +550,17 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_hitbutton_isbase) {
             knswidgets__button_hitbutton_isbase = false;
             return KNSWidgets__Button::hitButton(pos);
-        } else if (knswidgets__button_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = knswidgets__button_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = knswidgets__button_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::hitButton(pos);
         }
+        return KNSWidgets__Button::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -610,11 +568,14 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_checkstateset_isbase) {
             knswidgets__button_checkstateset_isbase = false;
             KNSWidgets__Button::checkStateSet();
-        } else if (knswidgets__button_checkstateset_callback != nullptr) {
-            knswidgets__button_checkstateset_callback();
-        } else {
-            KNSWidgets__Button::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = knswidgets__button_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        KNSWidgets__Button::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,11 +583,14 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_nextcheckstate_isbase) {
             knswidgets__button_nextcheckstate_isbase = false;
             KNSWidgets__Button::nextCheckState();
-        } else if (knswidgets__button_nextcheckstate_callback != nullptr) {
-            knswidgets__button_nextcheckstate_callback();
-        } else {
-            KNSWidgets__Button::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = knswidgets__button_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        KNSWidgets__Button::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,13 +598,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_keyreleaseevent_isbase) {
             knswidgets__button_keyreleaseevent_isbase = false;
             KNSWidgets__Button::keyReleaseEvent(e);
-        } else if (knswidgets__button_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = knswidgets__button_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            knswidgets__button_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,13 +615,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_mousepressevent_isbase) {
             knswidgets__button_mousepressevent_isbase = false;
             KNSWidgets__Button::mousePressEvent(e);
-        } else if (knswidgets__button_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = knswidgets__button_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            knswidgets__button_mousepressevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +632,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_mousereleaseevent_isbase) {
             knswidgets__button_mousereleaseevent_isbase = false;
             KNSWidgets__Button::mouseReleaseEvent(e);
-        } else if (knswidgets__button_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = knswidgets__button_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            knswidgets__button_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +649,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_changeevent_isbase) {
             knswidgets__button_changeevent_isbase = false;
             KNSWidgets__Button::changeEvent(e);
-        } else if (knswidgets__button_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = knswidgets__button_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            knswidgets__button_changeevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +666,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_timerevent_isbase) {
             knswidgets__button_timerevent_isbase = false;
             KNSWidgets__Button::timerEvent(e);
-        } else if (knswidgets__button_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knswidgets__button_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            knswidgets__button_timerevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,12 +683,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_devtype_isbase) {
             knswidgets__button_devtype_isbase = false;
             return KNSWidgets__Button::devType();
-        } else if (knswidgets__button_devtype_callback != nullptr) {
-            int callback_ret = knswidgets__button_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNSWidgets__Button::devType();
         }
+        auto devtype_cb = knswidgets__button_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNSWidgets__Button::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +697,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_setvisible_isbase) {
             knswidgets__button_setvisible_isbase = false;
             KNSWidgets__Button::setVisible(visible);
-        } else if (knswidgets__button_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = knswidgets__button_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            knswidgets__button_setvisible_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,14 +714,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_heightforwidth_isbase) {
             knswidgets__button_heightforwidth_isbase = false;
             return KNSWidgets__Button::heightForWidth(param1);
-        } else if (knswidgets__button_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = knswidgets__button_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = knswidgets__button_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNSWidgets__Button::heightForWidth(param1);
         }
+        return KNSWidgets__Button::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,12 +730,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_hasheightforwidth_isbase) {
             knswidgets__button_hasheightforwidth_isbase = false;
             return KNSWidgets__Button::hasHeightForWidth();
-        } else if (knswidgets__button_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = knswidgets__button_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = knswidgets__button_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,12 +744,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_paintengine_isbase) {
             knswidgets__button_paintengine_isbase = false;
             return KNSWidgets__Button::paintEngine();
-        } else if (knswidgets__button_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = knswidgets__button_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::paintEngine();
         }
+        auto paintengine_cb = knswidgets__button_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +758,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_mousedoubleclickevent_isbase) {
             knswidgets__button_mousedoubleclickevent_isbase = false;
             KNSWidgets__Button::mouseDoubleClickEvent(event);
-        } else if (knswidgets__button_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = knswidgets__button_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knswidgets__button_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +775,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_wheelevent_isbase) {
             knswidgets__button_wheelevent_isbase = false;
             KNSWidgets__Button::wheelEvent(event);
-        } else if (knswidgets__button_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = knswidgets__button_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            knswidgets__button_wheelevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +792,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_enterevent_isbase) {
             knswidgets__button_enterevent_isbase = false;
             KNSWidgets__Button::enterEvent(event);
-        } else if (knswidgets__button_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = knswidgets__button_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            knswidgets__button_enterevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +809,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_leaveevent_isbase) {
             knswidgets__button_leaveevent_isbase = false;
             KNSWidgets__Button::leaveEvent(event);
-        } else if (knswidgets__button_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = knswidgets__button_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            knswidgets__button_leaveevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +826,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_moveevent_isbase) {
             knswidgets__button_moveevent_isbase = false;
             KNSWidgets__Button::moveEvent(event);
-        } else if (knswidgets__button_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = knswidgets__button_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            knswidgets__button_moveevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +843,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_resizeevent_isbase) {
             knswidgets__button_resizeevent_isbase = false;
             KNSWidgets__Button::resizeEvent(event);
-        } else if (knswidgets__button_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = knswidgets__button_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            knswidgets__button_resizeevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +860,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_closeevent_isbase) {
             knswidgets__button_closeevent_isbase = false;
             KNSWidgets__Button::closeEvent(event);
-        } else if (knswidgets__button_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = knswidgets__button_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            knswidgets__button_closeevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +877,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_contextmenuevent_isbase) {
             knswidgets__button_contextmenuevent_isbase = false;
             KNSWidgets__Button::contextMenuEvent(event);
-        } else if (knswidgets__button_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = knswidgets__button_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            knswidgets__button_contextmenuevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +894,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_tabletevent_isbase) {
             knswidgets__button_tabletevent_isbase = false;
             KNSWidgets__Button::tabletEvent(event);
-        } else if (knswidgets__button_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = knswidgets__button_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            knswidgets__button_tabletevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +911,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_actionevent_isbase) {
             knswidgets__button_actionevent_isbase = false;
             KNSWidgets__Button::actionEvent(event);
-        } else if (knswidgets__button_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = knswidgets__button_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            knswidgets__button_actionevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +928,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_dragenterevent_isbase) {
             knswidgets__button_dragenterevent_isbase = false;
             KNSWidgets__Button::dragEnterEvent(event);
-        } else if (knswidgets__button_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = knswidgets__button_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            knswidgets__button_dragenterevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +945,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_dragmoveevent_isbase) {
             knswidgets__button_dragmoveevent_isbase = false;
             KNSWidgets__Button::dragMoveEvent(event);
-        } else if (knswidgets__button_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = knswidgets__button_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            knswidgets__button_dragmoveevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +962,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_dragleaveevent_isbase) {
             knswidgets__button_dragleaveevent_isbase = false;
             KNSWidgets__Button::dragLeaveEvent(event);
-        } else if (knswidgets__button_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = knswidgets__button_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            knswidgets__button_dragleaveevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +979,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_dropevent_isbase) {
             knswidgets__button_dropevent_isbase = false;
             KNSWidgets__Button::dropEvent(event);
-        } else if (knswidgets__button_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = knswidgets__button_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            knswidgets__button_dropevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +996,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_showevent_isbase) {
             knswidgets__button_showevent_isbase = false;
             KNSWidgets__Button::showEvent(event);
-        } else if (knswidgets__button_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = knswidgets__button_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            knswidgets__button_showevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1013,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_hideevent_isbase) {
             knswidgets__button_hideevent_isbase = false;
             KNSWidgets__Button::hideEvent(event);
-        } else if (knswidgets__button_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = knswidgets__button_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            knswidgets__button_hideevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,7 +1030,9 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_nativeevent_isbase) {
             knswidgets__button_nativeevent_isbase = false;
             return KNSWidgets__Button::nativeEvent(eventType, message, result);
-        } else if (knswidgets__button_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = knswidgets__button_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1007,12 +1043,11 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = knswidgets__button_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::nativeEvent(eventType, message, result);
         }
+        return KNSWidgets__Button::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,14 +1055,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_metric_isbase) {
             knswidgets__button_metric_isbase = false;
             return KNSWidgets__Button::metric(param1);
-        } else if (knswidgets__button_metric_callback != nullptr) {
+        }
+        auto metric_cb = knswidgets__button_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = knswidgets__button_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNSWidgets__Button::metric(param1);
         }
+        return KNSWidgets__Button::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,13 +1071,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_initpainter_isbase) {
             knswidgets__button_initpainter_isbase = false;
             KNSWidgets__Button::initPainter(painter);
-        } else if (knswidgets__button_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = knswidgets__button_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            knswidgets__button_initpainter_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1088,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_redirected_isbase) {
             knswidgets__button_redirected_isbase = false;
             return KNSWidgets__Button::redirected(offset);
-        } else if (knswidgets__button_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = knswidgets__button_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = knswidgets__button_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::redirected(offset);
         }
+        return KNSWidgets__Button::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,12 +1104,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_sharedpainter_isbase) {
             knswidgets__button_sharedpainter_isbase = false;
             return KNSWidgets__Button::sharedPainter();
-        } else if (knswidgets__button_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = knswidgets__button_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::sharedPainter();
         }
+        auto sharedpainter_cb = knswidgets__button_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,13 +1118,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_inputmethodevent_isbase) {
             knswidgets__button_inputmethodevent_isbase = false;
             KNSWidgets__Button::inputMethodEvent(param1);
-        } else if (knswidgets__button_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = knswidgets__button_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            knswidgets__button_inputmethodevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,14 +1135,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_inputmethodquery_isbase) {
             knswidgets__button_inputmethodquery_isbase = false;
             return KNSWidgets__Button::inputMethodQuery(param1);
-        } else if (knswidgets__button_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = knswidgets__button_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = knswidgets__button_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KNSWidgets__Button::inputMethodQuery(param1);
         }
+        return KNSWidgets__Button::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,14 +1151,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_focusnextprevchild_isbase) {
             knswidgets__button_focusnextprevchild_isbase = false;
             return KNSWidgets__Button::focusNextPrevChild(next);
-        } else if (knswidgets__button_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = knswidgets__button_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = knswidgets__button_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::focusNextPrevChild(next);
         }
+        return KNSWidgets__Button::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,15 +1167,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_eventfilter_isbase) {
             knswidgets__button_eventfilter_isbase = false;
             return KNSWidgets__Button::eventFilter(watched, event);
-        } else if (knswidgets__button_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knswidgets__button_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = knswidgets__button_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::eventFilter(watched, event);
         }
+        return KNSWidgets__Button::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,13 +1184,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_childevent_isbase) {
             knswidgets__button_childevent_isbase = false;
             KNSWidgets__Button::childEvent(event);
-        } else if (knswidgets__button_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knswidgets__button_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knswidgets__button_childevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,13 +1201,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_customevent_isbase) {
             knswidgets__button_customevent_isbase = false;
             KNSWidgets__Button::customEvent(event);
-        } else if (knswidgets__button_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knswidgets__button_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knswidgets__button_customevent_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,15 +1218,18 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_connectnotify_isbase) {
             knswidgets__button_connectnotify_isbase = false;
             KNSWidgets__Button::connectNotify(signal);
-        } else if (knswidgets__button_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knswidgets__button_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knswidgets__button_connectnotify_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,15 +1237,18 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_disconnectnotify_isbase) {
             knswidgets__button_disconnectnotify_isbase = false;
             KNSWidgets__Button::disconnectNotify(signal);
-        } else if (knswidgets__button_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knswidgets__button_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knswidgets__button_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNSWidgets__Button::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNSWidgets__Button::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,11 +1256,14 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_updatemicrofocus_isbase) {
             knswidgets__button_updatemicrofocus_isbase = false;
             KNSWidgets__Button::updateMicroFocus();
-        } else if (knswidgets__button_updatemicrofocus_callback != nullptr) {
-            knswidgets__button_updatemicrofocus_callback();
-        } else {
-            KNSWidgets__Button::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = knswidgets__button_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KNSWidgets__Button::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,11 +1271,14 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_create_isbase) {
             knswidgets__button_create_isbase = false;
             KNSWidgets__Button::create();
-        } else if (knswidgets__button_create_callback != nullptr) {
-            knswidgets__button_create_callback();
-        } else {
-            KNSWidgets__Button::create();
+            return;
         }
+        auto create_cb = knswidgets__button_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KNSWidgets__Button::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,11 +1286,14 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_destroy_isbase) {
             knswidgets__button_destroy_isbase = false;
             KNSWidgets__Button::destroy();
-        } else if (knswidgets__button_destroy_callback != nullptr) {
-            knswidgets__button_destroy_callback();
-        } else {
-            KNSWidgets__Button::destroy();
+            return;
         }
+        auto destroy_cb = knswidgets__button_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KNSWidgets__Button::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1301,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_focusnextchild_isbase) {
             knswidgets__button_focusnextchild_isbase = false;
             return KNSWidgets__Button::focusNextChild();
-        } else if (knswidgets__button_focusnextchild_callback != nullptr) {
-            bool callback_ret = knswidgets__button_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::focusNextChild();
         }
+        auto focusnextchild_cb = knswidgets__button_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,12 +1315,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_focuspreviouschild_isbase) {
             knswidgets__button_focuspreviouschild_isbase = false;
             return KNSWidgets__Button::focusPreviousChild();
-        } else if (knswidgets__button_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = knswidgets__button_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = knswidgets__button_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,12 +1329,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_sender_isbase) {
             knswidgets__button_sender_isbase = false;
             return KNSWidgets__Button::sender();
-        } else if (knswidgets__button_sender_callback != nullptr) {
-            QObject* callback_ret = knswidgets__button_sender_callback();
-            return callback_ret;
-        } else {
-            return KNSWidgets__Button::sender();
         }
+        auto sender_cb = knswidgets__button_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNSWidgets__Button::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,12 +1343,13 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_sendersignalindex_isbase) {
             knswidgets__button_sendersignalindex_isbase = false;
             return KNSWidgets__Button::senderSignalIndex();
-        } else if (knswidgets__button_sendersignalindex_callback != nullptr) {
-            int callback_ret = knswidgets__button_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNSWidgets__Button::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knswidgets__button_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNSWidgets__Button::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,14 +1357,15 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_receivers_isbase) {
             knswidgets__button_receivers_isbase = false;
             return KNSWidgets__Button::receivers(signal);
-        } else if (knswidgets__button_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knswidgets__button_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knswidgets__button_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNSWidgets__Button::receivers(signal);
         }
+        return KNSWidgets__Button::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,16 +1373,17 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_issignalconnected_isbase) {
             knswidgets__button_issignalconnected_isbase = false;
             return KNSWidgets__Button::isSignalConnected(signal);
-        } else if (knswidgets__button_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knswidgets__button_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knswidgets__button_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSWidgets__Button::isSignalConnected(signal);
         }
+        return KNSWidgets__Button::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,15 +1391,16 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
         if (knswidgets__button_getdecodedmetricf_isbase) {
             knswidgets__button_getdecodedmetricf_isbase = false;
             return KNSWidgets__Button::getDecodedMetricF(metricA, metricB);
-        } else if (knswidgets__button_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = knswidgets__button_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = knswidgets__button_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KNSWidgets__Button::getDecodedMetricF(metricA, metricB);
         }
+        return KNSWidgets__Button::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

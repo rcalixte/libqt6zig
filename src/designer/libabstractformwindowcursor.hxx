@@ -65,22 +65,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
   public:
     VirtualQDesignerFormWindowCursorInterface() : QDesignerFormWindowCursorInterface() {};
 
-    ~VirtualQDesignerFormWindowCursorInterface() {
-        qdesignerformwindowcursorinterface_formwindow_callback = nullptr;
-        qdesignerformwindowcursorinterface_moveposition_callback = nullptr;
-        qdesignerformwindowcursorinterface_position_callback = nullptr;
-        qdesignerformwindowcursorinterface_setposition_callback = nullptr;
-        qdesignerformwindowcursorinterface_current_callback = nullptr;
-        qdesignerformwindowcursorinterface_widgetcount_callback = nullptr;
-        qdesignerformwindowcursorinterface_widget_callback = nullptr;
-        qdesignerformwindowcursorinterface_hasselection_callback = nullptr;
-        qdesignerformwindowcursorinterface_selectedwidgetcount_callback = nullptr;
-        qdesignerformwindowcursorinterface_selectedwidget_callback = nullptr;
-        qdesignerformwindowcursorinterface_setproperty_callback = nullptr;
-        qdesignerformwindowcursorinterface_setwidgetproperty_callback = nullptr;
-        qdesignerformwindowcursorinterface_resetwidgetproperty_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerFormWindowCursorInterface_FormWindow_Callback(QDesignerFormWindowCursorInterface_FormWindow_Callback cb) { qdesignerformwindowcursorinterface_formwindow_callback = cb; }
     inline void setQDesignerFormWindowCursorInterface_MovePosition_Callback(QDesignerFormWindowCursorInterface_MovePosition_Callback cb) { qdesignerformwindowcursorinterface_moveposition_callback = cb; }
@@ -113,114 +97,116 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
 
     // Virtual method for C ABI access and custom callback
     virtual QDesignerFormWindowInterface* formWindow() const override {
-        if (qdesignerformwindowcursorinterface_formwindow_callback != nullptr) {
-            QDesignerFormWindowInterface* callback_ret = qdesignerformwindowcursorinterface_formwindow_callback();
+        auto formwindow_cb = qdesignerformwindowcursorinterface_formwindow_callback;
+        if (formwindow_cb) {
+            QDesignerFormWindowInterface* callback_ret = formwindow_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool movePosition(QDesignerFormWindowCursorInterface::MoveOperation op, QDesignerFormWindowCursorInterface::MoveMode mode) override {
-        if (qdesignerformwindowcursorinterface_moveposition_callback != nullptr) {
+        auto moveposition_cb = qdesignerformwindowcursorinterface_moveposition_callback;
+        if (moveposition_cb) {
             int cbval1 = static_cast<int>(op);
             int cbval2 = static_cast<int>(mode);
 
-            bool callback_ret = qdesignerformwindowcursorinterface_moveposition_callback(this, cbval1, cbval2);
+            bool callback_ret = moveposition_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int position() const override {
-        if (qdesignerformwindowcursorinterface_position_callback != nullptr) {
-            int callback_ret = qdesignerformwindowcursorinterface_position_callback();
+        auto position_cb = qdesignerformwindowcursorinterface_position_callback;
+        if (position_cb) {
+            int callback_ret = position_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setPosition(int pos, QDesignerFormWindowCursorInterface::MoveMode mode) override {
-        if (qdesignerformwindowcursorinterface_setposition_callback != nullptr) {
+        auto setposition_cb = qdesignerformwindowcursorinterface_setposition_callback;
+        if (setposition_cb) {
             int cbval1 = pos;
             int cbval2 = static_cast<int>(mode);
 
-            qdesignerformwindowcursorinterface_setposition_callback(this, cbval1, cbval2);
+            setposition_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* current() const override {
-        if (qdesignerformwindowcursorinterface_current_callback != nullptr) {
-            QWidget* callback_ret = qdesignerformwindowcursorinterface_current_callback();
+        auto current_cb = qdesignerformwindowcursorinterface_current_callback;
+        if (current_cb) {
+            QWidget* callback_ret = current_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int widgetCount() const override {
-        if (qdesignerformwindowcursorinterface_widgetcount_callback != nullptr) {
-            int callback_ret = qdesignerformwindowcursorinterface_widgetcount_callback();
+        auto widgetcount_cb = qdesignerformwindowcursorinterface_widgetcount_callback;
+        if (widgetcount_cb) {
+            int callback_ret = widgetcount_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* widget(int index) const override {
-        if (qdesignerformwindowcursorinterface_widget_callback != nullptr) {
+        auto widget_cb = qdesignerformwindowcursorinterface_widget_callback;
+        if (widget_cb) {
             int cbval1 = index;
 
-            QWidget* callback_ret = qdesignerformwindowcursorinterface_widget_callback(this, cbval1);
+            QWidget* callback_ret = widget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasSelection() const override {
-        if (qdesignerformwindowcursorinterface_hasselection_callback != nullptr) {
-            bool callback_ret = qdesignerformwindowcursorinterface_hasselection_callback();
+        auto hasselection_cb = qdesignerformwindowcursorinterface_hasselection_callback;
+        if (hasselection_cb) {
+            bool callback_ret = hasselection_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int selectedWidgetCount() const override {
-        if (qdesignerformwindowcursorinterface_selectedwidgetcount_callback != nullptr) {
-            int callback_ret = qdesignerformwindowcursorinterface_selectedwidgetcount_callback();
+        auto selectedwidgetcount_cb = qdesignerformwindowcursorinterface_selectedwidgetcount_callback;
+        if (selectedwidgetcount_cb) {
+            int callback_ret = selectedwidgetcount_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* selectedWidget(int index) const override {
-        if (qdesignerformwindowcursorinterface_selectedwidget_callback != nullptr) {
+        auto selectedwidget_cb = qdesignerformwindowcursorinterface_selectedwidget_callback;
+        if (selectedwidget_cb) {
             int cbval1 = index;
 
-            QWidget* callback_ret = qdesignerformwindowcursorinterface_selectedwidget_callback(this, cbval1);
+            QWidget* callback_ret = selectedwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setProperty(const QString& name, const QVariant& value) override {
-        if (qdesignerformwindowcursorinterface_setproperty_callback != nullptr) {
+        auto setproperty_cb = qdesignerformwindowcursorinterface_setproperty_callback;
+        if (setproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -233,14 +219,15 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qdesignerformwindowcursorinterface_setproperty_callback(this, cbval1, cbval2);
+            setproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setWidgetProperty(QWidget* widget, const QString& name, const QVariant& value) override {
-        if (qdesignerformwindowcursorinterface_setwidgetproperty_callback != nullptr) {
+        auto setwidgetproperty_cb = qdesignerformwindowcursorinterface_setwidgetproperty_callback;
+        if (setwidgetproperty_cb) {
             QWidget* cbval1 = widget;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -254,14 +241,15 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
 
-            qdesignerformwindowcursorinterface_setwidgetproperty_callback(this, cbval1, cbval2, cbval3);
+            setwidgetproperty_cb(this, cbval1, cbval2, cbval3);
             libqt_free(name_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void resetWidgetProperty(QWidget* widget, const QString& name) override {
-        if (qdesignerformwindowcursorinterface_resetwidgetproperty_callback != nullptr) {
+        auto resetwidgetproperty_cb = qdesignerformwindowcursorinterface_resetwidgetproperty_callback;
+        if (resetwidgetproperty_cb) {
             QWidget* cbval1 = widget;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -272,7 +260,7 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
 
-            qdesignerformwindowcursorinterface_resetwidgetproperty_callback(this, cbval1, cbval2);
+            resetwidgetproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
         }
     }

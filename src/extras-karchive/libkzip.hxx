@@ -76,25 +76,6 @@ class VirtualKZip final : public KZip {
     VirtualKZip(QIODevice* dev) : KZip(dev) {};
     VirtualKZip(const KZip& param1) : KZip(param1) {};
 
-    ~VirtualKZip() {
-        kzip_dowritesymlink_callback = nullptr;
-        kzip_dopreparewriting_callback = nullptr;
-        kzip_dofinishwriting_callback = nullptr;
-        kzip_dowritedata_callback = nullptr;
-        kzip_openarchive_callback = nullptr;
-        kzip_closearchive_callback = nullptr;
-        kzip_dowritedir_callback = nullptr;
-        kzip_virtualhook_callback = nullptr;
-        kzip_open_callback = nullptr;
-        kzip_close_callback = nullptr;
-        kzip_rootdir_callback = nullptr;
-        kzip_createdevice_callback = nullptr;
-        kzip_seterrorstring_callback = nullptr;
-        kzip_findorcreate_callback = nullptr;
-        kzip_setdevice_callback = nullptr;
-        kzip_setrootdir_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKZip_DoWriteSymLink_Callback(KZip_DoWriteSymLink_Callback cb) { kzip_dowritesymlink_callback = cb; }
     inline void setKZip_DoPrepareWriting_Callback(KZip_DoPrepareWriting_Callback cb) { kzip_dopreparewriting_callback = cb; }
@@ -136,7 +117,9 @@ class VirtualKZip final : public KZip {
         if (kzip_dowritesymlink_isbase) {
             kzip_dowritesymlink_isbase = false;
             return KZip::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
-        } else if (kzip_dowritesymlink_callback != nullptr) {
+        }
+        auto dowritesymlink_cb = kzip_dowritesymlink_callback;
+        if (dowritesymlink_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -180,15 +163,14 @@ class VirtualKZip final : public KZip {
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = kzip_dowritesymlink_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            bool callback_ret = dowritesymlink_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(target_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KZip::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
         }
+        return KZip::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,7 +178,9 @@ class VirtualKZip final : public KZip {
         if (kzip_dopreparewriting_isbase) {
             kzip_dopreparewriting_isbase = false;
             return KZip::doPrepareWriting(name, user, group, size, perm, atime, mtime, creationTime);
-        } else if (kzip_dopreparewriting_callback != nullptr) {
+        }
+        auto dopreparewriting_cb = kzip_dopreparewriting_callback;
+        if (dopreparewriting_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -233,14 +217,13 @@ class VirtualKZip final : public KZip {
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&creationTime_ret);
 
-            bool callback_ret = kzip_dopreparewriting_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            bool callback_ret = dopreparewriting_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KZip::doPrepareWriting(name, user, group, size, perm, atime, mtime, creationTime);
         }
+        return KZip::doPrepareWriting(name, user, group, size, perm, atime, mtime, creationTime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,14 +231,15 @@ class VirtualKZip final : public KZip {
         if (kzip_dofinishwriting_isbase) {
             kzip_dofinishwriting_isbase = false;
             return KZip::doFinishWriting(size);
-        } else if (kzip_dofinishwriting_callback != nullptr) {
+        }
+        auto dofinishwriting_cb = kzip_dofinishwriting_callback;
+        if (dofinishwriting_cb) {
             long long cbval1 = static_cast<long long>(size);
 
-            bool callback_ret = kzip_dofinishwriting_callback(this, cbval1);
+            bool callback_ret = dofinishwriting_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KZip::doFinishWriting(size);
         }
+        return KZip::doFinishWriting(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +247,16 @@ class VirtualKZip final : public KZip {
         if (kzip_dowritedata_isbase) {
             kzip_dowritedata_isbase = false;
             return KZip::doWriteData(data, size);
-        } else if (kzip_dowritedata_callback != nullptr) {
+        }
+        auto dowritedata_cb = kzip_dowritedata_callback;
+        if (dowritedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(size);
 
-            bool callback_ret = kzip_dowritedata_callback(this, cbval1, cbval2);
+            bool callback_ret = dowritedata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KZip::doWriteData(data, size);
         }
+        return KZip::doWriteData(data, size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,14 +264,15 @@ class VirtualKZip final : public KZip {
         if (kzip_openarchive_isbase) {
             kzip_openarchive_isbase = false;
             return KZip::openArchive(mode);
-        } else if (kzip_openarchive_callback != nullptr) {
+        }
+        auto openarchive_cb = kzip_openarchive_callback;
+        if (openarchive_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kzip_openarchive_callback(this, cbval1);
+            bool callback_ret = openarchive_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KZip::openArchive(mode);
         }
+        return KZip::openArchive(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,12 +280,13 @@ class VirtualKZip final : public KZip {
         if (kzip_closearchive_isbase) {
             kzip_closearchive_isbase = false;
             return KZip::closeArchive();
-        } else if (kzip_closearchive_callback != nullptr) {
-            bool callback_ret = kzip_closearchive_callback();
-            return callback_ret;
-        } else {
-            return KZip::closeArchive();
         }
+        auto closearchive_cb = kzip_closearchive_callback;
+        if (closearchive_cb) {
+            bool callback_ret = closearchive_cb();
+            return callback_ret;
+        }
+        return KZip::closeArchive();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,7 +294,9 @@ class VirtualKZip final : public KZip {
         if (kzip_dowritedir_isbase) {
             kzip_dowritedir_isbase = false;
             return KZip::doWriteDir(name, user, group, perm, atime, mtime, ctime);
-        } else if (kzip_dowritedir_callback != nullptr) {
+        }
+        auto dowritedir_cb = kzip_dowritedir_callback;
+        if (dowritedir_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -343,14 +332,13 @@ class VirtualKZip final : public KZip {
             // Cast returned reference into pointer
             QDateTime* cbval7 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = kzip_dowritedir_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            bool callback_ret = dowritedir_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(name_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KZip::doWriteDir(name, user, group, perm, atime, mtime, ctime);
         }
+        return KZip::doWriteDir(name, user, group, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,14 +346,17 @@ class VirtualKZip final : public KZip {
         if (kzip_virtualhook_isbase) {
             kzip_virtualhook_isbase = false;
             KZip::virtual_hook(id, data);
-        } else if (kzip_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kzip_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kzip_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KZip::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KZip::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,14 +364,15 @@ class VirtualKZip final : public KZip {
         if (kzip_open_isbase) {
             kzip_open_isbase = false;
             return KZip::open(mode);
-        } else if (kzip_open_callback != nullptr) {
+        }
+        auto open_cb = kzip_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kzip_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KZip::open(mode);
         }
+        return KZip::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,12 +380,13 @@ class VirtualKZip final : public KZip {
         if (kzip_close_isbase) {
             kzip_close_isbase = false;
             return KZip::close();
-        } else if (kzip_close_callback != nullptr) {
-            bool callback_ret = kzip_close_callback();
-            return callback_ret;
-        } else {
-            return KZip::close();
         }
+        auto close_cb = kzip_close_callback;
+        if (close_cb) {
+            bool callback_ret = close_cb();
+            return callback_ret;
+        }
+        return KZip::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -401,12 +394,13 @@ class VirtualKZip final : public KZip {
         if (kzip_rootdir_isbase) {
             kzip_rootdir_isbase = false;
             return KZip::rootDir();
-        } else if (kzip_rootdir_callback != nullptr) {
-            KArchiveDirectory* callback_ret = kzip_rootdir_callback();
-            return callback_ret;
-        } else {
-            return KZip::rootDir();
         }
+        auto rootdir_cb = kzip_rootdir_callback;
+        if (rootdir_cb) {
+            KArchiveDirectory* callback_ret = rootdir_cb();
+            return callback_ret;
+        }
+        return KZip::rootDir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,14 +408,15 @@ class VirtualKZip final : public KZip {
         if (kzip_createdevice_isbase) {
             kzip_createdevice_isbase = false;
             return KZip::createDevice(mode);
-        } else if (kzip_createdevice_callback != nullptr) {
+        }
+        auto createdevice_cb = kzip_createdevice_callback;
+        if (createdevice_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kzip_createdevice_callback(this, cbval1);
+            bool callback_ret = createdevice_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KZip::createDevice(mode);
         }
+        return KZip::createDevice(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,7 +424,10 @@ class VirtualKZip final : public KZip {
         if (kzip_seterrorstring_isbase) {
             kzip_seterrorstring_isbase = false;
             KZip::setErrorString(errorStr);
-        } else if (kzip_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = kzip_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorStr_ret = errorStr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorStr_b = errorStr_ret.toUtf8();
@@ -439,11 +437,11 @@ class VirtualKZip final : public KZip {
             ((char*)errorStr_str)[errorStr_str_len] = '\0';
             const char* cbval1 = errorStr_str;
 
-            kzip_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorStr_str);
-        } else {
-            KZip::setErrorString(errorStr);
+            return;
         }
+        KZip::setErrorString(errorStr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,7 +449,9 @@ class VirtualKZip final : public KZip {
         if (kzip_findorcreate_isbase) {
             kzip_findorcreate_isbase = false;
             return KZip::findOrCreate(path);
-        } else if (kzip_findorcreate_callback != nullptr) {
+        }
+        auto findorcreate_cb = kzip_findorcreate_callback;
+        if (findorcreate_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -461,12 +461,11 @@ class VirtualKZip final : public KZip {
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            KArchiveDirectory* callback_ret = kzip_findorcreate_callback(this, cbval1);
+            KArchiveDirectory* callback_ret = findorcreate_cb(this, cbval1);
             libqt_free(path_str);
             return callback_ret;
-        } else {
-            return KZip::findOrCreate(path);
         }
+        return KZip::findOrCreate(path);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,13 +473,16 @@ class VirtualKZip final : public KZip {
         if (kzip_setdevice_isbase) {
             kzip_setdevice_isbase = false;
             KZip::setDevice(dev);
-        } else if (kzip_setdevice_callback != nullptr) {
+            return;
+        }
+        auto setdevice_cb = kzip_setdevice_callback;
+        if (setdevice_cb) {
             QIODevice* cbval1 = dev;
 
-            kzip_setdevice_callback(this, cbval1);
-        } else {
-            KZip::setDevice(dev);
+            setdevice_cb(this, cbval1);
+            return;
         }
+        KZip::setDevice(dev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,13 +490,16 @@ class VirtualKZip final : public KZip {
         if (kzip_setrootdir_isbase) {
             kzip_setrootdir_isbase = false;
             KZip::setRootDir(rootDir);
-        } else if (kzip_setrootdir_callback != nullptr) {
+            return;
+        }
+        auto setrootdir_cb = kzip_setrootdir_callback;
+        if (setrootdir_cb) {
             KArchiveDirectory* cbval1 = rootDir;
 
-            kzip_setrootdir_callback(this, cbval1);
-        } else {
-            KZip::setRootDir(rootDir);
+            setrootdir_cb(this, cbval1);
+            return;
         }
+        KZip::setRootDir(rootDir);
     }
 
     // Friend functions

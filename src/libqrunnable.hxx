@@ -29,10 +29,6 @@ class VirtualQRunnable : public QRunnable {
   public:
     VirtualQRunnable() : QRunnable() {};
 
-    ~VirtualQRunnable() {
-        qrunnable_run_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQRunnable_Run_Callback(QRunnable_Run_Callback cb) { qrunnable_run_callback = cb; }
 
@@ -41,8 +37,9 @@ class VirtualQRunnable : public QRunnable {
 
     // Virtual method for C ABI access and custom callback
     virtual void run() override {
-        if (qrunnable_run_callback != nullptr) {
-            qrunnable_run_callback();
+        auto run_cb = qrunnable_run_callback;
+        if (run_cb) {
+            run_cb();
         }
     }
 };

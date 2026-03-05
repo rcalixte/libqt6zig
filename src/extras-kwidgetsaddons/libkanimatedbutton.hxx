@@ -219,73 +219,6 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     VirtualKAnimatedButton(QWidget* parent) : KAnimatedButton(parent) {};
     VirtualKAnimatedButton() : KAnimatedButton() {};
 
-    ~VirtualKAnimatedButton() {
-        kanimatedbutton_metaobject_callback = nullptr;
-        kanimatedbutton_metacast_callback = nullptr;
-        kanimatedbutton_metacall_callback = nullptr;
-        kanimatedbutton_sizehint_callback = nullptr;
-        kanimatedbutton_minimumsizehint_callback = nullptr;
-        kanimatedbutton_event_callback = nullptr;
-        kanimatedbutton_mousepressevent_callback = nullptr;
-        kanimatedbutton_mousereleaseevent_callback = nullptr;
-        kanimatedbutton_paintevent_callback = nullptr;
-        kanimatedbutton_actionevent_callback = nullptr;
-        kanimatedbutton_enterevent_callback = nullptr;
-        kanimatedbutton_leaveevent_callback = nullptr;
-        kanimatedbutton_timerevent_callback = nullptr;
-        kanimatedbutton_changeevent_callback = nullptr;
-        kanimatedbutton_hitbutton_callback = nullptr;
-        kanimatedbutton_checkstateset_callback = nullptr;
-        kanimatedbutton_nextcheckstate_callback = nullptr;
-        kanimatedbutton_initstyleoption_callback = nullptr;
-        kanimatedbutton_keypressevent_callback = nullptr;
-        kanimatedbutton_keyreleaseevent_callback = nullptr;
-        kanimatedbutton_mousemoveevent_callback = nullptr;
-        kanimatedbutton_focusinevent_callback = nullptr;
-        kanimatedbutton_focusoutevent_callback = nullptr;
-        kanimatedbutton_devtype_callback = nullptr;
-        kanimatedbutton_setvisible_callback = nullptr;
-        kanimatedbutton_heightforwidth_callback = nullptr;
-        kanimatedbutton_hasheightforwidth_callback = nullptr;
-        kanimatedbutton_paintengine_callback = nullptr;
-        kanimatedbutton_mousedoubleclickevent_callback = nullptr;
-        kanimatedbutton_wheelevent_callback = nullptr;
-        kanimatedbutton_moveevent_callback = nullptr;
-        kanimatedbutton_resizeevent_callback = nullptr;
-        kanimatedbutton_closeevent_callback = nullptr;
-        kanimatedbutton_contextmenuevent_callback = nullptr;
-        kanimatedbutton_tabletevent_callback = nullptr;
-        kanimatedbutton_dragenterevent_callback = nullptr;
-        kanimatedbutton_dragmoveevent_callback = nullptr;
-        kanimatedbutton_dragleaveevent_callback = nullptr;
-        kanimatedbutton_dropevent_callback = nullptr;
-        kanimatedbutton_showevent_callback = nullptr;
-        kanimatedbutton_hideevent_callback = nullptr;
-        kanimatedbutton_nativeevent_callback = nullptr;
-        kanimatedbutton_metric_callback = nullptr;
-        kanimatedbutton_initpainter_callback = nullptr;
-        kanimatedbutton_redirected_callback = nullptr;
-        kanimatedbutton_sharedpainter_callback = nullptr;
-        kanimatedbutton_inputmethodevent_callback = nullptr;
-        kanimatedbutton_inputmethodquery_callback = nullptr;
-        kanimatedbutton_focusnextprevchild_callback = nullptr;
-        kanimatedbutton_eventfilter_callback = nullptr;
-        kanimatedbutton_childevent_callback = nullptr;
-        kanimatedbutton_customevent_callback = nullptr;
-        kanimatedbutton_connectnotify_callback = nullptr;
-        kanimatedbutton_disconnectnotify_callback = nullptr;
-        kanimatedbutton_updatemicrofocus_callback = nullptr;
-        kanimatedbutton_create_callback = nullptr;
-        kanimatedbutton_destroy_callback = nullptr;
-        kanimatedbutton_focusnextchild_callback = nullptr;
-        kanimatedbutton_focuspreviouschild_callback = nullptr;
-        kanimatedbutton_sender_callback = nullptr;
-        kanimatedbutton_sendersignalindex_callback = nullptr;
-        kanimatedbutton_receivers_callback = nullptr;
-        kanimatedbutton_issignalconnected_callback = nullptr;
-        kanimatedbutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAnimatedButton_MetaObject_Callback(KAnimatedButton_MetaObject_Callback cb) { kanimatedbutton_metaobject_callback = cb; }
     inline void setKAnimatedButton_Metacast_Callback(KAnimatedButton_Metacast_Callback cb) { kanimatedbutton_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_metaobject_isbase) {
             kanimatedbutton_metaobject_isbase = false;
             return KAnimatedButton::metaObject();
-        } else if (kanimatedbutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kanimatedbutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::metaObject();
         }
+        auto metaobject_cb = kanimatedbutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_metacast_isbase) {
             kanimatedbutton_metacast_isbase = false;
             return KAnimatedButton::qt_metacast(param1);
-        } else if (kanimatedbutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kanimatedbutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kanimatedbutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAnimatedButton::qt_metacast(param1);
         }
+        return KAnimatedButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_metacall_isbase) {
             kanimatedbutton_metacall_isbase = false;
             return KAnimatedButton::qt_metacall(param1, param2, param3);
-        } else if (kanimatedbutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kanimatedbutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kanimatedbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAnimatedButton::qt_metacall(param1, param2, param3);
         }
+        return KAnimatedButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +404,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_sizehint_isbase) {
             kanimatedbutton_sizehint_isbase = false;
             return KAnimatedButton::sizeHint();
-        } else if (kanimatedbutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = kanimatedbutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAnimatedButton::sizeHint();
         }
+        auto sizehint_cb = kanimatedbutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KAnimatedButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +418,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_minimumsizehint_isbase) {
             kanimatedbutton_minimumsizehint_isbase = false;
             return KAnimatedButton::minimumSizeHint();
-        } else if (kanimatedbutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kanimatedbutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KAnimatedButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kanimatedbutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KAnimatedButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +432,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_event_isbase) {
             kanimatedbutton_event_isbase = false;
             return KAnimatedButton::event(e);
-        } else if (kanimatedbutton_event_callback != nullptr) {
+        }
+        auto event_cb = kanimatedbutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kanimatedbutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAnimatedButton::event(e);
         }
+        return KAnimatedButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +448,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_mousepressevent_isbase) {
             kanimatedbutton_mousepressevent_isbase = false;
             KAnimatedButton::mousePressEvent(param1);
-        } else if (kanimatedbutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kanimatedbutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kanimatedbutton_mousepressevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,13 +465,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_mousereleaseevent_isbase) {
             kanimatedbutton_mousereleaseevent_isbase = false;
             KAnimatedButton::mouseReleaseEvent(param1);
-        } else if (kanimatedbutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kanimatedbutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            kanimatedbutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,13 +482,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_paintevent_isbase) {
             kanimatedbutton_paintevent_isbase = false;
             KAnimatedButton::paintEvent(param1);
-        } else if (kanimatedbutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kanimatedbutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kanimatedbutton_paintevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +499,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_actionevent_isbase) {
             kanimatedbutton_actionevent_isbase = false;
             KAnimatedButton::actionEvent(param1);
-        } else if (kanimatedbutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kanimatedbutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            kanimatedbutton_actionevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,13 +516,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_enterevent_isbase) {
             kanimatedbutton_enterevent_isbase = false;
             KAnimatedButton::enterEvent(param1);
-        } else if (kanimatedbutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kanimatedbutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
 
-            kanimatedbutton_enterevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::enterEvent(param1);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::enterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,13 +533,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_leaveevent_isbase) {
             kanimatedbutton_leaveevent_isbase = false;
             KAnimatedButton::leaveEvent(param1);
-        } else if (kanimatedbutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kanimatedbutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            kanimatedbutton_leaveevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,13 +550,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_timerevent_isbase) {
             kanimatedbutton_timerevent_isbase = false;
             KAnimatedButton::timerEvent(param1);
-        } else if (kanimatedbutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kanimatedbutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kanimatedbutton_timerevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +567,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_changeevent_isbase) {
             kanimatedbutton_changeevent_isbase = false;
             KAnimatedButton::changeEvent(param1);
-        } else if (kanimatedbutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kanimatedbutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kanimatedbutton_changeevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,16 +584,17 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_hitbutton_isbase) {
             kanimatedbutton_hitbutton_isbase = false;
             return KAnimatedButton::hitButton(pos);
-        } else if (kanimatedbutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = kanimatedbutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = kanimatedbutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAnimatedButton::hitButton(pos);
         }
+        return KAnimatedButton::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,11 +602,14 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_checkstateset_isbase) {
             kanimatedbutton_checkstateset_isbase = false;
             KAnimatedButton::checkStateSet();
-        } else if (kanimatedbutton_checkstateset_callback != nullptr) {
-            kanimatedbutton_checkstateset_callback();
-        } else {
-            KAnimatedButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = kanimatedbutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        KAnimatedButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,11 +617,14 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_nextcheckstate_isbase) {
             kanimatedbutton_nextcheckstate_isbase = false;
             KAnimatedButton::nextCheckState();
-        } else if (kanimatedbutton_nextcheckstate_callback != nullptr) {
-            kanimatedbutton_nextcheckstate_callback();
-        } else {
-            KAnimatedButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = kanimatedbutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        KAnimatedButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +632,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_initstyleoption_isbase) {
             kanimatedbutton_initstyleoption_isbase = false;
             KAnimatedButton::initStyleOption(option);
-        } else if (kanimatedbutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kanimatedbutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionToolButton* cbval1 = option;
 
-            kanimatedbutton_initstyleoption_callback(this, cbval1);
-        } else {
-            KAnimatedButton::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +649,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_keypressevent_isbase) {
             kanimatedbutton_keypressevent_isbase = false;
             KAnimatedButton::keyPressEvent(e);
-        } else if (kanimatedbutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kanimatedbutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kanimatedbutton_keypressevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +666,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_keyreleaseevent_isbase) {
             kanimatedbutton_keyreleaseevent_isbase = false;
             KAnimatedButton::keyReleaseEvent(e);
-        } else if (kanimatedbutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kanimatedbutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            kanimatedbutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +683,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_mousemoveevent_isbase) {
             kanimatedbutton_mousemoveevent_isbase = false;
             KAnimatedButton::mouseMoveEvent(e);
-        } else if (kanimatedbutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kanimatedbutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kanimatedbutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,13 +700,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_focusinevent_isbase) {
             kanimatedbutton_focusinevent_isbase = false;
             KAnimatedButton::focusInEvent(e);
-        } else if (kanimatedbutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kanimatedbutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kanimatedbutton_focusinevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,13 +717,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_focusoutevent_isbase) {
             kanimatedbutton_focusoutevent_isbase = false;
             KAnimatedButton::focusOutEvent(e);
-        } else if (kanimatedbutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kanimatedbutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            kanimatedbutton_focusoutevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,12 +734,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_devtype_isbase) {
             kanimatedbutton_devtype_isbase = false;
             return KAnimatedButton::devType();
-        } else if (kanimatedbutton_devtype_callback != nullptr) {
-            int callback_ret = kanimatedbutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAnimatedButton::devType();
         }
+        auto devtype_cb = kanimatedbutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAnimatedButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +748,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_setvisible_isbase) {
             kanimatedbutton_setvisible_isbase = false;
             KAnimatedButton::setVisible(visible);
-        } else if (kanimatedbutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kanimatedbutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kanimatedbutton_setvisible_callback(this, cbval1);
-        } else {
-            KAnimatedButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,14 +765,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_heightforwidth_isbase) {
             kanimatedbutton_heightforwidth_isbase = false;
             return KAnimatedButton::heightForWidth(param1);
-        } else if (kanimatedbutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kanimatedbutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kanimatedbutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAnimatedButton::heightForWidth(param1);
         }
+        return KAnimatedButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,12 +781,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_hasheightforwidth_isbase) {
             kanimatedbutton_hasheightforwidth_isbase = false;
             return KAnimatedButton::hasHeightForWidth();
-        } else if (kanimatedbutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kanimatedbutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kanimatedbutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,12 +795,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_paintengine_isbase) {
             kanimatedbutton_paintengine_isbase = false;
             return KAnimatedButton::paintEngine();
-        } else if (kanimatedbutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kanimatedbutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::paintEngine();
         }
+        auto paintengine_cb = kanimatedbutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +809,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_mousedoubleclickevent_isbase) {
             kanimatedbutton_mousedoubleclickevent_isbase = false;
             KAnimatedButton::mouseDoubleClickEvent(event);
-        } else if (kanimatedbutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kanimatedbutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kanimatedbutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +826,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_wheelevent_isbase) {
             kanimatedbutton_wheelevent_isbase = false;
             KAnimatedButton::wheelEvent(event);
-        } else if (kanimatedbutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kanimatedbutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kanimatedbutton_wheelevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +843,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_moveevent_isbase) {
             kanimatedbutton_moveevent_isbase = false;
             KAnimatedButton::moveEvent(event);
-        } else if (kanimatedbutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kanimatedbutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kanimatedbutton_moveevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +860,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_resizeevent_isbase) {
             kanimatedbutton_resizeevent_isbase = false;
             KAnimatedButton::resizeEvent(event);
-        } else if (kanimatedbutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kanimatedbutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kanimatedbutton_resizeevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +877,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_closeevent_isbase) {
             kanimatedbutton_closeevent_isbase = false;
             KAnimatedButton::closeEvent(event);
-        } else if (kanimatedbutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kanimatedbutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kanimatedbutton_closeevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +894,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_contextmenuevent_isbase) {
             kanimatedbutton_contextmenuevent_isbase = false;
             KAnimatedButton::contextMenuEvent(event);
-        } else if (kanimatedbutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kanimatedbutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kanimatedbutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +911,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_tabletevent_isbase) {
             kanimatedbutton_tabletevent_isbase = false;
             KAnimatedButton::tabletEvent(event);
-        } else if (kanimatedbutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kanimatedbutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kanimatedbutton_tabletevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +928,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_dragenterevent_isbase) {
             kanimatedbutton_dragenterevent_isbase = false;
             KAnimatedButton::dragEnterEvent(event);
-        } else if (kanimatedbutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kanimatedbutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kanimatedbutton_dragenterevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +945,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_dragmoveevent_isbase) {
             kanimatedbutton_dragmoveevent_isbase = false;
             KAnimatedButton::dragMoveEvent(event);
-        } else if (kanimatedbutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kanimatedbutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kanimatedbutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +962,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_dragleaveevent_isbase) {
             kanimatedbutton_dragleaveevent_isbase = false;
             KAnimatedButton::dragLeaveEvent(event);
-        } else if (kanimatedbutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kanimatedbutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kanimatedbutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +979,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_dropevent_isbase) {
             kanimatedbutton_dropevent_isbase = false;
             KAnimatedButton::dropEvent(event);
-        } else if (kanimatedbutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kanimatedbutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kanimatedbutton_dropevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +996,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_showevent_isbase) {
             kanimatedbutton_showevent_isbase = false;
             KAnimatedButton::showEvent(event);
-        } else if (kanimatedbutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kanimatedbutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kanimatedbutton_showevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1013,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_hideevent_isbase) {
             kanimatedbutton_hideevent_isbase = false;
             KAnimatedButton::hideEvent(event);
-        } else if (kanimatedbutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kanimatedbutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kanimatedbutton_hideevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,7 +1030,9 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_nativeevent_isbase) {
             kanimatedbutton_nativeevent_isbase = false;
             return KAnimatedButton::nativeEvent(eventType, message, result);
-        } else if (kanimatedbutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kanimatedbutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1007,12 +1043,11 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kanimatedbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KAnimatedButton::nativeEvent(eventType, message, result);
         }
+        return KAnimatedButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,14 +1055,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_metric_isbase) {
             kanimatedbutton_metric_isbase = false;
             return KAnimatedButton::metric(param1);
-        } else if (kanimatedbutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = kanimatedbutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kanimatedbutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAnimatedButton::metric(param1);
         }
+        return KAnimatedButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,13 +1071,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_initpainter_isbase) {
             kanimatedbutton_initpainter_isbase = false;
             KAnimatedButton::initPainter(painter);
-        } else if (kanimatedbutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kanimatedbutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kanimatedbutton_initpainter_callback(this, cbval1);
-        } else {
-            KAnimatedButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1088,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_redirected_isbase) {
             kanimatedbutton_redirected_isbase = false;
             return KAnimatedButton::redirected(offset);
-        } else if (kanimatedbutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kanimatedbutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kanimatedbutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAnimatedButton::redirected(offset);
         }
+        return KAnimatedButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,12 +1104,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_sharedpainter_isbase) {
             kanimatedbutton_sharedpainter_isbase = false;
             return KAnimatedButton::sharedPainter();
-        } else if (kanimatedbutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kanimatedbutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::sharedPainter();
         }
+        auto sharedpainter_cb = kanimatedbutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,13 +1118,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_inputmethodevent_isbase) {
             kanimatedbutton_inputmethodevent_isbase = false;
             KAnimatedButton::inputMethodEvent(param1);
-        } else if (kanimatedbutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kanimatedbutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kanimatedbutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,14 +1135,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_inputmethodquery_isbase) {
             kanimatedbutton_inputmethodquery_isbase = false;
             return KAnimatedButton::inputMethodQuery(param1);
-        } else if (kanimatedbutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kanimatedbutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kanimatedbutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KAnimatedButton::inputMethodQuery(param1);
         }
+        return KAnimatedButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,14 +1151,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_focusnextprevchild_isbase) {
             kanimatedbutton_focusnextprevchild_isbase = false;
             return KAnimatedButton::focusNextPrevChild(next);
-        } else if (kanimatedbutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kanimatedbutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kanimatedbutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAnimatedButton::focusNextPrevChild(next);
         }
+        return KAnimatedButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,15 +1167,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_eventfilter_isbase) {
             kanimatedbutton_eventfilter_isbase = false;
             return KAnimatedButton::eventFilter(watched, event);
-        } else if (kanimatedbutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kanimatedbutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kanimatedbutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAnimatedButton::eventFilter(watched, event);
         }
+        return KAnimatedButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,13 +1184,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_childevent_isbase) {
             kanimatedbutton_childevent_isbase = false;
             KAnimatedButton::childEvent(event);
-        } else if (kanimatedbutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kanimatedbutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kanimatedbutton_childevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,13 +1201,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_customevent_isbase) {
             kanimatedbutton_customevent_isbase = false;
             KAnimatedButton::customEvent(event);
-        } else if (kanimatedbutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kanimatedbutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kanimatedbutton_customevent_callback(this, cbval1);
-        } else {
-            KAnimatedButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,15 +1218,18 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_connectnotify_isbase) {
             kanimatedbutton_connectnotify_isbase = false;
             KAnimatedButton::connectNotify(signal);
-        } else if (kanimatedbutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kanimatedbutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kanimatedbutton_connectnotify_callback(this, cbval1);
-        } else {
-            KAnimatedButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,15 +1237,18 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_disconnectnotify_isbase) {
             kanimatedbutton_disconnectnotify_isbase = false;
             KAnimatedButton::disconnectNotify(signal);
-        } else if (kanimatedbutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kanimatedbutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kanimatedbutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAnimatedButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAnimatedButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,11 +1256,14 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_updatemicrofocus_isbase) {
             kanimatedbutton_updatemicrofocus_isbase = false;
             KAnimatedButton::updateMicroFocus();
-        } else if (kanimatedbutton_updatemicrofocus_callback != nullptr) {
-            kanimatedbutton_updatemicrofocus_callback();
-        } else {
-            KAnimatedButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kanimatedbutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KAnimatedButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,11 +1271,14 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_create_isbase) {
             kanimatedbutton_create_isbase = false;
             KAnimatedButton::create();
-        } else if (kanimatedbutton_create_callback != nullptr) {
-            kanimatedbutton_create_callback();
-        } else {
-            KAnimatedButton::create();
+            return;
         }
+        auto create_cb = kanimatedbutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KAnimatedButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,11 +1286,14 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_destroy_isbase) {
             kanimatedbutton_destroy_isbase = false;
             KAnimatedButton::destroy();
-        } else if (kanimatedbutton_destroy_callback != nullptr) {
-            kanimatedbutton_destroy_callback();
-        } else {
-            KAnimatedButton::destroy();
+            return;
         }
+        auto destroy_cb = kanimatedbutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KAnimatedButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1301,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_focusnextchild_isbase) {
             kanimatedbutton_focusnextchild_isbase = false;
             return KAnimatedButton::focusNextChild();
-        } else if (kanimatedbutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = kanimatedbutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::focusNextChild();
         }
+        auto focusnextchild_cb = kanimatedbutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,12 +1315,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_focuspreviouschild_isbase) {
             kanimatedbutton_focuspreviouschild_isbase = false;
             return KAnimatedButton::focusPreviousChild();
-        } else if (kanimatedbutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kanimatedbutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kanimatedbutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,12 +1329,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_sender_isbase) {
             kanimatedbutton_sender_isbase = false;
             return KAnimatedButton::sender();
-        } else if (kanimatedbutton_sender_callback != nullptr) {
-            QObject* callback_ret = kanimatedbutton_sender_callback();
-            return callback_ret;
-        } else {
-            return KAnimatedButton::sender();
         }
+        auto sender_cb = kanimatedbutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAnimatedButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,12 +1343,13 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_sendersignalindex_isbase) {
             kanimatedbutton_sendersignalindex_isbase = false;
             return KAnimatedButton::senderSignalIndex();
-        } else if (kanimatedbutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = kanimatedbutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAnimatedButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kanimatedbutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAnimatedButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,14 +1357,15 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_receivers_isbase) {
             kanimatedbutton_receivers_isbase = false;
             return KAnimatedButton::receivers(signal);
-        } else if (kanimatedbutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kanimatedbutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kanimatedbutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAnimatedButton::receivers(signal);
         }
+        return KAnimatedButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,16 +1373,17 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_issignalconnected_isbase) {
             kanimatedbutton_issignalconnected_isbase = false;
             return KAnimatedButton::isSignalConnected(signal);
-        } else if (kanimatedbutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kanimatedbutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kanimatedbutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAnimatedButton::isSignalConnected(signal);
         }
+        return KAnimatedButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,15 +1391,16 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
         if (kanimatedbutton_getdecodedmetricf_isbase) {
             kanimatedbutton_getdecodedmetricf_isbase = false;
             return KAnimatedButton::getDecodedMetricF(metricA, metricB);
-        } else if (kanimatedbutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kanimatedbutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kanimatedbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KAnimatedButton::getDecodedMetricF(metricA, metricB);
         }
+        return KAnimatedButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

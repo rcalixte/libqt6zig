@@ -32,11 +32,6 @@ class VirtualKPartsPartActivateEvent final : public KParts::PartActivateEvent {
   public:
     VirtualKPartsPartActivateEvent(bool activated, KParts::Part* part, QWidget* widget) : KParts::PartActivateEvent(activated, part, widget) {};
 
-    ~VirtualKPartsPartActivateEvent() {
-        kparts__partactivateevent_setaccepted_callback = nullptr;
-        kparts__partactivateevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__PartActivateEvent_SetAccepted_Callback(KParts__PartActivateEvent_SetAccepted_Callback cb) { kparts__partactivateevent_setaccepted_callback = cb; }
     inline void setKParts__PartActivateEvent_Clone_Callback(KParts__PartActivateEvent_Clone_Callback cb) { kparts__partactivateevent_clone_callback = cb; }
@@ -50,13 +45,16 @@ class VirtualKPartsPartActivateEvent final : public KParts::PartActivateEvent {
         if (kparts__partactivateevent_setaccepted_isbase) {
             kparts__partactivateevent_setaccepted_isbase = false;
             KParts__PartActivateEvent::setAccepted(accepted);
-        } else if (kparts__partactivateevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = kparts__partactivateevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            kparts__partactivateevent_setaccepted_callback(this, cbval1);
-        } else {
-            KParts__PartActivateEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        KParts__PartActivateEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -64,12 +62,13 @@ class VirtualKPartsPartActivateEvent final : public KParts::PartActivateEvent {
         if (kparts__partactivateevent_clone_isbase) {
             kparts__partactivateevent_clone_isbase = false;
             return KParts__PartActivateEvent::clone();
-        } else if (kparts__partactivateevent_clone_callback != nullptr) {
-            QEvent* callback_ret = kparts__partactivateevent_clone_callback();
-            return callback_ret;
-        } else {
-            return KParts__PartActivateEvent::clone();
         }
+        auto clone_cb = kparts__partactivateevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return KParts__PartActivateEvent::clone();
     }
 };
 

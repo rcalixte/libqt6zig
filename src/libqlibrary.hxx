@@ -75,23 +75,6 @@ class VirtualQLibrary final : public QLibrary {
     VirtualQLibrary(const QString& fileName, int verNum, QObject* parent) : QLibrary(fileName, verNum, parent) {};
     VirtualQLibrary(const QString& fileName, const QString& version, QObject* parent) : QLibrary(fileName, version, parent) {};
 
-    ~VirtualQLibrary() {
-        qlibrary_metaobject_callback = nullptr;
-        qlibrary_metacast_callback = nullptr;
-        qlibrary_metacall_callback = nullptr;
-        qlibrary_event_callback = nullptr;
-        qlibrary_eventfilter_callback = nullptr;
-        qlibrary_timerevent_callback = nullptr;
-        qlibrary_childevent_callback = nullptr;
-        qlibrary_customevent_callback = nullptr;
-        qlibrary_connectnotify_callback = nullptr;
-        qlibrary_disconnectnotify_callback = nullptr;
-        qlibrary_sender_callback = nullptr;
-        qlibrary_sendersignalindex_callback = nullptr;
-        qlibrary_receivers_callback = nullptr;
-        qlibrary_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQLibrary_MetaObject_Callback(QLibrary_MetaObject_Callback cb) { qlibrary_metaobject_callback = cb; }
     inline void setQLibrary_Metacast_Callback(QLibrary_Metacast_Callback cb) { qlibrary_metacast_callback = cb; }
@@ -129,12 +112,13 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_metaobject_isbase) {
             qlibrary_metaobject_isbase = false;
             return QLibrary::metaObject();
-        } else if (qlibrary_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qlibrary_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QLibrary::metaObject();
         }
+        auto metaobject_cb = qlibrary_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QLibrary::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +126,15 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_metacast_isbase) {
             qlibrary_metacast_isbase = false;
             return QLibrary::qt_metacast(param1);
-        } else if (qlibrary_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qlibrary_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qlibrary_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLibrary::qt_metacast(param1);
         }
+        return QLibrary::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +142,17 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_metacall_isbase) {
             qlibrary_metacall_isbase = false;
             return QLibrary::qt_metacall(param1, param2, param3);
-        } else if (qlibrary_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qlibrary_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qlibrary_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLibrary::qt_metacall(param1, param2, param3);
         }
+        return QLibrary::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,14 +160,15 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_event_isbase) {
             qlibrary_event_isbase = false;
             return QLibrary::event(event);
-        } else if (qlibrary_event_callback != nullptr) {
+        }
+        auto event_cb = qlibrary_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qlibrary_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLibrary::event(event);
         }
+        return QLibrary::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,15 +176,16 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_eventfilter_isbase) {
             qlibrary_eventfilter_isbase = false;
             return QLibrary::eventFilter(watched, event);
-        } else if (qlibrary_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qlibrary_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qlibrary_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QLibrary::eventFilter(watched, event);
         }
+        return QLibrary::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,13 +193,16 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_timerevent_isbase) {
             qlibrary_timerevent_isbase = false;
             QLibrary::timerEvent(event);
-        } else if (qlibrary_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qlibrary_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qlibrary_timerevent_callback(this, cbval1);
-        } else {
-            QLibrary::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QLibrary::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +210,16 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_childevent_isbase) {
             qlibrary_childevent_isbase = false;
             QLibrary::childEvent(event);
-        } else if (qlibrary_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qlibrary_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qlibrary_childevent_callback(this, cbval1);
-        } else {
-            QLibrary::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QLibrary::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +227,16 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_customevent_isbase) {
             qlibrary_customevent_isbase = false;
             QLibrary::customEvent(event);
-        } else if (qlibrary_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qlibrary_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qlibrary_customevent_callback(this, cbval1);
-        } else {
-            QLibrary::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QLibrary::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +244,18 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_connectnotify_isbase) {
             qlibrary_connectnotify_isbase = false;
             QLibrary::connectNotify(signal);
-        } else if (qlibrary_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qlibrary_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlibrary_connectnotify_callback(this, cbval1);
-        } else {
-            QLibrary::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QLibrary::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +263,18 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_disconnectnotify_isbase) {
             qlibrary_disconnectnotify_isbase = false;
             QLibrary::disconnectNotify(signal);
-        } else if (qlibrary_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qlibrary_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlibrary_disconnectnotify_callback(this, cbval1);
-        } else {
-            QLibrary::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QLibrary::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,12 +282,13 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_sender_isbase) {
             qlibrary_sender_isbase = false;
             return QLibrary::sender();
-        } else if (qlibrary_sender_callback != nullptr) {
-            QObject* callback_ret = qlibrary_sender_callback();
-            return callback_ret;
-        } else {
-            return QLibrary::sender();
         }
+        auto sender_cb = qlibrary_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QLibrary::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +296,13 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_sendersignalindex_isbase) {
             qlibrary_sendersignalindex_isbase = false;
             return QLibrary::senderSignalIndex();
-        } else if (qlibrary_sendersignalindex_callback != nullptr) {
-            int callback_ret = qlibrary_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLibrary::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qlibrary_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLibrary::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,14 +310,15 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_receivers_isbase) {
             qlibrary_receivers_isbase = false;
             return QLibrary::receivers(signal);
-        } else if (qlibrary_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qlibrary_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qlibrary_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLibrary::receivers(signal);
         }
+        return QLibrary::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,16 +326,17 @@ class VirtualQLibrary final : public QLibrary {
         if (qlibrary_issignalconnected_isbase) {
             qlibrary_issignalconnected_isbase = false;
             return QLibrary::isSignalConnected(signal);
-        } else if (qlibrary_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qlibrary_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qlibrary_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLibrary::isSignalConnected(signal);
         }
+        return QLibrary::isSignalConnected(signal);
     }
 
     // Friend functions

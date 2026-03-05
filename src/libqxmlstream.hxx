@@ -32,11 +32,6 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
   public:
     VirtualQXmlStreamEntityResolver() : QXmlStreamEntityResolver() {};
 
-    ~VirtualQXmlStreamEntityResolver() {
-        qxmlstreamentityresolver_resolveentity_callback = nullptr;
-        qxmlstreamentityresolver_resolveundeclaredentity_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQXmlStreamEntityResolver_ResolveEntity_Callback(QXmlStreamEntityResolver_ResolveEntity_Callback cb) { qxmlstreamentityresolver_resolveentity_callback = cb; }
     inline void setQXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback(QXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback cb) { qxmlstreamentityresolver_resolveundeclaredentity_callback = cb; }
@@ -50,7 +45,9 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
         if (qxmlstreamentityresolver_resolveentity_isbase) {
             qxmlstreamentityresolver_resolveentity_isbase = false;
             return QXmlStreamEntityResolver::resolveEntity(publicId, systemId);
-        } else if (qxmlstreamentityresolver_resolveentity_callback != nullptr) {
+        }
+        auto resolveentity_cb = qxmlstreamentityresolver_resolveentity_callback;
+        if (resolveentity_cb) {
             const QString publicId_ret = publicId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray publicId_b = publicId_ret.toUtf8();
@@ -68,14 +65,13 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             ((char*)systemId_str)[systemId_str_len] = '\0';
             const char* cbval2 = systemId_str;
 
-            const char* callback_ret = qxmlstreamentityresolver_resolveentity_callback(this, cbval1, cbval2);
+            const char* callback_ret = resolveentity_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(publicId_str);
             libqt_free(systemId_str);
             return callback_ret_QString;
-        } else {
-            return QXmlStreamEntityResolver::resolveEntity(publicId, systemId);
         }
+        return QXmlStreamEntityResolver::resolveEntity(publicId, systemId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -83,7 +79,9 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
         if (qxmlstreamentityresolver_resolveundeclaredentity_isbase) {
             qxmlstreamentityresolver_resolveundeclaredentity_isbase = false;
             return QXmlStreamEntityResolver::resolveUndeclaredEntity(name);
-        } else if (qxmlstreamentityresolver_resolveundeclaredentity_callback != nullptr) {
+        }
+        auto resolveundeclaredentity_cb = qxmlstreamentityresolver_resolveundeclaredentity_callback;
+        if (resolveundeclaredentity_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -93,13 +91,12 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            const char* callback_ret = qxmlstreamentityresolver_resolveundeclaredentity_callback(this, cbval1);
+            const char* callback_ret = resolveundeclaredentity_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(name_str);
             return callback_ret_QString;
-        } else {
-            return QXmlStreamEntityResolver::resolveUndeclaredEntity(name);
         }
+        return QXmlStreamEntityResolver::resolveUndeclaredEntity(name);
     }
 };
 

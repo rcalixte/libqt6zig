@@ -72,24 +72,6 @@ class VirtualKDirLister final : public KDirLister {
     VirtualKDirLister() : KDirLister() {};
     VirtualKDirLister(QObject* parent) : KDirLister(parent) {};
 
-    ~VirtualKDirLister() {
-        kdirlister_metaobject_callback = nullptr;
-        kdirlister_metacast_callback = nullptr;
-        kdirlister_metacall_callback = nullptr;
-        kdirlister_jobstarted_callback = nullptr;
-        kdirlister_event_callback = nullptr;
-        kdirlister_eventfilter_callback = nullptr;
-        kdirlister_timerevent_callback = nullptr;
-        kdirlister_childevent_callback = nullptr;
-        kdirlister_customevent_callback = nullptr;
-        kdirlister_connectnotify_callback = nullptr;
-        kdirlister_disconnectnotify_callback = nullptr;
-        kdirlister_sender_callback = nullptr;
-        kdirlister_sendersignalindex_callback = nullptr;
-        kdirlister_receivers_callback = nullptr;
-        kdirlister_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDirLister_MetaObject_Callback(KDirLister_MetaObject_Callback cb) { kdirlister_metaobject_callback = cb; }
     inline void setKDirLister_Metacast_Callback(KDirLister_Metacast_Callback cb) { kdirlister_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_metaobject_isbase) {
             kdirlister_metaobject_isbase = false;
             return KDirLister::metaObject();
-        } else if (kdirlister_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdirlister_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDirLister::metaObject();
         }
+        auto metaobject_cb = kdirlister_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDirLister::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_metacast_isbase) {
             kdirlister_metacast_isbase = false;
             return KDirLister::qt_metacast(param1);
-        } else if (kdirlister_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdirlister_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdirlister_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirLister::qt_metacast(param1);
         }
+        return KDirLister::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_metacall_isbase) {
             kdirlister_metacall_isbase = false;
             return KDirLister::qt_metacall(param1, param2, param3);
-        } else if (kdirlister_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdirlister_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdirlister_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirLister::qt_metacall(param1, param2, param3);
         }
+        return KDirLister::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,13 +159,16 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_jobstarted_isbase) {
             kdirlister_jobstarted_isbase = false;
             KDirLister::jobStarted(param1);
-        } else if (kdirlister_jobstarted_callback != nullptr) {
+            return;
+        }
+        auto jobstarted_cb = kdirlister_jobstarted_callback;
+        if (jobstarted_cb) {
             KIO__ListJob* cbval1 = param1;
 
-            kdirlister_jobstarted_callback(this, cbval1);
-        } else {
-            KDirLister::jobStarted(param1);
+            jobstarted_cb(this, cbval1);
+            return;
         }
+        KDirLister::jobStarted(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,14 +176,15 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_event_isbase) {
             kdirlister_event_isbase = false;
             return KDirLister::event(event);
-        } else if (kdirlister_event_callback != nullptr) {
+        }
+        auto event_cb = kdirlister_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kdirlister_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirLister::event(event);
         }
+        return KDirLister::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,15 +192,16 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_eventfilter_isbase) {
             kdirlister_eventfilter_isbase = false;
             return KDirLister::eventFilter(watched, event);
-        } else if (kdirlister_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdirlister_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdirlister_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDirLister::eventFilter(watched, event);
         }
+        return KDirLister::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +209,16 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_timerevent_isbase) {
             kdirlister_timerevent_isbase = false;
             KDirLister::timerEvent(event);
-        } else if (kdirlister_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdirlister_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdirlister_timerevent_callback(this, cbval1);
-        } else {
-            KDirLister::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDirLister::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +226,16 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_childevent_isbase) {
             kdirlister_childevent_isbase = false;
             KDirLister::childEvent(event);
-        } else if (kdirlister_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdirlister_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdirlister_childevent_callback(this, cbval1);
-        } else {
-            KDirLister::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDirLister::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +243,16 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_customevent_isbase) {
             kdirlister_customevent_isbase = false;
             KDirLister::customEvent(event);
-        } else if (kdirlister_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdirlister_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdirlister_customevent_callback(this, cbval1);
-        } else {
-            KDirLister::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDirLister::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +260,18 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_connectnotify_isbase) {
             kdirlister_connectnotify_isbase = false;
             KDirLister::connectNotify(signal);
-        } else if (kdirlister_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdirlister_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdirlister_connectnotify_callback(this, cbval1);
-        } else {
-            KDirLister::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDirLister::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,15 +279,18 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_disconnectnotify_isbase) {
             kdirlister_disconnectnotify_isbase = false;
             KDirLister::disconnectNotify(signal);
-        } else if (kdirlister_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdirlister_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdirlister_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDirLister::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDirLister::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,12 +298,13 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_sender_isbase) {
             kdirlister_sender_isbase = false;
             return KDirLister::sender();
-        } else if (kdirlister_sender_callback != nullptr) {
-            QObject* callback_ret = kdirlister_sender_callback();
-            return callback_ret;
-        } else {
-            return KDirLister::sender();
         }
+        auto sender_cb = kdirlister_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDirLister::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,12 +312,13 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_sendersignalindex_isbase) {
             kdirlister_sendersignalindex_isbase = false;
             return KDirLister::senderSignalIndex();
-        } else if (kdirlister_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdirlister_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDirLister::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdirlister_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDirLister::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,14 +326,15 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_receivers_isbase) {
             kdirlister_receivers_isbase = false;
             return KDirLister::receivers(signal);
-        } else if (kdirlister_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdirlister_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdirlister_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDirLister::receivers(signal);
         }
+        return KDirLister::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -334,16 +342,17 @@ class VirtualKDirLister final : public KDirLister {
         if (kdirlister_issignalconnected_isbase) {
             kdirlister_issignalconnected_isbase = false;
             return KDirLister::isSignalConnected(signal);
-        } else if (kdirlister_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdirlister_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdirlister_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDirLister::isSignalConnected(signal);
         }
+        return KDirLister::isSignalConnected(signal);
     }
 
     // Friend functions

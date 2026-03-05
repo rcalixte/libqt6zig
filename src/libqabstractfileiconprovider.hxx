@@ -41,14 +41,6 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
   public:
     VirtualQAbstractFileIconProvider() : QAbstractFileIconProvider() {};
 
-    ~VirtualQAbstractFileIconProvider() {
-        qabstractfileiconprovider_icon_callback = nullptr;
-        qabstractfileiconprovider_icon2_callback = nullptr;
-        qabstractfileiconprovider_type_callback = nullptr;
-        qabstractfileiconprovider_setoptions_callback = nullptr;
-        qabstractfileiconprovider_options_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractFileIconProvider_Icon_Callback(QAbstractFileIconProvider_Icon_Callback cb) { qabstractfileiconprovider_icon_callback = cb; }
     inline void setQAbstractFileIconProvider_Icon2_Callback(QAbstractFileIconProvider_Icon2_Callback cb) { qabstractfileiconprovider_icon2_callback = cb; }
@@ -68,14 +60,15 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
         if (qabstractfileiconprovider_icon_isbase) {
             qabstractfileiconprovider_icon_isbase = false;
             return QAbstractFileIconProvider::icon(param1);
-        } else if (qabstractfileiconprovider_icon_callback != nullptr) {
+        }
+        auto icon_cb = qabstractfileiconprovider_icon_callback;
+        if (icon_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QIcon* callback_ret = qabstractfileiconprovider_icon_callback(this, cbval1);
+            QIcon* callback_ret = icon_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractFileIconProvider::icon(param1);
         }
+        return QAbstractFileIconProvider::icon(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -83,16 +76,17 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
         if (qabstractfileiconprovider_icon2_isbase) {
             qabstractfileiconprovider_icon2_isbase = false;
             return QAbstractFileIconProvider::icon(param1);
-        } else if (qabstractfileiconprovider_icon2_callback != nullptr) {
+        }
+        auto icon2_cb = qabstractfileiconprovider_icon2_callback;
+        if (icon2_cb) {
             const QFileInfo& param1_ret = param1;
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&param1_ret);
 
-            QIcon* callback_ret = qabstractfileiconprovider_icon2_callback(this, cbval1);
+            QIcon* callback_ret = icon2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractFileIconProvider::icon(param1);
         }
+        return QAbstractFileIconProvider::icon(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -100,17 +94,18 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
         if (qabstractfileiconprovider_type_isbase) {
             qabstractfileiconprovider_type_isbase = false;
             return QAbstractFileIconProvider::type(param1);
-        } else if (qabstractfileiconprovider_type_callback != nullptr) {
+        }
+        auto type_cb = qabstractfileiconprovider_type_callback;
+        if (type_cb) {
             const QFileInfo& param1_ret = param1;
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&param1_ret);
 
-            const char* callback_ret = qabstractfileiconprovider_type_callback(this, cbval1);
+            const char* callback_ret = type_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QAbstractFileIconProvider::type(param1);
         }
+        return QAbstractFileIconProvider::type(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -118,13 +113,16 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
         if (qabstractfileiconprovider_setoptions_isbase) {
             qabstractfileiconprovider_setoptions_isbase = false;
             QAbstractFileIconProvider::setOptions(options);
-        } else if (qabstractfileiconprovider_setoptions_callback != nullptr) {
+            return;
+        }
+        auto setoptions_cb = qabstractfileiconprovider_setoptions_callback;
+        if (setoptions_cb) {
             int cbval1 = static_cast<int>(options);
 
-            qabstractfileiconprovider_setoptions_callback(this, cbval1);
-        } else {
-            QAbstractFileIconProvider::setOptions(options);
+            setoptions_cb(this, cbval1);
+            return;
         }
+        QAbstractFileIconProvider::setOptions(options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -132,12 +130,13 @@ class VirtualQAbstractFileIconProvider final : public QAbstractFileIconProvider 
         if (qabstractfileiconprovider_options_isbase) {
             qabstractfileiconprovider_options_isbase = false;
             return QAbstractFileIconProvider::options();
-        } else if (qabstractfileiconprovider_options_callback != nullptr) {
-            int callback_ret = qabstractfileiconprovider_options_callback();
-            return static_cast<QAbstractFileIconProvider::Options>(callback_ret);
-        } else {
-            return QAbstractFileIconProvider::options();
         }
+        auto options_cb = qabstractfileiconprovider_options_callback;
+        if (options_cb) {
+            int callback_ret = options_cb();
+            return static_cast<QAbstractFileIconProvider::Options>(callback_ret);
+        }
+        return QAbstractFileIconProvider::options();
     }
 };
 

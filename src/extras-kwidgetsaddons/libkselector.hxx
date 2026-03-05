@@ -225,74 +225,6 @@ class VirtualKSelector final : public KSelector {
     VirtualKSelector(Qt::Orientation o) : KSelector(o) {};
     VirtualKSelector(Qt::Orientation o, QWidget* parent) : KSelector(o, parent) {};
 
-    ~VirtualKSelector() {
-        kselector_metaobject_callback = nullptr;
-        kselector_metacast_callback = nullptr;
-        kselector_metacall_callback = nullptr;
-        kselector_drawcontents_callback = nullptr;
-        kselector_drawarrow_callback = nullptr;
-        kselector_paintevent_callback = nullptr;
-        kselector_mousepressevent_callback = nullptr;
-        kselector_mousemoveevent_callback = nullptr;
-        kselector_mousereleaseevent_callback = nullptr;
-        kselector_wheelevent_callback = nullptr;
-        kselector_event_callback = nullptr;
-        kselector_sliderchange_callback = nullptr;
-        kselector_keypressevent_callback = nullptr;
-        kselector_timerevent_callback = nullptr;
-        kselector_changeevent_callback = nullptr;
-        kselector_devtype_callback = nullptr;
-        kselector_setvisible_callback = nullptr;
-        kselector_sizehint_callback = nullptr;
-        kselector_minimumsizehint_callback = nullptr;
-        kselector_heightforwidth_callback = nullptr;
-        kselector_hasheightforwidth_callback = nullptr;
-        kselector_paintengine_callback = nullptr;
-        kselector_mousedoubleclickevent_callback = nullptr;
-        kselector_keyreleaseevent_callback = nullptr;
-        kselector_focusinevent_callback = nullptr;
-        kselector_focusoutevent_callback = nullptr;
-        kselector_enterevent_callback = nullptr;
-        kselector_leaveevent_callback = nullptr;
-        kselector_moveevent_callback = nullptr;
-        kselector_resizeevent_callback = nullptr;
-        kselector_closeevent_callback = nullptr;
-        kselector_contextmenuevent_callback = nullptr;
-        kselector_tabletevent_callback = nullptr;
-        kselector_actionevent_callback = nullptr;
-        kselector_dragenterevent_callback = nullptr;
-        kselector_dragmoveevent_callback = nullptr;
-        kselector_dragleaveevent_callback = nullptr;
-        kselector_dropevent_callback = nullptr;
-        kselector_showevent_callback = nullptr;
-        kselector_hideevent_callback = nullptr;
-        kselector_nativeevent_callback = nullptr;
-        kselector_metric_callback = nullptr;
-        kselector_initpainter_callback = nullptr;
-        kselector_redirected_callback = nullptr;
-        kselector_sharedpainter_callback = nullptr;
-        kselector_inputmethodevent_callback = nullptr;
-        kselector_inputmethodquery_callback = nullptr;
-        kselector_focusnextprevchild_callback = nullptr;
-        kselector_eventfilter_callback = nullptr;
-        kselector_childevent_callback = nullptr;
-        kselector_customevent_callback = nullptr;
-        kselector_connectnotify_callback = nullptr;
-        kselector_disconnectnotify_callback = nullptr;
-        kselector_setrepeataction_callback = nullptr;
-        kselector_repeataction_callback = nullptr;
-        kselector_updatemicrofocus_callback = nullptr;
-        kselector_create_callback = nullptr;
-        kselector_destroy_callback = nullptr;
-        kselector_focusnextchild_callback = nullptr;
-        kselector_focuspreviouschild_callback = nullptr;
-        kselector_sender_callback = nullptr;
-        kselector_sendersignalindex_callback = nullptr;
-        kselector_receivers_callback = nullptr;
-        kselector_issignalconnected_callback = nullptr;
-        kselector_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSelector_MetaObject_Callback(KSelector_MetaObject_Callback cb) { kselector_metaobject_callback = cb; }
     inline void setKSelector_Metacast_Callback(KSelector_Metacast_Callback cb) { kselector_metacast_callback = cb; }
@@ -432,12 +364,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_metaobject_isbase) {
             kselector_metaobject_isbase = false;
             return KSelector::metaObject();
-        } else if (kselector_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kselector_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSelector::metaObject();
         }
+        auto metaobject_cb = kselector_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSelector::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,14 +378,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_metacast_isbase) {
             kselector_metacast_isbase = false;
             return KSelector::qt_metacast(param1);
-        } else if (kselector_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kselector_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kselector_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelector::qt_metacast(param1);
         }
+        return KSelector::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,16 +394,17 @@ class VirtualKSelector final : public KSelector {
         if (kselector_metacall_isbase) {
             kselector_metacall_isbase = false;
             return KSelector::qt_metacall(param1, param2, param3);
-        } else if (kselector_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kselector_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kselector_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelector::qt_metacall(param1, param2, param3);
         }
+        return KSelector::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -477,13 +412,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_drawcontents_isbase) {
             kselector_drawcontents_isbase = false;
             KSelector::drawContents(param1);
-        } else if (kselector_drawcontents_callback != nullptr) {
+            return;
+        }
+        auto drawcontents_cb = kselector_drawcontents_callback;
+        if (drawcontents_cb) {
             QPainter* cbval1 = param1;
 
-            kselector_drawcontents_callback(this, cbval1);
-        } else {
-            KSelector::drawContents(param1);
+            drawcontents_cb(this, cbval1);
+            return;
         }
+        KSelector::drawContents(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,16 +429,19 @@ class VirtualKSelector final : public KSelector {
         if (kselector_drawarrow_isbase) {
             kselector_drawarrow_isbase = false;
             KSelector::drawArrow(painter, pos);
-        } else if (kselector_drawarrow_callback != nullptr) {
+            return;
+        }
+        auto drawarrow_cb = kselector_drawarrow_callback;
+        if (drawarrow_cb) {
             QPainter* cbval1 = painter;
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&pos_ret);
 
-            kselector_drawarrow_callback(this, cbval1, cbval2);
-        } else {
-            KSelector::drawArrow(painter, pos);
+            drawarrow_cb(this, cbval1, cbval2);
+            return;
         }
+        KSelector::drawArrow(painter, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,13 +449,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_paintevent_isbase) {
             kselector_paintevent_isbase = false;
             KSelector::paintEvent(param1);
-        } else if (kselector_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kselector_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kselector_paintevent_callback(this, cbval1);
-        } else {
-            KSelector::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KSelector::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,13 +466,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_mousepressevent_isbase) {
             kselector_mousepressevent_isbase = false;
             KSelector::mousePressEvent(e);
-        } else if (kselector_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kselector_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kselector_mousepressevent_callback(this, cbval1);
-        } else {
-            KSelector::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KSelector::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,13 +483,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_mousemoveevent_isbase) {
             kselector_mousemoveevent_isbase = false;
             KSelector::mouseMoveEvent(e);
-        } else if (kselector_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kselector_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kselector_mousemoveevent_callback(this, cbval1);
-        } else {
-            KSelector::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KSelector::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -550,13 +500,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_mousereleaseevent_isbase) {
             kselector_mousereleaseevent_isbase = false;
             KSelector::mouseReleaseEvent(e);
-        } else if (kselector_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kselector_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kselector_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KSelector::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KSelector::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,13 +517,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_wheelevent_isbase) {
             kselector_wheelevent_isbase = false;
             KSelector::wheelEvent(param1);
-        } else if (kselector_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kselector_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            kselector_wheelevent_callback(this, cbval1);
-        } else {
-            KSelector::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KSelector::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,14 +534,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_event_isbase) {
             kselector_event_isbase = false;
             return KSelector::event(e);
-        } else if (kselector_event_callback != nullptr) {
+        }
+        auto event_cb = kselector_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kselector_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelector::event(e);
         }
+        return KSelector::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,13 +550,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_sliderchange_isbase) {
             kselector_sliderchange_isbase = false;
             KSelector::sliderChange(change);
-        } else if (kselector_sliderchange_callback != nullptr) {
+            return;
+        }
+        auto sliderchange_cb = kselector_sliderchange_callback;
+        if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
 
-            kselector_sliderchange_callback(this, cbval1);
-        } else {
-            KSelector::sliderChange(change);
+            sliderchange_cb(this, cbval1);
+            return;
         }
+        KSelector::sliderChange(change);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +567,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_keypressevent_isbase) {
             kselector_keypressevent_isbase = false;
             KSelector::keyPressEvent(ev);
-        } else if (kselector_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kselector_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            kselector_keypressevent_callback(this, cbval1);
-        } else {
-            KSelector::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KSelector::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,13 +584,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_timerevent_isbase) {
             kselector_timerevent_isbase = false;
             KSelector::timerEvent(param1);
-        } else if (kselector_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kselector_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kselector_timerevent_callback(this, cbval1);
-        } else {
-            KSelector::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSelector::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -635,13 +601,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_changeevent_isbase) {
             kselector_changeevent_isbase = false;
             KSelector::changeEvent(e);
-        } else if (kselector_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kselector_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kselector_changeevent_callback(this, cbval1);
-        } else {
-            KSelector::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KSelector::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,12 +618,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_devtype_isbase) {
             kselector_devtype_isbase = false;
             return KSelector::devType();
-        } else if (kselector_devtype_callback != nullptr) {
-            int callback_ret = kselector_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSelector::devType();
         }
+        auto devtype_cb = kselector_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSelector::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +632,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_setvisible_isbase) {
             kselector_setvisible_isbase = false;
             KSelector::setVisible(visible);
-        } else if (kselector_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kselector_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kselector_setvisible_callback(this, cbval1);
-        } else {
-            KSelector::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KSelector::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,12 +649,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_sizehint_isbase) {
             kselector_sizehint_isbase = false;
             return KSelector::sizeHint();
-        } else if (kselector_sizehint_callback != nullptr) {
-            QSize* callback_ret = kselector_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSelector::sizeHint();
         }
+        auto sizehint_cb = kselector_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KSelector::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,12 +663,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_minimumsizehint_isbase) {
             kselector_minimumsizehint_isbase = false;
             return KSelector::minimumSizeHint();
-        } else if (kselector_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kselector_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KSelector::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kselector_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KSelector::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,14 +677,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_heightforwidth_isbase) {
             kselector_heightforwidth_isbase = false;
             return KSelector::heightForWidth(param1);
-        } else if (kselector_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kselector_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kselector_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelector::heightForWidth(param1);
         }
+        return KSelector::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,12 +693,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_hasheightforwidth_isbase) {
             kselector_hasheightforwidth_isbase = false;
             return KSelector::hasHeightForWidth();
-        } else if (kselector_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kselector_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KSelector::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kselector_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KSelector::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,12 +707,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_paintengine_isbase) {
             kselector_paintengine_isbase = false;
             return KSelector::paintEngine();
-        } else if (kselector_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kselector_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KSelector::paintEngine();
         }
+        auto paintengine_cb = kselector_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KSelector::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,13 +721,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_mousedoubleclickevent_isbase) {
             kselector_mousedoubleclickevent_isbase = false;
             KSelector::mouseDoubleClickEvent(event);
-        } else if (kselector_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kselector_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kselector_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KSelector::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KSelector::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,13 +738,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_keyreleaseevent_isbase) {
             kselector_keyreleaseevent_isbase = false;
             KSelector::keyReleaseEvent(event);
-        } else if (kselector_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kselector_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kselector_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KSelector::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KSelector::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -771,13 +755,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_focusinevent_isbase) {
             kselector_focusinevent_isbase = false;
             KSelector::focusInEvent(event);
-        } else if (kselector_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kselector_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kselector_focusinevent_callback(this, cbval1);
-        } else {
-            KSelector::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KSelector::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -785,13 +772,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_focusoutevent_isbase) {
             kselector_focusoutevent_isbase = false;
             KSelector::focusOutEvent(event);
-        } else if (kselector_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kselector_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kselector_focusoutevent_callback(this, cbval1);
-        } else {
-            KSelector::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KSelector::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,13 +789,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_enterevent_isbase) {
             kselector_enterevent_isbase = false;
             KSelector::enterEvent(event);
-        } else if (kselector_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kselector_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kselector_enterevent_callback(this, cbval1);
-        } else {
-            KSelector::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KSelector::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -813,13 +806,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_leaveevent_isbase) {
             kselector_leaveevent_isbase = false;
             KSelector::leaveEvent(event);
-        } else if (kselector_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kselector_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kselector_leaveevent_callback(this, cbval1);
-        } else {
-            KSelector::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KSelector::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -827,13 +823,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_moveevent_isbase) {
             kselector_moveevent_isbase = false;
             KSelector::moveEvent(event);
-        } else if (kselector_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kselector_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kselector_moveevent_callback(this, cbval1);
-        } else {
-            KSelector::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KSelector::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -841,13 +840,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_resizeevent_isbase) {
             kselector_resizeevent_isbase = false;
             KSelector::resizeEvent(event);
-        } else if (kselector_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kselector_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kselector_resizeevent_callback(this, cbval1);
-        } else {
-            KSelector::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KSelector::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -855,13 +857,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_closeevent_isbase) {
             kselector_closeevent_isbase = false;
             KSelector::closeEvent(event);
-        } else if (kselector_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kselector_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kselector_closeevent_callback(this, cbval1);
-        } else {
-            KSelector::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KSelector::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -869,13 +874,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_contextmenuevent_isbase) {
             kselector_contextmenuevent_isbase = false;
             KSelector::contextMenuEvent(event);
-        } else if (kselector_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kselector_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kselector_contextmenuevent_callback(this, cbval1);
-        } else {
-            KSelector::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KSelector::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -883,13 +891,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_tabletevent_isbase) {
             kselector_tabletevent_isbase = false;
             KSelector::tabletEvent(event);
-        } else if (kselector_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kselector_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kselector_tabletevent_callback(this, cbval1);
-        } else {
-            KSelector::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KSelector::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,13 +908,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_actionevent_isbase) {
             kselector_actionevent_isbase = false;
             KSelector::actionEvent(event);
-        } else if (kselector_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kselector_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kselector_actionevent_callback(this, cbval1);
-        } else {
-            KSelector::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KSelector::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -911,13 +925,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_dragenterevent_isbase) {
             kselector_dragenterevent_isbase = false;
             KSelector::dragEnterEvent(event);
-        } else if (kselector_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kselector_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kselector_dragenterevent_callback(this, cbval1);
-        } else {
-            KSelector::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KSelector::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -925,13 +942,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_dragmoveevent_isbase) {
             kselector_dragmoveevent_isbase = false;
             KSelector::dragMoveEvent(event);
-        } else if (kselector_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kselector_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kselector_dragmoveevent_callback(this, cbval1);
-        } else {
-            KSelector::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KSelector::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -939,13 +959,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_dragleaveevent_isbase) {
             kselector_dragleaveevent_isbase = false;
             KSelector::dragLeaveEvent(event);
-        } else if (kselector_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kselector_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kselector_dragleaveevent_callback(this, cbval1);
-        } else {
-            KSelector::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KSelector::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -953,13 +976,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_dropevent_isbase) {
             kselector_dropevent_isbase = false;
             KSelector::dropEvent(event);
-        } else if (kselector_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kselector_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kselector_dropevent_callback(this, cbval1);
-        } else {
-            KSelector::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KSelector::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +993,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_showevent_isbase) {
             kselector_showevent_isbase = false;
             KSelector::showEvent(event);
-        } else if (kselector_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kselector_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kselector_showevent_callback(this, cbval1);
-        } else {
-            KSelector::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KSelector::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,13 +1010,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_hideevent_isbase) {
             kselector_hideevent_isbase = false;
             KSelector::hideEvent(event);
-        } else if (kselector_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kselector_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kselector_hideevent_callback(this, cbval1);
-        } else {
-            KSelector::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KSelector::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,7 +1027,9 @@ class VirtualKSelector final : public KSelector {
         if (kselector_nativeevent_isbase) {
             kselector_nativeevent_isbase = false;
             return KSelector::nativeEvent(eventType, message, result);
-        } else if (kselector_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kselector_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1006,12 +1040,11 @@ class VirtualKSelector final : public KSelector {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kselector_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KSelector::nativeEvent(eventType, message, result);
         }
+        return KSelector::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,14 +1052,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_metric_isbase) {
             kselector_metric_isbase = false;
             return KSelector::metric(param1);
-        } else if (kselector_metric_callback != nullptr) {
+        }
+        auto metric_cb = kselector_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kselector_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelector::metric(param1);
         }
+        return KSelector::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,13 +1068,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_initpainter_isbase) {
             kselector_initpainter_isbase = false;
             KSelector::initPainter(painter);
-        } else if (kselector_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kselector_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kselector_initpainter_callback(this, cbval1);
-        } else {
-            KSelector::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KSelector::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1085,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_redirected_isbase) {
             kselector_redirected_isbase = false;
             return KSelector::redirected(offset);
-        } else if (kselector_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kselector_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kselector_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelector::redirected(offset);
         }
+        return KSelector::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,12 +1101,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_sharedpainter_isbase) {
             kselector_sharedpainter_isbase = false;
             return KSelector::sharedPainter();
-        } else if (kselector_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kselector_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KSelector::sharedPainter();
         }
+        auto sharedpainter_cb = kselector_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KSelector::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,13 +1115,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_inputmethodevent_isbase) {
             kselector_inputmethodevent_isbase = false;
             KSelector::inputMethodEvent(param1);
-        } else if (kselector_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kselector_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kselector_inputmethodevent_callback(this, cbval1);
-        } else {
-            KSelector::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KSelector::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,14 +1132,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_inputmethodquery_isbase) {
             kselector_inputmethodquery_isbase = false;
             return KSelector::inputMethodQuery(param1);
-        } else if (kselector_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kselector_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kselector_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KSelector::inputMethodQuery(param1);
         }
+        return KSelector::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,14 +1148,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_focusnextprevchild_isbase) {
             kselector_focusnextprevchild_isbase = false;
             return KSelector::focusNextPrevChild(next);
-        } else if (kselector_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kselector_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kselector_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelector::focusNextPrevChild(next);
         }
+        return KSelector::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,15 +1164,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_eventfilter_isbase) {
             kselector_eventfilter_isbase = false;
             return KSelector::eventFilter(watched, event);
-        } else if (kselector_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kselector_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kselector_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSelector::eventFilter(watched, event);
         }
+        return KSelector::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,13 +1181,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_childevent_isbase) {
             kselector_childevent_isbase = false;
             KSelector::childEvent(event);
-        } else if (kselector_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kselector_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kselector_childevent_callback(this, cbval1);
-        } else {
-            KSelector::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSelector::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,13 +1198,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_customevent_isbase) {
             kselector_customevent_isbase = false;
             KSelector::customEvent(event);
-        } else if (kselector_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kselector_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kselector_customevent_callback(this, cbval1);
-        } else {
-            KSelector::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSelector::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,15 +1215,18 @@ class VirtualKSelector final : public KSelector {
         if (kselector_connectnotify_isbase) {
             kselector_connectnotify_isbase = false;
             KSelector::connectNotify(signal);
-        } else if (kselector_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kselector_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kselector_connectnotify_callback(this, cbval1);
-        } else {
-            KSelector::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSelector::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,15 +1234,18 @@ class VirtualKSelector final : public KSelector {
         if (kselector_disconnectnotify_isbase) {
             kselector_disconnectnotify_isbase = false;
             KSelector::disconnectNotify(signal);
-        } else if (kselector_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kselector_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kselector_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSelector::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSelector::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,13 +1253,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_setrepeataction_isbase) {
             kselector_setrepeataction_isbase = false;
             KSelector::setRepeatAction(action);
-        } else if (kselector_setrepeataction_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction_cb = kselector_setrepeataction_callback;
+        if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
 
-            kselector_setrepeataction_callback(this, cbval1);
-        } else {
-            KSelector::setRepeatAction(action);
+            setrepeataction_cb(this, cbval1);
+            return;
         }
+        KSelector::setRepeatAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,12 +1270,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_repeataction_isbase) {
             kselector_repeataction_isbase = false;
             return KSelector::repeatAction();
-        } else if (kselector_repeataction_callback != nullptr) {
-            int callback_ret = kselector_repeataction_callback();
-            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
-        } else {
-            return KSelector::repeatAction();
         }
+        auto repeataction_cb = kselector_repeataction_callback;
+        if (repeataction_cb) {
+            int callback_ret = repeataction_cb();
+            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
+        }
+        return KSelector::repeatAction();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,11 +1284,14 @@ class VirtualKSelector final : public KSelector {
         if (kselector_updatemicrofocus_isbase) {
             kselector_updatemicrofocus_isbase = false;
             KSelector::updateMicroFocus();
-        } else if (kselector_updatemicrofocus_callback != nullptr) {
-            kselector_updatemicrofocus_callback();
-        } else {
-            KSelector::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kselector_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KSelector::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,11 +1299,14 @@ class VirtualKSelector final : public KSelector {
         if (kselector_create_isbase) {
             kselector_create_isbase = false;
             KSelector::create();
-        } else if (kselector_create_callback != nullptr) {
-            kselector_create_callback();
-        } else {
-            KSelector::create();
+            return;
         }
+        auto create_cb = kselector_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KSelector::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,11 +1314,14 @@ class VirtualKSelector final : public KSelector {
         if (kselector_destroy_isbase) {
             kselector_destroy_isbase = false;
             KSelector::destroy();
-        } else if (kselector_destroy_callback != nullptr) {
-            kselector_destroy_callback();
-        } else {
-            KSelector::destroy();
+            return;
         }
+        auto destroy_cb = kselector_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KSelector::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,12 +1329,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_focusnextchild_isbase) {
             kselector_focusnextchild_isbase = false;
             return KSelector::focusNextChild();
-        } else if (kselector_focusnextchild_callback != nullptr) {
-            bool callback_ret = kselector_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KSelector::focusNextChild();
         }
+        auto focusnextchild_cb = kselector_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KSelector::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,12 +1343,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_focuspreviouschild_isbase) {
             kselector_focuspreviouschild_isbase = false;
             return KSelector::focusPreviousChild();
-        } else if (kselector_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kselector_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KSelector::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kselector_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KSelector::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,12 +1357,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_sender_isbase) {
             kselector_sender_isbase = false;
             return KSelector::sender();
-        } else if (kselector_sender_callback != nullptr) {
-            QObject* callback_ret = kselector_sender_callback();
-            return callback_ret;
-        } else {
-            return KSelector::sender();
         }
+        auto sender_cb = kselector_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSelector::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1298,12 +1371,13 @@ class VirtualKSelector final : public KSelector {
         if (kselector_sendersignalindex_isbase) {
             kselector_sendersignalindex_isbase = false;
             return KSelector::senderSignalIndex();
-        } else if (kselector_sendersignalindex_callback != nullptr) {
-            int callback_ret = kselector_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSelector::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kselector_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSelector::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,14 +1385,15 @@ class VirtualKSelector final : public KSelector {
         if (kselector_receivers_isbase) {
             kselector_receivers_isbase = false;
             return KSelector::receivers(signal);
-        } else if (kselector_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kselector_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kselector_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelector::receivers(signal);
         }
+        return KSelector::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,16 +1401,17 @@ class VirtualKSelector final : public KSelector {
         if (kselector_issignalconnected_isbase) {
             kselector_issignalconnected_isbase = false;
             return KSelector::isSignalConnected(signal);
-        } else if (kselector_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kselector_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kselector_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelector::isSignalConnected(signal);
         }
+        return KSelector::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1343,15 +1419,16 @@ class VirtualKSelector final : public KSelector {
         if (kselector_getdecodedmetricf_isbase) {
             kselector_getdecodedmetricf_isbase = false;
             return KSelector::getDecodedMetricF(metricA, metricB);
-        } else if (kselector_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kselector_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kselector_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KSelector::getDecodedMetricF(metricA, metricB);
         }
+        return KSelector::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions
@@ -1682,75 +1759,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
     VirtualKGradientSelector(Qt::Orientation o) : KGradientSelector(o) {};
     VirtualKGradientSelector(Qt::Orientation o, QWidget* parent) : KGradientSelector(o, parent) {};
 
-    ~VirtualKGradientSelector() {
-        kgradientselector_metaobject_callback = nullptr;
-        kgradientselector_metacast_callback = nullptr;
-        kgradientselector_metacall_callback = nullptr;
-        kgradientselector_drawcontents_callback = nullptr;
-        kgradientselector_minimumsize_callback = nullptr;
-        kgradientselector_drawarrow_callback = nullptr;
-        kgradientselector_paintevent_callback = nullptr;
-        kgradientselector_mousepressevent_callback = nullptr;
-        kgradientselector_mousemoveevent_callback = nullptr;
-        kgradientselector_mousereleaseevent_callback = nullptr;
-        kgradientselector_wheelevent_callback = nullptr;
-        kgradientselector_event_callback = nullptr;
-        kgradientselector_sliderchange_callback = nullptr;
-        kgradientselector_keypressevent_callback = nullptr;
-        kgradientselector_timerevent_callback = nullptr;
-        kgradientselector_changeevent_callback = nullptr;
-        kgradientselector_devtype_callback = nullptr;
-        kgradientselector_setvisible_callback = nullptr;
-        kgradientselector_sizehint_callback = nullptr;
-        kgradientselector_minimumsizehint_callback = nullptr;
-        kgradientselector_heightforwidth_callback = nullptr;
-        kgradientselector_hasheightforwidth_callback = nullptr;
-        kgradientselector_paintengine_callback = nullptr;
-        kgradientselector_mousedoubleclickevent_callback = nullptr;
-        kgradientselector_keyreleaseevent_callback = nullptr;
-        kgradientselector_focusinevent_callback = nullptr;
-        kgradientselector_focusoutevent_callback = nullptr;
-        kgradientselector_enterevent_callback = nullptr;
-        kgradientselector_leaveevent_callback = nullptr;
-        kgradientselector_moveevent_callback = nullptr;
-        kgradientselector_resizeevent_callback = nullptr;
-        kgradientselector_closeevent_callback = nullptr;
-        kgradientselector_contextmenuevent_callback = nullptr;
-        kgradientselector_tabletevent_callback = nullptr;
-        kgradientselector_actionevent_callback = nullptr;
-        kgradientselector_dragenterevent_callback = nullptr;
-        kgradientselector_dragmoveevent_callback = nullptr;
-        kgradientselector_dragleaveevent_callback = nullptr;
-        kgradientselector_dropevent_callback = nullptr;
-        kgradientselector_showevent_callback = nullptr;
-        kgradientselector_hideevent_callback = nullptr;
-        kgradientselector_nativeevent_callback = nullptr;
-        kgradientselector_metric_callback = nullptr;
-        kgradientselector_initpainter_callback = nullptr;
-        kgradientselector_redirected_callback = nullptr;
-        kgradientselector_sharedpainter_callback = nullptr;
-        kgradientselector_inputmethodevent_callback = nullptr;
-        kgradientselector_inputmethodquery_callback = nullptr;
-        kgradientselector_focusnextprevchild_callback = nullptr;
-        kgradientselector_eventfilter_callback = nullptr;
-        kgradientselector_childevent_callback = nullptr;
-        kgradientselector_customevent_callback = nullptr;
-        kgradientselector_connectnotify_callback = nullptr;
-        kgradientselector_disconnectnotify_callback = nullptr;
-        kgradientselector_setrepeataction_callback = nullptr;
-        kgradientselector_repeataction_callback = nullptr;
-        kgradientselector_updatemicrofocus_callback = nullptr;
-        kgradientselector_create_callback = nullptr;
-        kgradientselector_destroy_callback = nullptr;
-        kgradientselector_focusnextchild_callback = nullptr;
-        kgradientselector_focuspreviouschild_callback = nullptr;
-        kgradientselector_sender_callback = nullptr;
-        kgradientselector_sendersignalindex_callback = nullptr;
-        kgradientselector_receivers_callback = nullptr;
-        kgradientselector_issignalconnected_callback = nullptr;
-        kgradientselector_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKGradientSelector_MetaObject_Callback(KGradientSelector_MetaObject_Callback cb) { kgradientselector_metaobject_callback = cb; }
     inline void setKGradientSelector_Metacast_Callback(KGradientSelector_Metacast_Callback cb) { kgradientselector_metacast_callback = cb; }
@@ -1892,12 +1900,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_metaobject_isbase) {
             kgradientselector_metaobject_isbase = false;
             return KGradientSelector::metaObject();
-        } else if (kgradientselector_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kgradientselector_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::metaObject();
         }
+        auto metaobject_cb = kgradientselector_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1905,14 +1914,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_metacast_isbase) {
             kgradientselector_metacast_isbase = false;
             return KGradientSelector::qt_metacast(param1);
-        } else if (kgradientselector_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kgradientselector_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kgradientselector_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGradientSelector::qt_metacast(param1);
         }
+        return KGradientSelector::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1920,16 +1930,17 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_metacall_isbase) {
             kgradientselector_metacall_isbase = false;
             return KGradientSelector::qt_metacall(param1, param2, param3);
-        } else if (kgradientselector_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kgradientselector_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kgradientselector_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KGradientSelector::qt_metacall(param1, param2, param3);
         }
+        return KGradientSelector::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1937,13 +1948,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_drawcontents_isbase) {
             kgradientselector_drawcontents_isbase = false;
             KGradientSelector::drawContents(param1);
-        } else if (kgradientselector_drawcontents_callback != nullptr) {
+            return;
+        }
+        auto drawcontents_cb = kgradientselector_drawcontents_callback;
+        if (drawcontents_cb) {
             QPainter* cbval1 = param1;
 
-            kgradientselector_drawcontents_callback(this, cbval1);
-        } else {
-            KGradientSelector::drawContents(param1);
+            drawcontents_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::drawContents(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1951,12 +1965,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_minimumsize_isbase) {
             kgradientselector_minimumsize_isbase = false;
             return KGradientSelector::minimumSize();
-        } else if (kgradientselector_minimumsize_callback != nullptr) {
-            QSize* callback_ret = kgradientselector_minimumsize_callback();
-            return *callback_ret;
-        } else {
-            return KGradientSelector::minimumSize();
         }
+        auto minimumsize_cb = kgradientselector_minimumsize_callback;
+        if (minimumsize_cb) {
+            QSize* callback_ret = minimumsize_cb();
+            return *callback_ret;
+        }
+        return KGradientSelector::minimumSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1964,16 +1979,19 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_drawarrow_isbase) {
             kgradientselector_drawarrow_isbase = false;
             KGradientSelector::drawArrow(painter, pos);
-        } else if (kgradientselector_drawarrow_callback != nullptr) {
+            return;
+        }
+        auto drawarrow_cb = kgradientselector_drawarrow_callback;
+        if (drawarrow_cb) {
             QPainter* cbval1 = painter;
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&pos_ret);
 
-            kgradientselector_drawarrow_callback(this, cbval1, cbval2);
-        } else {
-            KGradientSelector::drawArrow(painter, pos);
+            drawarrow_cb(this, cbval1, cbval2);
+            return;
         }
+        KGradientSelector::drawArrow(painter, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1981,13 +1999,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_paintevent_isbase) {
             kgradientselector_paintevent_isbase = false;
             KGradientSelector::paintEvent(param1);
-        } else if (kgradientselector_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kgradientselector_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kgradientselector_paintevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1995,13 +2016,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_mousepressevent_isbase) {
             kgradientselector_mousepressevent_isbase = false;
             KGradientSelector::mousePressEvent(e);
-        } else if (kgradientselector_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kgradientselector_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kgradientselector_mousepressevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2009,13 +2033,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_mousemoveevent_isbase) {
             kgradientselector_mousemoveevent_isbase = false;
             KGradientSelector::mouseMoveEvent(e);
-        } else if (kgradientselector_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kgradientselector_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kgradientselector_mousemoveevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2023,13 +2050,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_mousereleaseevent_isbase) {
             kgradientselector_mousereleaseevent_isbase = false;
             KGradientSelector::mouseReleaseEvent(e);
-        } else if (kgradientselector_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kgradientselector_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            kgradientselector_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2037,13 +2067,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_wheelevent_isbase) {
             kgradientselector_wheelevent_isbase = false;
             KGradientSelector::wheelEvent(param1);
-        } else if (kgradientselector_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kgradientselector_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
 
-            kgradientselector_wheelevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::wheelEvent(param1);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::wheelEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2051,14 +2084,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_event_isbase) {
             kgradientselector_event_isbase = false;
             return KGradientSelector::event(e);
-        } else if (kgradientselector_event_callback != nullptr) {
+        }
+        auto event_cb = kgradientselector_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kgradientselector_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGradientSelector::event(e);
         }
+        return KGradientSelector::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2066,13 +2100,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_sliderchange_isbase) {
             kgradientselector_sliderchange_isbase = false;
             KGradientSelector::sliderChange(change);
-        } else if (kgradientselector_sliderchange_callback != nullptr) {
+            return;
+        }
+        auto sliderchange_cb = kgradientselector_sliderchange_callback;
+        if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
 
-            kgradientselector_sliderchange_callback(this, cbval1);
-        } else {
-            KGradientSelector::sliderChange(change);
+            sliderchange_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::sliderChange(change);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2080,13 +2117,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_keypressevent_isbase) {
             kgradientselector_keypressevent_isbase = false;
             KGradientSelector::keyPressEvent(ev);
-        } else if (kgradientselector_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kgradientselector_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
 
-            kgradientselector_keypressevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::keyPressEvent(ev);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::keyPressEvent(ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2094,13 +2134,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_timerevent_isbase) {
             kgradientselector_timerevent_isbase = false;
             KGradientSelector::timerEvent(param1);
-        } else if (kgradientselector_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kgradientselector_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            kgradientselector_timerevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2108,13 +2151,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_changeevent_isbase) {
             kgradientselector_changeevent_isbase = false;
             KGradientSelector::changeEvent(e);
-        } else if (kgradientselector_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kgradientselector_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kgradientselector_changeevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2122,12 +2168,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_devtype_isbase) {
             kgradientselector_devtype_isbase = false;
             return KGradientSelector::devType();
-        } else if (kgradientselector_devtype_callback != nullptr) {
-            int callback_ret = kgradientselector_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KGradientSelector::devType();
         }
+        auto devtype_cb = kgradientselector_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KGradientSelector::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2135,13 +2182,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_setvisible_isbase) {
             kgradientselector_setvisible_isbase = false;
             KGradientSelector::setVisible(visible);
-        } else if (kgradientselector_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kgradientselector_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kgradientselector_setvisible_callback(this, cbval1);
-        } else {
-            KGradientSelector::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2149,12 +2199,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_sizehint_isbase) {
             kgradientselector_sizehint_isbase = false;
             return KGradientSelector::sizeHint();
-        } else if (kgradientselector_sizehint_callback != nullptr) {
-            QSize* callback_ret = kgradientselector_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KGradientSelector::sizeHint();
         }
+        auto sizehint_cb = kgradientselector_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KGradientSelector::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2162,12 +2213,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_minimumsizehint_isbase) {
             kgradientselector_minimumsizehint_isbase = false;
             return KGradientSelector::minimumSizeHint();
-        } else if (kgradientselector_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kgradientselector_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KGradientSelector::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kgradientselector_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KGradientSelector::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2175,14 +2227,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_heightforwidth_isbase) {
             kgradientselector_heightforwidth_isbase = false;
             return KGradientSelector::heightForWidth(param1);
-        } else if (kgradientselector_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kgradientselector_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kgradientselector_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KGradientSelector::heightForWidth(param1);
         }
+        return KGradientSelector::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2190,12 +2243,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_hasheightforwidth_isbase) {
             kgradientselector_hasheightforwidth_isbase = false;
             return KGradientSelector::hasHeightForWidth();
-        } else if (kgradientselector_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kgradientselector_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kgradientselector_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2203,12 +2257,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_paintengine_isbase) {
             kgradientselector_paintengine_isbase = false;
             return KGradientSelector::paintEngine();
-        } else if (kgradientselector_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kgradientselector_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::paintEngine();
         }
+        auto paintengine_cb = kgradientselector_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2216,13 +2271,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_mousedoubleclickevent_isbase) {
             kgradientselector_mousedoubleclickevent_isbase = false;
             KGradientSelector::mouseDoubleClickEvent(event);
-        } else if (kgradientselector_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kgradientselector_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kgradientselector_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2230,13 +2288,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_keyreleaseevent_isbase) {
             kgradientselector_keyreleaseevent_isbase = false;
             KGradientSelector::keyReleaseEvent(event);
-        } else if (kgradientselector_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kgradientselector_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kgradientselector_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2244,13 +2305,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_focusinevent_isbase) {
             kgradientselector_focusinevent_isbase = false;
             KGradientSelector::focusInEvent(event);
-        } else if (kgradientselector_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kgradientselector_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kgradientselector_focusinevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2258,13 +2322,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_focusoutevent_isbase) {
             kgradientselector_focusoutevent_isbase = false;
             KGradientSelector::focusOutEvent(event);
-        } else if (kgradientselector_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kgradientselector_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kgradientselector_focusoutevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2272,13 +2339,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_enterevent_isbase) {
             kgradientselector_enterevent_isbase = false;
             KGradientSelector::enterEvent(event);
-        } else if (kgradientselector_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kgradientselector_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kgradientselector_enterevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2286,13 +2356,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_leaveevent_isbase) {
             kgradientselector_leaveevent_isbase = false;
             KGradientSelector::leaveEvent(event);
-        } else if (kgradientselector_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kgradientselector_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kgradientselector_leaveevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2300,13 +2373,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_moveevent_isbase) {
             kgradientselector_moveevent_isbase = false;
             KGradientSelector::moveEvent(event);
-        } else if (kgradientselector_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kgradientselector_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kgradientselector_moveevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2314,13 +2390,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_resizeevent_isbase) {
             kgradientselector_resizeevent_isbase = false;
             KGradientSelector::resizeEvent(event);
-        } else if (kgradientselector_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kgradientselector_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kgradientselector_resizeevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2328,13 +2407,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_closeevent_isbase) {
             kgradientselector_closeevent_isbase = false;
             KGradientSelector::closeEvent(event);
-        } else if (kgradientselector_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kgradientselector_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kgradientselector_closeevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2342,13 +2424,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_contextmenuevent_isbase) {
             kgradientselector_contextmenuevent_isbase = false;
             KGradientSelector::contextMenuEvent(event);
-        } else if (kgradientselector_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kgradientselector_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kgradientselector_contextmenuevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2356,13 +2441,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_tabletevent_isbase) {
             kgradientselector_tabletevent_isbase = false;
             KGradientSelector::tabletEvent(event);
-        } else if (kgradientselector_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kgradientselector_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kgradientselector_tabletevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2370,13 +2458,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_actionevent_isbase) {
             kgradientselector_actionevent_isbase = false;
             KGradientSelector::actionEvent(event);
-        } else if (kgradientselector_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kgradientselector_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kgradientselector_actionevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2384,13 +2475,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_dragenterevent_isbase) {
             kgradientselector_dragenterevent_isbase = false;
             KGradientSelector::dragEnterEvent(event);
-        } else if (kgradientselector_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kgradientselector_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kgradientselector_dragenterevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2398,13 +2492,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_dragmoveevent_isbase) {
             kgradientselector_dragmoveevent_isbase = false;
             KGradientSelector::dragMoveEvent(event);
-        } else if (kgradientselector_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kgradientselector_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kgradientselector_dragmoveevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2412,13 +2509,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_dragleaveevent_isbase) {
             kgradientselector_dragleaveevent_isbase = false;
             KGradientSelector::dragLeaveEvent(event);
-        } else if (kgradientselector_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kgradientselector_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kgradientselector_dragleaveevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2426,13 +2526,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_dropevent_isbase) {
             kgradientselector_dropevent_isbase = false;
             KGradientSelector::dropEvent(event);
-        } else if (kgradientselector_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kgradientselector_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kgradientselector_dropevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2440,13 +2543,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_showevent_isbase) {
             kgradientselector_showevent_isbase = false;
             KGradientSelector::showEvent(event);
-        } else if (kgradientselector_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kgradientselector_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kgradientselector_showevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2454,13 +2560,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_hideevent_isbase) {
             kgradientselector_hideevent_isbase = false;
             KGradientSelector::hideEvent(event);
-        } else if (kgradientselector_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kgradientselector_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kgradientselector_hideevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2468,7 +2577,9 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_nativeevent_isbase) {
             kgradientselector_nativeevent_isbase = false;
             return KGradientSelector::nativeEvent(eventType, message, result);
-        } else if (kgradientselector_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kgradientselector_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2479,12 +2590,11 @@ class VirtualKGradientSelector final : public KGradientSelector {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kgradientselector_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KGradientSelector::nativeEvent(eventType, message, result);
         }
+        return KGradientSelector::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2492,14 +2602,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_metric_isbase) {
             kgradientselector_metric_isbase = false;
             return KGradientSelector::metric(param1);
-        } else if (kgradientselector_metric_callback != nullptr) {
+        }
+        auto metric_cb = kgradientselector_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kgradientselector_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KGradientSelector::metric(param1);
         }
+        return KGradientSelector::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2507,13 +2618,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_initpainter_isbase) {
             kgradientselector_initpainter_isbase = false;
             KGradientSelector::initPainter(painter);
-        } else if (kgradientselector_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kgradientselector_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kgradientselector_initpainter_callback(this, cbval1);
-        } else {
-            KGradientSelector::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2521,14 +2635,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_redirected_isbase) {
             kgradientselector_redirected_isbase = false;
             return KGradientSelector::redirected(offset);
-        } else if (kgradientselector_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kgradientselector_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kgradientselector_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGradientSelector::redirected(offset);
         }
+        return KGradientSelector::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2536,12 +2651,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_sharedpainter_isbase) {
             kgradientselector_sharedpainter_isbase = false;
             return KGradientSelector::sharedPainter();
-        } else if (kgradientselector_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kgradientselector_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::sharedPainter();
         }
+        auto sharedpainter_cb = kgradientselector_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2549,13 +2665,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_inputmethodevent_isbase) {
             kgradientselector_inputmethodevent_isbase = false;
             KGradientSelector::inputMethodEvent(param1);
-        } else if (kgradientselector_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kgradientselector_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kgradientselector_inputmethodevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2563,14 +2682,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_inputmethodquery_isbase) {
             kgradientselector_inputmethodquery_isbase = false;
             return KGradientSelector::inputMethodQuery(param1);
-        } else if (kgradientselector_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kgradientselector_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kgradientselector_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KGradientSelector::inputMethodQuery(param1);
         }
+        return KGradientSelector::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2578,14 +2698,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_focusnextprevchild_isbase) {
             kgradientselector_focusnextprevchild_isbase = false;
             return KGradientSelector::focusNextPrevChild(next);
-        } else if (kgradientselector_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kgradientselector_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kgradientselector_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGradientSelector::focusNextPrevChild(next);
         }
+        return KGradientSelector::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2593,15 +2714,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_eventfilter_isbase) {
             kgradientselector_eventfilter_isbase = false;
             return KGradientSelector::eventFilter(watched, event);
-        } else if (kgradientselector_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kgradientselector_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kgradientselector_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KGradientSelector::eventFilter(watched, event);
         }
+        return KGradientSelector::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2609,13 +2731,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_childevent_isbase) {
             kgradientselector_childevent_isbase = false;
             KGradientSelector::childEvent(event);
-        } else if (kgradientselector_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kgradientselector_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kgradientselector_childevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2623,13 +2748,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_customevent_isbase) {
             kgradientselector_customevent_isbase = false;
             KGradientSelector::customEvent(event);
-        } else if (kgradientselector_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kgradientselector_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kgradientselector_customevent_callback(this, cbval1);
-        } else {
-            KGradientSelector::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2637,15 +2765,18 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_connectnotify_isbase) {
             kgradientselector_connectnotify_isbase = false;
             KGradientSelector::connectNotify(signal);
-        } else if (kgradientselector_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kgradientselector_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kgradientselector_connectnotify_callback(this, cbval1);
-        } else {
-            KGradientSelector::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2653,15 +2784,18 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_disconnectnotify_isbase) {
             kgradientselector_disconnectnotify_isbase = false;
             KGradientSelector::disconnectNotify(signal);
-        } else if (kgradientselector_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kgradientselector_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kgradientselector_disconnectnotify_callback(this, cbval1);
-        } else {
-            KGradientSelector::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2669,13 +2803,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_setrepeataction_isbase) {
             kgradientselector_setrepeataction_isbase = false;
             KGradientSelector::setRepeatAction(action);
-        } else if (kgradientselector_setrepeataction_callback != nullptr) {
+            return;
+        }
+        auto setrepeataction_cb = kgradientselector_setrepeataction_callback;
+        if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
 
-            kgradientselector_setrepeataction_callback(this, cbval1);
-        } else {
-            KGradientSelector::setRepeatAction(action);
+            setrepeataction_cb(this, cbval1);
+            return;
         }
+        KGradientSelector::setRepeatAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2683,12 +2820,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_repeataction_isbase) {
             kgradientselector_repeataction_isbase = false;
             return KGradientSelector::repeatAction();
-        } else if (kgradientselector_repeataction_callback != nullptr) {
-            int callback_ret = kgradientselector_repeataction_callback();
-            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
-        } else {
-            return KGradientSelector::repeatAction();
         }
+        auto repeataction_cb = kgradientselector_repeataction_callback;
+        if (repeataction_cb) {
+            int callback_ret = repeataction_cb();
+            return static_cast<QAbstractSlider::SliderAction>(callback_ret);
+        }
+        return KGradientSelector::repeatAction();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2696,11 +2834,14 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_updatemicrofocus_isbase) {
             kgradientselector_updatemicrofocus_isbase = false;
             KGradientSelector::updateMicroFocus();
-        } else if (kgradientselector_updatemicrofocus_callback != nullptr) {
-            kgradientselector_updatemicrofocus_callback();
-        } else {
-            KGradientSelector::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kgradientselector_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KGradientSelector::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2708,11 +2849,14 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_create_isbase) {
             kgradientselector_create_isbase = false;
             KGradientSelector::create();
-        } else if (kgradientselector_create_callback != nullptr) {
-            kgradientselector_create_callback();
-        } else {
-            KGradientSelector::create();
+            return;
         }
+        auto create_cb = kgradientselector_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KGradientSelector::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2720,11 +2864,14 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_destroy_isbase) {
             kgradientselector_destroy_isbase = false;
             KGradientSelector::destroy();
-        } else if (kgradientselector_destroy_callback != nullptr) {
-            kgradientselector_destroy_callback();
-        } else {
-            KGradientSelector::destroy();
+            return;
         }
+        auto destroy_cb = kgradientselector_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KGradientSelector::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2732,12 +2879,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_focusnextchild_isbase) {
             kgradientselector_focusnextchild_isbase = false;
             return KGradientSelector::focusNextChild();
-        } else if (kgradientselector_focusnextchild_callback != nullptr) {
-            bool callback_ret = kgradientselector_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::focusNextChild();
         }
+        auto focusnextchild_cb = kgradientselector_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2745,12 +2893,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_focuspreviouschild_isbase) {
             kgradientselector_focuspreviouschild_isbase = false;
             return KGradientSelector::focusPreviousChild();
-        } else if (kgradientselector_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kgradientselector_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kgradientselector_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2758,12 +2907,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_sender_isbase) {
             kgradientselector_sender_isbase = false;
             return KGradientSelector::sender();
-        } else if (kgradientselector_sender_callback != nullptr) {
-            QObject* callback_ret = kgradientselector_sender_callback();
-            return callback_ret;
-        } else {
-            return KGradientSelector::sender();
         }
+        auto sender_cb = kgradientselector_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KGradientSelector::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2771,12 +2921,13 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_sendersignalindex_isbase) {
             kgradientselector_sendersignalindex_isbase = false;
             return KGradientSelector::senderSignalIndex();
-        } else if (kgradientselector_sendersignalindex_callback != nullptr) {
-            int callback_ret = kgradientselector_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KGradientSelector::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kgradientselector_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KGradientSelector::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2784,14 +2935,15 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_receivers_isbase) {
             kgradientselector_receivers_isbase = false;
             return KGradientSelector::receivers(signal);
-        } else if (kgradientselector_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kgradientselector_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kgradientselector_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KGradientSelector::receivers(signal);
         }
+        return KGradientSelector::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2799,16 +2951,17 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_issignalconnected_isbase) {
             kgradientselector_issignalconnected_isbase = false;
             return KGradientSelector::isSignalConnected(signal);
-        } else if (kgradientselector_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kgradientselector_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kgradientselector_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KGradientSelector::isSignalConnected(signal);
         }
+        return KGradientSelector::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2816,15 +2969,16 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (kgradientselector_getdecodedmetricf_isbase) {
             kgradientselector_getdecodedmetricf_isbase = false;
             return KGradientSelector::getDecodedMetricF(metricA, metricB);
-        } else if (kgradientselector_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kgradientselector_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kgradientselector_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KGradientSelector::getDecodedMetricF(metricA, metricB);
         }
+        return KGradientSelector::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

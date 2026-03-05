@@ -38,12 +38,6 @@ class VirtualKFileMetaDataSimpleExtractionResult final : public KFileMetaData::S
     VirtualKFileMetaDataSimpleExtractionResult(const QString& url, const QString& mimetype) : KFileMetaData::SimpleExtractionResult(url, mimetype) {};
     VirtualKFileMetaDataSimpleExtractionResult(const QString& url, const QString& mimetype, const KFileMetaData::ExtractionResult::Flags& flags) : KFileMetaData::SimpleExtractionResult(url, mimetype, flags) {};
 
-    ~VirtualKFileMetaDataSimpleExtractionResult() {
-        kfilemetadata__simpleextractionresult_add_callback = nullptr;
-        kfilemetadata__simpleextractionresult_addtype_callback = nullptr;
-        kfilemetadata__simpleextractionresult_append_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKFileMetaData__SimpleExtractionResult_Add_Callback(KFileMetaData__SimpleExtractionResult_Add_Callback cb) { kfilemetadata__simpleextractionresult_add_callback = cb; }
     inline void setKFileMetaData__SimpleExtractionResult_AddType_Callback(KFileMetaData__SimpleExtractionResult_AddType_Callback cb) { kfilemetadata__simpleextractionresult_addtype_callback = cb; }
@@ -59,16 +53,19 @@ class VirtualKFileMetaDataSimpleExtractionResult final : public KFileMetaData::S
         if (kfilemetadata__simpleextractionresult_add_isbase) {
             kfilemetadata__simpleextractionresult_add_isbase = false;
             KFileMetaData__SimpleExtractionResult::add(property, value);
-        } else if (kfilemetadata__simpleextractionresult_add_callback != nullptr) {
+            return;
+        }
+        auto add_cb = kfilemetadata__simpleextractionresult_add_callback;
+        if (add_cb) {
             int cbval1 = static_cast<int>(property);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            kfilemetadata__simpleextractionresult_add_callback(this, cbval1, cbval2);
-        } else {
-            KFileMetaData__SimpleExtractionResult::add(property, value);
+            add_cb(this, cbval1, cbval2);
+            return;
         }
+        KFileMetaData__SimpleExtractionResult::add(property, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -76,13 +73,16 @@ class VirtualKFileMetaDataSimpleExtractionResult final : public KFileMetaData::S
         if (kfilemetadata__simpleextractionresult_addtype_isbase) {
             kfilemetadata__simpleextractionresult_addtype_isbase = false;
             KFileMetaData__SimpleExtractionResult::addType(typeVal);
-        } else if (kfilemetadata__simpleextractionresult_addtype_callback != nullptr) {
+            return;
+        }
+        auto addtype_cb = kfilemetadata__simpleextractionresult_addtype_callback;
+        if (addtype_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            kfilemetadata__simpleextractionresult_addtype_callback(this, cbval1);
-        } else {
-            KFileMetaData__SimpleExtractionResult::addType(typeVal);
+            addtype_cb(this, cbval1);
+            return;
         }
+        KFileMetaData__SimpleExtractionResult::addType(typeVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -90,7 +90,10 @@ class VirtualKFileMetaDataSimpleExtractionResult final : public KFileMetaData::S
         if (kfilemetadata__simpleextractionresult_append_isbase) {
             kfilemetadata__simpleextractionresult_append_isbase = false;
             KFileMetaData__SimpleExtractionResult::append(text);
-        } else if (kfilemetadata__simpleextractionresult_append_callback != nullptr) {
+            return;
+        }
+        auto append_cb = kfilemetadata__simpleextractionresult_append_callback;
+        if (append_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -100,11 +103,11 @@ class VirtualKFileMetaDataSimpleExtractionResult final : public KFileMetaData::S
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            kfilemetadata__simpleextractionresult_append_callback(this, cbval1);
+            append_cb(this, cbval1);
             libqt_free(text_str);
-        } else {
-            KFileMetaData__SimpleExtractionResult::append(text);
+            return;
         }
+        KFileMetaData__SimpleExtractionResult::append(text);
     }
 };
 

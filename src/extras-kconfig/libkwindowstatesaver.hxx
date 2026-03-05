@@ -63,21 +63,6 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     VirtualKWindowStateSaver(QWindow* window, const KConfigGroup& configGroup) : KWindowStateSaver(window, configGroup) {};
     VirtualKWindowStateSaver(QWindow* window, const QString& configGroupName) : KWindowStateSaver(window, configGroupName) {};
 
-    ~VirtualKWindowStateSaver() {
-        kwindowstatesaver_metaobject_callback = nullptr;
-        kwindowstatesaver_metacast_callback = nullptr;
-        kwindowstatesaver_metacall_callback = nullptr;
-        kwindowstatesaver_event_callback = nullptr;
-        kwindowstatesaver_childevent_callback = nullptr;
-        kwindowstatesaver_customevent_callback = nullptr;
-        kwindowstatesaver_connectnotify_callback = nullptr;
-        kwindowstatesaver_disconnectnotify_callback = nullptr;
-        kwindowstatesaver_sender_callback = nullptr;
-        kwindowstatesaver_sendersignalindex_callback = nullptr;
-        kwindowstatesaver_receivers_callback = nullptr;
-        kwindowstatesaver_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKWindowStateSaver_MetaObject_Callback(KWindowStateSaver_MetaObject_Callback cb) { kwindowstatesaver_metaobject_callback = cb; }
     inline void setKWindowStateSaver_Metacast_Callback(KWindowStateSaver_Metacast_Callback cb) { kwindowstatesaver_metacast_callback = cb; }
@@ -111,12 +96,13 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_metaobject_isbase) {
             kwindowstatesaver_metaobject_isbase = false;
             return KWindowStateSaver::metaObject();
-        } else if (kwindowstatesaver_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kwindowstatesaver_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KWindowStateSaver::metaObject();
         }
+        auto metaobject_cb = kwindowstatesaver_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KWindowStateSaver::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -124,14 +110,15 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_metacast_isbase) {
             kwindowstatesaver_metacast_isbase = false;
             return KWindowStateSaver::qt_metacast(param1);
-        } else if (kwindowstatesaver_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kwindowstatesaver_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kwindowstatesaver_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowStateSaver::qt_metacast(param1);
         }
+        return KWindowStateSaver::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -139,16 +126,17 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_metacall_isbase) {
             kwindowstatesaver_metacall_isbase = false;
             return KWindowStateSaver::qt_metacall(param1, param2, param3);
-        } else if (kwindowstatesaver_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kwindowstatesaver_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kwindowstatesaver_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWindowStateSaver::qt_metacall(param1, param2, param3);
         }
+        return KWindowStateSaver::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,14 +144,15 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_event_isbase) {
             kwindowstatesaver_event_isbase = false;
             return KWindowStateSaver::event(event);
-        } else if (kwindowstatesaver_event_callback != nullptr) {
+        }
+        auto event_cb = kwindowstatesaver_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kwindowstatesaver_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowStateSaver::event(event);
         }
+        return KWindowStateSaver::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -171,13 +160,16 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_childevent_isbase) {
             kwindowstatesaver_childevent_isbase = false;
             KWindowStateSaver::childEvent(event);
-        } else if (kwindowstatesaver_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kwindowstatesaver_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kwindowstatesaver_childevent_callback(this, cbval1);
-        } else {
-            KWindowStateSaver::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KWindowStateSaver::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,13 +177,16 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_customevent_isbase) {
             kwindowstatesaver_customevent_isbase = false;
             KWindowStateSaver::customEvent(event);
-        } else if (kwindowstatesaver_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kwindowstatesaver_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kwindowstatesaver_customevent_callback(this, cbval1);
-        } else {
-            KWindowStateSaver::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KWindowStateSaver::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,15 +194,18 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_connectnotify_isbase) {
             kwindowstatesaver_connectnotify_isbase = false;
             KWindowStateSaver::connectNotify(signal);
-        } else if (kwindowstatesaver_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kwindowstatesaver_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwindowstatesaver_connectnotify_callback(this, cbval1);
-        } else {
-            KWindowStateSaver::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KWindowStateSaver::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,15 +213,18 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_disconnectnotify_isbase) {
             kwindowstatesaver_disconnectnotify_isbase = false;
             KWindowStateSaver::disconnectNotify(signal);
-        } else if (kwindowstatesaver_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kwindowstatesaver_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwindowstatesaver_disconnectnotify_callback(this, cbval1);
-        } else {
-            KWindowStateSaver::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KWindowStateSaver::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,12 +232,13 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_sender_isbase) {
             kwindowstatesaver_sender_isbase = false;
             return KWindowStateSaver::sender();
-        } else if (kwindowstatesaver_sender_callback != nullptr) {
-            QObject* callback_ret = kwindowstatesaver_sender_callback();
-            return callback_ret;
-        } else {
-            return KWindowStateSaver::sender();
         }
+        auto sender_cb = kwindowstatesaver_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KWindowStateSaver::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,12 +246,13 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_sendersignalindex_isbase) {
             kwindowstatesaver_sendersignalindex_isbase = false;
             return KWindowStateSaver::senderSignalIndex();
-        } else if (kwindowstatesaver_sendersignalindex_callback != nullptr) {
-            int callback_ret = kwindowstatesaver_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KWindowStateSaver::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kwindowstatesaver_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KWindowStateSaver::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,14 +260,15 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_receivers_isbase) {
             kwindowstatesaver_receivers_isbase = false;
             return KWindowStateSaver::receivers(signal);
-        } else if (kwindowstatesaver_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kwindowstatesaver_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kwindowstatesaver_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWindowStateSaver::receivers(signal);
         }
+        return KWindowStateSaver::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,16 +276,17 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
         if (kwindowstatesaver_issignalconnected_isbase) {
             kwindowstatesaver_issignalconnected_isbase = false;
             return KWindowStateSaver::isSignalConnected(signal);
-        } else if (kwindowstatesaver_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kwindowstatesaver_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kwindowstatesaver_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowStateSaver::isSignalConnected(signal);
         }
+        return KWindowStateSaver::isSignalConnected(signal);
     }
 
     // Friend functions

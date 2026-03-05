@@ -207,69 +207,6 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     VirtualKPasswordLineEdit(QWidget* parent) : KPasswordLineEdit(parent) {};
     VirtualKPasswordLineEdit() : KPasswordLineEdit() {};
 
-    ~VirtualKPasswordLineEdit() {
-        kpasswordlineedit_metaobject_callback = nullptr;
-        kpasswordlineedit_metacast_callback = nullptr;
-        kpasswordlineedit_metacall_callback = nullptr;
-        kpasswordlineedit_devtype_callback = nullptr;
-        kpasswordlineedit_setvisible_callback = nullptr;
-        kpasswordlineedit_sizehint_callback = nullptr;
-        kpasswordlineedit_minimumsizehint_callback = nullptr;
-        kpasswordlineedit_heightforwidth_callback = nullptr;
-        kpasswordlineedit_hasheightforwidth_callback = nullptr;
-        kpasswordlineedit_paintengine_callback = nullptr;
-        kpasswordlineedit_event_callback = nullptr;
-        kpasswordlineedit_mousepressevent_callback = nullptr;
-        kpasswordlineedit_mousereleaseevent_callback = nullptr;
-        kpasswordlineedit_mousedoubleclickevent_callback = nullptr;
-        kpasswordlineedit_mousemoveevent_callback = nullptr;
-        kpasswordlineedit_wheelevent_callback = nullptr;
-        kpasswordlineedit_keypressevent_callback = nullptr;
-        kpasswordlineedit_keyreleaseevent_callback = nullptr;
-        kpasswordlineedit_focusinevent_callback = nullptr;
-        kpasswordlineedit_focusoutevent_callback = nullptr;
-        kpasswordlineedit_enterevent_callback = nullptr;
-        kpasswordlineedit_leaveevent_callback = nullptr;
-        kpasswordlineedit_paintevent_callback = nullptr;
-        kpasswordlineedit_moveevent_callback = nullptr;
-        kpasswordlineedit_resizeevent_callback = nullptr;
-        kpasswordlineedit_closeevent_callback = nullptr;
-        kpasswordlineedit_contextmenuevent_callback = nullptr;
-        kpasswordlineedit_tabletevent_callback = nullptr;
-        kpasswordlineedit_actionevent_callback = nullptr;
-        kpasswordlineedit_dragenterevent_callback = nullptr;
-        kpasswordlineedit_dragmoveevent_callback = nullptr;
-        kpasswordlineedit_dragleaveevent_callback = nullptr;
-        kpasswordlineedit_dropevent_callback = nullptr;
-        kpasswordlineedit_showevent_callback = nullptr;
-        kpasswordlineedit_hideevent_callback = nullptr;
-        kpasswordlineedit_nativeevent_callback = nullptr;
-        kpasswordlineedit_changeevent_callback = nullptr;
-        kpasswordlineedit_metric_callback = nullptr;
-        kpasswordlineedit_initpainter_callback = nullptr;
-        kpasswordlineedit_redirected_callback = nullptr;
-        kpasswordlineedit_sharedpainter_callback = nullptr;
-        kpasswordlineedit_inputmethodevent_callback = nullptr;
-        kpasswordlineedit_inputmethodquery_callback = nullptr;
-        kpasswordlineedit_focusnextprevchild_callback = nullptr;
-        kpasswordlineedit_eventfilter_callback = nullptr;
-        kpasswordlineedit_timerevent_callback = nullptr;
-        kpasswordlineedit_childevent_callback = nullptr;
-        kpasswordlineedit_customevent_callback = nullptr;
-        kpasswordlineedit_connectnotify_callback = nullptr;
-        kpasswordlineedit_disconnectnotify_callback = nullptr;
-        kpasswordlineedit_updatemicrofocus_callback = nullptr;
-        kpasswordlineedit_create_callback = nullptr;
-        kpasswordlineedit_destroy_callback = nullptr;
-        kpasswordlineedit_focusnextchild_callback = nullptr;
-        kpasswordlineedit_focuspreviouschild_callback = nullptr;
-        kpasswordlineedit_sender_callback = nullptr;
-        kpasswordlineedit_sendersignalindex_callback = nullptr;
-        kpasswordlineedit_receivers_callback = nullptr;
-        kpasswordlineedit_issignalconnected_callback = nullptr;
-        kpasswordlineedit_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPasswordLineEdit_MetaObject_Callback(KPasswordLineEdit_MetaObject_Callback cb) { kpasswordlineedit_metaobject_callback = cb; }
     inline void setKPasswordLineEdit_Metacast_Callback(KPasswordLineEdit_Metacast_Callback cb) { kpasswordlineedit_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_metaobject_isbase) {
             kpasswordlineedit_metaobject_isbase = false;
             return KPasswordLineEdit::metaObject();
-        } else if (kpasswordlineedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpasswordlineedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::metaObject();
         }
+        auto metaobject_cb = kpasswordlineedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_metacast_isbase) {
             kpasswordlineedit_metacast_isbase = false;
             return KPasswordLineEdit::qt_metacast(param1);
-        } else if (kpasswordlineedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpasswordlineedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpasswordlineedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::qt_metacast(param1);
         }
+        return KPasswordLineEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_metacall_isbase) {
             kpasswordlineedit_metacall_isbase = false;
             return KPasswordLineEdit::qt_metacall(param1, param2, param3);
-        } else if (kpasswordlineedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpasswordlineedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpasswordlineedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPasswordLineEdit::qt_metacall(param1, param2, param3);
         }
+        return KPasswordLineEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +384,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_devtype_isbase) {
             kpasswordlineedit_devtype_isbase = false;
             return KPasswordLineEdit::devType();
-        } else if (kpasswordlineedit_devtype_callback != nullptr) {
-            int callback_ret = kpasswordlineedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPasswordLineEdit::devType();
         }
+        auto devtype_cb = kpasswordlineedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPasswordLineEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,13 +398,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_setvisible_isbase) {
             kpasswordlineedit_setvisible_isbase = false;
             KPasswordLineEdit::setVisible(visible);
-        } else if (kpasswordlineedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kpasswordlineedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kpasswordlineedit_setvisible_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +415,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_sizehint_isbase) {
             kpasswordlineedit_sizehint_isbase = false;
             return KPasswordLineEdit::sizeHint();
-        } else if (kpasswordlineedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = kpasswordlineedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPasswordLineEdit::sizeHint();
         }
+        auto sizehint_cb = kpasswordlineedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPasswordLineEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,12 +429,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_minimumsizehint_isbase) {
             kpasswordlineedit_minimumsizehint_isbase = false;
             return KPasswordLineEdit::minimumSizeHint();
-        } else if (kpasswordlineedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kpasswordlineedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPasswordLineEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kpasswordlineedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPasswordLineEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,14 +443,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_heightforwidth_isbase) {
             kpasswordlineedit_heightforwidth_isbase = false;
             return KPasswordLineEdit::heightForWidth(param1);
-        } else if (kpasswordlineedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kpasswordlineedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kpasswordlineedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPasswordLineEdit::heightForWidth(param1);
         }
+        return KPasswordLineEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +459,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_hasheightforwidth_isbase) {
             kpasswordlineedit_hasheightforwidth_isbase = false;
             return KPasswordLineEdit::hasHeightForWidth();
-        } else if (kpasswordlineedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kpasswordlineedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kpasswordlineedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +473,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_paintengine_isbase) {
             kpasswordlineedit_paintengine_isbase = false;
             return KPasswordLineEdit::paintEngine();
-        } else if (kpasswordlineedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kpasswordlineedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::paintEngine();
         }
+        auto paintengine_cb = kpasswordlineedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,14 +487,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_event_isbase) {
             kpasswordlineedit_event_isbase = false;
             return KPasswordLineEdit::event(event);
-        } else if (kpasswordlineedit_event_callback != nullptr) {
+        }
+        auto event_cb = kpasswordlineedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpasswordlineedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::event(event);
         }
+        return KPasswordLineEdit::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +503,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_mousepressevent_isbase) {
             kpasswordlineedit_mousepressevent_isbase = false;
             KPasswordLineEdit::mousePressEvent(event);
-        } else if (kpasswordlineedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kpasswordlineedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpasswordlineedit_mousepressevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,13 +520,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_mousereleaseevent_isbase) {
             kpasswordlineedit_mousereleaseevent_isbase = false;
             KPasswordLineEdit::mouseReleaseEvent(event);
-        } else if (kpasswordlineedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kpasswordlineedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpasswordlineedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +537,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_mousedoubleclickevent_isbase) {
             kpasswordlineedit_mousedoubleclickevent_isbase = false;
             KPasswordLineEdit::mouseDoubleClickEvent(event);
-        } else if (kpasswordlineedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kpasswordlineedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpasswordlineedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,13 +554,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_mousemoveevent_isbase) {
             kpasswordlineedit_mousemoveevent_isbase = false;
             KPasswordLineEdit::mouseMoveEvent(event);
-        } else if (kpasswordlineedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kpasswordlineedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpasswordlineedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,13 +571,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_wheelevent_isbase) {
             kpasswordlineedit_wheelevent_isbase = false;
             KPasswordLineEdit::wheelEvent(event);
-        } else if (kpasswordlineedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kpasswordlineedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kpasswordlineedit_wheelevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +588,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_keypressevent_isbase) {
             kpasswordlineedit_keypressevent_isbase = false;
             KPasswordLineEdit::keyPressEvent(event);
-        } else if (kpasswordlineedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kpasswordlineedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpasswordlineedit_keypressevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +605,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_keyreleaseevent_isbase) {
             kpasswordlineedit_keyreleaseevent_isbase = false;
             KPasswordLineEdit::keyReleaseEvent(event);
-        } else if (kpasswordlineedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kpasswordlineedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpasswordlineedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +622,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_focusinevent_isbase) {
             kpasswordlineedit_focusinevent_isbase = false;
             KPasswordLineEdit::focusInEvent(event);
-        } else if (kpasswordlineedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kpasswordlineedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpasswordlineedit_focusinevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +639,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_focusoutevent_isbase) {
             kpasswordlineedit_focusoutevent_isbase = false;
             KPasswordLineEdit::focusOutEvent(event);
-        } else if (kpasswordlineedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kpasswordlineedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpasswordlineedit_focusoutevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +656,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_enterevent_isbase) {
             kpasswordlineedit_enterevent_isbase = false;
             KPasswordLineEdit::enterEvent(event);
-        } else if (kpasswordlineedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kpasswordlineedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kpasswordlineedit_enterevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +673,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_leaveevent_isbase) {
             kpasswordlineedit_leaveevent_isbase = false;
             KPasswordLineEdit::leaveEvent(event);
-        } else if (kpasswordlineedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kpasswordlineedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kpasswordlineedit_leaveevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +690,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_paintevent_isbase) {
             kpasswordlineedit_paintevent_isbase = false;
             KPasswordLineEdit::paintEvent(event);
-        } else if (kpasswordlineedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kpasswordlineedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kpasswordlineedit_paintevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +707,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_moveevent_isbase) {
             kpasswordlineedit_moveevent_isbase = false;
             KPasswordLineEdit::moveEvent(event);
-        } else if (kpasswordlineedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kpasswordlineedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kpasswordlineedit_moveevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +724,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_resizeevent_isbase) {
             kpasswordlineedit_resizeevent_isbase = false;
             KPasswordLineEdit::resizeEvent(event);
-        } else if (kpasswordlineedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kpasswordlineedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kpasswordlineedit_resizeevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +741,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_closeevent_isbase) {
             kpasswordlineedit_closeevent_isbase = false;
             KPasswordLineEdit::closeEvent(event);
-        } else if (kpasswordlineedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kpasswordlineedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kpasswordlineedit_closeevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +758,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_contextmenuevent_isbase) {
             kpasswordlineedit_contextmenuevent_isbase = false;
             KPasswordLineEdit::contextMenuEvent(event);
-        } else if (kpasswordlineedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kpasswordlineedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kpasswordlineedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +775,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_tabletevent_isbase) {
             kpasswordlineedit_tabletevent_isbase = false;
             KPasswordLineEdit::tabletEvent(event);
-        } else if (kpasswordlineedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kpasswordlineedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kpasswordlineedit_tabletevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +792,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_actionevent_isbase) {
             kpasswordlineedit_actionevent_isbase = false;
             KPasswordLineEdit::actionEvent(event);
-        } else if (kpasswordlineedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kpasswordlineedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kpasswordlineedit_actionevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +809,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_dragenterevent_isbase) {
             kpasswordlineedit_dragenterevent_isbase = false;
             KPasswordLineEdit::dragEnterEvent(event);
-        } else if (kpasswordlineedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kpasswordlineedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kpasswordlineedit_dragenterevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +826,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_dragmoveevent_isbase) {
             kpasswordlineedit_dragmoveevent_isbase = false;
             KPasswordLineEdit::dragMoveEvent(event);
-        } else if (kpasswordlineedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kpasswordlineedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kpasswordlineedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +843,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_dragleaveevent_isbase) {
             kpasswordlineedit_dragleaveevent_isbase = false;
             KPasswordLineEdit::dragLeaveEvent(event);
-        } else if (kpasswordlineedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kpasswordlineedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kpasswordlineedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +860,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_dropevent_isbase) {
             kpasswordlineedit_dropevent_isbase = false;
             KPasswordLineEdit::dropEvent(event);
-        } else if (kpasswordlineedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kpasswordlineedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kpasswordlineedit_dropevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +877,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_showevent_isbase) {
             kpasswordlineedit_showevent_isbase = false;
             KPasswordLineEdit::showEvent(event);
-        } else if (kpasswordlineedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kpasswordlineedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kpasswordlineedit_showevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +894,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_hideevent_isbase) {
             kpasswordlineedit_hideevent_isbase = false;
             KPasswordLineEdit::hideEvent(event);
-        } else if (kpasswordlineedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kpasswordlineedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kpasswordlineedit_hideevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,7 +911,9 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_nativeevent_isbase) {
             kpasswordlineedit_nativeevent_isbase = false;
             return KPasswordLineEdit::nativeEvent(eventType, message, result);
-        } else if (kpasswordlineedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kpasswordlineedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,12 +924,11 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kpasswordlineedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::nativeEvent(eventType, message, result);
         }
+        return KPasswordLineEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +936,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_changeevent_isbase) {
             kpasswordlineedit_changeevent_isbase = false;
             KPasswordLineEdit::changeEvent(param1);
-        } else if (kpasswordlineedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kpasswordlineedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kpasswordlineedit_changeevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,14 +953,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_metric_isbase) {
             kpasswordlineedit_metric_isbase = false;
             return KPasswordLineEdit::metric(param1);
-        } else if (kpasswordlineedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = kpasswordlineedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kpasswordlineedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPasswordLineEdit::metric(param1);
         }
+        return KPasswordLineEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +969,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_initpainter_isbase) {
             kpasswordlineedit_initpainter_isbase = false;
             KPasswordLineEdit::initPainter(painter);
-        } else if (kpasswordlineedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kpasswordlineedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kpasswordlineedit_initpainter_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,14 +986,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_redirected_isbase) {
             kpasswordlineedit_redirected_isbase = false;
             return KPasswordLineEdit::redirected(offset);
-        } else if (kpasswordlineedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kpasswordlineedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kpasswordlineedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::redirected(offset);
         }
+        return KPasswordLineEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,12 +1002,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_sharedpainter_isbase) {
             kpasswordlineedit_sharedpainter_isbase = false;
             return KPasswordLineEdit::sharedPainter();
-        } else if (kpasswordlineedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kpasswordlineedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::sharedPainter();
         }
+        auto sharedpainter_cb = kpasswordlineedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1016,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_inputmethodevent_isbase) {
             kpasswordlineedit_inputmethodevent_isbase = false;
             KPasswordLineEdit::inputMethodEvent(param1);
-        } else if (kpasswordlineedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kpasswordlineedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kpasswordlineedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1033,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_inputmethodquery_isbase) {
             kpasswordlineedit_inputmethodquery_isbase = false;
             return KPasswordLineEdit::inputMethodQuery(param1);
-        } else if (kpasswordlineedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kpasswordlineedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kpasswordlineedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPasswordLineEdit::inputMethodQuery(param1);
         }
+        return KPasswordLineEdit::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,14 +1049,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_focusnextprevchild_isbase) {
             kpasswordlineedit_focusnextprevchild_isbase = false;
             return KPasswordLineEdit::focusNextPrevChild(next);
-        } else if (kpasswordlineedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kpasswordlineedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kpasswordlineedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::focusNextPrevChild(next);
         }
+        return KPasswordLineEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,15 +1065,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_eventfilter_isbase) {
             kpasswordlineedit_eventfilter_isbase = false;
             return KPasswordLineEdit::eventFilter(watched, event);
-        } else if (kpasswordlineedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpasswordlineedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpasswordlineedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::eventFilter(watched, event);
         }
+        return KPasswordLineEdit::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_timerevent_isbase) {
             kpasswordlineedit_timerevent_isbase = false;
             KPasswordLineEdit::timerEvent(event);
-        } else if (kpasswordlineedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpasswordlineedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpasswordlineedit_timerevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_childevent_isbase) {
             kpasswordlineedit_childevent_isbase = false;
             KPasswordLineEdit::childEvent(event);
-        } else if (kpasswordlineedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpasswordlineedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpasswordlineedit_childevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_customevent_isbase) {
             kpasswordlineedit_customevent_isbase = false;
             KPasswordLineEdit::customEvent(event);
-        } else if (kpasswordlineedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpasswordlineedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpasswordlineedit_customevent_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_connectnotify_isbase) {
             kpasswordlineedit_connectnotify_isbase = false;
             KPasswordLineEdit::connectNotify(signal);
-        } else if (kpasswordlineedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpasswordlineedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpasswordlineedit_connectnotify_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_disconnectnotify_isbase) {
             kpasswordlineedit_disconnectnotify_isbase = false;
             KPasswordLineEdit::disconnectNotify(signal);
-        } else if (kpasswordlineedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpasswordlineedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpasswordlineedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPasswordLineEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPasswordLineEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_updatemicrofocus_isbase) {
             kpasswordlineedit_updatemicrofocus_isbase = false;
             KPasswordLineEdit::updateMicroFocus();
-        } else if (kpasswordlineedit_updatemicrofocus_callback != nullptr) {
-            kpasswordlineedit_updatemicrofocus_callback();
-        } else {
-            KPasswordLineEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kpasswordlineedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPasswordLineEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_create_isbase) {
             kpasswordlineedit_create_isbase = false;
             KPasswordLineEdit::create();
-        } else if (kpasswordlineedit_create_callback != nullptr) {
-            kpasswordlineedit_create_callback();
-        } else {
-            KPasswordLineEdit::create();
+            return;
         }
+        auto create_cb = kpasswordlineedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPasswordLineEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_destroy_isbase) {
             kpasswordlineedit_destroy_isbase = false;
             KPasswordLineEdit::destroy();
-        } else if (kpasswordlineedit_destroy_callback != nullptr) {
-            kpasswordlineedit_destroy_callback();
-        } else {
-            KPasswordLineEdit::destroy();
+            return;
         }
+        auto destroy_cb = kpasswordlineedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPasswordLineEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_focusnextchild_isbase) {
             kpasswordlineedit_focusnextchild_isbase = false;
             return KPasswordLineEdit::focusNextChild();
-        } else if (kpasswordlineedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = kpasswordlineedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::focusNextChild();
         }
+        auto focusnextchild_cb = kpasswordlineedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_focuspreviouschild_isbase) {
             kpasswordlineedit_focuspreviouschild_isbase = false;
             return KPasswordLineEdit::focusPreviousChild();
-        } else if (kpasswordlineedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kpasswordlineedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kpasswordlineedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_sender_isbase) {
             kpasswordlineedit_sender_isbase = false;
             return KPasswordLineEdit::sender();
-        } else if (kpasswordlineedit_sender_callback != nullptr) {
-            QObject* callback_ret = kpasswordlineedit_sender_callback();
-            return callback_ret;
-        } else {
-            return KPasswordLineEdit::sender();
         }
+        auto sender_cb = kpasswordlineedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPasswordLineEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_sendersignalindex_isbase) {
             kpasswordlineedit_sendersignalindex_isbase = false;
             return KPasswordLineEdit::senderSignalIndex();
-        } else if (kpasswordlineedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpasswordlineedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPasswordLineEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpasswordlineedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPasswordLineEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_receivers_isbase) {
             kpasswordlineedit_receivers_isbase = false;
             return KPasswordLineEdit::receivers(signal);
-        } else if (kpasswordlineedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpasswordlineedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpasswordlineedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPasswordLineEdit::receivers(signal);
         }
+        return KPasswordLineEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_issignalconnected_isbase) {
             kpasswordlineedit_issignalconnected_isbase = false;
             return KPasswordLineEdit::isSignalConnected(signal);
-        } else if (kpasswordlineedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpasswordlineedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpasswordlineedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPasswordLineEdit::isSignalConnected(signal);
         }
+        return KPasswordLineEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
         if (kpasswordlineedit_getdecodedmetricf_isbase) {
             kpasswordlineedit_getdecodedmetricf_isbase = false;
             return KPasswordLineEdit::getDecodedMetricF(metricA, metricB);
-        } else if (kpasswordlineedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kpasswordlineedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kpasswordlineedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPasswordLineEdit::getDecodedMetricF(metricA, metricB);
         }
+        return KPasswordLineEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

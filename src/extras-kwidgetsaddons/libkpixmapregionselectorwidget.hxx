@@ -210,70 +210,6 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     VirtualKPixmapRegionSelectorWidget(QWidget* parent) : KPixmapRegionSelectorWidget(parent) {};
     VirtualKPixmapRegionSelectorWidget() : KPixmapRegionSelectorWidget() {};
 
-    ~VirtualKPixmapRegionSelectorWidget() {
-        kpixmapregionselectorwidget_metaobject_callback = nullptr;
-        kpixmapregionselectorwidget_metacast_callback = nullptr;
-        kpixmapregionselectorwidget_metacall_callback = nullptr;
-        kpixmapregionselectorwidget_createpopupmenu_callback = nullptr;
-        kpixmapregionselectorwidget_eventfilter_callback = nullptr;
-        kpixmapregionselectorwidget_devtype_callback = nullptr;
-        kpixmapregionselectorwidget_setvisible_callback = nullptr;
-        kpixmapregionselectorwidget_sizehint_callback = nullptr;
-        kpixmapregionselectorwidget_minimumsizehint_callback = nullptr;
-        kpixmapregionselectorwidget_heightforwidth_callback = nullptr;
-        kpixmapregionselectorwidget_hasheightforwidth_callback = nullptr;
-        kpixmapregionselectorwidget_paintengine_callback = nullptr;
-        kpixmapregionselectorwidget_event_callback = nullptr;
-        kpixmapregionselectorwidget_mousepressevent_callback = nullptr;
-        kpixmapregionselectorwidget_mousereleaseevent_callback = nullptr;
-        kpixmapregionselectorwidget_mousedoubleclickevent_callback = nullptr;
-        kpixmapregionselectorwidget_mousemoveevent_callback = nullptr;
-        kpixmapregionselectorwidget_wheelevent_callback = nullptr;
-        kpixmapregionselectorwidget_keypressevent_callback = nullptr;
-        kpixmapregionselectorwidget_keyreleaseevent_callback = nullptr;
-        kpixmapregionselectorwidget_focusinevent_callback = nullptr;
-        kpixmapregionselectorwidget_focusoutevent_callback = nullptr;
-        kpixmapregionselectorwidget_enterevent_callback = nullptr;
-        kpixmapregionselectorwidget_leaveevent_callback = nullptr;
-        kpixmapregionselectorwidget_paintevent_callback = nullptr;
-        kpixmapregionselectorwidget_moveevent_callback = nullptr;
-        kpixmapregionselectorwidget_resizeevent_callback = nullptr;
-        kpixmapregionselectorwidget_closeevent_callback = nullptr;
-        kpixmapregionselectorwidget_contextmenuevent_callback = nullptr;
-        kpixmapregionselectorwidget_tabletevent_callback = nullptr;
-        kpixmapregionselectorwidget_actionevent_callback = nullptr;
-        kpixmapregionselectorwidget_dragenterevent_callback = nullptr;
-        kpixmapregionselectorwidget_dragmoveevent_callback = nullptr;
-        kpixmapregionselectorwidget_dragleaveevent_callback = nullptr;
-        kpixmapregionselectorwidget_dropevent_callback = nullptr;
-        kpixmapregionselectorwidget_showevent_callback = nullptr;
-        kpixmapregionselectorwidget_hideevent_callback = nullptr;
-        kpixmapregionselectorwidget_nativeevent_callback = nullptr;
-        kpixmapregionselectorwidget_changeevent_callback = nullptr;
-        kpixmapregionselectorwidget_metric_callback = nullptr;
-        kpixmapregionselectorwidget_initpainter_callback = nullptr;
-        kpixmapregionselectorwidget_redirected_callback = nullptr;
-        kpixmapregionselectorwidget_sharedpainter_callback = nullptr;
-        kpixmapregionselectorwidget_inputmethodevent_callback = nullptr;
-        kpixmapregionselectorwidget_inputmethodquery_callback = nullptr;
-        kpixmapregionselectorwidget_focusnextprevchild_callback = nullptr;
-        kpixmapregionselectorwidget_timerevent_callback = nullptr;
-        kpixmapregionselectorwidget_childevent_callback = nullptr;
-        kpixmapregionselectorwidget_customevent_callback = nullptr;
-        kpixmapregionselectorwidget_connectnotify_callback = nullptr;
-        kpixmapregionselectorwidget_disconnectnotify_callback = nullptr;
-        kpixmapregionselectorwidget_updatemicrofocus_callback = nullptr;
-        kpixmapregionselectorwidget_create_callback = nullptr;
-        kpixmapregionselectorwidget_destroy_callback = nullptr;
-        kpixmapregionselectorwidget_focusnextchild_callback = nullptr;
-        kpixmapregionselectorwidget_focuspreviouschild_callback = nullptr;
-        kpixmapregionselectorwidget_sender_callback = nullptr;
-        kpixmapregionselectorwidget_sendersignalindex_callback = nullptr;
-        kpixmapregionselectorwidget_receivers_callback = nullptr;
-        kpixmapregionselectorwidget_issignalconnected_callback = nullptr;
-        kpixmapregionselectorwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPixmapRegionSelectorWidget_MetaObject_Callback(KPixmapRegionSelectorWidget_MetaObject_Callback cb) { kpixmapregionselectorwidget_metaobject_callback = cb; }
     inline void setKPixmapRegionSelectorWidget_Metacast_Callback(KPixmapRegionSelectorWidget_Metacast_Callback cb) { kpixmapregionselectorwidget_metacast_callback = cb; }
@@ -405,12 +341,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_metaobject_isbase) {
             kpixmapregionselectorwidget_metaobject_isbase = false;
             return KPixmapRegionSelectorWidget::metaObject();
-        } else if (kpixmapregionselectorwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpixmapregionselectorwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::metaObject();
         }
+        auto metaobject_cb = kpixmapregionselectorwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,14 +355,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_metacast_isbase) {
             kpixmapregionselectorwidget_metacast_isbase = false;
             return KPixmapRegionSelectorWidget::qt_metacast(param1);
-        } else if (kpixmapregionselectorwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpixmapregionselectorwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpixmapregionselectorwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::qt_metacast(param1);
         }
+        return KPixmapRegionSelectorWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,16 +371,17 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_metacall_isbase) {
             kpixmapregionselectorwidget_metacall_isbase = false;
             return KPixmapRegionSelectorWidget::qt_metacall(param1, param2, param3);
-        } else if (kpixmapregionselectorwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpixmapregionselectorwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpixmapregionselectorwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::qt_metacall(param1, param2, param3);
         }
+        return KPixmapRegionSelectorWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,12 +389,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_createpopupmenu_isbase) {
             kpixmapregionselectorwidget_createpopupmenu_isbase = false;
             return KPixmapRegionSelectorWidget::createPopupMenu();
-        } else if (kpixmapregionselectorwidget_createpopupmenu_callback != nullptr) {
-            QMenu* callback_ret = kpixmapregionselectorwidget_createpopupmenu_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::createPopupMenu();
         }
+        auto createpopupmenu_cb = kpixmapregionselectorwidget_createpopupmenu_callback;
+        if (createpopupmenu_cb) {
+            QMenu* callback_ret = createpopupmenu_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::createPopupMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -463,15 +403,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_eventfilter_isbase) {
             kpixmapregionselectorwidget_eventfilter_isbase = false;
             return KPixmapRegionSelectorWidget::eventFilter(obj, ev);
-        } else if (kpixmapregionselectorwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpixmapregionselectorwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = ev;
 
-            bool callback_ret = kpixmapregionselectorwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::eventFilter(obj, ev);
         }
+        return KPixmapRegionSelectorWidget::eventFilter(obj, ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,12 +420,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_devtype_isbase) {
             kpixmapregionselectorwidget_devtype_isbase = false;
             return KPixmapRegionSelectorWidget::devType();
-        } else if (kpixmapregionselectorwidget_devtype_callback != nullptr) {
-            int callback_ret = kpixmapregionselectorwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::devType();
         }
+        auto devtype_cb = kpixmapregionselectorwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPixmapRegionSelectorWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,13 +434,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_setvisible_isbase) {
             kpixmapregionselectorwidget_setvisible_isbase = false;
             KPixmapRegionSelectorWidget::setVisible(visible);
-        } else if (kpixmapregionselectorwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kpixmapregionselectorwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kpixmapregionselectorwidget_setvisible_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -506,12 +451,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_sizehint_isbase) {
             kpixmapregionselectorwidget_sizehint_isbase = false;
             return KPixmapRegionSelectorWidget::sizeHint();
-        } else if (kpixmapregionselectorwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = kpixmapregionselectorwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::sizeHint();
         }
+        auto sizehint_cb = kpixmapregionselectorwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -519,12 +465,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_minimumsizehint_isbase) {
             kpixmapregionselectorwidget_minimumsizehint_isbase = false;
             return KPixmapRegionSelectorWidget::minimumSizeHint();
-        } else if (kpixmapregionselectorwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kpixmapregionselectorwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kpixmapregionselectorwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,14 +479,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_heightforwidth_isbase) {
             kpixmapregionselectorwidget_heightforwidth_isbase = false;
             return KPixmapRegionSelectorWidget::heightForWidth(param1);
-        } else if (kpixmapregionselectorwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kpixmapregionselectorwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kpixmapregionselectorwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::heightForWidth(param1);
         }
+        return KPixmapRegionSelectorWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,12 +495,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_hasheightforwidth_isbase) {
             kpixmapregionselectorwidget_hasheightforwidth_isbase = false;
             return KPixmapRegionSelectorWidget::hasHeightForWidth();
-        } else if (kpixmapregionselectorwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kpixmapregionselectorwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kpixmapregionselectorwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,12 +509,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_paintengine_isbase) {
             kpixmapregionselectorwidget_paintengine_isbase = false;
             return KPixmapRegionSelectorWidget::paintEngine();
-        } else if (kpixmapregionselectorwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kpixmapregionselectorwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::paintEngine();
         }
+        auto paintengine_cb = kpixmapregionselectorwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,14 +523,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_event_isbase) {
             kpixmapregionselectorwidget_event_isbase = false;
             return KPixmapRegionSelectorWidget::event(event);
-        } else if (kpixmapregionselectorwidget_event_callback != nullptr) {
+        }
+        auto event_cb = kpixmapregionselectorwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpixmapregionselectorwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::event(event);
         }
+        return KPixmapRegionSelectorWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -588,13 +539,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_mousepressevent_isbase) {
             kpixmapregionselectorwidget_mousepressevent_isbase = false;
             KPixmapRegionSelectorWidget::mousePressEvent(event);
-        } else if (kpixmapregionselectorwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kpixmapregionselectorwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,13 +556,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_mousereleaseevent_isbase) {
             kpixmapregionselectorwidget_mousereleaseevent_isbase = false;
             KPixmapRegionSelectorWidget::mouseReleaseEvent(event);
-        } else if (kpixmapregionselectorwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kpixmapregionselectorwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,13 +573,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_mousedoubleclickevent_isbase) {
             kpixmapregionselectorwidget_mousedoubleclickevent_isbase = false;
             KPixmapRegionSelectorWidget::mouseDoubleClickEvent(event);
-        } else if (kpixmapregionselectorwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kpixmapregionselectorwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,13 +590,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_mousemoveevent_isbase) {
             kpixmapregionselectorwidget_mousemoveevent_isbase = false;
             KPixmapRegionSelectorWidget::mouseMoveEvent(event);
-        } else if (kpixmapregionselectorwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kpixmapregionselectorwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -644,13 +607,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_wheelevent_isbase) {
             kpixmapregionselectorwidget_wheelevent_isbase = false;
             KPixmapRegionSelectorWidget::wheelEvent(event);
-        } else if (kpixmapregionselectorwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kpixmapregionselectorwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,13 +624,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_keypressevent_isbase) {
             kpixmapregionselectorwidget_keypressevent_isbase = false;
             KPixmapRegionSelectorWidget::keyPressEvent(event);
-        } else if (kpixmapregionselectorwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kpixmapregionselectorwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,13 +641,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_keyreleaseevent_isbase) {
             kpixmapregionselectorwidget_keyreleaseevent_isbase = false;
             KPixmapRegionSelectorWidget::keyReleaseEvent(event);
-        } else if (kpixmapregionselectorwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kpixmapregionselectorwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -686,13 +658,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_focusinevent_isbase) {
             kpixmapregionselectorwidget_focusinevent_isbase = false;
             KPixmapRegionSelectorWidget::focusInEvent(event);
-        } else if (kpixmapregionselectorwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kpixmapregionselectorwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,13 +675,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_focusoutevent_isbase) {
             kpixmapregionselectorwidget_focusoutevent_isbase = false;
             KPixmapRegionSelectorWidget::focusOutEvent(event);
-        } else if (kpixmapregionselectorwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kpixmapregionselectorwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,13 +692,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_enterevent_isbase) {
             kpixmapregionselectorwidget_enterevent_isbase = false;
             KPixmapRegionSelectorWidget::enterEvent(event);
-        } else if (kpixmapregionselectorwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kpixmapregionselectorwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_enterevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -728,13 +709,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_leaveevent_isbase) {
             kpixmapregionselectorwidget_leaveevent_isbase = false;
             KPixmapRegionSelectorWidget::leaveEvent(event);
-        } else if (kpixmapregionselectorwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kpixmapregionselectorwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -742,13 +726,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_paintevent_isbase) {
             kpixmapregionselectorwidget_paintevent_isbase = false;
             KPixmapRegionSelectorWidget::paintEvent(event);
-        } else if (kpixmapregionselectorwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kpixmapregionselectorwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_paintevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +743,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_moveevent_isbase) {
             kpixmapregionselectorwidget_moveevent_isbase = false;
             KPixmapRegionSelectorWidget::moveEvent(event);
-        } else if (kpixmapregionselectorwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kpixmapregionselectorwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_moveevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +760,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_resizeevent_isbase) {
             kpixmapregionselectorwidget_resizeevent_isbase = false;
             KPixmapRegionSelectorWidget::resizeEvent(event);
-        } else if (kpixmapregionselectorwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kpixmapregionselectorwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +777,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_closeevent_isbase) {
             kpixmapregionselectorwidget_closeevent_isbase = false;
             KPixmapRegionSelectorWidget::closeEvent(event);
-        } else if (kpixmapregionselectorwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kpixmapregionselectorwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_closeevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,13 +794,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_contextmenuevent_isbase) {
             kpixmapregionselectorwidget_contextmenuevent_isbase = false;
             KPixmapRegionSelectorWidget::contextMenuEvent(event);
-        } else if (kpixmapregionselectorwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kpixmapregionselectorwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -812,13 +811,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_tabletevent_isbase) {
             kpixmapregionselectorwidget_tabletevent_isbase = false;
             KPixmapRegionSelectorWidget::tabletEvent(event);
-        } else if (kpixmapregionselectorwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kpixmapregionselectorwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -826,13 +828,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_actionevent_isbase) {
             kpixmapregionselectorwidget_actionevent_isbase = false;
             KPixmapRegionSelectorWidget::actionEvent(event);
-        } else if (kpixmapregionselectorwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kpixmapregionselectorwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_actionevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -840,13 +845,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_dragenterevent_isbase) {
             kpixmapregionselectorwidget_dragenterevent_isbase = false;
             KPixmapRegionSelectorWidget::dragEnterEvent(event);
-        } else if (kpixmapregionselectorwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kpixmapregionselectorwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -854,13 +862,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_dragmoveevent_isbase) {
             kpixmapregionselectorwidget_dragmoveevent_isbase = false;
             KPixmapRegionSelectorWidget::dragMoveEvent(event);
-        } else if (kpixmapregionselectorwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kpixmapregionselectorwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,13 +879,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_dragleaveevent_isbase) {
             kpixmapregionselectorwidget_dragleaveevent_isbase = false;
             KPixmapRegionSelectorWidget::dragLeaveEvent(event);
-        } else if (kpixmapregionselectorwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kpixmapregionselectorwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +896,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_dropevent_isbase) {
             kpixmapregionselectorwidget_dropevent_isbase = false;
             KPixmapRegionSelectorWidget::dropEvent(event);
-        } else if (kpixmapregionselectorwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kpixmapregionselectorwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_dropevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +913,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_showevent_isbase) {
             kpixmapregionselectorwidget_showevent_isbase = false;
             KPixmapRegionSelectorWidget::showEvent(event);
-        } else if (kpixmapregionselectorwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kpixmapregionselectorwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_showevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +930,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_hideevent_isbase) {
             kpixmapregionselectorwidget_hideevent_isbase = false;
             KPixmapRegionSelectorWidget::hideEvent(event);
-        } else if (kpixmapregionselectorwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kpixmapregionselectorwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_hideevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,7 +947,9 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_nativeevent_isbase) {
             kpixmapregionselectorwidget_nativeevent_isbase = false;
             return KPixmapRegionSelectorWidget::nativeEvent(eventType, message, result);
-        } else if (kpixmapregionselectorwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kpixmapregionselectorwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -935,12 +960,11 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kpixmapregionselectorwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::nativeEvent(eventType, message, result);
         }
+        return KPixmapRegionSelectorWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -948,13 +972,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_changeevent_isbase) {
             kpixmapregionselectorwidget_changeevent_isbase = false;
             KPixmapRegionSelectorWidget::changeEvent(param1);
-        } else if (kpixmapregionselectorwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kpixmapregionselectorwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kpixmapregionselectorwidget_changeevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -962,14 +989,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_metric_isbase) {
             kpixmapregionselectorwidget_metric_isbase = false;
             return KPixmapRegionSelectorWidget::metric(param1);
-        } else if (kpixmapregionselectorwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = kpixmapregionselectorwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kpixmapregionselectorwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::metric(param1);
         }
+        return KPixmapRegionSelectorWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +1005,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_initpainter_isbase) {
             kpixmapregionselectorwidget_initpainter_isbase = false;
             KPixmapRegionSelectorWidget::initPainter(painter);
-        } else if (kpixmapregionselectorwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kpixmapregionselectorwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kpixmapregionselectorwidget_initpainter_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,14 +1022,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_redirected_isbase) {
             kpixmapregionselectorwidget_redirected_isbase = false;
             return KPixmapRegionSelectorWidget::redirected(offset);
-        } else if (kpixmapregionselectorwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kpixmapregionselectorwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kpixmapregionselectorwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::redirected(offset);
         }
+        return KPixmapRegionSelectorWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1006,12 +1038,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_sharedpainter_isbase) {
             kpixmapregionselectorwidget_sharedpainter_isbase = false;
             return KPixmapRegionSelectorWidget::sharedPainter();
-        } else if (kpixmapregionselectorwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kpixmapregionselectorwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::sharedPainter();
         }
+        auto sharedpainter_cb = kpixmapregionselectorwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,13 +1052,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_inputmethodevent_isbase) {
             kpixmapregionselectorwidget_inputmethodevent_isbase = false;
             KPixmapRegionSelectorWidget::inputMethodEvent(param1);
-        } else if (kpixmapregionselectorwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kpixmapregionselectorwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kpixmapregionselectorwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,14 +1069,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_inputmethodquery_isbase) {
             kpixmapregionselectorwidget_inputmethodquery_isbase = false;
             return KPixmapRegionSelectorWidget::inputMethodQuery(param1);
-        } else if (kpixmapregionselectorwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kpixmapregionselectorwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kpixmapregionselectorwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::inputMethodQuery(param1);
         }
+        return KPixmapRegionSelectorWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1085,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_focusnextprevchild_isbase) {
             kpixmapregionselectorwidget_focusnextprevchild_isbase = false;
             return KPixmapRegionSelectorWidget::focusNextPrevChild(next);
-        } else if (kpixmapregionselectorwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kpixmapregionselectorwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kpixmapregionselectorwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::focusNextPrevChild(next);
         }
+        return KPixmapRegionSelectorWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1101,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_timerevent_isbase) {
             kpixmapregionselectorwidget_timerevent_isbase = false;
             KPixmapRegionSelectorWidget::timerEvent(event);
-        } else if (kpixmapregionselectorwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpixmapregionselectorwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_timerevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,13 +1118,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_childevent_isbase) {
             kpixmapregionselectorwidget_childevent_isbase = false;
             KPixmapRegionSelectorWidget::childEvent(event);
-        } else if (kpixmapregionselectorwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpixmapregionselectorwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_childevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,13 +1135,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_customevent_isbase) {
             kpixmapregionselectorwidget_customevent_isbase = false;
             KPixmapRegionSelectorWidget::customEvent(event);
-        } else if (kpixmapregionselectorwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpixmapregionselectorwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpixmapregionselectorwidget_customevent_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,15 +1152,18 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_connectnotify_isbase) {
             kpixmapregionselectorwidget_connectnotify_isbase = false;
             KPixmapRegionSelectorWidget::connectNotify(signal);
-        } else if (kpixmapregionselectorwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpixmapregionselectorwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpixmapregionselectorwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,15 +1171,18 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_disconnectnotify_isbase) {
             kpixmapregionselectorwidget_disconnectnotify_isbase = false;
             KPixmapRegionSelectorWidget::disconnectNotify(signal);
-        } else if (kpixmapregionselectorwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpixmapregionselectorwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpixmapregionselectorwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPixmapRegionSelectorWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPixmapRegionSelectorWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,11 +1190,14 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_updatemicrofocus_isbase) {
             kpixmapregionselectorwidget_updatemicrofocus_isbase = false;
             KPixmapRegionSelectorWidget::updateMicroFocus();
-        } else if (kpixmapregionselectorwidget_updatemicrofocus_callback != nullptr) {
-            kpixmapregionselectorwidget_updatemicrofocus_callback();
-        } else {
-            KPixmapRegionSelectorWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kpixmapregionselectorwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KPixmapRegionSelectorWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1149,11 +1205,14 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_create_isbase) {
             kpixmapregionselectorwidget_create_isbase = false;
             KPixmapRegionSelectorWidget::create();
-        } else if (kpixmapregionselectorwidget_create_callback != nullptr) {
-            kpixmapregionselectorwidget_create_callback();
-        } else {
-            KPixmapRegionSelectorWidget::create();
+            return;
         }
+        auto create_cb = kpixmapregionselectorwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KPixmapRegionSelectorWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1161,11 +1220,14 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_destroy_isbase) {
             kpixmapregionselectorwidget_destroy_isbase = false;
             KPixmapRegionSelectorWidget::destroy();
-        } else if (kpixmapregionselectorwidget_destroy_callback != nullptr) {
-            kpixmapregionselectorwidget_destroy_callback();
-        } else {
-            KPixmapRegionSelectorWidget::destroy();
+            return;
         }
+        auto destroy_cb = kpixmapregionselectorwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KPixmapRegionSelectorWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,12 +1235,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_focusnextchild_isbase) {
             kpixmapregionselectorwidget_focusnextchild_isbase = false;
             return KPixmapRegionSelectorWidget::focusNextChild();
-        } else if (kpixmapregionselectorwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = kpixmapregionselectorwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::focusNextChild();
         }
+        auto focusnextchild_cb = kpixmapregionselectorwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1186,12 +1249,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_focuspreviouschild_isbase) {
             kpixmapregionselectorwidget_focuspreviouschild_isbase = false;
             return KPixmapRegionSelectorWidget::focusPreviousChild();
-        } else if (kpixmapregionselectorwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kpixmapregionselectorwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kpixmapregionselectorwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,12 +1263,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_sender_isbase) {
             kpixmapregionselectorwidget_sender_isbase = false;
             return KPixmapRegionSelectorWidget::sender();
-        } else if (kpixmapregionselectorwidget_sender_callback != nullptr) {
-            QObject* callback_ret = kpixmapregionselectorwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::sender();
         }
+        auto sender_cb = kpixmapregionselectorwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPixmapRegionSelectorWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,12 +1277,13 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_sendersignalindex_isbase) {
             kpixmapregionselectorwidget_sendersignalindex_isbase = false;
             return KPixmapRegionSelectorWidget::senderSignalIndex();
-        } else if (kpixmapregionselectorwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpixmapregionselectorwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpixmapregionselectorwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPixmapRegionSelectorWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,14 +1291,15 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_receivers_isbase) {
             kpixmapregionselectorwidget_receivers_isbase = false;
             return KPixmapRegionSelectorWidget::receivers(signal);
-        } else if (kpixmapregionselectorwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpixmapregionselectorwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpixmapregionselectorwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::receivers(signal);
         }
+        return KPixmapRegionSelectorWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,16 +1307,17 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_issignalconnected_isbase) {
             kpixmapregionselectorwidget_issignalconnected_isbase = false;
             return KPixmapRegionSelectorWidget::isSignalConnected(signal);
-        } else if (kpixmapregionselectorwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpixmapregionselectorwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpixmapregionselectorwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapRegionSelectorWidget::isSignalConnected(signal);
         }
+        return KPixmapRegionSelectorWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,15 +1325,16 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
         if (kpixmapregionselectorwidget_getdecodedmetricf_isbase) {
             kpixmapregionselectorwidget_getdecodedmetricf_isbase = false;
             return KPixmapRegionSelectorWidget::getDecodedMetricF(metricA, metricB);
-        } else if (kpixmapregionselectorwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kpixmapregionselectorwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kpixmapregionselectorwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KPixmapRegionSelectorWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KPixmapRegionSelectorWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

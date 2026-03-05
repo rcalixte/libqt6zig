@@ -126,42 +126,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     VirtualQPlaceManagerEngine(const QMap<QString, QVariant>& parameters) : QPlaceManagerEngine(parameters) {};
     VirtualQPlaceManagerEngine(const QMap<QString, QVariant>& parameters, QObject* parent) : QPlaceManagerEngine(parameters, parent) {};
 
-    ~VirtualQPlaceManagerEngine() {
-        qplacemanagerengine_metaobject_callback = nullptr;
-        qplacemanagerengine_metacast_callback = nullptr;
-        qplacemanagerengine_metacall_callback = nullptr;
-        qplacemanagerengine_getplacedetails_callback = nullptr;
-        qplacemanagerengine_getplacecontent_callback = nullptr;
-        qplacemanagerengine_search_callback = nullptr;
-        qplacemanagerengine_searchsuggestions_callback = nullptr;
-        qplacemanagerengine_saveplace_callback = nullptr;
-        qplacemanagerengine_removeplace_callback = nullptr;
-        qplacemanagerengine_savecategory_callback = nullptr;
-        qplacemanagerengine_removecategory_callback = nullptr;
-        qplacemanagerengine_initializecategories_callback = nullptr;
-        qplacemanagerengine_parentcategoryid_callback = nullptr;
-        qplacemanagerengine_childcategoryids_callback = nullptr;
-        qplacemanagerengine_category_callback = nullptr;
-        qplacemanagerengine_childcategories_callback = nullptr;
-        qplacemanagerengine_locales_callback = nullptr;
-        qplacemanagerengine_setlocales_callback = nullptr;
-        qplacemanagerengine_constructiconurl_callback = nullptr;
-        qplacemanagerengine_compatibleplace_callback = nullptr;
-        qplacemanagerengine_matchingplaces_callback = nullptr;
-        qplacemanagerengine_event_callback = nullptr;
-        qplacemanagerengine_eventfilter_callback = nullptr;
-        qplacemanagerengine_timerevent_callback = nullptr;
-        qplacemanagerengine_childevent_callback = nullptr;
-        qplacemanagerengine_customevent_callback = nullptr;
-        qplacemanagerengine_connectnotify_callback = nullptr;
-        qplacemanagerengine_disconnectnotify_callback = nullptr;
-        qplacemanagerengine_manager_callback = nullptr;
-        qplacemanagerengine_sender_callback = nullptr;
-        qplacemanagerengine_sendersignalindex_callback = nullptr;
-        qplacemanagerengine_receivers_callback = nullptr;
-        qplacemanagerengine_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPlaceManagerEngine_MetaObject_Callback(QPlaceManagerEngine_MetaObject_Callback cb) { qplacemanagerengine_metaobject_callback = cb; }
     inline void setQPlaceManagerEngine_Metacast_Callback(QPlaceManagerEngine_Metacast_Callback cb) { qplacemanagerengine_metacast_callback = cb; }
@@ -237,12 +201,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_metaobject_isbase) {
             qplacemanagerengine_metaobject_isbase = false;
             return QPlaceManagerEngine::metaObject();
-        } else if (qplacemanagerengine_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qplacemanagerengine_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPlaceManagerEngine::metaObject();
         }
+        auto metaobject_cb = qplacemanagerengine_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPlaceManagerEngine::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,14 +215,15 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_metacast_isbase) {
             qplacemanagerengine_metacast_isbase = false;
             return QPlaceManagerEngine::qt_metacast(param1);
-        } else if (qplacemanagerengine_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qplacemanagerengine_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qplacemanagerengine_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::qt_metacast(param1);
         }
+        return QPlaceManagerEngine::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,16 +231,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_metacall_isbase) {
             qplacemanagerengine_metacall_isbase = false;
             return QPlaceManagerEngine::qt_metacall(param1, param2, param3);
-        } else if (qplacemanagerengine_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qplacemanagerengine_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qplacemanagerengine_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPlaceManagerEngine::qt_metacall(param1, param2, param3);
         }
+        return QPlaceManagerEngine::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,7 +249,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_getplacedetails_isbase) {
             qplacemanagerengine_getplacedetails_isbase = false;
             return QPlaceManagerEngine::getPlaceDetails(placeId);
-        } else if (qplacemanagerengine_getplacedetails_callback != nullptr) {
+        }
+        auto getplacedetails_cb = qplacemanagerengine_getplacedetails_callback;
+        if (getplacedetails_cb) {
             const QString placeId_ret = placeId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray placeId_b = placeId_ret.toUtf8();
@@ -292,12 +261,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)placeId_str)[placeId_str_len] = '\0';
             const char* cbval1 = placeId_str;
 
-            QPlaceDetailsReply* callback_ret = qplacemanagerengine_getplacedetails_callback(this, cbval1);
+            QPlaceDetailsReply* callback_ret = getplacedetails_cb(this, cbval1);
             libqt_free(placeId_str);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::getPlaceDetails(placeId);
         }
+        return QPlaceManagerEngine::getPlaceDetails(placeId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,16 +273,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_getplacecontent_isbase) {
             qplacemanagerengine_getplacecontent_isbase = false;
             return QPlaceManagerEngine::getPlaceContent(request);
-        } else if (qplacemanagerengine_getplacecontent_callback != nullptr) {
+        }
+        auto getplacecontent_cb = qplacemanagerengine_getplacecontent_callback;
+        if (getplacecontent_cb) {
             const QPlaceContentRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceContentRequest* cbval1 = const_cast<QPlaceContentRequest*>(&request_ret);
 
-            QPlaceContentReply* callback_ret = qplacemanagerengine_getplacecontent_callback(this, cbval1);
+            QPlaceContentReply* callback_ret = getplacecontent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::getPlaceContent(request);
         }
+        return QPlaceManagerEngine::getPlaceContent(request);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,16 +291,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_search_isbase) {
             qplacemanagerengine_search_isbase = false;
             return QPlaceManagerEngine::search(request);
-        } else if (qplacemanagerengine_search_callback != nullptr) {
+        }
+        auto search_cb = qplacemanagerengine_search_callback;
+        if (search_cb) {
             const QPlaceSearchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&request_ret);
 
-            QPlaceSearchReply* callback_ret = qplacemanagerengine_search_callback(this, cbval1);
+            QPlaceSearchReply* callback_ret = search_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::search(request);
         }
+        return QPlaceManagerEngine::search(request);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,16 +309,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_searchsuggestions_isbase) {
             qplacemanagerengine_searchsuggestions_isbase = false;
             return QPlaceManagerEngine::searchSuggestions(request);
-        } else if (qplacemanagerengine_searchsuggestions_callback != nullptr) {
+        }
+        auto searchsuggestions_cb = qplacemanagerengine_searchsuggestions_callback;
+        if (searchsuggestions_cb) {
             const QPlaceSearchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&request_ret);
 
-            QPlaceSearchSuggestionReply* callback_ret = qplacemanagerengine_searchsuggestions_callback(this, cbval1);
+            QPlaceSearchSuggestionReply* callback_ret = searchsuggestions_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::searchSuggestions(request);
         }
+        return QPlaceManagerEngine::searchSuggestions(request);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -356,16 +327,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_saveplace_isbase) {
             qplacemanagerengine_saveplace_isbase = false;
             return QPlaceManagerEngine::savePlace(place);
-        } else if (qplacemanagerengine_saveplace_callback != nullptr) {
+        }
+        auto saveplace_cb = qplacemanagerengine_saveplace_callback;
+        if (saveplace_cb) {
             const QPlace& place_ret = place;
             // Cast returned reference into pointer
             QPlace* cbval1 = const_cast<QPlace*>(&place_ret);
 
-            QPlaceIdReply* callback_ret = qplacemanagerengine_saveplace_callback(this, cbval1);
+            QPlaceIdReply* callback_ret = saveplace_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::savePlace(place);
         }
+        return QPlaceManagerEngine::savePlace(place);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,7 +345,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_removeplace_isbase) {
             qplacemanagerengine_removeplace_isbase = false;
             return QPlaceManagerEngine::removePlace(placeId);
-        } else if (qplacemanagerengine_removeplace_callback != nullptr) {
+        }
+        auto removeplace_cb = qplacemanagerengine_removeplace_callback;
+        if (removeplace_cb) {
             const QString placeId_ret = placeId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray placeId_b = placeId_ret.toUtf8();
@@ -383,12 +357,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)placeId_str)[placeId_str_len] = '\0';
             const char* cbval1 = placeId_str;
 
-            QPlaceIdReply* callback_ret = qplacemanagerengine_removeplace_callback(this, cbval1);
+            QPlaceIdReply* callback_ret = removeplace_cb(this, cbval1);
             libqt_free(placeId_str);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::removePlace(placeId);
         }
+        return QPlaceManagerEngine::removePlace(placeId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -396,7 +369,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_savecategory_isbase) {
             qplacemanagerengine_savecategory_isbase = false;
             return QPlaceManagerEngine::saveCategory(category, parentId);
-        } else if (qplacemanagerengine_savecategory_callback != nullptr) {
+        }
+        auto savecategory_cb = qplacemanagerengine_savecategory_callback;
+        if (savecategory_cb) {
             const QPlaceCategory& category_ret = category;
             // Cast returned reference into pointer
             QPlaceCategory* cbval1 = const_cast<QPlaceCategory*>(&category_ret);
@@ -409,12 +384,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)parentId_str)[parentId_str_len] = '\0';
             const char* cbval2 = parentId_str;
 
-            QPlaceIdReply* callback_ret = qplacemanagerengine_savecategory_callback(this, cbval1, cbval2);
+            QPlaceIdReply* callback_ret = savecategory_cb(this, cbval1, cbval2);
             libqt_free(parentId_str);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::saveCategory(category, parentId);
         }
+        return QPlaceManagerEngine::saveCategory(category, parentId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -422,7 +396,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_removecategory_isbase) {
             qplacemanagerengine_removecategory_isbase = false;
             return QPlaceManagerEngine::removeCategory(categoryId);
-        } else if (qplacemanagerengine_removecategory_callback != nullptr) {
+        }
+        auto removecategory_cb = qplacemanagerengine_removecategory_callback;
+        if (removecategory_cb) {
             const QString categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
@@ -432,12 +408,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
 
-            QPlaceIdReply* callback_ret = qplacemanagerengine_removecategory_callback(this, cbval1);
+            QPlaceIdReply* callback_ret = removecategory_cb(this, cbval1);
             libqt_free(categoryId_str);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::removeCategory(categoryId);
         }
+        return QPlaceManagerEngine::removeCategory(categoryId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -445,12 +420,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_initializecategories_isbase) {
             qplacemanagerengine_initializecategories_isbase = false;
             return QPlaceManagerEngine::initializeCategories();
-        } else if (qplacemanagerengine_initializecategories_callback != nullptr) {
-            QPlaceReply* callback_ret = qplacemanagerengine_initializecategories_callback();
-            return callback_ret;
-        } else {
-            return QPlaceManagerEngine::initializeCategories();
         }
+        auto initializecategories_cb = qplacemanagerengine_initializecategories_callback;
+        if (initializecategories_cb) {
+            QPlaceReply* callback_ret = initializecategories_cb();
+            return callback_ret;
+        }
+        return QPlaceManagerEngine::initializeCategories();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,7 +434,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_parentcategoryid_isbase) {
             qplacemanagerengine_parentcategoryid_isbase = false;
             return QPlaceManagerEngine::parentCategoryId(categoryId);
-        } else if (qplacemanagerengine_parentcategoryid_callback != nullptr) {
+        }
+        auto parentcategoryid_cb = qplacemanagerengine_parentcategoryid_callback;
+        if (parentcategoryid_cb) {
             const QString categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
@@ -468,13 +446,12 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
 
-            const char* callback_ret = qplacemanagerengine_parentcategoryid_callback(this, cbval1);
+            const char* callback_ret = parentcategoryid_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(categoryId_str);
             return callback_ret_QString;
-        } else {
-            return QPlaceManagerEngine::parentCategoryId(categoryId);
         }
+        return QPlaceManagerEngine::parentCategoryId(categoryId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,7 +459,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_childcategoryids_isbase) {
             qplacemanagerengine_childcategoryids_isbase = false;
             return QPlaceManagerEngine::childCategoryIds(categoryId);
-        } else if (qplacemanagerengine_childcategoryids_callback != nullptr) {
+        }
+        auto childcategoryids_cb = qplacemanagerengine_childcategoryids_callback;
+        if (childcategoryids_cb) {
             const QString categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
@@ -492,7 +471,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
 
-            const char** callback_ret = qplacemanagerengine_childcategoryids_callback(this, cbval1);
+            const char** callback_ret = childcategoryids_cb(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -504,9 +483,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             libqt_free(callback_ret);
             libqt_free(categoryId_str);
             return callback_ret_QList;
-        } else {
-            return QPlaceManagerEngine::childCategoryIds(categoryId);
         }
+        return QPlaceManagerEngine::childCategoryIds(categoryId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,7 +492,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_category_isbase) {
             qplacemanagerengine_category_isbase = false;
             return QPlaceManagerEngine::category(categoryId);
-        } else if (qplacemanagerengine_category_callback != nullptr) {
+        }
+        auto category_cb = qplacemanagerengine_category_callback;
+        if (category_cb) {
             const QString categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
@@ -524,12 +504,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
 
-            QPlaceCategory* callback_ret = qplacemanagerengine_category_callback(this, cbval1);
+            QPlaceCategory* callback_ret = category_cb(this, cbval1);
             libqt_free(categoryId_str);
             return *callback_ret;
-        } else {
-            return QPlaceManagerEngine::category(categoryId);
         }
+        return QPlaceManagerEngine::category(categoryId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,7 +516,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_childcategories_isbase) {
             qplacemanagerengine_childcategories_isbase = false;
             return QPlaceManagerEngine::childCategories(parentId);
-        } else if (qplacemanagerengine_childcategories_callback != nullptr) {
+        }
+        auto childcategories_cb = qplacemanagerengine_childcategories_callback;
+        if (childcategories_cb) {
             const QString parentId_ret = parentId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray parentId_b = parentId_ret.toUtf8();
@@ -547,7 +528,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)parentId_str)[parentId_str_len] = '\0';
             const char* cbval1 = parentId_str;
 
-            libqt_list /* of QPlaceCategory* */ callback_ret = qplacemanagerengine_childcategories_callback(this, cbval1);
+            libqt_list /* of QPlaceCategory* */ callback_ret = childcategories_cb(this, cbval1);
             QList<QPlaceCategory> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QPlaceCategory** callback_ret_arr = static_cast<QPlaceCategory**>(callback_ret.data);
@@ -557,9 +538,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             libqt_free(callback_ret.data);
             libqt_free(parentId_str);
             return callback_ret_QList;
-        } else {
-            return QPlaceManagerEngine::childCategories(parentId);
         }
+        return QPlaceManagerEngine::childCategories(parentId);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,8 +547,10 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_locales_isbase) {
             qplacemanagerengine_locales_isbase = false;
             return QPlaceManagerEngine::locales();
-        } else if (qplacemanagerengine_locales_callback != nullptr) {
-            libqt_list /* of QLocale* */ callback_ret = qplacemanagerengine_locales_callback();
+        }
+        auto locales_cb = qplacemanagerengine_locales_callback;
+        if (locales_cb) {
+            libqt_list /* of QLocale* */ callback_ret = locales_cb();
             QList<QLocale> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QLocale** callback_ret_arr = static_cast<QLocale**>(callback_ret.data);
@@ -577,9 +559,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QPlaceManagerEngine::locales();
         }
+        return QPlaceManagerEngine::locales();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,7 +568,10 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_setlocales_isbase) {
             qplacemanagerengine_setlocales_isbase = false;
             QPlaceManagerEngine::setLocales(locales);
-        } else if (qplacemanagerengine_setlocales_callback != nullptr) {
+            return;
+        }
+        auto setlocales_cb = qplacemanagerengine_setlocales_callback;
+        if (setlocales_cb) {
             const QList<QLocale>& locales_ret = locales;
             // Convert QList<> from C++ memory to manually-managed C memory
             QLocale** locales_arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (locales_ret.size())));
@@ -599,11 +583,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             locales_out.data = static_cast<void*>(locales_arr);
             libqt_list /* of QLocale* */ cbval1 = locales_out;
 
-            qplacemanagerengine_setlocales_callback(this, cbval1);
+            setlocales_cb(this, cbval1);
             free(locales_arr);
-        } else {
-            QPlaceManagerEngine::setLocales(locales);
+            return;
         }
+        QPlaceManagerEngine::setLocales(locales);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,7 +595,9 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_constructiconurl_isbase) {
             qplacemanagerengine_constructiconurl_isbase = false;
             return QPlaceManagerEngine::constructIconUrl(icon, size);
-        } else if (qplacemanagerengine_constructiconurl_callback != nullptr) {
+        }
+        auto constructiconurl_cb = qplacemanagerengine_constructiconurl_callback;
+        if (constructiconurl_cb) {
             const QPlaceIcon& icon_ret = icon;
             // Cast returned reference into pointer
             QPlaceIcon* cbval1 = const_cast<QPlaceIcon*>(&icon_ret);
@@ -619,11 +605,10 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             // Cast returned reference into pointer
             QSize* cbval2 = const_cast<QSize*>(&size_ret);
 
-            QUrl* callback_ret = qplacemanagerengine_constructiconurl_callback(this, cbval1, cbval2);
+            QUrl* callback_ret = constructiconurl_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QPlaceManagerEngine::constructIconUrl(icon, size);
         }
+        return QPlaceManagerEngine::constructIconUrl(icon, size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,16 +616,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_compatibleplace_isbase) {
             qplacemanagerengine_compatibleplace_isbase = false;
             return QPlaceManagerEngine::compatiblePlace(original);
-        } else if (qplacemanagerengine_compatibleplace_callback != nullptr) {
+        }
+        auto compatibleplace_cb = qplacemanagerengine_compatibleplace_callback;
+        if (compatibleplace_cb) {
             const QPlace& original_ret = original;
             // Cast returned reference into pointer
             QPlace* cbval1 = const_cast<QPlace*>(&original_ret);
 
-            QPlace* callback_ret = qplacemanagerengine_compatibleplace_callback(this, cbval1);
+            QPlace* callback_ret = compatibleplace_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPlaceManagerEngine::compatiblePlace(original);
         }
+        return QPlaceManagerEngine::compatiblePlace(original);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -648,16 +634,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_matchingplaces_isbase) {
             qplacemanagerengine_matchingplaces_isbase = false;
             return QPlaceManagerEngine::matchingPlaces(request);
-        } else if (qplacemanagerengine_matchingplaces_callback != nullptr) {
+        }
+        auto matchingplaces_cb = qplacemanagerengine_matchingplaces_callback;
+        if (matchingplaces_cb) {
             const QPlaceMatchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceMatchRequest* cbval1 = const_cast<QPlaceMatchRequest*>(&request_ret);
 
-            QPlaceMatchReply* callback_ret = qplacemanagerengine_matchingplaces_callback(this, cbval1);
+            QPlaceMatchReply* callback_ret = matchingplaces_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::matchingPlaces(request);
         }
+        return QPlaceManagerEngine::matchingPlaces(request);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,14 +652,15 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_event_isbase) {
             qplacemanagerengine_event_isbase = false;
             return QPlaceManagerEngine::event(event);
-        } else if (qplacemanagerengine_event_callback != nullptr) {
+        }
+        auto event_cb = qplacemanagerengine_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qplacemanagerengine_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::event(event);
         }
+        return QPlaceManagerEngine::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,15 +668,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_eventfilter_isbase) {
             qplacemanagerengine_eventfilter_isbase = false;
             return QPlaceManagerEngine::eventFilter(watched, event);
-        } else if (qplacemanagerengine_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qplacemanagerengine_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qplacemanagerengine_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::eventFilter(watched, event);
         }
+        return QPlaceManagerEngine::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,13 +685,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_timerevent_isbase) {
             qplacemanagerengine_timerevent_isbase = false;
             QPlaceManagerEngine::timerEvent(event);
-        } else if (qplacemanagerengine_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qplacemanagerengine_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qplacemanagerengine_timerevent_callback(this, cbval1);
-        } else {
-            QPlaceManagerEngine::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPlaceManagerEngine::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,13 +702,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_childevent_isbase) {
             qplacemanagerengine_childevent_isbase = false;
             QPlaceManagerEngine::childEvent(event);
-        } else if (qplacemanagerengine_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qplacemanagerengine_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qplacemanagerengine_childevent_callback(this, cbval1);
-        } else {
-            QPlaceManagerEngine::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPlaceManagerEngine::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +719,16 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_customevent_isbase) {
             qplacemanagerengine_customevent_isbase = false;
             QPlaceManagerEngine::customEvent(event);
-        } else if (qplacemanagerengine_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qplacemanagerengine_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qplacemanagerengine_customevent_callback(this, cbval1);
-        } else {
-            QPlaceManagerEngine::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPlaceManagerEngine::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,15 +736,18 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_connectnotify_isbase) {
             qplacemanagerengine_connectnotify_isbase = false;
             QPlaceManagerEngine::connectNotify(signal);
-        } else if (qplacemanagerengine_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qplacemanagerengine_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qplacemanagerengine_connectnotify_callback(this, cbval1);
-        } else {
-            QPlaceManagerEngine::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPlaceManagerEngine::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,15 +755,18 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_disconnectnotify_isbase) {
             qplacemanagerengine_disconnectnotify_isbase = false;
             QPlaceManagerEngine::disconnectNotify(signal);
-        } else if (qplacemanagerengine_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qplacemanagerengine_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qplacemanagerengine_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPlaceManagerEngine::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPlaceManagerEngine::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,12 +774,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_manager_isbase) {
             qplacemanagerengine_manager_isbase = false;
             return QPlaceManagerEngine::manager();
-        } else if (qplacemanagerengine_manager_callback != nullptr) {
-            QPlaceManager* callback_ret = qplacemanagerengine_manager_callback();
-            return callback_ret;
-        } else {
-            return QPlaceManagerEngine::manager();
         }
+        auto manager_cb = qplacemanagerengine_manager_callback;
+        if (manager_cb) {
+            QPlaceManager* callback_ret = manager_cb();
+            return callback_ret;
+        }
+        return QPlaceManagerEngine::manager();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,12 +788,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_sender_isbase) {
             qplacemanagerengine_sender_isbase = false;
             return QPlaceManagerEngine::sender();
-        } else if (qplacemanagerengine_sender_callback != nullptr) {
-            QObject* callback_ret = qplacemanagerengine_sender_callback();
-            return callback_ret;
-        } else {
-            return QPlaceManagerEngine::sender();
         }
+        auto sender_cb = qplacemanagerengine_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPlaceManagerEngine::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,12 +802,13 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_sendersignalindex_isbase) {
             qplacemanagerengine_sendersignalindex_isbase = false;
             return QPlaceManagerEngine::senderSignalIndex();
-        } else if (qplacemanagerengine_sendersignalindex_callback != nullptr) {
-            int callback_ret = qplacemanagerengine_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPlaceManagerEngine::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qplacemanagerengine_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPlaceManagerEngine::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,14 +816,15 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_receivers_isbase) {
             qplacemanagerengine_receivers_isbase = false;
             return QPlaceManagerEngine::receivers(signal);
-        } else if (qplacemanagerengine_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qplacemanagerengine_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qplacemanagerengine_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPlaceManagerEngine::receivers(signal);
         }
+        return QPlaceManagerEngine::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -824,16 +832,17 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (qplacemanagerengine_issignalconnected_isbase) {
             qplacemanagerengine_issignalconnected_isbase = false;
             return QPlaceManagerEngine::isSignalConnected(signal);
-        } else if (qplacemanagerengine_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qplacemanagerengine_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qplacemanagerengine_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPlaceManagerEngine::isSignalConnected(signal);
         }
+        return QPlaceManagerEngine::isSignalConnected(signal);
     }
 
     // Friend functions

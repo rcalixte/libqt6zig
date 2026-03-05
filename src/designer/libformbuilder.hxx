@@ -65,22 +65,6 @@ class VirtualQFormBuilder final : public QFormBuilder {
   public:
     VirtualQFormBuilder() : QFormBuilder() {};
 
-    ~VirtualQFormBuilder() {
-        qformbuilder_createwidget_callback = nullptr;
-        qformbuilder_createlayout_callback = nullptr;
-        qformbuilder_updatecustomwidgets_callback = nullptr;
-        qformbuilder_load_callback = nullptr;
-        qformbuilder_save_callback = nullptr;
-        qformbuilder_addmenuaction_callback = nullptr;
-        qformbuilder_createaction_callback = nullptr;
-        qformbuilder_createactiongroup_callback = nullptr;
-        qformbuilder_checkproperty_callback = nullptr;
-        qformbuilder_widgetbyname_callback = nullptr;
-        qformbuilder_applypropertyinternally_callback = nullptr;
-        qformbuilder_reset_callback = nullptr;
-        qformbuilder_toolbarareametaenum_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFormBuilder_CreateWidget_Callback(QFormBuilder_CreateWidget_Callback cb) { qformbuilder_createwidget_callback = cb; }
     inline void setQFormBuilder_CreateLayout_Callback(QFormBuilder_CreateLayout_Callback cb) { qformbuilder_createlayout_callback = cb; }
@@ -116,7 +100,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_createwidget_isbase) {
             qformbuilder_createwidget_isbase = false;
             return QFormBuilder::createWidget(widgetName, parentWidget, name);
-        } else if (qformbuilder_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = qformbuilder_createwidget_callback;
+        if (createwidget_cb) {
             const QString widgetName_ret = widgetName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray widgetName_b = widgetName_ret.toUtf8();
@@ -135,13 +121,12 @@ class VirtualQFormBuilder final : public QFormBuilder {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
 
-            QWidget* callback_ret = qformbuilder_createwidget_callback(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2, cbval3);
             libqt_free(widgetName_str);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::createWidget(widgetName, parentWidget, name);
         }
+        return QFormBuilder::createWidget(widgetName, parentWidget, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -149,7 +134,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_createlayout_isbase) {
             qformbuilder_createlayout_isbase = false;
             return QFormBuilder::createLayout(layoutName, parent, name);
-        } else if (qformbuilder_createlayout_callback != nullptr) {
+        }
+        auto createlayout_cb = qformbuilder_createlayout_callback;
+        if (createlayout_cb) {
             const QString layoutName_ret = layoutName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray layoutName_b = layoutName_ret.toUtf8();
@@ -168,13 +155,12 @@ class VirtualQFormBuilder final : public QFormBuilder {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
 
-            QLayout* callback_ret = qformbuilder_createlayout_callback(this, cbval1, cbval2, cbval3);
+            QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
             libqt_free(layoutName_str);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::createLayout(layoutName, parent, name);
         }
+        return QFormBuilder::createLayout(layoutName, parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,11 +168,14 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_updatecustomwidgets_isbase) {
             qformbuilder_updatecustomwidgets_isbase = false;
             QFormBuilder::updateCustomWidgets();
-        } else if (qformbuilder_updatecustomwidgets_callback != nullptr) {
-            qformbuilder_updatecustomwidgets_callback();
-        } else {
-            QFormBuilder::updateCustomWidgets();
+            return;
         }
+        auto updatecustomwidgets_cb = qformbuilder_updatecustomwidgets_callback;
+        if (updatecustomwidgets_cb) {
+            updatecustomwidgets_cb();
+            return;
+        }
+        QFormBuilder::updateCustomWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,15 +183,16 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_load_isbase) {
             qformbuilder_load_isbase = false;
             return QFormBuilder::load(dev, parentWidget);
-        } else if (qformbuilder_load_callback != nullptr) {
+        }
+        auto load_cb = qformbuilder_load_callback;
+        if (load_cb) {
             QIODevice* cbval1 = dev;
             QWidget* cbval2 = parentWidget;
 
-            QWidget* callback_ret = qformbuilder_load_callback(this, cbval1, cbval2);
+            QWidget* callback_ret = load_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFormBuilder::load(dev, parentWidget);
         }
+        return QFormBuilder::load(dev, parentWidget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -210,14 +200,17 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_save_isbase) {
             qformbuilder_save_isbase = false;
             QFormBuilder::save(dev, widget);
-        } else if (qformbuilder_save_callback != nullptr) {
+            return;
+        }
+        auto save_cb = qformbuilder_save_callback;
+        if (save_cb) {
             QIODevice* cbval1 = dev;
             QWidget* cbval2 = widget;
 
-            qformbuilder_save_callback(this, cbval1, cbval2);
-        } else {
-            QFormBuilder::save(dev, widget);
+            save_cb(this, cbval1, cbval2);
+            return;
         }
+        QFormBuilder::save(dev, widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,13 +218,16 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_addmenuaction_isbase) {
             qformbuilder_addmenuaction_isbase = false;
             QFormBuilder::addMenuAction(action);
-        } else if (qformbuilder_addmenuaction_callback != nullptr) {
+            return;
+        }
+        auto addmenuaction_cb = qformbuilder_addmenuaction_callback;
+        if (addmenuaction_cb) {
             QAction* cbval1 = action;
 
-            qformbuilder_addmenuaction_callback(this, cbval1);
-        } else {
-            QFormBuilder::addMenuAction(action);
+            addmenuaction_cb(this, cbval1);
+            return;
         }
+        QFormBuilder::addMenuAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,7 +235,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_createaction_isbase) {
             qformbuilder_createaction_isbase = false;
             return QFormBuilder::createAction(parent, name);
-        } else if (qformbuilder_createaction_callback != nullptr) {
+        }
+        auto createaction_cb = qformbuilder_createaction_callback;
+        if (createaction_cb) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -250,12 +248,11 @@ class VirtualQFormBuilder final : public QFormBuilder {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
 
-            QAction* callback_ret = qformbuilder_createaction_callback(this, cbval1, cbval2);
+            QAction* callback_ret = createaction_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::createAction(parent, name);
         }
+        return QFormBuilder::createAction(parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,7 +260,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_createactiongroup_isbase) {
             qformbuilder_createactiongroup_isbase = false;
             return QFormBuilder::createActionGroup(parent, name);
-        } else if (qformbuilder_createactiongroup_callback != nullptr) {
+        }
+        auto createactiongroup_cb = qformbuilder_createactiongroup_callback;
+        if (createactiongroup_cb) {
             QObject* cbval1 = parent;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -274,12 +273,11 @@ class VirtualQFormBuilder final : public QFormBuilder {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
 
-            QActionGroup* callback_ret = qformbuilder_createactiongroup_callback(this, cbval1, cbval2);
+            QActionGroup* callback_ret = createactiongroup_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::createActionGroup(parent, name);
         }
+        return QFormBuilder::createActionGroup(parent, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,7 +285,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_checkproperty_isbase) {
             qformbuilder_checkproperty_isbase = false;
             return QFormBuilder::checkProperty(obj, prop);
-        } else if (qformbuilder_checkproperty_callback != nullptr) {
+        }
+        auto checkproperty_cb = qformbuilder_checkproperty_callback;
+        if (checkproperty_cb) {
             QObject* cbval1 = obj;
             const QString prop_ret = prop;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -298,12 +298,11 @@ class VirtualQFormBuilder final : public QFormBuilder {
             ((char*)prop_str)[prop_str_len] = '\0';
             const char* cbval2 = prop_str;
 
-            bool callback_ret = qformbuilder_checkproperty_callback(this, cbval1, cbval2);
+            bool callback_ret = checkproperty_cb(this, cbval1, cbval2);
             libqt_free(prop_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::checkProperty(obj, prop);
         }
+        return QFormBuilder::checkProperty(obj, prop);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,7 +310,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_widgetbyname_isbase) {
             qformbuilder_widgetbyname_isbase = false;
             return QFormBuilder::widgetByName(topLevel, name);
-        } else if (qformbuilder_widgetbyname_callback != nullptr) {
+        }
+        auto widgetbyname_cb = qformbuilder_widgetbyname_callback;
+        if (widgetbyname_cb) {
             QWidget* cbval1 = topLevel;
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -322,12 +323,11 @@ class VirtualQFormBuilder final : public QFormBuilder {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
 
-            QWidget* callback_ret = qformbuilder_widgetbyname_callback(this, cbval1, cbval2);
+            QWidget* callback_ret = widgetbyname_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::widgetByName(topLevel, name);
         }
+        return QFormBuilder::widgetByName(topLevel, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,7 +335,9 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_applypropertyinternally_isbase) {
             qformbuilder_applypropertyinternally_isbase = false;
             return QFormBuilder::applyPropertyInternally(o, propertyName, value);
-        } else if (qformbuilder_applypropertyinternally_callback != nullptr) {
+        }
+        auto applypropertyinternally_cb = qformbuilder_applypropertyinternally_callback;
+        if (applypropertyinternally_cb) {
             QObject* cbval1 = o;
             const QString propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -349,12 +351,11 @@ class VirtualQFormBuilder final : public QFormBuilder {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
 
-            bool callback_ret = qformbuilder_applypropertyinternally_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = applypropertyinternally_cb(this, cbval1, cbval2, cbval3);
             libqt_free(propertyName_str);
             return callback_ret;
-        } else {
-            return QFormBuilder::applyPropertyInternally(o, propertyName, value);
         }
+        return QFormBuilder::applyPropertyInternally(o, propertyName, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,11 +363,14 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_reset_isbase) {
             qformbuilder_reset_isbase = false;
             QFormBuilder::reset();
-        } else if (qformbuilder_reset_callback != nullptr) {
-            qformbuilder_reset_callback();
-        } else {
-            QFormBuilder::reset();
+            return;
         }
+        auto reset_cb = qformbuilder_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QFormBuilder::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -374,12 +378,13 @@ class VirtualQFormBuilder final : public QFormBuilder {
         if (qformbuilder_toolbarareametaenum_isbase) {
             qformbuilder_toolbarareametaenum_isbase = false;
             return QFormBuilder::toolBarAreaMetaEnum();
-        } else if (qformbuilder_toolbarareametaenum_callback != nullptr) {
-            QMetaEnum* callback_ret = qformbuilder_toolbarareametaenum_callback();
-            return *callback_ret;
-        } else {
-            return QFormBuilder::toolBarAreaMetaEnum();
         }
+        auto toolbarareametaenum_cb = qformbuilder_toolbarareametaenum_callback;
+        if (toolbarareametaenum_cb) {
+            QMetaEnum* callback_ret = toolbarareametaenum_cb();
+            return *callback_ret;
+        }
+        return QFormBuilder::toolBarAreaMetaEnum();
     }
 
     // Friend functions

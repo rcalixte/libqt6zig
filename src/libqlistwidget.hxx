@@ -53,15 +53,6 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
     VirtualQListWidgetItem(const QIcon& icon, const QString& text, QListWidget* listview) : QListWidgetItem(icon, text, listview) {};
     VirtualQListWidgetItem(const QIcon& icon, const QString& text, QListWidget* listview, int typeVal) : QListWidgetItem(icon, text, listview, typeVal) {};
 
-    ~VirtualQListWidgetItem() {
-        qlistwidgetitem_clone_callback = nullptr;
-        qlistwidgetitem_data_callback = nullptr;
-        qlistwidgetitem_setdata_callback = nullptr;
-        qlistwidgetitem_operatorlesser_callback = nullptr;
-        qlistwidgetitem_read_callback = nullptr;
-        qlistwidgetitem_write_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQListWidgetItem_Clone_Callback(QListWidgetItem_Clone_Callback cb) { qlistwidgetitem_clone_callback = cb; }
     inline void setQListWidgetItem_Data_Callback(QListWidgetItem_Data_Callback cb) { qlistwidgetitem_data_callback = cb; }
@@ -83,12 +74,13 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
         if (qlistwidgetitem_clone_isbase) {
             qlistwidgetitem_clone_isbase = false;
             return QListWidgetItem::clone();
-        } else if (qlistwidgetitem_clone_callback != nullptr) {
-            QListWidgetItem* callback_ret = qlistwidgetitem_clone_callback();
-            return callback_ret;
-        } else {
-            return QListWidgetItem::clone();
         }
+        auto clone_cb = qlistwidgetitem_clone_callback;
+        if (clone_cb) {
+            QListWidgetItem* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QListWidgetItem::clone();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -96,14 +88,15 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
         if (qlistwidgetitem_data_isbase) {
             qlistwidgetitem_data_isbase = false;
             return QListWidgetItem::data(role);
-        } else if (qlistwidgetitem_data_callback != nullptr) {
+        }
+        auto data_cb = qlistwidgetitem_data_callback;
+        if (data_cb) {
             int cbval1 = role;
 
-            QVariant* callback_ret = qlistwidgetitem_data_callback(this, cbval1);
+            QVariant* callback_ret = data_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QListWidgetItem::data(role);
         }
+        return QListWidgetItem::data(role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -111,16 +104,19 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
         if (qlistwidgetitem_setdata_isbase) {
             qlistwidgetitem_setdata_isbase = false;
             QListWidgetItem::setData(role, value);
-        } else if (qlistwidgetitem_setdata_callback != nullptr) {
+            return;
+        }
+        auto setdata_cb = qlistwidgetitem_setdata_callback;
+        if (setdata_cb) {
             int cbval1 = role;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qlistwidgetitem_setdata_callback(this, cbval1, cbval2);
-        } else {
-            QListWidgetItem::setData(role, value);
+            setdata_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidgetItem::setData(role, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -128,16 +124,17 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
         if (qlistwidgetitem_operatorlesser_isbase) {
             qlistwidgetitem_operatorlesser_isbase = false;
             return QListWidgetItem::operator<(other);
-        } else if (qlistwidgetitem_operatorlesser_callback != nullptr) {
+        }
+        auto operatorlesser_cb = qlistwidgetitem_operatorlesser_callback;
+        if (operatorlesser_cb) {
             const QListWidgetItem& other_ret = other;
             // Cast returned reference into pointer
             QListWidgetItem* cbval1 = const_cast<QListWidgetItem*>(&other_ret);
 
-            bool callback_ret = qlistwidgetitem_operatorlesser_callback(this, cbval1);
+            bool callback_ret = operatorlesser_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidgetItem::operator<(other);
         }
+        return QListWidgetItem::operator<(other);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -145,15 +142,18 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
         if (qlistwidgetitem_read_isbase) {
             qlistwidgetitem_read_isbase = false;
             QListWidgetItem::read(in);
-        } else if (qlistwidgetitem_read_callback != nullptr) {
+            return;
+        }
+        auto read_cb = qlistwidgetitem_read_callback;
+        if (read_cb) {
             QDataStream& in_ret = in;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &in_ret;
 
-            qlistwidgetitem_read_callback(this, cbval1);
-        } else {
-            QListWidgetItem::read(in);
+            read_cb(this, cbval1);
+            return;
         }
+        QListWidgetItem::read(in);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -161,15 +161,18 @@ class VirtualQListWidgetItem final : public QListWidgetItem {
         if (qlistwidgetitem_write_isbase) {
             qlistwidgetitem_write_isbase = false;
             QListWidgetItem::write(out);
-        } else if (qlistwidgetitem_write_callback != nullptr) {
+            return;
+        }
+        auto write_cb = qlistwidgetitem_write_callback;
+        if (write_cb) {
             QDataStream& out_ret = out;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &out_ret;
 
-            qlistwidgetitem_write_callback(this, cbval1);
-        } else {
-            QListWidgetItem::write(out);
+            write_cb(this, cbval1);
+            return;
         }
+        QListWidgetItem::write(out);
     }
 };
 
@@ -569,134 +572,6 @@ class VirtualQListWidget final : public QListWidget {
     VirtualQListWidget(QWidget* parent) : QListWidget(parent) {};
     VirtualQListWidget() : QListWidget() {};
 
-    ~VirtualQListWidget() {
-        qlistwidget_metaobject_callback = nullptr;
-        qlistwidget_metacast_callback = nullptr;
-        qlistwidget_metacall_callback = nullptr;
-        qlistwidget_setselectionmodel_callback = nullptr;
-        qlistwidget_dropevent_callback = nullptr;
-        qlistwidget_event_callback = nullptr;
-        qlistwidget_mimetypes_callback = nullptr;
-        qlistwidget_mimedata_callback = nullptr;
-        qlistwidget_dropmimedata_callback = nullptr;
-        qlistwidget_supporteddropactions_callback = nullptr;
-        qlistwidget_visualrect_callback = nullptr;
-        qlistwidget_scrollto_callback = nullptr;
-        qlistwidget_indexat_callback = nullptr;
-        qlistwidget_doitemslayout_callback = nullptr;
-        qlistwidget_reset_callback = nullptr;
-        qlistwidget_setrootindex_callback = nullptr;
-        qlistwidget_scrollcontentsby_callback = nullptr;
-        qlistwidget_datachanged_callback = nullptr;
-        qlistwidget_rowsinserted_callback = nullptr;
-        qlistwidget_rowsabouttoberemoved_callback = nullptr;
-        qlistwidget_mousemoveevent_callback = nullptr;
-        qlistwidget_mousereleaseevent_callback = nullptr;
-        qlistwidget_wheelevent_callback = nullptr;
-        qlistwidget_timerevent_callback = nullptr;
-        qlistwidget_resizeevent_callback = nullptr;
-        qlistwidget_dragmoveevent_callback = nullptr;
-        qlistwidget_dragleaveevent_callback = nullptr;
-        qlistwidget_startdrag_callback = nullptr;
-        qlistwidget_initviewitemoption_callback = nullptr;
-        qlistwidget_paintevent_callback = nullptr;
-        qlistwidget_horizontaloffset_callback = nullptr;
-        qlistwidget_verticaloffset_callback = nullptr;
-        qlistwidget_movecursor_callback = nullptr;
-        qlistwidget_setselection_callback = nullptr;
-        qlistwidget_visualregionforselection_callback = nullptr;
-        qlistwidget_selectedindexes_callback = nullptr;
-        qlistwidget_updategeometries_callback = nullptr;
-        qlistwidget_isindexhidden_callback = nullptr;
-        qlistwidget_selectionchanged_callback = nullptr;
-        qlistwidget_currentchanged_callback = nullptr;
-        qlistwidget_viewportsizehint_callback = nullptr;
-        qlistwidget_keyboardsearch_callback = nullptr;
-        qlistwidget_sizehintforrow_callback = nullptr;
-        qlistwidget_sizehintforcolumn_callback = nullptr;
-        qlistwidget_itemdelegateforindex_callback = nullptr;
-        qlistwidget_inputmethodquery_callback = nullptr;
-        qlistwidget_selectall_callback = nullptr;
-        qlistwidget_updateeditordata_callback = nullptr;
-        qlistwidget_updateeditorgeometries_callback = nullptr;
-        qlistwidget_verticalscrollbaraction_callback = nullptr;
-        qlistwidget_horizontalscrollbaraction_callback = nullptr;
-        qlistwidget_verticalscrollbarvaluechanged_callback = nullptr;
-        qlistwidget_horizontalscrollbarvaluechanged_callback = nullptr;
-        qlistwidget_closeeditor_callback = nullptr;
-        qlistwidget_commitdata_callback = nullptr;
-        qlistwidget_editordestroyed_callback = nullptr;
-        qlistwidget_edit2_callback = nullptr;
-        qlistwidget_selectioncommand_callback = nullptr;
-        qlistwidget_focusnextprevchild_callback = nullptr;
-        qlistwidget_viewportevent_callback = nullptr;
-        qlistwidget_mousepressevent_callback = nullptr;
-        qlistwidget_mousedoubleclickevent_callback = nullptr;
-        qlistwidget_dragenterevent_callback = nullptr;
-        qlistwidget_focusinevent_callback = nullptr;
-        qlistwidget_focusoutevent_callback = nullptr;
-        qlistwidget_keypressevent_callback = nullptr;
-        qlistwidget_inputmethodevent_callback = nullptr;
-        qlistwidget_eventfilter_callback = nullptr;
-        qlistwidget_minimumsizehint_callback = nullptr;
-        qlistwidget_sizehint_callback = nullptr;
-        qlistwidget_setupviewport_callback = nullptr;
-        qlistwidget_contextmenuevent_callback = nullptr;
-        qlistwidget_changeevent_callback = nullptr;
-        qlistwidget_initstyleoption_callback = nullptr;
-        qlistwidget_devtype_callback = nullptr;
-        qlistwidget_setvisible_callback = nullptr;
-        qlistwidget_heightforwidth_callback = nullptr;
-        qlistwidget_hasheightforwidth_callback = nullptr;
-        qlistwidget_paintengine_callback = nullptr;
-        qlistwidget_keyreleaseevent_callback = nullptr;
-        qlistwidget_enterevent_callback = nullptr;
-        qlistwidget_leaveevent_callback = nullptr;
-        qlistwidget_moveevent_callback = nullptr;
-        qlistwidget_closeevent_callback = nullptr;
-        qlistwidget_tabletevent_callback = nullptr;
-        qlistwidget_actionevent_callback = nullptr;
-        qlistwidget_showevent_callback = nullptr;
-        qlistwidget_hideevent_callback = nullptr;
-        qlistwidget_nativeevent_callback = nullptr;
-        qlistwidget_metric_callback = nullptr;
-        qlistwidget_initpainter_callback = nullptr;
-        qlistwidget_redirected_callback = nullptr;
-        qlistwidget_sharedpainter_callback = nullptr;
-        qlistwidget_childevent_callback = nullptr;
-        qlistwidget_customevent_callback = nullptr;
-        qlistwidget_connectnotify_callback = nullptr;
-        qlistwidget_disconnectnotify_callback = nullptr;
-        qlistwidget_resizecontents_callback = nullptr;
-        qlistwidget_contentssize_callback = nullptr;
-        qlistwidget_rectforindex_callback = nullptr;
-        qlistwidget_setpositionforindex_callback = nullptr;
-        qlistwidget_state_callback = nullptr;
-        qlistwidget_setstate_callback = nullptr;
-        qlistwidget_scheduledelayeditemslayout_callback = nullptr;
-        qlistwidget_executedelayeditemslayout_callback = nullptr;
-        qlistwidget_setdirtyregion_callback = nullptr;
-        qlistwidget_scrolldirtyregion_callback = nullptr;
-        qlistwidget_dirtyregionoffset_callback = nullptr;
-        qlistwidget_startautoscroll_callback = nullptr;
-        qlistwidget_stopautoscroll_callback = nullptr;
-        qlistwidget_doautoscroll_callback = nullptr;
-        qlistwidget_dropindicatorposition_callback = nullptr;
-        qlistwidget_setviewportmargins_callback = nullptr;
-        qlistwidget_viewportmargins_callback = nullptr;
-        qlistwidget_drawframe_callback = nullptr;
-        qlistwidget_updatemicrofocus_callback = nullptr;
-        qlistwidget_create_callback = nullptr;
-        qlistwidget_destroy_callback = nullptr;
-        qlistwidget_focusnextchild_callback = nullptr;
-        qlistwidget_focuspreviouschild_callback = nullptr;
-        qlistwidget_sender_callback = nullptr;
-        qlistwidget_sendersignalindex_callback = nullptr;
-        qlistwidget_receivers_callback = nullptr;
-        qlistwidget_issignalconnected_callback = nullptr;
-        qlistwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQListWidget_MetaObject_Callback(QListWidget_MetaObject_Callback cb) { qlistwidget_metaobject_callback = cb; }
     inline void setQListWidget_Metacast_Callback(QListWidget_Metacast_Callback cb) { qlistwidget_metacast_callback = cb; }
@@ -956,12 +831,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_metaobject_isbase) {
             qlistwidget_metaobject_isbase = false;
             return QListWidget::metaObject();
-        } else if (qlistwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qlistwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::metaObject();
         }
+        auto metaobject_cb = qlistwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QListWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,14 +845,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_metacast_isbase) {
             qlistwidget_metacast_isbase = false;
             return QListWidget::qt_metacast(param1);
-        } else if (qlistwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qlistwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qlistwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::qt_metacast(param1);
         }
+        return QListWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,16 +861,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_metacall_isbase) {
             qlistwidget_metacall_isbase = false;
             return QListWidget::qt_metacall(param1, param2, param3);
-        } else if (qlistwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qlistwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qlistwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::qt_metacall(param1, param2, param3);
         }
+        return QListWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1001,13 +879,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setselectionmodel_isbase) {
             qlistwidget_setselectionmodel_isbase = false;
             QListWidget::setSelectionModel(selectionModel);
-        } else if (qlistwidget_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = qlistwidget_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            qlistwidget_setselectionmodel_callback(this, cbval1);
-        } else {
-            QListWidget::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        QListWidget::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1015,13 +896,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dropevent_isbase) {
             qlistwidget_dropevent_isbase = false;
             QListWidget::dropEvent(event);
-        } else if (qlistwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qlistwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qlistwidget_dropevent_callback(this, cbval1);
-        } else {
-            QListWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,14 +913,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_event_isbase) {
             qlistwidget_event_isbase = false;
             return QListWidget::event(e);
-        } else if (qlistwidget_event_callback != nullptr) {
+        }
+        auto event_cb = qlistwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qlistwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::event(e);
         }
+        return QListWidget::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,8 +929,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_mimetypes_isbase) {
             qlistwidget_mimetypes_isbase = false;
             return QListWidget::mimeTypes();
-        } else if (qlistwidget_mimetypes_callback != nullptr) {
-            const char** callback_ret = qlistwidget_mimetypes_callback();
+        }
+        auto mimetypes_cb = qlistwidget_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1056,9 +943,8 @@ class VirtualQListWidget final : public QListWidget {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QListWidget::mimeTypes();
         }
+        return QListWidget::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1066,7 +952,9 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_mimedata_isbase) {
             qlistwidget_mimedata_isbase = false;
             return QListWidget::mimeData(items);
-        } else if (qlistwidget_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qlistwidget_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QListWidgetItem*>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
             QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * (items_ret.size())));
@@ -1078,12 +966,11 @@ class VirtualQListWidget final : public QListWidget {
             items_out.data = static_cast<void*>(items_arr);
             libqt_list /* of QListWidgetItem* */ cbval1 = items_out;
 
-            QMimeData* callback_ret = qlistwidget_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(items_arr);
             return callback_ret;
-        } else {
-            return QListWidget::mimeData(items);
         }
+        return QListWidget::mimeData(items);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,16 +978,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dropmimedata_isbase) {
             qlistwidget_dropmimedata_isbase = false;
             return QListWidget::dropMimeData(index, data, action);
-        } else if (qlistwidget_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qlistwidget_dropmimedata_callback;
+        if (dropmimedata_cb) {
             int cbval1 = index;
             QMimeData* cbval2 = (QMimeData*)data;
             int cbval3 = static_cast<int>(action);
 
-            bool callback_ret = qlistwidget_dropmimedata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QListWidget::dropMimeData(index, data, action);
         }
+        return QListWidget::dropMimeData(index, data, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,12 +996,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_supporteddropactions_isbase) {
             qlistwidget_supporteddropactions_isbase = false;
             return QListWidget::supportedDropActions();
-        } else if (qlistwidget_supporteddropactions_callback != nullptr) {
-            int callback_ret = qlistwidget_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QListWidget::supportedDropActions();
         }
+        auto supporteddropactions_cb = qlistwidget_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QListWidget::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,16 +1010,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_visualrect_isbase) {
             qlistwidget_visualrect_isbase = false;
             return QListWidget::visualRect(index);
-        } else if (qlistwidget_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = qlistwidget_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = qlistwidget_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QListWidget::visualRect(index);
         }
+        return QListWidget::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,16 +1028,19 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_scrollto_isbase) {
             qlistwidget_scrollto_isbase = false;
             QListWidget::scrollTo(index, hint);
-        } else if (qlistwidget_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = qlistwidget_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            qlistwidget_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,16 +1048,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_indexat_isbase) {
             qlistwidget_indexat_isbase = false;
             return QListWidget::indexAt(p);
-        } else if (qlistwidget_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = qlistwidget_indexat_callback;
+        if (indexat_cb) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            QModelIndex* callback_ret = qlistwidget_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QListWidget::indexAt(p);
         }
+        return QListWidget::indexAt(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,11 +1066,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_doitemslayout_isbase) {
             qlistwidget_doitemslayout_isbase = false;
             QListWidget::doItemsLayout();
-        } else if (qlistwidget_doitemslayout_callback != nullptr) {
-            qlistwidget_doitemslayout_callback();
-        } else {
-            QListWidget::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = qlistwidget_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        QListWidget::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,11 +1081,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_reset_isbase) {
             qlistwidget_reset_isbase = false;
             QListWidget::reset();
-        } else if (qlistwidget_reset_callback != nullptr) {
-            qlistwidget_reset_callback();
-        } else {
-            QListWidget::reset();
+            return;
         }
+        auto reset_cb = qlistwidget_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        QListWidget::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,15 +1096,18 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setrootindex_isbase) {
             qlistwidget_setrootindex_isbase = false;
             QListWidget::setRootIndex(index);
-        } else if (qlistwidget_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = qlistwidget_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            qlistwidget_setrootindex_callback(this, cbval1);
-        } else {
-            QListWidget::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        QListWidget::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,14 +1115,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_scrollcontentsby_isbase) {
             qlistwidget_scrollcontentsby_isbase = false;
             QListWidget::scrollContentsBy(dx, dy);
-        } else if (qlistwidget_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = qlistwidget_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qlistwidget_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1227,7 +1133,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_datachanged_isbase) {
             qlistwidget_datachanged_isbase = false;
             QListWidget::dataChanged(topLeft, bottomRight, roles);
-        } else if (qlistwidget_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = qlistwidget_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1245,11 +1154,11 @@ class VirtualQListWidget final : public QListWidget {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            qlistwidget_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            QListWidget::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        QListWidget::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,17 +1166,20 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_rowsinserted_isbase) {
             qlistwidget_rowsinserted_isbase = false;
             QListWidget::rowsInserted(parent, start, end);
-        } else if (qlistwidget_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = qlistwidget_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qlistwidget_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QListWidget::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QListWidget::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1275,17 +1187,20 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_rowsabouttoberemoved_isbase) {
             qlistwidget_rowsabouttoberemoved_isbase = false;
             QListWidget::rowsAboutToBeRemoved(parent, start, end);
-        } else if (qlistwidget_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = qlistwidget_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            qlistwidget_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QListWidget::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QListWidget::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1293,13 +1208,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_mousemoveevent_isbase) {
             qlistwidget_mousemoveevent_isbase = false;
             QListWidget::mouseMoveEvent(e);
-        } else if (qlistwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qlistwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qlistwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            QListWidget::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1307,13 +1225,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_mousereleaseevent_isbase) {
             qlistwidget_mousereleaseevent_isbase = false;
             QListWidget::mouseReleaseEvent(e);
-        } else if (qlistwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qlistwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qlistwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QListWidget::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,13 +1242,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_wheelevent_isbase) {
             qlistwidget_wheelevent_isbase = false;
             QListWidget::wheelEvent(e);
-        } else if (qlistwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qlistwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            qlistwidget_wheelevent_callback(this, cbval1);
-        } else {
-            QListWidget::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,13 +1259,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_timerevent_isbase) {
             qlistwidget_timerevent_isbase = false;
             QListWidget::timerEvent(e);
-        } else if (qlistwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qlistwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            qlistwidget_timerevent_callback(this, cbval1);
-        } else {
-            QListWidget::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1349,13 +1276,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_resizeevent_isbase) {
             qlistwidget_resizeevent_isbase = false;
             QListWidget::resizeEvent(e);
-        } else if (qlistwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qlistwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            qlistwidget_resizeevent_callback(this, cbval1);
-        } else {
-            QListWidget::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,13 +1293,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dragmoveevent_isbase) {
             qlistwidget_dragmoveevent_isbase = false;
             QListWidget::dragMoveEvent(e);
-        } else if (qlistwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qlistwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            qlistwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            QListWidget::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1377,13 +1310,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dragleaveevent_isbase) {
             qlistwidget_dragleaveevent_isbase = false;
             QListWidget::dragLeaveEvent(e);
-        } else if (qlistwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qlistwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            qlistwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            QListWidget::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1391,13 +1327,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_startdrag_isbase) {
             qlistwidget_startdrag_isbase = false;
             QListWidget::startDrag(supportedActions);
-        } else if (qlistwidget_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = qlistwidget_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            qlistwidget_startdrag_callback(this, cbval1);
-        } else {
-            QListWidget::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        QListWidget::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,13 +1344,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_initviewitemoption_isbase) {
             qlistwidget_initviewitemoption_isbase = false;
             QListWidget::initViewItemOption(option);
-        } else if (qlistwidget_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = qlistwidget_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            qlistwidget_initviewitemoption_callback(this, cbval1);
-        } else {
-            QListWidget::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        QListWidget::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,13 +1361,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_paintevent_isbase) {
             qlistwidget_paintevent_isbase = false;
             QListWidget::paintEvent(e);
-        } else if (qlistwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qlistwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            qlistwidget_paintevent_callback(this, cbval1);
-        } else {
-            QListWidget::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1433,12 +1378,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_horizontaloffset_isbase) {
             qlistwidget_horizontaloffset_isbase = false;
             return QListWidget::horizontalOffset();
-        } else if (qlistwidget_horizontaloffset_callback != nullptr) {
-            int callback_ret = qlistwidget_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::horizontalOffset();
         }
+        auto horizontaloffset_cb = qlistwidget_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QListWidget::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1446,12 +1392,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_verticaloffset_isbase) {
             qlistwidget_verticaloffset_isbase = false;
             return QListWidget::verticalOffset();
-        } else if (qlistwidget_verticaloffset_callback != nullptr) {
-            int callback_ret = qlistwidget_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::verticalOffset();
         }
+        auto verticaloffset_cb = qlistwidget_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QListWidget::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1459,15 +1406,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_movecursor_isbase) {
             qlistwidget_movecursor_isbase = false;
             return QListWidget::moveCursor(cursorAction, modifiers);
-        } else if (qlistwidget_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = qlistwidget_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = qlistwidget_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QListWidget::moveCursor(cursorAction, modifiers);
         }
+        return QListWidget::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1475,16 +1423,19 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setselection_isbase) {
             qlistwidget_setselection_isbase = false;
             QListWidget::setSelection(rect, command);
-        } else if (qlistwidget_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = qlistwidget_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
 
-            qlistwidget_setselection_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::setSelection(rect, command);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::setSelection(rect, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1492,16 +1443,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_visualregionforselection_isbase) {
             qlistwidget_visualregionforselection_isbase = false;
             return QListWidget::visualRegionForSelection(selection);
-        } else if (qlistwidget_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = qlistwidget_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = qlistwidget_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QListWidget::visualRegionForSelection(selection);
         }
+        return QListWidget::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1509,8 +1461,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_selectedindexes_isbase) {
             qlistwidget_selectedindexes_isbase = false;
             return QListWidget::selectedIndexes();
-        } else if (qlistwidget_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qlistwidget_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = qlistwidget_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1519,9 +1473,8 @@ class VirtualQListWidget final : public QListWidget {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QListWidget::selectedIndexes();
         }
+        return QListWidget::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1529,11 +1482,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_updategeometries_isbase) {
             qlistwidget_updategeometries_isbase = false;
             QListWidget::updateGeometries();
-        } else if (qlistwidget_updategeometries_callback != nullptr) {
-            qlistwidget_updategeometries_callback();
-        } else {
-            QListWidget::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = qlistwidget_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        QListWidget::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1541,16 +1497,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_isindexhidden_isbase) {
             qlistwidget_isindexhidden_isbase = false;
             return QListWidget::isIndexHidden(index);
-        } else if (qlistwidget_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = qlistwidget_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qlistwidget_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::isIndexHidden(index);
         }
+        return QListWidget::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1558,7 +1515,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_selectionchanged_isbase) {
             qlistwidget_selectionchanged_isbase = false;
             QListWidget::selectionChanged(selected, deselected);
-        } else if (qlistwidget_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = qlistwidget_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1566,10 +1526,10 @@ class VirtualQListWidget final : public QListWidget {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            qlistwidget_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1577,7 +1537,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_currentchanged_isbase) {
             qlistwidget_currentchanged_isbase = false;
             QListWidget::currentChanged(current, previous);
-        } else if (qlistwidget_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = qlistwidget_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1585,10 +1548,10 @@ class VirtualQListWidget final : public QListWidget {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            qlistwidget_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1596,12 +1559,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_viewportsizehint_isbase) {
             qlistwidget_viewportsizehint_isbase = false;
             return QListWidget::viewportSizeHint();
-        } else if (qlistwidget_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = qlistwidget_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QListWidget::viewportSizeHint();
         }
+        auto viewportsizehint_cb = qlistwidget_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return QListWidget::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1609,7 +1573,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_keyboardsearch_isbase) {
             qlistwidget_keyboardsearch_isbase = false;
             QListWidget::keyboardSearch(search);
-        } else if (qlistwidget_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = qlistwidget_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1619,11 +1586,11 @@ class VirtualQListWidget final : public QListWidget {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            qlistwidget_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            QListWidget::keyboardSearch(search);
+            return;
         }
+        QListWidget::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1631,14 +1598,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_sizehintforrow_isbase) {
             qlistwidget_sizehintforrow_isbase = false;
             return QListWidget::sizeHintForRow(row);
-        } else if (qlistwidget_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = qlistwidget_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = qlistwidget_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::sizeHintForRow(row);
         }
+        return QListWidget::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1646,14 +1614,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_sizehintforcolumn_isbase) {
             qlistwidget_sizehintforcolumn_isbase = false;
             return QListWidget::sizeHintForColumn(column);
-        } else if (qlistwidget_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = qlistwidget_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = qlistwidget_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::sizeHintForColumn(column);
         }
+        return QListWidget::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1661,16 +1630,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_itemdelegateforindex_isbase) {
             qlistwidget_itemdelegateforindex_isbase = false;
             return QListWidget::itemDelegateForIndex(index);
-        } else if (qlistwidget_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = qlistwidget_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = qlistwidget_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::itemDelegateForIndex(index);
         }
+        return QListWidget::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1678,14 +1648,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_inputmethodquery_isbase) {
             qlistwidget_inputmethodquery_isbase = false;
             return QListWidget::inputMethodQuery(query);
-        } else if (qlistwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qlistwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = qlistwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QListWidget::inputMethodQuery(query);
         }
+        return QListWidget::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1693,11 +1664,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_selectall_isbase) {
             qlistwidget_selectall_isbase = false;
             QListWidget::selectAll();
-        } else if (qlistwidget_selectall_callback != nullptr) {
-            qlistwidget_selectall_callback();
-        } else {
-            QListWidget::selectAll();
+            return;
         }
+        auto selectall_cb = qlistwidget_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        QListWidget::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1705,11 +1679,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_updateeditordata_isbase) {
             qlistwidget_updateeditordata_isbase = false;
             QListWidget::updateEditorData();
-        } else if (qlistwidget_updateeditordata_callback != nullptr) {
-            qlistwidget_updateeditordata_callback();
-        } else {
-            QListWidget::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = qlistwidget_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        QListWidget::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1717,11 +1694,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_updateeditorgeometries_isbase) {
             qlistwidget_updateeditorgeometries_isbase = false;
             QListWidget::updateEditorGeometries();
-        } else if (qlistwidget_updateeditorgeometries_callback != nullptr) {
-            qlistwidget_updateeditorgeometries_callback();
-        } else {
-            QListWidget::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = qlistwidget_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        QListWidget::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1729,13 +1709,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_verticalscrollbaraction_isbase) {
             qlistwidget_verticalscrollbaraction_isbase = false;
             QListWidget::verticalScrollbarAction(action);
-        } else if (qlistwidget_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = qlistwidget_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qlistwidget_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            QListWidget::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QListWidget::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1743,13 +1726,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_horizontalscrollbaraction_isbase) {
             qlistwidget_horizontalscrollbaraction_isbase = false;
             QListWidget::horizontalScrollbarAction(action);
-        } else if (qlistwidget_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = qlistwidget_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            qlistwidget_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            QListWidget::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        QListWidget::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1757,13 +1743,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_verticalscrollbarvaluechanged_isbase) {
             qlistwidget_verticalscrollbarvaluechanged_isbase = false;
             QListWidget::verticalScrollbarValueChanged(value);
-        } else if (qlistwidget_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = qlistwidget_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qlistwidget_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QListWidget::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QListWidget::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1771,13 +1760,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_horizontalscrollbarvaluechanged_isbase) {
             qlistwidget_horizontalscrollbarvaluechanged_isbase = false;
             QListWidget::horizontalScrollbarValueChanged(value);
-        } else if (qlistwidget_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = qlistwidget_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            qlistwidget_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            QListWidget::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        QListWidget::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1785,14 +1777,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_closeeditor_isbase) {
             qlistwidget_closeeditor_isbase = false;
             QListWidget::closeEditor(editor, hint);
-        } else if (qlistwidget_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = qlistwidget_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            qlistwidget_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1800,13 +1795,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_commitdata_isbase) {
             qlistwidget_commitdata_isbase = false;
             QListWidget::commitData(editor);
-        } else if (qlistwidget_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = qlistwidget_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            qlistwidget_commitdata_callback(this, cbval1);
-        } else {
-            QListWidget::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        QListWidget::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1814,13 +1812,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_editordestroyed_isbase) {
             qlistwidget_editordestroyed_isbase = false;
             QListWidget::editorDestroyed(editor);
-        } else if (qlistwidget_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = qlistwidget_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            qlistwidget_editordestroyed_callback(this, cbval1);
-        } else {
-            QListWidget::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        QListWidget::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1828,18 +1829,19 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_edit2_isbase) {
             qlistwidget_edit2_isbase = false;
             return QListWidget::edit(index, trigger, event);
-        } else if (qlistwidget_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = qlistwidget_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = qlistwidget_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QListWidget::edit(index, trigger, event);
         }
+        return QListWidget::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1847,17 +1849,18 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_selectioncommand_isbase) {
             qlistwidget_selectioncommand_isbase = false;
             return QListWidget::selectionCommand(index, event);
-        } else if (qlistwidget_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = qlistwidget_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = qlistwidget_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return QListWidget::selectionCommand(index, event);
         }
+        return QListWidget::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1865,14 +1868,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_focusnextprevchild_isbase) {
             qlistwidget_focusnextprevchild_isbase = false;
             return QListWidget::focusNextPrevChild(next);
-        } else if (qlistwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qlistwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qlistwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::focusNextPrevChild(next);
         }
+        return QListWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1880,14 +1884,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_viewportevent_isbase) {
             qlistwidget_viewportevent_isbase = false;
             return QListWidget::viewportEvent(event);
-        } else if (qlistwidget_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = qlistwidget_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qlistwidget_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::viewportEvent(event);
         }
+        return QListWidget::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1895,13 +1900,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_mousepressevent_isbase) {
             qlistwidget_mousepressevent_isbase = false;
             QListWidget::mousePressEvent(event);
-        } else if (qlistwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qlistwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qlistwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            QListWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1909,13 +1917,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_mousedoubleclickevent_isbase) {
             qlistwidget_mousedoubleclickevent_isbase = false;
             QListWidget::mouseDoubleClickEvent(event);
-        } else if (qlistwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qlistwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qlistwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QListWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1923,13 +1934,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dragenterevent_isbase) {
             qlistwidget_dragenterevent_isbase = false;
             QListWidget::dragEnterEvent(event);
-        } else if (qlistwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qlistwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qlistwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            QListWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1937,13 +1951,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_focusinevent_isbase) {
             qlistwidget_focusinevent_isbase = false;
             QListWidget::focusInEvent(event);
-        } else if (qlistwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qlistwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qlistwidget_focusinevent_callback(this, cbval1);
-        } else {
-            QListWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1951,13 +1968,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_focusoutevent_isbase) {
             qlistwidget_focusoutevent_isbase = false;
             QListWidget::focusOutEvent(event);
-        } else if (qlistwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qlistwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qlistwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            QListWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1965,13 +1985,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_keypressevent_isbase) {
             qlistwidget_keypressevent_isbase = false;
             QListWidget::keyPressEvent(event);
-        } else if (qlistwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qlistwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qlistwidget_keypressevent_callback(this, cbval1);
-        } else {
-            QListWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1979,13 +2002,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_inputmethodevent_isbase) {
             qlistwidget_inputmethodevent_isbase = false;
             QListWidget::inputMethodEvent(event);
-        } else if (qlistwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qlistwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            qlistwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            QListWidget::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1993,15 +2019,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_eventfilter_isbase) {
             qlistwidget_eventfilter_isbase = false;
             return QListWidget::eventFilter(object, event);
-        } else if (qlistwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qlistwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qlistwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QListWidget::eventFilter(object, event);
         }
+        return QListWidget::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2009,12 +2036,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_minimumsizehint_isbase) {
             qlistwidget_minimumsizehint_isbase = false;
             return QListWidget::minimumSizeHint();
-        } else if (qlistwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qlistwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QListWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qlistwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QListWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2022,12 +2050,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_sizehint_isbase) {
             qlistwidget_sizehint_isbase = false;
             return QListWidget::sizeHint();
-        } else if (qlistwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = qlistwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QListWidget::sizeHint();
         }
+        auto sizehint_cb = qlistwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QListWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2035,13 +2064,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setupviewport_isbase) {
             qlistwidget_setupviewport_isbase = false;
             QListWidget::setupViewport(viewport);
-        } else if (qlistwidget_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = qlistwidget_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            qlistwidget_setupviewport_callback(this, cbval1);
-        } else {
-            QListWidget::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        QListWidget::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2049,13 +2081,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_contextmenuevent_isbase) {
             qlistwidget_contextmenuevent_isbase = false;
             QListWidget::contextMenuEvent(param1);
-        } else if (qlistwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qlistwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qlistwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            QListWidget::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2063,13 +2098,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_changeevent_isbase) {
             qlistwidget_changeevent_isbase = false;
             QListWidget::changeEvent(param1);
-        } else if (qlistwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qlistwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qlistwidget_changeevent_callback(this, cbval1);
-        } else {
-            QListWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2077,13 +2115,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_initstyleoption_isbase) {
             qlistwidget_initstyleoption_isbase = false;
             QListWidget::initStyleOption(option);
-        } else if (qlistwidget_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qlistwidget_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            qlistwidget_initstyleoption_callback(this, cbval1);
-        } else {
-            QListWidget::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QListWidget::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2091,12 +2132,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_devtype_isbase) {
             qlistwidget_devtype_isbase = false;
             return QListWidget::devType();
-        } else if (qlistwidget_devtype_callback != nullptr) {
-            int callback_ret = qlistwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::devType();
         }
+        auto devtype_cb = qlistwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QListWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2104,13 +2146,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setvisible_isbase) {
             qlistwidget_setvisible_isbase = false;
             QListWidget::setVisible(visible);
-        } else if (qlistwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qlistwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qlistwidget_setvisible_callback(this, cbval1);
-        } else {
-            QListWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QListWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2118,14 +2163,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_heightforwidth_isbase) {
             qlistwidget_heightforwidth_isbase = false;
             return QListWidget::heightForWidth(param1);
-        } else if (qlistwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qlistwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qlistwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::heightForWidth(param1);
         }
+        return QListWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2133,12 +2179,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_hasheightforwidth_isbase) {
             qlistwidget_hasheightforwidth_isbase = false;
             return QListWidget::hasHeightForWidth();
-        } else if (qlistwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qlistwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qlistwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QListWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2146,12 +2193,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_paintengine_isbase) {
             qlistwidget_paintengine_isbase = false;
             return QListWidget::paintEngine();
-        } else if (qlistwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qlistwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::paintEngine();
         }
+        auto paintengine_cb = qlistwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QListWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2159,13 +2207,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_keyreleaseevent_isbase) {
             qlistwidget_keyreleaseevent_isbase = false;
             QListWidget::keyReleaseEvent(event);
-        } else if (qlistwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qlistwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qlistwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QListWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2173,13 +2224,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_enterevent_isbase) {
             qlistwidget_enterevent_isbase = false;
             QListWidget::enterEvent(event);
-        } else if (qlistwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qlistwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qlistwidget_enterevent_callback(this, cbval1);
-        } else {
-            QListWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2187,13 +2241,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_leaveevent_isbase) {
             qlistwidget_leaveevent_isbase = false;
             QListWidget::leaveEvent(event);
-        } else if (qlistwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qlistwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qlistwidget_leaveevent_callback(this, cbval1);
-        } else {
-            QListWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2201,13 +2258,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_moveevent_isbase) {
             qlistwidget_moveevent_isbase = false;
             QListWidget::moveEvent(event);
-        } else if (qlistwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qlistwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qlistwidget_moveevent_callback(this, cbval1);
-        } else {
-            QListWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2215,13 +2275,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_closeevent_isbase) {
             qlistwidget_closeevent_isbase = false;
             QListWidget::closeEvent(event);
-        } else if (qlistwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qlistwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qlistwidget_closeevent_callback(this, cbval1);
-        } else {
-            QListWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2229,13 +2292,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_tabletevent_isbase) {
             qlistwidget_tabletevent_isbase = false;
             QListWidget::tabletEvent(event);
-        } else if (qlistwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qlistwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qlistwidget_tabletevent_callback(this, cbval1);
-        } else {
-            QListWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2243,13 +2309,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_actionevent_isbase) {
             qlistwidget_actionevent_isbase = false;
             QListWidget::actionEvent(event);
-        } else if (qlistwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qlistwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qlistwidget_actionevent_callback(this, cbval1);
-        } else {
-            QListWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2257,13 +2326,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_showevent_isbase) {
             qlistwidget_showevent_isbase = false;
             QListWidget::showEvent(event);
-        } else if (qlistwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qlistwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qlistwidget_showevent_callback(this, cbval1);
-        } else {
-            QListWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2271,13 +2343,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_hideevent_isbase) {
             qlistwidget_hideevent_isbase = false;
             QListWidget::hideEvent(event);
-        } else if (qlistwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qlistwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qlistwidget_hideevent_callback(this, cbval1);
-        } else {
-            QListWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2285,7 +2360,9 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_nativeevent_isbase) {
             qlistwidget_nativeevent_isbase = false;
             return QListWidget::nativeEvent(eventType, message, result);
-        } else if (qlistwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qlistwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2296,12 +2373,11 @@ class VirtualQListWidget final : public QListWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qlistwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QListWidget::nativeEvent(eventType, message, result);
         }
+        return QListWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2309,14 +2385,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_metric_isbase) {
             qlistwidget_metric_isbase = false;
             return QListWidget::metric(param1);
-        } else if (qlistwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = qlistwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qlistwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::metric(param1);
         }
+        return QListWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2324,13 +2401,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_initpainter_isbase) {
             qlistwidget_initpainter_isbase = false;
             QListWidget::initPainter(painter);
-        } else if (qlistwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qlistwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qlistwidget_initpainter_callback(this, cbval1);
-        } else {
-            QListWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QListWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2338,14 +2418,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_redirected_isbase) {
             qlistwidget_redirected_isbase = false;
             return QListWidget::redirected(offset);
-        } else if (qlistwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qlistwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qlistwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::redirected(offset);
         }
+        return QListWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2353,12 +2434,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_sharedpainter_isbase) {
             qlistwidget_sharedpainter_isbase = false;
             return QListWidget::sharedPainter();
-        } else if (qlistwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qlistwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::sharedPainter();
         }
+        auto sharedpainter_cb = qlistwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QListWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2366,13 +2448,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_childevent_isbase) {
             qlistwidget_childevent_isbase = false;
             QListWidget::childEvent(event);
-        } else if (qlistwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qlistwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qlistwidget_childevent_callback(this, cbval1);
-        } else {
-            QListWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2380,13 +2465,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_customevent_isbase) {
             qlistwidget_customevent_isbase = false;
             QListWidget::customEvent(event);
-        } else if (qlistwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qlistwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qlistwidget_customevent_callback(this, cbval1);
-        } else {
-            QListWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QListWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2394,15 +2482,18 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_connectnotify_isbase) {
             qlistwidget_connectnotify_isbase = false;
             QListWidget::connectNotify(signal);
-        } else if (qlistwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qlistwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlistwidget_connectnotify_callback(this, cbval1);
-        } else {
-            QListWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QListWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2410,15 +2501,18 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_disconnectnotify_isbase) {
             qlistwidget_disconnectnotify_isbase = false;
             QListWidget::disconnectNotify(signal);
-        } else if (qlistwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qlistwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlistwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            QListWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QListWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2426,14 +2520,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_resizecontents_isbase) {
             qlistwidget_resizecontents_isbase = false;
             QListWidget::resizeContents(width, height);
-        } else if (qlistwidget_resizecontents_callback != nullptr) {
+            return;
+        }
+        auto resizecontents_cb = qlistwidget_resizecontents_callback;
+        if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
 
-            qlistwidget_resizecontents_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::resizeContents(width, height);
+            resizecontents_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::resizeContents(width, height);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2441,12 +2538,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_contentssize_isbase) {
             qlistwidget_contentssize_isbase = false;
             return QListWidget::contentsSize();
-        } else if (qlistwidget_contentssize_callback != nullptr) {
-            QSize* callback_ret = qlistwidget_contentssize_callback();
-            return *callback_ret;
-        } else {
-            return QListWidget::contentsSize();
         }
+        auto contentssize_cb = qlistwidget_contentssize_callback;
+        if (contentssize_cb) {
+            QSize* callback_ret = contentssize_cb();
+            return *callback_ret;
+        }
+        return QListWidget::contentsSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2454,16 +2552,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_rectforindex_isbase) {
             qlistwidget_rectforindex_isbase = false;
             return QListWidget::rectForIndex(index);
-        } else if (qlistwidget_rectforindex_callback != nullptr) {
+        }
+        auto rectforindex_cb = qlistwidget_rectforindex_callback;
+        if (rectforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = qlistwidget_rectforindex_callback(this, cbval1);
+            QRect* callback_ret = rectforindex_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QListWidget::rectForIndex(index);
         }
+        return QListWidget::rectForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2471,7 +2570,10 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setpositionforindex_isbase) {
             qlistwidget_setpositionforindex_isbase = false;
             QListWidget::setPositionForIndex(position, index);
-        } else if (qlistwidget_setpositionforindex_callback != nullptr) {
+            return;
+        }
+        auto setpositionforindex_cb = qlistwidget_setpositionforindex_callback;
+        if (setpositionforindex_cb) {
             const QPoint& position_ret = position;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
@@ -2479,10 +2581,10 @@ class VirtualQListWidget final : public QListWidget {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            qlistwidget_setpositionforindex_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::setPositionForIndex(position, index);
+            setpositionforindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::setPositionForIndex(position, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2490,12 +2592,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_state_isbase) {
             qlistwidget_state_isbase = false;
             return QListWidget::state();
-        } else if (qlistwidget_state_callback != nullptr) {
-            int callback_ret = qlistwidget_state_callback();
-            return static_cast<VirtualQListWidget::State>(callback_ret);
-        } else {
-            return QListWidget::state();
         }
+        auto state_cb = qlistwidget_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualQListWidget::State>(callback_ret);
+        }
+        return QListWidget::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2503,13 +2606,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setstate_isbase) {
             qlistwidget_setstate_isbase = false;
             QListWidget::setState(state);
-        } else if (qlistwidget_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = qlistwidget_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            qlistwidget_setstate_callback(this, cbval1);
-        } else {
-            QListWidget::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        QListWidget::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2517,11 +2623,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_scheduledelayeditemslayout_isbase) {
             qlistwidget_scheduledelayeditemslayout_isbase = false;
             QListWidget::scheduleDelayedItemsLayout();
-        } else if (qlistwidget_scheduledelayeditemslayout_callback != nullptr) {
-            qlistwidget_scheduledelayeditemslayout_callback();
-        } else {
-            QListWidget::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = qlistwidget_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        QListWidget::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2529,11 +2638,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_executedelayeditemslayout_isbase) {
             qlistwidget_executedelayeditemslayout_isbase = false;
             QListWidget::executeDelayedItemsLayout();
-        } else if (qlistwidget_executedelayeditemslayout_callback != nullptr) {
-            qlistwidget_executedelayeditemslayout_callback();
-        } else {
-            QListWidget::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = qlistwidget_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        QListWidget::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2541,15 +2653,18 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setdirtyregion_isbase) {
             qlistwidget_setdirtyregion_isbase = false;
             QListWidget::setDirtyRegion(region);
-        } else if (qlistwidget_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = qlistwidget_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            qlistwidget_setdirtyregion_callback(this, cbval1);
-        } else {
-            QListWidget::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        QListWidget::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2557,14 +2672,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_scrolldirtyregion_isbase) {
             qlistwidget_scrolldirtyregion_isbase = false;
             QListWidget::scrollDirtyRegion(dx, dy);
-        } else if (qlistwidget_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = qlistwidget_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            qlistwidget_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            QListWidget::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        QListWidget::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2572,12 +2690,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dirtyregionoffset_isbase) {
             qlistwidget_dirtyregionoffset_isbase = false;
             return QListWidget::dirtyRegionOffset();
-        } else if (qlistwidget_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = qlistwidget_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return QListWidget::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = qlistwidget_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return QListWidget::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2585,11 +2704,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_startautoscroll_isbase) {
             qlistwidget_startautoscroll_isbase = false;
             QListWidget::startAutoScroll();
-        } else if (qlistwidget_startautoscroll_callback != nullptr) {
-            qlistwidget_startautoscroll_callback();
-        } else {
-            QListWidget::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = qlistwidget_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        QListWidget::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2597,11 +2719,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_stopautoscroll_isbase) {
             qlistwidget_stopautoscroll_isbase = false;
             QListWidget::stopAutoScroll();
-        } else if (qlistwidget_stopautoscroll_callback != nullptr) {
-            qlistwidget_stopautoscroll_callback();
-        } else {
-            QListWidget::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = qlistwidget_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        QListWidget::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2609,11 +2734,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_doautoscroll_isbase) {
             qlistwidget_doautoscroll_isbase = false;
             QListWidget::doAutoScroll();
-        } else if (qlistwidget_doautoscroll_callback != nullptr) {
-            qlistwidget_doautoscroll_callback();
-        } else {
-            QListWidget::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = qlistwidget_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        QListWidget::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2621,12 +2749,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_dropindicatorposition_isbase) {
             qlistwidget_dropindicatorposition_isbase = false;
             return QListWidget::dropIndicatorPosition();
-        } else if (qlistwidget_dropindicatorposition_callback != nullptr) {
-            int callback_ret = qlistwidget_dropindicatorposition_callback();
-            return static_cast<VirtualQListWidget::DropIndicatorPosition>(callback_ret);
-        } else {
-            return QListWidget::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = qlistwidget_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualQListWidget::DropIndicatorPosition>(callback_ret);
+        }
+        return QListWidget::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2634,16 +2763,19 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_setviewportmargins_isbase) {
             qlistwidget_setviewportmargins_isbase = false;
             QListWidget::setViewportMargins(left, top, right, bottom);
-        } else if (qlistwidget_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = qlistwidget_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            qlistwidget_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            QListWidget::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        QListWidget::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2651,12 +2783,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_viewportmargins_isbase) {
             qlistwidget_viewportmargins_isbase = false;
             return QListWidget::viewportMargins();
-        } else if (qlistwidget_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = qlistwidget_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return QListWidget::viewportMargins();
         }
+        auto viewportmargins_cb = qlistwidget_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return QListWidget::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2664,13 +2797,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_drawframe_isbase) {
             qlistwidget_drawframe_isbase = false;
             QListWidget::drawFrame(param1);
-        } else if (qlistwidget_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = qlistwidget_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            qlistwidget_drawframe_callback(this, cbval1);
-        } else {
-            QListWidget::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        QListWidget::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2678,11 +2814,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_updatemicrofocus_isbase) {
             qlistwidget_updatemicrofocus_isbase = false;
             QListWidget::updateMicroFocus();
-        } else if (qlistwidget_updatemicrofocus_callback != nullptr) {
-            qlistwidget_updatemicrofocus_callback();
-        } else {
-            QListWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qlistwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QListWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2690,11 +2829,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_create_isbase) {
             qlistwidget_create_isbase = false;
             QListWidget::create();
-        } else if (qlistwidget_create_callback != nullptr) {
-            qlistwidget_create_callback();
-        } else {
-            QListWidget::create();
+            return;
         }
+        auto create_cb = qlistwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QListWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2702,11 +2844,14 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_destroy_isbase) {
             qlistwidget_destroy_isbase = false;
             QListWidget::destroy();
-        } else if (qlistwidget_destroy_callback != nullptr) {
-            qlistwidget_destroy_callback();
-        } else {
-            QListWidget::destroy();
+            return;
         }
+        auto destroy_cb = qlistwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QListWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2714,12 +2859,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_focusnextchild_isbase) {
             qlistwidget_focusnextchild_isbase = false;
             return QListWidget::focusNextChild();
-        } else if (qlistwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = qlistwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::focusNextChild();
         }
+        auto focusnextchild_cb = qlistwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QListWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2727,12 +2873,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_focuspreviouschild_isbase) {
             qlistwidget_focuspreviouschild_isbase = false;
             return QListWidget::focusPreviousChild();
-        } else if (qlistwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qlistwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qlistwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QListWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2740,12 +2887,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_sender_isbase) {
             qlistwidget_sender_isbase = false;
             return QListWidget::sender();
-        } else if (qlistwidget_sender_callback != nullptr) {
-            QObject* callback_ret = qlistwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return QListWidget::sender();
         }
+        auto sender_cb = qlistwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QListWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2753,12 +2901,13 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_sendersignalindex_isbase) {
             qlistwidget_sendersignalindex_isbase = false;
             return QListWidget::senderSignalIndex();
-        } else if (qlistwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = qlistwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qlistwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QListWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2766,14 +2915,15 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_receivers_isbase) {
             qlistwidget_receivers_isbase = false;
             return QListWidget::receivers(signal);
-        } else if (qlistwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qlistwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qlistwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QListWidget::receivers(signal);
         }
+        return QListWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2781,16 +2931,17 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_issignalconnected_isbase) {
             qlistwidget_issignalconnected_isbase = false;
             return QListWidget::isSignalConnected(signal);
-        } else if (qlistwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qlistwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qlistwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QListWidget::isSignalConnected(signal);
         }
+        return QListWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2798,15 +2949,16 @@ class VirtualQListWidget final : public QListWidget {
         if (qlistwidget_getdecodedmetricf_isbase) {
             qlistwidget_getdecodedmetricf_isbase = false;
             return QListWidget::getDecodedMetricF(metricA, metricB);
-        } else if (qlistwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qlistwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qlistwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QListWidget::getDecodedMetricF(metricA, metricB);
         }
+        return QListWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

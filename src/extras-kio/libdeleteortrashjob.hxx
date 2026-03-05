@@ -137,46 +137,6 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
   public:
     VirtualKIODeleteOrTrashJob(const QList<QUrl>& urls, KIO::AskUserActionInterface::DeletionType deletionType, KIO::AskUserActionInterface::ConfirmationType confirm, QObject* parent) : KIO::DeleteOrTrashJob(urls, deletionType, confirm, parent) {};
 
-    ~VirtualKIODeleteOrTrashJob() {
-        kio__deleteortrashjob_metaobject_callback = nullptr;
-        kio__deleteortrashjob_metacast_callback = nullptr;
-        kio__deleteortrashjob_metacall_callback = nullptr;
-        kio__deleteortrashjob_start_callback = nullptr;
-        kio__deleteortrashjob_addsubjob_callback = nullptr;
-        kio__deleteortrashjob_removesubjob_callback = nullptr;
-        kio__deleteortrashjob_slotinfomessage_callback = nullptr;
-        kio__deleteortrashjob_dokill_callback = nullptr;
-        kio__deleteortrashjob_dosuspend_callback = nullptr;
-        kio__deleteortrashjob_doresume_callback = nullptr;
-        kio__deleteortrashjob_errorstring_callback = nullptr;
-        kio__deleteortrashjob_event_callback = nullptr;
-        kio__deleteortrashjob_eventfilter_callback = nullptr;
-        kio__deleteortrashjob_timerevent_callback = nullptr;
-        kio__deleteortrashjob_childevent_callback = nullptr;
-        kio__deleteortrashjob_customevent_callback = nullptr;
-        kio__deleteortrashjob_connectnotify_callback = nullptr;
-        kio__deleteortrashjob_disconnectnotify_callback = nullptr;
-        kio__deleteortrashjob_hassubjobs_callback = nullptr;
-        kio__deleteortrashjob_subjobs_callback = nullptr;
-        kio__deleteortrashjob_clearsubjobs_callback = nullptr;
-        kio__deleteortrashjob_setcapabilities_callback = nullptr;
-        kio__deleteortrashjob_isfinished_callback = nullptr;
-        kio__deleteortrashjob_seterror_callback = nullptr;
-        kio__deleteortrashjob_seterrortext_callback = nullptr;
-        kio__deleteortrashjob_setprocessedamount_callback = nullptr;
-        kio__deleteortrashjob_settotalamount_callback = nullptr;
-        kio__deleteortrashjob_setprogressunit_callback = nullptr;
-        kio__deleteortrashjob_setpercent_callback = nullptr;
-        kio__deleteortrashjob_emitresult_callback = nullptr;
-        kio__deleteortrashjob_emitpercent_callback = nullptr;
-        kio__deleteortrashjob_emitspeed_callback = nullptr;
-        kio__deleteortrashjob_startelapsedtimer_callback = nullptr;
-        kio__deleteortrashjob_sender_callback = nullptr;
-        kio__deleteortrashjob_sendersignalindex_callback = nullptr;
-        kio__deleteortrashjob_receivers_callback = nullptr;
-        kio__deleteortrashjob_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__DeleteOrTrashJob_MetaObject_Callback(KIO__DeleteOrTrashJob_MetaObject_Callback cb) { kio__deleteortrashjob_metaobject_callback = cb; }
     inline void setKIO__DeleteOrTrashJob_Metacast_Callback(KIO__DeleteOrTrashJob_Metacast_Callback cb) { kio__deleteortrashjob_metacast_callback = cb; }
@@ -260,12 +220,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_metaobject_isbase) {
             kio__deleteortrashjob_metaobject_isbase = false;
             return KIO__DeleteOrTrashJob::metaObject();
-        } else if (kio__deleteortrashjob_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__deleteortrashjob_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::metaObject();
         }
+        auto metaobject_cb = kio__deleteortrashjob_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,14 +234,15 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_metacast_isbase) {
             kio__deleteortrashjob_metacast_isbase = false;
             return KIO__DeleteOrTrashJob::qt_metacast(param1);
-        } else if (kio__deleteortrashjob_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__deleteortrashjob_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__deleteortrashjob_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::qt_metacast(param1);
         }
+        return KIO__DeleteOrTrashJob::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,16 +250,17 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_metacall_isbase) {
             kio__deleteortrashjob_metacall_isbase = false;
             return KIO__DeleteOrTrashJob::qt_metacall(param1, param2, param3);
-        } else if (kio__deleteortrashjob_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__deleteortrashjob_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__deleteortrashjob_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__DeleteOrTrashJob::qt_metacall(param1, param2, param3);
         }
+        return KIO__DeleteOrTrashJob::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,11 +268,14 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_start_isbase) {
             kio__deleteortrashjob_start_isbase = false;
             KIO__DeleteOrTrashJob::start();
-        } else if (kio__deleteortrashjob_start_callback != nullptr) {
-            kio__deleteortrashjob_start_callback();
-        } else {
-            KIO__DeleteOrTrashJob::start();
+            return;
         }
+        auto start_cb = kio__deleteortrashjob_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        KIO__DeleteOrTrashJob::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,14 +283,15 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_addsubjob_isbase) {
             kio__deleteortrashjob_addsubjob_isbase = false;
             return KIO__DeleteOrTrashJob::addSubjob(job);
-        } else if (kio__deleteortrashjob_addsubjob_callback != nullptr) {
+        }
+        auto addsubjob_cb = kio__deleteortrashjob_addsubjob_callback;
+        if (addsubjob_cb) {
             KJob* cbval1 = job;
 
-            bool callback_ret = kio__deleteortrashjob_addsubjob_callback(this, cbval1);
+            bool callback_ret = addsubjob_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::addSubjob(job);
         }
+        return KIO__DeleteOrTrashJob::addSubjob(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,14 +299,15 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_removesubjob_isbase) {
             kio__deleteortrashjob_removesubjob_isbase = false;
             return KIO__DeleteOrTrashJob::removeSubjob(job);
-        } else if (kio__deleteortrashjob_removesubjob_callback != nullptr) {
+        }
+        auto removesubjob_cb = kio__deleteortrashjob_removesubjob_callback;
+        if (removesubjob_cb) {
             KJob* cbval1 = job;
 
-            bool callback_ret = kio__deleteortrashjob_removesubjob_callback(this, cbval1);
+            bool callback_ret = removesubjob_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::removeSubjob(job);
         }
+        return KIO__DeleteOrTrashJob::removeSubjob(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,7 +315,10 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_slotinfomessage_isbase) {
             kio__deleteortrashjob_slotinfomessage_isbase = false;
             KIO__DeleteOrTrashJob::slotInfoMessage(job, message);
-        } else if (kio__deleteortrashjob_slotinfomessage_callback != nullptr) {
+            return;
+        }
+        auto slotinfomessage_cb = kio__deleteortrashjob_slotinfomessage_callback;
+        if (slotinfomessage_cb) {
             KJob* cbval1 = job;
             const QString message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -358,11 +329,11 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
 
-            kio__deleteortrashjob_slotinfomessage_callback(this, cbval1, cbval2);
+            slotinfomessage_cb(this, cbval1, cbval2);
             libqt_free(message_str);
-        } else {
-            KIO__DeleteOrTrashJob::slotInfoMessage(job, message);
+            return;
         }
+        KIO__DeleteOrTrashJob::slotInfoMessage(job, message);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -370,12 +341,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_dokill_isbase) {
             kio__deleteortrashjob_dokill_isbase = false;
             return KIO__DeleteOrTrashJob::doKill();
-        } else if (kio__deleteortrashjob_dokill_callback != nullptr) {
-            bool callback_ret = kio__deleteortrashjob_dokill_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::doKill();
         }
+        auto dokill_cb = kio__deleteortrashjob_dokill_callback;
+        if (dokill_cb) {
+            bool callback_ret = dokill_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::doKill();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -383,12 +355,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_dosuspend_isbase) {
             kio__deleteortrashjob_dosuspend_isbase = false;
             return KIO__DeleteOrTrashJob::doSuspend();
-        } else if (kio__deleteortrashjob_dosuspend_callback != nullptr) {
-            bool callback_ret = kio__deleteortrashjob_dosuspend_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::doSuspend();
         }
+        auto dosuspend_cb = kio__deleteortrashjob_dosuspend_callback;
+        if (dosuspend_cb) {
+            bool callback_ret = dosuspend_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::doSuspend();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -396,12 +369,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_doresume_isbase) {
             kio__deleteortrashjob_doresume_isbase = false;
             return KIO__DeleteOrTrashJob::doResume();
-        } else if (kio__deleteortrashjob_doresume_callback != nullptr) {
-            bool callback_ret = kio__deleteortrashjob_doresume_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::doResume();
         }
+        auto doresume_cb = kio__deleteortrashjob_doresume_callback;
+        if (doresume_cb) {
+            bool callback_ret = doresume_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::doResume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -409,13 +383,14 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_errorstring_isbase) {
             kio__deleteortrashjob_errorstring_isbase = false;
             return KIO__DeleteOrTrashJob::errorString();
-        } else if (kio__deleteortrashjob_errorstring_callback != nullptr) {
-            const char* callback_ret = kio__deleteortrashjob_errorstring_callback();
+        }
+        auto errorstring_cb = kio__deleteortrashjob_errorstring_callback;
+        if (errorstring_cb) {
+            const char* callback_ret = errorstring_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KIO__DeleteOrTrashJob::errorString();
         }
+        return KIO__DeleteOrTrashJob::errorString();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,14 +398,15 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_event_isbase) {
             kio__deleteortrashjob_event_isbase = false;
             return KIO__DeleteOrTrashJob::event(event);
-        } else if (kio__deleteortrashjob_event_callback != nullptr) {
+        }
+        auto event_cb = kio__deleteortrashjob_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__deleteortrashjob_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::event(event);
         }
+        return KIO__DeleteOrTrashJob::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -438,15 +414,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_eventfilter_isbase) {
             kio__deleteortrashjob_eventfilter_isbase = false;
             return KIO__DeleteOrTrashJob::eventFilter(watched, event);
-        } else if (kio__deleteortrashjob_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__deleteortrashjob_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kio__deleteortrashjob_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::eventFilter(watched, event);
         }
+        return KIO__DeleteOrTrashJob::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +431,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_timerevent_isbase) {
             kio__deleteortrashjob_timerevent_isbase = false;
             KIO__DeleteOrTrashJob::timerEvent(event);
-        } else if (kio__deleteortrashjob_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__deleteortrashjob_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__deleteortrashjob_timerevent_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,13 +448,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_childevent_isbase) {
             kio__deleteortrashjob_childevent_isbase = false;
             KIO__DeleteOrTrashJob::childEvent(event);
-        } else if (kio__deleteortrashjob_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__deleteortrashjob_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__deleteortrashjob_childevent_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +465,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_customevent_isbase) {
             kio__deleteortrashjob_customevent_isbase = false;
             KIO__DeleteOrTrashJob::customEvent(event);
-        } else if (kio__deleteortrashjob_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__deleteortrashjob_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__deleteortrashjob_customevent_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,15 +482,18 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_connectnotify_isbase) {
             kio__deleteortrashjob_connectnotify_isbase = false;
             KIO__DeleteOrTrashJob::connectNotify(signal);
-        } else if (kio__deleteortrashjob_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__deleteortrashjob_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__deleteortrashjob_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,15 +501,18 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_disconnectnotify_isbase) {
             kio__deleteortrashjob_disconnectnotify_isbase = false;
             KIO__DeleteOrTrashJob::disconnectNotify(signal);
-        } else if (kio__deleteortrashjob_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__deleteortrashjob_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__deleteortrashjob_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +520,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_hassubjobs_isbase) {
             kio__deleteortrashjob_hassubjobs_isbase = false;
             return KIO__DeleteOrTrashJob::hasSubjobs();
-        } else if (kio__deleteortrashjob_hassubjobs_callback != nullptr) {
-            bool callback_ret = kio__deleteortrashjob_hassubjobs_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::hasSubjobs();
         }
+        auto hassubjobs_cb = kio__deleteortrashjob_hassubjobs_callback;
+        if (hassubjobs_cb) {
+            bool callback_ret = hassubjobs_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::hasSubjobs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,8 +534,10 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_subjobs_isbase) {
             kio__deleteortrashjob_subjobs_isbase = false;
             return KIO__DeleteOrTrashJob::subjobs();
-        } else if (kio__deleteortrashjob_subjobs_callback != nullptr) {
-            libqt_list /* of KJob* */ callback_ret = kio__deleteortrashjob_subjobs_callback();
+        }
+        auto subjobs_cb = kio__deleteortrashjob_subjobs_callback;
+        if (subjobs_cb) {
+            libqt_list /* of KJob* */ callback_ret = subjobs_cb();
             QList<KJob*>* callback_ret_QList;
             callback_ret_QList->reserve(callback_ret.len);
             KJob** callback_ret_arr = static_cast<KJob**>(callback_ret.data);
@@ -551,9 +546,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
             }
             libqt_free(callback_ret.data);
             return *callback_ret_QList;
-        } else {
-            return KIO__DeleteOrTrashJob::subjobs();
         }
+        return KIO__DeleteOrTrashJob::subjobs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -561,11 +555,14 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_clearsubjobs_isbase) {
             kio__deleteortrashjob_clearsubjobs_isbase = false;
             KIO__DeleteOrTrashJob::clearSubjobs();
-        } else if (kio__deleteortrashjob_clearsubjobs_callback != nullptr) {
-            kio__deleteortrashjob_clearsubjobs_callback();
-        } else {
-            KIO__DeleteOrTrashJob::clearSubjobs();
+            return;
         }
+        auto clearsubjobs_cb = kio__deleteortrashjob_clearsubjobs_callback;
+        if (clearsubjobs_cb) {
+            clearsubjobs_cb();
+            return;
+        }
+        KIO__DeleteOrTrashJob::clearSubjobs();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,13 +570,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_setcapabilities_isbase) {
             kio__deleteortrashjob_setcapabilities_isbase = false;
             KIO__DeleteOrTrashJob::setCapabilities(capabilities);
-        } else if (kio__deleteortrashjob_setcapabilities_callback != nullptr) {
+            return;
+        }
+        auto setcapabilities_cb = kio__deleteortrashjob_setcapabilities_callback;
+        if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
 
-            kio__deleteortrashjob_setcapabilities_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::setCapabilities(capabilities);
+            setcapabilities_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::setCapabilities(capabilities);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,12 +587,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_isfinished_isbase) {
             kio__deleteortrashjob_isfinished_isbase = false;
             return KIO__DeleteOrTrashJob::isFinished();
-        } else if (kio__deleteortrashjob_isfinished_callback != nullptr) {
-            bool callback_ret = kio__deleteortrashjob_isfinished_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::isFinished();
         }
+        auto isfinished_cb = kio__deleteortrashjob_isfinished_callback;
+        if (isfinished_cb) {
+            bool callback_ret = isfinished_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::isFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,13 +601,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_seterror_isbase) {
             kio__deleteortrashjob_seterror_isbase = false;
             KIO__DeleteOrTrashJob::setError(errorCode);
-        } else if (kio__deleteortrashjob_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = kio__deleteortrashjob_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = errorCode;
 
-            kio__deleteortrashjob_seterror_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::setError(errorCode);
+            seterror_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::setError(errorCode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,7 +618,10 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_seterrortext_isbase) {
             kio__deleteortrashjob_seterrortext_isbase = false;
             KIO__DeleteOrTrashJob::setErrorText(errorText);
-        } else if (kio__deleteortrashjob_seterrortext_callback != nullptr) {
+            return;
+        }
+        auto seterrortext_cb = kio__deleteortrashjob_seterrortext_callback;
+        if (seterrortext_cb) {
             const QString errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
@@ -624,11 +631,11 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
 
-            kio__deleteortrashjob_seterrortext_callback(this, cbval1);
+            seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
-        } else {
-            KIO__DeleteOrTrashJob::setErrorText(errorText);
+            return;
         }
+        KIO__DeleteOrTrashJob::setErrorText(errorText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,14 +643,17 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_setprocessedamount_isbase) {
             kio__deleteortrashjob_setprocessedamount_isbase = false;
             KIO__DeleteOrTrashJob::setProcessedAmount(unit, amount);
-        } else if (kio__deleteortrashjob_setprocessedamount_callback != nullptr) {
+            return;
+        }
+        auto setprocessedamount_cb = kio__deleteortrashjob_setprocessedamount_callback;
+        if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kio__deleteortrashjob_setprocessedamount_callback(this, cbval1, cbval2);
-        } else {
-            KIO__DeleteOrTrashJob::setProcessedAmount(unit, amount);
+            setprocessedamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__DeleteOrTrashJob::setProcessedAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,14 +661,17 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_settotalamount_isbase) {
             kio__deleteortrashjob_settotalamount_isbase = false;
             KIO__DeleteOrTrashJob::setTotalAmount(unit, amount);
-        } else if (kio__deleteortrashjob_settotalamount_callback != nullptr) {
+            return;
+        }
+        auto settotalamount_cb = kio__deleteortrashjob_settotalamount_callback;
+        if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kio__deleteortrashjob_settotalamount_callback(this, cbval1, cbval2);
-        } else {
-            KIO__DeleteOrTrashJob::setTotalAmount(unit, amount);
+            settotalamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__DeleteOrTrashJob::setTotalAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -666,13 +679,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_setprogressunit_isbase) {
             kio__deleteortrashjob_setprogressunit_isbase = false;
             KIO__DeleteOrTrashJob::setProgressUnit(unit);
-        } else if (kio__deleteortrashjob_setprogressunit_callback != nullptr) {
+            return;
+        }
+        auto setprogressunit_cb = kio__deleteortrashjob_setprogressunit_callback;
+        if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
 
-            kio__deleteortrashjob_setprogressunit_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::setProgressUnit(unit);
+            setprogressunit_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::setProgressUnit(unit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,13 +696,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_setpercent_isbase) {
             kio__deleteortrashjob_setpercent_isbase = false;
             KIO__DeleteOrTrashJob::setPercent(percentage);
-        } else if (kio__deleteortrashjob_setpercent_callback != nullptr) {
+            return;
+        }
+        auto setpercent_cb = kio__deleteortrashjob_setpercent_callback;
+        if (setpercent_cb) {
             unsigned long cbval1 = percentage;
 
-            kio__deleteortrashjob_setpercent_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::setPercent(percentage);
+            setpercent_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::setPercent(percentage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,11 +713,14 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_emitresult_isbase) {
             kio__deleteortrashjob_emitresult_isbase = false;
             KIO__DeleteOrTrashJob::emitResult();
-        } else if (kio__deleteortrashjob_emitresult_callback != nullptr) {
-            kio__deleteortrashjob_emitresult_callback();
-        } else {
-            KIO__DeleteOrTrashJob::emitResult();
+            return;
         }
+        auto emitresult_cb = kio__deleteortrashjob_emitresult_callback;
+        if (emitresult_cb) {
+            emitresult_cb();
+            return;
+        }
+        KIO__DeleteOrTrashJob::emitResult();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,14 +728,17 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_emitpercent_isbase) {
             kio__deleteortrashjob_emitpercent_isbase = false;
             KIO__DeleteOrTrashJob::emitPercent(processedAmount, totalAmount);
-        } else if (kio__deleteortrashjob_emitpercent_callback != nullptr) {
+            return;
+        }
+        auto emitpercent_cb = kio__deleteortrashjob_emitpercent_callback;
+        if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
 
-            kio__deleteortrashjob_emitpercent_callback(this, cbval1, cbval2);
-        } else {
-            KIO__DeleteOrTrashJob::emitPercent(processedAmount, totalAmount);
+            emitpercent_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__DeleteOrTrashJob::emitPercent(processedAmount, totalAmount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +746,16 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_emitspeed_isbase) {
             kio__deleteortrashjob_emitspeed_isbase = false;
             KIO__DeleteOrTrashJob::emitSpeed(speed);
-        } else if (kio__deleteortrashjob_emitspeed_callback != nullptr) {
+            return;
+        }
+        auto emitspeed_cb = kio__deleteortrashjob_emitspeed_callback;
+        if (emitspeed_cb) {
             unsigned long cbval1 = speed;
 
-            kio__deleteortrashjob_emitspeed_callback(this, cbval1);
-        } else {
-            KIO__DeleteOrTrashJob::emitSpeed(speed);
+            emitspeed_cb(this, cbval1);
+            return;
         }
+        KIO__DeleteOrTrashJob::emitSpeed(speed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,11 +763,14 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_startelapsedtimer_isbase) {
             kio__deleteortrashjob_startelapsedtimer_isbase = false;
             KIO__DeleteOrTrashJob::startElapsedTimer();
-        } else if (kio__deleteortrashjob_startelapsedtimer_callback != nullptr) {
-            kio__deleteortrashjob_startelapsedtimer_callback();
-        } else {
-            KIO__DeleteOrTrashJob::startElapsedTimer();
+            return;
         }
+        auto startelapsedtimer_cb = kio__deleteortrashjob_startelapsedtimer_callback;
+        if (startelapsedtimer_cb) {
+            startelapsedtimer_cb();
+            return;
+        }
+        KIO__DeleteOrTrashJob::startElapsedTimer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -747,12 +778,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_sender_isbase) {
             kio__deleteortrashjob_sender_isbase = false;
             return KIO__DeleteOrTrashJob::sender();
-        } else if (kio__deleteortrashjob_sender_callback != nullptr) {
-            QObject* callback_ret = kio__deleteortrashjob_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::sender();
         }
+        auto sender_cb = kio__deleteortrashjob_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__DeleteOrTrashJob::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,12 +792,13 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_sendersignalindex_isbase) {
             kio__deleteortrashjob_sendersignalindex_isbase = false;
             return KIO__DeleteOrTrashJob::senderSignalIndex();
-        } else if (kio__deleteortrashjob_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__deleteortrashjob_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__DeleteOrTrashJob::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__deleteortrashjob_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__DeleteOrTrashJob::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,14 +806,15 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_receivers_isbase) {
             kio__deleteortrashjob_receivers_isbase = false;
             return KIO__DeleteOrTrashJob::receivers(signal);
-        } else if (kio__deleteortrashjob_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__deleteortrashjob_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__deleteortrashjob_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__DeleteOrTrashJob::receivers(signal);
         }
+        return KIO__DeleteOrTrashJob::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,16 +822,17 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
         if (kio__deleteortrashjob_issignalconnected_isbase) {
             kio__deleteortrashjob_issignalconnected_isbase = false;
             return KIO__DeleteOrTrashJob::isSignalConnected(signal);
-        } else if (kio__deleteortrashjob_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__deleteortrashjob_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__deleteortrashjob_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__DeleteOrTrashJob::isSignalConnected(signal);
         }
+        return KIO__DeleteOrTrashJob::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -211,69 +211,6 @@ class VirtualKLed final : public KLed {
     VirtualKLed(const QColor& color, QWidget* parent) : KLed(color, parent) {};
     VirtualKLed(const QColor& color, KLed::State state, KLed::Look look, KLed::Shape shape, QWidget* parent) : KLed(color, state, look, shape, parent) {};
 
-    ~VirtualKLed() {
-        kled_metaobject_callback = nullptr;
-        kled_metacast_callback = nullptr;
-        kled_metacall_callback = nullptr;
-        kled_sizehint_callback = nullptr;
-        kled_minimumsizehint_callback = nullptr;
-        kled_paintevent_callback = nullptr;
-        kled_resizeevent_callback = nullptr;
-        kled_devtype_callback = nullptr;
-        kled_setvisible_callback = nullptr;
-        kled_heightforwidth_callback = nullptr;
-        kled_hasheightforwidth_callback = nullptr;
-        kled_paintengine_callback = nullptr;
-        kled_event_callback = nullptr;
-        kled_mousepressevent_callback = nullptr;
-        kled_mousereleaseevent_callback = nullptr;
-        kled_mousedoubleclickevent_callback = nullptr;
-        kled_mousemoveevent_callback = nullptr;
-        kled_wheelevent_callback = nullptr;
-        kled_keypressevent_callback = nullptr;
-        kled_keyreleaseevent_callback = nullptr;
-        kled_focusinevent_callback = nullptr;
-        kled_focusoutevent_callback = nullptr;
-        kled_enterevent_callback = nullptr;
-        kled_leaveevent_callback = nullptr;
-        kled_moveevent_callback = nullptr;
-        kled_closeevent_callback = nullptr;
-        kled_contextmenuevent_callback = nullptr;
-        kled_tabletevent_callback = nullptr;
-        kled_actionevent_callback = nullptr;
-        kled_dragenterevent_callback = nullptr;
-        kled_dragmoveevent_callback = nullptr;
-        kled_dragleaveevent_callback = nullptr;
-        kled_dropevent_callback = nullptr;
-        kled_showevent_callback = nullptr;
-        kled_hideevent_callback = nullptr;
-        kled_nativeevent_callback = nullptr;
-        kled_changeevent_callback = nullptr;
-        kled_metric_callback = nullptr;
-        kled_initpainter_callback = nullptr;
-        kled_redirected_callback = nullptr;
-        kled_sharedpainter_callback = nullptr;
-        kled_inputmethodevent_callback = nullptr;
-        kled_inputmethodquery_callback = nullptr;
-        kled_focusnextprevchild_callback = nullptr;
-        kled_eventfilter_callback = nullptr;
-        kled_timerevent_callback = nullptr;
-        kled_childevent_callback = nullptr;
-        kled_customevent_callback = nullptr;
-        kled_connectnotify_callback = nullptr;
-        kled_disconnectnotify_callback = nullptr;
-        kled_updatemicrofocus_callback = nullptr;
-        kled_create_callback = nullptr;
-        kled_destroy_callback = nullptr;
-        kled_focusnextchild_callback = nullptr;
-        kled_focuspreviouschild_callback = nullptr;
-        kled_sender_callback = nullptr;
-        kled_sendersignalindex_callback = nullptr;
-        kled_receivers_callback = nullptr;
-        kled_issignalconnected_callback = nullptr;
-        kled_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKLed_MetaObject_Callback(KLed_MetaObject_Callback cb) { kled_metaobject_callback = cb; }
     inline void setKLed_Metacast_Callback(KLed_Metacast_Callback cb) { kled_metacast_callback = cb; }
@@ -403,12 +340,13 @@ class VirtualKLed final : public KLed {
         if (kled_metaobject_isbase) {
             kled_metaobject_isbase = false;
             return KLed::metaObject();
-        } else if (kled_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kled_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KLed::metaObject();
         }
+        auto metaobject_cb = kled_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KLed::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,14 +354,15 @@ class VirtualKLed final : public KLed {
         if (kled_metacast_isbase) {
             kled_metacast_isbase = false;
             return KLed::qt_metacast(param1);
-        } else if (kled_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kled_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kled_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLed::qt_metacast(param1);
         }
+        return KLed::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -431,16 +370,17 @@ class VirtualKLed final : public KLed {
         if (kled_metacall_isbase) {
             kled_metacall_isbase = false;
             return KLed::qt_metacall(param1, param2, param3);
-        } else if (kled_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kled_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kled_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLed::qt_metacall(param1, param2, param3);
         }
+        return KLed::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -448,12 +388,13 @@ class VirtualKLed final : public KLed {
         if (kled_sizehint_isbase) {
             kled_sizehint_isbase = false;
             return KLed::sizeHint();
-        } else if (kled_sizehint_callback != nullptr) {
-            QSize* callback_ret = kled_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KLed::sizeHint();
         }
+        auto sizehint_cb = kled_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KLed::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -461,12 +402,13 @@ class VirtualKLed final : public KLed {
         if (kled_minimumsizehint_isbase) {
             kled_minimumsizehint_isbase = false;
             return KLed::minimumSizeHint();
-        } else if (kled_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kled_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KLed::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kled_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KLed::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,13 +416,16 @@ class VirtualKLed final : public KLed {
         if (kled_paintevent_isbase) {
             kled_paintevent_isbase = false;
             KLed::paintEvent(param1);
-        } else if (kled_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kled_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kled_paintevent_callback(this, cbval1);
-        } else {
-            KLed::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KLed::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,13 +433,16 @@ class VirtualKLed final : public KLed {
         if (kled_resizeevent_isbase) {
             kled_resizeevent_isbase = false;
             KLed::resizeEvent(param1);
-        } else if (kled_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kled_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kled_resizeevent_callback(this, cbval1);
-        } else {
-            KLed::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KLed::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,12 +450,13 @@ class VirtualKLed final : public KLed {
         if (kled_devtype_isbase) {
             kled_devtype_isbase = false;
             return KLed::devType();
-        } else if (kled_devtype_callback != nullptr) {
-            int callback_ret = kled_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLed::devType();
         }
+        auto devtype_cb = kled_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLed::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,13 +464,16 @@ class VirtualKLed final : public KLed {
         if (kled_setvisible_isbase) {
             kled_setvisible_isbase = false;
             KLed::setVisible(visible);
-        } else if (kled_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kled_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kled_setvisible_callback(this, cbval1);
-        } else {
-            KLed::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KLed::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,14 +481,15 @@ class VirtualKLed final : public KLed {
         if (kled_heightforwidth_isbase) {
             kled_heightforwidth_isbase = false;
             return KLed::heightForWidth(param1);
-        } else if (kled_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kled_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kled_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLed::heightForWidth(param1);
         }
+        return KLed::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,12 +497,13 @@ class VirtualKLed final : public KLed {
         if (kled_hasheightforwidth_isbase) {
             kled_hasheightforwidth_isbase = false;
             return KLed::hasHeightForWidth();
-        } else if (kled_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kled_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KLed::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kled_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KLed::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,12 +511,13 @@ class VirtualKLed final : public KLed {
         if (kled_paintengine_isbase) {
             kled_paintengine_isbase = false;
             return KLed::paintEngine();
-        } else if (kled_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kled_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KLed::paintEngine();
         }
+        auto paintengine_cb = kled_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KLed::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,14 +525,15 @@ class VirtualKLed final : public KLed {
         if (kled_event_isbase) {
             kled_event_isbase = false;
             return KLed::event(event);
-        } else if (kled_event_callback != nullptr) {
+        }
+        auto event_cb = kled_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kled_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLed::event(event);
         }
+        return KLed::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -585,13 +541,16 @@ class VirtualKLed final : public KLed {
         if (kled_mousepressevent_isbase) {
             kled_mousepressevent_isbase = false;
             KLed::mousePressEvent(event);
-        } else if (kled_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kled_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kled_mousepressevent_callback(this, cbval1);
-        } else {
-            KLed::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KLed::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,13 +558,16 @@ class VirtualKLed final : public KLed {
         if (kled_mousereleaseevent_isbase) {
             kled_mousereleaseevent_isbase = false;
             KLed::mouseReleaseEvent(event);
-        } else if (kled_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kled_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kled_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KLed::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KLed::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -613,13 +575,16 @@ class VirtualKLed final : public KLed {
         if (kled_mousedoubleclickevent_isbase) {
             kled_mousedoubleclickevent_isbase = false;
             KLed::mouseDoubleClickEvent(event);
-        } else if (kled_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kled_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kled_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KLed::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KLed::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -627,13 +592,16 @@ class VirtualKLed final : public KLed {
         if (kled_mousemoveevent_isbase) {
             kled_mousemoveevent_isbase = false;
             KLed::mouseMoveEvent(event);
-        } else if (kled_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kled_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kled_mousemoveevent_callback(this, cbval1);
-        } else {
-            KLed::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KLed::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,13 +609,16 @@ class VirtualKLed final : public KLed {
         if (kled_wheelevent_isbase) {
             kled_wheelevent_isbase = false;
             KLed::wheelEvent(event);
-        } else if (kled_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kled_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kled_wheelevent_callback(this, cbval1);
-        } else {
-            KLed::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KLed::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,13 +626,16 @@ class VirtualKLed final : public KLed {
         if (kled_keypressevent_isbase) {
             kled_keypressevent_isbase = false;
             KLed::keyPressEvent(event);
-        } else if (kled_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kled_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kled_keypressevent_callback(this, cbval1);
-        } else {
-            KLed::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KLed::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,13 +643,16 @@ class VirtualKLed final : public KLed {
         if (kled_keyreleaseevent_isbase) {
             kled_keyreleaseevent_isbase = false;
             KLed::keyReleaseEvent(event);
-        } else if (kled_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kled_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kled_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KLed::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KLed::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,13 +660,16 @@ class VirtualKLed final : public KLed {
         if (kled_focusinevent_isbase) {
             kled_focusinevent_isbase = false;
             KLed::focusInEvent(event);
-        } else if (kled_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kled_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kled_focusinevent_callback(this, cbval1);
-        } else {
-            KLed::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KLed::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,13 +677,16 @@ class VirtualKLed final : public KLed {
         if (kled_focusoutevent_isbase) {
             kled_focusoutevent_isbase = false;
             KLed::focusOutEvent(event);
-        } else if (kled_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kled_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kled_focusoutevent_callback(this, cbval1);
-        } else {
-            KLed::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KLed::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,13 +694,16 @@ class VirtualKLed final : public KLed {
         if (kled_enterevent_isbase) {
             kled_enterevent_isbase = false;
             KLed::enterEvent(event);
-        } else if (kled_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kled_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kled_enterevent_callback(this, cbval1);
-        } else {
-            KLed::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KLed::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,13 +711,16 @@ class VirtualKLed final : public KLed {
         if (kled_leaveevent_isbase) {
             kled_leaveevent_isbase = false;
             KLed::leaveEvent(event);
-        } else if (kled_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kled_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kled_leaveevent_callback(this, cbval1);
-        } else {
-            KLed::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KLed::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,13 +728,16 @@ class VirtualKLed final : public KLed {
         if (kled_moveevent_isbase) {
             kled_moveevent_isbase = false;
             KLed::moveEvent(event);
-        } else if (kled_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kled_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kled_moveevent_callback(this, cbval1);
-        } else {
-            KLed::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KLed::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,13 +745,16 @@ class VirtualKLed final : public KLed {
         if (kled_closeevent_isbase) {
             kled_closeevent_isbase = false;
             KLed::closeEvent(event);
-        } else if (kled_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kled_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kled_closeevent_callback(this, cbval1);
-        } else {
-            KLed::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KLed::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +762,16 @@ class VirtualKLed final : public KLed {
         if (kled_contextmenuevent_isbase) {
             kled_contextmenuevent_isbase = false;
             KLed::contextMenuEvent(event);
-        } else if (kled_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kled_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kled_contextmenuevent_callback(this, cbval1);
-        } else {
-            KLed::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KLed::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +779,16 @@ class VirtualKLed final : public KLed {
         if (kled_tabletevent_isbase) {
             kled_tabletevent_isbase = false;
             KLed::tabletEvent(event);
-        } else if (kled_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kled_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kled_tabletevent_callback(this, cbval1);
-        } else {
-            KLed::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KLed::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +796,16 @@ class VirtualKLed final : public KLed {
         if (kled_actionevent_isbase) {
             kled_actionevent_isbase = false;
             KLed::actionEvent(event);
-        } else if (kled_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kled_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kled_actionevent_callback(this, cbval1);
-        } else {
-            KLed::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KLed::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +813,16 @@ class VirtualKLed final : public KLed {
         if (kled_dragenterevent_isbase) {
             kled_dragenterevent_isbase = false;
             KLed::dragEnterEvent(event);
-        } else if (kled_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kled_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kled_dragenterevent_callback(this, cbval1);
-        } else {
-            KLed::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KLed::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,13 +830,16 @@ class VirtualKLed final : public KLed {
         if (kled_dragmoveevent_isbase) {
             kled_dragmoveevent_isbase = false;
             KLed::dragMoveEvent(event);
-        } else if (kled_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kled_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kled_dragmoveevent_callback(this, cbval1);
-        } else {
-            KLed::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KLed::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,13 +847,16 @@ class VirtualKLed final : public KLed {
         if (kled_dragleaveevent_isbase) {
             kled_dragleaveevent_isbase = false;
             KLed::dragLeaveEvent(event);
-        } else if (kled_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kled_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kled_dragleaveevent_callback(this, cbval1);
-        } else {
-            KLed::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KLed::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,13 +864,16 @@ class VirtualKLed final : public KLed {
         if (kled_dropevent_isbase) {
             kled_dropevent_isbase = false;
             KLed::dropEvent(event);
-        } else if (kled_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kled_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kled_dropevent_callback(this, cbval1);
-        } else {
-            KLed::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KLed::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,13 +881,16 @@ class VirtualKLed final : public KLed {
         if (kled_showevent_isbase) {
             kled_showevent_isbase = false;
             KLed::showEvent(event);
-        } else if (kled_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kled_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kled_showevent_callback(this, cbval1);
-        } else {
-            KLed::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KLed::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -879,13 +898,16 @@ class VirtualKLed final : public KLed {
         if (kled_hideevent_isbase) {
             kled_hideevent_isbase = false;
             KLed::hideEvent(event);
-        } else if (kled_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kled_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kled_hideevent_callback(this, cbval1);
-        } else {
-            KLed::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KLed::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,7 +915,9 @@ class VirtualKLed final : public KLed {
         if (kled_nativeevent_isbase) {
             kled_nativeevent_isbase = false;
             return KLed::nativeEvent(eventType, message, result);
-        } else if (kled_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kled_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -904,12 +928,11 @@ class VirtualKLed final : public KLed {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kled_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KLed::nativeEvent(eventType, message, result);
         }
+        return KLed::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -917,13 +940,16 @@ class VirtualKLed final : public KLed {
         if (kled_changeevent_isbase) {
             kled_changeevent_isbase = false;
             KLed::changeEvent(param1);
-        } else if (kled_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kled_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kled_changeevent_callback(this, cbval1);
-        } else {
-            KLed::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KLed::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -931,14 +957,15 @@ class VirtualKLed final : public KLed {
         if (kled_metric_isbase) {
             kled_metric_isbase = false;
             return KLed::metric(param1);
-        } else if (kled_metric_callback != nullptr) {
+        }
+        auto metric_cb = kled_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kled_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLed::metric(param1);
         }
+        return KLed::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -946,13 +973,16 @@ class VirtualKLed final : public KLed {
         if (kled_initpainter_isbase) {
             kled_initpainter_isbase = false;
             KLed::initPainter(painter);
-        } else if (kled_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kled_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kled_initpainter_callback(this, cbval1);
-        } else {
-            KLed::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KLed::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -960,14 +990,15 @@ class VirtualKLed final : public KLed {
         if (kled_redirected_isbase) {
             kled_redirected_isbase = false;
             return KLed::redirected(offset);
-        } else if (kled_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kled_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kled_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLed::redirected(offset);
         }
+        return KLed::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,12 +1006,13 @@ class VirtualKLed final : public KLed {
         if (kled_sharedpainter_isbase) {
             kled_sharedpainter_isbase = false;
             return KLed::sharedPainter();
-        } else if (kled_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kled_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KLed::sharedPainter();
         }
+        auto sharedpainter_cb = kled_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KLed::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -988,13 +1020,16 @@ class VirtualKLed final : public KLed {
         if (kled_inputmethodevent_isbase) {
             kled_inputmethodevent_isbase = false;
             KLed::inputMethodEvent(param1);
-        } else if (kled_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kled_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kled_inputmethodevent_callback(this, cbval1);
-        } else {
-            KLed::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KLed::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1002,14 +1037,15 @@ class VirtualKLed final : public KLed {
         if (kled_inputmethodquery_isbase) {
             kled_inputmethodquery_isbase = false;
             return KLed::inputMethodQuery(param1);
-        } else if (kled_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kled_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kled_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KLed::inputMethodQuery(param1);
         }
+        return KLed::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1017,14 +1053,15 @@ class VirtualKLed final : public KLed {
         if (kled_focusnextprevchild_isbase) {
             kled_focusnextprevchild_isbase = false;
             return KLed::focusNextPrevChild(next);
-        } else if (kled_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kled_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kled_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLed::focusNextPrevChild(next);
         }
+        return KLed::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1032,15 +1069,16 @@ class VirtualKLed final : public KLed {
         if (kled_eventfilter_isbase) {
             kled_eventfilter_isbase = false;
             return KLed::eventFilter(watched, event);
-        } else if (kled_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kled_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kled_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KLed::eventFilter(watched, event);
         }
+        return KLed::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,13 +1086,16 @@ class VirtualKLed final : public KLed {
         if (kled_timerevent_isbase) {
             kled_timerevent_isbase = false;
             KLed::timerEvent(event);
-        } else if (kled_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kled_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kled_timerevent_callback(this, cbval1);
-        } else {
-            KLed::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KLed::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1062,13 +1103,16 @@ class VirtualKLed final : public KLed {
         if (kled_childevent_isbase) {
             kled_childevent_isbase = false;
             KLed::childEvent(event);
-        } else if (kled_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kled_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kled_childevent_callback(this, cbval1);
-        } else {
-            KLed::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KLed::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,13 +1120,16 @@ class VirtualKLed final : public KLed {
         if (kled_customevent_isbase) {
             kled_customevent_isbase = false;
             KLed::customEvent(event);
-        } else if (kled_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kled_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kled_customevent_callback(this, cbval1);
-        } else {
-            KLed::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KLed::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,15 +1137,18 @@ class VirtualKLed final : public KLed {
         if (kled_connectnotify_isbase) {
             kled_connectnotify_isbase = false;
             KLed::connectNotify(signal);
-        } else if (kled_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kled_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kled_connectnotify_callback(this, cbval1);
-        } else {
-            KLed::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KLed::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,15 +1156,18 @@ class VirtualKLed final : public KLed {
         if (kled_disconnectnotify_isbase) {
             kled_disconnectnotify_isbase = false;
             KLed::disconnectNotify(signal);
-        } else if (kled_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kled_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kled_disconnectnotify_callback(this, cbval1);
-        } else {
-            KLed::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KLed::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,11 +1175,14 @@ class VirtualKLed final : public KLed {
         if (kled_updatemicrofocus_isbase) {
             kled_updatemicrofocus_isbase = false;
             KLed::updateMicroFocus();
-        } else if (kled_updatemicrofocus_callback != nullptr) {
-            kled_updatemicrofocus_callback();
-        } else {
-            KLed::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kled_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KLed::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,11 +1190,14 @@ class VirtualKLed final : public KLed {
         if (kled_create_isbase) {
             kled_create_isbase = false;
             KLed::create();
-        } else if (kled_create_callback != nullptr) {
-            kled_create_callback();
-        } else {
-            KLed::create();
+            return;
         }
+        auto create_cb = kled_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KLed::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,11 +1205,14 @@ class VirtualKLed final : public KLed {
         if (kled_destroy_isbase) {
             kled_destroy_isbase = false;
             KLed::destroy();
-        } else if (kled_destroy_callback != nullptr) {
-            kled_destroy_callback();
-        } else {
-            KLed::destroy();
+            return;
         }
+        auto destroy_cb = kled_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KLed::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,12 +1220,13 @@ class VirtualKLed final : public KLed {
         if (kled_focusnextchild_isbase) {
             kled_focusnextchild_isbase = false;
             return KLed::focusNextChild();
-        } else if (kled_focusnextchild_callback != nullptr) {
-            bool callback_ret = kled_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KLed::focusNextChild();
         }
+        auto focusnextchild_cb = kled_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KLed::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,12 +1234,13 @@ class VirtualKLed final : public KLed {
         if (kled_focuspreviouschild_isbase) {
             kled_focuspreviouschild_isbase = false;
             return KLed::focusPreviousChild();
-        } else if (kled_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kled_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KLed::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kled_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KLed::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,12 +1248,13 @@ class VirtualKLed final : public KLed {
         if (kled_sender_isbase) {
             kled_sender_isbase = false;
             return KLed::sender();
-        } else if (kled_sender_callback != nullptr) {
-            QObject* callback_ret = kled_sender_callback();
-            return callback_ret;
-        } else {
-            return KLed::sender();
         }
+        auto sender_cb = kled_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KLed::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,12 +1262,13 @@ class VirtualKLed final : public KLed {
         if (kled_sendersignalindex_isbase) {
             kled_sendersignalindex_isbase = false;
             return KLed::senderSignalIndex();
-        } else if (kled_sendersignalindex_callback != nullptr) {
-            int callback_ret = kled_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLed::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kled_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLed::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,14 +1276,15 @@ class VirtualKLed final : public KLed {
         if (kled_receivers_isbase) {
             kled_receivers_isbase = false;
             return KLed::receivers(signal);
-        } else if (kled_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kled_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kled_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLed::receivers(signal);
         }
+        return KLed::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,16 +1292,17 @@ class VirtualKLed final : public KLed {
         if (kled_issignalconnected_isbase) {
             kled_issignalconnected_isbase = false;
             return KLed::isSignalConnected(signal);
-        } else if (kled_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kled_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kled_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLed::isSignalConnected(signal);
         }
+        return KLed::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1242,15 +1310,16 @@ class VirtualKLed final : public KLed {
         if (kled_getdecodedmetricf_isbase) {
             kled_getdecodedmetricf_isbase = false;
             return KLed::getDecodedMetricF(metricA, metricB);
-        } else if (kled_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kled_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kled_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KLed::getDecodedMetricF(metricA, metricB);
         }
+        return KLed::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

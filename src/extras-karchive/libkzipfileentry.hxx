@@ -45,15 +45,6 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
     VirtualKZipFileEntry(KZip* zip, const QString& name, int access, const QDateTime& date, const QString& user, const QString& group, const QString& symlink, const QString& path, qint64 start, qint64 uncompressedSize, int encoding, qint64 compressedSize) : KZipFileEntry(zip, name, access, date, user, group, symlink, path, start, uncompressedSize, encoding, compressedSize) {};
     VirtualKZipFileEntry(const KZipFileEntry& param1) : KZipFileEntry(param1) {};
 
-    ~VirtualKZipFileEntry() {
-        kzipfileentry_data_callback = nullptr;
-        kzipfileentry_createdevice_callback = nullptr;
-        kzipfileentry_isfile_callback = nullptr;
-        kzipfileentry_virtualhook_callback = nullptr;
-        kzipfileentry_isdirectory_callback = nullptr;
-        kzipfileentry_archive_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKZipFileEntry_Data_Callback(KZipFileEntry_Data_Callback cb) { kzipfileentry_data_callback = cb; }
     inline void setKZipFileEntry_CreateDevice_Callback(KZipFileEntry_CreateDevice_Callback cb) { kzipfileentry_createdevice_callback = cb; }
@@ -75,13 +66,14 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
         if (kzipfileentry_data_isbase) {
             kzipfileentry_data_isbase = false;
             return KZipFileEntry::data();
-        } else if (kzipfileentry_data_callback != nullptr) {
-            libqt_string callback_ret = kzipfileentry_data_callback();
+        }
+        auto data_cb = kzipfileentry_data_callback;
+        if (data_cb) {
+            libqt_string callback_ret = data_cb();
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
-        } else {
-            return KZipFileEntry::data();
         }
+        return KZipFileEntry::data();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -89,12 +81,13 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
         if (kzipfileentry_createdevice_isbase) {
             kzipfileentry_createdevice_isbase = false;
             return KZipFileEntry::createDevice();
-        } else if (kzipfileentry_createdevice_callback != nullptr) {
-            QIODevice* callback_ret = kzipfileentry_createdevice_callback();
-            return callback_ret;
-        } else {
-            return KZipFileEntry::createDevice();
         }
+        auto createdevice_cb = kzipfileentry_createdevice_callback;
+        if (createdevice_cb) {
+            QIODevice* callback_ret = createdevice_cb();
+            return callback_ret;
+        }
+        return KZipFileEntry::createDevice();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -102,12 +95,13 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
         if (kzipfileentry_isfile_isbase) {
             kzipfileentry_isfile_isbase = false;
             return KZipFileEntry::isFile();
-        } else if (kzipfileentry_isfile_callback != nullptr) {
-            bool callback_ret = kzipfileentry_isfile_callback();
-            return callback_ret;
-        } else {
-            return KZipFileEntry::isFile();
         }
+        auto isfile_cb = kzipfileentry_isfile_callback;
+        if (isfile_cb) {
+            bool callback_ret = isfile_cb();
+            return callback_ret;
+        }
+        return KZipFileEntry::isFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -115,14 +109,17 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
         if (kzipfileentry_virtualhook_isbase) {
             kzipfileentry_virtualhook_isbase = false;
             KZipFileEntry::virtual_hook(id, data);
-        } else if (kzipfileentry_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kzipfileentry_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kzipfileentry_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KZipFileEntry::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KZipFileEntry::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -130,12 +127,13 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
         if (kzipfileentry_isdirectory_isbase) {
             kzipfileentry_isdirectory_isbase = false;
             return KZipFileEntry::isDirectory();
-        } else if (kzipfileentry_isdirectory_callback != nullptr) {
-            bool callback_ret = kzipfileentry_isdirectory_callback();
-            return callback_ret;
-        } else {
-            return KZipFileEntry::isDirectory();
         }
+        auto isdirectory_cb = kzipfileentry_isdirectory_callback;
+        if (isdirectory_cb) {
+            bool callback_ret = isdirectory_cb();
+            return callback_ret;
+        }
+        return KZipFileEntry::isDirectory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -143,12 +141,13 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
         if (kzipfileentry_archive_isbase) {
             kzipfileentry_archive_isbase = false;
             return KZipFileEntry::archive();
-        } else if (kzipfileentry_archive_callback != nullptr) {
-            KArchive* callback_ret = kzipfileentry_archive_callback();
-            return callback_ret;
-        } else {
-            return KZipFileEntry::archive();
         }
+        auto archive_cb = kzipfileentry_archive_callback;
+        if (archive_cb) {
+            KArchive* callback_ret = archive_cb();
+            return callback_ret;
+        }
+        return KZipFileEntry::archive();
     }
 
     // Friend functions

@@ -71,23 +71,6 @@ class VirtualQPluginLoader final : public QPluginLoader {
     VirtualQPluginLoader(QObject* parent) : QPluginLoader(parent) {};
     VirtualQPluginLoader(const QString& fileName, QObject* parent) : QPluginLoader(fileName, parent) {};
 
-    ~VirtualQPluginLoader() {
-        qpluginloader_metaobject_callback = nullptr;
-        qpluginloader_metacast_callback = nullptr;
-        qpluginloader_metacall_callback = nullptr;
-        qpluginloader_event_callback = nullptr;
-        qpluginloader_eventfilter_callback = nullptr;
-        qpluginloader_timerevent_callback = nullptr;
-        qpluginloader_childevent_callback = nullptr;
-        qpluginloader_customevent_callback = nullptr;
-        qpluginloader_connectnotify_callback = nullptr;
-        qpluginloader_disconnectnotify_callback = nullptr;
-        qpluginloader_sender_callback = nullptr;
-        qpluginloader_sendersignalindex_callback = nullptr;
-        qpluginloader_receivers_callback = nullptr;
-        qpluginloader_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPluginLoader_MetaObject_Callback(QPluginLoader_MetaObject_Callback cb) { qpluginloader_metaobject_callback = cb; }
     inline void setQPluginLoader_Metacast_Callback(QPluginLoader_Metacast_Callback cb) { qpluginloader_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_metaobject_isbase) {
             qpluginloader_metaobject_isbase = false;
             return QPluginLoader::metaObject();
-        } else if (qpluginloader_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpluginloader_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPluginLoader::metaObject();
         }
+        auto metaobject_cb = qpluginloader_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPluginLoader::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_metacast_isbase) {
             qpluginloader_metacast_isbase = false;
             return QPluginLoader::qt_metacast(param1);
-        } else if (qpluginloader_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpluginloader_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpluginloader_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPluginLoader::qt_metacast(param1);
         }
+        return QPluginLoader::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_metacall_isbase) {
             qpluginloader_metacall_isbase = false;
             return QPluginLoader::qt_metacall(param1, param2, param3);
-        } else if (qpluginloader_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpluginloader_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpluginloader_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPluginLoader::qt_metacall(param1, param2, param3);
         }
+        return QPluginLoader::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,14 +156,15 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_event_isbase) {
             qpluginloader_event_isbase = false;
             return QPluginLoader::event(event);
-        } else if (qpluginloader_event_callback != nullptr) {
+        }
+        auto event_cb = qpluginloader_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpluginloader_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPluginLoader::event(event);
         }
+        return QPluginLoader::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,15 +172,16 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_eventfilter_isbase) {
             qpluginloader_eventfilter_isbase = false;
             return QPluginLoader::eventFilter(watched, event);
-        } else if (qpluginloader_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpluginloader_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpluginloader_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPluginLoader::eventFilter(watched, event);
         }
+        return QPluginLoader::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_timerevent_isbase) {
             qpluginloader_timerevent_isbase = false;
             QPluginLoader::timerEvent(event);
-        } else if (qpluginloader_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpluginloader_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpluginloader_timerevent_callback(this, cbval1);
-        } else {
-            QPluginLoader::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPluginLoader::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_childevent_isbase) {
             qpluginloader_childevent_isbase = false;
             QPluginLoader::childEvent(event);
-        } else if (qpluginloader_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpluginloader_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpluginloader_childevent_callback(this, cbval1);
-        } else {
-            QPluginLoader::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPluginLoader::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_customevent_isbase) {
             qpluginloader_customevent_isbase = false;
             QPluginLoader::customEvent(event);
-        } else if (qpluginloader_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpluginloader_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpluginloader_customevent_callback(this, cbval1);
-        } else {
-            QPluginLoader::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPluginLoader::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_connectnotify_isbase) {
             qpluginloader_connectnotify_isbase = false;
             QPluginLoader::connectNotify(signal);
-        } else if (qpluginloader_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpluginloader_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpluginloader_connectnotify_callback(this, cbval1);
-        } else {
-            QPluginLoader::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPluginLoader::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_disconnectnotify_isbase) {
             qpluginloader_disconnectnotify_isbase = false;
             QPluginLoader::disconnectNotify(signal);
-        } else if (qpluginloader_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpluginloader_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpluginloader_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPluginLoader::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPluginLoader::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_sender_isbase) {
             qpluginloader_sender_isbase = false;
             return QPluginLoader::sender();
-        } else if (qpluginloader_sender_callback != nullptr) {
-            QObject* callback_ret = qpluginloader_sender_callback();
-            return callback_ret;
-        } else {
-            return QPluginLoader::sender();
         }
+        auto sender_cb = qpluginloader_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPluginLoader::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_sendersignalindex_isbase) {
             qpluginloader_sendersignalindex_isbase = false;
             return QPluginLoader::senderSignalIndex();
-        } else if (qpluginloader_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpluginloader_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPluginLoader::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpluginloader_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPluginLoader::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_receivers_isbase) {
             qpluginloader_receivers_isbase = false;
             return QPluginLoader::receivers(signal);
-        } else if (qpluginloader_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpluginloader_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpluginloader_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPluginLoader::receivers(signal);
         }
+        return QPluginLoader::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQPluginLoader final : public QPluginLoader {
         if (qpluginloader_issignalconnected_isbase) {
             qpluginloader_issignalconnected_isbase = false;
             return QPluginLoader::isSignalConnected(signal);
-        } else if (qpluginloader_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpluginloader_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpluginloader_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPluginLoader::isSignalConnected(signal);
         }
+        return QPluginLoader::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -93,31 +93,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     VirtualQGeoRoutingManagerEngine(const QMap<QString, QVariant>& parameters) : QGeoRoutingManagerEngine(parameters) {};
     VirtualQGeoRoutingManagerEngine(const QMap<QString, QVariant>& parameters, QObject* parent) : QGeoRoutingManagerEngine(parameters, parent) {};
 
-    ~VirtualQGeoRoutingManagerEngine() {
-        qgeoroutingmanagerengine_metaobject_callback = nullptr;
-        qgeoroutingmanagerengine_metacast_callback = nullptr;
-        qgeoroutingmanagerengine_metacall_callback = nullptr;
-        qgeoroutingmanagerengine_calculateroute_callback = nullptr;
-        qgeoroutingmanagerengine_updateroute_callback = nullptr;
-        qgeoroutingmanagerengine_event_callback = nullptr;
-        qgeoroutingmanagerengine_eventfilter_callback = nullptr;
-        qgeoroutingmanagerengine_timerevent_callback = nullptr;
-        qgeoroutingmanagerengine_childevent_callback = nullptr;
-        qgeoroutingmanagerengine_customevent_callback = nullptr;
-        qgeoroutingmanagerengine_connectnotify_callback = nullptr;
-        qgeoroutingmanagerengine_disconnectnotify_callback = nullptr;
-        qgeoroutingmanagerengine_setsupportedtravelmodes_callback = nullptr;
-        qgeoroutingmanagerengine_setsupportedfeaturetypes_callback = nullptr;
-        qgeoroutingmanagerengine_setsupportedfeatureweights_callback = nullptr;
-        qgeoroutingmanagerengine_setsupportedrouteoptimizations_callback = nullptr;
-        qgeoroutingmanagerengine_setsupportedsegmentdetails_callback = nullptr;
-        qgeoroutingmanagerengine_setsupportedmaneuverdetails_callback = nullptr;
-        qgeoroutingmanagerengine_sender_callback = nullptr;
-        qgeoroutingmanagerengine_sendersignalindex_callback = nullptr;
-        qgeoroutingmanagerengine_receivers_callback = nullptr;
-        qgeoroutingmanagerengine_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGeoRoutingManagerEngine_MetaObject_Callback(QGeoRoutingManagerEngine_MetaObject_Callback cb) { qgeoroutingmanagerengine_metaobject_callback = cb; }
     inline void setQGeoRoutingManagerEngine_Metacast_Callback(QGeoRoutingManagerEngine_Metacast_Callback cb) { qgeoroutingmanagerengine_metacast_callback = cb; }
@@ -171,12 +146,13 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_metaobject_isbase) {
             qgeoroutingmanagerengine_metaobject_isbase = false;
             return QGeoRoutingManagerEngine::metaObject();
-        } else if (qgeoroutingmanagerengine_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgeoroutingmanagerengine_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::metaObject();
         }
+        auto metaobject_cb = qgeoroutingmanagerengine_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGeoRoutingManagerEngine::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,14 +160,15 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_metacast_isbase) {
             qgeoroutingmanagerengine_metacast_isbase = false;
             return QGeoRoutingManagerEngine::qt_metacast(param1);
-        } else if (qgeoroutingmanagerengine_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgeoroutingmanagerengine_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgeoroutingmanagerengine_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::qt_metacast(param1);
         }
+        return QGeoRoutingManagerEngine::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,30 +176,31 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_metacall_isbase) {
             qgeoroutingmanagerengine_metacall_isbase = false;
             return QGeoRoutingManagerEngine::qt_metacall(param1, param2, param3);
-        } else if (qgeoroutingmanagerengine_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgeoroutingmanagerengine_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgeoroutingmanagerengine_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoRoutingManagerEngine::qt_metacall(param1, param2, param3);
         }
+        return QGeoRoutingManagerEngine::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QGeoRouteReply* calculateRoute(const QGeoRouteRequest& request) override {
-        if (qgeoroutingmanagerengine_calculateroute_callback != nullptr) {
+        auto calculateroute_cb = qgeoroutingmanagerengine_calculateroute_callback;
+        if (calculateroute_cb) {
             const QGeoRouteRequest& request_ret = request;
             // Cast returned reference into pointer
             QGeoRouteRequest* cbval1 = const_cast<QGeoRouteRequest*>(&request_ret);
 
-            QGeoRouteReply* callback_ret = qgeoroutingmanagerengine_calculateroute_callback(this, cbval1);
+            QGeoRouteReply* callback_ret = calculateroute_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,7 +208,9 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_updateroute_isbase) {
             qgeoroutingmanagerengine_updateroute_isbase = false;
             return QGeoRoutingManagerEngine::updateRoute(route, position);
-        } else if (qgeoroutingmanagerengine_updateroute_callback != nullptr) {
+        }
+        auto updateroute_cb = qgeoroutingmanagerengine_updateroute_callback;
+        if (updateroute_cb) {
             const QGeoRoute& route_ret = route;
             // Cast returned reference into pointer
             QGeoRoute* cbval1 = const_cast<QGeoRoute*>(&route_ret);
@@ -238,11 +218,10 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             // Cast returned reference into pointer
             QGeoCoordinate* cbval2 = const_cast<QGeoCoordinate*>(&position_ret);
 
-            QGeoRouteReply* callback_ret = qgeoroutingmanagerengine_updateroute_callback(this, cbval1, cbval2);
+            QGeoRouteReply* callback_ret = updateroute_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::updateRoute(route, position);
         }
+        return QGeoRoutingManagerEngine::updateRoute(route, position);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,14 +229,15 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_event_isbase) {
             qgeoroutingmanagerengine_event_isbase = false;
             return QGeoRoutingManagerEngine::event(event);
-        } else if (qgeoroutingmanagerengine_event_callback != nullptr) {
+        }
+        auto event_cb = qgeoroutingmanagerengine_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgeoroutingmanagerengine_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::event(event);
         }
+        return QGeoRoutingManagerEngine::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,15 +245,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_eventfilter_isbase) {
             qgeoroutingmanagerengine_eventfilter_isbase = false;
             return QGeoRoutingManagerEngine::eventFilter(watched, event);
-        } else if (qgeoroutingmanagerengine_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgeoroutingmanagerengine_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgeoroutingmanagerengine_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::eventFilter(watched, event);
         }
+        return QGeoRoutingManagerEngine::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -281,13 +262,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_timerevent_isbase) {
             qgeoroutingmanagerengine_timerevent_isbase = false;
             QGeoRoutingManagerEngine::timerEvent(event);
-        } else if (qgeoroutingmanagerengine_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgeoroutingmanagerengine_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgeoroutingmanagerengine_timerevent_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,13 +279,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_childevent_isbase) {
             qgeoroutingmanagerengine_childevent_isbase = false;
             QGeoRoutingManagerEngine::childEvent(event);
-        } else if (qgeoroutingmanagerengine_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgeoroutingmanagerengine_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgeoroutingmanagerengine_childevent_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -309,13 +296,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_customevent_isbase) {
             qgeoroutingmanagerengine_customevent_isbase = false;
             QGeoRoutingManagerEngine::customEvent(event);
-        } else if (qgeoroutingmanagerengine_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgeoroutingmanagerengine_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgeoroutingmanagerengine_customevent_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,15 +313,18 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_connectnotify_isbase) {
             qgeoroutingmanagerengine_connectnotify_isbase = false;
             QGeoRoutingManagerEngine::connectNotify(signal);
-        } else if (qgeoroutingmanagerengine_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgeoroutingmanagerengine_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeoroutingmanagerengine_connectnotify_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,15 +332,18 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_disconnectnotify_isbase) {
             qgeoroutingmanagerengine_disconnectnotify_isbase = false;
             QGeoRoutingManagerEngine::disconnectNotify(signal);
-        } else if (qgeoroutingmanagerengine_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgeoroutingmanagerengine_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeoroutingmanagerengine_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,13 +351,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_setsupportedtravelmodes_isbase) {
             qgeoroutingmanagerengine_setsupportedtravelmodes_isbase = false;
             QGeoRoutingManagerEngine::setSupportedTravelModes(travelModes);
-        } else if (qgeoroutingmanagerengine_setsupportedtravelmodes_callback != nullptr) {
+            return;
+        }
+        auto setsupportedtravelmodes_cb = qgeoroutingmanagerengine_setsupportedtravelmodes_callback;
+        if (setsupportedtravelmodes_cb) {
             int cbval1 = static_cast<int>(travelModes);
 
-            qgeoroutingmanagerengine_setsupportedtravelmodes_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::setSupportedTravelModes(travelModes);
+            setsupportedtravelmodes_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::setSupportedTravelModes(travelModes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -369,13 +368,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_setsupportedfeaturetypes_isbase) {
             qgeoroutingmanagerengine_setsupportedfeaturetypes_isbase = false;
             QGeoRoutingManagerEngine::setSupportedFeatureTypes(featureTypes);
-        } else if (qgeoroutingmanagerengine_setsupportedfeaturetypes_callback != nullptr) {
+            return;
+        }
+        auto setsupportedfeaturetypes_cb = qgeoroutingmanagerengine_setsupportedfeaturetypes_callback;
+        if (setsupportedfeaturetypes_cb) {
             int cbval1 = static_cast<int>(featureTypes);
 
-            qgeoroutingmanagerengine_setsupportedfeaturetypes_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::setSupportedFeatureTypes(featureTypes);
+            setsupportedfeaturetypes_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::setSupportedFeatureTypes(featureTypes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -383,13 +385,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_setsupportedfeatureweights_isbase) {
             qgeoroutingmanagerengine_setsupportedfeatureweights_isbase = false;
             QGeoRoutingManagerEngine::setSupportedFeatureWeights(featureWeights);
-        } else if (qgeoroutingmanagerengine_setsupportedfeatureweights_callback != nullptr) {
+            return;
+        }
+        auto setsupportedfeatureweights_cb = qgeoroutingmanagerengine_setsupportedfeatureweights_callback;
+        if (setsupportedfeatureweights_cb) {
             int cbval1 = static_cast<int>(featureWeights);
 
-            qgeoroutingmanagerengine_setsupportedfeatureweights_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::setSupportedFeatureWeights(featureWeights);
+            setsupportedfeatureweights_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::setSupportedFeatureWeights(featureWeights);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -397,13 +402,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_setsupportedrouteoptimizations_isbase) {
             qgeoroutingmanagerengine_setsupportedrouteoptimizations_isbase = false;
             QGeoRoutingManagerEngine::setSupportedRouteOptimizations(optimizations);
-        } else if (qgeoroutingmanagerengine_setsupportedrouteoptimizations_callback != nullptr) {
+            return;
+        }
+        auto setsupportedrouteoptimizations_cb = qgeoroutingmanagerengine_setsupportedrouteoptimizations_callback;
+        if (setsupportedrouteoptimizations_cb) {
             int cbval1 = static_cast<int>(optimizations);
 
-            qgeoroutingmanagerengine_setsupportedrouteoptimizations_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::setSupportedRouteOptimizations(optimizations);
+            setsupportedrouteoptimizations_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::setSupportedRouteOptimizations(optimizations);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -411,13 +419,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_setsupportedsegmentdetails_isbase) {
             qgeoroutingmanagerengine_setsupportedsegmentdetails_isbase = false;
             QGeoRoutingManagerEngine::setSupportedSegmentDetails(segmentDetails);
-        } else if (qgeoroutingmanagerengine_setsupportedsegmentdetails_callback != nullptr) {
+            return;
+        }
+        auto setsupportedsegmentdetails_cb = qgeoroutingmanagerengine_setsupportedsegmentdetails_callback;
+        if (setsupportedsegmentdetails_cb) {
             int cbval1 = static_cast<int>(segmentDetails);
 
-            qgeoroutingmanagerengine_setsupportedsegmentdetails_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::setSupportedSegmentDetails(segmentDetails);
+            setsupportedsegmentdetails_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::setSupportedSegmentDetails(segmentDetails);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -425,13 +436,16 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_setsupportedmaneuverdetails_isbase) {
             qgeoroutingmanagerengine_setsupportedmaneuverdetails_isbase = false;
             QGeoRoutingManagerEngine::setSupportedManeuverDetails(maneuverDetails);
-        } else if (qgeoroutingmanagerengine_setsupportedmaneuverdetails_callback != nullptr) {
+            return;
+        }
+        auto setsupportedmaneuverdetails_cb = qgeoroutingmanagerengine_setsupportedmaneuverdetails_callback;
+        if (setsupportedmaneuverdetails_cb) {
             int cbval1 = static_cast<int>(maneuverDetails);
 
-            qgeoroutingmanagerengine_setsupportedmaneuverdetails_callback(this, cbval1);
-        } else {
-            QGeoRoutingManagerEngine::setSupportedManeuverDetails(maneuverDetails);
+            setsupportedmaneuverdetails_cb(this, cbval1);
+            return;
         }
+        QGeoRoutingManagerEngine::setSupportedManeuverDetails(maneuverDetails);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,12 +453,13 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_sender_isbase) {
             qgeoroutingmanagerengine_sender_isbase = false;
             return QGeoRoutingManagerEngine::sender();
-        } else if (qgeoroutingmanagerengine_sender_callback != nullptr) {
-            QObject* callback_ret = qgeoroutingmanagerengine_sender_callback();
-            return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::sender();
         }
+        auto sender_cb = qgeoroutingmanagerengine_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGeoRoutingManagerEngine::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,12 +467,13 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_sendersignalindex_isbase) {
             qgeoroutingmanagerengine_sendersignalindex_isbase = false;
             return QGeoRoutingManagerEngine::senderSignalIndex();
-        } else if (qgeoroutingmanagerengine_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgeoroutingmanagerengine_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGeoRoutingManagerEngine::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgeoroutingmanagerengine_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGeoRoutingManagerEngine::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,14 +481,15 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_receivers_isbase) {
             qgeoroutingmanagerengine_receivers_isbase = false;
             return QGeoRoutingManagerEngine::receivers(signal);
-        } else if (qgeoroutingmanagerengine_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgeoroutingmanagerengine_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgeoroutingmanagerengine_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoRoutingManagerEngine::receivers(signal);
         }
+        return QGeoRoutingManagerEngine::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,16 +497,17 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (qgeoroutingmanagerengine_issignalconnected_isbase) {
             qgeoroutingmanagerengine_issignalconnected_isbase = false;
             return QGeoRoutingManagerEngine::isSignalConnected(signal);
-        } else if (qgeoroutingmanagerengine_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgeoroutingmanagerengine_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgeoroutingmanagerengine_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoRoutingManagerEngine::isSignalConnected(signal);
         }
+        return QGeoRoutingManagerEngine::isSignalConnected(signal);
     }
 
     // Friend functions

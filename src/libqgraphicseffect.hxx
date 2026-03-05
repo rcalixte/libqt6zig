@@ -105,35 +105,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     VirtualQGraphicsEffect() : QGraphicsEffect() {};
     VirtualQGraphicsEffect(QObject* parent) : QGraphicsEffect(parent) {};
 
-    ~VirtualQGraphicsEffect() {
-        qgraphicseffect_metaobject_callback = nullptr;
-        qgraphicseffect_metacast_callback = nullptr;
-        qgraphicseffect_metacall_callback = nullptr;
-        qgraphicseffect_boundingrectfor_callback = nullptr;
-        qgraphicseffect_draw_callback = nullptr;
-        qgraphicseffect_sourcechanged_callback = nullptr;
-        qgraphicseffect_event_callback = nullptr;
-        qgraphicseffect_eventfilter_callback = nullptr;
-        qgraphicseffect_timerevent_callback = nullptr;
-        qgraphicseffect_childevent_callback = nullptr;
-        qgraphicseffect_customevent_callback = nullptr;
-        qgraphicseffect_connectnotify_callback = nullptr;
-        qgraphicseffect_disconnectnotify_callback = nullptr;
-        qgraphicseffect_updateboundingrect_callback = nullptr;
-        qgraphicseffect_sourceispixmap_callback = nullptr;
-        qgraphicseffect_sourceboundingrect_callback = nullptr;
-        qgraphicseffect_drawsource_callback = nullptr;
-        qgraphicseffect_sourcepixmap_callback = nullptr;
-        qgraphicseffect_sourceboundingrect1_callback = nullptr;
-        qgraphicseffect_sourcepixmap1_callback = nullptr;
-        qgraphicseffect_sourcepixmap2_callback = nullptr;
-        qgraphicseffect_sourcepixmap3_callback = nullptr;
-        qgraphicseffect_sender_callback = nullptr;
-        qgraphicseffect_sendersignalindex_callback = nullptr;
-        qgraphicseffect_receivers_callback = nullptr;
-        qgraphicseffect_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsEffect_MetaObject_Callback(QGraphicsEffect_MetaObject_Callback cb) { qgraphicseffect_metaobject_callback = cb; }
     inline void setQGraphicsEffect_Metacast_Callback(QGraphicsEffect_Metacast_Callback cb) { qgraphicseffect_metacast_callback = cb; }
@@ -195,12 +166,13 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_metaobject_isbase) {
             qgraphicseffect_metaobject_isbase = false;
             return QGraphicsEffect::metaObject();
-        } else if (qgraphicseffect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicseffect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsEffect::metaObject();
         }
+        auto metaobject_cb = qgraphicseffect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsEffect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -208,14 +180,15 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_metacast_isbase) {
             qgraphicseffect_metacast_isbase = false;
             return QGraphicsEffect::qt_metacast(param1);
-        } else if (qgraphicseffect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicseffect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicseffect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEffect::qt_metacast(param1);
         }
+        return QGraphicsEffect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -223,16 +196,17 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_metacall_isbase) {
             qgraphicseffect_metacall_isbase = false;
             return QGraphicsEffect::qt_metacall(param1, param2, param3);
-        } else if (qgraphicseffect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicseffect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicseffect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsEffect::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsEffect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,24 +214,26 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_boundingrectfor_isbase) {
             qgraphicseffect_boundingrectfor_isbase = false;
             return QGraphicsEffect::boundingRectFor(sourceRect);
-        } else if (qgraphicseffect_boundingrectfor_callback != nullptr) {
+        }
+        auto boundingrectfor_cb = qgraphicseffect_boundingrectfor_callback;
+        if (boundingrectfor_cb) {
             const QRectF& sourceRect_ret = sourceRect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&sourceRect_ret);
 
-            QRectF* callback_ret = qgraphicseffect_boundingrectfor_callback(this, cbval1);
+            QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsEffect::boundingRectFor(sourceRect);
         }
+        return QGraphicsEffect::boundingRectFor(sourceRect);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void draw(QPainter* painter) override {
-        if (qgraphicseffect_draw_callback != nullptr) {
+        auto draw_cb = qgraphicseffect_draw_callback;
+        if (draw_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicseffect_draw_callback(this, cbval1);
+            draw_cb(this, cbval1);
         }
     }
 
@@ -266,13 +242,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourcechanged_isbase) {
             qgraphicseffect_sourcechanged_isbase = false;
             QGraphicsEffect::sourceChanged(flags);
-        } else if (qgraphicseffect_sourcechanged_callback != nullptr) {
+            return;
+        }
+        auto sourcechanged_cb = qgraphicseffect_sourcechanged_callback;
+        if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            qgraphicseffect_sourcechanged_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::sourceChanged(flags);
+            sourcechanged_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::sourceChanged(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,14 +259,15 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_event_isbase) {
             qgraphicseffect_event_isbase = false;
             return QGraphicsEffect::event(event);
-        } else if (qgraphicseffect_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicseffect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicseffect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEffect::event(event);
         }
+        return QGraphicsEffect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,15 +275,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_eventfilter_isbase) {
             qgraphicseffect_eventfilter_isbase = false;
             return QGraphicsEffect::eventFilter(watched, event);
-        } else if (qgraphicseffect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicseffect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicseffect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsEffect::eventFilter(watched, event);
         }
+        return QGraphicsEffect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,13 +292,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_timerevent_isbase) {
             qgraphicseffect_timerevent_isbase = false;
             QGraphicsEffect::timerEvent(event);
-        } else if (qgraphicseffect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicseffect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicseffect_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,13 +309,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_childevent_isbase) {
             qgraphicseffect_childevent_isbase = false;
             QGraphicsEffect::childEvent(event);
-        } else if (qgraphicseffect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicseffect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicseffect_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,13 +326,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_customevent_isbase) {
             qgraphicseffect_customevent_isbase = false;
             QGraphicsEffect::customEvent(event);
-        } else if (qgraphicseffect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicseffect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicseffect_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -353,15 +343,18 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_connectnotify_isbase) {
             qgraphicseffect_connectnotify_isbase = false;
             QGraphicsEffect::connectNotify(signal);
-        } else if (qgraphicseffect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicseffect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicseffect_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -369,15 +362,18 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_disconnectnotify_isbase) {
             qgraphicseffect_disconnectnotify_isbase = false;
             QGraphicsEffect::disconnectNotify(signal);
-        } else if (qgraphicseffect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicseffect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicseffect_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,11 +381,14 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_updateboundingrect_isbase) {
             qgraphicseffect_updateboundingrect_isbase = false;
             QGraphicsEffect::updateBoundingRect();
-        } else if (qgraphicseffect_updateboundingrect_callback != nullptr) {
-            qgraphicseffect_updateboundingrect_callback();
-        } else {
-            QGraphicsEffect::updateBoundingRect();
+            return;
         }
+        auto updateboundingrect_cb = qgraphicseffect_updateboundingrect_callback;
+        if (updateboundingrect_cb) {
+            updateboundingrect_cb();
+            return;
+        }
+        QGraphicsEffect::updateBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -397,12 +396,13 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourceispixmap_isbase) {
             qgraphicseffect_sourceispixmap_isbase = false;
             return QGraphicsEffect::sourceIsPixmap();
-        } else if (qgraphicseffect_sourceispixmap_callback != nullptr) {
-            bool callback_ret = qgraphicseffect_sourceispixmap_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsEffect::sourceIsPixmap();
         }
+        auto sourceispixmap_cb = qgraphicseffect_sourceispixmap_callback;
+        if (sourceispixmap_cb) {
+            bool callback_ret = sourceispixmap_cb();
+            return callback_ret;
+        }
+        return QGraphicsEffect::sourceIsPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,12 +410,13 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourceboundingrect_isbase) {
             qgraphicseffect_sourceboundingrect_isbase = false;
             return QGraphicsEffect::sourceBoundingRect();
-        } else if (qgraphicseffect_sourceboundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicseffect_sourceboundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsEffect::sourceBoundingRect();
         }
+        auto sourceboundingrect_cb = qgraphicseffect_sourceboundingrect_callback;
+        if (sourceboundingrect_cb) {
+            QRectF* callback_ret = sourceboundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsEffect::sourceBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,13 +424,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_drawsource_isbase) {
             qgraphicseffect_drawsource_isbase = false;
             QGraphicsEffect::drawSource(painter);
-        } else if (qgraphicseffect_drawsource_callback != nullptr) {
+            return;
+        }
+        auto drawsource_cb = qgraphicseffect_drawsource_callback;
+        if (drawsource_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicseffect_drawsource_callback(this, cbval1);
-        } else {
-            QGraphicsEffect::drawSource(painter);
+            drawsource_cb(this, cbval1);
+            return;
         }
+        QGraphicsEffect::drawSource(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,12 +441,13 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourcepixmap_isbase) {
             qgraphicseffect_sourcepixmap_isbase = false;
             return QGraphicsEffect::sourcePixmap();
-        } else if (qgraphicseffect_sourcepixmap_callback != nullptr) {
-            QPixmap* callback_ret = qgraphicseffect_sourcepixmap_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsEffect::sourcePixmap();
         }
+        auto sourcepixmap_cb = qgraphicseffect_sourcepixmap_callback;
+        if (sourcepixmap_cb) {
+            QPixmap* callback_ret = sourcepixmap_cb();
+            return *callback_ret;
+        }
+        return QGraphicsEffect::sourcePixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -450,14 +455,15 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourceboundingrect1_isbase) {
             qgraphicseffect_sourceboundingrect1_isbase = false;
             return QGraphicsEffect::sourceBoundingRect(system);
-        } else if (qgraphicseffect_sourceboundingrect1_callback != nullptr) {
+        }
+        auto sourceboundingrect1_cb = qgraphicseffect_sourceboundingrect1_callback;
+        if (sourceboundingrect1_cb) {
             int cbval1 = static_cast<int>(system);
 
-            QRectF* callback_ret = qgraphicseffect_sourceboundingrect1_callback(this, cbval1);
+            QRectF* callback_ret = sourceboundingrect1_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsEffect::sourceBoundingRect(system);
         }
+        return QGraphicsEffect::sourceBoundingRect(system);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -465,14 +471,15 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourcepixmap1_isbase) {
             qgraphicseffect_sourcepixmap1_isbase = false;
             return QGraphicsEffect::sourcePixmap(system);
-        } else if (qgraphicseffect_sourcepixmap1_callback != nullptr) {
+        }
+        auto sourcepixmap1_cb = qgraphicseffect_sourcepixmap1_callback;
+        if (sourcepixmap1_cb) {
             int cbval1 = static_cast<int>(system);
 
-            QPixmap* callback_ret = qgraphicseffect_sourcepixmap1_callback(this, cbval1);
+            QPixmap* callback_ret = sourcepixmap1_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsEffect::sourcePixmap(system);
         }
+        return QGraphicsEffect::sourcePixmap(system);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,15 +487,16 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourcepixmap2_isbase) {
             qgraphicseffect_sourcepixmap2_isbase = false;
             return QGraphicsEffect::sourcePixmap(system, offset);
-        } else if (qgraphicseffect_sourcepixmap2_callback != nullptr) {
+        }
+        auto sourcepixmap2_cb = qgraphicseffect_sourcepixmap2_callback;
+        if (sourcepixmap2_cb) {
             int cbval1 = static_cast<int>(system);
             QPoint* cbval2 = offset;
 
-            QPixmap* callback_ret = qgraphicseffect_sourcepixmap2_callback(this, cbval1, cbval2);
+            QPixmap* callback_ret = sourcepixmap2_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QGraphicsEffect::sourcePixmap(system, offset);
         }
+        return QGraphicsEffect::sourcePixmap(system, offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,16 +504,17 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sourcepixmap3_isbase) {
             qgraphicseffect_sourcepixmap3_isbase = false;
             return QGraphicsEffect::sourcePixmap(system, offset, mode);
-        } else if (qgraphicseffect_sourcepixmap3_callback != nullptr) {
+        }
+        auto sourcepixmap3_cb = qgraphicseffect_sourcepixmap3_callback;
+        if (sourcepixmap3_cb) {
             int cbval1 = static_cast<int>(system);
             QPoint* cbval2 = offset;
             int cbval3 = static_cast<int>(mode);
 
-            QPixmap* callback_ret = qgraphicseffect_sourcepixmap3_callback(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = sourcepixmap3_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QGraphicsEffect::sourcePixmap(system, offset, mode);
         }
+        return QGraphicsEffect::sourcePixmap(system, offset, mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,12 +522,13 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sender_isbase) {
             qgraphicseffect_sender_isbase = false;
             return QGraphicsEffect::sender();
-        } else if (qgraphicseffect_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicseffect_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsEffect::sender();
         }
+        auto sender_cb = qgraphicseffect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsEffect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,12 +536,13 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_sendersignalindex_isbase) {
             qgraphicseffect_sendersignalindex_isbase = false;
             return QGraphicsEffect::senderSignalIndex();
-        } else if (qgraphicseffect_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicseffect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsEffect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicseffect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsEffect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,14 +550,15 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_receivers_isbase) {
             qgraphicseffect_receivers_isbase = false;
             return QGraphicsEffect::receivers(signal);
-        } else if (qgraphicseffect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicseffect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicseffect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsEffect::receivers(signal);
         }
+        return QGraphicsEffect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,16 +566,17 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (qgraphicseffect_issignalconnected_isbase) {
             qgraphicseffect_issignalconnected_isbase = false;
             return QGraphicsEffect::isSignalConnected(signal);
-        } else if (qgraphicseffect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicseffect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicseffect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsEffect::isSignalConnected(signal);
         }
+        return QGraphicsEffect::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -693,31 +706,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     VirtualQGraphicsColorizeEffect() : QGraphicsColorizeEffect() {};
     VirtualQGraphicsColorizeEffect(QObject* parent) : QGraphicsColorizeEffect(parent) {};
 
-    ~VirtualQGraphicsColorizeEffect() {
-        qgraphicscolorizeeffect_metaobject_callback = nullptr;
-        qgraphicscolorizeeffect_metacast_callback = nullptr;
-        qgraphicscolorizeeffect_metacall_callback = nullptr;
-        qgraphicscolorizeeffect_draw_callback = nullptr;
-        qgraphicscolorizeeffect_boundingrectfor_callback = nullptr;
-        qgraphicscolorizeeffect_sourcechanged_callback = nullptr;
-        qgraphicscolorizeeffect_event_callback = nullptr;
-        qgraphicscolorizeeffect_eventfilter_callback = nullptr;
-        qgraphicscolorizeeffect_timerevent_callback = nullptr;
-        qgraphicscolorizeeffect_childevent_callback = nullptr;
-        qgraphicscolorizeeffect_customevent_callback = nullptr;
-        qgraphicscolorizeeffect_connectnotify_callback = nullptr;
-        qgraphicscolorizeeffect_disconnectnotify_callback = nullptr;
-        qgraphicscolorizeeffect_updateboundingrect_callback = nullptr;
-        qgraphicscolorizeeffect_sourceispixmap_callback = nullptr;
-        qgraphicscolorizeeffect_sourceboundingrect_callback = nullptr;
-        qgraphicscolorizeeffect_drawsource_callback = nullptr;
-        qgraphicscolorizeeffect_sourcepixmap_callback = nullptr;
-        qgraphicscolorizeeffect_sender_callback = nullptr;
-        qgraphicscolorizeeffect_sendersignalindex_callback = nullptr;
-        qgraphicscolorizeeffect_receivers_callback = nullptr;
-        qgraphicscolorizeeffect_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsColorizeEffect_MetaObject_Callback(QGraphicsColorizeEffect_MetaObject_Callback cb) { qgraphicscolorizeeffect_metaobject_callback = cb; }
     inline void setQGraphicsColorizeEffect_Metacast_Callback(QGraphicsColorizeEffect_Metacast_Callback cb) { qgraphicscolorizeeffect_metacast_callback = cb; }
@@ -771,12 +759,13 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_metaobject_isbase) {
             qgraphicscolorizeeffect_metaobject_isbase = false;
             return QGraphicsColorizeEffect::metaObject();
-        } else if (qgraphicscolorizeeffect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicscolorizeeffect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::metaObject();
         }
+        auto metaobject_cb = qgraphicscolorizeeffect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsColorizeEffect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,14 +773,15 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_metacast_isbase) {
             qgraphicscolorizeeffect_metacast_isbase = false;
             return QGraphicsColorizeEffect::qt_metacast(param1);
-        } else if (qgraphicscolorizeeffect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicscolorizeeffect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicscolorizeeffect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::qt_metacast(param1);
         }
+        return QGraphicsColorizeEffect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -799,16 +789,17 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_metacall_isbase) {
             qgraphicscolorizeeffect_metacall_isbase = false;
             return QGraphicsColorizeEffect::qt_metacall(param1, param2, param3);
-        } else if (qgraphicscolorizeeffect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicscolorizeeffect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicscolorizeeffect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsColorizeEffect::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsColorizeEffect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +807,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_draw_isbase) {
             qgraphicscolorizeeffect_draw_isbase = false;
             QGraphicsColorizeEffect::draw(painter);
-        } else if (qgraphicscolorizeeffect_draw_callback != nullptr) {
+            return;
+        }
+        auto draw_cb = qgraphicscolorizeeffect_draw_callback;
+        if (draw_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicscolorizeeffect_draw_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::draw(painter);
+            draw_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::draw(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,16 +824,17 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_boundingrectfor_isbase) {
             qgraphicscolorizeeffect_boundingrectfor_isbase = false;
             return QGraphicsColorizeEffect::boundingRectFor(sourceRect);
-        } else if (qgraphicscolorizeeffect_boundingrectfor_callback != nullptr) {
+        }
+        auto boundingrectfor_cb = qgraphicscolorizeeffect_boundingrectfor_callback;
+        if (boundingrectfor_cb) {
             const QRectF& sourceRect_ret = sourceRect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&sourceRect_ret);
 
-            QRectF* callback_ret = qgraphicscolorizeeffect_boundingrectfor_callback(this, cbval1);
+            QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::boundingRectFor(sourceRect);
         }
+        return QGraphicsColorizeEffect::boundingRectFor(sourceRect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +842,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_sourcechanged_isbase) {
             qgraphicscolorizeeffect_sourcechanged_isbase = false;
             QGraphicsColorizeEffect::sourceChanged(flags);
-        } else if (qgraphicscolorizeeffect_sourcechanged_callback != nullptr) {
+            return;
+        }
+        auto sourcechanged_cb = qgraphicscolorizeeffect_sourcechanged_callback;
+        if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            qgraphicscolorizeeffect_sourcechanged_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::sourceChanged(flags);
+            sourcechanged_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::sourceChanged(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,14 +859,15 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_event_isbase) {
             qgraphicscolorizeeffect_event_isbase = false;
             return QGraphicsColorizeEffect::event(event);
-        } else if (qgraphicscolorizeeffect_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicscolorizeeffect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicscolorizeeffect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::event(event);
         }
+        return QGraphicsColorizeEffect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -876,15 +875,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_eventfilter_isbase) {
             qgraphicscolorizeeffect_eventfilter_isbase = false;
             return QGraphicsColorizeEffect::eventFilter(watched, event);
-        } else if (qgraphicscolorizeeffect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicscolorizeeffect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicscolorizeeffect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::eventFilter(watched, event);
         }
+        return QGraphicsColorizeEffect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -892,13 +892,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_timerevent_isbase) {
             qgraphicscolorizeeffect_timerevent_isbase = false;
             QGraphicsColorizeEffect::timerEvent(event);
-        } else if (qgraphicscolorizeeffect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicscolorizeeffect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicscolorizeeffect_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -906,13 +909,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_childevent_isbase) {
             qgraphicscolorizeeffect_childevent_isbase = false;
             QGraphicsColorizeEffect::childEvent(event);
-        } else if (qgraphicscolorizeeffect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicscolorizeeffect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicscolorizeeffect_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -920,13 +926,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_customevent_isbase) {
             qgraphicscolorizeeffect_customevent_isbase = false;
             QGraphicsColorizeEffect::customEvent(event);
-        } else if (qgraphicscolorizeeffect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicscolorizeeffect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicscolorizeeffect_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -934,15 +943,18 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_connectnotify_isbase) {
             qgraphicscolorizeeffect_connectnotify_isbase = false;
             QGraphicsColorizeEffect::connectNotify(signal);
-        } else if (qgraphicscolorizeeffect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicscolorizeeffect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicscolorizeeffect_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,15 +962,18 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_disconnectnotify_isbase) {
             qgraphicscolorizeeffect_disconnectnotify_isbase = false;
             QGraphicsColorizeEffect::disconnectNotify(signal);
-        } else if (qgraphicscolorizeeffect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicscolorizeeffect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicscolorizeeffect_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -966,11 +981,14 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_updateboundingrect_isbase) {
             qgraphicscolorizeeffect_updateboundingrect_isbase = false;
             QGraphicsColorizeEffect::updateBoundingRect();
-        } else if (qgraphicscolorizeeffect_updateboundingrect_callback != nullptr) {
-            qgraphicscolorizeeffect_updateboundingrect_callback();
-        } else {
-            QGraphicsColorizeEffect::updateBoundingRect();
+            return;
         }
+        auto updateboundingrect_cb = qgraphicscolorizeeffect_updateboundingrect_callback;
+        if (updateboundingrect_cb) {
+            updateboundingrect_cb();
+            return;
+        }
+        QGraphicsColorizeEffect::updateBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -978,12 +996,13 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_sourceispixmap_isbase) {
             qgraphicscolorizeeffect_sourceispixmap_isbase = false;
             return QGraphicsColorizeEffect::sourceIsPixmap();
-        } else if (qgraphicscolorizeeffect_sourceispixmap_callback != nullptr) {
-            bool callback_ret = qgraphicscolorizeeffect_sourceispixmap_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::sourceIsPixmap();
         }
+        auto sourceispixmap_cb = qgraphicscolorizeeffect_sourceispixmap_callback;
+        if (sourceispixmap_cb) {
+            bool callback_ret = sourceispixmap_cb();
+            return callback_ret;
+        }
+        return QGraphicsColorizeEffect::sourceIsPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,12 +1010,13 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_sourceboundingrect_isbase) {
             qgraphicscolorizeeffect_sourceboundingrect_isbase = false;
             return QGraphicsColorizeEffect::sourceBoundingRect();
-        } else if (qgraphicscolorizeeffect_sourceboundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicscolorizeeffect_sourceboundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::sourceBoundingRect();
         }
+        auto sourceboundingrect_cb = qgraphicscolorizeeffect_sourceboundingrect_callback;
+        if (sourceboundingrect_cb) {
+            QRectF* callback_ret = sourceboundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsColorizeEffect::sourceBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1004,13 +1024,16 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_drawsource_isbase) {
             qgraphicscolorizeeffect_drawsource_isbase = false;
             QGraphicsColorizeEffect::drawSource(painter);
-        } else if (qgraphicscolorizeeffect_drawsource_callback != nullptr) {
+            return;
+        }
+        auto drawsource_cb = qgraphicscolorizeeffect_drawsource_callback;
+        if (drawsource_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicscolorizeeffect_drawsource_callback(this, cbval1);
-        } else {
-            QGraphicsColorizeEffect::drawSource(painter);
+            drawsource_cb(this, cbval1);
+            return;
         }
+        QGraphicsColorizeEffect::drawSource(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,12 +1041,13 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_sourcepixmap_isbase) {
             qgraphicscolorizeeffect_sourcepixmap_isbase = false;
             return QGraphicsColorizeEffect::sourcePixmap();
-        } else if (qgraphicscolorizeeffect_sourcepixmap_callback != nullptr) {
-            QPixmap* callback_ret = qgraphicscolorizeeffect_sourcepixmap_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::sourcePixmap();
         }
+        auto sourcepixmap_cb = qgraphicscolorizeeffect_sourcepixmap_callback;
+        if (sourcepixmap_cb) {
+            QPixmap* callback_ret = sourcepixmap_cb();
+            return *callback_ret;
+        }
+        return QGraphicsColorizeEffect::sourcePixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,12 +1055,13 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_sender_isbase) {
             qgraphicscolorizeeffect_sender_isbase = false;
             return QGraphicsColorizeEffect::sender();
-        } else if (qgraphicscolorizeeffect_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicscolorizeeffect_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::sender();
         }
+        auto sender_cb = qgraphicscolorizeeffect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsColorizeEffect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,12 +1069,13 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_sendersignalindex_isbase) {
             qgraphicscolorizeeffect_sendersignalindex_isbase = false;
             return QGraphicsColorizeEffect::senderSignalIndex();
-        } else if (qgraphicscolorizeeffect_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicscolorizeeffect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsColorizeEffect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicscolorizeeffect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsColorizeEffect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1057,14 +1083,15 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_receivers_isbase) {
             qgraphicscolorizeeffect_receivers_isbase = false;
             return QGraphicsColorizeEffect::receivers(signal);
-        } else if (qgraphicscolorizeeffect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicscolorizeeffect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicscolorizeeffect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsColorizeEffect::receivers(signal);
         }
+        return QGraphicsColorizeEffect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,16 +1099,17 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (qgraphicscolorizeeffect_issignalconnected_isbase) {
             qgraphicscolorizeeffect_issignalconnected_isbase = false;
             return QGraphicsColorizeEffect::isSignalConnected(signal);
-        } else if (qgraphicscolorizeeffect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicscolorizeeffect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicscolorizeeffect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsColorizeEffect::isSignalConnected(signal);
         }
+        return QGraphicsColorizeEffect::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -1203,31 +1231,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     VirtualQGraphicsBlurEffect() : QGraphicsBlurEffect() {};
     VirtualQGraphicsBlurEffect(QObject* parent) : QGraphicsBlurEffect(parent) {};
 
-    ~VirtualQGraphicsBlurEffect() {
-        qgraphicsblureffect_metaobject_callback = nullptr;
-        qgraphicsblureffect_metacast_callback = nullptr;
-        qgraphicsblureffect_metacall_callback = nullptr;
-        qgraphicsblureffect_boundingrectfor_callback = nullptr;
-        qgraphicsblureffect_draw_callback = nullptr;
-        qgraphicsblureffect_sourcechanged_callback = nullptr;
-        qgraphicsblureffect_event_callback = nullptr;
-        qgraphicsblureffect_eventfilter_callback = nullptr;
-        qgraphicsblureffect_timerevent_callback = nullptr;
-        qgraphicsblureffect_childevent_callback = nullptr;
-        qgraphicsblureffect_customevent_callback = nullptr;
-        qgraphicsblureffect_connectnotify_callback = nullptr;
-        qgraphicsblureffect_disconnectnotify_callback = nullptr;
-        qgraphicsblureffect_updateboundingrect_callback = nullptr;
-        qgraphicsblureffect_sourceispixmap_callback = nullptr;
-        qgraphicsblureffect_sourceboundingrect_callback = nullptr;
-        qgraphicsblureffect_drawsource_callback = nullptr;
-        qgraphicsblureffect_sourcepixmap_callback = nullptr;
-        qgraphicsblureffect_sender_callback = nullptr;
-        qgraphicsblureffect_sendersignalindex_callback = nullptr;
-        qgraphicsblureffect_receivers_callback = nullptr;
-        qgraphicsblureffect_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsBlurEffect_MetaObject_Callback(QGraphicsBlurEffect_MetaObject_Callback cb) { qgraphicsblureffect_metaobject_callback = cb; }
     inline void setQGraphicsBlurEffect_Metacast_Callback(QGraphicsBlurEffect_Metacast_Callback cb) { qgraphicsblureffect_metacast_callback = cb; }
@@ -1281,12 +1284,13 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_metaobject_isbase) {
             qgraphicsblureffect_metaobject_isbase = false;
             return QGraphicsBlurEffect::metaObject();
-        } else if (qgraphicsblureffect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsblureffect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::metaObject();
         }
+        auto metaobject_cb = qgraphicsblureffect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsBlurEffect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,14 +1298,15 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_metacast_isbase) {
             qgraphicsblureffect_metacast_isbase = false;
             return QGraphicsBlurEffect::qt_metacast(param1);
-        } else if (qgraphicsblureffect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsblureffect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsblureffect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::qt_metacast(param1);
         }
+        return QGraphicsBlurEffect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,16 +1314,17 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_metacall_isbase) {
             qgraphicsblureffect_metacall_isbase = false;
             return QGraphicsBlurEffect::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsblureffect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsblureffect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsblureffect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsBlurEffect::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsBlurEffect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,16 +1332,17 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_boundingrectfor_isbase) {
             qgraphicsblureffect_boundingrectfor_isbase = false;
             return QGraphicsBlurEffect::boundingRectFor(rect);
-        } else if (qgraphicsblureffect_boundingrectfor_callback != nullptr) {
+        }
+        auto boundingrectfor_cb = qgraphicsblureffect_boundingrectfor_callback;
+        if (boundingrectfor_cb) {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
 
-            QRectF* callback_ret = qgraphicsblureffect_boundingrectfor_callback(this, cbval1);
+            QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsBlurEffect::boundingRectFor(rect);
         }
+        return QGraphicsBlurEffect::boundingRectFor(rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1343,13 +1350,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_draw_isbase) {
             qgraphicsblureffect_draw_isbase = false;
             QGraphicsBlurEffect::draw(painter);
-        } else if (qgraphicsblureffect_draw_callback != nullptr) {
+            return;
+        }
+        auto draw_cb = qgraphicsblureffect_draw_callback;
+        if (draw_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsblureffect_draw_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::draw(painter);
+            draw_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::draw(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1357,13 +1367,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_sourcechanged_isbase) {
             qgraphicsblureffect_sourcechanged_isbase = false;
             QGraphicsBlurEffect::sourceChanged(flags);
-        } else if (qgraphicsblureffect_sourcechanged_callback != nullptr) {
+            return;
+        }
+        auto sourcechanged_cb = qgraphicsblureffect_sourcechanged_callback;
+        if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            qgraphicsblureffect_sourcechanged_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::sourceChanged(flags);
+            sourcechanged_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::sourceChanged(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1371,14 +1384,15 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_event_isbase) {
             qgraphicsblureffect_event_isbase = false;
             return QGraphicsBlurEffect::event(event);
-        } else if (qgraphicsblureffect_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsblureffect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsblureffect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::event(event);
         }
+        return QGraphicsBlurEffect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1386,15 +1400,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_eventfilter_isbase) {
             qgraphicsblureffect_eventfilter_isbase = false;
             return QGraphicsBlurEffect::eventFilter(watched, event);
-        } else if (qgraphicsblureffect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsblureffect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsblureffect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::eventFilter(watched, event);
         }
+        return QGraphicsBlurEffect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1402,13 +1417,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_timerevent_isbase) {
             qgraphicsblureffect_timerevent_isbase = false;
             QGraphicsBlurEffect::timerEvent(event);
-        } else if (qgraphicsblureffect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsblureffect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsblureffect_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1416,13 +1434,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_childevent_isbase) {
             qgraphicsblureffect_childevent_isbase = false;
             QGraphicsBlurEffect::childEvent(event);
-        } else if (qgraphicsblureffect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsblureffect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsblureffect_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1430,13 +1451,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_customevent_isbase) {
             qgraphicsblureffect_customevent_isbase = false;
             QGraphicsBlurEffect::customEvent(event);
-        } else if (qgraphicsblureffect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsblureffect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsblureffect_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1444,15 +1468,18 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_connectnotify_isbase) {
             qgraphicsblureffect_connectnotify_isbase = false;
             QGraphicsBlurEffect::connectNotify(signal);
-        } else if (qgraphicsblureffect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsblureffect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsblureffect_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1460,15 +1487,18 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_disconnectnotify_isbase) {
             qgraphicsblureffect_disconnectnotify_isbase = false;
             QGraphicsBlurEffect::disconnectNotify(signal);
-        } else if (qgraphicsblureffect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsblureffect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsblureffect_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1476,11 +1506,14 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_updateboundingrect_isbase) {
             qgraphicsblureffect_updateboundingrect_isbase = false;
             QGraphicsBlurEffect::updateBoundingRect();
-        } else if (qgraphicsblureffect_updateboundingrect_callback != nullptr) {
-            qgraphicsblureffect_updateboundingrect_callback();
-        } else {
-            QGraphicsBlurEffect::updateBoundingRect();
+            return;
         }
+        auto updateboundingrect_cb = qgraphicsblureffect_updateboundingrect_callback;
+        if (updateboundingrect_cb) {
+            updateboundingrect_cb();
+            return;
+        }
+        QGraphicsBlurEffect::updateBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1488,12 +1521,13 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_sourceispixmap_isbase) {
             qgraphicsblureffect_sourceispixmap_isbase = false;
             return QGraphicsBlurEffect::sourceIsPixmap();
-        } else if (qgraphicsblureffect_sourceispixmap_callback != nullptr) {
-            bool callback_ret = qgraphicsblureffect_sourceispixmap_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::sourceIsPixmap();
         }
+        auto sourceispixmap_cb = qgraphicsblureffect_sourceispixmap_callback;
+        if (sourceispixmap_cb) {
+            bool callback_ret = sourceispixmap_cb();
+            return callback_ret;
+        }
+        return QGraphicsBlurEffect::sourceIsPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1501,12 +1535,13 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_sourceboundingrect_isbase) {
             qgraphicsblureffect_sourceboundingrect_isbase = false;
             return QGraphicsBlurEffect::sourceBoundingRect();
-        } else if (qgraphicsblureffect_sourceboundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsblureffect_sourceboundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsBlurEffect::sourceBoundingRect();
         }
+        auto sourceboundingrect_cb = qgraphicsblureffect_sourceboundingrect_callback;
+        if (sourceboundingrect_cb) {
+            QRectF* callback_ret = sourceboundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsBlurEffect::sourceBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1514,13 +1549,16 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_drawsource_isbase) {
             qgraphicsblureffect_drawsource_isbase = false;
             QGraphicsBlurEffect::drawSource(painter);
-        } else if (qgraphicsblureffect_drawsource_callback != nullptr) {
+            return;
+        }
+        auto drawsource_cb = qgraphicsblureffect_drawsource_callback;
+        if (drawsource_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsblureffect_drawsource_callback(this, cbval1);
-        } else {
-            QGraphicsBlurEffect::drawSource(painter);
+            drawsource_cb(this, cbval1);
+            return;
         }
+        QGraphicsBlurEffect::drawSource(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1528,12 +1566,13 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_sourcepixmap_isbase) {
             qgraphicsblureffect_sourcepixmap_isbase = false;
             return QGraphicsBlurEffect::sourcePixmap();
-        } else if (qgraphicsblureffect_sourcepixmap_callback != nullptr) {
-            QPixmap* callback_ret = qgraphicsblureffect_sourcepixmap_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsBlurEffect::sourcePixmap();
         }
+        auto sourcepixmap_cb = qgraphicsblureffect_sourcepixmap_callback;
+        if (sourcepixmap_cb) {
+            QPixmap* callback_ret = sourcepixmap_cb();
+            return *callback_ret;
+        }
+        return QGraphicsBlurEffect::sourcePixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1541,12 +1580,13 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_sender_isbase) {
             qgraphicsblureffect_sender_isbase = false;
             return QGraphicsBlurEffect::sender();
-        } else if (qgraphicsblureffect_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsblureffect_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::sender();
         }
+        auto sender_cb = qgraphicsblureffect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsBlurEffect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1554,12 +1594,13 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_sendersignalindex_isbase) {
             qgraphicsblureffect_sendersignalindex_isbase = false;
             return QGraphicsBlurEffect::senderSignalIndex();
-        } else if (qgraphicsblureffect_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsblureffect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsBlurEffect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsblureffect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsBlurEffect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,14 +1608,15 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_receivers_isbase) {
             qgraphicsblureffect_receivers_isbase = false;
             return QGraphicsBlurEffect::receivers(signal);
-        } else if (qgraphicsblureffect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsblureffect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsblureffect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsBlurEffect::receivers(signal);
         }
+        return QGraphicsBlurEffect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1582,16 +1624,17 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (qgraphicsblureffect_issignalconnected_isbase) {
             qgraphicsblureffect_issignalconnected_isbase = false;
             return QGraphicsBlurEffect::isSignalConnected(signal);
-        } else if (qgraphicsblureffect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsblureffect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsblureffect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsBlurEffect::isSignalConnected(signal);
         }
+        return QGraphicsBlurEffect::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -1713,31 +1756,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     VirtualQGraphicsDropShadowEffect() : QGraphicsDropShadowEffect() {};
     VirtualQGraphicsDropShadowEffect(QObject* parent) : QGraphicsDropShadowEffect(parent) {};
 
-    ~VirtualQGraphicsDropShadowEffect() {
-        qgraphicsdropshadoweffect_metaobject_callback = nullptr;
-        qgraphicsdropshadoweffect_metacast_callback = nullptr;
-        qgraphicsdropshadoweffect_metacall_callback = nullptr;
-        qgraphicsdropshadoweffect_boundingrectfor_callback = nullptr;
-        qgraphicsdropshadoweffect_draw_callback = nullptr;
-        qgraphicsdropshadoweffect_sourcechanged_callback = nullptr;
-        qgraphicsdropshadoweffect_event_callback = nullptr;
-        qgraphicsdropshadoweffect_eventfilter_callback = nullptr;
-        qgraphicsdropshadoweffect_timerevent_callback = nullptr;
-        qgraphicsdropshadoweffect_childevent_callback = nullptr;
-        qgraphicsdropshadoweffect_customevent_callback = nullptr;
-        qgraphicsdropshadoweffect_connectnotify_callback = nullptr;
-        qgraphicsdropshadoweffect_disconnectnotify_callback = nullptr;
-        qgraphicsdropshadoweffect_updateboundingrect_callback = nullptr;
-        qgraphicsdropshadoweffect_sourceispixmap_callback = nullptr;
-        qgraphicsdropshadoweffect_sourceboundingrect_callback = nullptr;
-        qgraphicsdropshadoweffect_drawsource_callback = nullptr;
-        qgraphicsdropshadoweffect_sourcepixmap_callback = nullptr;
-        qgraphicsdropshadoweffect_sender_callback = nullptr;
-        qgraphicsdropshadoweffect_sendersignalindex_callback = nullptr;
-        qgraphicsdropshadoweffect_receivers_callback = nullptr;
-        qgraphicsdropshadoweffect_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsDropShadowEffect_MetaObject_Callback(QGraphicsDropShadowEffect_MetaObject_Callback cb) { qgraphicsdropshadoweffect_metaobject_callback = cb; }
     inline void setQGraphicsDropShadowEffect_Metacast_Callback(QGraphicsDropShadowEffect_Metacast_Callback cb) { qgraphicsdropshadoweffect_metacast_callback = cb; }
@@ -1791,12 +1809,13 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_metaobject_isbase) {
             qgraphicsdropshadoweffect_metaobject_isbase = false;
             return QGraphicsDropShadowEffect::metaObject();
-        } else if (qgraphicsdropshadoweffect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsdropshadoweffect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::metaObject();
         }
+        auto metaobject_cb = qgraphicsdropshadoweffect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsDropShadowEffect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1804,14 +1823,15 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_metacast_isbase) {
             qgraphicsdropshadoweffect_metacast_isbase = false;
             return QGraphicsDropShadowEffect::qt_metacast(param1);
-        } else if (qgraphicsdropshadoweffect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsdropshadoweffect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsdropshadoweffect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::qt_metacast(param1);
         }
+        return QGraphicsDropShadowEffect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1819,16 +1839,17 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_metacall_isbase) {
             qgraphicsdropshadoweffect_metacall_isbase = false;
             return QGraphicsDropShadowEffect::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsdropshadoweffect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsdropshadoweffect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsdropshadoweffect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsDropShadowEffect::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsDropShadowEffect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1836,16 +1857,17 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_boundingrectfor_isbase) {
             qgraphicsdropshadoweffect_boundingrectfor_isbase = false;
             return QGraphicsDropShadowEffect::boundingRectFor(rect);
-        } else if (qgraphicsdropshadoweffect_boundingrectfor_callback != nullptr) {
+        }
+        auto boundingrectfor_cb = qgraphicsdropshadoweffect_boundingrectfor_callback;
+        if (boundingrectfor_cb) {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
 
-            QRectF* callback_ret = qgraphicsdropshadoweffect_boundingrectfor_callback(this, cbval1);
+            QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::boundingRectFor(rect);
         }
+        return QGraphicsDropShadowEffect::boundingRectFor(rect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1853,13 +1875,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_draw_isbase) {
             qgraphicsdropshadoweffect_draw_isbase = false;
             QGraphicsDropShadowEffect::draw(painter);
-        } else if (qgraphicsdropshadoweffect_draw_callback != nullptr) {
+            return;
+        }
+        auto draw_cb = qgraphicsdropshadoweffect_draw_callback;
+        if (draw_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsdropshadoweffect_draw_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::draw(painter);
+            draw_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::draw(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1867,13 +1892,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_sourcechanged_isbase) {
             qgraphicsdropshadoweffect_sourcechanged_isbase = false;
             QGraphicsDropShadowEffect::sourceChanged(flags);
-        } else if (qgraphicsdropshadoweffect_sourcechanged_callback != nullptr) {
+            return;
+        }
+        auto sourcechanged_cb = qgraphicsdropshadoweffect_sourcechanged_callback;
+        if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            qgraphicsdropshadoweffect_sourcechanged_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::sourceChanged(flags);
+            sourcechanged_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::sourceChanged(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1881,14 +1909,15 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_event_isbase) {
             qgraphicsdropshadoweffect_event_isbase = false;
             return QGraphicsDropShadowEffect::event(event);
-        } else if (qgraphicsdropshadoweffect_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsdropshadoweffect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsdropshadoweffect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::event(event);
         }
+        return QGraphicsDropShadowEffect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1896,15 +1925,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_eventfilter_isbase) {
             qgraphicsdropshadoweffect_eventfilter_isbase = false;
             return QGraphicsDropShadowEffect::eventFilter(watched, event);
-        } else if (qgraphicsdropshadoweffect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsdropshadoweffect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsdropshadoweffect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::eventFilter(watched, event);
         }
+        return QGraphicsDropShadowEffect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1912,13 +1942,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_timerevent_isbase) {
             qgraphicsdropshadoweffect_timerevent_isbase = false;
             QGraphicsDropShadowEffect::timerEvent(event);
-        } else if (qgraphicsdropshadoweffect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsdropshadoweffect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsdropshadoweffect_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1926,13 +1959,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_childevent_isbase) {
             qgraphicsdropshadoweffect_childevent_isbase = false;
             QGraphicsDropShadowEffect::childEvent(event);
-        } else if (qgraphicsdropshadoweffect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsdropshadoweffect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsdropshadoweffect_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1940,13 +1976,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_customevent_isbase) {
             qgraphicsdropshadoweffect_customevent_isbase = false;
             QGraphicsDropShadowEffect::customEvent(event);
-        } else if (qgraphicsdropshadoweffect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsdropshadoweffect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsdropshadoweffect_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1954,15 +1993,18 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_connectnotify_isbase) {
             qgraphicsdropshadoweffect_connectnotify_isbase = false;
             QGraphicsDropShadowEffect::connectNotify(signal);
-        } else if (qgraphicsdropshadoweffect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsdropshadoweffect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsdropshadoweffect_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1970,15 +2012,18 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_disconnectnotify_isbase) {
             qgraphicsdropshadoweffect_disconnectnotify_isbase = false;
             QGraphicsDropShadowEffect::disconnectNotify(signal);
-        } else if (qgraphicsdropshadoweffect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsdropshadoweffect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsdropshadoweffect_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1986,11 +2031,14 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_updateboundingrect_isbase) {
             qgraphicsdropshadoweffect_updateboundingrect_isbase = false;
             QGraphicsDropShadowEffect::updateBoundingRect();
-        } else if (qgraphicsdropshadoweffect_updateboundingrect_callback != nullptr) {
-            qgraphicsdropshadoweffect_updateboundingrect_callback();
-        } else {
-            QGraphicsDropShadowEffect::updateBoundingRect();
+            return;
         }
+        auto updateboundingrect_cb = qgraphicsdropshadoweffect_updateboundingrect_callback;
+        if (updateboundingrect_cb) {
+            updateboundingrect_cb();
+            return;
+        }
+        QGraphicsDropShadowEffect::updateBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1998,12 +2046,13 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_sourceispixmap_isbase) {
             qgraphicsdropshadoweffect_sourceispixmap_isbase = false;
             return QGraphicsDropShadowEffect::sourceIsPixmap();
-        } else if (qgraphicsdropshadoweffect_sourceispixmap_callback != nullptr) {
-            bool callback_ret = qgraphicsdropshadoweffect_sourceispixmap_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::sourceIsPixmap();
         }
+        auto sourceispixmap_cb = qgraphicsdropshadoweffect_sourceispixmap_callback;
+        if (sourceispixmap_cb) {
+            bool callback_ret = sourceispixmap_cb();
+            return callback_ret;
+        }
+        return QGraphicsDropShadowEffect::sourceIsPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2011,12 +2060,13 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_sourceboundingrect_isbase) {
             qgraphicsdropshadoweffect_sourceboundingrect_isbase = false;
             return QGraphicsDropShadowEffect::sourceBoundingRect();
-        } else if (qgraphicsdropshadoweffect_sourceboundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsdropshadoweffect_sourceboundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::sourceBoundingRect();
         }
+        auto sourceboundingrect_cb = qgraphicsdropshadoweffect_sourceboundingrect_callback;
+        if (sourceboundingrect_cb) {
+            QRectF* callback_ret = sourceboundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsDropShadowEffect::sourceBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2024,13 +2074,16 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_drawsource_isbase) {
             qgraphicsdropshadoweffect_drawsource_isbase = false;
             QGraphicsDropShadowEffect::drawSource(painter);
-        } else if (qgraphicsdropshadoweffect_drawsource_callback != nullptr) {
+            return;
+        }
+        auto drawsource_cb = qgraphicsdropshadoweffect_drawsource_callback;
+        if (drawsource_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsdropshadoweffect_drawsource_callback(this, cbval1);
-        } else {
-            QGraphicsDropShadowEffect::drawSource(painter);
+            drawsource_cb(this, cbval1);
+            return;
         }
+        QGraphicsDropShadowEffect::drawSource(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2038,12 +2091,13 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_sourcepixmap_isbase) {
             qgraphicsdropshadoweffect_sourcepixmap_isbase = false;
             return QGraphicsDropShadowEffect::sourcePixmap();
-        } else if (qgraphicsdropshadoweffect_sourcepixmap_callback != nullptr) {
-            QPixmap* callback_ret = qgraphicsdropshadoweffect_sourcepixmap_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::sourcePixmap();
         }
+        auto sourcepixmap_cb = qgraphicsdropshadoweffect_sourcepixmap_callback;
+        if (sourcepixmap_cb) {
+            QPixmap* callback_ret = sourcepixmap_cb();
+            return *callback_ret;
+        }
+        return QGraphicsDropShadowEffect::sourcePixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2051,12 +2105,13 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_sender_isbase) {
             qgraphicsdropshadoweffect_sender_isbase = false;
             return QGraphicsDropShadowEffect::sender();
-        } else if (qgraphicsdropshadoweffect_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsdropshadoweffect_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::sender();
         }
+        auto sender_cb = qgraphicsdropshadoweffect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsDropShadowEffect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2064,12 +2119,13 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_sendersignalindex_isbase) {
             qgraphicsdropshadoweffect_sendersignalindex_isbase = false;
             return QGraphicsDropShadowEffect::senderSignalIndex();
-        } else if (qgraphicsdropshadoweffect_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsdropshadoweffect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsDropShadowEffect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsdropshadoweffect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsDropShadowEffect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2077,14 +2133,15 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_receivers_isbase) {
             qgraphicsdropshadoweffect_receivers_isbase = false;
             return QGraphicsDropShadowEffect::receivers(signal);
-        } else if (qgraphicsdropshadoweffect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsdropshadoweffect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsdropshadoweffect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsDropShadowEffect::receivers(signal);
         }
+        return QGraphicsDropShadowEffect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2092,16 +2149,17 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (qgraphicsdropshadoweffect_issignalconnected_isbase) {
             qgraphicsdropshadoweffect_issignalconnected_isbase = false;
             return QGraphicsDropShadowEffect::isSignalConnected(signal);
-        } else if (qgraphicsdropshadoweffect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsdropshadoweffect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsdropshadoweffect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsDropShadowEffect::isSignalConnected(signal);
         }
+        return QGraphicsDropShadowEffect::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -2223,31 +2281,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     VirtualQGraphicsOpacityEffect() : QGraphicsOpacityEffect() {};
     VirtualQGraphicsOpacityEffect(QObject* parent) : QGraphicsOpacityEffect(parent) {};
 
-    ~VirtualQGraphicsOpacityEffect() {
-        qgraphicsopacityeffect_metaobject_callback = nullptr;
-        qgraphicsopacityeffect_metacast_callback = nullptr;
-        qgraphicsopacityeffect_metacall_callback = nullptr;
-        qgraphicsopacityeffect_draw_callback = nullptr;
-        qgraphicsopacityeffect_boundingrectfor_callback = nullptr;
-        qgraphicsopacityeffect_sourcechanged_callback = nullptr;
-        qgraphicsopacityeffect_event_callback = nullptr;
-        qgraphicsopacityeffect_eventfilter_callback = nullptr;
-        qgraphicsopacityeffect_timerevent_callback = nullptr;
-        qgraphicsopacityeffect_childevent_callback = nullptr;
-        qgraphicsopacityeffect_customevent_callback = nullptr;
-        qgraphicsopacityeffect_connectnotify_callback = nullptr;
-        qgraphicsopacityeffect_disconnectnotify_callback = nullptr;
-        qgraphicsopacityeffect_updateboundingrect_callback = nullptr;
-        qgraphicsopacityeffect_sourceispixmap_callback = nullptr;
-        qgraphicsopacityeffect_sourceboundingrect_callback = nullptr;
-        qgraphicsopacityeffect_drawsource_callback = nullptr;
-        qgraphicsopacityeffect_sourcepixmap_callback = nullptr;
-        qgraphicsopacityeffect_sender_callback = nullptr;
-        qgraphicsopacityeffect_sendersignalindex_callback = nullptr;
-        qgraphicsopacityeffect_receivers_callback = nullptr;
-        qgraphicsopacityeffect_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsOpacityEffect_MetaObject_Callback(QGraphicsOpacityEffect_MetaObject_Callback cb) { qgraphicsopacityeffect_metaobject_callback = cb; }
     inline void setQGraphicsOpacityEffect_Metacast_Callback(QGraphicsOpacityEffect_Metacast_Callback cb) { qgraphicsopacityeffect_metacast_callback = cb; }
@@ -2301,12 +2334,13 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_metaobject_isbase) {
             qgraphicsopacityeffect_metaobject_isbase = false;
             return QGraphicsOpacityEffect::metaObject();
-        } else if (qgraphicsopacityeffect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgraphicsopacityeffect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::metaObject();
         }
+        auto metaobject_cb = qgraphicsopacityeffect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGraphicsOpacityEffect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2314,14 +2348,15 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_metacast_isbase) {
             qgraphicsopacityeffect_metacast_isbase = false;
             return QGraphicsOpacityEffect::qt_metacast(param1);
-        } else if (qgraphicsopacityeffect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgraphicsopacityeffect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgraphicsopacityeffect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::qt_metacast(param1);
         }
+        return QGraphicsOpacityEffect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2329,16 +2364,17 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_metacall_isbase) {
             qgraphicsopacityeffect_metacall_isbase = false;
             return QGraphicsOpacityEffect::qt_metacall(param1, param2, param3);
-        } else if (qgraphicsopacityeffect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgraphicsopacityeffect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgraphicsopacityeffect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsOpacityEffect::qt_metacall(param1, param2, param3);
         }
+        return QGraphicsOpacityEffect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2346,13 +2382,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_draw_isbase) {
             qgraphicsopacityeffect_draw_isbase = false;
             QGraphicsOpacityEffect::draw(painter);
-        } else if (qgraphicsopacityeffect_draw_callback != nullptr) {
+            return;
+        }
+        auto draw_cb = qgraphicsopacityeffect_draw_callback;
+        if (draw_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsopacityeffect_draw_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::draw(painter);
+            draw_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::draw(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2360,16 +2399,17 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_boundingrectfor_isbase) {
             qgraphicsopacityeffect_boundingrectfor_isbase = false;
             return QGraphicsOpacityEffect::boundingRectFor(sourceRect);
-        } else if (qgraphicsopacityeffect_boundingrectfor_callback != nullptr) {
+        }
+        auto boundingrectfor_cb = qgraphicsopacityeffect_boundingrectfor_callback;
+        if (boundingrectfor_cb) {
             const QRectF& sourceRect_ret = sourceRect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&sourceRect_ret);
 
-            QRectF* callback_ret = qgraphicsopacityeffect_boundingrectfor_callback(this, cbval1);
+            QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::boundingRectFor(sourceRect);
         }
+        return QGraphicsOpacityEffect::boundingRectFor(sourceRect);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2377,13 +2417,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_sourcechanged_isbase) {
             qgraphicsopacityeffect_sourcechanged_isbase = false;
             QGraphicsOpacityEffect::sourceChanged(flags);
-        } else if (qgraphicsopacityeffect_sourcechanged_callback != nullptr) {
+            return;
+        }
+        auto sourcechanged_cb = qgraphicsopacityeffect_sourcechanged_callback;
+        if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
 
-            qgraphicsopacityeffect_sourcechanged_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::sourceChanged(flags);
+            sourcechanged_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::sourceChanged(flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2391,14 +2434,15 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_event_isbase) {
             qgraphicsopacityeffect_event_isbase = false;
             return QGraphicsOpacityEffect::event(event);
-        } else if (qgraphicsopacityeffect_event_callback != nullptr) {
+        }
+        auto event_cb = qgraphicsopacityeffect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgraphicsopacityeffect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::event(event);
         }
+        return QGraphicsOpacityEffect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2406,15 +2450,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_eventfilter_isbase) {
             qgraphicsopacityeffect_eventfilter_isbase = false;
             return QGraphicsOpacityEffect::eventFilter(watched, event);
-        } else if (qgraphicsopacityeffect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgraphicsopacityeffect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgraphicsopacityeffect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::eventFilter(watched, event);
         }
+        return QGraphicsOpacityEffect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2422,13 +2467,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_timerevent_isbase) {
             qgraphicsopacityeffect_timerevent_isbase = false;
             QGraphicsOpacityEffect::timerEvent(event);
-        } else if (qgraphicsopacityeffect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgraphicsopacityeffect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgraphicsopacityeffect_timerevent_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2436,13 +2484,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_childevent_isbase) {
             qgraphicsopacityeffect_childevent_isbase = false;
             QGraphicsOpacityEffect::childEvent(event);
-        } else if (qgraphicsopacityeffect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgraphicsopacityeffect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgraphicsopacityeffect_childevent_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2450,13 +2501,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_customevent_isbase) {
             qgraphicsopacityeffect_customevent_isbase = false;
             QGraphicsOpacityEffect::customEvent(event);
-        } else if (qgraphicsopacityeffect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgraphicsopacityeffect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgraphicsopacityeffect_customevent_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2464,15 +2518,18 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_connectnotify_isbase) {
             qgraphicsopacityeffect_connectnotify_isbase = false;
             QGraphicsOpacityEffect::connectNotify(signal);
-        } else if (qgraphicsopacityeffect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgraphicsopacityeffect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsopacityeffect_connectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2480,15 +2537,18 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_disconnectnotify_isbase) {
             qgraphicsopacityeffect_disconnectnotify_isbase = false;
             QGraphicsOpacityEffect::disconnectNotify(signal);
-        } else if (qgraphicsopacityeffect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgraphicsopacityeffect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgraphicsopacityeffect_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2496,11 +2556,14 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_updateboundingrect_isbase) {
             qgraphicsopacityeffect_updateboundingrect_isbase = false;
             QGraphicsOpacityEffect::updateBoundingRect();
-        } else if (qgraphicsopacityeffect_updateboundingrect_callback != nullptr) {
-            qgraphicsopacityeffect_updateboundingrect_callback();
-        } else {
-            QGraphicsOpacityEffect::updateBoundingRect();
+            return;
         }
+        auto updateboundingrect_cb = qgraphicsopacityeffect_updateboundingrect_callback;
+        if (updateboundingrect_cb) {
+            updateboundingrect_cb();
+            return;
+        }
+        QGraphicsOpacityEffect::updateBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2508,12 +2571,13 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_sourceispixmap_isbase) {
             qgraphicsopacityeffect_sourceispixmap_isbase = false;
             return QGraphicsOpacityEffect::sourceIsPixmap();
-        } else if (qgraphicsopacityeffect_sourceispixmap_callback != nullptr) {
-            bool callback_ret = qgraphicsopacityeffect_sourceispixmap_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::sourceIsPixmap();
         }
+        auto sourceispixmap_cb = qgraphicsopacityeffect_sourceispixmap_callback;
+        if (sourceispixmap_cb) {
+            bool callback_ret = sourceispixmap_cb();
+            return callback_ret;
+        }
+        return QGraphicsOpacityEffect::sourceIsPixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2521,12 +2585,13 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_sourceboundingrect_isbase) {
             qgraphicsopacityeffect_sourceboundingrect_isbase = false;
             return QGraphicsOpacityEffect::sourceBoundingRect();
-        } else if (qgraphicsopacityeffect_sourceboundingrect_callback != nullptr) {
-            QRectF* callback_ret = qgraphicsopacityeffect_sourceboundingrect_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::sourceBoundingRect();
         }
+        auto sourceboundingrect_cb = qgraphicsopacityeffect_sourceboundingrect_callback;
+        if (sourceboundingrect_cb) {
+            QRectF* callback_ret = sourceboundingrect_cb();
+            return *callback_ret;
+        }
+        return QGraphicsOpacityEffect::sourceBoundingRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2534,13 +2599,16 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_drawsource_isbase) {
             qgraphicsopacityeffect_drawsource_isbase = false;
             QGraphicsOpacityEffect::drawSource(painter);
-        } else if (qgraphicsopacityeffect_drawsource_callback != nullptr) {
+            return;
+        }
+        auto drawsource_cb = qgraphicsopacityeffect_drawsource_callback;
+        if (drawsource_cb) {
             QPainter* cbval1 = painter;
 
-            qgraphicsopacityeffect_drawsource_callback(this, cbval1);
-        } else {
-            QGraphicsOpacityEffect::drawSource(painter);
+            drawsource_cb(this, cbval1);
+            return;
         }
+        QGraphicsOpacityEffect::drawSource(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2548,12 +2616,13 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_sourcepixmap_isbase) {
             qgraphicsopacityeffect_sourcepixmap_isbase = false;
             return QGraphicsOpacityEffect::sourcePixmap();
-        } else if (qgraphicsopacityeffect_sourcepixmap_callback != nullptr) {
-            QPixmap* callback_ret = qgraphicsopacityeffect_sourcepixmap_callback();
-            return *callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::sourcePixmap();
         }
+        auto sourcepixmap_cb = qgraphicsopacityeffect_sourcepixmap_callback;
+        if (sourcepixmap_cb) {
+            QPixmap* callback_ret = sourcepixmap_cb();
+            return *callback_ret;
+        }
+        return QGraphicsOpacityEffect::sourcePixmap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2561,12 +2630,13 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_sender_isbase) {
             qgraphicsopacityeffect_sender_isbase = false;
             return QGraphicsOpacityEffect::sender();
-        } else if (qgraphicsopacityeffect_sender_callback != nullptr) {
-            QObject* callback_ret = qgraphicsopacityeffect_sender_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::sender();
         }
+        auto sender_cb = qgraphicsopacityeffect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGraphicsOpacityEffect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2574,12 +2644,13 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_sendersignalindex_isbase) {
             qgraphicsopacityeffect_sendersignalindex_isbase = false;
             return QGraphicsOpacityEffect::senderSignalIndex();
-        } else if (qgraphicsopacityeffect_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgraphicsopacityeffect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsOpacityEffect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgraphicsopacityeffect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGraphicsOpacityEffect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2587,14 +2658,15 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_receivers_isbase) {
             qgraphicsopacityeffect_receivers_isbase = false;
             return QGraphicsOpacityEffect::receivers(signal);
-        } else if (qgraphicsopacityeffect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgraphicsopacityeffect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgraphicsopacityeffect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGraphicsOpacityEffect::receivers(signal);
         }
+        return QGraphicsOpacityEffect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2602,16 +2674,17 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (qgraphicsopacityeffect_issignalconnected_isbase) {
             qgraphicsopacityeffect_issignalconnected_isbase = false;
             return QGraphicsOpacityEffect::isSignalConnected(signal);
-        } else if (qgraphicsopacityeffect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgraphicsopacityeffect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgraphicsopacityeffect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGraphicsOpacityEffect::isSignalConnected(signal);
         }
+        return QGraphicsOpacityEffect::isSignalConnected(signal);
     }
 
     // Friend functions

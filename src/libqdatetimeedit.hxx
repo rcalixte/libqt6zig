@@ -243,79 +243,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     VirtualQDateTimeEdit(QDate d, QWidget* parent) : QDateTimeEdit(d, parent) {};
     VirtualQDateTimeEdit(QTime t, QWidget* parent) : QDateTimeEdit(t, parent) {};
 
-    ~VirtualQDateTimeEdit() {
-        qdatetimeedit_metaobject_callback = nullptr;
-        qdatetimeedit_metacast_callback = nullptr;
-        qdatetimeedit_metacall_callback = nullptr;
-        qdatetimeedit_sizehint_callback = nullptr;
-        qdatetimeedit_clear_callback = nullptr;
-        qdatetimeedit_stepby_callback = nullptr;
-        qdatetimeedit_event_callback = nullptr;
-        qdatetimeedit_keypressevent_callback = nullptr;
-        qdatetimeedit_wheelevent_callback = nullptr;
-        qdatetimeedit_focusinevent_callback = nullptr;
-        qdatetimeedit_focusnextprevchild_callback = nullptr;
-        qdatetimeedit_validate_callback = nullptr;
-        qdatetimeedit_fixup_callback = nullptr;
-        qdatetimeedit_datetimefromtext_callback = nullptr;
-        qdatetimeedit_textfromdatetime_callback = nullptr;
-        qdatetimeedit_stepenabled_callback = nullptr;
-        qdatetimeedit_mousepressevent_callback = nullptr;
-        qdatetimeedit_paintevent_callback = nullptr;
-        qdatetimeedit_initstyleoption_callback = nullptr;
-        qdatetimeedit_minimumsizehint_callback = nullptr;
-        qdatetimeedit_inputmethodquery_callback = nullptr;
-        qdatetimeedit_resizeevent_callback = nullptr;
-        qdatetimeedit_keyreleaseevent_callback = nullptr;
-        qdatetimeedit_focusoutevent_callback = nullptr;
-        qdatetimeedit_contextmenuevent_callback = nullptr;
-        qdatetimeedit_changeevent_callback = nullptr;
-        qdatetimeedit_closeevent_callback = nullptr;
-        qdatetimeedit_hideevent_callback = nullptr;
-        qdatetimeedit_mousereleaseevent_callback = nullptr;
-        qdatetimeedit_mousemoveevent_callback = nullptr;
-        qdatetimeedit_timerevent_callback = nullptr;
-        qdatetimeedit_showevent_callback = nullptr;
-        qdatetimeedit_devtype_callback = nullptr;
-        qdatetimeedit_setvisible_callback = nullptr;
-        qdatetimeedit_heightforwidth_callback = nullptr;
-        qdatetimeedit_hasheightforwidth_callback = nullptr;
-        qdatetimeedit_paintengine_callback = nullptr;
-        qdatetimeedit_mousedoubleclickevent_callback = nullptr;
-        qdatetimeedit_enterevent_callback = nullptr;
-        qdatetimeedit_leaveevent_callback = nullptr;
-        qdatetimeedit_moveevent_callback = nullptr;
-        qdatetimeedit_tabletevent_callback = nullptr;
-        qdatetimeedit_actionevent_callback = nullptr;
-        qdatetimeedit_dragenterevent_callback = nullptr;
-        qdatetimeedit_dragmoveevent_callback = nullptr;
-        qdatetimeedit_dragleaveevent_callback = nullptr;
-        qdatetimeedit_dropevent_callback = nullptr;
-        qdatetimeedit_nativeevent_callback = nullptr;
-        qdatetimeedit_metric_callback = nullptr;
-        qdatetimeedit_initpainter_callback = nullptr;
-        qdatetimeedit_redirected_callback = nullptr;
-        qdatetimeedit_sharedpainter_callback = nullptr;
-        qdatetimeedit_inputmethodevent_callback = nullptr;
-        qdatetimeedit_eventfilter_callback = nullptr;
-        qdatetimeedit_childevent_callback = nullptr;
-        qdatetimeedit_customevent_callback = nullptr;
-        qdatetimeedit_connectnotify_callback = nullptr;
-        qdatetimeedit_disconnectnotify_callback = nullptr;
-        qdatetimeedit_lineedit_callback = nullptr;
-        qdatetimeedit_setlineedit_callback = nullptr;
-        qdatetimeedit_updatemicrofocus_callback = nullptr;
-        qdatetimeedit_create_callback = nullptr;
-        qdatetimeedit_destroy_callback = nullptr;
-        qdatetimeedit_focusnextchild_callback = nullptr;
-        qdatetimeedit_focuspreviouschild_callback = nullptr;
-        qdatetimeedit_sender_callback = nullptr;
-        qdatetimeedit_sendersignalindex_callback = nullptr;
-        qdatetimeedit_receivers_callback = nullptr;
-        qdatetimeedit_issignalconnected_callback = nullptr;
-        qdatetimeedit_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDateTimeEdit_MetaObject_Callback(QDateTimeEdit_MetaObject_Callback cb) { qdatetimeedit_metaobject_callback = cb; }
     inline void setQDateTimeEdit_Metacast_Callback(QDateTimeEdit_Metacast_Callback cb) { qdatetimeedit_metacast_callback = cb; }
@@ -465,12 +392,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_metaobject_isbase) {
             qdatetimeedit_metaobject_isbase = false;
             return QDateTimeEdit::metaObject();
-        } else if (qdatetimeedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdatetimeedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::metaObject();
         }
+        auto metaobject_cb = qdatetimeedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -478,14 +406,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_metacast_isbase) {
             qdatetimeedit_metacast_isbase = false;
             return QDateTimeEdit::qt_metacast(param1);
-        } else if (qdatetimeedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdatetimeedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdatetimeedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::qt_metacast(param1);
         }
+        return QDateTimeEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -493,16 +422,17 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_metacall_isbase) {
             qdatetimeedit_metacall_isbase = false;
             return QDateTimeEdit::qt_metacall(param1, param2, param3);
-        } else if (qdatetimeedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdatetimeedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdatetimeedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeEdit::qt_metacall(param1, param2, param3);
         }
+        return QDateTimeEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,12 +440,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_sizehint_isbase) {
             qdatetimeedit_sizehint_isbase = false;
             return QDateTimeEdit::sizeHint();
-        } else if (qdatetimeedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdatetimeedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDateTimeEdit::sizeHint();
         }
+        auto sizehint_cb = qdatetimeedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDateTimeEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,11 +454,14 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_clear_isbase) {
             qdatetimeedit_clear_isbase = false;
             QDateTimeEdit::clear();
-        } else if (qdatetimeedit_clear_callback != nullptr) {
-            qdatetimeedit_clear_callback();
-        } else {
-            QDateTimeEdit::clear();
+            return;
         }
+        auto clear_cb = qdatetimeedit_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QDateTimeEdit::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,13 +469,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_stepby_isbase) {
             qdatetimeedit_stepby_isbase = false;
             QDateTimeEdit::stepBy(steps);
-        } else if (qdatetimeedit_stepby_callback != nullptr) {
+            return;
+        }
+        auto stepby_cb = qdatetimeedit_stepby_callback;
+        if (stepby_cb) {
             int cbval1 = steps;
 
-            qdatetimeedit_stepby_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::stepBy(steps);
+            stepby_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::stepBy(steps);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,14 +486,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_event_isbase) {
             qdatetimeedit_event_isbase = false;
             return QDateTimeEdit::event(event);
-        } else if (qdatetimeedit_event_callback != nullptr) {
+        }
+        auto event_cb = qdatetimeedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdatetimeedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::event(event);
         }
+        return QDateTimeEdit::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,13 +502,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_keypressevent_isbase) {
             qdatetimeedit_keypressevent_isbase = false;
             QDateTimeEdit::keyPressEvent(event);
-        } else if (qdatetimeedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdatetimeedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdatetimeedit_keypressevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +519,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_wheelevent_isbase) {
             qdatetimeedit_wheelevent_isbase = false;
             QDateTimeEdit::wheelEvent(event);
-        } else if (qdatetimeedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdatetimeedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdatetimeedit_wheelevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +536,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_focusinevent_isbase) {
             qdatetimeedit_focusinevent_isbase = false;
             QDateTimeEdit::focusInEvent(event);
-        } else if (qdatetimeedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdatetimeedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdatetimeedit_focusinevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,14 +553,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_focusnextprevchild_isbase) {
             qdatetimeedit_focusnextprevchild_isbase = false;
             return QDateTimeEdit::focusNextPrevChild(next);
-        } else if (qdatetimeedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdatetimeedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdatetimeedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::focusNextPrevChild(next);
         }
+        return QDateTimeEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,7 +569,9 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_validate_isbase) {
             qdatetimeedit_validate_isbase = false;
             return QDateTimeEdit::validate(input, pos);
-        } else if (qdatetimeedit_validate_callback != nullptr) {
+        }
+        auto validate_cb = qdatetimeedit_validate_callback;
+        if (validate_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -632,12 +582,11 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
-            int callback_ret = qdatetimeedit_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QDateTimeEdit::validate(input, pos);
         }
+        return QDateTimeEdit::validate(input, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,7 +594,10 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_fixup_isbase) {
             qdatetimeedit_fixup_isbase = false;
             QDateTimeEdit::fixup(input);
-        } else if (qdatetimeedit_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qdatetimeedit_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -655,11 +607,11 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            qdatetimeedit_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            QDateTimeEdit::fixup(input);
+            return;
         }
+        QDateTimeEdit::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,7 +619,9 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_datetimefromtext_isbase) {
             qdatetimeedit_datetimefromtext_isbase = false;
             return QDateTimeEdit::dateTimeFromText(text);
-        } else if (qdatetimeedit_datetimefromtext_callback != nullptr) {
+        }
+        auto datetimefromtext_cb = qdatetimeedit_datetimefromtext_callback;
+        if (datetimefromtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -677,12 +631,11 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            QDateTime* callback_ret = qdatetimeedit_datetimefromtext_callback(this, cbval1);
+            QDateTime* callback_ret = datetimefromtext_cb(this, cbval1);
             libqt_free(text_str);
             return *callback_ret;
-        } else {
-            return QDateTimeEdit::dateTimeFromText(text);
         }
+        return QDateTimeEdit::dateTimeFromText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,17 +643,18 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_textfromdatetime_isbase) {
             qdatetimeedit_textfromdatetime_isbase = false;
             return QDateTimeEdit::textFromDateTime(dt);
-        } else if (qdatetimeedit_textfromdatetime_callback != nullptr) {
+        }
+        auto textfromdatetime_cb = qdatetimeedit_textfromdatetime_callback;
+        if (textfromdatetime_cb) {
             const QDateTime& dt_ret = dt;
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
 
-            const char* callback_ret = qdatetimeedit_textfromdatetime_callback(this, cbval1);
+            const char* callback_ret = textfromdatetime_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QDateTimeEdit::textFromDateTime(dt);
         }
+        return QDateTimeEdit::textFromDateTime(dt);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,12 +662,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_stepenabled_isbase) {
             qdatetimeedit_stepenabled_isbase = false;
             return QDateTimeEdit::stepEnabled();
-        } else if (qdatetimeedit_stepenabled_callback != nullptr) {
-            int callback_ret = qdatetimeedit_stepenabled_callback();
-            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
-        } else {
-            return QDateTimeEdit::stepEnabled();
         }
+        auto stepenabled_cb = qdatetimeedit_stepenabled_callback;
+        if (stepenabled_cb) {
+            int callback_ret = stepenabled_cb();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
+        }
+        return QDateTimeEdit::stepEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +676,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_mousepressevent_isbase) {
             qdatetimeedit_mousepressevent_isbase = false;
             QDateTimeEdit::mousePressEvent(event);
-        } else if (qdatetimeedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdatetimeedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdatetimeedit_mousepressevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +693,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_paintevent_isbase) {
             qdatetimeedit_paintevent_isbase = false;
             QDateTimeEdit::paintEvent(event);
-        } else if (qdatetimeedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdatetimeedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdatetimeedit_paintevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +710,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_initstyleoption_isbase) {
             qdatetimeedit_initstyleoption_isbase = false;
             QDateTimeEdit::initStyleOption(option);
-        } else if (qdatetimeedit_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qdatetimeedit_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
 
-            qdatetimeedit_initstyleoption_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,12 +727,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_minimumsizehint_isbase) {
             qdatetimeedit_minimumsizehint_isbase = false;
             return QDateTimeEdit::minimumSizeHint();
-        } else if (qdatetimeedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdatetimeedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDateTimeEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdatetimeedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDateTimeEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,14 +741,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_inputmethodquery_isbase) {
             qdatetimeedit_inputmethodquery_isbase = false;
             return QDateTimeEdit::inputMethodQuery(param1);
-        } else if (qdatetimeedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdatetimeedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdatetimeedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDateTimeEdit::inputMethodQuery(param1);
         }
+        return QDateTimeEdit::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +757,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_resizeevent_isbase) {
             qdatetimeedit_resizeevent_isbase = false;
             QDateTimeEdit::resizeEvent(event);
-        } else if (qdatetimeedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdatetimeedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdatetimeedit_resizeevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +774,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_keyreleaseevent_isbase) {
             qdatetimeedit_keyreleaseevent_isbase = false;
             QDateTimeEdit::keyReleaseEvent(event);
-        } else if (qdatetimeedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdatetimeedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdatetimeedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +791,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_focusoutevent_isbase) {
             qdatetimeedit_focusoutevent_isbase = false;
             QDateTimeEdit::focusOutEvent(event);
-        } else if (qdatetimeedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdatetimeedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdatetimeedit_focusoutevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +808,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_contextmenuevent_isbase) {
             qdatetimeedit_contextmenuevent_isbase = false;
             QDateTimeEdit::contextMenuEvent(event);
-        } else if (qdatetimeedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdatetimeedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdatetimeedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +825,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_changeevent_isbase) {
             qdatetimeedit_changeevent_isbase = false;
             QDateTimeEdit::changeEvent(event);
-        } else if (qdatetimeedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdatetimeedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qdatetimeedit_changeevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +842,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_closeevent_isbase) {
             qdatetimeedit_closeevent_isbase = false;
             QDateTimeEdit::closeEvent(event);
-        } else if (qdatetimeedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdatetimeedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdatetimeedit_closeevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +859,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_hideevent_isbase) {
             qdatetimeedit_hideevent_isbase = false;
             QDateTimeEdit::hideEvent(event);
-        } else if (qdatetimeedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdatetimeedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdatetimeedit_hideevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,13 +876,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_mousereleaseevent_isbase) {
             qdatetimeedit_mousereleaseevent_isbase = false;
             QDateTimeEdit::mouseReleaseEvent(event);
-        } else if (qdatetimeedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdatetimeedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdatetimeedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -903,13 +893,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_mousemoveevent_isbase) {
             qdatetimeedit_mousemoveevent_isbase = false;
             QDateTimeEdit::mouseMoveEvent(event);
-        } else if (qdatetimeedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdatetimeedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdatetimeedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -917,13 +910,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_timerevent_isbase) {
             qdatetimeedit_timerevent_isbase = false;
             QDateTimeEdit::timerEvent(event);
-        } else if (qdatetimeedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdatetimeedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdatetimeedit_timerevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -931,13 +927,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_showevent_isbase) {
             qdatetimeedit_showevent_isbase = false;
             QDateTimeEdit::showEvent(event);
-        } else if (qdatetimeedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdatetimeedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdatetimeedit_showevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -945,12 +944,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_devtype_isbase) {
             qdatetimeedit_devtype_isbase = false;
             return QDateTimeEdit::devType();
-        } else if (qdatetimeedit_devtype_callback != nullptr) {
-            int callback_ret = qdatetimeedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeEdit::devType();
         }
+        auto devtype_cb = qdatetimeedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDateTimeEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +958,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_setvisible_isbase) {
             qdatetimeedit_setvisible_isbase = false;
             QDateTimeEdit::setVisible(visible);
-        } else if (qdatetimeedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdatetimeedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdatetimeedit_setvisible_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,14 +975,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_heightforwidth_isbase) {
             qdatetimeedit_heightforwidth_isbase = false;
             return QDateTimeEdit::heightForWidth(param1);
-        } else if (qdatetimeedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdatetimeedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdatetimeedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeEdit::heightForWidth(param1);
         }
+        return QDateTimeEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -987,12 +991,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_hasheightforwidth_isbase) {
             qdatetimeedit_hasheightforwidth_isbase = false;
             return QDateTimeEdit::hasHeightForWidth();
-        } else if (qdatetimeedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdatetimeedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdatetimeedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,12 +1005,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_paintengine_isbase) {
             qdatetimeedit_paintengine_isbase = false;
             return QDateTimeEdit::paintEngine();
-        } else if (qdatetimeedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdatetimeedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::paintEngine();
         }
+        auto paintengine_cb = qdatetimeedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,13 +1019,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_mousedoubleclickevent_isbase) {
             qdatetimeedit_mousedoubleclickevent_isbase = false;
             QDateTimeEdit::mouseDoubleClickEvent(event);
-        } else if (qdatetimeedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdatetimeedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdatetimeedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1027,13 +1036,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_enterevent_isbase) {
             qdatetimeedit_enterevent_isbase = false;
             QDateTimeEdit::enterEvent(event);
-        } else if (qdatetimeedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdatetimeedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdatetimeedit_enterevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1041,13 +1053,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_leaveevent_isbase) {
             qdatetimeedit_leaveevent_isbase = false;
             QDateTimeEdit::leaveEvent(event);
-        } else if (qdatetimeedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdatetimeedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdatetimeedit_leaveevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,13 +1070,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_moveevent_isbase) {
             qdatetimeedit_moveevent_isbase = false;
             QDateTimeEdit::moveEvent(event);
-        } else if (qdatetimeedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdatetimeedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdatetimeedit_moveevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1087,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_tabletevent_isbase) {
             qdatetimeedit_tabletevent_isbase = false;
             QDateTimeEdit::tabletEvent(event);
-        } else if (qdatetimeedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdatetimeedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdatetimeedit_tabletevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,13 +1104,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_actionevent_isbase) {
             qdatetimeedit_actionevent_isbase = false;
             QDateTimeEdit::actionEvent(event);
-        } else if (qdatetimeedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdatetimeedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdatetimeedit_actionevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,13 +1121,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_dragenterevent_isbase) {
             qdatetimeedit_dragenterevent_isbase = false;
             QDateTimeEdit::dragEnterEvent(event);
-        } else if (qdatetimeedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdatetimeedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdatetimeedit_dragenterevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1111,13 +1138,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_dragmoveevent_isbase) {
             qdatetimeedit_dragmoveevent_isbase = false;
             QDateTimeEdit::dragMoveEvent(event);
-        } else if (qdatetimeedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdatetimeedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdatetimeedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,13 +1155,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_dragleaveevent_isbase) {
             qdatetimeedit_dragleaveevent_isbase = false;
             QDateTimeEdit::dragLeaveEvent(event);
-        } else if (qdatetimeedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdatetimeedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdatetimeedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,13 +1172,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_dropevent_isbase) {
             qdatetimeedit_dropevent_isbase = false;
             QDateTimeEdit::dropEvent(event);
-        } else if (qdatetimeedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdatetimeedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdatetimeedit_dropevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1153,7 +1189,9 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_nativeevent_isbase) {
             qdatetimeedit_nativeevent_isbase = false;
             return QDateTimeEdit::nativeEvent(eventType, message, result);
-        } else if (qdatetimeedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdatetimeedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1164,12 +1202,11 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdatetimeedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::nativeEvent(eventType, message, result);
         }
+        return QDateTimeEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,14 +1214,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_metric_isbase) {
             qdatetimeedit_metric_isbase = false;
             return QDateTimeEdit::metric(param1);
-        } else if (qdatetimeedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdatetimeedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdatetimeedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeEdit::metric(param1);
         }
+        return QDateTimeEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1192,13 +1230,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_initpainter_isbase) {
             qdatetimeedit_initpainter_isbase = false;
             QDateTimeEdit::initPainter(painter);
-        } else if (qdatetimeedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdatetimeedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdatetimeedit_initpainter_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1247,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_redirected_isbase) {
             qdatetimeedit_redirected_isbase = false;
             return QDateTimeEdit::redirected(offset);
-        } else if (qdatetimeedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdatetimeedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdatetimeedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::redirected(offset);
         }
+        return QDateTimeEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,12 +1263,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_sharedpainter_isbase) {
             qdatetimeedit_sharedpainter_isbase = false;
             return QDateTimeEdit::sharedPainter();
-        } else if (qdatetimeedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdatetimeedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::sharedPainter();
         }
+        auto sharedpainter_cb = qdatetimeedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,13 +1277,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_inputmethodevent_isbase) {
             qdatetimeedit_inputmethodevent_isbase = false;
             QDateTimeEdit::inputMethodEvent(param1);
-        } else if (qdatetimeedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdatetimeedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdatetimeedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,15 +1294,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_eventfilter_isbase) {
             qdatetimeedit_eventfilter_isbase = false;
             return QDateTimeEdit::eventFilter(watched, event);
-        } else if (qdatetimeedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdatetimeedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdatetimeedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::eventFilter(watched, event);
         }
+        return QDateTimeEdit::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1264,13 +1311,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_childevent_isbase) {
             qdatetimeedit_childevent_isbase = false;
             QDateTimeEdit::childEvent(event);
-        } else if (qdatetimeedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdatetimeedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdatetimeedit_childevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,13 +1328,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_customevent_isbase) {
             qdatetimeedit_customevent_isbase = false;
             QDateTimeEdit::customEvent(event);
-        } else if (qdatetimeedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdatetimeedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdatetimeedit_customevent_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1292,15 +1345,18 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_connectnotify_isbase) {
             qdatetimeedit_connectnotify_isbase = false;
             QDateTimeEdit::connectNotify(signal);
-        } else if (qdatetimeedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdatetimeedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdatetimeedit_connectnotify_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,15 +1364,18 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_disconnectnotify_isbase) {
             qdatetimeedit_disconnectnotify_isbase = false;
             QDateTimeEdit::disconnectNotify(signal);
-        } else if (qdatetimeedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdatetimeedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdatetimeedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,12 +1383,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_lineedit_isbase) {
             qdatetimeedit_lineedit_isbase = false;
             return QDateTimeEdit::lineEdit();
-        } else if (qdatetimeedit_lineedit_callback != nullptr) {
-            QLineEdit* callback_ret = qdatetimeedit_lineedit_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::lineEdit();
         }
+        auto lineedit_cb = qdatetimeedit_lineedit_callback;
+        if (lineedit_cb) {
+            QLineEdit* callback_ret = lineedit_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::lineEdit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,13 +1397,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_setlineedit_isbase) {
             qdatetimeedit_setlineedit_isbase = false;
             QDateTimeEdit::setLineEdit(edit);
-        } else if (qdatetimeedit_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = qdatetimeedit_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
 
-            qdatetimeedit_setlineedit_callback(this, cbval1);
-        } else {
-            QDateTimeEdit::setLineEdit(edit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        QDateTimeEdit::setLineEdit(edit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1351,11 +1414,14 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_updatemicrofocus_isbase) {
             qdatetimeedit_updatemicrofocus_isbase = false;
             QDateTimeEdit::updateMicroFocus();
-        } else if (qdatetimeedit_updatemicrofocus_callback != nullptr) {
-            qdatetimeedit_updatemicrofocus_callback();
-        } else {
-            QDateTimeEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdatetimeedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDateTimeEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,11 +1429,14 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_create_isbase) {
             qdatetimeedit_create_isbase = false;
             QDateTimeEdit::create();
-        } else if (qdatetimeedit_create_callback != nullptr) {
-            qdatetimeedit_create_callback();
-        } else {
-            QDateTimeEdit::create();
+            return;
         }
+        auto create_cb = qdatetimeedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDateTimeEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1375,11 +1444,14 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_destroy_isbase) {
             qdatetimeedit_destroy_isbase = false;
             QDateTimeEdit::destroy();
-        } else if (qdatetimeedit_destroy_callback != nullptr) {
-            qdatetimeedit_destroy_callback();
-        } else {
-            QDateTimeEdit::destroy();
+            return;
         }
+        auto destroy_cb = qdatetimeedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDateTimeEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1387,12 +1459,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_focusnextchild_isbase) {
             qdatetimeedit_focusnextchild_isbase = false;
             return QDateTimeEdit::focusNextChild();
-        } else if (qdatetimeedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdatetimeedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::focusNextChild();
         }
+        auto focusnextchild_cb = qdatetimeedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1400,12 +1473,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_focuspreviouschild_isbase) {
             qdatetimeedit_focuspreviouschild_isbase = false;
             return QDateTimeEdit::focusPreviousChild();
-        } else if (qdatetimeedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdatetimeedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdatetimeedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1413,12 +1487,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_sender_isbase) {
             qdatetimeedit_sender_isbase = false;
             return QDateTimeEdit::sender();
-        } else if (qdatetimeedit_sender_callback != nullptr) {
-            QObject* callback_ret = qdatetimeedit_sender_callback();
-            return callback_ret;
-        } else {
-            return QDateTimeEdit::sender();
         }
+        auto sender_cb = qdatetimeedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDateTimeEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1426,12 +1501,13 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_sendersignalindex_isbase) {
             qdatetimeedit_sendersignalindex_isbase = false;
             return QDateTimeEdit::senderSignalIndex();
-        } else if (qdatetimeedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdatetimeedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdatetimeedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDateTimeEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1439,14 +1515,15 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_receivers_isbase) {
             qdatetimeedit_receivers_isbase = false;
             return QDateTimeEdit::receivers(signal);
-        } else if (qdatetimeedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdatetimeedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdatetimeedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateTimeEdit::receivers(signal);
         }
+        return QDateTimeEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1454,16 +1531,17 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_issignalconnected_isbase) {
             qdatetimeedit_issignalconnected_isbase = false;
             return QDateTimeEdit::isSignalConnected(signal);
-        } else if (qdatetimeedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdatetimeedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdatetimeedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateTimeEdit::isSignalConnected(signal);
         }
+        return QDateTimeEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1471,15 +1549,16 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (qdatetimeedit_getdecodedmetricf_isbase) {
             qdatetimeedit_getdecodedmetricf_isbase = false;
             return QDateTimeEdit::getDecodedMetricF(metricA, metricB);
-        } else if (qdatetimeedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdatetimeedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdatetimeedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDateTimeEdit::getDecodedMetricF(metricA, metricB);
         }
+        return QDateTimeEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions
@@ -1825,79 +1904,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
     VirtualQTimeEdit(QTime time) : QTimeEdit(time) {};
     VirtualQTimeEdit(QTime time, QWidget* parent) : QTimeEdit(time, parent) {};
 
-    ~VirtualQTimeEdit() {
-        qtimeedit_metaobject_callback = nullptr;
-        qtimeedit_metacast_callback = nullptr;
-        qtimeedit_metacall_callback = nullptr;
-        qtimeedit_sizehint_callback = nullptr;
-        qtimeedit_clear_callback = nullptr;
-        qtimeedit_stepby_callback = nullptr;
-        qtimeedit_event_callback = nullptr;
-        qtimeedit_keypressevent_callback = nullptr;
-        qtimeedit_wheelevent_callback = nullptr;
-        qtimeedit_focusinevent_callback = nullptr;
-        qtimeedit_focusnextprevchild_callback = nullptr;
-        qtimeedit_validate_callback = nullptr;
-        qtimeedit_fixup_callback = nullptr;
-        qtimeedit_datetimefromtext_callback = nullptr;
-        qtimeedit_textfromdatetime_callback = nullptr;
-        qtimeedit_stepenabled_callback = nullptr;
-        qtimeedit_mousepressevent_callback = nullptr;
-        qtimeedit_paintevent_callback = nullptr;
-        qtimeedit_initstyleoption_callback = nullptr;
-        qtimeedit_minimumsizehint_callback = nullptr;
-        qtimeedit_inputmethodquery_callback = nullptr;
-        qtimeedit_resizeevent_callback = nullptr;
-        qtimeedit_keyreleaseevent_callback = nullptr;
-        qtimeedit_focusoutevent_callback = nullptr;
-        qtimeedit_contextmenuevent_callback = nullptr;
-        qtimeedit_changeevent_callback = nullptr;
-        qtimeedit_closeevent_callback = nullptr;
-        qtimeedit_hideevent_callback = nullptr;
-        qtimeedit_mousereleaseevent_callback = nullptr;
-        qtimeedit_mousemoveevent_callback = nullptr;
-        qtimeedit_timerevent_callback = nullptr;
-        qtimeedit_showevent_callback = nullptr;
-        qtimeedit_devtype_callback = nullptr;
-        qtimeedit_setvisible_callback = nullptr;
-        qtimeedit_heightforwidth_callback = nullptr;
-        qtimeedit_hasheightforwidth_callback = nullptr;
-        qtimeedit_paintengine_callback = nullptr;
-        qtimeedit_mousedoubleclickevent_callback = nullptr;
-        qtimeedit_enterevent_callback = nullptr;
-        qtimeedit_leaveevent_callback = nullptr;
-        qtimeedit_moveevent_callback = nullptr;
-        qtimeedit_tabletevent_callback = nullptr;
-        qtimeedit_actionevent_callback = nullptr;
-        qtimeedit_dragenterevent_callback = nullptr;
-        qtimeedit_dragmoveevent_callback = nullptr;
-        qtimeedit_dragleaveevent_callback = nullptr;
-        qtimeedit_dropevent_callback = nullptr;
-        qtimeedit_nativeevent_callback = nullptr;
-        qtimeedit_metric_callback = nullptr;
-        qtimeedit_initpainter_callback = nullptr;
-        qtimeedit_redirected_callback = nullptr;
-        qtimeedit_sharedpainter_callback = nullptr;
-        qtimeedit_inputmethodevent_callback = nullptr;
-        qtimeedit_eventfilter_callback = nullptr;
-        qtimeedit_childevent_callback = nullptr;
-        qtimeedit_customevent_callback = nullptr;
-        qtimeedit_connectnotify_callback = nullptr;
-        qtimeedit_disconnectnotify_callback = nullptr;
-        qtimeedit_lineedit_callback = nullptr;
-        qtimeedit_setlineedit_callback = nullptr;
-        qtimeedit_updatemicrofocus_callback = nullptr;
-        qtimeedit_create_callback = nullptr;
-        qtimeedit_destroy_callback = nullptr;
-        qtimeedit_focusnextchild_callback = nullptr;
-        qtimeedit_focuspreviouschild_callback = nullptr;
-        qtimeedit_sender_callback = nullptr;
-        qtimeedit_sendersignalindex_callback = nullptr;
-        qtimeedit_receivers_callback = nullptr;
-        qtimeedit_issignalconnected_callback = nullptr;
-        qtimeedit_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTimeEdit_MetaObject_Callback(QTimeEdit_MetaObject_Callback cb) { qtimeedit_metaobject_callback = cb; }
     inline void setQTimeEdit_Metacast_Callback(QTimeEdit_Metacast_Callback cb) { qtimeedit_metacast_callback = cb; }
@@ -2047,12 +2053,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_metaobject_isbase) {
             qtimeedit_metaobject_isbase = false;
             return QTimeEdit::metaObject();
-        } else if (qtimeedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtimeedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::metaObject();
         }
+        auto metaobject_cb = qtimeedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2060,14 +2067,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_metacast_isbase) {
             qtimeedit_metacast_isbase = false;
             return QTimeEdit::qt_metacast(param1);
-        } else if (qtimeedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtimeedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtimeedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeEdit::qt_metacast(param1);
         }
+        return QTimeEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2075,16 +2083,17 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_metacall_isbase) {
             qtimeedit_metacall_isbase = false;
             return QTimeEdit::qt_metacall(param1, param2, param3);
-        } else if (qtimeedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtimeedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtimeedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTimeEdit::qt_metacall(param1, param2, param3);
         }
+        return QTimeEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2092,12 +2101,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_sizehint_isbase) {
             qtimeedit_sizehint_isbase = false;
             return QTimeEdit::sizeHint();
-        } else if (qtimeedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtimeedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTimeEdit::sizeHint();
         }
+        auto sizehint_cb = qtimeedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QTimeEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2105,11 +2115,14 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_clear_isbase) {
             qtimeedit_clear_isbase = false;
             QTimeEdit::clear();
-        } else if (qtimeedit_clear_callback != nullptr) {
-            qtimeedit_clear_callback();
-        } else {
-            QTimeEdit::clear();
+            return;
         }
+        auto clear_cb = qtimeedit_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QTimeEdit::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2117,13 +2130,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_stepby_isbase) {
             qtimeedit_stepby_isbase = false;
             QTimeEdit::stepBy(steps);
-        } else if (qtimeedit_stepby_callback != nullptr) {
+            return;
+        }
+        auto stepby_cb = qtimeedit_stepby_callback;
+        if (stepby_cb) {
             int cbval1 = steps;
 
-            qtimeedit_stepby_callback(this, cbval1);
-        } else {
-            QTimeEdit::stepBy(steps);
+            stepby_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::stepBy(steps);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2131,14 +2147,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_event_isbase) {
             qtimeedit_event_isbase = false;
             return QTimeEdit::event(event);
-        } else if (qtimeedit_event_callback != nullptr) {
+        }
+        auto event_cb = qtimeedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtimeedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeEdit::event(event);
         }
+        return QTimeEdit::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2146,13 +2163,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_keypressevent_isbase) {
             qtimeedit_keypressevent_isbase = false;
             QTimeEdit::keyPressEvent(event);
-        } else if (qtimeedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtimeedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtimeedit_keypressevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2160,13 +2180,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_wheelevent_isbase) {
             qtimeedit_wheelevent_isbase = false;
             QTimeEdit::wheelEvent(event);
-        } else if (qtimeedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtimeedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qtimeedit_wheelevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2174,13 +2197,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_focusinevent_isbase) {
             qtimeedit_focusinevent_isbase = false;
             QTimeEdit::focusInEvent(event);
-        } else if (qtimeedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtimeedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtimeedit_focusinevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2188,14 +2214,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_focusnextprevchild_isbase) {
             qtimeedit_focusnextprevchild_isbase = false;
             return QTimeEdit::focusNextPrevChild(next);
-        } else if (qtimeedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtimeedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtimeedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeEdit::focusNextPrevChild(next);
         }
+        return QTimeEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2203,7 +2230,9 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_validate_isbase) {
             qtimeedit_validate_isbase = false;
             return QTimeEdit::validate(input, pos);
-        } else if (qtimeedit_validate_callback != nullptr) {
+        }
+        auto validate_cb = qtimeedit_validate_callback;
+        if (validate_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -2214,12 +2243,11 @@ class VirtualQTimeEdit final : public QTimeEdit {
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
-            int callback_ret = qtimeedit_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QTimeEdit::validate(input, pos);
         }
+        return QTimeEdit::validate(input, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2227,7 +2255,10 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_fixup_isbase) {
             qtimeedit_fixup_isbase = false;
             QTimeEdit::fixup(input);
-        } else if (qtimeedit_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qtimeedit_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -2237,11 +2268,11 @@ class VirtualQTimeEdit final : public QTimeEdit {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            qtimeedit_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            QTimeEdit::fixup(input);
+            return;
         }
+        QTimeEdit::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2249,7 +2280,9 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_datetimefromtext_isbase) {
             qtimeedit_datetimefromtext_isbase = false;
             return QTimeEdit::dateTimeFromText(text);
-        } else if (qtimeedit_datetimefromtext_callback != nullptr) {
+        }
+        auto datetimefromtext_cb = qtimeedit_datetimefromtext_callback;
+        if (datetimefromtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -2259,12 +2292,11 @@ class VirtualQTimeEdit final : public QTimeEdit {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            QDateTime* callback_ret = qtimeedit_datetimefromtext_callback(this, cbval1);
+            QDateTime* callback_ret = datetimefromtext_cb(this, cbval1);
             libqt_free(text_str);
             return *callback_ret;
-        } else {
-            return QTimeEdit::dateTimeFromText(text);
         }
+        return QTimeEdit::dateTimeFromText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2272,17 +2304,18 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_textfromdatetime_isbase) {
             qtimeedit_textfromdatetime_isbase = false;
             return QTimeEdit::textFromDateTime(dt);
-        } else if (qtimeedit_textfromdatetime_callback != nullptr) {
+        }
+        auto textfromdatetime_cb = qtimeedit_textfromdatetime_callback;
+        if (textfromdatetime_cb) {
             const QDateTime& dt_ret = dt;
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
 
-            const char* callback_ret = qtimeedit_textfromdatetime_callback(this, cbval1);
+            const char* callback_ret = textfromdatetime_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QTimeEdit::textFromDateTime(dt);
         }
+        return QTimeEdit::textFromDateTime(dt);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2290,12 +2323,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_stepenabled_isbase) {
             qtimeedit_stepenabled_isbase = false;
             return QTimeEdit::stepEnabled();
-        } else if (qtimeedit_stepenabled_callback != nullptr) {
-            int callback_ret = qtimeedit_stepenabled_callback();
-            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
-        } else {
-            return QTimeEdit::stepEnabled();
         }
+        auto stepenabled_cb = qtimeedit_stepenabled_callback;
+        if (stepenabled_cb) {
+            int callback_ret = stepenabled_cb();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
+        }
+        return QTimeEdit::stepEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2303,13 +2337,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_mousepressevent_isbase) {
             qtimeedit_mousepressevent_isbase = false;
             QTimeEdit::mousePressEvent(event);
-        } else if (qtimeedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtimeedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtimeedit_mousepressevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2317,13 +2354,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_paintevent_isbase) {
             qtimeedit_paintevent_isbase = false;
             QTimeEdit::paintEvent(event);
-        } else if (qtimeedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtimeedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qtimeedit_paintevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2331,13 +2371,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_initstyleoption_isbase) {
             qtimeedit_initstyleoption_isbase = false;
             QTimeEdit::initStyleOption(option);
-        } else if (qtimeedit_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qtimeedit_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
 
-            qtimeedit_initstyleoption_callback(this, cbval1);
-        } else {
-            QTimeEdit::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2345,12 +2388,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_minimumsizehint_isbase) {
             qtimeedit_minimumsizehint_isbase = false;
             return QTimeEdit::minimumSizeHint();
-        } else if (qtimeedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtimeedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QTimeEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtimeedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QTimeEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2358,14 +2402,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_inputmethodquery_isbase) {
             qtimeedit_inputmethodquery_isbase = false;
             return QTimeEdit::inputMethodQuery(param1);
-        } else if (qtimeedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtimeedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qtimeedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QTimeEdit::inputMethodQuery(param1);
         }
+        return QTimeEdit::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2373,13 +2418,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_resizeevent_isbase) {
             qtimeedit_resizeevent_isbase = false;
             QTimeEdit::resizeEvent(event);
-        } else if (qtimeedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtimeedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qtimeedit_resizeevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2387,13 +2435,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_keyreleaseevent_isbase) {
             qtimeedit_keyreleaseevent_isbase = false;
             QTimeEdit::keyReleaseEvent(event);
-        } else if (qtimeedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtimeedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qtimeedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2401,13 +2452,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_focusoutevent_isbase) {
             qtimeedit_focusoutevent_isbase = false;
             QTimeEdit::focusOutEvent(event);
-        } else if (qtimeedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtimeedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qtimeedit_focusoutevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2415,13 +2469,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_contextmenuevent_isbase) {
             qtimeedit_contextmenuevent_isbase = false;
             QTimeEdit::contextMenuEvent(event);
-        } else if (qtimeedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtimeedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qtimeedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2429,13 +2486,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_changeevent_isbase) {
             qtimeedit_changeevent_isbase = false;
             QTimeEdit::changeEvent(event);
-        } else if (qtimeedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtimeedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qtimeedit_changeevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2443,13 +2503,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_closeevent_isbase) {
             qtimeedit_closeevent_isbase = false;
             QTimeEdit::closeEvent(event);
-        } else if (qtimeedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtimeedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtimeedit_closeevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2457,13 +2520,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_hideevent_isbase) {
             qtimeedit_hideevent_isbase = false;
             QTimeEdit::hideEvent(event);
-        } else if (qtimeedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtimeedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtimeedit_hideevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2471,13 +2537,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_mousereleaseevent_isbase) {
             qtimeedit_mousereleaseevent_isbase = false;
             QTimeEdit::mouseReleaseEvent(event);
-        } else if (qtimeedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtimeedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtimeedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2485,13 +2554,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_mousemoveevent_isbase) {
             qtimeedit_mousemoveevent_isbase = false;
             QTimeEdit::mouseMoveEvent(event);
-        } else if (qtimeedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtimeedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtimeedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2499,13 +2571,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_timerevent_isbase) {
             qtimeedit_timerevent_isbase = false;
             QTimeEdit::timerEvent(event);
-        } else if (qtimeedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtimeedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtimeedit_timerevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2513,13 +2588,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_showevent_isbase) {
             qtimeedit_showevent_isbase = false;
             QTimeEdit::showEvent(event);
-        } else if (qtimeedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtimeedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qtimeedit_showevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2527,12 +2605,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_devtype_isbase) {
             qtimeedit_devtype_isbase = false;
             return QTimeEdit::devType();
-        } else if (qtimeedit_devtype_callback != nullptr) {
-            int callback_ret = qtimeedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTimeEdit::devType();
         }
+        auto devtype_cb = qtimeedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTimeEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2540,13 +2619,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_setvisible_isbase) {
             qtimeedit_setvisible_isbase = false;
             QTimeEdit::setVisible(visible);
-        } else if (qtimeedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtimeedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtimeedit_setvisible_callback(this, cbval1);
-        } else {
-            QTimeEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2554,14 +2636,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_heightforwidth_isbase) {
             qtimeedit_heightforwidth_isbase = false;
             return QTimeEdit::heightForWidth(param1);
-        } else if (qtimeedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtimeedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qtimeedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTimeEdit::heightForWidth(param1);
         }
+        return QTimeEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2569,12 +2652,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_hasheightforwidth_isbase) {
             qtimeedit_hasheightforwidth_isbase = false;
             return QTimeEdit::hasHeightForWidth();
-        } else if (qtimeedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtimeedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtimeedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2582,12 +2666,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_paintengine_isbase) {
             qtimeedit_paintengine_isbase = false;
             return QTimeEdit::paintEngine();
-        } else if (qtimeedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtimeedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::paintEngine();
         }
+        auto paintengine_cb = qtimeedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2595,13 +2680,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_mousedoubleclickevent_isbase) {
             qtimeedit_mousedoubleclickevent_isbase = false;
             QTimeEdit::mouseDoubleClickEvent(event);
-        } else if (qtimeedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtimeedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtimeedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2609,13 +2697,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_enterevent_isbase) {
             qtimeedit_enterevent_isbase = false;
             QTimeEdit::enterEvent(event);
-        } else if (qtimeedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtimeedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qtimeedit_enterevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2623,13 +2714,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_leaveevent_isbase) {
             qtimeedit_leaveevent_isbase = false;
             QTimeEdit::leaveEvent(event);
-        } else if (qtimeedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtimeedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qtimeedit_leaveevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2637,13 +2731,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_moveevent_isbase) {
             qtimeedit_moveevent_isbase = false;
             QTimeEdit::moveEvent(event);
-        } else if (qtimeedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtimeedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtimeedit_moveevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2651,13 +2748,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_tabletevent_isbase) {
             qtimeedit_tabletevent_isbase = false;
             QTimeEdit::tabletEvent(event);
-        } else if (qtimeedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtimeedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtimeedit_tabletevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2665,13 +2765,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_actionevent_isbase) {
             qtimeedit_actionevent_isbase = false;
             QTimeEdit::actionEvent(event);
-        } else if (qtimeedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtimeedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qtimeedit_actionevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2679,13 +2782,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_dragenterevent_isbase) {
             qtimeedit_dragenterevent_isbase = false;
             QTimeEdit::dragEnterEvent(event);
-        } else if (qtimeedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtimeedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qtimeedit_dragenterevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2693,13 +2799,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_dragmoveevent_isbase) {
             qtimeedit_dragmoveevent_isbase = false;
             QTimeEdit::dragMoveEvent(event);
-        } else if (qtimeedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtimeedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qtimeedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2707,13 +2816,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_dragleaveevent_isbase) {
             qtimeedit_dragleaveevent_isbase = false;
             QTimeEdit::dragLeaveEvent(event);
-        } else if (qtimeedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtimeedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qtimeedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2721,13 +2833,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_dropevent_isbase) {
             qtimeedit_dropevent_isbase = false;
             QTimeEdit::dropEvent(event);
-        } else if (qtimeedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtimeedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qtimeedit_dropevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2735,7 +2850,9 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_nativeevent_isbase) {
             qtimeedit_nativeevent_isbase = false;
             return QTimeEdit::nativeEvent(eventType, message, result);
-        } else if (qtimeedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtimeedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2746,12 +2863,11 @@ class VirtualQTimeEdit final : public QTimeEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtimeedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QTimeEdit::nativeEvent(eventType, message, result);
         }
+        return QTimeEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2759,14 +2875,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_metric_isbase) {
             qtimeedit_metric_isbase = false;
             return QTimeEdit::metric(param1);
-        } else if (qtimeedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtimeedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtimeedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTimeEdit::metric(param1);
         }
+        return QTimeEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2774,13 +2891,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_initpainter_isbase) {
             qtimeedit_initpainter_isbase = false;
             QTimeEdit::initPainter(painter);
-        } else if (qtimeedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtimeedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtimeedit_initpainter_callback(this, cbval1);
-        } else {
-            QTimeEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2788,14 +2908,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_redirected_isbase) {
             qtimeedit_redirected_isbase = false;
             return QTimeEdit::redirected(offset);
-        } else if (qtimeedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtimeedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtimeedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeEdit::redirected(offset);
         }
+        return QTimeEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2803,12 +2924,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_sharedpainter_isbase) {
             qtimeedit_sharedpainter_isbase = false;
             return QTimeEdit::sharedPainter();
-        } else if (qtimeedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtimeedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::sharedPainter();
         }
+        auto sharedpainter_cb = qtimeedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2816,13 +2938,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_inputmethodevent_isbase) {
             qtimeedit_inputmethodevent_isbase = false;
             QTimeEdit::inputMethodEvent(param1);
-        } else if (qtimeedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtimeedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qtimeedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2830,15 +2955,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_eventfilter_isbase) {
             qtimeedit_eventfilter_isbase = false;
             return QTimeEdit::eventFilter(watched, event);
-        } else if (qtimeedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtimeedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtimeedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTimeEdit::eventFilter(watched, event);
         }
+        return QTimeEdit::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2846,13 +2972,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_childevent_isbase) {
             qtimeedit_childevent_isbase = false;
             QTimeEdit::childEvent(event);
-        } else if (qtimeedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtimeedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtimeedit_childevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2860,13 +2989,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_customevent_isbase) {
             qtimeedit_customevent_isbase = false;
             QTimeEdit::customEvent(event);
-        } else if (qtimeedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtimeedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtimeedit_customevent_callback(this, cbval1);
-        } else {
-            QTimeEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2874,15 +3006,18 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_connectnotify_isbase) {
             qtimeedit_connectnotify_isbase = false;
             QTimeEdit::connectNotify(signal);
-        } else if (qtimeedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtimeedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtimeedit_connectnotify_callback(this, cbval1);
-        } else {
-            QTimeEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2890,15 +3025,18 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_disconnectnotify_isbase) {
             qtimeedit_disconnectnotify_isbase = false;
             QTimeEdit::disconnectNotify(signal);
-        } else if (qtimeedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtimeedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtimeedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTimeEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2906,12 +3044,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_lineedit_isbase) {
             qtimeedit_lineedit_isbase = false;
             return QTimeEdit::lineEdit();
-        } else if (qtimeedit_lineedit_callback != nullptr) {
-            QLineEdit* callback_ret = qtimeedit_lineedit_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::lineEdit();
         }
+        auto lineedit_cb = qtimeedit_lineedit_callback;
+        if (lineedit_cb) {
+            QLineEdit* callback_ret = lineedit_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::lineEdit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2919,13 +3058,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_setlineedit_isbase) {
             qtimeedit_setlineedit_isbase = false;
             QTimeEdit::setLineEdit(edit);
-        } else if (qtimeedit_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = qtimeedit_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
 
-            qtimeedit_setlineedit_callback(this, cbval1);
-        } else {
-            QTimeEdit::setLineEdit(edit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        QTimeEdit::setLineEdit(edit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2933,11 +3075,14 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_updatemicrofocus_isbase) {
             qtimeedit_updatemicrofocus_isbase = false;
             QTimeEdit::updateMicroFocus();
-        } else if (qtimeedit_updatemicrofocus_callback != nullptr) {
-            qtimeedit_updatemicrofocus_callback();
-        } else {
-            QTimeEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtimeedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QTimeEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2945,11 +3090,14 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_create_isbase) {
             qtimeedit_create_isbase = false;
             QTimeEdit::create();
-        } else if (qtimeedit_create_callback != nullptr) {
-            qtimeedit_create_callback();
-        } else {
-            QTimeEdit::create();
+            return;
         }
+        auto create_cb = qtimeedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QTimeEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2957,11 +3105,14 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_destroy_isbase) {
             qtimeedit_destroy_isbase = false;
             QTimeEdit::destroy();
-        } else if (qtimeedit_destroy_callback != nullptr) {
-            qtimeedit_destroy_callback();
-        } else {
-            QTimeEdit::destroy();
+            return;
         }
+        auto destroy_cb = qtimeedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QTimeEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2969,12 +3120,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_focusnextchild_isbase) {
             qtimeedit_focusnextchild_isbase = false;
             return QTimeEdit::focusNextChild();
-        } else if (qtimeedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtimeedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::focusNextChild();
         }
+        auto focusnextchild_cb = qtimeedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2982,12 +3134,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_focuspreviouschild_isbase) {
             qtimeedit_focuspreviouschild_isbase = false;
             return QTimeEdit::focusPreviousChild();
-        } else if (qtimeedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtimeedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtimeedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2995,12 +3148,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_sender_isbase) {
             qtimeedit_sender_isbase = false;
             return QTimeEdit::sender();
-        } else if (qtimeedit_sender_callback != nullptr) {
-            QObject* callback_ret = qtimeedit_sender_callback();
-            return callback_ret;
-        } else {
-            return QTimeEdit::sender();
         }
+        auto sender_cb = qtimeedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTimeEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3008,12 +3162,13 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_sendersignalindex_isbase) {
             qtimeedit_sendersignalindex_isbase = false;
             return QTimeEdit::senderSignalIndex();
-        } else if (qtimeedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtimeedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTimeEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtimeedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTimeEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3021,14 +3176,15 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_receivers_isbase) {
             qtimeedit_receivers_isbase = false;
             return QTimeEdit::receivers(signal);
-        } else if (qtimeedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtimeedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtimeedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTimeEdit::receivers(signal);
         }
+        return QTimeEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3036,16 +3192,17 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_issignalconnected_isbase) {
             qtimeedit_issignalconnected_isbase = false;
             return QTimeEdit::isSignalConnected(signal);
-        } else if (qtimeedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtimeedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtimeedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTimeEdit::isSignalConnected(signal);
         }
+        return QTimeEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3053,15 +3210,16 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (qtimeedit_getdecodedmetricf_isbase) {
             qtimeedit_getdecodedmetricf_isbase = false;
             return QTimeEdit::getDecodedMetricF(metricA, metricB);
-        } else if (qtimeedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtimeedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtimeedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QTimeEdit::getDecodedMetricF(metricA, metricB);
         }
+        return QTimeEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions
@@ -3407,79 +3565,6 @@ class VirtualQDateEdit final : public QDateEdit {
     VirtualQDateEdit(QDate date) : QDateEdit(date) {};
     VirtualQDateEdit(QDate date, QWidget* parent) : QDateEdit(date, parent) {};
 
-    ~VirtualQDateEdit() {
-        qdateedit_metaobject_callback = nullptr;
-        qdateedit_metacast_callback = nullptr;
-        qdateedit_metacall_callback = nullptr;
-        qdateedit_sizehint_callback = nullptr;
-        qdateedit_clear_callback = nullptr;
-        qdateedit_stepby_callback = nullptr;
-        qdateedit_event_callback = nullptr;
-        qdateedit_keypressevent_callback = nullptr;
-        qdateedit_wheelevent_callback = nullptr;
-        qdateedit_focusinevent_callback = nullptr;
-        qdateedit_focusnextprevchild_callback = nullptr;
-        qdateedit_validate_callback = nullptr;
-        qdateedit_fixup_callback = nullptr;
-        qdateedit_datetimefromtext_callback = nullptr;
-        qdateedit_textfromdatetime_callback = nullptr;
-        qdateedit_stepenabled_callback = nullptr;
-        qdateedit_mousepressevent_callback = nullptr;
-        qdateedit_paintevent_callback = nullptr;
-        qdateedit_initstyleoption_callback = nullptr;
-        qdateedit_minimumsizehint_callback = nullptr;
-        qdateedit_inputmethodquery_callback = nullptr;
-        qdateedit_resizeevent_callback = nullptr;
-        qdateedit_keyreleaseevent_callback = nullptr;
-        qdateedit_focusoutevent_callback = nullptr;
-        qdateedit_contextmenuevent_callback = nullptr;
-        qdateedit_changeevent_callback = nullptr;
-        qdateedit_closeevent_callback = nullptr;
-        qdateedit_hideevent_callback = nullptr;
-        qdateedit_mousereleaseevent_callback = nullptr;
-        qdateedit_mousemoveevent_callback = nullptr;
-        qdateedit_timerevent_callback = nullptr;
-        qdateedit_showevent_callback = nullptr;
-        qdateedit_devtype_callback = nullptr;
-        qdateedit_setvisible_callback = nullptr;
-        qdateedit_heightforwidth_callback = nullptr;
-        qdateedit_hasheightforwidth_callback = nullptr;
-        qdateedit_paintengine_callback = nullptr;
-        qdateedit_mousedoubleclickevent_callback = nullptr;
-        qdateedit_enterevent_callback = nullptr;
-        qdateedit_leaveevent_callback = nullptr;
-        qdateedit_moveevent_callback = nullptr;
-        qdateedit_tabletevent_callback = nullptr;
-        qdateedit_actionevent_callback = nullptr;
-        qdateedit_dragenterevent_callback = nullptr;
-        qdateedit_dragmoveevent_callback = nullptr;
-        qdateedit_dragleaveevent_callback = nullptr;
-        qdateedit_dropevent_callback = nullptr;
-        qdateedit_nativeevent_callback = nullptr;
-        qdateedit_metric_callback = nullptr;
-        qdateedit_initpainter_callback = nullptr;
-        qdateedit_redirected_callback = nullptr;
-        qdateedit_sharedpainter_callback = nullptr;
-        qdateedit_inputmethodevent_callback = nullptr;
-        qdateedit_eventfilter_callback = nullptr;
-        qdateedit_childevent_callback = nullptr;
-        qdateedit_customevent_callback = nullptr;
-        qdateedit_connectnotify_callback = nullptr;
-        qdateedit_disconnectnotify_callback = nullptr;
-        qdateedit_lineedit_callback = nullptr;
-        qdateedit_setlineedit_callback = nullptr;
-        qdateedit_updatemicrofocus_callback = nullptr;
-        qdateedit_create_callback = nullptr;
-        qdateedit_destroy_callback = nullptr;
-        qdateedit_focusnextchild_callback = nullptr;
-        qdateedit_focuspreviouschild_callback = nullptr;
-        qdateedit_sender_callback = nullptr;
-        qdateedit_sendersignalindex_callback = nullptr;
-        qdateedit_receivers_callback = nullptr;
-        qdateedit_issignalconnected_callback = nullptr;
-        qdateedit_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDateEdit_MetaObject_Callback(QDateEdit_MetaObject_Callback cb) { qdateedit_metaobject_callback = cb; }
     inline void setQDateEdit_Metacast_Callback(QDateEdit_Metacast_Callback cb) { qdateedit_metacast_callback = cb; }
@@ -3629,12 +3714,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_metaobject_isbase) {
             qdateedit_metaobject_isbase = false;
             return QDateEdit::metaObject();
-        } else if (qdateedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdateedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::metaObject();
         }
+        auto metaobject_cb = qdateedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDateEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3642,14 +3728,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_metacast_isbase) {
             qdateedit_metacast_isbase = false;
             return QDateEdit::qt_metacast(param1);
-        } else if (qdateedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdateedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdateedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateEdit::qt_metacast(param1);
         }
+        return QDateEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3657,16 +3744,17 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_metacall_isbase) {
             qdateedit_metacall_isbase = false;
             return QDateEdit::qt_metacall(param1, param2, param3);
-        } else if (qdateedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdateedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdateedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateEdit::qt_metacall(param1, param2, param3);
         }
+        return QDateEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3674,12 +3762,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_sizehint_isbase) {
             qdateedit_sizehint_isbase = false;
             return QDateEdit::sizeHint();
-        } else if (qdateedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdateedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDateEdit::sizeHint();
         }
+        auto sizehint_cb = qdateedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDateEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3687,11 +3776,14 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_clear_isbase) {
             qdateedit_clear_isbase = false;
             QDateEdit::clear();
-        } else if (qdateedit_clear_callback != nullptr) {
-            qdateedit_clear_callback();
-        } else {
-            QDateEdit::clear();
+            return;
         }
+        auto clear_cb = qdateedit_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QDateEdit::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3699,13 +3791,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_stepby_isbase) {
             qdateedit_stepby_isbase = false;
             QDateEdit::stepBy(steps);
-        } else if (qdateedit_stepby_callback != nullptr) {
+            return;
+        }
+        auto stepby_cb = qdateedit_stepby_callback;
+        if (stepby_cb) {
             int cbval1 = steps;
 
-            qdateedit_stepby_callback(this, cbval1);
-        } else {
-            QDateEdit::stepBy(steps);
+            stepby_cb(this, cbval1);
+            return;
         }
+        QDateEdit::stepBy(steps);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3713,14 +3808,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_event_isbase) {
             qdateedit_event_isbase = false;
             return QDateEdit::event(event);
-        } else if (qdateedit_event_callback != nullptr) {
+        }
+        auto event_cb = qdateedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdateedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateEdit::event(event);
         }
+        return QDateEdit::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3728,13 +3824,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_keypressevent_isbase) {
             qdateedit_keypressevent_isbase = false;
             QDateEdit::keyPressEvent(event);
-        } else if (qdateedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdateedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdateedit_keypressevent_callback(this, cbval1);
-        } else {
-            QDateEdit::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3742,13 +3841,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_wheelevent_isbase) {
             qdateedit_wheelevent_isbase = false;
             QDateEdit::wheelEvent(event);
-        } else if (qdateedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdateedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdateedit_wheelevent_callback(this, cbval1);
-        } else {
-            QDateEdit::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3756,13 +3858,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_focusinevent_isbase) {
             qdateedit_focusinevent_isbase = false;
             QDateEdit::focusInEvent(event);
-        } else if (qdateedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdateedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdateedit_focusinevent_callback(this, cbval1);
-        } else {
-            QDateEdit::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3770,14 +3875,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_focusnextprevchild_isbase) {
             qdateedit_focusnextprevchild_isbase = false;
             return QDateEdit::focusNextPrevChild(next);
-        } else if (qdateedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdateedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdateedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateEdit::focusNextPrevChild(next);
         }
+        return QDateEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3785,7 +3891,9 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_validate_isbase) {
             qdateedit_validate_isbase = false;
             return QDateEdit::validate(input, pos);
-        } else if (qdateedit_validate_callback != nullptr) {
+        }
+        auto validate_cb = qdateedit_validate_callback;
+        if (validate_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -3796,12 +3904,11 @@ class VirtualQDateEdit final : public QDateEdit {
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
 
-            int callback_ret = qdateedit_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return QDateEdit::validate(input, pos);
         }
+        return QDateEdit::validate(input, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3809,7 +3916,10 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_fixup_isbase) {
             qdateedit_fixup_isbase = false;
             QDateEdit::fixup(input);
-        } else if (qdateedit_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = qdateedit_fixup_callback;
+        if (fixup_cb) {
             QString input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -3819,11 +3929,11 @@ class VirtualQDateEdit final : public QDateEdit {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
 
-            qdateedit_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(input_str);
-        } else {
-            QDateEdit::fixup(input);
+            return;
         }
+        QDateEdit::fixup(input);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3831,7 +3941,9 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_datetimefromtext_isbase) {
             qdateedit_datetimefromtext_isbase = false;
             return QDateEdit::dateTimeFromText(text);
-        } else if (qdateedit_datetimefromtext_callback != nullptr) {
+        }
+        auto datetimefromtext_cb = qdateedit_datetimefromtext_callback;
+        if (datetimefromtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -3841,12 +3953,11 @@ class VirtualQDateEdit final : public QDateEdit {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            QDateTime* callback_ret = qdateedit_datetimefromtext_callback(this, cbval1);
+            QDateTime* callback_ret = datetimefromtext_cb(this, cbval1);
             libqt_free(text_str);
             return *callback_ret;
-        } else {
-            return QDateEdit::dateTimeFromText(text);
         }
+        return QDateEdit::dateTimeFromText(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3854,17 +3965,18 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_textfromdatetime_isbase) {
             qdateedit_textfromdatetime_isbase = false;
             return QDateEdit::textFromDateTime(dt);
-        } else if (qdateedit_textfromdatetime_callback != nullptr) {
+        }
+        auto textfromdatetime_cb = qdateedit_textfromdatetime_callback;
+        if (textfromdatetime_cb) {
             const QDateTime& dt_ret = dt;
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
 
-            const char* callback_ret = qdateedit_textfromdatetime_callback(this, cbval1);
+            const char* callback_ret = textfromdatetime_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QDateEdit::textFromDateTime(dt);
         }
+        return QDateEdit::textFromDateTime(dt);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3872,12 +3984,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_stepenabled_isbase) {
             qdateedit_stepenabled_isbase = false;
             return QDateEdit::stepEnabled();
-        } else if (qdateedit_stepenabled_callback != nullptr) {
-            int callback_ret = qdateedit_stepenabled_callback();
-            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
-        } else {
-            return QDateEdit::stepEnabled();
         }
+        auto stepenabled_cb = qdateedit_stepenabled_callback;
+        if (stepenabled_cb) {
+            int callback_ret = stepenabled_cb();
+            return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
+        }
+        return QDateEdit::stepEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3885,13 +3998,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_mousepressevent_isbase) {
             qdateedit_mousepressevent_isbase = false;
             QDateEdit::mousePressEvent(event);
-        } else if (qdateedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdateedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdateedit_mousepressevent_callback(this, cbval1);
-        } else {
-            QDateEdit::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3899,13 +4015,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_paintevent_isbase) {
             qdateedit_paintevent_isbase = false;
             QDateEdit::paintEvent(event);
-        } else if (qdateedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdateedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdateedit_paintevent_callback(this, cbval1);
-        } else {
-            QDateEdit::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3913,13 +4032,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_initstyleoption_isbase) {
             qdateedit_initstyleoption_isbase = false;
             QDateEdit::initStyleOption(option);
-        } else if (qdateedit_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qdateedit_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
 
-            qdateedit_initstyleoption_callback(this, cbval1);
-        } else {
-            QDateEdit::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QDateEdit::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3927,12 +4049,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_minimumsizehint_isbase) {
             qdateedit_minimumsizehint_isbase = false;
             return QDateEdit::minimumSizeHint();
-        } else if (qdateedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdateedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDateEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdateedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDateEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3940,14 +4063,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_inputmethodquery_isbase) {
             qdateedit_inputmethodquery_isbase = false;
             return QDateEdit::inputMethodQuery(param1);
-        } else if (qdateedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdateedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdateedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDateEdit::inputMethodQuery(param1);
         }
+        return QDateEdit::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3955,13 +4079,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_resizeevent_isbase) {
             qdateedit_resizeevent_isbase = false;
             QDateEdit::resizeEvent(event);
-        } else if (qdateedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdateedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qdateedit_resizeevent_callback(this, cbval1);
-        } else {
-            QDateEdit::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3969,13 +4096,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_keyreleaseevent_isbase) {
             qdateedit_keyreleaseevent_isbase = false;
             QDateEdit::keyReleaseEvent(event);
-        } else if (qdateedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdateedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdateedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDateEdit::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3983,13 +4113,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_focusoutevent_isbase) {
             qdateedit_focusoutevent_isbase = false;
             QDateEdit::focusOutEvent(event);
-        } else if (qdateedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdateedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdateedit_focusoutevent_callback(this, cbval1);
-        } else {
-            QDateEdit::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3997,13 +4130,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_contextmenuevent_isbase) {
             qdateedit_contextmenuevent_isbase = false;
             QDateEdit::contextMenuEvent(event);
-        } else if (qdateedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdateedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qdateedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDateEdit::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4011,13 +4147,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_changeevent_isbase) {
             qdateedit_changeevent_isbase = false;
             QDateEdit::changeEvent(event);
-        } else if (qdateedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdateedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qdateedit_changeevent_callback(this, cbval1);
-        } else {
-            QDateEdit::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4025,13 +4164,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_closeevent_isbase) {
             qdateedit_closeevent_isbase = false;
             QDateEdit::closeEvent(event);
-        } else if (qdateedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdateedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qdateedit_closeevent_callback(this, cbval1);
-        } else {
-            QDateEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4039,13 +4181,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_hideevent_isbase) {
             qdateedit_hideevent_isbase = false;
             QDateEdit::hideEvent(event);
-        } else if (qdateedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdateedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdateedit_hideevent_callback(this, cbval1);
-        } else {
-            QDateEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4053,13 +4198,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_mousereleaseevent_isbase) {
             qdateedit_mousereleaseevent_isbase = false;
             QDateEdit::mouseReleaseEvent(event);
-        } else if (qdateedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdateedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdateedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDateEdit::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4067,13 +4215,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_mousemoveevent_isbase) {
             qdateedit_mousemoveevent_isbase = false;
             QDateEdit::mouseMoveEvent(event);
-        } else if (qdateedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdateedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdateedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDateEdit::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4081,13 +4232,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_timerevent_isbase) {
             qdateedit_timerevent_isbase = false;
             QDateEdit::timerEvent(event);
-        } else if (qdateedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdateedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdateedit_timerevent_callback(this, cbval1);
-        } else {
-            QDateEdit::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4095,13 +4249,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_showevent_isbase) {
             qdateedit_showevent_isbase = false;
             QDateEdit::showEvent(event);
-        } else if (qdateedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdateedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qdateedit_showevent_callback(this, cbval1);
-        } else {
-            QDateEdit::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4109,12 +4266,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_devtype_isbase) {
             qdateedit_devtype_isbase = false;
             return QDateEdit::devType();
-        } else if (qdateedit_devtype_callback != nullptr) {
-            int callback_ret = qdateedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDateEdit::devType();
         }
+        auto devtype_cb = qdateedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDateEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4122,13 +4280,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_setvisible_isbase) {
             qdateedit_setvisible_isbase = false;
             QDateEdit::setVisible(visible);
-        } else if (qdateedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdateedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdateedit_setvisible_callback(this, cbval1);
-        } else {
-            QDateEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDateEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4136,14 +4297,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_heightforwidth_isbase) {
             qdateedit_heightforwidth_isbase = false;
             return QDateEdit::heightForWidth(param1);
-        } else if (qdateedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdateedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdateedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateEdit::heightForWidth(param1);
         }
+        return QDateEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4151,12 +4313,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_hasheightforwidth_isbase) {
             qdateedit_hasheightforwidth_isbase = false;
             return QDateEdit::hasHeightForWidth();
-        } else if (qdateedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdateedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdateedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDateEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4164,12 +4327,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_paintengine_isbase) {
             qdateedit_paintengine_isbase = false;
             return QDateEdit::paintEngine();
-        } else if (qdateedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdateedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::paintEngine();
         }
+        auto paintengine_cb = qdateedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDateEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4177,13 +4341,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_mousedoubleclickevent_isbase) {
             qdateedit_mousedoubleclickevent_isbase = false;
             QDateEdit::mouseDoubleClickEvent(event);
-        } else if (qdateedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdateedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdateedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDateEdit::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4191,13 +4358,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_enterevent_isbase) {
             qdateedit_enterevent_isbase = false;
             QDateEdit::enterEvent(event);
-        } else if (qdateedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdateedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdateedit_enterevent_callback(this, cbval1);
-        } else {
-            QDateEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4205,13 +4375,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_leaveevent_isbase) {
             qdateedit_leaveevent_isbase = false;
             QDateEdit::leaveEvent(event);
-        } else if (qdateedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdateedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdateedit_leaveevent_callback(this, cbval1);
-        } else {
-            QDateEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4219,13 +4392,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_moveevent_isbase) {
             qdateedit_moveevent_isbase = false;
             QDateEdit::moveEvent(event);
-        } else if (qdateedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdateedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdateedit_moveevent_callback(this, cbval1);
-        } else {
-            QDateEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4233,13 +4409,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_tabletevent_isbase) {
             qdateedit_tabletevent_isbase = false;
             QDateEdit::tabletEvent(event);
-        } else if (qdateedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdateedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdateedit_tabletevent_callback(this, cbval1);
-        } else {
-            QDateEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4247,13 +4426,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_actionevent_isbase) {
             qdateedit_actionevent_isbase = false;
             QDateEdit::actionEvent(event);
-        } else if (qdateedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdateedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdateedit_actionevent_callback(this, cbval1);
-        } else {
-            QDateEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4261,13 +4443,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_dragenterevent_isbase) {
             qdateedit_dragenterevent_isbase = false;
             QDateEdit::dragEnterEvent(event);
-        } else if (qdateedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdateedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdateedit_dragenterevent_callback(this, cbval1);
-        } else {
-            QDateEdit::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4275,13 +4460,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_dragmoveevent_isbase) {
             qdateedit_dragmoveevent_isbase = false;
             QDateEdit::dragMoveEvent(event);
-        } else if (qdateedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdateedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdateedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDateEdit::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4289,13 +4477,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_dragleaveevent_isbase) {
             qdateedit_dragleaveevent_isbase = false;
             QDateEdit::dragLeaveEvent(event);
-        } else if (qdateedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdateedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdateedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDateEdit::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4303,13 +4494,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_dropevent_isbase) {
             qdateedit_dropevent_isbase = false;
             QDateEdit::dropEvent(event);
-        } else if (qdateedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdateedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdateedit_dropevent_callback(this, cbval1);
-        } else {
-            QDateEdit::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4317,7 +4511,9 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_nativeevent_isbase) {
             qdateedit_nativeevent_isbase = false;
             return QDateEdit::nativeEvent(eventType, message, result);
-        } else if (qdateedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdateedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -4328,12 +4524,11 @@ class VirtualQDateEdit final : public QDateEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdateedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDateEdit::nativeEvent(eventType, message, result);
         }
+        return QDateEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4341,14 +4536,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_metric_isbase) {
             qdateedit_metric_isbase = false;
             return QDateEdit::metric(param1);
-        } else if (qdateedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdateedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdateedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateEdit::metric(param1);
         }
+        return QDateEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4356,13 +4552,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_initpainter_isbase) {
             qdateedit_initpainter_isbase = false;
             QDateEdit::initPainter(painter);
-        } else if (qdateedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdateedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdateedit_initpainter_callback(this, cbval1);
-        } else {
-            QDateEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDateEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4370,14 +4569,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_redirected_isbase) {
             qdateedit_redirected_isbase = false;
             return QDateEdit::redirected(offset);
-        } else if (qdateedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdateedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdateedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateEdit::redirected(offset);
         }
+        return QDateEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4385,12 +4585,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_sharedpainter_isbase) {
             qdateedit_sharedpainter_isbase = false;
             return QDateEdit::sharedPainter();
-        } else if (qdateedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdateedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::sharedPainter();
         }
+        auto sharedpainter_cb = qdateedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDateEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4398,13 +4599,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_inputmethodevent_isbase) {
             qdateedit_inputmethodevent_isbase = false;
             QDateEdit::inputMethodEvent(param1);
-        } else if (qdateedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdateedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdateedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDateEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4412,15 +4616,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_eventfilter_isbase) {
             qdateedit_eventfilter_isbase = false;
             return QDateEdit::eventFilter(watched, event);
-        } else if (qdateedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdateedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdateedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDateEdit::eventFilter(watched, event);
         }
+        return QDateEdit::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4428,13 +4633,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_childevent_isbase) {
             qdateedit_childevent_isbase = false;
             QDateEdit::childEvent(event);
-        } else if (qdateedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdateedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdateedit_childevent_callback(this, cbval1);
-        } else {
-            QDateEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4442,13 +4650,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_customevent_isbase) {
             qdateedit_customevent_isbase = false;
             QDateEdit::customEvent(event);
-        } else if (qdateedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdateedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdateedit_customevent_callback(this, cbval1);
-        } else {
-            QDateEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDateEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4456,15 +4667,18 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_connectnotify_isbase) {
             qdateedit_connectnotify_isbase = false;
             QDateEdit::connectNotify(signal);
-        } else if (qdateedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdateedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdateedit_connectnotify_callback(this, cbval1);
-        } else {
-            QDateEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDateEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4472,15 +4686,18 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_disconnectnotify_isbase) {
             qdateedit_disconnectnotify_isbase = false;
             QDateEdit::disconnectNotify(signal);
-        } else if (qdateedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdateedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdateedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDateEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDateEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4488,12 +4705,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_lineedit_isbase) {
             qdateedit_lineedit_isbase = false;
             return QDateEdit::lineEdit();
-        } else if (qdateedit_lineedit_callback != nullptr) {
-            QLineEdit* callback_ret = qdateedit_lineedit_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::lineEdit();
         }
+        auto lineedit_cb = qdateedit_lineedit_callback;
+        if (lineedit_cb) {
+            QLineEdit* callback_ret = lineedit_cb();
+            return callback_ret;
+        }
+        return QDateEdit::lineEdit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4501,13 +4719,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_setlineedit_isbase) {
             qdateedit_setlineedit_isbase = false;
             QDateEdit::setLineEdit(edit);
-        } else if (qdateedit_setlineedit_callback != nullptr) {
+            return;
+        }
+        auto setlineedit_cb = qdateedit_setlineedit_callback;
+        if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
 
-            qdateedit_setlineedit_callback(this, cbval1);
-        } else {
-            QDateEdit::setLineEdit(edit);
+            setlineedit_cb(this, cbval1);
+            return;
         }
+        QDateEdit::setLineEdit(edit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4515,11 +4736,14 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_updatemicrofocus_isbase) {
             qdateedit_updatemicrofocus_isbase = false;
             QDateEdit::updateMicroFocus();
-        } else if (qdateedit_updatemicrofocus_callback != nullptr) {
-            qdateedit_updatemicrofocus_callback();
-        } else {
-            QDateEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdateedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDateEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4527,11 +4751,14 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_create_isbase) {
             qdateedit_create_isbase = false;
             QDateEdit::create();
-        } else if (qdateedit_create_callback != nullptr) {
-            qdateedit_create_callback();
-        } else {
-            QDateEdit::create();
+            return;
         }
+        auto create_cb = qdateedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDateEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4539,11 +4766,14 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_destroy_isbase) {
             qdateedit_destroy_isbase = false;
             QDateEdit::destroy();
-        } else if (qdateedit_destroy_callback != nullptr) {
-            qdateedit_destroy_callback();
-        } else {
-            QDateEdit::destroy();
+            return;
         }
+        auto destroy_cb = qdateedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDateEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4551,12 +4781,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_focusnextchild_isbase) {
             qdateedit_focusnextchild_isbase = false;
             return QDateEdit::focusNextChild();
-        } else if (qdateedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdateedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::focusNextChild();
         }
+        auto focusnextchild_cb = qdateedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDateEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4564,12 +4795,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_focuspreviouschild_isbase) {
             qdateedit_focuspreviouschild_isbase = false;
             return QDateEdit::focusPreviousChild();
-        } else if (qdateedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdateedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdateedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDateEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4577,12 +4809,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_sender_isbase) {
             qdateedit_sender_isbase = false;
             return QDateEdit::sender();
-        } else if (qdateedit_sender_callback != nullptr) {
-            QObject* callback_ret = qdateedit_sender_callback();
-            return callback_ret;
-        } else {
-            return QDateEdit::sender();
         }
+        auto sender_cb = qdateedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDateEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4590,12 +4823,13 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_sendersignalindex_isbase) {
             qdateedit_sendersignalindex_isbase = false;
             return QDateEdit::senderSignalIndex();
-        } else if (qdateedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdateedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDateEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdateedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDateEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4603,14 +4837,15 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_receivers_isbase) {
             qdateedit_receivers_isbase = false;
             return QDateEdit::receivers(signal);
-        } else if (qdateedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdateedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdateedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDateEdit::receivers(signal);
         }
+        return QDateEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4618,16 +4853,17 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_issignalconnected_isbase) {
             qdateedit_issignalconnected_isbase = false;
             return QDateEdit::isSignalConnected(signal);
-        } else if (qdateedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdateedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdateedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDateEdit::isSignalConnected(signal);
         }
+        return QDateEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4635,15 +4871,16 @@ class VirtualQDateEdit final : public QDateEdit {
         if (qdateedit_getdecodedmetricf_isbase) {
             qdateedit_getdecodedmetricf_isbase = false;
             return QDateEdit::getDecodedMetricF(metricA, metricB);
-        } else if (qdateedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdateedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdateedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDateEdit::getDecodedMetricF(metricA, metricB);
         }
+        return QDateEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

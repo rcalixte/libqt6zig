@@ -122,40 +122,6 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     VirtualQWaveDecoder(QIODevice* device, QObject* parent) : QWaveDecoder(device, parent) {};
     VirtualQWaveDecoder(QIODevice* device, const QAudioFormat& format, QObject* parent) : QWaveDecoder(device, format, parent) {};
 
-    ~VirtualQWaveDecoder() {
-        qwavedecoder_metaobject_callback = nullptr;
-        qwavedecoder_metacast_callback = nullptr;
-        qwavedecoder_metacall_callback = nullptr;
-        qwavedecoder_open_callback = nullptr;
-        qwavedecoder_close_callback = nullptr;
-        qwavedecoder_seek_callback = nullptr;
-        qwavedecoder_pos_callback = nullptr;
-        qwavedecoder_size_callback = nullptr;
-        qwavedecoder_issequential_callback = nullptr;
-        qwavedecoder_bytesavailable_callback = nullptr;
-        qwavedecoder_atend_callback = nullptr;
-        qwavedecoder_reset_callback = nullptr;
-        qwavedecoder_bytestowrite_callback = nullptr;
-        qwavedecoder_canreadline_callback = nullptr;
-        qwavedecoder_waitforreadyread_callback = nullptr;
-        qwavedecoder_waitforbyteswritten_callback = nullptr;
-        qwavedecoder_readlinedata_callback = nullptr;
-        qwavedecoder_skipdata_callback = nullptr;
-        qwavedecoder_event_callback = nullptr;
-        qwavedecoder_eventfilter_callback = nullptr;
-        qwavedecoder_timerevent_callback = nullptr;
-        qwavedecoder_childevent_callback = nullptr;
-        qwavedecoder_customevent_callback = nullptr;
-        qwavedecoder_connectnotify_callback = nullptr;
-        qwavedecoder_disconnectnotify_callback = nullptr;
-        qwavedecoder_setopenmode_callback = nullptr;
-        qwavedecoder_seterrorstring_callback = nullptr;
-        qwavedecoder_sender_callback = nullptr;
-        qwavedecoder_sendersignalindex_callback = nullptr;
-        qwavedecoder_receivers_callback = nullptr;
-        qwavedecoder_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWaveDecoder_MetaObject_Callback(QWaveDecoder_MetaObject_Callback cb) { qwavedecoder_metaobject_callback = cb; }
     inline void setQWaveDecoder_Metacast_Callback(QWaveDecoder_Metacast_Callback cb) { qwavedecoder_metacast_callback = cb; }
@@ -227,12 +193,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_metaobject_isbase) {
             qwavedecoder_metaobject_isbase = false;
             return QWaveDecoder::metaObject();
-        } else if (qwavedecoder_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwavedecoder_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWaveDecoder::metaObject();
         }
+        auto metaobject_cb = qwavedecoder_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWaveDecoder::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,14 +207,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_metacast_isbase) {
             qwavedecoder_metacast_isbase = false;
             return QWaveDecoder::qt_metacast(param1);
-        } else if (qwavedecoder_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwavedecoder_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwavedecoder_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::qt_metacast(param1);
         }
+        return QWaveDecoder::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -255,16 +223,17 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_metacall_isbase) {
             qwavedecoder_metacall_isbase = false;
             return QWaveDecoder::qt_metacall(param1, param2, param3);
-        } else if (qwavedecoder_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwavedecoder_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwavedecoder_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWaveDecoder::qt_metacall(param1, param2, param3);
         }
+        return QWaveDecoder::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,14 +241,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_open_isbase) {
             qwavedecoder_open_isbase = false;
             return QWaveDecoder::open(mode);
-        } else if (qwavedecoder_open_callback != nullptr) {
+        }
+        auto open_cb = qwavedecoder_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = qwavedecoder_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::open(mode);
         }
+        return QWaveDecoder::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,11 +257,14 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_close_isbase) {
             qwavedecoder_close_isbase = false;
             QWaveDecoder::close();
-        } else if (qwavedecoder_close_callback != nullptr) {
-            qwavedecoder_close_callback();
-        } else {
-            QWaveDecoder::close();
+            return;
         }
+        auto close_cb = qwavedecoder_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        QWaveDecoder::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +272,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_seek_isbase) {
             qwavedecoder_seek_isbase = false;
             return QWaveDecoder::seek(pos);
-        } else if (qwavedecoder_seek_callback != nullptr) {
+        }
+        auto seek_cb = qwavedecoder_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
 
-            bool callback_ret = qwavedecoder_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::seek(pos);
         }
+        return QWaveDecoder::seek(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,12 +288,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_pos_isbase) {
             qwavedecoder_pos_isbase = false;
             return QWaveDecoder::pos();
-        } else if (qwavedecoder_pos_callback != nullptr) {
-            long long callback_ret = qwavedecoder_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QWaveDecoder::pos();
         }
+        auto pos_cb = qwavedecoder_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QWaveDecoder::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,12 +302,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_size_isbase) {
             qwavedecoder_size_isbase = false;
             return QWaveDecoder::size();
-        } else if (qwavedecoder_size_callback != nullptr) {
-            long long callback_ret = qwavedecoder_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QWaveDecoder::size();
         }
+        auto size_cb = qwavedecoder_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QWaveDecoder::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,12 +316,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_issequential_isbase) {
             qwavedecoder_issequential_isbase = false;
             return QWaveDecoder::isSequential();
-        } else if (qwavedecoder_issequential_callback != nullptr) {
-            bool callback_ret = qwavedecoder_issequential_callback();
-            return callback_ret;
-        } else {
-            return QWaveDecoder::isSequential();
         }
+        auto issequential_cb = qwavedecoder_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return QWaveDecoder::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -353,12 +330,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_bytesavailable_isbase) {
             qwavedecoder_bytesavailable_isbase = false;
             return QWaveDecoder::bytesAvailable();
-        } else if (qwavedecoder_bytesavailable_callback != nullptr) {
-            long long callback_ret = qwavedecoder_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QWaveDecoder::bytesAvailable();
         }
+        auto bytesavailable_cb = qwavedecoder_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QWaveDecoder::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,12 +344,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_atend_isbase) {
             qwavedecoder_atend_isbase = false;
             return QWaveDecoder::atEnd();
-        } else if (qwavedecoder_atend_callback != nullptr) {
-            bool callback_ret = qwavedecoder_atend_callback();
-            return callback_ret;
-        } else {
-            return QWaveDecoder::atEnd();
         }
+        auto atend_cb = qwavedecoder_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return QWaveDecoder::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,12 +358,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_reset_isbase) {
             qwavedecoder_reset_isbase = false;
             return QWaveDecoder::reset();
-        } else if (qwavedecoder_reset_callback != nullptr) {
-            bool callback_ret = qwavedecoder_reset_callback();
-            return callback_ret;
-        } else {
-            return QWaveDecoder::reset();
         }
+        auto reset_cb = qwavedecoder_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return QWaveDecoder::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -392,12 +372,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_bytestowrite_isbase) {
             qwavedecoder_bytestowrite_isbase = false;
             return QWaveDecoder::bytesToWrite();
-        } else if (qwavedecoder_bytestowrite_callback != nullptr) {
-            long long callback_ret = qwavedecoder_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return QWaveDecoder::bytesToWrite();
         }
+        auto bytestowrite_cb = qwavedecoder_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return QWaveDecoder::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -405,12 +386,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_canreadline_isbase) {
             qwavedecoder_canreadline_isbase = false;
             return QWaveDecoder::canReadLine();
-        } else if (qwavedecoder_canreadline_callback != nullptr) {
-            bool callback_ret = qwavedecoder_canreadline_callback();
-            return callback_ret;
-        } else {
-            return QWaveDecoder::canReadLine();
         }
+        auto canreadline_cb = qwavedecoder_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return QWaveDecoder::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -418,14 +400,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_waitforreadyread_isbase) {
             qwavedecoder_waitforreadyread_isbase = false;
             return QWaveDecoder::waitForReadyRead(msecs);
-        } else if (qwavedecoder_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = qwavedecoder_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qwavedecoder_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::waitForReadyRead(msecs);
         }
+        return QWaveDecoder::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,14 +416,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_waitforbyteswritten_isbase) {
             qwavedecoder_waitforbyteswritten_isbase = false;
             return QWaveDecoder::waitForBytesWritten(msecs);
-        } else if (qwavedecoder_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = qwavedecoder_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = qwavedecoder_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::waitForBytesWritten(msecs);
         }
+        return QWaveDecoder::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -448,15 +432,16 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_readlinedata_isbase) {
             qwavedecoder_readlinedata_isbase = false;
             return QWaveDecoder::readLineData(data, maxlen);
-        } else if (qwavedecoder_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = qwavedecoder_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = qwavedecoder_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QWaveDecoder::readLineData(data, maxlen);
         }
+        return QWaveDecoder::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,14 +449,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_skipdata_isbase) {
             qwavedecoder_skipdata_isbase = false;
             return QWaveDecoder::skipData(maxSize);
-        } else if (qwavedecoder_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = qwavedecoder_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = qwavedecoder_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return QWaveDecoder::skipData(maxSize);
         }
+        return QWaveDecoder::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -479,14 +465,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_event_isbase) {
             qwavedecoder_event_isbase = false;
             return QWaveDecoder::event(event);
-        } else if (qwavedecoder_event_callback != nullptr) {
+        }
+        auto event_cb = qwavedecoder_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qwavedecoder_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::event(event);
         }
+        return QWaveDecoder::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,15 +481,16 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_eventfilter_isbase) {
             qwavedecoder_eventfilter_isbase = false;
             return QWaveDecoder::eventFilter(watched, event);
-        } else if (qwavedecoder_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwavedecoder_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwavedecoder_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWaveDecoder::eventFilter(watched, event);
         }
+        return QWaveDecoder::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -510,13 +498,16 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_timerevent_isbase) {
             qwavedecoder_timerevent_isbase = false;
             QWaveDecoder::timerEvent(event);
-        } else if (qwavedecoder_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwavedecoder_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwavedecoder_timerevent_callback(this, cbval1);
-        } else {
-            QWaveDecoder::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWaveDecoder::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -524,13 +515,16 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_childevent_isbase) {
             qwavedecoder_childevent_isbase = false;
             QWaveDecoder::childEvent(event);
-        } else if (qwavedecoder_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwavedecoder_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwavedecoder_childevent_callback(this, cbval1);
-        } else {
-            QWaveDecoder::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWaveDecoder::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,13 +532,16 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_customevent_isbase) {
             qwavedecoder_customevent_isbase = false;
             QWaveDecoder::customEvent(event);
-        } else if (qwavedecoder_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwavedecoder_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwavedecoder_customevent_callback(this, cbval1);
-        } else {
-            QWaveDecoder::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWaveDecoder::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,15 +549,18 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_connectnotify_isbase) {
             qwavedecoder_connectnotify_isbase = false;
             QWaveDecoder::connectNotify(signal);
-        } else if (qwavedecoder_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwavedecoder_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwavedecoder_connectnotify_callback(this, cbval1);
-        } else {
-            QWaveDecoder::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWaveDecoder::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -568,15 +568,18 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_disconnectnotify_isbase) {
             qwavedecoder_disconnectnotify_isbase = false;
             QWaveDecoder::disconnectNotify(signal);
-        } else if (qwavedecoder_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwavedecoder_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwavedecoder_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWaveDecoder::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWaveDecoder::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +587,16 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_setopenmode_isbase) {
             qwavedecoder_setopenmode_isbase = false;
             QWaveDecoder::setOpenMode(openMode);
-        } else if (qwavedecoder_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = qwavedecoder_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            qwavedecoder_setopenmode_callback(this, cbval1);
-        } else {
-            QWaveDecoder::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        QWaveDecoder::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,7 +604,10 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_seterrorstring_isbase) {
             qwavedecoder_seterrorstring_isbase = false;
             QWaveDecoder::setErrorString(errorString);
-        } else if (qwavedecoder_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = qwavedecoder_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -608,11 +617,11 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            qwavedecoder_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            QWaveDecoder::setErrorString(errorString);
+            return;
         }
+        QWaveDecoder::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,12 +629,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_sender_isbase) {
             qwavedecoder_sender_isbase = false;
             return QWaveDecoder::sender();
-        } else if (qwavedecoder_sender_callback != nullptr) {
-            QObject* callback_ret = qwavedecoder_sender_callback();
-            return callback_ret;
-        } else {
-            return QWaveDecoder::sender();
         }
+        auto sender_cb = qwavedecoder_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWaveDecoder::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,12 +643,13 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_sendersignalindex_isbase) {
             qwavedecoder_sendersignalindex_isbase = false;
             return QWaveDecoder::senderSignalIndex();
-        } else if (qwavedecoder_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwavedecoder_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWaveDecoder::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwavedecoder_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWaveDecoder::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,14 +657,15 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_receivers_isbase) {
             qwavedecoder_receivers_isbase = false;
             return QWaveDecoder::receivers(signal);
-        } else if (qwavedecoder_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwavedecoder_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwavedecoder_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWaveDecoder::receivers(signal);
         }
+        return QWaveDecoder::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,16 +673,17 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
         if (qwavedecoder_issignalconnected_isbase) {
             qwavedecoder_issignalconnected_isbase = false;
             return QWaveDecoder::isSignalConnected(signal);
-        } else if (qwavedecoder_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwavedecoder_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwavedecoder_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWaveDecoder::isSignalConnected(signal);
         }
+        return QWaveDecoder::isSignalConnected(signal);
     }
 
     // Friend functions

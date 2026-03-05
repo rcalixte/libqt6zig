@@ -79,25 +79,6 @@ class VirtualQCompleter final : public QCompleter {
     VirtualQCompleter(QAbstractItemModel* model, QObject* parent) : QCompleter(model, parent) {};
     VirtualQCompleter(const QList<QString>& completions, QObject* parent) : QCompleter(completions, parent) {};
 
-    ~VirtualQCompleter() {
-        qcompleter_metaobject_callback = nullptr;
-        qcompleter_metacast_callback = nullptr;
-        qcompleter_metacall_callback = nullptr;
-        qcompleter_pathfromindex_callback = nullptr;
-        qcompleter_splitpath_callback = nullptr;
-        qcompleter_eventfilter_callback = nullptr;
-        qcompleter_event_callback = nullptr;
-        qcompleter_timerevent_callback = nullptr;
-        qcompleter_childevent_callback = nullptr;
-        qcompleter_customevent_callback = nullptr;
-        qcompleter_connectnotify_callback = nullptr;
-        qcompleter_disconnectnotify_callback = nullptr;
-        qcompleter_sender_callback = nullptr;
-        qcompleter_sendersignalindex_callback = nullptr;
-        qcompleter_receivers_callback = nullptr;
-        qcompleter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQCompleter_MetaObject_Callback(QCompleter_MetaObject_Callback cb) { qcompleter_metaobject_callback = cb; }
     inline void setQCompleter_Metacast_Callback(QCompleter_Metacast_Callback cb) { qcompleter_metacast_callback = cb; }
@@ -139,12 +120,13 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_metaobject_isbase) {
             qcompleter_metaobject_isbase = false;
             return QCompleter::metaObject();
-        } else if (qcompleter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcompleter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QCompleter::metaObject();
         }
+        auto metaobject_cb = qcompleter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QCompleter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -152,14 +134,15 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_metacast_isbase) {
             qcompleter_metacast_isbase = false;
             return QCompleter::qt_metacast(param1);
-        } else if (qcompleter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcompleter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcompleter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCompleter::qt_metacast(param1);
         }
+        return QCompleter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,16 +150,17 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_metacall_isbase) {
             qcompleter_metacall_isbase = false;
             return QCompleter::qt_metacall(param1, param2, param3);
-        } else if (qcompleter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcompleter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcompleter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCompleter::qt_metacall(param1, param2, param3);
         }
+        return QCompleter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,17 +168,18 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_pathfromindex_isbase) {
             qcompleter_pathfromindex_isbase = false;
             return QCompleter::pathFromIndex(index);
-        } else if (qcompleter_pathfromindex_callback != nullptr) {
+        }
+        auto pathfromindex_cb = qcompleter_pathfromindex_callback;
+        if (pathfromindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            const char* callback_ret = qcompleter_pathfromindex_callback(this, cbval1);
+            const char* callback_ret = pathfromindex_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QCompleter::pathFromIndex(index);
         }
+        return QCompleter::pathFromIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,7 +187,9 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_splitpath_isbase) {
             qcompleter_splitpath_isbase = false;
             return QCompleter::splitPath(path);
-        } else if (qcompleter_splitpath_callback != nullptr) {
+        }
+        auto splitpath_cb = qcompleter_splitpath_callback;
+        if (splitpath_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -212,7 +199,7 @@ class VirtualQCompleter final : public QCompleter {
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            const char** callback_ret = qcompleter_splitpath_callback(this, cbval1);
+            const char** callback_ret = splitpath_cb(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -224,9 +211,8 @@ class VirtualQCompleter final : public QCompleter {
             libqt_free(callback_ret);
             libqt_free(path_str);
             return callback_ret_QList;
-        } else {
-            return QCompleter::splitPath(path);
         }
+        return QCompleter::splitPath(path);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,15 +220,16 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_eventfilter_isbase) {
             qcompleter_eventfilter_isbase = false;
             return QCompleter::eventFilter(o, e);
-        } else if (qcompleter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcompleter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = o;
             QEvent* cbval2 = e;
 
-            bool callback_ret = qcompleter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QCompleter::eventFilter(o, e);
         }
+        return QCompleter::eventFilter(o, e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,14 +237,15 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_event_isbase) {
             qcompleter_event_isbase = false;
             return QCompleter::event(param1);
-        } else if (qcompleter_event_callback != nullptr) {
+        }
+        auto event_cb = qcompleter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qcompleter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCompleter::event(param1);
         }
+        return QCompleter::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,13 +253,16 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_timerevent_isbase) {
             qcompleter_timerevent_isbase = false;
             QCompleter::timerEvent(event);
-        } else if (qcompleter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcompleter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qcompleter_timerevent_callback(this, cbval1);
-        } else {
-            QCompleter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QCompleter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,13 +270,16 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_childevent_isbase) {
             qcompleter_childevent_isbase = false;
             QCompleter::childEvent(event);
-        } else if (qcompleter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcompleter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcompleter_childevent_callback(this, cbval1);
-        } else {
-            QCompleter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QCompleter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,13 +287,16 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_customevent_isbase) {
             qcompleter_customevent_isbase = false;
             QCompleter::customEvent(event);
-        } else if (qcompleter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcompleter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcompleter_customevent_callback(this, cbval1);
-        } else {
-            QCompleter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QCompleter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -307,15 +304,18 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_connectnotify_isbase) {
             qcompleter_connectnotify_isbase = false;
             QCompleter::connectNotify(signal);
-        } else if (qcompleter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcompleter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcompleter_connectnotify_callback(this, cbval1);
-        } else {
-            QCompleter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QCompleter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,15 +323,18 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_disconnectnotify_isbase) {
             qcompleter_disconnectnotify_isbase = false;
             QCompleter::disconnectNotify(signal);
-        } else if (qcompleter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcompleter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcompleter_disconnectnotify_callback(this, cbval1);
-        } else {
-            QCompleter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QCompleter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,12 +342,13 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_sender_isbase) {
             qcompleter_sender_isbase = false;
             return QCompleter::sender();
-        } else if (qcompleter_sender_callback != nullptr) {
-            QObject* callback_ret = qcompleter_sender_callback();
-            return callback_ret;
-        } else {
-            return QCompleter::sender();
         }
+        auto sender_cb = qcompleter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QCompleter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,12 +356,13 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_sendersignalindex_isbase) {
             qcompleter_sendersignalindex_isbase = false;
             return QCompleter::senderSignalIndex();
-        } else if (qcompleter_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcompleter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QCompleter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcompleter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QCompleter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,14 +370,15 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_receivers_isbase) {
             qcompleter_receivers_isbase = false;
             return QCompleter::receivers(signal);
-        } else if (qcompleter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcompleter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcompleter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCompleter::receivers(signal);
         }
+        return QCompleter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,16 +386,17 @@ class VirtualQCompleter final : public QCompleter {
         if (qcompleter_issignalconnected_isbase) {
             qcompleter_issignalconnected_isbase = false;
             return QCompleter::isSignalConnected(signal);
-        } else if (qcompleter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcompleter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcompleter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCompleter::isSignalConnected(signal);
         }
+        return QCompleter::isSignalConnected(signal);
     }
 
     // Friend functions

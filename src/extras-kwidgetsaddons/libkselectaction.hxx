@@ -91,30 +91,6 @@ class VirtualKSelectAction final : public KSelectAction {
     VirtualKSelectAction(const QString& text, QObject* parent) : KSelectAction(text, parent) {};
     VirtualKSelectAction(const QIcon& icon, const QString& text, QObject* parent) : KSelectAction(icon, text, parent) {};
 
-    ~VirtualKSelectAction() {
-        kselectaction_metaobject_callback = nullptr;
-        kselectaction_metacast_callback = nullptr;
-        kselectaction_metacall_callback = nullptr;
-        kselectaction_removeaction_callback = nullptr;
-        kselectaction_insertaction_callback = nullptr;
-        kselectaction_slotactiontriggered_callback = nullptr;
-        kselectaction_createwidget_callback = nullptr;
-        kselectaction_deletewidget_callback = nullptr;
-        kselectaction_event_callback = nullptr;
-        kselectaction_eventfilter_callback = nullptr;
-        kselectaction_timerevent_callback = nullptr;
-        kselectaction_childevent_callback = nullptr;
-        kselectaction_customevent_callback = nullptr;
-        kselectaction_connectnotify_callback = nullptr;
-        kselectaction_disconnectnotify_callback = nullptr;
-        kselectaction_slottoggled_callback = nullptr;
-        kselectaction_createdwidgets_callback = nullptr;
-        kselectaction_sender_callback = nullptr;
-        kselectaction_sendersignalindex_callback = nullptr;
-        kselectaction_receivers_callback = nullptr;
-        kselectaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSelectAction_MetaObject_Callback(KSelectAction_MetaObject_Callback cb) { kselectaction_metaobject_callback = cb; }
     inline void setKSelectAction_Metacast_Callback(KSelectAction_Metacast_Callback cb) { kselectaction_metacast_callback = cb; }
@@ -166,12 +142,13 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_metaobject_isbase) {
             kselectaction_metaobject_isbase = false;
             return KSelectAction::metaObject();
-        } else if (kselectaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kselectaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSelectAction::metaObject();
         }
+        auto metaobject_cb = kselectaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSelectAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,14 +156,15 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_metacast_isbase) {
             kselectaction_metacast_isbase = false;
             return KSelectAction::qt_metacast(param1);
-        } else if (kselectaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kselectaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kselectaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectAction::qt_metacast(param1);
         }
+        return KSelectAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,16 +172,17 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_metacall_isbase) {
             kselectaction_metacall_isbase = false;
             return KSelectAction::qt_metacall(param1, param2, param3);
-        } else if (kselectaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kselectaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kselectaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelectAction::qt_metacall(param1, param2, param3);
         }
+        return KSelectAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,14 +190,15 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_removeaction_isbase) {
             kselectaction_removeaction_isbase = false;
             return KSelectAction::removeAction(action);
-        } else if (kselectaction_removeaction_callback != nullptr) {
+        }
+        auto removeaction_cb = kselectaction_removeaction_callback;
+        if (removeaction_cb) {
             QAction* cbval1 = action;
 
-            QAction* callback_ret = kselectaction_removeaction_callback(this, cbval1);
+            QAction* callback_ret = removeaction_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectAction::removeAction(action);
         }
+        return KSelectAction::removeAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,14 +206,17 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_insertaction_isbase) {
             kselectaction_insertaction_isbase = false;
             KSelectAction::insertAction(before, action);
-        } else if (kselectaction_insertaction_callback != nullptr) {
+            return;
+        }
+        auto insertaction_cb = kselectaction_insertaction_callback;
+        if (insertaction_cb) {
             QAction* cbval1 = before;
             QAction* cbval2 = action;
 
-            kselectaction_insertaction_callback(this, cbval1, cbval2);
-        } else {
-            KSelectAction::insertAction(before, action);
+            insertaction_cb(this, cbval1, cbval2);
+            return;
         }
+        KSelectAction::insertAction(before, action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,13 +224,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_slotactiontriggered_isbase) {
             kselectaction_slotactiontriggered_isbase = false;
             KSelectAction::slotActionTriggered(action);
-        } else if (kselectaction_slotactiontriggered_callback != nullptr) {
+            return;
+        }
+        auto slotactiontriggered_cb = kselectaction_slotactiontriggered_callback;
+        if (slotactiontriggered_cb) {
             QAction* cbval1 = action;
 
-            kselectaction_slotactiontriggered_callback(this, cbval1);
-        } else {
-            KSelectAction::slotActionTriggered(action);
+            slotactiontriggered_cb(this, cbval1);
+            return;
         }
+        KSelectAction::slotActionTriggered(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -255,14 +241,15 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_createwidget_isbase) {
             kselectaction_createwidget_isbase = false;
             return KSelectAction::createWidget(parent);
-        } else if (kselectaction_createwidget_callback != nullptr) {
+        }
+        auto createwidget_cb = kselectaction_createwidget_callback;
+        if (createwidget_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = kselectaction_createwidget_callback(this, cbval1);
+            QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectAction::createWidget(parent);
         }
+        return KSelectAction::createWidget(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,13 +257,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_deletewidget_isbase) {
             kselectaction_deletewidget_isbase = false;
             KSelectAction::deleteWidget(widget);
-        } else if (kselectaction_deletewidget_callback != nullptr) {
+            return;
+        }
+        auto deletewidget_cb = kselectaction_deletewidget_callback;
+        if (deletewidget_cb) {
             QWidget* cbval1 = widget;
 
-            kselectaction_deletewidget_callback(this, cbval1);
-        } else {
-            KSelectAction::deleteWidget(widget);
+            deletewidget_cb(this, cbval1);
+            return;
         }
+        KSelectAction::deleteWidget(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,14 +274,15 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_event_isbase) {
             kselectaction_event_isbase = false;
             return KSelectAction::event(event);
-        } else if (kselectaction_event_callback != nullptr) {
+        }
+        auto event_cb = kselectaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kselectaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectAction::event(event);
         }
+        return KSelectAction::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,15 +290,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_eventfilter_isbase) {
             kselectaction_eventfilter_isbase = false;
             return KSelectAction::eventFilter(watched, event);
-        } else if (kselectaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kselectaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kselectaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSelectAction::eventFilter(watched, event);
         }
+        return KSelectAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,13 +307,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_timerevent_isbase) {
             kselectaction_timerevent_isbase = false;
             KSelectAction::timerEvent(event);
-        } else if (kselectaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kselectaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kselectaction_timerevent_callback(this, cbval1);
-        } else {
-            KSelectAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSelectAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,13 +324,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_childevent_isbase) {
             kselectaction_childevent_isbase = false;
             KSelectAction::childEvent(event);
-        } else if (kselectaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kselectaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kselectaction_childevent_callback(this, cbval1);
-        } else {
-            KSelectAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSelectAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,13 +341,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_customevent_isbase) {
             kselectaction_customevent_isbase = false;
             KSelectAction::customEvent(event);
-        } else if (kselectaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kselectaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kselectaction_customevent_callback(this, cbval1);
-        } else {
-            KSelectAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSelectAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,15 +358,18 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_connectnotify_isbase) {
             kselectaction_connectnotify_isbase = false;
             KSelectAction::connectNotify(signal);
-        } else if (kselectaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kselectaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kselectaction_connectnotify_callback(this, cbval1);
-        } else {
-            KSelectAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSelectAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,15 +377,18 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_disconnectnotify_isbase) {
             kselectaction_disconnectnotify_isbase = false;
             KSelectAction::disconnectNotify(signal);
-        } else if (kselectaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kselectaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kselectaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSelectAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSelectAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,13 +396,16 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_slottoggled_isbase) {
             kselectaction_slottoggled_isbase = false;
             KSelectAction::slotToggled(param1);
-        } else if (kselectaction_slottoggled_callback != nullptr) {
+            return;
+        }
+        auto slottoggled_cb = kselectaction_slottoggled_callback;
+        if (slottoggled_cb) {
             bool cbval1 = param1;
 
-            kselectaction_slottoggled_callback(this, cbval1);
-        } else {
-            KSelectAction::slotToggled(param1);
+            slottoggled_cb(this, cbval1);
+            return;
         }
+        KSelectAction::slotToggled(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,8 +413,10 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_createdwidgets_isbase) {
             kselectaction_createdwidgets_isbase = false;
             return KSelectAction::createdWidgets();
-        } else if (kselectaction_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = kselectaction_createdwidgets_callback();
+        }
+        auto createdwidgets_cb = kselectaction_createdwidgets_callback;
+        if (createdwidgets_cb) {
+            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
@@ -413,9 +425,8 @@ class VirtualKSelectAction final : public KSelectAction {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KSelectAction::createdWidgets();
         }
+        return KSelectAction::createdWidgets();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,12 +434,13 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_sender_isbase) {
             kselectaction_sender_isbase = false;
             return KSelectAction::sender();
-        } else if (kselectaction_sender_callback != nullptr) {
-            QObject* callback_ret = kselectaction_sender_callback();
-            return callback_ret;
-        } else {
-            return KSelectAction::sender();
         }
+        auto sender_cb = kselectaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSelectAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,12 +448,13 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_sendersignalindex_isbase) {
             kselectaction_sendersignalindex_isbase = false;
             return KSelectAction::senderSignalIndex();
-        } else if (kselectaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = kselectaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSelectAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kselectaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSelectAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +462,15 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_receivers_isbase) {
             kselectaction_receivers_isbase = false;
             return KSelectAction::receivers(signal);
-        } else if (kselectaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kselectaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kselectaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelectAction::receivers(signal);
         }
+        return KSelectAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,16 +478,17 @@ class VirtualKSelectAction final : public KSelectAction {
         if (kselectaction_issignalconnected_isbase) {
             kselectaction_issignalconnected_isbase = false;
             return KSelectAction::isSignalConnected(signal);
-        } else if (kselectaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kselectaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kselectaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectAction::isSignalConnected(signal);
         }
+        return KSelectAction::isSignalConnected(signal);
     }
 
     // Friend functions

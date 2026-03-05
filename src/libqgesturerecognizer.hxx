@@ -35,12 +35,6 @@ class VirtualQGestureRecognizer : public QGestureRecognizer {
   public:
     VirtualQGestureRecognizer() : QGestureRecognizer() {};
 
-    ~VirtualQGestureRecognizer() {
-        qgesturerecognizer_create_callback = nullptr;
-        qgesturerecognizer_recognize_callback = nullptr;
-        qgesturerecognizer_reset_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGestureRecognizer_Create_Callback(QGestureRecognizer_Create_Callback cb) { qgesturerecognizer_create_callback = cb; }
     inline void setQGestureRecognizer_Recognize_Callback(QGestureRecognizer_Recognize_Callback cb) { qgesturerecognizer_recognize_callback = cb; }
@@ -56,28 +50,29 @@ class VirtualQGestureRecognizer : public QGestureRecognizer {
         if (qgesturerecognizer_create_isbase) {
             qgesturerecognizer_create_isbase = false;
             return QGestureRecognizer::create(target);
-        } else if (qgesturerecognizer_create_callback != nullptr) {
+        }
+        auto create_cb = qgesturerecognizer_create_callback;
+        if (create_cb) {
             QObject* cbval1 = target;
 
-            QGesture* callback_ret = qgesturerecognizer_create_callback(this, cbval1);
+            QGesture* callback_ret = create_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGestureRecognizer::create(target);
         }
+        return QGestureRecognizer::create(target);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QGestureRecognizer::Result recognize(QGesture* state, QObject* watched, QEvent* event) override {
-        if (qgesturerecognizer_recognize_callback != nullptr) {
+        auto recognize_cb = qgesturerecognizer_recognize_callback;
+        if (recognize_cb) {
             QGesture* cbval1 = state;
             QObject* cbval2 = watched;
             QEvent* cbval3 = event;
 
-            int callback_ret = qgesturerecognizer_recognize_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = recognize_cb(this, cbval1, cbval2, cbval3);
             return static_cast<QGestureRecognizer::Result>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -85,13 +80,16 @@ class VirtualQGestureRecognizer : public QGestureRecognizer {
         if (qgesturerecognizer_reset_isbase) {
             qgesturerecognizer_reset_isbase = false;
             QGestureRecognizer::reset(state);
-        } else if (qgesturerecognizer_reset_callback != nullptr) {
+            return;
+        }
+        auto reset_cb = qgesturerecognizer_reset_callback;
+        if (reset_cb) {
             QGesture* cbval1 = state;
 
-            qgesturerecognizer_reset_callback(this, cbval1);
-        } else {
-            QGestureRecognizer::reset(state);
+            reset_cb(this, cbval1);
+            return;
         }
+        QGestureRecognizer::reset(state);
     }
 };
 

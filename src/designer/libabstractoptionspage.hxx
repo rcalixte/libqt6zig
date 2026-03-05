@@ -38,13 +38,6 @@ class VirtualQDesignerOptionsPageInterface : public QDesignerOptionsPageInterfac
   public:
     VirtualQDesignerOptionsPageInterface() : QDesignerOptionsPageInterface() {};
 
-    ~VirtualQDesignerOptionsPageInterface() {
-        qdesigneroptionspageinterface_name_callback = nullptr;
-        qdesigneroptionspageinterface_createpage_callback = nullptr;
-        qdesigneroptionspageinterface_apply_callback = nullptr;
-        qdesigneroptionspageinterface_finish_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerOptionsPageInterface_Name_Callback(QDesignerOptionsPageInterface_Name_Callback cb) { qdesigneroptionspageinterface_name_callback = cb; }
     inline void setQDesignerOptionsPageInterface_CreatePage_Callback(QDesignerOptionsPageInterface_CreatePage_Callback cb) { qdesigneroptionspageinterface_createpage_callback = cb; }
@@ -59,38 +52,40 @@ class VirtualQDesignerOptionsPageInterface : public QDesignerOptionsPageInterfac
 
     // Virtual method for C ABI access and custom callback
     virtual QString name() const override {
-        if (qdesigneroptionspageinterface_name_callback != nullptr) {
-            const char* callback_ret = qdesigneroptionspageinterface_name_callback();
+        auto name_cb = qdesigneroptionspageinterface_name_callback;
+        if (name_cb) {
+            const char* callback_ret = name_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createPage(QWidget* parent) override {
-        if (qdesigneroptionspageinterface_createpage_callback != nullptr) {
+        auto createpage_cb = qdesigneroptionspageinterface_createpage_callback;
+        if (createpage_cb) {
             QWidget* cbval1 = parent;
 
-            QWidget* callback_ret = qdesigneroptionspageinterface_createpage_callback(this, cbval1);
+            QWidget* callback_ret = createpage_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void apply() override {
-        if (qdesigneroptionspageinterface_apply_callback != nullptr) {
-            qdesigneroptionspageinterface_apply_callback();
+        auto apply_cb = qdesigneroptionspageinterface_apply_callback;
+        if (apply_cb) {
+            apply_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void finish() override {
-        if (qdesigneroptionspageinterface_finish_callback != nullptr) {
-            qdesigneroptionspageinterface_finish_callback();
+        auto finish_cb = qdesigneroptionspageinterface_finish_callback;
+        if (finish_cb) {
+            finish_cb();
         }
     }
 };

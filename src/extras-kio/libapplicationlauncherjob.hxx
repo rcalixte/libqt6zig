@@ -124,40 +124,6 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
     VirtualKIOApplicationLauncherJob(const KDesktopFileAction& desktopFileAction, QObject* parent) : KIO::ApplicationLauncherJob(desktopFileAction, parent) {};
     VirtualKIOApplicationLauncherJob(QObject* parent) : KIO::ApplicationLauncherJob(parent) {};
 
-    ~VirtualKIOApplicationLauncherJob() {
-        kio__applicationlauncherjob_start_callback = nullptr;
-        kio__applicationlauncherjob_metaobject_callback = nullptr;
-        kio__applicationlauncherjob_metacast_callback = nullptr;
-        kio__applicationlauncherjob_metacall_callback = nullptr;
-        kio__applicationlauncherjob_dokill_callback = nullptr;
-        kio__applicationlauncherjob_dosuspend_callback = nullptr;
-        kio__applicationlauncherjob_doresume_callback = nullptr;
-        kio__applicationlauncherjob_errorstring_callback = nullptr;
-        kio__applicationlauncherjob_event_callback = nullptr;
-        kio__applicationlauncherjob_eventfilter_callback = nullptr;
-        kio__applicationlauncherjob_timerevent_callback = nullptr;
-        kio__applicationlauncherjob_childevent_callback = nullptr;
-        kio__applicationlauncherjob_customevent_callback = nullptr;
-        kio__applicationlauncherjob_connectnotify_callback = nullptr;
-        kio__applicationlauncherjob_disconnectnotify_callback = nullptr;
-        kio__applicationlauncherjob_setcapabilities_callback = nullptr;
-        kio__applicationlauncherjob_isfinished_callback = nullptr;
-        kio__applicationlauncherjob_seterror_callback = nullptr;
-        kio__applicationlauncherjob_seterrortext_callback = nullptr;
-        kio__applicationlauncherjob_setprocessedamount_callback = nullptr;
-        kio__applicationlauncherjob_settotalamount_callback = nullptr;
-        kio__applicationlauncherjob_setprogressunit_callback = nullptr;
-        kio__applicationlauncherjob_setpercent_callback = nullptr;
-        kio__applicationlauncherjob_emitresult_callback = nullptr;
-        kio__applicationlauncherjob_emitpercent_callback = nullptr;
-        kio__applicationlauncherjob_emitspeed_callback = nullptr;
-        kio__applicationlauncherjob_startelapsedtimer_callback = nullptr;
-        kio__applicationlauncherjob_sender_callback = nullptr;
-        kio__applicationlauncherjob_sendersignalindex_callback = nullptr;
-        kio__applicationlauncherjob_receivers_callback = nullptr;
-        kio__applicationlauncherjob_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIO__ApplicationLauncherJob_Start_Callback(KIO__ApplicationLauncherJob_Start_Callback cb) { kio__applicationlauncherjob_start_callback = cb; }
     inline void setKIO__ApplicationLauncherJob_MetaObject_Callback(KIO__ApplicationLauncherJob_MetaObject_Callback cb) { kio__applicationlauncherjob_metaobject_callback = cb; }
@@ -229,11 +195,14 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_start_isbase) {
             kio__applicationlauncherjob_start_isbase = false;
             KIO__ApplicationLauncherJob::start();
-        } else if (kio__applicationlauncherjob_start_callback != nullptr) {
-            kio__applicationlauncherjob_start_callback();
-        } else {
-            KIO__ApplicationLauncherJob::start();
+            return;
         }
+        auto start_cb = kio__applicationlauncherjob_start_callback;
+        if (start_cb) {
+            start_cb();
+            return;
+        }
+        KIO__ApplicationLauncherJob::start();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,12 +210,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_metaobject_isbase) {
             kio__applicationlauncherjob_metaobject_isbase = false;
             return KIO__ApplicationLauncherJob::metaObject();
-        } else if (kio__applicationlauncherjob_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kio__applicationlauncherjob_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::metaObject();
         }
+        auto metaobject_cb = kio__applicationlauncherjob_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIO__ApplicationLauncherJob::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,14 +224,15 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_metacast_isbase) {
             kio__applicationlauncherjob_metacast_isbase = false;
             return KIO__ApplicationLauncherJob::qt_metacast(param1);
-        } else if (kio__applicationlauncherjob_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kio__applicationlauncherjob_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kio__applicationlauncherjob_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::qt_metacast(param1);
         }
+        return KIO__ApplicationLauncherJob::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -269,16 +240,17 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_metacall_isbase) {
             kio__applicationlauncherjob_metacall_isbase = false;
             return KIO__ApplicationLauncherJob::qt_metacall(param1, param2, param3);
-        } else if (kio__applicationlauncherjob_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kio__applicationlauncherjob_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kio__applicationlauncherjob_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ApplicationLauncherJob::qt_metacall(param1, param2, param3);
         }
+        return KIO__ApplicationLauncherJob::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +258,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_dokill_isbase) {
             kio__applicationlauncherjob_dokill_isbase = false;
             return KIO__ApplicationLauncherJob::doKill();
-        } else if (kio__applicationlauncherjob_dokill_callback != nullptr) {
-            bool callback_ret = kio__applicationlauncherjob_dokill_callback();
-            return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::doKill();
         }
+        auto dokill_cb = kio__applicationlauncherjob_dokill_callback;
+        if (dokill_cb) {
+            bool callback_ret = dokill_cb();
+            return callback_ret;
+        }
+        return KIO__ApplicationLauncherJob::doKill();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,12 +272,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_dosuspend_isbase) {
             kio__applicationlauncherjob_dosuspend_isbase = false;
             return KIO__ApplicationLauncherJob::doSuspend();
-        } else if (kio__applicationlauncherjob_dosuspend_callback != nullptr) {
-            bool callback_ret = kio__applicationlauncherjob_dosuspend_callback();
-            return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::doSuspend();
         }
+        auto dosuspend_cb = kio__applicationlauncherjob_dosuspend_callback;
+        if (dosuspend_cb) {
+            bool callback_ret = dosuspend_cb();
+            return callback_ret;
+        }
+        return KIO__ApplicationLauncherJob::doSuspend();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,12 +286,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_doresume_isbase) {
             kio__applicationlauncherjob_doresume_isbase = false;
             return KIO__ApplicationLauncherJob::doResume();
-        } else if (kio__applicationlauncherjob_doresume_callback != nullptr) {
-            bool callback_ret = kio__applicationlauncherjob_doresume_callback();
-            return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::doResume();
         }
+        auto doresume_cb = kio__applicationlauncherjob_doresume_callback;
+        if (doresume_cb) {
+            bool callback_ret = doresume_cb();
+            return callback_ret;
+        }
+        return KIO__ApplicationLauncherJob::doResume();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,13 +300,14 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_errorstring_isbase) {
             kio__applicationlauncherjob_errorstring_isbase = false;
             return KIO__ApplicationLauncherJob::errorString();
-        } else if (kio__applicationlauncherjob_errorstring_callback != nullptr) {
-            const char* callback_ret = kio__applicationlauncherjob_errorstring_callback();
+        }
+        auto errorstring_cb = kio__applicationlauncherjob_errorstring_callback;
+        if (errorstring_cb) {
+            const char* callback_ret = errorstring_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KIO__ApplicationLauncherJob::errorString();
         }
+        return KIO__ApplicationLauncherJob::errorString();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,14 +315,15 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_event_isbase) {
             kio__applicationlauncherjob_event_isbase = false;
             return KIO__ApplicationLauncherJob::event(event);
-        } else if (kio__applicationlauncherjob_event_callback != nullptr) {
+        }
+        auto event_cb = kio__applicationlauncherjob_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kio__applicationlauncherjob_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::event(event);
         }
+        return KIO__ApplicationLauncherJob::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,15 +331,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_eventfilter_isbase) {
             kio__applicationlauncherjob_eventfilter_isbase = false;
             return KIO__ApplicationLauncherJob::eventFilter(watched, event);
-        } else if (kio__applicationlauncherjob_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kio__applicationlauncherjob_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kio__applicationlauncherjob_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::eventFilter(watched, event);
         }
+        return KIO__ApplicationLauncherJob::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -370,13 +348,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_timerevent_isbase) {
             kio__applicationlauncherjob_timerevent_isbase = false;
             KIO__ApplicationLauncherJob::timerEvent(event);
-        } else if (kio__applicationlauncherjob_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kio__applicationlauncherjob_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kio__applicationlauncherjob_timerevent_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -384,13 +365,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_childevent_isbase) {
             kio__applicationlauncherjob_childevent_isbase = false;
             KIO__ApplicationLauncherJob::childEvent(event);
-        } else if (kio__applicationlauncherjob_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kio__applicationlauncherjob_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kio__applicationlauncherjob_childevent_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -398,13 +382,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_customevent_isbase) {
             kio__applicationlauncherjob_customevent_isbase = false;
             KIO__ApplicationLauncherJob::customEvent(event);
-        } else if (kio__applicationlauncherjob_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kio__applicationlauncherjob_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kio__applicationlauncherjob_customevent_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,15 +399,18 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_connectnotify_isbase) {
             kio__applicationlauncherjob_connectnotify_isbase = false;
             KIO__ApplicationLauncherJob::connectNotify(signal);
-        } else if (kio__applicationlauncherjob_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kio__applicationlauncherjob_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__applicationlauncherjob_connectnotify_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,15 +418,18 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_disconnectnotify_isbase) {
             kio__applicationlauncherjob_disconnectnotify_isbase = false;
             KIO__ApplicationLauncherJob::disconnectNotify(signal);
-        } else if (kio__applicationlauncherjob_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kio__applicationlauncherjob_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kio__applicationlauncherjob_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,13 +437,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_setcapabilities_isbase) {
             kio__applicationlauncherjob_setcapabilities_isbase = false;
             KIO__ApplicationLauncherJob::setCapabilities(capabilities);
-        } else if (kio__applicationlauncherjob_setcapabilities_callback != nullptr) {
+            return;
+        }
+        auto setcapabilities_cb = kio__applicationlauncherjob_setcapabilities_callback;
+        if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
 
-            kio__applicationlauncherjob_setcapabilities_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::setCapabilities(capabilities);
+            setcapabilities_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::setCapabilities(capabilities);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,12 +454,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_isfinished_isbase) {
             kio__applicationlauncherjob_isfinished_isbase = false;
             return KIO__ApplicationLauncherJob::isFinished();
-        } else if (kio__applicationlauncherjob_isfinished_callback != nullptr) {
-            bool callback_ret = kio__applicationlauncherjob_isfinished_callback();
-            return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::isFinished();
         }
+        auto isfinished_cb = kio__applicationlauncherjob_isfinished_callback;
+        if (isfinished_cb) {
+            bool callback_ret = isfinished_cb();
+            return callback_ret;
+        }
+        return KIO__ApplicationLauncherJob::isFinished();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,13 +468,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_seterror_isbase) {
             kio__applicationlauncherjob_seterror_isbase = false;
             KIO__ApplicationLauncherJob::setError(errorCode);
-        } else if (kio__applicationlauncherjob_seterror_callback != nullptr) {
+            return;
+        }
+        auto seterror_cb = kio__applicationlauncherjob_seterror_callback;
+        if (seterror_cb) {
             int cbval1 = errorCode;
 
-            kio__applicationlauncherjob_seterror_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::setError(errorCode);
+            seterror_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::setError(errorCode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,7 +485,10 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_seterrortext_isbase) {
             kio__applicationlauncherjob_seterrortext_isbase = false;
             KIO__ApplicationLauncherJob::setErrorText(errorText);
-        } else if (kio__applicationlauncherjob_seterrortext_callback != nullptr) {
+            return;
+        }
+        auto seterrortext_cb = kio__applicationlauncherjob_seterrortext_callback;
+        if (seterrortext_cb) {
             const QString errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
@@ -495,11 +498,11 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
 
-            kio__applicationlauncherjob_seterrortext_callback(this, cbval1);
+            seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
-        } else {
-            KIO__ApplicationLauncherJob::setErrorText(errorText);
+            return;
         }
+        KIO__ApplicationLauncherJob::setErrorText(errorText);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -507,14 +510,17 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_setprocessedamount_isbase) {
             kio__applicationlauncherjob_setprocessedamount_isbase = false;
             KIO__ApplicationLauncherJob::setProcessedAmount(unit, amount);
-        } else if (kio__applicationlauncherjob_setprocessedamount_callback != nullptr) {
+            return;
+        }
+        auto setprocessedamount_cb = kio__applicationlauncherjob_setprocessedamount_callback;
+        if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kio__applicationlauncherjob_setprocessedamount_callback(this, cbval1, cbval2);
-        } else {
-            KIO__ApplicationLauncherJob::setProcessedAmount(unit, amount);
+            setprocessedamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__ApplicationLauncherJob::setProcessedAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,14 +528,17 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_settotalamount_isbase) {
             kio__applicationlauncherjob_settotalamount_isbase = false;
             KIO__ApplicationLauncherJob::setTotalAmount(unit, amount);
-        } else if (kio__applicationlauncherjob_settotalamount_callback != nullptr) {
+            return;
+        }
+        auto settotalamount_cb = kio__applicationlauncherjob_settotalamount_callback;
+        if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
 
-            kio__applicationlauncherjob_settotalamount_callback(this, cbval1, cbval2);
-        } else {
-            KIO__ApplicationLauncherJob::setTotalAmount(unit, amount);
+            settotalamount_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__ApplicationLauncherJob::setTotalAmount(unit, amount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,13 +546,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_setprogressunit_isbase) {
             kio__applicationlauncherjob_setprogressunit_isbase = false;
             KIO__ApplicationLauncherJob::setProgressUnit(unit);
-        } else if (kio__applicationlauncherjob_setprogressunit_callback != nullptr) {
+            return;
+        }
+        auto setprogressunit_cb = kio__applicationlauncherjob_setprogressunit_callback;
+        if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
 
-            kio__applicationlauncherjob_setprogressunit_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::setProgressUnit(unit);
+            setprogressunit_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::setProgressUnit(unit);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +563,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_setpercent_isbase) {
             kio__applicationlauncherjob_setpercent_isbase = false;
             KIO__ApplicationLauncherJob::setPercent(percentage);
-        } else if (kio__applicationlauncherjob_setpercent_callback != nullptr) {
+            return;
+        }
+        auto setpercent_cb = kio__applicationlauncherjob_setpercent_callback;
+        if (setpercent_cb) {
             unsigned long cbval1 = percentage;
 
-            kio__applicationlauncherjob_setpercent_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::setPercent(percentage);
+            setpercent_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::setPercent(percentage);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,11 +580,14 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_emitresult_isbase) {
             kio__applicationlauncherjob_emitresult_isbase = false;
             KIO__ApplicationLauncherJob::emitResult();
-        } else if (kio__applicationlauncherjob_emitresult_callback != nullptr) {
-            kio__applicationlauncherjob_emitresult_callback();
-        } else {
-            KIO__ApplicationLauncherJob::emitResult();
+            return;
         }
+        auto emitresult_cb = kio__applicationlauncherjob_emitresult_callback;
+        if (emitresult_cb) {
+            emitresult_cb();
+            return;
+        }
+        KIO__ApplicationLauncherJob::emitResult();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,14 +595,17 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_emitpercent_isbase) {
             kio__applicationlauncherjob_emitpercent_isbase = false;
             KIO__ApplicationLauncherJob::emitPercent(processedAmount, totalAmount);
-        } else if (kio__applicationlauncherjob_emitpercent_callback != nullptr) {
+            return;
+        }
+        auto emitpercent_cb = kio__applicationlauncherjob_emitpercent_callback;
+        if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
 
-            kio__applicationlauncherjob_emitpercent_callback(this, cbval1, cbval2);
-        } else {
-            KIO__ApplicationLauncherJob::emitPercent(processedAmount, totalAmount);
+            emitpercent_cb(this, cbval1, cbval2);
+            return;
         }
+        KIO__ApplicationLauncherJob::emitPercent(processedAmount, totalAmount);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,13 +613,16 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_emitspeed_isbase) {
             kio__applicationlauncherjob_emitspeed_isbase = false;
             KIO__ApplicationLauncherJob::emitSpeed(speed);
-        } else if (kio__applicationlauncherjob_emitspeed_callback != nullptr) {
+            return;
+        }
+        auto emitspeed_cb = kio__applicationlauncherjob_emitspeed_callback;
+        if (emitspeed_cb) {
             unsigned long cbval1 = speed;
 
-            kio__applicationlauncherjob_emitspeed_callback(this, cbval1);
-        } else {
-            KIO__ApplicationLauncherJob::emitSpeed(speed);
+            emitspeed_cb(this, cbval1);
+            return;
         }
+        KIO__ApplicationLauncherJob::emitSpeed(speed);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,11 +630,14 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_startelapsedtimer_isbase) {
             kio__applicationlauncherjob_startelapsedtimer_isbase = false;
             KIO__ApplicationLauncherJob::startElapsedTimer();
-        } else if (kio__applicationlauncherjob_startelapsedtimer_callback != nullptr) {
-            kio__applicationlauncherjob_startelapsedtimer_callback();
-        } else {
-            KIO__ApplicationLauncherJob::startElapsedTimer();
+            return;
         }
+        auto startelapsedtimer_cb = kio__applicationlauncherjob_startelapsedtimer_callback;
+        if (startelapsedtimer_cb) {
+            startelapsedtimer_cb();
+            return;
+        }
+        KIO__ApplicationLauncherJob::startElapsedTimer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -618,12 +645,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_sender_isbase) {
             kio__applicationlauncherjob_sender_isbase = false;
             return KIO__ApplicationLauncherJob::sender();
-        } else if (kio__applicationlauncherjob_sender_callback != nullptr) {
-            QObject* callback_ret = kio__applicationlauncherjob_sender_callback();
-            return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::sender();
         }
+        auto sender_cb = kio__applicationlauncherjob_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIO__ApplicationLauncherJob::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,12 +659,13 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_sendersignalindex_isbase) {
             kio__applicationlauncherjob_sendersignalindex_isbase = false;
             return KIO__ApplicationLauncherJob::senderSignalIndex();
-        } else if (kio__applicationlauncherjob_sendersignalindex_callback != nullptr) {
-            int callback_ret = kio__applicationlauncherjob_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ApplicationLauncherJob::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kio__applicationlauncherjob_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIO__ApplicationLauncherJob::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -644,14 +673,15 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_receivers_isbase) {
             kio__applicationlauncherjob_receivers_isbase = false;
             return KIO__ApplicationLauncherJob::receivers(signal);
-        } else if (kio__applicationlauncherjob_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kio__applicationlauncherjob_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kio__applicationlauncherjob_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIO__ApplicationLauncherJob::receivers(signal);
         }
+        return KIO__ApplicationLauncherJob::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,16 +689,17 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         if (kio__applicationlauncherjob_issignalconnected_isbase) {
             kio__applicationlauncherjob_issignalconnected_isbase = false;
             return KIO__ApplicationLauncherJob::isSignalConnected(signal);
-        } else if (kio__applicationlauncherjob_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kio__applicationlauncherjob_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kio__applicationlauncherjob_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIO__ApplicationLauncherJob::isSignalConnected(signal);
         }
+        return KIO__ApplicationLauncherJob::isSignalConnected(signal);
     }
 
     // Friend functions

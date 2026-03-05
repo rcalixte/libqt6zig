@@ -69,23 +69,6 @@ class VirtualKWindowShadow final : public KWindowShadow {
     VirtualKWindowShadow() : KWindowShadow() {};
     VirtualKWindowShadow(QObject* parent) : KWindowShadow(parent) {};
 
-    ~VirtualKWindowShadow() {
-        kwindowshadow_metaobject_callback = nullptr;
-        kwindowshadow_metacast_callback = nullptr;
-        kwindowshadow_metacall_callback = nullptr;
-        kwindowshadow_event_callback = nullptr;
-        kwindowshadow_eventfilter_callback = nullptr;
-        kwindowshadow_timerevent_callback = nullptr;
-        kwindowshadow_childevent_callback = nullptr;
-        kwindowshadow_customevent_callback = nullptr;
-        kwindowshadow_connectnotify_callback = nullptr;
-        kwindowshadow_disconnectnotify_callback = nullptr;
-        kwindowshadow_sender_callback = nullptr;
-        kwindowshadow_sendersignalindex_callback = nullptr;
-        kwindowshadow_receivers_callback = nullptr;
-        kwindowshadow_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKWindowShadow_MetaObject_Callback(KWindowShadow_MetaObject_Callback cb) { kwindowshadow_metaobject_callback = cb; }
     inline void setKWindowShadow_Metacast_Callback(KWindowShadow_Metacast_Callback cb) { kwindowshadow_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_metaobject_isbase) {
             kwindowshadow_metaobject_isbase = false;
             return KWindowShadow::metaObject();
-        } else if (kwindowshadow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kwindowshadow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KWindowShadow::metaObject();
         }
+        auto metaobject_cb = kwindowshadow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KWindowShadow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_metacast_isbase) {
             kwindowshadow_metacast_isbase = false;
             return KWindowShadow::qt_metacast(param1);
-        } else if (kwindowshadow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kwindowshadow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kwindowshadow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowShadow::qt_metacast(param1);
         }
+        return KWindowShadow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_metacall_isbase) {
             kwindowshadow_metacall_isbase = false;
             return KWindowShadow::qt_metacall(param1, param2, param3);
-        } else if (kwindowshadow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kwindowshadow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kwindowshadow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWindowShadow::qt_metacall(param1, param2, param3);
         }
+        return KWindowShadow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_event_isbase) {
             kwindowshadow_event_isbase = false;
             return KWindowShadow::event(event);
-        } else if (kwindowshadow_event_callback != nullptr) {
+        }
+        auto event_cb = kwindowshadow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kwindowshadow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowShadow::event(event);
         }
+        return KWindowShadow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_eventfilter_isbase) {
             kwindowshadow_eventfilter_isbase = false;
             return KWindowShadow::eventFilter(watched, event);
-        } else if (kwindowshadow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kwindowshadow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kwindowshadow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KWindowShadow::eventFilter(watched, event);
         }
+        return KWindowShadow::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_timerevent_isbase) {
             kwindowshadow_timerevent_isbase = false;
             KWindowShadow::timerEvent(event);
-        } else if (kwindowshadow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kwindowshadow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kwindowshadow_timerevent_callback(this, cbval1);
-        } else {
-            KWindowShadow::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KWindowShadow::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_childevent_isbase) {
             kwindowshadow_childevent_isbase = false;
             KWindowShadow::childEvent(event);
-        } else if (kwindowshadow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kwindowshadow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kwindowshadow_childevent_callback(this, cbval1);
-        } else {
-            KWindowShadow::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KWindowShadow::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_customevent_isbase) {
             kwindowshadow_customevent_isbase = false;
             KWindowShadow::customEvent(event);
-        } else if (kwindowshadow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kwindowshadow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kwindowshadow_customevent_callback(this, cbval1);
-        } else {
-            KWindowShadow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KWindowShadow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_connectnotify_isbase) {
             kwindowshadow_connectnotify_isbase = false;
             KWindowShadow::connectNotify(signal);
-        } else if (kwindowshadow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kwindowshadow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwindowshadow_connectnotify_callback(this, cbval1);
-        } else {
-            KWindowShadow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KWindowShadow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_disconnectnotify_isbase) {
             kwindowshadow_disconnectnotify_isbase = false;
             KWindowShadow::disconnectNotify(signal);
-        } else if (kwindowshadow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kwindowshadow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kwindowshadow_disconnectnotify_callback(this, cbval1);
-        } else {
-            KWindowShadow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KWindowShadow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_sender_isbase) {
             kwindowshadow_sender_isbase = false;
             return KWindowShadow::sender();
-        } else if (kwindowshadow_sender_callback != nullptr) {
-            QObject* callback_ret = kwindowshadow_sender_callback();
-            return callback_ret;
-        } else {
-            return KWindowShadow::sender();
         }
+        auto sender_cb = kwindowshadow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KWindowShadow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_sendersignalindex_isbase) {
             kwindowshadow_sendersignalindex_isbase = false;
             return KWindowShadow::senderSignalIndex();
-        } else if (kwindowshadow_sendersignalindex_callback != nullptr) {
-            int callback_ret = kwindowshadow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KWindowShadow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kwindowshadow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KWindowShadow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_receivers_isbase) {
             kwindowshadow_receivers_isbase = false;
             return KWindowShadow::receivers(signal);
-        } else if (kwindowshadow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kwindowshadow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kwindowshadow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KWindowShadow::receivers(signal);
         }
+        return KWindowShadow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKWindowShadow final : public KWindowShadow {
         if (kwindowshadow_issignalconnected_isbase) {
             kwindowshadow_issignalconnected_isbase = false;
             return KWindowShadow::isSignalConnected(signal);
-        } else if (kwindowshadow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kwindowshadow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kwindowshadow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KWindowShadow::isSignalConnected(signal);
         }
+        return KWindowShadow::isSignalConnected(signal);
     }
 
     // Friend functions

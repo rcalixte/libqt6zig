@@ -73,23 +73,6 @@ class VirtualQSharedMemory final : public QSharedMemory {
     VirtualQSharedMemory(const QNativeIpcKey& key, QObject* parent) : QSharedMemory(key, parent) {};
     VirtualQSharedMemory(const QString& key, QObject* parent) : QSharedMemory(key, parent) {};
 
-    ~VirtualQSharedMemory() {
-        qsharedmemory_metaobject_callback = nullptr;
-        qsharedmemory_metacast_callback = nullptr;
-        qsharedmemory_metacall_callback = nullptr;
-        qsharedmemory_event_callback = nullptr;
-        qsharedmemory_eventfilter_callback = nullptr;
-        qsharedmemory_timerevent_callback = nullptr;
-        qsharedmemory_childevent_callback = nullptr;
-        qsharedmemory_customevent_callback = nullptr;
-        qsharedmemory_connectnotify_callback = nullptr;
-        qsharedmemory_disconnectnotify_callback = nullptr;
-        qsharedmemory_sender_callback = nullptr;
-        qsharedmemory_sendersignalindex_callback = nullptr;
-        qsharedmemory_receivers_callback = nullptr;
-        qsharedmemory_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSharedMemory_MetaObject_Callback(QSharedMemory_MetaObject_Callback cb) { qsharedmemory_metaobject_callback = cb; }
     inline void setQSharedMemory_Metacast_Callback(QSharedMemory_Metacast_Callback cb) { qsharedmemory_metacast_callback = cb; }
@@ -127,12 +110,13 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_metaobject_isbase) {
             qsharedmemory_metaobject_isbase = false;
             return QSharedMemory::metaObject();
-        } else if (qsharedmemory_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsharedmemory_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSharedMemory::metaObject();
         }
+        auto metaobject_cb = qsharedmemory_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSharedMemory::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -140,14 +124,15 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_metacast_isbase) {
             qsharedmemory_metacast_isbase = false;
             return QSharedMemory::qt_metacast(param1);
-        } else if (qsharedmemory_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsharedmemory_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsharedmemory_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSharedMemory::qt_metacast(param1);
         }
+        return QSharedMemory::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,16 +140,17 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_metacall_isbase) {
             qsharedmemory_metacall_isbase = false;
             return QSharedMemory::qt_metacall(param1, param2, param3);
-        } else if (qsharedmemory_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsharedmemory_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsharedmemory_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSharedMemory::qt_metacall(param1, param2, param3);
         }
+        return QSharedMemory::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -172,14 +158,15 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_event_isbase) {
             qsharedmemory_event_isbase = false;
             return QSharedMemory::event(event);
-        } else if (qsharedmemory_event_callback != nullptr) {
+        }
+        auto event_cb = qsharedmemory_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsharedmemory_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSharedMemory::event(event);
         }
+        return QSharedMemory::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,15 +174,16 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_eventfilter_isbase) {
             qsharedmemory_eventfilter_isbase = false;
             return QSharedMemory::eventFilter(watched, event);
-        } else if (qsharedmemory_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsharedmemory_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsharedmemory_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSharedMemory::eventFilter(watched, event);
         }
+        return QSharedMemory::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,13 +191,16 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_timerevent_isbase) {
             qsharedmemory_timerevent_isbase = false;
             QSharedMemory::timerEvent(event);
-        } else if (qsharedmemory_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsharedmemory_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsharedmemory_timerevent_callback(this, cbval1);
-        } else {
-            QSharedMemory::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSharedMemory::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,13 +208,16 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_childevent_isbase) {
             qsharedmemory_childevent_isbase = false;
             QSharedMemory::childEvent(event);
-        } else if (qsharedmemory_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsharedmemory_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsharedmemory_childevent_callback(this, cbval1);
-        } else {
-            QSharedMemory::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSharedMemory::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,13 +225,16 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_customevent_isbase) {
             qsharedmemory_customevent_isbase = false;
             QSharedMemory::customEvent(event);
-        } else if (qsharedmemory_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsharedmemory_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsharedmemory_customevent_callback(this, cbval1);
-        } else {
-            QSharedMemory::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSharedMemory::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,15 +242,18 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_connectnotify_isbase) {
             qsharedmemory_connectnotify_isbase = false;
             QSharedMemory::connectNotify(signal);
-        } else if (qsharedmemory_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsharedmemory_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsharedmemory_connectnotify_callback(this, cbval1);
-        } else {
-            QSharedMemory::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSharedMemory::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +261,18 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_disconnectnotify_isbase) {
             qsharedmemory_disconnectnotify_isbase = false;
             QSharedMemory::disconnectNotify(signal);
-        } else if (qsharedmemory_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsharedmemory_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsharedmemory_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSharedMemory::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSharedMemory::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,12 +280,13 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_sender_isbase) {
             qsharedmemory_sender_isbase = false;
             return QSharedMemory::sender();
-        } else if (qsharedmemory_sender_callback != nullptr) {
-            QObject* callback_ret = qsharedmemory_sender_callback();
-            return callback_ret;
-        } else {
-            return QSharedMemory::sender();
         }
+        auto sender_cb = qsharedmemory_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSharedMemory::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,12 +294,13 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_sendersignalindex_isbase) {
             qsharedmemory_sendersignalindex_isbase = false;
             return QSharedMemory::senderSignalIndex();
-        } else if (qsharedmemory_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsharedmemory_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSharedMemory::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsharedmemory_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSharedMemory::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,14 +308,15 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_receivers_isbase) {
             qsharedmemory_receivers_isbase = false;
             return QSharedMemory::receivers(signal);
-        } else if (qsharedmemory_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsharedmemory_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsharedmemory_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSharedMemory::receivers(signal);
         }
+        return QSharedMemory::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,16 +324,17 @@ class VirtualQSharedMemory final : public QSharedMemory {
         if (qsharedmemory_issignalconnected_isbase) {
             qsharedmemory_issignalconnected_isbase = false;
             return QSharedMemory::isSignalConnected(signal);
-        } else if (qsharedmemory_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsharedmemory_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsharedmemory_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSharedMemory::isSignalConnected(signal);
         }
+        return QSharedMemory::isSignalConnected(signal);
     }
 
     // Friend functions

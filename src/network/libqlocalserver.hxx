@@ -81,27 +81,6 @@ class VirtualQLocalServer final : public QLocalServer {
     VirtualQLocalServer() : QLocalServer() {};
     VirtualQLocalServer(QObject* parent) : QLocalServer(parent) {};
 
-    ~VirtualQLocalServer() {
-        qlocalserver_metaobject_callback = nullptr;
-        qlocalserver_metacast_callback = nullptr;
-        qlocalserver_metacall_callback = nullptr;
-        qlocalserver_haspendingconnections_callback = nullptr;
-        qlocalserver_nextpendingconnection_callback = nullptr;
-        qlocalserver_incomingconnection_callback = nullptr;
-        qlocalserver_event_callback = nullptr;
-        qlocalserver_eventfilter_callback = nullptr;
-        qlocalserver_timerevent_callback = nullptr;
-        qlocalserver_childevent_callback = nullptr;
-        qlocalserver_customevent_callback = nullptr;
-        qlocalserver_connectnotify_callback = nullptr;
-        qlocalserver_disconnectnotify_callback = nullptr;
-        qlocalserver_addpendingconnection_callback = nullptr;
-        qlocalserver_sender_callback = nullptr;
-        qlocalserver_sendersignalindex_callback = nullptr;
-        qlocalserver_receivers_callback = nullptr;
-        qlocalserver_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQLocalServer_MetaObject_Callback(QLocalServer_MetaObject_Callback cb) { qlocalserver_metaobject_callback = cb; }
     inline void setQLocalServer_Metacast_Callback(QLocalServer_Metacast_Callback cb) { qlocalserver_metacast_callback = cb; }
@@ -147,12 +126,13 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_metaobject_isbase) {
             qlocalserver_metaobject_isbase = false;
             return QLocalServer::metaObject();
-        } else if (qlocalserver_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qlocalserver_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QLocalServer::metaObject();
         }
+        auto metaobject_cb = qlocalserver_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QLocalServer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +140,15 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_metacast_isbase) {
             qlocalserver_metacast_isbase = false;
             return QLocalServer::qt_metacast(param1);
-        } else if (qlocalserver_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qlocalserver_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qlocalserver_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLocalServer::qt_metacast(param1);
         }
+        return QLocalServer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,16 +156,17 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_metacall_isbase) {
             qlocalserver_metacall_isbase = false;
             return QLocalServer::qt_metacall(param1, param2, param3);
-        } else if (qlocalserver_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qlocalserver_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qlocalserver_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLocalServer::qt_metacall(param1, param2, param3);
         }
+        return QLocalServer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,12 +174,13 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_haspendingconnections_isbase) {
             qlocalserver_haspendingconnections_isbase = false;
             return QLocalServer::hasPendingConnections();
-        } else if (qlocalserver_haspendingconnections_callback != nullptr) {
-            bool callback_ret = qlocalserver_haspendingconnections_callback();
-            return callback_ret;
-        } else {
-            return QLocalServer::hasPendingConnections();
         }
+        auto haspendingconnections_cb = qlocalserver_haspendingconnections_callback;
+        if (haspendingconnections_cb) {
+            bool callback_ret = haspendingconnections_cb();
+            return callback_ret;
+        }
+        return QLocalServer::hasPendingConnections();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,12 +188,13 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_nextpendingconnection_isbase) {
             qlocalserver_nextpendingconnection_isbase = false;
             return QLocalServer::nextPendingConnection();
-        } else if (qlocalserver_nextpendingconnection_callback != nullptr) {
-            QLocalSocket* callback_ret = qlocalserver_nextpendingconnection_callback();
-            return callback_ret;
-        } else {
-            return QLocalServer::nextPendingConnection();
         }
+        auto nextpendingconnection_cb = qlocalserver_nextpendingconnection_callback;
+        if (nextpendingconnection_cb) {
+            QLocalSocket* callback_ret = nextpendingconnection_cb();
+            return callback_ret;
+        }
+        return QLocalServer::nextPendingConnection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +202,16 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_incomingconnection_isbase) {
             qlocalserver_incomingconnection_isbase = false;
             QLocalServer::incomingConnection(socketDescriptor);
-        } else if (qlocalserver_incomingconnection_callback != nullptr) {
+            return;
+        }
+        auto incomingconnection_cb = qlocalserver_incomingconnection_callback;
+        if (incomingconnection_cb) {
             uintptr_t cbval1 = static_cast<uintptr_t>(socketDescriptor);
 
-            qlocalserver_incomingconnection_callback(this, cbval1);
-        } else {
-            QLocalServer::incomingConnection(socketDescriptor);
+            incomingconnection_cb(this, cbval1);
+            return;
         }
+        QLocalServer::incomingConnection(socketDescriptor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,14 +219,15 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_event_isbase) {
             qlocalserver_event_isbase = false;
             return QLocalServer::event(event);
-        } else if (qlocalserver_event_callback != nullptr) {
+        }
+        auto event_cb = qlocalserver_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qlocalserver_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLocalServer::event(event);
         }
+        return QLocalServer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +235,16 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_eventfilter_isbase) {
             qlocalserver_eventfilter_isbase = false;
             return QLocalServer::eventFilter(watched, event);
-        } else if (qlocalserver_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qlocalserver_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qlocalserver_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QLocalServer::eventFilter(watched, event);
         }
+        return QLocalServer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,13 +252,16 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_timerevent_isbase) {
             qlocalserver_timerevent_isbase = false;
             QLocalServer::timerEvent(event);
-        } else if (qlocalserver_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qlocalserver_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qlocalserver_timerevent_callback(this, cbval1);
-        } else {
-            QLocalServer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QLocalServer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,13 +269,16 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_childevent_isbase) {
             qlocalserver_childevent_isbase = false;
             QLocalServer::childEvent(event);
-        } else if (qlocalserver_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qlocalserver_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qlocalserver_childevent_callback(this, cbval1);
-        } else {
-            QLocalServer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QLocalServer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -291,13 +286,16 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_customevent_isbase) {
             qlocalserver_customevent_isbase = false;
             QLocalServer::customEvent(event);
-        } else if (qlocalserver_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qlocalserver_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qlocalserver_customevent_callback(this, cbval1);
-        } else {
-            QLocalServer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QLocalServer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,15 +303,18 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_connectnotify_isbase) {
             qlocalserver_connectnotify_isbase = false;
             QLocalServer::connectNotify(signal);
-        } else if (qlocalserver_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qlocalserver_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlocalserver_connectnotify_callback(this, cbval1);
-        } else {
-            QLocalServer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QLocalServer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -321,15 +322,18 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_disconnectnotify_isbase) {
             qlocalserver_disconnectnotify_isbase = false;
             QLocalServer::disconnectNotify(signal);
-        } else if (qlocalserver_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qlocalserver_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlocalserver_disconnectnotify_callback(this, cbval1);
-        } else {
-            QLocalServer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QLocalServer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,13 +341,16 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_addpendingconnection_isbase) {
             qlocalserver_addpendingconnection_isbase = false;
             QLocalServer::addPendingConnection(socket);
-        } else if (qlocalserver_addpendingconnection_callback != nullptr) {
+            return;
+        }
+        auto addpendingconnection_cb = qlocalserver_addpendingconnection_callback;
+        if (addpendingconnection_cb) {
             QLocalSocket* cbval1 = socket;
 
-            qlocalserver_addpendingconnection_callback(this, cbval1);
-        } else {
-            QLocalServer::addPendingConnection(socket);
+            addpendingconnection_cb(this, cbval1);
+            return;
         }
+        QLocalServer::addPendingConnection(socket);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -351,12 +358,13 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_sender_isbase) {
             qlocalserver_sender_isbase = false;
             return QLocalServer::sender();
-        } else if (qlocalserver_sender_callback != nullptr) {
-            QObject* callback_ret = qlocalserver_sender_callback();
-            return callback_ret;
-        } else {
-            return QLocalServer::sender();
         }
+        auto sender_cb = qlocalserver_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QLocalServer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -364,12 +372,13 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_sendersignalindex_isbase) {
             qlocalserver_sendersignalindex_isbase = false;
             return QLocalServer::senderSignalIndex();
-        } else if (qlocalserver_sendersignalindex_callback != nullptr) {
-            int callback_ret = qlocalserver_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLocalServer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qlocalserver_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLocalServer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -377,14 +386,15 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_receivers_isbase) {
             qlocalserver_receivers_isbase = false;
             return QLocalServer::receivers(signal);
-        } else if (qlocalserver_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qlocalserver_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qlocalserver_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLocalServer::receivers(signal);
         }
+        return QLocalServer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -392,16 +402,17 @@ class VirtualQLocalServer final : public QLocalServer {
         if (qlocalserver_issignalconnected_isbase) {
             qlocalserver_issignalconnected_isbase = false;
             return QLocalServer::isSignalConnected(signal);
-        } else if (qlocalserver_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qlocalserver_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qlocalserver_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLocalServer::isSignalConnected(signal);
         }
+        return QLocalServer::isSignalConnected(signal);
     }
 
     // Friend functions

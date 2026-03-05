@@ -69,23 +69,6 @@ class VirtualQScreenCapture final : public QScreenCapture {
     VirtualQScreenCapture() : QScreenCapture() {};
     VirtualQScreenCapture(QObject* parent) : QScreenCapture(parent) {};
 
-    ~VirtualQScreenCapture() {
-        qscreencapture_metaobject_callback = nullptr;
-        qscreencapture_metacast_callback = nullptr;
-        qscreencapture_metacall_callback = nullptr;
-        qscreencapture_event_callback = nullptr;
-        qscreencapture_eventfilter_callback = nullptr;
-        qscreencapture_timerevent_callback = nullptr;
-        qscreencapture_childevent_callback = nullptr;
-        qscreencapture_customevent_callback = nullptr;
-        qscreencapture_connectnotify_callback = nullptr;
-        qscreencapture_disconnectnotify_callback = nullptr;
-        qscreencapture_sender_callback = nullptr;
-        qscreencapture_sendersignalindex_callback = nullptr;
-        qscreencapture_receivers_callback = nullptr;
-        qscreencapture_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQScreenCapture_MetaObject_Callback(QScreenCapture_MetaObject_Callback cb) { qscreencapture_metaobject_callback = cb; }
     inline void setQScreenCapture_Metacast_Callback(QScreenCapture_Metacast_Callback cb) { qscreencapture_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_metaobject_isbase) {
             qscreencapture_metaobject_isbase = false;
             return QScreenCapture::metaObject();
-        } else if (qscreencapture_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qscreencapture_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QScreenCapture::metaObject();
         }
+        auto metaobject_cb = qscreencapture_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QScreenCapture::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_metacast_isbase) {
             qscreencapture_metacast_isbase = false;
             return QScreenCapture::qt_metacast(param1);
-        } else if (qscreencapture_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qscreencapture_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qscreencapture_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScreenCapture::qt_metacast(param1);
         }
+        return QScreenCapture::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_metacall_isbase) {
             qscreencapture_metacall_isbase = false;
             return QScreenCapture::qt_metacall(param1, param2, param3);
-        } else if (qscreencapture_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qscreencapture_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qscreencapture_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QScreenCapture::qt_metacall(param1, param2, param3);
         }
+        return QScreenCapture::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_event_isbase) {
             qscreencapture_event_isbase = false;
             return QScreenCapture::event(event);
-        } else if (qscreencapture_event_callback != nullptr) {
+        }
+        auto event_cb = qscreencapture_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qscreencapture_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScreenCapture::event(event);
         }
+        return QScreenCapture::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_eventfilter_isbase) {
             qscreencapture_eventfilter_isbase = false;
             return QScreenCapture::eventFilter(watched, event);
-        } else if (qscreencapture_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qscreencapture_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qscreencapture_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QScreenCapture::eventFilter(watched, event);
         }
+        return QScreenCapture::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_timerevent_isbase) {
             qscreencapture_timerevent_isbase = false;
             QScreenCapture::timerEvent(event);
-        } else if (qscreencapture_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qscreencapture_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qscreencapture_timerevent_callback(this, cbval1);
-        } else {
-            QScreenCapture::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QScreenCapture::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_childevent_isbase) {
             qscreencapture_childevent_isbase = false;
             QScreenCapture::childEvent(event);
-        } else if (qscreencapture_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qscreencapture_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qscreencapture_childevent_callback(this, cbval1);
-        } else {
-            QScreenCapture::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QScreenCapture::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_customevent_isbase) {
             qscreencapture_customevent_isbase = false;
             QScreenCapture::customEvent(event);
-        } else if (qscreencapture_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qscreencapture_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qscreencapture_customevent_callback(this, cbval1);
-        } else {
-            QScreenCapture::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QScreenCapture::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_connectnotify_isbase) {
             qscreencapture_connectnotify_isbase = false;
             QScreenCapture::connectNotify(signal);
-        } else if (qscreencapture_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qscreencapture_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscreencapture_connectnotify_callback(this, cbval1);
-        } else {
-            QScreenCapture::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QScreenCapture::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_disconnectnotify_isbase) {
             qscreencapture_disconnectnotify_isbase = false;
             QScreenCapture::disconnectNotify(signal);
-        } else if (qscreencapture_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qscreencapture_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscreencapture_disconnectnotify_callback(this, cbval1);
-        } else {
-            QScreenCapture::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QScreenCapture::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_sender_isbase) {
             qscreencapture_sender_isbase = false;
             return QScreenCapture::sender();
-        } else if (qscreencapture_sender_callback != nullptr) {
-            QObject* callback_ret = qscreencapture_sender_callback();
-            return callback_ret;
-        } else {
-            return QScreenCapture::sender();
         }
+        auto sender_cb = qscreencapture_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QScreenCapture::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_sendersignalindex_isbase) {
             qscreencapture_sendersignalindex_isbase = false;
             return QScreenCapture::senderSignalIndex();
-        } else if (qscreencapture_sendersignalindex_callback != nullptr) {
-            int callback_ret = qscreencapture_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QScreenCapture::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qscreencapture_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QScreenCapture::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_receivers_isbase) {
             qscreencapture_receivers_isbase = false;
             return QScreenCapture::receivers(signal);
-        } else if (qscreencapture_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qscreencapture_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qscreencapture_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QScreenCapture::receivers(signal);
         }
+        return QScreenCapture::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQScreenCapture final : public QScreenCapture {
         if (qscreencapture_issignalconnected_isbase) {
             qscreencapture_issignalconnected_isbase = false;
             return QScreenCapture::isSignalConnected(signal);
-        } else if (qscreencapture_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qscreencapture_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qscreencapture_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QScreenCapture::isSignalConnected(signal);
         }
+        return QScreenCapture::isSignalConnected(signal);
     }
 
     // Friend functions

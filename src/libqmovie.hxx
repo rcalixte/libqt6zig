@@ -75,23 +75,6 @@ class VirtualQMovie final : public QMovie {
     VirtualQMovie(const QString& fileName, const QByteArray& format) : QMovie(fileName, format) {};
     VirtualQMovie(const QString& fileName, const QByteArray& format, QObject* parent) : QMovie(fileName, format, parent) {};
 
-    ~VirtualQMovie() {
-        qmovie_metaobject_callback = nullptr;
-        qmovie_metacast_callback = nullptr;
-        qmovie_metacall_callback = nullptr;
-        qmovie_event_callback = nullptr;
-        qmovie_eventfilter_callback = nullptr;
-        qmovie_timerevent_callback = nullptr;
-        qmovie_childevent_callback = nullptr;
-        qmovie_customevent_callback = nullptr;
-        qmovie_connectnotify_callback = nullptr;
-        qmovie_disconnectnotify_callback = nullptr;
-        qmovie_sender_callback = nullptr;
-        qmovie_sendersignalindex_callback = nullptr;
-        qmovie_receivers_callback = nullptr;
-        qmovie_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMovie_MetaObject_Callback(QMovie_MetaObject_Callback cb) { qmovie_metaobject_callback = cb; }
     inline void setQMovie_Metacast_Callback(QMovie_Metacast_Callback cb) { qmovie_metacast_callback = cb; }
@@ -129,12 +112,13 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_metaobject_isbase) {
             qmovie_metaobject_isbase = false;
             return QMovie::metaObject();
-        } else if (qmovie_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmovie_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMovie::metaObject();
         }
+        auto metaobject_cb = qmovie_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMovie::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +126,15 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_metacast_isbase) {
             qmovie_metacast_isbase = false;
             return QMovie::qt_metacast(param1);
-        } else if (qmovie_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmovie_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmovie_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMovie::qt_metacast(param1);
         }
+        return QMovie::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +142,17 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_metacall_isbase) {
             qmovie_metacall_isbase = false;
             return QMovie::qt_metacall(param1, param2, param3);
-        } else if (qmovie_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmovie_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmovie_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMovie::qt_metacall(param1, param2, param3);
         }
+        return QMovie::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,14 +160,15 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_event_isbase) {
             qmovie_event_isbase = false;
             return QMovie::event(event);
-        } else if (qmovie_event_callback != nullptr) {
+        }
+        auto event_cb = qmovie_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmovie_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMovie::event(event);
         }
+        return QMovie::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,15 +176,16 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_eventfilter_isbase) {
             qmovie_eventfilter_isbase = false;
             return QMovie::eventFilter(watched, event);
-        } else if (qmovie_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmovie_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmovie_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMovie::eventFilter(watched, event);
         }
+        return QMovie::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,13 +193,16 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_timerevent_isbase) {
             qmovie_timerevent_isbase = false;
             QMovie::timerEvent(event);
-        } else if (qmovie_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmovie_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmovie_timerevent_callback(this, cbval1);
-        } else {
-            QMovie::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMovie::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +210,16 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_childevent_isbase) {
             qmovie_childevent_isbase = false;
             QMovie::childEvent(event);
-        } else if (qmovie_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmovie_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmovie_childevent_callback(this, cbval1);
-        } else {
-            QMovie::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMovie::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +227,16 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_customevent_isbase) {
             qmovie_customevent_isbase = false;
             QMovie::customEvent(event);
-        } else if (qmovie_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmovie_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmovie_customevent_callback(this, cbval1);
-        } else {
-            QMovie::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMovie::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +244,18 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_connectnotify_isbase) {
             qmovie_connectnotify_isbase = false;
             QMovie::connectNotify(signal);
-        } else if (qmovie_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmovie_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmovie_connectnotify_callback(this, cbval1);
-        } else {
-            QMovie::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMovie::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +263,18 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_disconnectnotify_isbase) {
             qmovie_disconnectnotify_isbase = false;
             QMovie::disconnectNotify(signal);
-        } else if (qmovie_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmovie_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmovie_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMovie::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMovie::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,12 +282,13 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_sender_isbase) {
             qmovie_sender_isbase = false;
             return QMovie::sender();
-        } else if (qmovie_sender_callback != nullptr) {
-            QObject* callback_ret = qmovie_sender_callback();
-            return callback_ret;
-        } else {
-            return QMovie::sender();
         }
+        auto sender_cb = qmovie_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMovie::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +296,13 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_sendersignalindex_isbase) {
             qmovie_sendersignalindex_isbase = false;
             return QMovie::senderSignalIndex();
-        } else if (qmovie_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmovie_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMovie::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmovie_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMovie::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,14 +310,15 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_receivers_isbase) {
             qmovie_receivers_isbase = false;
             return QMovie::receivers(signal);
-        } else if (qmovie_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmovie_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmovie_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMovie::receivers(signal);
         }
+        return QMovie::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,16 +326,17 @@ class VirtualQMovie final : public QMovie {
         if (qmovie_issignalconnected_isbase) {
             qmovie_issignalconnected_isbase = false;
             return QMovie::isSignalConnected(signal);
-        } else if (qmovie_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmovie_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmovie_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMovie::isSignalConnected(signal);
         }
+        return QMovie::isSignalConnected(signal);
     }
 
     // Friend functions

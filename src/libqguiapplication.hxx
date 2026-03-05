@@ -75,25 +75,6 @@ class VirtualQGuiApplication final : public QGuiApplication {
     VirtualQGuiApplication(int& argc, char** argv) : QGuiApplication(argc, argv) {};
     VirtualQGuiApplication(int& argc, char** argv, int param3) : QGuiApplication(argc, argv, param3) {};
 
-    ~VirtualQGuiApplication() {
-        qguiapplication_metaobject_callback = nullptr;
-        qguiapplication_metacast_callback = nullptr;
-        qguiapplication_metacall_callback = nullptr;
-        qguiapplication_notify_callback = nullptr;
-        qguiapplication_event_callback = nullptr;
-        qguiapplication_eventfilter_callback = nullptr;
-        qguiapplication_timerevent_callback = nullptr;
-        qguiapplication_childevent_callback = nullptr;
-        qguiapplication_customevent_callback = nullptr;
-        qguiapplication_connectnotify_callback = nullptr;
-        qguiapplication_disconnectnotify_callback = nullptr;
-        qguiapplication_resolveinterface_callback = nullptr;
-        qguiapplication_sender_callback = nullptr;
-        qguiapplication_sendersignalindex_callback = nullptr;
-        qguiapplication_receivers_callback = nullptr;
-        qguiapplication_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGuiApplication_MetaObject_Callback(QGuiApplication_MetaObject_Callback cb) { qguiapplication_metaobject_callback = cb; }
     inline void setQGuiApplication_Metacast_Callback(QGuiApplication_Metacast_Callback cb) { qguiapplication_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_metaobject_isbase) {
             qguiapplication_metaobject_isbase = false;
             return QGuiApplication::metaObject();
-        } else if (qguiapplication_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qguiapplication_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGuiApplication::metaObject();
         }
+        auto metaobject_cb = qguiapplication_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGuiApplication::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_metacast_isbase) {
             qguiapplication_metacast_isbase = false;
             return QGuiApplication::qt_metacast(param1);
-        } else if (qguiapplication_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qguiapplication_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qguiapplication_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGuiApplication::qt_metacast(param1);
         }
+        return QGuiApplication::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_metacall_isbase) {
             qguiapplication_metacall_isbase = false;
             return QGuiApplication::qt_metacall(param1, param2, param3);
-        } else if (qguiapplication_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qguiapplication_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qguiapplication_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGuiApplication::qt_metacall(param1, param2, param3);
         }
+        return QGuiApplication::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,15 +164,16 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_notify_isbase) {
             qguiapplication_notify_isbase = false;
             return QGuiApplication::notify(param1, param2);
-        } else if (qguiapplication_notify_callback != nullptr) {
+        }
+        auto notify_cb = qguiapplication_notify_callback;
+        if (notify_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qguiapplication_notify_callback(this, cbval1, cbval2);
+            bool callback_ret = notify_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGuiApplication::notify(param1, param2);
         }
+        return QGuiApplication::notify(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +181,15 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_event_isbase) {
             qguiapplication_event_isbase = false;
             return QGuiApplication::event(param1);
-        } else if (qguiapplication_event_callback != nullptr) {
+        }
+        auto event_cb = qguiapplication_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qguiapplication_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGuiApplication::event(param1);
         }
+        return QGuiApplication::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,15 +197,16 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_eventfilter_isbase) {
             qguiapplication_eventfilter_isbase = false;
             return QGuiApplication::eventFilter(watched, event);
-        } else if (qguiapplication_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qguiapplication_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qguiapplication_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGuiApplication::eventFilter(watched, event);
         }
+        return QGuiApplication::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +214,16 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_timerevent_isbase) {
             qguiapplication_timerevent_isbase = false;
             QGuiApplication::timerEvent(event);
-        } else if (qguiapplication_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qguiapplication_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qguiapplication_timerevent_callback(this, cbval1);
-        } else {
-            QGuiApplication::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGuiApplication::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,13 +231,16 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_childevent_isbase) {
             qguiapplication_childevent_isbase = false;
             QGuiApplication::childEvent(event);
-        } else if (qguiapplication_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qguiapplication_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qguiapplication_childevent_callback(this, cbval1);
-        } else {
-            QGuiApplication::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGuiApplication::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -255,13 +248,16 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_customevent_isbase) {
             qguiapplication_customevent_isbase = false;
             QGuiApplication::customEvent(event);
-        } else if (qguiapplication_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qguiapplication_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qguiapplication_customevent_callback(this, cbval1);
-        } else {
-            QGuiApplication::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGuiApplication::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -269,15 +265,18 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_connectnotify_isbase) {
             qguiapplication_connectnotify_isbase = false;
             QGuiApplication::connectNotify(signal);
-        } else if (qguiapplication_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qguiapplication_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qguiapplication_connectnotify_callback(this, cbval1);
-        } else {
-            QGuiApplication::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGuiApplication::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,15 +284,18 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_disconnectnotify_isbase) {
             qguiapplication_disconnectnotify_isbase = false;
             QGuiApplication::disconnectNotify(signal);
-        } else if (qguiapplication_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qguiapplication_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qguiapplication_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGuiApplication::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGuiApplication::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,15 +303,16 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_resolveinterface_isbase) {
             qguiapplication_resolveinterface_isbase = false;
             return QGuiApplication::resolveInterface(name, revision);
-        } else if (qguiapplication_resolveinterface_callback != nullptr) {
+        }
+        auto resolveinterface_cb = qguiapplication_resolveinterface_callback;
+        if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
 
-            void* callback_ret = qguiapplication_resolveinterface_callback(this, cbval1, cbval2);
+            void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGuiApplication::resolveInterface(name, revision);
         }
+        return QGuiApplication::resolveInterface(name, revision);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,12 +320,13 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_sender_isbase) {
             qguiapplication_sender_isbase = false;
             return QGuiApplication::sender();
-        } else if (qguiapplication_sender_callback != nullptr) {
-            QObject* callback_ret = qguiapplication_sender_callback();
-            return callback_ret;
-        } else {
-            return QGuiApplication::sender();
         }
+        auto sender_cb = qguiapplication_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGuiApplication::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,12 +334,13 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_sendersignalindex_isbase) {
             qguiapplication_sendersignalindex_isbase = false;
             return QGuiApplication::senderSignalIndex();
-        } else if (qguiapplication_sendersignalindex_callback != nullptr) {
-            int callback_ret = qguiapplication_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGuiApplication::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qguiapplication_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGuiApplication::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,14 +348,15 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_receivers_isbase) {
             qguiapplication_receivers_isbase = false;
             return QGuiApplication::receivers(signal);
-        } else if (qguiapplication_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qguiapplication_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qguiapplication_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGuiApplication::receivers(signal);
         }
+        return QGuiApplication::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,16 +364,17 @@ class VirtualQGuiApplication final : public QGuiApplication {
         if (qguiapplication_issignalconnected_isbase) {
             qguiapplication_issignalconnected_isbase = false;
             return QGuiApplication::isSignalConnected(signal);
-        } else if (qguiapplication_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qguiapplication_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qguiapplication_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGuiApplication::isSignalConnected(signal);
         }
+        return QGuiApplication::isSignalConnected(signal);
     }
 
     // Friend functions

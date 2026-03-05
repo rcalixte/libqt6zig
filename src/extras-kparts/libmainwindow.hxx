@@ -334,111 +334,6 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     VirtualKPartsMainWindow() : KParts::MainWindow() {};
     VirtualKPartsMainWindow(QWidget* parent, Qt::WindowFlags f) : KParts::MainWindow(parent, f) {};
 
-    ~VirtualKPartsMainWindow() {
-        kparts__mainwindow_metaobject_callback = nullptr;
-        kparts__mainwindow_metacast_callback = nullptr;
-        kparts__mainwindow_metacall_callback = nullptr;
-        kparts__mainwindow_configuretoolbars_callback = nullptr;
-        kparts__mainwindow_slotsetstatusbartext_callback = nullptr;
-        kparts__mainwindow_savenewtoolbarconfig_callback = nullptr;
-        kparts__mainwindow_createshellgui_callback = nullptr;
-        kparts__mainwindow_guifactory_callback = nullptr;
-        kparts__mainwindow_applymainwindowsettings_callback = nullptr;
-        kparts__mainwindow_slotstatechanged_callback = nullptr;
-        kparts__mainwindow_event_callback = nullptr;
-        kparts__mainwindow_setcaption_callback = nullptr;
-        kparts__mainwindow_setplaincaption_callback = nullptr;
-        kparts__mainwindow_keypressevent_callback = nullptr;
-        kparts__mainwindow_closeevent_callback = nullptr;
-        kparts__mainwindow_queryclose_callback = nullptr;
-        kparts__mainwindow_saveproperties_callback = nullptr;
-        kparts__mainwindow_readproperties_callback = nullptr;
-        kparts__mainwindow_saveglobalproperties_callback = nullptr;
-        kparts__mainwindow_readglobalproperties_callback = nullptr;
-        kparts__mainwindow_createpopupmenu_callback = nullptr;
-        kparts__mainwindow_contextmenuevent_callback = nullptr;
-        kparts__mainwindow_devtype_callback = nullptr;
-        kparts__mainwindow_setvisible_callback = nullptr;
-        kparts__mainwindow_sizehint_callback = nullptr;
-        kparts__mainwindow_minimumsizehint_callback = nullptr;
-        kparts__mainwindow_heightforwidth_callback = nullptr;
-        kparts__mainwindow_hasheightforwidth_callback = nullptr;
-        kparts__mainwindow_paintengine_callback = nullptr;
-        kparts__mainwindow_mousepressevent_callback = nullptr;
-        kparts__mainwindow_mousereleaseevent_callback = nullptr;
-        kparts__mainwindow_mousedoubleclickevent_callback = nullptr;
-        kparts__mainwindow_mousemoveevent_callback = nullptr;
-        kparts__mainwindow_wheelevent_callback = nullptr;
-        kparts__mainwindow_keyreleaseevent_callback = nullptr;
-        kparts__mainwindow_focusinevent_callback = nullptr;
-        kparts__mainwindow_focusoutevent_callback = nullptr;
-        kparts__mainwindow_enterevent_callback = nullptr;
-        kparts__mainwindow_leaveevent_callback = nullptr;
-        kparts__mainwindow_paintevent_callback = nullptr;
-        kparts__mainwindow_moveevent_callback = nullptr;
-        kparts__mainwindow_resizeevent_callback = nullptr;
-        kparts__mainwindow_tabletevent_callback = nullptr;
-        kparts__mainwindow_actionevent_callback = nullptr;
-        kparts__mainwindow_dragenterevent_callback = nullptr;
-        kparts__mainwindow_dragmoveevent_callback = nullptr;
-        kparts__mainwindow_dragleaveevent_callback = nullptr;
-        kparts__mainwindow_dropevent_callback = nullptr;
-        kparts__mainwindow_showevent_callback = nullptr;
-        kparts__mainwindow_hideevent_callback = nullptr;
-        kparts__mainwindow_nativeevent_callback = nullptr;
-        kparts__mainwindow_changeevent_callback = nullptr;
-        kparts__mainwindow_metric_callback = nullptr;
-        kparts__mainwindow_initpainter_callback = nullptr;
-        kparts__mainwindow_redirected_callback = nullptr;
-        kparts__mainwindow_sharedpainter_callback = nullptr;
-        kparts__mainwindow_inputmethodevent_callback = nullptr;
-        kparts__mainwindow_inputmethodquery_callback = nullptr;
-        kparts__mainwindow_focusnextprevchild_callback = nullptr;
-        kparts__mainwindow_eventfilter_callback = nullptr;
-        kparts__mainwindow_timerevent_callback = nullptr;
-        kparts__mainwindow_childevent_callback = nullptr;
-        kparts__mainwindow_customevent_callback = nullptr;
-        kparts__mainwindow_connectnotify_callback = nullptr;
-        kparts__mainwindow_disconnectnotify_callback = nullptr;
-        kparts__mainwindow_containertags_callback = nullptr;
-        kparts__mainwindow_createcontainer_callback = nullptr;
-        kparts__mainwindow_removecontainer_callback = nullptr;
-        kparts__mainwindow_customtags_callback = nullptr;
-        kparts__mainwindow_createcustomelement_callback = nullptr;
-        kparts__mainwindow_finalizegui_callback = nullptr;
-        kparts__mainwindow_action2_callback = nullptr;
-        kparts__mainwindow_actioncollection_callback = nullptr;
-        kparts__mainwindow_componentname_callback = nullptr;
-        kparts__mainwindow_domdocument_callback = nullptr;
-        kparts__mainwindow_xmlfile_callback = nullptr;
-        kparts__mainwindow_localxmlfile_callback = nullptr;
-        kparts__mainwindow_setcomponentname_callback = nullptr;
-        kparts__mainwindow_setxmlfile_callback = nullptr;
-        kparts__mainwindow_setlocalxmlfile_callback = nullptr;
-        kparts__mainwindow_setxml_callback = nullptr;
-        kparts__mainwindow_setdomdocument_callback = nullptr;
-        kparts__mainwindow_statechanged_callback = nullptr;
-        kparts__mainwindow_creategui_callback = nullptr;
-        kparts__mainwindow_setwindowtitlehandling_callback = nullptr;
-        kparts__mainwindow_checkambiguousshortcuts_callback = nullptr;
-        kparts__mainwindow_savepropertiesinternal_callback = nullptr;
-        kparts__mainwindow_readpropertiesinternal_callback = nullptr;
-        kparts__mainwindow_settingsdirty_callback = nullptr;
-        kparts__mainwindow_saveautosavesettings_callback = nullptr;
-        kparts__mainwindow_updatemicrofocus_callback = nullptr;
-        kparts__mainwindow_create_callback = nullptr;
-        kparts__mainwindow_destroy_callback = nullptr;
-        kparts__mainwindow_focusnextchild_callback = nullptr;
-        kparts__mainwindow_focuspreviouschild_callback = nullptr;
-        kparts__mainwindow_sender_callback = nullptr;
-        kparts__mainwindow_sendersignalindex_callback = nullptr;
-        kparts__mainwindow_receivers_callback = nullptr;
-        kparts__mainwindow_issignalconnected_callback = nullptr;
-        kparts__mainwindow_getdecodedmetricf_callback = nullptr;
-        kparts__mainwindow_standardsxmlfilelocation_callback = nullptr;
-        kparts__mainwindow_loadstandardsxmlfile_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKParts__MainWindow_MetaObject_Callback(KParts__MainWindow_MetaObject_Callback cb) { kparts__mainwindow_metaobject_callback = cb; }
     inline void setKParts__MainWindow_Metacast_Callback(KParts__MainWindow_Metacast_Callback cb) { kparts__mainwindow_metacast_callback = cb; }
@@ -652,12 +547,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_metaobject_isbase) {
             kparts__mainwindow_metaobject_isbase = false;
             return KParts__MainWindow::metaObject();
-        } else if (kparts__mainwindow_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kparts__mainwindow_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::metaObject();
         }
+        auto metaobject_cb = kparts__mainwindow_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,14 +561,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_metacast_isbase) {
             kparts__mainwindow_metacast_isbase = false;
             return KParts__MainWindow::qt_metacast(param1);
-        } else if (kparts__mainwindow_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kparts__mainwindow_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kparts__mainwindow_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::qt_metacast(param1);
         }
+        return KParts__MainWindow::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -680,16 +577,17 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_metacall_isbase) {
             kparts__mainwindow_metacall_isbase = false;
             return KParts__MainWindow::qt_metacall(param1, param2, param3);
-        } else if (kparts__mainwindow_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kparts__mainwindow_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kparts__mainwindow_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__MainWindow::qt_metacall(param1, param2, param3);
         }
+        return KParts__MainWindow::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -697,11 +595,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_configuretoolbars_isbase) {
             kparts__mainwindow_configuretoolbars_isbase = false;
             KParts__MainWindow::configureToolbars();
-        } else if (kparts__mainwindow_configuretoolbars_callback != nullptr) {
-            kparts__mainwindow_configuretoolbars_callback();
-        } else {
-            KParts__MainWindow::configureToolbars();
+            return;
         }
+        auto configuretoolbars_cb = kparts__mainwindow_configuretoolbars_callback;
+        if (configuretoolbars_cb) {
+            configuretoolbars_cb();
+            return;
+        }
+        KParts__MainWindow::configureToolbars();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,7 +610,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_slotsetstatusbartext_isbase) {
             kparts__mainwindow_slotsetstatusbartext_isbase = false;
             KParts__MainWindow::slotSetStatusBarText(param1);
-        } else if (kparts__mainwindow_slotsetstatusbartext_callback != nullptr) {
+            return;
+        }
+        auto slotsetstatusbartext_cb = kparts__mainwindow_slotsetstatusbartext_callback;
+        if (slotsetstatusbartext_cb) {
             const QString param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -719,11 +623,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
 
-            kparts__mainwindow_slotsetstatusbartext_callback(this, cbval1);
+            slotsetstatusbartext_cb(this, cbval1);
             libqt_free(param1_str);
-        } else {
-            KParts__MainWindow::slotSetStatusBarText(param1);
+            return;
         }
+        KParts__MainWindow::slotSetStatusBarText(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,11 +635,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_savenewtoolbarconfig_isbase) {
             kparts__mainwindow_savenewtoolbarconfig_isbase = false;
             KParts__MainWindow::saveNewToolbarConfig();
-        } else if (kparts__mainwindow_savenewtoolbarconfig_callback != nullptr) {
-            kparts__mainwindow_savenewtoolbarconfig_callback();
-        } else {
-            KParts__MainWindow::saveNewToolbarConfig();
+            return;
         }
+        auto savenewtoolbarconfig_cb = kparts__mainwindow_savenewtoolbarconfig_callback;
+        if (savenewtoolbarconfig_cb) {
+            savenewtoolbarconfig_cb();
+            return;
+        }
+        KParts__MainWindow::saveNewToolbarConfig();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,13 +650,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_createshellgui_isbase) {
             kparts__mainwindow_createshellgui_isbase = false;
             KParts__MainWindow::createShellGUI(create);
-        } else if (kparts__mainwindow_createshellgui_callback != nullptr) {
+            return;
+        }
+        auto createshellgui_cb = kparts__mainwindow_createshellgui_callback;
+        if (createshellgui_cb) {
             bool cbval1 = create;
 
-            kparts__mainwindow_createshellgui_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::createShellGUI(create);
+            createshellgui_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::createShellGUI(create);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -757,12 +667,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_guifactory_isbase) {
             kparts__mainwindow_guifactory_isbase = false;
             return KParts__MainWindow::guiFactory();
-        } else if (kparts__mainwindow_guifactory_callback != nullptr) {
-            KXMLGUIFactory* callback_ret = kparts__mainwindow_guifactory_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::guiFactory();
         }
+        auto guifactory_cb = kparts__mainwindow_guifactory_callback;
+        if (guifactory_cb) {
+            KXMLGUIFactory* callback_ret = guifactory_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::guiFactory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,15 +681,18 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_applymainwindowsettings_isbase) {
             kparts__mainwindow_applymainwindowsettings_isbase = false;
             KParts__MainWindow::applyMainWindowSettings(config);
-        } else if (kparts__mainwindow_applymainwindowsettings_callback != nullptr) {
+            return;
+        }
+        auto applymainwindowsettings_cb = kparts__mainwindow_applymainwindowsettings_callback;
+        if (applymainwindowsettings_cb) {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
 
-            kparts__mainwindow_applymainwindowsettings_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::applyMainWindowSettings(config);
+            applymainwindowsettings_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::applyMainWindowSettings(config);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,7 +700,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_slotstatechanged_isbase) {
             kparts__mainwindow_slotstatechanged_isbase = false;
             KParts__MainWindow::slotStateChanged(newstate);
-        } else if (kparts__mainwindow_slotstatechanged_callback != nullptr) {
+            return;
+        }
+        auto slotstatechanged_cb = kparts__mainwindow_slotstatechanged_callback;
+        if (slotstatechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -796,11 +713,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
 
-            kparts__mainwindow_slotstatechanged_callback(this, cbval1);
+            slotstatechanged_cb(this, cbval1);
             libqt_free(newstate_str);
-        } else {
-            KParts__MainWindow::slotStateChanged(newstate);
+            return;
         }
+        KParts__MainWindow::slotStateChanged(newstate);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,14 +725,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_event_isbase) {
             kparts__mainwindow_event_isbase = false;
             return KParts__MainWindow::event(event);
-        } else if (kparts__mainwindow_event_callback != nullptr) {
+        }
+        auto event_cb = kparts__mainwindow_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kparts__mainwindow_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::event(event);
         }
+        return KParts__MainWindow::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,7 +741,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setcaption_isbase) {
             kparts__mainwindow_setcaption_isbase = false;
             KParts__MainWindow::setCaption(caption);
-        } else if (kparts__mainwindow_setcaption_callback != nullptr) {
+            return;
+        }
+        auto setcaption_cb = kparts__mainwindow_setcaption_callback;
+        if (setcaption_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -833,11 +754,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
 
-            kparts__mainwindow_setcaption_callback(this, cbval1);
+            setcaption_cb(this, cbval1);
             libqt_free(caption_str);
-        } else {
-            KParts__MainWindow::setCaption(caption);
+            return;
         }
+        KParts__MainWindow::setCaption(caption);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,7 +766,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setplaincaption_isbase) {
             kparts__mainwindow_setplaincaption_isbase = false;
             KParts__MainWindow::setPlainCaption(caption);
-        } else if (kparts__mainwindow_setplaincaption_callback != nullptr) {
+            return;
+        }
+        auto setplaincaption_cb = kparts__mainwindow_setplaincaption_callback;
+        if (setplaincaption_cb) {
             const QString caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -855,11 +779,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
 
-            kparts__mainwindow_setplaincaption_callback(this, cbval1);
+            setplaincaption_cb(this, cbval1);
             libqt_free(caption_str);
-        } else {
-            KParts__MainWindow::setPlainCaption(caption);
+            return;
         }
+        KParts__MainWindow::setPlainCaption(caption);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +791,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_keypressevent_isbase) {
             kparts__mainwindow_keypressevent_isbase = false;
             KParts__MainWindow::keyPressEvent(keyEvent);
-        } else if (kparts__mainwindow_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kparts__mainwindow_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = keyEvent;
 
-            kparts__mainwindow_keypressevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::keyPressEvent(keyEvent);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::keyPressEvent(keyEvent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +808,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_closeevent_isbase) {
             kparts__mainwindow_closeevent_isbase = false;
             KParts__MainWindow::closeEvent(param1);
-        } else if (kparts__mainwindow_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kparts__mainwindow_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kparts__mainwindow_closeevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,12 +825,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_queryclose_isbase) {
             kparts__mainwindow_queryclose_isbase = false;
             return KParts__MainWindow::queryClose();
-        } else if (kparts__mainwindow_queryclose_callback != nullptr) {
-            bool callback_ret = kparts__mainwindow_queryclose_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::queryClose();
         }
+        auto queryclose_cb = kparts__mainwindow_queryclose_callback;
+        if (queryclose_cb) {
+            bool callback_ret = queryclose_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::queryClose();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -908,15 +839,18 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_saveproperties_isbase) {
             kparts__mainwindow_saveproperties_isbase = false;
             KParts__MainWindow::saveProperties(param1);
-        } else if (kparts__mainwindow_saveproperties_callback != nullptr) {
+            return;
+        }
+        auto saveproperties_cb = kparts__mainwindow_saveproperties_callback;
+        if (saveproperties_cb) {
             KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &param1_ret;
 
-            kparts__mainwindow_saveproperties_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::saveProperties(param1);
+            saveproperties_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::saveProperties(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,15 +858,18 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_readproperties_isbase) {
             kparts__mainwindow_readproperties_isbase = false;
             KParts__MainWindow::readProperties(param1);
-        } else if (kparts__mainwindow_readproperties_callback != nullptr) {
+            return;
+        }
+        auto readproperties_cb = kparts__mainwindow_readproperties_callback;
+        if (readproperties_cb) {
             const KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&param1_ret);
 
-            kparts__mainwindow_readproperties_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::readProperties(param1);
+            readproperties_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::readProperties(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +877,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_saveglobalproperties_isbase) {
             kparts__mainwindow_saveglobalproperties_isbase = false;
             KParts__MainWindow::saveGlobalProperties(sessionConfig);
-        } else if (kparts__mainwindow_saveglobalproperties_callback != nullptr) {
+            return;
+        }
+        auto saveglobalproperties_cb = kparts__mainwindow_saveglobalproperties_callback;
+        if (saveglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
 
-            kparts__mainwindow_saveglobalproperties_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::saveGlobalProperties(sessionConfig);
+            saveglobalproperties_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::saveGlobalProperties(sessionConfig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +894,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_readglobalproperties_isbase) {
             kparts__mainwindow_readglobalproperties_isbase = false;
             KParts__MainWindow::readGlobalProperties(sessionConfig);
-        } else if (kparts__mainwindow_readglobalproperties_callback != nullptr) {
+            return;
+        }
+        auto readglobalproperties_cb = kparts__mainwindow_readglobalproperties_callback;
+        if (readglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
 
-            kparts__mainwindow_readglobalproperties_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::readGlobalProperties(sessionConfig);
+            readglobalproperties_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::readGlobalProperties(sessionConfig);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,12 +911,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_createpopupmenu_isbase) {
             kparts__mainwindow_createpopupmenu_isbase = false;
             return KParts__MainWindow::createPopupMenu();
-        } else if (kparts__mainwindow_createpopupmenu_callback != nullptr) {
-            QMenu* callback_ret = kparts__mainwindow_createpopupmenu_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::createPopupMenu();
         }
+        auto createpopupmenu_cb = kparts__mainwindow_createpopupmenu_callback;
+        if (createpopupmenu_cb) {
+            QMenu* callback_ret = createpopupmenu_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::createPopupMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,13 +925,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_contextmenuevent_isbase) {
             kparts__mainwindow_contextmenuevent_isbase = false;
             KParts__MainWindow::contextMenuEvent(event);
-        } else if (kparts__mainwindow_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kparts__mainwindow_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kparts__mainwindow_contextmenuevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -995,12 +942,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_devtype_isbase) {
             kparts__mainwindow_devtype_isbase = false;
             return KParts__MainWindow::devType();
-        } else if (kparts__mainwindow_devtype_callback != nullptr) {
-            int callback_ret = kparts__mainwindow_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__MainWindow::devType();
         }
+        auto devtype_cb = kparts__mainwindow_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__MainWindow::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1008,13 +956,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setvisible_isbase) {
             kparts__mainwindow_setvisible_isbase = false;
             KParts__MainWindow::setVisible(visible);
-        } else if (kparts__mainwindow_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kparts__mainwindow_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kparts__mainwindow_setvisible_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,12 +973,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_sizehint_isbase) {
             kparts__mainwindow_sizehint_isbase = false;
             return KParts__MainWindow::sizeHint();
-        } else if (kparts__mainwindow_sizehint_callback != nullptr) {
-            QSize* callback_ret = kparts__mainwindow_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KParts__MainWindow::sizeHint();
         }
+        auto sizehint_cb = kparts__mainwindow_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KParts__MainWindow::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,12 +987,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_minimumsizehint_isbase) {
             kparts__mainwindow_minimumsizehint_isbase = false;
             return KParts__MainWindow::minimumSizeHint();
-        } else if (kparts__mainwindow_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kparts__mainwindow_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KParts__MainWindow::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kparts__mainwindow_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KParts__MainWindow::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1001,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_heightforwidth_isbase) {
             kparts__mainwindow_heightforwidth_isbase = false;
             return KParts__MainWindow::heightForWidth(param1);
-        } else if (kparts__mainwindow_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kparts__mainwindow_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kparts__mainwindow_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__MainWindow::heightForWidth(param1);
         }
+        return KParts__MainWindow::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,12 +1017,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_hasheightforwidth_isbase) {
             kparts__mainwindow_hasheightforwidth_isbase = false;
             return KParts__MainWindow::hasHeightForWidth();
-        } else if (kparts__mainwindow_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kparts__mainwindow_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kparts__mainwindow_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1076,12 +1031,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_paintengine_isbase) {
             kparts__mainwindow_paintengine_isbase = false;
             return KParts__MainWindow::paintEngine();
-        } else if (kparts__mainwindow_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kparts__mainwindow_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::paintEngine();
         }
+        auto paintengine_cb = kparts__mainwindow_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1089,13 +1045,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_mousepressevent_isbase) {
             kparts__mainwindow_mousepressevent_isbase = false;
             KParts__MainWindow::mousePressEvent(event);
-        } else if (kparts__mainwindow_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kparts__mainwindow_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kparts__mainwindow_mousepressevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1103,13 +1062,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_mousereleaseevent_isbase) {
             kparts__mainwindow_mousereleaseevent_isbase = false;
             KParts__MainWindow::mouseReleaseEvent(event);
-        } else if (kparts__mainwindow_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kparts__mainwindow_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kparts__mainwindow_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,13 +1079,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_mousedoubleclickevent_isbase) {
             kparts__mainwindow_mousedoubleclickevent_isbase = false;
             KParts__MainWindow::mouseDoubleClickEvent(event);
-        } else if (kparts__mainwindow_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kparts__mainwindow_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kparts__mainwindow_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,13 +1096,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_mousemoveevent_isbase) {
             kparts__mainwindow_mousemoveevent_isbase = false;
             KParts__MainWindow::mouseMoveEvent(event);
-        } else if (kparts__mainwindow_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kparts__mainwindow_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kparts__mainwindow_mousemoveevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1145,13 +1113,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_wheelevent_isbase) {
             kparts__mainwindow_wheelevent_isbase = false;
             KParts__MainWindow::wheelEvent(event);
-        } else if (kparts__mainwindow_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kparts__mainwindow_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kparts__mainwindow_wheelevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1159,13 +1130,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_keyreleaseevent_isbase) {
             kparts__mainwindow_keyreleaseevent_isbase = false;
             KParts__MainWindow::keyReleaseEvent(event);
-        } else if (kparts__mainwindow_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kparts__mainwindow_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kparts__mainwindow_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1173,13 +1147,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_focusinevent_isbase) {
             kparts__mainwindow_focusinevent_isbase = false;
             KParts__MainWindow::focusInEvent(event);
-        } else if (kparts__mainwindow_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kparts__mainwindow_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kparts__mainwindow_focusinevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,13 +1164,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_focusoutevent_isbase) {
             kparts__mainwindow_focusoutevent_isbase = false;
             KParts__MainWindow::focusOutEvent(event);
-        } else if (kparts__mainwindow_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kparts__mainwindow_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kparts__mainwindow_focusoutevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1201,13 +1181,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_enterevent_isbase) {
             kparts__mainwindow_enterevent_isbase = false;
             KParts__MainWindow::enterEvent(event);
-        } else if (kparts__mainwindow_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kparts__mainwindow_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kparts__mainwindow_enterevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1215,13 +1198,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_leaveevent_isbase) {
             kparts__mainwindow_leaveevent_isbase = false;
             KParts__MainWindow::leaveEvent(event);
-        } else if (kparts__mainwindow_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kparts__mainwindow_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__mainwindow_leaveevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1229,13 +1215,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_paintevent_isbase) {
             kparts__mainwindow_paintevent_isbase = false;
             KParts__MainWindow::paintEvent(event);
-        } else if (kparts__mainwindow_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kparts__mainwindow_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kparts__mainwindow_paintevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,13 +1232,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_moveevent_isbase) {
             kparts__mainwindow_moveevent_isbase = false;
             KParts__MainWindow::moveEvent(event);
-        } else if (kparts__mainwindow_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kparts__mainwindow_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kparts__mainwindow_moveevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,13 +1249,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_resizeevent_isbase) {
             kparts__mainwindow_resizeevent_isbase = false;
             KParts__MainWindow::resizeEvent(event);
-        } else if (kparts__mainwindow_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kparts__mainwindow_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kparts__mainwindow_resizeevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1271,13 +1266,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_tabletevent_isbase) {
             kparts__mainwindow_tabletevent_isbase = false;
             KParts__MainWindow::tabletEvent(event);
-        } else if (kparts__mainwindow_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kparts__mainwindow_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kparts__mainwindow_tabletevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,13 +1283,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_actionevent_isbase) {
             kparts__mainwindow_actionevent_isbase = false;
             KParts__MainWindow::actionEvent(event);
-        } else if (kparts__mainwindow_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kparts__mainwindow_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kparts__mainwindow_actionevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1299,13 +1300,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_dragenterevent_isbase) {
             kparts__mainwindow_dragenterevent_isbase = false;
             KParts__MainWindow::dragEnterEvent(event);
-        } else if (kparts__mainwindow_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kparts__mainwindow_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kparts__mainwindow_dragenterevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1313,13 +1317,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_dragmoveevent_isbase) {
             kparts__mainwindow_dragmoveevent_isbase = false;
             KParts__MainWindow::dragMoveEvent(event);
-        } else if (kparts__mainwindow_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kparts__mainwindow_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kparts__mainwindow_dragmoveevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1327,13 +1334,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_dragleaveevent_isbase) {
             kparts__mainwindow_dragleaveevent_isbase = false;
             KParts__MainWindow::dragLeaveEvent(event);
-        } else if (kparts__mainwindow_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kparts__mainwindow_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kparts__mainwindow_dragleaveevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,13 +1351,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_dropevent_isbase) {
             kparts__mainwindow_dropevent_isbase = false;
             KParts__MainWindow::dropEvent(event);
-        } else if (kparts__mainwindow_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kparts__mainwindow_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kparts__mainwindow_dropevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1355,13 +1368,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_showevent_isbase) {
             kparts__mainwindow_showevent_isbase = false;
             KParts__MainWindow::showEvent(event);
-        } else if (kparts__mainwindow_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kparts__mainwindow_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kparts__mainwindow_showevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1369,13 +1385,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_hideevent_isbase) {
             kparts__mainwindow_hideevent_isbase = false;
             KParts__MainWindow::hideEvent(event);
-        } else if (kparts__mainwindow_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kparts__mainwindow_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kparts__mainwindow_hideevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1383,7 +1402,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_nativeevent_isbase) {
             kparts__mainwindow_nativeevent_isbase = false;
             return KParts__MainWindow::nativeEvent(eventType, message, result);
-        } else if (kparts__mainwindow_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kparts__mainwindow_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1394,12 +1415,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kparts__mainwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::nativeEvent(eventType, message, result);
         }
+        return KParts__MainWindow::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1407,13 +1427,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_changeevent_isbase) {
             kparts__mainwindow_changeevent_isbase = false;
             KParts__MainWindow::changeEvent(param1);
-        } else if (kparts__mainwindow_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kparts__mainwindow_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kparts__mainwindow_changeevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1421,14 +1444,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_metric_isbase) {
             kparts__mainwindow_metric_isbase = false;
             return KParts__MainWindow::metric(param1);
-        } else if (kparts__mainwindow_metric_callback != nullptr) {
+        }
+        auto metric_cb = kparts__mainwindow_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kparts__mainwindow_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__MainWindow::metric(param1);
         }
+        return KParts__MainWindow::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1436,13 +1460,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_initpainter_isbase) {
             kparts__mainwindow_initpainter_isbase = false;
             KParts__MainWindow::initPainter(painter);
-        } else if (kparts__mainwindow_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kparts__mainwindow_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kparts__mainwindow_initpainter_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1450,14 +1477,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_redirected_isbase) {
             kparts__mainwindow_redirected_isbase = false;
             return KParts__MainWindow::redirected(offset);
-        } else if (kparts__mainwindow_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kparts__mainwindow_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kparts__mainwindow_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::redirected(offset);
         }
+        return KParts__MainWindow::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1465,12 +1493,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_sharedpainter_isbase) {
             kparts__mainwindow_sharedpainter_isbase = false;
             return KParts__MainWindow::sharedPainter();
-        } else if (kparts__mainwindow_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kparts__mainwindow_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::sharedPainter();
         }
+        auto sharedpainter_cb = kparts__mainwindow_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1478,13 +1507,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_inputmethodevent_isbase) {
             kparts__mainwindow_inputmethodevent_isbase = false;
             KParts__MainWindow::inputMethodEvent(param1);
-        } else if (kparts__mainwindow_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kparts__mainwindow_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kparts__mainwindow_inputmethodevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1492,14 +1524,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_inputmethodquery_isbase) {
             kparts__mainwindow_inputmethodquery_isbase = false;
             return KParts__MainWindow::inputMethodQuery(param1);
-        } else if (kparts__mainwindow_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kparts__mainwindow_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kparts__mainwindow_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KParts__MainWindow::inputMethodQuery(param1);
         }
+        return KParts__MainWindow::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1507,14 +1540,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_focusnextprevchild_isbase) {
             kparts__mainwindow_focusnextprevchild_isbase = false;
             return KParts__MainWindow::focusNextPrevChild(next);
-        } else if (kparts__mainwindow_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kparts__mainwindow_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kparts__mainwindow_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::focusNextPrevChild(next);
         }
+        return KParts__MainWindow::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1522,15 +1556,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_eventfilter_isbase) {
             kparts__mainwindow_eventfilter_isbase = false;
             return KParts__MainWindow::eventFilter(watched, event);
-        } else if (kparts__mainwindow_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kparts__mainwindow_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kparts__mainwindow_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::eventFilter(watched, event);
         }
+        return KParts__MainWindow::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1538,13 +1573,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_timerevent_isbase) {
             kparts__mainwindow_timerevent_isbase = false;
             KParts__MainWindow::timerEvent(event);
-        } else if (kparts__mainwindow_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kparts__mainwindow_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kparts__mainwindow_timerevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1552,13 +1590,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_childevent_isbase) {
             kparts__mainwindow_childevent_isbase = false;
             KParts__MainWindow::childEvent(event);
-        } else if (kparts__mainwindow_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kparts__mainwindow_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kparts__mainwindow_childevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1566,13 +1607,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_customevent_isbase) {
             kparts__mainwindow_customevent_isbase = false;
             KParts__MainWindow::customEvent(event);
-        } else if (kparts__mainwindow_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kparts__mainwindow_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kparts__mainwindow_customevent_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1580,15 +1624,18 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_connectnotify_isbase) {
             kparts__mainwindow_connectnotify_isbase = false;
             KParts__MainWindow::connectNotify(signal);
-        } else if (kparts__mainwindow_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kparts__mainwindow_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__mainwindow_connectnotify_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1596,15 +1643,18 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_disconnectnotify_isbase) {
             kparts__mainwindow_disconnectnotify_isbase = false;
             KParts__MainWindow::disconnectNotify(signal);
-        } else if (kparts__mainwindow_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kparts__mainwindow_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kparts__mainwindow_disconnectnotify_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1612,8 +1662,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_containertags_isbase) {
             kparts__mainwindow_containertags_isbase = false;
             return KParts__MainWindow::containerTags();
-        } else if (kparts__mainwindow_containertags_callback != nullptr) {
-            const char** callback_ret = kparts__mainwindow_containertags_callback();
+        }
+        auto containertags_cb = kparts__mainwindow_containertags_callback;
+        if (containertags_cb) {
+            const char** callback_ret = containertags_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1624,9 +1676,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KParts__MainWindow::containerTags();
         }
+        return KParts__MainWindow::containerTags();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1634,7 +1685,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_createcontainer_isbase) {
             kparts__mainwindow_createcontainer_isbase = false;
             return KParts__MainWindow::createContainer(parent, index, element, containerAction);
-        } else if (kparts__mainwindow_createcontainer_callback != nullptr) {
+        }
+        auto createcontainer_cb = kparts__mainwindow_createcontainer_callback;
+        if (createcontainer_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
@@ -1644,11 +1697,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             // Cast returned reference into pointer
             QAction** cbval4 = &containerAction_ret;
 
-            QWidget* callback_ret = kparts__mainwindow_createcontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QWidget* callback_ret = createcontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::createContainer(parent, index, element, containerAction);
         }
+        return KParts__MainWindow::createContainer(parent, index, element, containerAction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1656,7 +1708,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_removecontainer_isbase) {
             kparts__mainwindow_removecontainer_isbase = false;
             KParts__MainWindow::removeContainer(container, parent, element, containerAction);
-        } else if (kparts__mainwindow_removecontainer_callback != nullptr) {
+            return;
+        }
+        auto removecontainer_cb = kparts__mainwindow_removecontainer_callback;
+        if (removecontainer_cb) {
             QWidget* cbval1 = container;
             QWidget* cbval2 = parent;
             QDomElement& element_ret = element;
@@ -1664,10 +1719,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             QDomElement* cbval3 = &element_ret;
             QAction* cbval4 = containerAction;
 
-            kparts__mainwindow_removecontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KParts__MainWindow::removeContainer(container, parent, element, containerAction);
+            removecontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KParts__MainWindow::removeContainer(container, parent, element, containerAction);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1675,8 +1730,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_customtags_isbase) {
             kparts__mainwindow_customtags_isbase = false;
             return KParts__MainWindow::customTags();
-        } else if (kparts__mainwindow_customtags_callback != nullptr) {
-            const char** callback_ret = kparts__mainwindow_customtags_callback();
+        }
+        auto customtags_cb = kparts__mainwindow_customtags_callback;
+        if (customtags_cb) {
+            const char** callback_ret = customtags_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1687,9 +1744,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KParts__MainWindow::customTags();
         }
+        return KParts__MainWindow::customTags();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1697,18 +1753,19 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_createcustomelement_isbase) {
             kparts__mainwindow_createcustomelement_isbase = false;
             return KParts__MainWindow::createCustomElement(parent, index, element);
-        } else if (kparts__mainwindow_createcustomelement_callback != nullptr) {
+        }
+        auto createcustomelement_cb = kparts__mainwindow_createcustomelement_callback;
+        if (createcustomelement_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kparts__mainwindow_createcustomelement_callback(this, cbval1, cbval2, cbval3);
+            QAction* callback_ret = createcustomelement_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::createCustomElement(parent, index, element);
         }
+        return KParts__MainWindow::createCustomElement(parent, index, element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1716,13 +1773,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_finalizegui_isbase) {
             kparts__mainwindow_finalizegui_isbase = false;
             KParts__MainWindow::finalizeGUI(client);
-        } else if (kparts__mainwindow_finalizegui_callback != nullptr) {
+            return;
+        }
+        auto finalizegui_cb = kparts__mainwindow_finalizegui_callback;
+        if (finalizegui_cb) {
             KXMLGUIClient* cbval1 = client;
 
-            kparts__mainwindow_finalizegui_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::finalizeGUI(client);
+            finalizegui_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::finalizeGUI(client);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1730,16 +1790,17 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_action2_isbase) {
             kparts__mainwindow_action2_isbase = false;
             return KParts__MainWindow::action(element);
-        } else if (kparts__mainwindow_action2_callback != nullptr) {
+        }
+        auto action2_cb = kparts__mainwindow_action2_callback;
+        if (action2_cb) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
 
-            QAction* callback_ret = kparts__mainwindow_action2_callback(this, cbval1);
+            QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::action(element);
         }
+        return KParts__MainWindow::action(element);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1747,12 +1808,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_actioncollection_isbase) {
             kparts__mainwindow_actioncollection_isbase = false;
             return KParts__MainWindow::actionCollection();
-        } else if (kparts__mainwindow_actioncollection_callback != nullptr) {
-            KActionCollection* callback_ret = kparts__mainwindow_actioncollection_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::actionCollection();
         }
+        auto actioncollection_cb = kparts__mainwindow_actioncollection_callback;
+        if (actioncollection_cb) {
+            KActionCollection* callback_ret = actioncollection_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::actionCollection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1760,13 +1822,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_componentname_isbase) {
             kparts__mainwindow_componentname_isbase = false;
             return KParts__MainWindow::componentName();
-        } else if (kparts__mainwindow_componentname_callback != nullptr) {
-            const char* callback_ret = kparts__mainwindow_componentname_callback();
+        }
+        auto componentname_cb = kparts__mainwindow_componentname_callback;
+        if (componentname_cb) {
+            const char* callback_ret = componentname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__MainWindow::componentName();
         }
+        return KParts__MainWindow::componentName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1774,12 +1837,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_domdocument_isbase) {
             kparts__mainwindow_domdocument_isbase = false;
             return KParts__MainWindow::domDocument();
-        } else if (kparts__mainwindow_domdocument_callback != nullptr) {
-            QDomDocument* callback_ret = kparts__mainwindow_domdocument_callback();
-            return *callback_ret;
-        } else {
-            return KParts__MainWindow::domDocument();
         }
+        auto domdocument_cb = kparts__mainwindow_domdocument_callback;
+        if (domdocument_cb) {
+            QDomDocument* callback_ret = domdocument_cb();
+            return *callback_ret;
+        }
+        return KParts__MainWindow::domDocument();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1787,13 +1851,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_xmlfile_isbase) {
             kparts__mainwindow_xmlfile_isbase = false;
             return KParts__MainWindow::xmlFile();
-        } else if (kparts__mainwindow_xmlfile_callback != nullptr) {
-            const char* callback_ret = kparts__mainwindow_xmlfile_callback();
+        }
+        auto xmlfile_cb = kparts__mainwindow_xmlfile_callback;
+        if (xmlfile_cb) {
+            const char* callback_ret = xmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__MainWindow::xmlFile();
         }
+        return KParts__MainWindow::xmlFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1801,13 +1866,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_localxmlfile_isbase) {
             kparts__mainwindow_localxmlfile_isbase = false;
             return KParts__MainWindow::localXMLFile();
-        } else if (kparts__mainwindow_localxmlfile_callback != nullptr) {
-            const char* callback_ret = kparts__mainwindow_localxmlfile_callback();
+        }
+        auto localxmlfile_cb = kparts__mainwindow_localxmlfile_callback;
+        if (localxmlfile_cb) {
+            const char* callback_ret = localxmlfile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__MainWindow::localXMLFile();
         }
+        return KParts__MainWindow::localXMLFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1815,7 +1881,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setcomponentname_isbase) {
             kparts__mainwindow_setcomponentname_isbase = false;
             KParts__MainWindow::setComponentName(componentName, componentDisplayName);
-        } else if (kparts__mainwindow_setcomponentname_callback != nullptr) {
+            return;
+        }
+        auto setcomponentname_cb = kparts__mainwindow_setcomponentname_callback;
+        if (setcomponentname_cb) {
             const QString componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -1833,12 +1902,12 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
 
-            kparts__mainwindow_setcomponentname_callback(this, cbval1, cbval2);
+            setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
-        } else {
-            KParts__MainWindow::setComponentName(componentName, componentDisplayName);
+            return;
         }
+        KParts__MainWindow::setComponentName(componentName, componentDisplayName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1846,7 +1915,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setxmlfile_isbase) {
             kparts__mainwindow_setxmlfile_isbase = false;
             KParts__MainWindow::setXMLFile(file, merge, setXMLDoc);
-        } else if (kparts__mainwindow_setxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setxmlfile_cb = kparts__mainwindow_setxmlfile_callback;
+        if (setxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -1858,11 +1930,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
 
-            kparts__mainwindow_setxmlfile_callback(this, cbval1, cbval2, cbval3);
+            setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
-        } else {
-            KParts__MainWindow::setXMLFile(file, merge, setXMLDoc);
+            return;
         }
+        KParts__MainWindow::setXMLFile(file, merge, setXMLDoc);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1870,7 +1942,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setlocalxmlfile_isbase) {
             kparts__mainwindow_setlocalxmlfile_isbase = false;
             KParts__MainWindow::setLocalXMLFile(file);
-        } else if (kparts__mainwindow_setlocalxmlfile_callback != nullptr) {
+            return;
+        }
+        auto setlocalxmlfile_cb = kparts__mainwindow_setlocalxmlfile_callback;
+        if (setlocalxmlfile_cb) {
             const QString file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -1880,11 +1955,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
 
-            kparts__mainwindow_setlocalxmlfile_callback(this, cbval1);
+            setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
-        } else {
-            KParts__MainWindow::setLocalXMLFile(file);
+            return;
         }
+        KParts__MainWindow::setLocalXMLFile(file);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1892,7 +1967,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setxml_isbase) {
             kparts__mainwindow_setxml_isbase = false;
             KParts__MainWindow::setXML(document, merge);
-        } else if (kparts__mainwindow_setxml_callback != nullptr) {
+            return;
+        }
+        auto setxml_cb = kparts__mainwindow_setxml_callback;
+        if (setxml_cb) {
             const QString document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -1903,11 +1981,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             const char* cbval1 = document_str;
             bool cbval2 = merge;
 
-            kparts__mainwindow_setxml_callback(this, cbval1, cbval2);
+            setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
-        } else {
-            KParts__MainWindow::setXML(document, merge);
+            return;
         }
+        KParts__MainWindow::setXML(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1915,16 +1993,19 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setdomdocument_isbase) {
             kparts__mainwindow_setdomdocument_isbase = false;
             KParts__MainWindow::setDOMDocument(document, merge);
-        } else if (kparts__mainwindow_setdomdocument_callback != nullptr) {
+            return;
+        }
+        auto setdomdocument_cb = kparts__mainwindow_setdomdocument_callback;
+        if (setdomdocument_cb) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
 
-            kparts__mainwindow_setdomdocument_callback(this, cbval1, cbval2);
-        } else {
-            KParts__MainWindow::setDOMDocument(document, merge);
+            setdomdocument_cb(this, cbval1, cbval2);
+            return;
         }
+        KParts__MainWindow::setDOMDocument(document, merge);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1932,7 +2013,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_statechanged_isbase) {
             kparts__mainwindow_statechanged_isbase = false;
             KParts__MainWindow::stateChanged(newstate, reverse);
-        } else if (kparts__mainwindow_statechanged_callback != nullptr) {
+            return;
+        }
+        auto statechanged_cb = kparts__mainwindow_statechanged_callback;
+        if (statechanged_cb) {
             const QString newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -1943,11 +2027,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
 
-            kparts__mainwindow_statechanged_callback(this, cbval1, cbval2);
+            statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
-        } else {
-            KParts__MainWindow::stateChanged(newstate, reverse);
+            return;
         }
+        KParts__MainWindow::stateChanged(newstate, reverse);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1955,13 +2039,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_creategui_isbase) {
             kparts__mainwindow_creategui_isbase = false;
             KParts__MainWindow::createGUI(part);
-        } else if (kparts__mainwindow_creategui_callback != nullptr) {
+            return;
+        }
+        auto creategui_cb = kparts__mainwindow_creategui_callback;
+        if (creategui_cb) {
             KParts__Part* cbval1 = part;
 
-            kparts__mainwindow_creategui_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::createGUI(part);
+            creategui_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::createGUI(part);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1969,13 +2056,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_setwindowtitlehandling_isbase) {
             kparts__mainwindow_setwindowtitlehandling_isbase = false;
             KParts__MainWindow::setWindowTitleHandling(enabled);
-        } else if (kparts__mainwindow_setwindowtitlehandling_callback != nullptr) {
+            return;
+        }
+        auto setwindowtitlehandling_cb = kparts__mainwindow_setwindowtitlehandling_callback;
+        if (setwindowtitlehandling_cb) {
             bool cbval1 = enabled;
 
-            kparts__mainwindow_setwindowtitlehandling_callback(this, cbval1);
-        } else {
-            KParts__MainWindow::setWindowTitleHandling(enabled);
+            setwindowtitlehandling_cb(this, cbval1);
+            return;
         }
+        KParts__MainWindow::setWindowTitleHandling(enabled);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1983,11 +2073,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_checkambiguousshortcuts_isbase) {
             kparts__mainwindow_checkambiguousshortcuts_isbase = false;
             KParts__MainWindow::checkAmbiguousShortcuts();
-        } else if (kparts__mainwindow_checkambiguousshortcuts_callback != nullptr) {
-            kparts__mainwindow_checkambiguousshortcuts_callback();
-        } else {
-            KParts__MainWindow::checkAmbiguousShortcuts();
+            return;
         }
+        auto checkambiguousshortcuts_cb = kparts__mainwindow_checkambiguousshortcuts_callback;
+        if (checkambiguousshortcuts_cb) {
+            checkambiguousshortcuts_cb();
+            return;
+        }
+        KParts__MainWindow::checkAmbiguousShortcuts();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1995,14 +2088,17 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_savepropertiesinternal_isbase) {
             kparts__mainwindow_savepropertiesinternal_isbase = false;
             KParts__MainWindow::savePropertiesInternal(param1, param2);
-        } else if (kparts__mainwindow_savepropertiesinternal_callback != nullptr) {
+            return;
+        }
+        auto savepropertiesinternal_cb = kparts__mainwindow_savepropertiesinternal_callback;
+        if (savepropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
 
-            kparts__mainwindow_savepropertiesinternal_callback(this, cbval1, cbval2);
-        } else {
-            KParts__MainWindow::savePropertiesInternal(param1, param2);
+            savepropertiesinternal_cb(this, cbval1, cbval2);
+            return;
         }
+        KParts__MainWindow::savePropertiesInternal(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2010,15 +2106,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_readpropertiesinternal_isbase) {
             kparts__mainwindow_readpropertiesinternal_isbase = false;
             return KParts__MainWindow::readPropertiesInternal(param1, param2);
-        } else if (kparts__mainwindow_readpropertiesinternal_callback != nullptr) {
+        }
+        auto readpropertiesinternal_cb = kparts__mainwindow_readpropertiesinternal_callback;
+        if (readpropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
 
-            bool callback_ret = kparts__mainwindow_readpropertiesinternal_callback(this, cbval1, cbval2);
+            bool callback_ret = readpropertiesinternal_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::readPropertiesInternal(param1, param2);
         }
+        return KParts__MainWindow::readPropertiesInternal(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2026,12 +2123,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_settingsdirty_isbase) {
             kparts__mainwindow_settingsdirty_isbase = false;
             return KParts__MainWindow::settingsDirty();
-        } else if (kparts__mainwindow_settingsdirty_callback != nullptr) {
-            bool callback_ret = kparts__mainwindow_settingsdirty_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::settingsDirty();
         }
+        auto settingsdirty_cb = kparts__mainwindow_settingsdirty_callback;
+        if (settingsdirty_cb) {
+            bool callback_ret = settingsdirty_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::settingsDirty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2039,11 +2137,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_saveautosavesettings_isbase) {
             kparts__mainwindow_saveautosavesettings_isbase = false;
             KParts__MainWindow::saveAutoSaveSettings();
-        } else if (kparts__mainwindow_saveautosavesettings_callback != nullptr) {
-            kparts__mainwindow_saveautosavesettings_callback();
-        } else {
-            KParts__MainWindow::saveAutoSaveSettings();
+            return;
         }
+        auto saveautosavesettings_cb = kparts__mainwindow_saveautosavesettings_callback;
+        if (saveautosavesettings_cb) {
+            saveautosavesettings_cb();
+            return;
+        }
+        KParts__MainWindow::saveAutoSaveSettings();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2051,11 +2152,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_updatemicrofocus_isbase) {
             kparts__mainwindow_updatemicrofocus_isbase = false;
             KParts__MainWindow::updateMicroFocus();
-        } else if (kparts__mainwindow_updatemicrofocus_callback != nullptr) {
-            kparts__mainwindow_updatemicrofocus_callback();
-        } else {
-            KParts__MainWindow::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kparts__mainwindow_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KParts__MainWindow::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2063,11 +2167,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_create_isbase) {
             kparts__mainwindow_create_isbase = false;
             KParts__MainWindow::create();
-        } else if (kparts__mainwindow_create_callback != nullptr) {
-            kparts__mainwindow_create_callback();
-        } else {
-            KParts__MainWindow::create();
+            return;
         }
+        auto create_cb = kparts__mainwindow_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KParts__MainWindow::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2075,11 +2182,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_destroy_isbase) {
             kparts__mainwindow_destroy_isbase = false;
             KParts__MainWindow::destroy();
-        } else if (kparts__mainwindow_destroy_callback != nullptr) {
-            kparts__mainwindow_destroy_callback();
-        } else {
-            KParts__MainWindow::destroy();
+            return;
         }
+        auto destroy_cb = kparts__mainwindow_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KParts__MainWindow::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2087,12 +2197,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_focusnextchild_isbase) {
             kparts__mainwindow_focusnextchild_isbase = false;
             return KParts__MainWindow::focusNextChild();
-        } else if (kparts__mainwindow_focusnextchild_callback != nullptr) {
-            bool callback_ret = kparts__mainwindow_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::focusNextChild();
         }
+        auto focusnextchild_cb = kparts__mainwindow_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2100,12 +2211,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_focuspreviouschild_isbase) {
             kparts__mainwindow_focuspreviouschild_isbase = false;
             return KParts__MainWindow::focusPreviousChild();
-        } else if (kparts__mainwindow_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kparts__mainwindow_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kparts__mainwindow_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2113,12 +2225,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_sender_isbase) {
             kparts__mainwindow_sender_isbase = false;
             return KParts__MainWindow::sender();
-        } else if (kparts__mainwindow_sender_callback != nullptr) {
-            QObject* callback_ret = kparts__mainwindow_sender_callback();
-            return callback_ret;
-        } else {
-            return KParts__MainWindow::sender();
         }
+        auto sender_cb = kparts__mainwindow_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KParts__MainWindow::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2126,12 +2239,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_sendersignalindex_isbase) {
             kparts__mainwindow_sendersignalindex_isbase = false;
             return KParts__MainWindow::senderSignalIndex();
-        } else if (kparts__mainwindow_sendersignalindex_callback != nullptr) {
-            int callback_ret = kparts__mainwindow_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KParts__MainWindow::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kparts__mainwindow_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KParts__MainWindow::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2139,14 +2253,15 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_receivers_isbase) {
             kparts__mainwindow_receivers_isbase = false;
             return KParts__MainWindow::receivers(signal);
-        } else if (kparts__mainwindow_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kparts__mainwindow_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kparts__mainwindow_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KParts__MainWindow::receivers(signal);
         }
+        return KParts__MainWindow::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2154,16 +2269,17 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_issignalconnected_isbase) {
             kparts__mainwindow_issignalconnected_isbase = false;
             return KParts__MainWindow::isSignalConnected(signal);
-        } else if (kparts__mainwindow_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kparts__mainwindow_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kparts__mainwindow_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KParts__MainWindow::isSignalConnected(signal);
         }
+        return KParts__MainWindow::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2171,15 +2287,16 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_getdecodedmetricf_isbase) {
             kparts__mainwindow_getdecodedmetricf_isbase = false;
             return KParts__MainWindow::getDecodedMetricF(metricA, metricB);
-        } else if (kparts__mainwindow_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kparts__mainwindow_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kparts__mainwindow_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KParts__MainWindow::getDecodedMetricF(metricA, metricB);
         }
+        return KParts__MainWindow::getDecodedMetricF(metricA, metricB);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2187,13 +2304,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_standardsxmlfilelocation_isbase) {
             kparts__mainwindow_standardsxmlfilelocation_isbase = false;
             return KParts__MainWindow::standardsXmlFileLocation();
-        } else if (kparts__mainwindow_standardsxmlfilelocation_callback != nullptr) {
-            const char* callback_ret = kparts__mainwindow_standardsxmlfilelocation_callback();
+        }
+        auto standardsxmlfilelocation_cb = kparts__mainwindow_standardsxmlfilelocation_callback;
+        if (standardsxmlfilelocation_cb) {
+            const char* callback_ret = standardsxmlfilelocation_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KParts__MainWindow::standardsXmlFileLocation();
         }
+        return KParts__MainWindow::standardsXmlFileLocation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2201,11 +2319,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
         if (kparts__mainwindow_loadstandardsxmlfile_isbase) {
             kparts__mainwindow_loadstandardsxmlfile_isbase = false;
             KParts__MainWindow::loadStandardsXmlFile();
-        } else if (kparts__mainwindow_loadstandardsxmlfile_callback != nullptr) {
-            kparts__mainwindow_loadstandardsxmlfile_callback();
-        } else {
-            KParts__MainWindow::loadStandardsXmlFile();
+            return;
         }
+        auto loadstandardsxmlfile_cb = kparts__mainwindow_loadstandardsxmlfile_callback;
+        if (loadstandardsxmlfile_cb) {
+            loadstandardsxmlfile_cb();
+            return;
+        }
+        KParts__MainWindow::loadStandardsXmlFile();
     }
 
     // Friend functions

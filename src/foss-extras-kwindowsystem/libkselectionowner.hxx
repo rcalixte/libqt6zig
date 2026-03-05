@@ -76,25 +76,6 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     VirtualKSelectionOwner(const char* selection, int screen) : KSelectionOwner(selection, screen) {};
     VirtualKSelectionOwner(const char* selection, int screen, QObject* parent) : KSelectionOwner(selection, screen, parent) {};
 
-    ~VirtualKSelectionOwner() {
-        kselectionowner_metaobject_callback = nullptr;
-        kselectionowner_metacast_callback = nullptr;
-        kselectionowner_metacall_callback = nullptr;
-        kselectionowner_timerevent_callback = nullptr;
-        kselectionowner_getatoms_callback = nullptr;
-        kselectionowner_event_callback = nullptr;
-        kselectionowner_eventfilter_callback = nullptr;
-        kselectionowner_childevent_callback = nullptr;
-        kselectionowner_customevent_callback = nullptr;
-        kselectionowner_connectnotify_callback = nullptr;
-        kselectionowner_disconnectnotify_callback = nullptr;
-        kselectionowner_setdata_callback = nullptr;
-        kselectionowner_sender_callback = nullptr;
-        kselectionowner_sendersignalindex_callback = nullptr;
-        kselectionowner_receivers_callback = nullptr;
-        kselectionowner_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSelectionOwner_MetaObject_Callback(KSelectionOwner_MetaObject_Callback cb) { kselectionowner_metaobject_callback = cb; }
     inline void setKSelectionOwner_Metacast_Callback(KSelectionOwner_Metacast_Callback cb) { kselectionowner_metacast_callback = cb; }
@@ -136,12 +117,13 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_metaobject_isbase) {
             kselectionowner_metaobject_isbase = false;
             return KSelectionOwner::metaObject();
-        } else if (kselectionowner_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kselectionowner_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSelectionOwner::metaObject();
         }
+        auto metaobject_cb = kselectionowner_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSelectionOwner::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -149,14 +131,15 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_metacast_isbase) {
             kselectionowner_metacast_isbase = false;
             return KSelectionOwner::qt_metacast(param1);
-        } else if (kselectionowner_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kselectionowner_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kselectionowner_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectionOwner::qt_metacast(param1);
         }
+        return KSelectionOwner::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -164,16 +147,17 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_metacall_isbase) {
             kselectionowner_metacall_isbase = false;
             return KSelectionOwner::qt_metacall(param1, param2, param3);
-        } else if (kselectionowner_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kselectionowner_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kselectionowner_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelectionOwner::qt_metacall(param1, param2, param3);
         }
+        return KSelectionOwner::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -181,13 +165,16 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_timerevent_isbase) {
             kselectionowner_timerevent_isbase = false;
             KSelectionOwner::timerEvent(event);
-        } else if (kselectionowner_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kselectionowner_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kselectionowner_timerevent_callback(this, cbval1);
-        } else {
-            KSelectionOwner::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSelectionOwner::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,11 +182,14 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_getatoms_isbase) {
             kselectionowner_getatoms_isbase = false;
             KSelectionOwner::getAtoms();
-        } else if (kselectionowner_getatoms_callback != nullptr) {
-            kselectionowner_getatoms_callback();
-        } else {
-            KSelectionOwner::getAtoms();
+            return;
         }
+        auto getatoms_cb = kselectionowner_getatoms_callback;
+        if (getatoms_cb) {
+            getatoms_cb();
+            return;
+        }
+        KSelectionOwner::getAtoms();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,14 +197,15 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_event_isbase) {
             kselectionowner_event_isbase = false;
             return KSelectionOwner::event(event);
-        } else if (kselectionowner_event_callback != nullptr) {
+        }
+        auto event_cb = kselectionowner_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kselectionowner_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectionOwner::event(event);
         }
+        return KSelectionOwner::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,15 +213,16 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_eventfilter_isbase) {
             kselectionowner_eventfilter_isbase = false;
             return KSelectionOwner::eventFilter(watched, event);
-        } else if (kselectionowner_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kselectionowner_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kselectionowner_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSelectionOwner::eventFilter(watched, event);
         }
+        return KSelectionOwner::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -238,13 +230,16 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_childevent_isbase) {
             kselectionowner_childevent_isbase = false;
             KSelectionOwner::childEvent(event);
-        } else if (kselectionowner_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kselectionowner_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kselectionowner_childevent_callback(this, cbval1);
-        } else {
-            KSelectionOwner::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSelectionOwner::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -252,13 +247,16 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_customevent_isbase) {
             kselectionowner_customevent_isbase = false;
             KSelectionOwner::customEvent(event);
-        } else if (kselectionowner_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kselectionowner_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kselectionowner_customevent_callback(this, cbval1);
-        } else {
-            KSelectionOwner::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSelectionOwner::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -266,15 +264,18 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_connectnotify_isbase) {
             kselectionowner_connectnotify_isbase = false;
             KSelectionOwner::connectNotify(signal);
-        } else if (kselectionowner_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kselectionowner_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kselectionowner_connectnotify_callback(this, cbval1);
-        } else {
-            KSelectionOwner::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSelectionOwner::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -282,15 +283,18 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_disconnectnotify_isbase) {
             kselectionowner_disconnectnotify_isbase = false;
             KSelectionOwner::disconnectNotify(signal);
-        } else if (kselectionowner_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kselectionowner_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kselectionowner_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSelectionOwner::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSelectionOwner::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +302,17 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_setdata_isbase) {
             kselectionowner_setdata_isbase = false;
             KSelectionOwner::setData(extra1, extra2);
-        } else if (kselectionowner_setdata_callback != nullptr) {
+            return;
+        }
+        auto setdata_cb = kselectionowner_setdata_callback;
+        if (setdata_cb) {
             uint32_t cbval1 = extra1;
             uint32_t cbval2 = extra2;
 
-            kselectionowner_setdata_callback(this, cbval1, cbval2);
-        } else {
-            KSelectionOwner::setData(extra1, extra2);
+            setdata_cb(this, cbval1, cbval2);
+            return;
         }
+        KSelectionOwner::setData(extra1, extra2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,12 +320,13 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_sender_isbase) {
             kselectionowner_sender_isbase = false;
             return KSelectionOwner::sender();
-        } else if (kselectionowner_sender_callback != nullptr) {
-            QObject* callback_ret = kselectionowner_sender_callback();
-            return callback_ret;
-        } else {
-            return KSelectionOwner::sender();
         }
+        auto sender_cb = kselectionowner_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSelectionOwner::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -326,12 +334,13 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_sendersignalindex_isbase) {
             kselectionowner_sendersignalindex_isbase = false;
             return KSelectionOwner::senderSignalIndex();
-        } else if (kselectionowner_sendersignalindex_callback != nullptr) {
-            int callback_ret = kselectionowner_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSelectionOwner::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kselectionowner_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSelectionOwner::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,14 +348,15 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_receivers_isbase) {
             kselectionowner_receivers_isbase = false;
             return KSelectionOwner::receivers(signal);
-        } else if (kselectionowner_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kselectionowner_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kselectionowner_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSelectionOwner::receivers(signal);
         }
+        return KSelectionOwner::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -354,16 +364,17 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
         if (kselectionowner_issignalconnected_isbase) {
             kselectionowner_issignalconnected_isbase = false;
             return KSelectionOwner::isSignalConnected(signal);
-        } else if (kselectionowner_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kselectionowner_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kselectionowner_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSelectionOwner::isSignalConnected(signal);
         }
+        return KSelectionOwner::isSignalConnected(signal);
     }
 
     // Friend functions

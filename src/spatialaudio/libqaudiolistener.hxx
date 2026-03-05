@@ -68,23 +68,6 @@ class VirtualQAudioListener final : public QAudioListener {
   public:
     VirtualQAudioListener(QAudioEngine* engine) : QAudioListener(engine) {};
 
-    ~VirtualQAudioListener() {
-        qaudiolistener_metaobject_callback = nullptr;
-        qaudiolistener_metacast_callback = nullptr;
-        qaudiolistener_metacall_callback = nullptr;
-        qaudiolistener_event_callback = nullptr;
-        qaudiolistener_eventfilter_callback = nullptr;
-        qaudiolistener_timerevent_callback = nullptr;
-        qaudiolistener_childevent_callback = nullptr;
-        qaudiolistener_customevent_callback = nullptr;
-        qaudiolistener_connectnotify_callback = nullptr;
-        qaudiolistener_disconnectnotify_callback = nullptr;
-        qaudiolistener_sender_callback = nullptr;
-        qaudiolistener_sendersignalindex_callback = nullptr;
-        qaudiolistener_receivers_callback = nullptr;
-        qaudiolistener_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAudioListener_MetaObject_Callback(QAudioListener_MetaObject_Callback cb) { qaudiolistener_metaobject_callback = cb; }
     inline void setQAudioListener_Metacast_Callback(QAudioListener_Metacast_Callback cb) { qaudiolistener_metacast_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_metaobject_isbase) {
             qaudiolistener_metaobject_isbase = false;
             return QAudioListener::metaObject();
-        } else if (qaudiolistener_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qaudiolistener_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAudioListener::metaObject();
         }
+        auto metaobject_cb = qaudiolistener_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAudioListener::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,14 +119,15 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_metacast_isbase) {
             qaudiolistener_metacast_isbase = false;
             return QAudioListener::qt_metacast(param1);
-        } else if (qaudiolistener_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qaudiolistener_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qaudiolistener_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAudioListener::qt_metacast(param1);
         }
+        return QAudioListener::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,16 +135,17 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_metacall_isbase) {
             qaudiolistener_metacall_isbase = false;
             return QAudioListener::qt_metacall(param1, param2, param3);
-        } else if (qaudiolistener_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qaudiolistener_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qaudiolistener_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAudioListener::qt_metacall(param1, param2, param3);
         }
+        return QAudioListener::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,14 +153,15 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_event_isbase) {
             qaudiolistener_event_isbase = false;
             return QAudioListener::event(event);
-        } else if (qaudiolistener_event_callback != nullptr) {
+        }
+        auto event_cb = qaudiolistener_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qaudiolistener_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAudioListener::event(event);
         }
+        return QAudioListener::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,15 +169,16 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_eventfilter_isbase) {
             qaudiolistener_eventfilter_isbase = false;
             return QAudioListener::eventFilter(watched, event);
-        } else if (qaudiolistener_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qaudiolistener_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qaudiolistener_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAudioListener::eventFilter(watched, event);
         }
+        return QAudioListener::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,13 +186,16 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_timerevent_isbase) {
             qaudiolistener_timerevent_isbase = false;
             QAudioListener::timerEvent(event);
-        } else if (qaudiolistener_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qaudiolistener_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qaudiolistener_timerevent_callback(this, cbval1);
-        } else {
-            QAudioListener::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAudioListener::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,13 +203,16 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_childevent_isbase) {
             qaudiolistener_childevent_isbase = false;
             QAudioListener::childEvent(event);
-        } else if (qaudiolistener_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qaudiolistener_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qaudiolistener_childevent_callback(this, cbval1);
-        } else {
-            QAudioListener::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAudioListener::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +220,16 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_customevent_isbase) {
             qaudiolistener_customevent_isbase = false;
             QAudioListener::customEvent(event);
-        } else if (qaudiolistener_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qaudiolistener_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qaudiolistener_customevent_callback(this, cbval1);
-        } else {
-            QAudioListener::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAudioListener::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,15 +237,18 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_connectnotify_isbase) {
             qaudiolistener_connectnotify_isbase = false;
             QAudioListener::connectNotify(signal);
-        } else if (qaudiolistener_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qaudiolistener_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaudiolistener_connectnotify_callback(this, cbval1);
-        } else {
-            QAudioListener::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAudioListener::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +256,18 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_disconnectnotify_isbase) {
             qaudiolistener_disconnectnotify_isbase = false;
             QAudioListener::disconnectNotify(signal);
-        } else if (qaudiolistener_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qaudiolistener_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaudiolistener_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAudioListener::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAudioListener::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,12 +275,13 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_sender_isbase) {
             qaudiolistener_sender_isbase = false;
             return QAudioListener::sender();
-        } else if (qaudiolistener_sender_callback != nullptr) {
-            QObject* callback_ret = qaudiolistener_sender_callback();
-            return callback_ret;
-        } else {
-            return QAudioListener::sender();
         }
+        auto sender_cb = qaudiolistener_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAudioListener::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,12 +289,13 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_sendersignalindex_isbase) {
             qaudiolistener_sendersignalindex_isbase = false;
             return QAudioListener::senderSignalIndex();
-        } else if (qaudiolistener_sendersignalindex_callback != nullptr) {
-            int callback_ret = qaudiolistener_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAudioListener::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qaudiolistener_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAudioListener::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +303,15 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_receivers_isbase) {
             qaudiolistener_receivers_isbase = false;
             return QAudioListener::receivers(signal);
-        } else if (qaudiolistener_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qaudiolistener_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qaudiolistener_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAudioListener::receivers(signal);
         }
+        return QAudioListener::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,16 +319,17 @@ class VirtualQAudioListener final : public QAudioListener {
         if (qaudiolistener_issignalconnected_isbase) {
             qaudiolistener_issignalconnected_isbase = false;
             return QAudioListener::isSignalConnected(signal);
-        } else if (qaudiolistener_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qaudiolistener_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qaudiolistener_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAudioListener::isSignalConnected(signal);
         }
+        return QAudioListener::isSignalConnected(signal);
     }
 
     // Friend functions

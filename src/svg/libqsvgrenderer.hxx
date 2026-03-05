@@ -75,23 +75,6 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     VirtualQSvgRenderer(const QByteArray& contents, QObject* parent) : QSvgRenderer(contents, parent) {};
     VirtualQSvgRenderer(QXmlStreamReader* contents, QObject* parent) : QSvgRenderer(contents, parent) {};
 
-    ~VirtualQSvgRenderer() {
-        qsvgrenderer_metaobject_callback = nullptr;
-        qsvgrenderer_metacast_callback = nullptr;
-        qsvgrenderer_metacall_callback = nullptr;
-        qsvgrenderer_event_callback = nullptr;
-        qsvgrenderer_eventfilter_callback = nullptr;
-        qsvgrenderer_timerevent_callback = nullptr;
-        qsvgrenderer_childevent_callback = nullptr;
-        qsvgrenderer_customevent_callback = nullptr;
-        qsvgrenderer_connectnotify_callback = nullptr;
-        qsvgrenderer_disconnectnotify_callback = nullptr;
-        qsvgrenderer_sender_callback = nullptr;
-        qsvgrenderer_sendersignalindex_callback = nullptr;
-        qsvgrenderer_receivers_callback = nullptr;
-        qsvgrenderer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSvgRenderer_MetaObject_Callback(QSvgRenderer_MetaObject_Callback cb) { qsvgrenderer_metaobject_callback = cb; }
     inline void setQSvgRenderer_Metacast_Callback(QSvgRenderer_Metacast_Callback cb) { qsvgrenderer_metacast_callback = cb; }
@@ -129,12 +112,13 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_metaobject_isbase) {
             qsvgrenderer_metaobject_isbase = false;
             return QSvgRenderer::metaObject();
-        } else if (qsvgrenderer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsvgrenderer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSvgRenderer::metaObject();
         }
+        auto metaobject_cb = qsvgrenderer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSvgRenderer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +126,15 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_metacast_isbase) {
             qsvgrenderer_metacast_isbase = false;
             return QSvgRenderer::qt_metacast(param1);
-        } else if (qsvgrenderer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsvgrenderer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsvgrenderer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSvgRenderer::qt_metacast(param1);
         }
+        return QSvgRenderer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +142,17 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_metacall_isbase) {
             qsvgrenderer_metacall_isbase = false;
             return QSvgRenderer::qt_metacall(param1, param2, param3);
-        } else if (qsvgrenderer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsvgrenderer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsvgrenderer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSvgRenderer::qt_metacall(param1, param2, param3);
         }
+        return QSvgRenderer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,14 +160,15 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_event_isbase) {
             qsvgrenderer_event_isbase = false;
             return QSvgRenderer::event(event);
-        } else if (qsvgrenderer_event_callback != nullptr) {
+        }
+        auto event_cb = qsvgrenderer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsvgrenderer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSvgRenderer::event(event);
         }
+        return QSvgRenderer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -189,15 +176,16 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_eventfilter_isbase) {
             qsvgrenderer_eventfilter_isbase = false;
             return QSvgRenderer::eventFilter(watched, event);
-        } else if (qsvgrenderer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsvgrenderer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsvgrenderer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSvgRenderer::eventFilter(watched, event);
         }
+        return QSvgRenderer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,13 +193,16 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_timerevent_isbase) {
             qsvgrenderer_timerevent_isbase = false;
             QSvgRenderer::timerEvent(event);
-        } else if (qsvgrenderer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsvgrenderer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsvgrenderer_timerevent_callback(this, cbval1);
-        } else {
-            QSvgRenderer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSvgRenderer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,13 +210,16 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_childevent_isbase) {
             qsvgrenderer_childevent_isbase = false;
             QSvgRenderer::childEvent(event);
-        } else if (qsvgrenderer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsvgrenderer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsvgrenderer_childevent_callback(this, cbval1);
-        } else {
-            QSvgRenderer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSvgRenderer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +227,16 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_customevent_isbase) {
             qsvgrenderer_customevent_isbase = false;
             QSvgRenderer::customEvent(event);
-        } else if (qsvgrenderer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsvgrenderer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsvgrenderer_customevent_callback(this, cbval1);
-        } else {
-            QSvgRenderer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSvgRenderer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +244,18 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_connectnotify_isbase) {
             qsvgrenderer_connectnotify_isbase = false;
             QSvgRenderer::connectNotify(signal);
-        } else if (qsvgrenderer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsvgrenderer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsvgrenderer_connectnotify_callback(this, cbval1);
-        } else {
-            QSvgRenderer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSvgRenderer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +263,18 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_disconnectnotify_isbase) {
             qsvgrenderer_disconnectnotify_isbase = false;
             QSvgRenderer::disconnectNotify(signal);
-        } else if (qsvgrenderer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsvgrenderer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsvgrenderer_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSvgRenderer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSvgRenderer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,12 +282,13 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_sender_isbase) {
             qsvgrenderer_sender_isbase = false;
             return QSvgRenderer::sender();
-        } else if (qsvgrenderer_sender_callback != nullptr) {
-            QObject* callback_ret = qsvgrenderer_sender_callback();
-            return callback_ret;
-        } else {
-            return QSvgRenderer::sender();
         }
+        auto sender_cb = qsvgrenderer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSvgRenderer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +296,13 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_sendersignalindex_isbase) {
             qsvgrenderer_sendersignalindex_isbase = false;
             return QSvgRenderer::senderSignalIndex();
-        } else if (qsvgrenderer_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsvgrenderer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSvgRenderer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsvgrenderer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSvgRenderer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,14 +310,15 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_receivers_isbase) {
             qsvgrenderer_receivers_isbase = false;
             return QSvgRenderer::receivers(signal);
-        } else if (qsvgrenderer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsvgrenderer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsvgrenderer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSvgRenderer::receivers(signal);
         }
+        return QSvgRenderer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -320,16 +326,17 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
         if (qsvgrenderer_issignalconnected_isbase) {
             qsvgrenderer_issignalconnected_isbase = false;
             return QSvgRenderer::isSignalConnected(signal);
-        } else if (qsvgrenderer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsvgrenderer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsvgrenderer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSvgRenderer::isSignalConnected(signal);
         }
+        return QSvgRenderer::isSignalConnected(signal);
     }
 
     // Friend functions

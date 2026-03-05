@@ -77,25 +77,6 @@ class VirtualQEventTransition final : public QEventTransition {
     VirtualQEventTransition(QState* sourceState) : QEventTransition(sourceState) {};
     VirtualQEventTransition(QObject* object, QEvent::Type typeVal, QState* sourceState) : QEventTransition(object, typeVal, sourceState) {};
 
-    ~VirtualQEventTransition() {
-        qeventtransition_metaobject_callback = nullptr;
-        qeventtransition_metacast_callback = nullptr;
-        qeventtransition_metacall_callback = nullptr;
-        qeventtransition_eventtest_callback = nullptr;
-        qeventtransition_ontransition_callback = nullptr;
-        qeventtransition_event_callback = nullptr;
-        qeventtransition_eventfilter_callback = nullptr;
-        qeventtransition_timerevent_callback = nullptr;
-        qeventtransition_childevent_callback = nullptr;
-        qeventtransition_customevent_callback = nullptr;
-        qeventtransition_connectnotify_callback = nullptr;
-        qeventtransition_disconnectnotify_callback = nullptr;
-        qeventtransition_sender_callback = nullptr;
-        qeventtransition_sendersignalindex_callback = nullptr;
-        qeventtransition_receivers_callback = nullptr;
-        qeventtransition_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQEventTransition_MetaObject_Callback(QEventTransition_MetaObject_Callback cb) { qeventtransition_metaobject_callback = cb; }
     inline void setQEventTransition_Metacast_Callback(QEventTransition_Metacast_Callback cb) { qeventtransition_metacast_callback = cb; }
@@ -137,12 +118,13 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_metaobject_isbase) {
             qeventtransition_metaobject_isbase = false;
             return QEventTransition::metaObject();
-        } else if (qeventtransition_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qeventtransition_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QEventTransition::metaObject();
         }
+        auto metaobject_cb = qeventtransition_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QEventTransition::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,14 +132,15 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_metacast_isbase) {
             qeventtransition_metacast_isbase = false;
             return QEventTransition::qt_metacast(param1);
-        } else if (qeventtransition_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qeventtransition_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qeventtransition_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QEventTransition::qt_metacast(param1);
         }
+        return QEventTransition::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -165,16 +148,17 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_metacall_isbase) {
             qeventtransition_metacall_isbase = false;
             return QEventTransition::qt_metacall(param1, param2, param3);
-        } else if (qeventtransition_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qeventtransition_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qeventtransition_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QEventTransition::qt_metacall(param1, param2, param3);
         }
+        return QEventTransition::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,14 +166,15 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_eventtest_isbase) {
             qeventtransition_eventtest_isbase = false;
             return QEventTransition::eventTest(event);
-        } else if (qeventtransition_eventtest_callback != nullptr) {
+        }
+        auto eventtest_cb = qeventtransition_eventtest_callback;
+        if (eventtest_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qeventtransition_eventtest_callback(this, cbval1);
+            bool callback_ret = eventtest_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QEventTransition::eventTest(event);
         }
+        return QEventTransition::eventTest(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -197,13 +182,16 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_ontransition_isbase) {
             qeventtransition_ontransition_isbase = false;
             QEventTransition::onTransition(event);
-        } else if (qeventtransition_ontransition_callback != nullptr) {
+            return;
+        }
+        auto ontransition_cb = qeventtransition_ontransition_callback;
+        if (ontransition_cb) {
             QEvent* cbval1 = event;
 
-            qeventtransition_ontransition_callback(this, cbval1);
-        } else {
-            QEventTransition::onTransition(event);
+            ontransition_cb(this, cbval1);
+            return;
         }
+        QEventTransition::onTransition(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,14 +199,15 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_event_isbase) {
             qeventtransition_event_isbase = false;
             return QEventTransition::event(e);
-        } else if (qeventtransition_event_callback != nullptr) {
+        }
+        auto event_cb = qeventtransition_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qeventtransition_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QEventTransition::event(e);
         }
+        return QEventTransition::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,15 +215,16 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_eventfilter_isbase) {
             qeventtransition_eventfilter_isbase = false;
             return QEventTransition::eventFilter(watched, event);
-        } else if (qeventtransition_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qeventtransition_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qeventtransition_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QEventTransition::eventFilter(watched, event);
         }
+        return QEventTransition::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +232,16 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_timerevent_isbase) {
             qeventtransition_timerevent_isbase = false;
             QEventTransition::timerEvent(event);
-        } else if (qeventtransition_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qeventtransition_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qeventtransition_timerevent_callback(this, cbval1);
-        } else {
-            QEventTransition::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QEventTransition::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,13 +249,16 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_childevent_isbase) {
             qeventtransition_childevent_isbase = false;
             QEventTransition::childEvent(event);
-        } else if (qeventtransition_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qeventtransition_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qeventtransition_childevent_callback(this, cbval1);
-        } else {
-            QEventTransition::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QEventTransition::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,13 +266,16 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_customevent_isbase) {
             qeventtransition_customevent_isbase = false;
             QEventTransition::customEvent(event);
-        } else if (qeventtransition_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qeventtransition_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qeventtransition_customevent_callback(this, cbval1);
-        } else {
-            QEventTransition::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QEventTransition::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,15 +283,18 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_connectnotify_isbase) {
             qeventtransition_connectnotify_isbase = false;
             QEventTransition::connectNotify(signal);
-        } else if (qeventtransition_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qeventtransition_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qeventtransition_connectnotify_callback(this, cbval1);
-        } else {
-            QEventTransition::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QEventTransition::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,15 +302,18 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_disconnectnotify_isbase) {
             qeventtransition_disconnectnotify_isbase = false;
             QEventTransition::disconnectNotify(signal);
-        } else if (qeventtransition_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qeventtransition_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qeventtransition_disconnectnotify_callback(this, cbval1);
-        } else {
-            QEventTransition::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QEventTransition::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,12 +321,13 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_sender_isbase) {
             qeventtransition_sender_isbase = false;
             return QEventTransition::sender();
-        } else if (qeventtransition_sender_callback != nullptr) {
-            QObject* callback_ret = qeventtransition_sender_callback();
-            return callback_ret;
-        } else {
-            return QEventTransition::sender();
         }
+        auto sender_cb = qeventtransition_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QEventTransition::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,12 +335,13 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_sendersignalindex_isbase) {
             qeventtransition_sendersignalindex_isbase = false;
             return QEventTransition::senderSignalIndex();
-        } else if (qeventtransition_sendersignalindex_callback != nullptr) {
-            int callback_ret = qeventtransition_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QEventTransition::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qeventtransition_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QEventTransition::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,14 +349,15 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_receivers_isbase) {
             qeventtransition_receivers_isbase = false;
             return QEventTransition::receivers(signal);
-        } else if (qeventtransition_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qeventtransition_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qeventtransition_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QEventTransition::receivers(signal);
         }
+        return QEventTransition::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,16 +365,17 @@ class VirtualQEventTransition final : public QEventTransition {
         if (qeventtransition_issignalconnected_isbase) {
             qeventtransition_issignalconnected_isbase = false;
             return QEventTransition::isSignalConnected(signal);
-        } else if (qeventtransition_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qeventtransition_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qeventtransition_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QEventTransition::isSignalConnected(signal);
         }
+        return QEventTransition::isSignalConnected(signal);
     }
 
     // Friend functions

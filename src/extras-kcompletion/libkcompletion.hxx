@@ -101,34 +101,6 @@ class VirtualKCompletion final : public KCompletion {
   public:
     VirtualKCompletion() : KCompletion() {};
 
-    ~VirtualKCompletion() {
-        kcompletion_metaobject_callback = nullptr;
-        kcompletion_metacast_callback = nullptr;
-        kcompletion_metacall_callback = nullptr;
-        kcompletion_lastmatch_callback = nullptr;
-        kcompletion_setcompletionmode_callback = nullptr;
-        kcompletion_setorder_callback = nullptr;
-        kcompletion_setignorecase_callback = nullptr;
-        kcompletion_setsoundsenabled_callback = nullptr;
-        kcompletion_makecompletion_callback = nullptr;
-        kcompletion_setitems_callback = nullptr;
-        kcompletion_clear_callback = nullptr;
-        kcompletion_postprocessmatches_callback = nullptr;
-        kcompletion_postprocessmatches2_callback = nullptr;
-        kcompletion_event_callback = nullptr;
-        kcompletion_eventfilter_callback = nullptr;
-        kcompletion_timerevent_callback = nullptr;
-        kcompletion_childevent_callback = nullptr;
-        kcompletion_customevent_callback = nullptr;
-        kcompletion_connectnotify_callback = nullptr;
-        kcompletion_disconnectnotify_callback = nullptr;
-        kcompletion_setshouldautosuggest_callback = nullptr;
-        kcompletion_sender_callback = nullptr;
-        kcompletion_sendersignalindex_callback = nullptr;
-        kcompletion_receivers_callback = nullptr;
-        kcompletion_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCompletion_MetaObject_Callback(KCompletion_MetaObject_Callback cb) { kcompletion_metaobject_callback = cb; }
     inline void setKCompletion_Metacast_Callback(KCompletion_Metacast_Callback cb) { kcompletion_metacast_callback = cb; }
@@ -188,12 +160,13 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_metaobject_isbase) {
             kcompletion_metaobject_isbase = false;
             return KCompletion::metaObject();
-        } else if (kcompletion_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcompletion_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCompletion::metaObject();
         }
+        auto metaobject_cb = kcompletion_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCompletion::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,14 +174,15 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_metacast_isbase) {
             kcompletion_metacast_isbase = false;
             return KCompletion::qt_metacast(param1);
-        } else if (kcompletion_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcompletion_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcompletion_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletion::qt_metacast(param1);
         }
+        return KCompletion::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,16 +190,17 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_metacall_isbase) {
             kcompletion_metacall_isbase = false;
             return KCompletion::qt_metacall(param1, param2, param3);
-        } else if (kcompletion_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcompletion_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcompletion_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletion::qt_metacall(param1, param2, param3);
         }
+        return KCompletion::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,13 +208,14 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_lastmatch_isbase) {
             kcompletion_lastmatch_isbase = false;
             return KCompletion::lastMatch();
-        } else if (kcompletion_lastmatch_callback != nullptr) {
-            const char* callback_ret = kcompletion_lastmatch_callback();
+        }
+        auto lastmatch_cb = kcompletion_lastmatch_callback;
+        if (lastmatch_cb) {
+            const char* callback_ret = lastmatch_cb();
             QString* callback_ret_QString = new QString(QString::fromUtf8(callback_ret));
             return *callback_ret_QString;
-        } else {
-            return KCompletion::lastMatch();
         }
+        return KCompletion::lastMatch();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,13 +223,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_setcompletionmode_isbase) {
             kcompletion_setcompletionmode_isbase = false;
             KCompletion::setCompletionMode(mode);
-        } else if (kcompletion_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = kcompletion_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kcompletion_setcompletionmode_callback(this, cbval1);
-        } else {
-            KCompletion::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KCompletion::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,13 +240,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_setorder_isbase) {
             kcompletion_setorder_isbase = false;
             KCompletion::setOrder(order);
-        } else if (kcompletion_setorder_callback != nullptr) {
+            return;
+        }
+        auto setorder_cb = kcompletion_setorder_callback;
+        if (setorder_cb) {
             int cbval1 = static_cast<int>(order);
 
-            kcompletion_setorder_callback(this, cbval1);
-        } else {
-            KCompletion::setOrder(order);
+            setorder_cb(this, cbval1);
+            return;
         }
+        KCompletion::setOrder(order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,13 +257,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_setignorecase_isbase) {
             kcompletion_setignorecase_isbase = false;
             KCompletion::setIgnoreCase(ignoreCase);
-        } else if (kcompletion_setignorecase_callback != nullptr) {
+            return;
+        }
+        auto setignorecase_cb = kcompletion_setignorecase_callback;
+        if (setignorecase_cb) {
             bool cbval1 = ignoreCase;
 
-            kcompletion_setignorecase_callback(this, cbval1);
-        } else {
-            KCompletion::setIgnoreCase(ignoreCase);
+            setignorecase_cb(this, cbval1);
+            return;
         }
+        KCompletion::setIgnoreCase(ignoreCase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,13 +274,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_setsoundsenabled_isbase) {
             kcompletion_setsoundsenabled_isbase = false;
             KCompletion::setSoundsEnabled(enable);
-        } else if (kcompletion_setsoundsenabled_callback != nullptr) {
+            return;
+        }
+        auto setsoundsenabled_cb = kcompletion_setsoundsenabled_callback;
+        if (setsoundsenabled_cb) {
             bool cbval1 = enable;
 
-            kcompletion_setsoundsenabled_callback(this, cbval1);
-        } else {
-            KCompletion::setSoundsEnabled(enable);
+            setsoundsenabled_cb(this, cbval1);
+            return;
         }
+        KCompletion::setSoundsEnabled(enable);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,7 +291,9 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_makecompletion_isbase) {
             kcompletion_makecompletion_isbase = false;
             return KCompletion::makeCompletion(stringVal);
-        } else if (kcompletion_makecompletion_callback != nullptr) {
+        }
+        auto makecompletion_cb = kcompletion_makecompletion_callback;
+        if (makecompletion_cb) {
             const QString stringVal_ret = stringVal;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray stringVal_b = stringVal_ret.toUtf8();
@@ -313,13 +303,12 @@ class VirtualKCompletion final : public KCompletion {
             ((char*)stringVal_str)[stringVal_str_len] = '\0';
             const char* cbval1 = stringVal_str;
 
-            const char* callback_ret = kcompletion_makecompletion_callback(this, cbval1);
+            const char* callback_ret = makecompletion_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(stringVal_str);
             return callback_ret_QString;
-        } else {
-            return KCompletion::makeCompletion(stringVal);
         }
+        return KCompletion::makeCompletion(stringVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,7 +316,10 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_setitems_isbase) {
             kcompletion_setitems_isbase = false;
             KCompletion::setItems(itemList);
-        } else if (kcompletion_setitems_callback != nullptr) {
+            return;
+        }
+        auto setitems_cb = kcompletion_setitems_callback;
+        if (setitems_cb) {
             const QList<QString>& itemList_ret = itemList;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** itemList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (itemList_ret.size() + 1)));
@@ -343,11 +335,11 @@ class VirtualKCompletion final : public KCompletion {
             itemList_arr[itemList_ret.size()] = nullptr;
             const char** cbval1 = itemList_arr;
 
-            kcompletion_setitems_callback(this, cbval1);
+            setitems_cb(this, cbval1);
             libqt_free(itemList_arr);
-        } else {
-            KCompletion::setItems(itemList);
+            return;
         }
+        KCompletion::setItems(itemList);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,11 +347,14 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_clear_isbase) {
             kcompletion_clear_isbase = false;
             KCompletion::clear();
-        } else if (kcompletion_clear_callback != nullptr) {
-            kcompletion_clear_callback();
-        } else {
-            KCompletion::clear();
+            return;
         }
+        auto clear_cb = kcompletion_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KCompletion::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,7 +362,10 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_postprocessmatches_isbase) {
             kcompletion_postprocessmatches_isbase = false;
             KCompletion::postProcessMatches(matchList);
-        } else if (kcompletion_postprocessmatches_callback != nullptr) {
+            return;
+        }
+        auto postprocessmatches_cb = kcompletion_postprocessmatches_callback;
+        if (postprocessmatches_cb) {
             QList<QString>* matchList_ret = matchList;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** matchList_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matchList_ret->size() + 1)));
@@ -383,11 +381,11 @@ class VirtualKCompletion final : public KCompletion {
             matchList_arr[matchList_ret->size()] = nullptr;
             const char** cbval1 = matchList_arr;
 
-            kcompletion_postprocessmatches_callback(this, cbval1);
+            postprocessmatches_cb(this, cbval1);
             libqt_free(matchList_arr);
-        } else {
-            KCompletion::postProcessMatches(matchList);
+            return;
         }
+        KCompletion::postProcessMatches(matchList);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,13 +393,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_postprocessmatches2_isbase) {
             kcompletion_postprocessmatches2_isbase = false;
             KCompletion::postProcessMatches(matches);
-        } else if (kcompletion_postprocessmatches2_callback != nullptr) {
+            return;
+        }
+        auto postprocessmatches2_cb = kcompletion_postprocessmatches2_callback;
+        if (postprocessmatches2_cb) {
             KCompletionMatches* cbval1 = matches;
 
-            kcompletion_postprocessmatches2_callback(this, cbval1);
-        } else {
-            KCompletion::postProcessMatches(matches);
+            postprocessmatches2_cb(this, cbval1);
+            return;
         }
+        KCompletion::postProcessMatches(matches);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -409,14 +410,15 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_event_isbase) {
             kcompletion_event_isbase = false;
             return KCompletion::event(event);
-        } else if (kcompletion_event_callback != nullptr) {
+        }
+        auto event_cb = kcompletion_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcompletion_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletion::event(event);
         }
+        return KCompletion::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,15 +426,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_eventfilter_isbase) {
             kcompletion_eventfilter_isbase = false;
             return KCompletion::eventFilter(watched, event);
-        } else if (kcompletion_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcompletion_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcompletion_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCompletion::eventFilter(watched, event);
         }
+        return KCompletion::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,13 +443,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_timerevent_isbase) {
             kcompletion_timerevent_isbase = false;
             KCompletion::timerEvent(event);
-        } else if (kcompletion_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcompletion_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcompletion_timerevent_callback(this, cbval1);
-        } else {
-            KCompletion::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCompletion::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +460,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_childevent_isbase) {
             kcompletion_childevent_isbase = false;
             KCompletion::childEvent(event);
-        } else if (kcompletion_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcompletion_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcompletion_childevent_callback(this, cbval1);
-        } else {
-            KCompletion::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCompletion::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,13 +477,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_customevent_isbase) {
             kcompletion_customevent_isbase = false;
             KCompletion::customEvent(event);
-        } else if (kcompletion_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcompletion_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcompletion_customevent_callback(this, cbval1);
-        } else {
-            KCompletion::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCompletion::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,15 +494,18 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_connectnotify_isbase) {
             kcompletion_connectnotify_isbase = false;
             KCompletion::connectNotify(signal);
-        } else if (kcompletion_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcompletion_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcompletion_connectnotify_callback(this, cbval1);
-        } else {
-            KCompletion::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCompletion::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,15 +513,18 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_disconnectnotify_isbase) {
             kcompletion_disconnectnotify_isbase = false;
             KCompletion::disconnectNotify(signal);
-        } else if (kcompletion_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcompletion_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcompletion_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCompletion::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCompletion::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,13 +532,16 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_setshouldautosuggest_isbase) {
             kcompletion_setshouldautosuggest_isbase = false;
             KCompletion::setShouldAutoSuggest(shouldAutosuggest);
-        } else if (kcompletion_setshouldautosuggest_callback != nullptr) {
+            return;
+        }
+        auto setshouldautosuggest_cb = kcompletion_setshouldautosuggest_callback;
+        if (setshouldautosuggest_cb) {
             bool cbval1 = shouldAutosuggest;
 
-            kcompletion_setshouldautosuggest_callback(this, cbval1);
-        } else {
-            KCompletion::setShouldAutoSuggest(shouldAutosuggest);
+            setshouldautosuggest_cb(this, cbval1);
+            return;
         }
+        KCompletion::setShouldAutoSuggest(shouldAutosuggest);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +549,13 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_sender_isbase) {
             kcompletion_sender_isbase = false;
             return KCompletion::sender();
-        } else if (kcompletion_sender_callback != nullptr) {
-            QObject* callback_ret = kcompletion_sender_callback();
-            return callback_ret;
-        } else {
-            return KCompletion::sender();
         }
+        auto sender_cb = kcompletion_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCompletion::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,12 +563,13 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_sendersignalindex_isbase) {
             kcompletion_sendersignalindex_isbase = false;
             return KCompletion::senderSignalIndex();
-        } else if (kcompletion_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcompletion_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCompletion::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcompletion_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCompletion::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,14 +577,15 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_receivers_isbase) {
             kcompletion_receivers_isbase = false;
             return KCompletion::receivers(signal);
-        } else if (kcompletion_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcompletion_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcompletion_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompletion::receivers(signal);
         }
+        return KCompletion::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,16 +593,17 @@ class VirtualKCompletion final : public KCompletion {
         if (kcompletion_issignalconnected_isbase) {
             kcompletion_issignalconnected_isbase = false;
             return KCompletion::isSignalConnected(signal);
-        } else if (kcompletion_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcompletion_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcompletion_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompletion::isSignalConnected(signal);
         }
+        return KCompletion::isSignalConnected(signal);
     }
 
     // Friend functions

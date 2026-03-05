@@ -267,89 +267,6 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     VirtualKCheckableProxyModel() : KCheckableProxyModel() {};
     VirtualKCheckableProxyModel(QObject* parent) : KCheckableProxyModel(parent) {};
 
-    ~VirtualKCheckableProxyModel() {
-        kcheckableproxymodel_metaobject_callback = nullptr;
-        kcheckableproxymodel_metacast_callback = nullptr;
-        kcheckableproxymodel_metacall_callback = nullptr;
-        kcheckableproxymodel_flags_callback = nullptr;
-        kcheckableproxymodel_data_callback = nullptr;
-        kcheckableproxymodel_setdata_callback = nullptr;
-        kcheckableproxymodel_setsourcemodel_callback = nullptr;
-        kcheckableproxymodel_rolenames_callback = nullptr;
-        kcheckableproxymodel_select_callback = nullptr;
-        kcheckableproxymodel_columncount_callback = nullptr;
-        kcheckableproxymodel_index_callback = nullptr;
-        kcheckableproxymodel_mapfromsource_callback = nullptr;
-        kcheckableproxymodel_maptosource_callback = nullptr;
-        kcheckableproxymodel_parent_callback = nullptr;
-        kcheckableproxymodel_rowcount_callback = nullptr;
-        kcheckableproxymodel_headerdata_callback = nullptr;
-        kcheckableproxymodel_dropmimedata_callback = nullptr;
-        kcheckableproxymodel_sibling_callback = nullptr;
-        kcheckableproxymodel_mapselectionfromsource_callback = nullptr;
-        kcheckableproxymodel_mapselectiontosource_callback = nullptr;
-        kcheckableproxymodel_match_callback = nullptr;
-        kcheckableproxymodel_insertcolumns_callback = nullptr;
-        kcheckableproxymodel_insertrows_callback = nullptr;
-        kcheckableproxymodel_removecolumns_callback = nullptr;
-        kcheckableproxymodel_removerows_callback = nullptr;
-        kcheckableproxymodel_moverows_callback = nullptr;
-        kcheckableproxymodel_movecolumns_callback = nullptr;
-        kcheckableproxymodel_submit_callback = nullptr;
-        kcheckableproxymodel_revert_callback = nullptr;
-        kcheckableproxymodel_itemdata_callback = nullptr;
-        kcheckableproxymodel_setitemdata_callback = nullptr;
-        kcheckableproxymodel_setheaderdata_callback = nullptr;
-        kcheckableproxymodel_clearitemdata_callback = nullptr;
-        kcheckableproxymodel_buddy_callback = nullptr;
-        kcheckableproxymodel_canfetchmore_callback = nullptr;
-        kcheckableproxymodel_fetchmore_callback = nullptr;
-        kcheckableproxymodel_sort_callback = nullptr;
-        kcheckableproxymodel_span_callback = nullptr;
-        kcheckableproxymodel_haschildren_callback = nullptr;
-        kcheckableproxymodel_mimedata_callback = nullptr;
-        kcheckableproxymodel_candropmimedata_callback = nullptr;
-        kcheckableproxymodel_mimetypes_callback = nullptr;
-        kcheckableproxymodel_supporteddragactions_callback = nullptr;
-        kcheckableproxymodel_supporteddropactions_callback = nullptr;
-        kcheckableproxymodel_multidata_callback = nullptr;
-        kcheckableproxymodel_resetinternaldata_callback = nullptr;
-        kcheckableproxymodel_event_callback = nullptr;
-        kcheckableproxymodel_eventfilter_callback = nullptr;
-        kcheckableproxymodel_timerevent_callback = nullptr;
-        kcheckableproxymodel_childevent_callback = nullptr;
-        kcheckableproxymodel_customevent_callback = nullptr;
-        kcheckableproxymodel_connectnotify_callback = nullptr;
-        kcheckableproxymodel_disconnectnotify_callback = nullptr;
-        kcheckableproxymodel_sethandlesourcelayoutchanges_callback = nullptr;
-        kcheckableproxymodel_sethandlesourcedatachanges_callback = nullptr;
-        kcheckableproxymodel_createsourceindex_callback = nullptr;
-        kcheckableproxymodel_createindex_callback = nullptr;
-        kcheckableproxymodel_encodedata_callback = nullptr;
-        kcheckableproxymodel_decodedata_callback = nullptr;
-        kcheckableproxymodel_begininsertrows_callback = nullptr;
-        kcheckableproxymodel_endinsertrows_callback = nullptr;
-        kcheckableproxymodel_beginremoverows_callback = nullptr;
-        kcheckableproxymodel_endremoverows_callback = nullptr;
-        kcheckableproxymodel_beginmoverows_callback = nullptr;
-        kcheckableproxymodel_endmoverows_callback = nullptr;
-        kcheckableproxymodel_begininsertcolumns_callback = nullptr;
-        kcheckableproxymodel_endinsertcolumns_callback = nullptr;
-        kcheckableproxymodel_beginremovecolumns_callback = nullptr;
-        kcheckableproxymodel_endremovecolumns_callback = nullptr;
-        kcheckableproxymodel_beginmovecolumns_callback = nullptr;
-        kcheckableproxymodel_endmovecolumns_callback = nullptr;
-        kcheckableproxymodel_beginresetmodel_callback = nullptr;
-        kcheckableproxymodel_endresetmodel_callback = nullptr;
-        kcheckableproxymodel_changepersistentindex_callback = nullptr;
-        kcheckableproxymodel_changepersistentindexlist_callback = nullptr;
-        kcheckableproxymodel_persistentindexlist_callback = nullptr;
-        kcheckableproxymodel_sender_callback = nullptr;
-        kcheckableproxymodel_sendersignalindex_callback = nullptr;
-        kcheckableproxymodel_receivers_callback = nullptr;
-        kcheckableproxymodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCheckableProxyModel_MetaObject_Callback(KCheckableProxyModel_MetaObject_Callback cb) { kcheckableproxymodel_metaobject_callback = cb; }
     inline void setKCheckableProxyModel_Metacast_Callback(KCheckableProxyModel_Metacast_Callback cb) { kcheckableproxymodel_metacast_callback = cb; }
@@ -519,12 +436,13 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_metaobject_isbase) {
             kcheckableproxymodel_metaobject_isbase = false;
             return KCheckableProxyModel::metaObject();
-        } else if (kcheckableproxymodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcheckableproxymodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCheckableProxyModel::metaObject();
         }
+        auto metaobject_cb = kcheckableproxymodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCheckableProxyModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -532,14 +450,15 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_metacast_isbase) {
             kcheckableproxymodel_metacast_isbase = false;
             return KCheckableProxyModel::qt_metacast(param1);
-        } else if (kcheckableproxymodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcheckableproxymodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcheckableproxymodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::qt_metacast(param1);
         }
+        return KCheckableProxyModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,16 +466,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_metacall_isbase) {
             kcheckableproxymodel_metacall_isbase = false;
             return KCheckableProxyModel::qt_metacall(param1, param2, param3);
-        } else if (kcheckableproxymodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcheckableproxymodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcheckableproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCheckableProxyModel::qt_metacall(param1, param2, param3);
         }
+        return KCheckableProxyModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,16 +484,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_flags_isbase) {
             kcheckableproxymodel_flags_isbase = false;
             return KCheckableProxyModel::flags(index);
-        } else if (kcheckableproxymodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = kcheckableproxymodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = kcheckableproxymodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return KCheckableProxyModel::flags(index);
         }
+        return KCheckableProxyModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,17 +502,18 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_data_isbase) {
             kcheckableproxymodel_data_isbase = false;
             return KCheckableProxyModel::data(index, role);
-        } else if (kcheckableproxymodel_data_callback != nullptr) {
+        }
+        auto data_cb = kcheckableproxymodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = kcheckableproxymodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::data(index, role);
         }
+        return KCheckableProxyModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,7 +521,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_setdata_isbase) {
             kcheckableproxymodel_setdata_isbase = false;
             return KCheckableProxyModel::setData(index, value, role);
-        } else if (kcheckableproxymodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = kcheckableproxymodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -608,11 +532,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = kcheckableproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::setData(index, value, role);
         }
+        return KCheckableProxyModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -620,13 +543,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_setsourcemodel_isbase) {
             kcheckableproxymodel_setsourcemodel_isbase = false;
             KCheckableProxyModel::setSourceModel(sourceModel);
-        } else if (kcheckableproxymodel_setsourcemodel_callback != nullptr) {
+            return;
+        }
+        auto setsourcemodel_cb = kcheckableproxymodel_setsourcemodel_callback;
+        if (setsourcemodel_cb) {
             QAbstractItemModel* cbval1 = sourceModel;
 
-            kcheckableproxymodel_setsourcemodel_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::setSourceModel(sourceModel);
+            setsourcemodel_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::setSourceModel(sourceModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -634,8 +560,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_rolenames_isbase) {
             kcheckableproxymodel_rolenames_isbase = false;
             return KCheckableProxyModel::roleNames();
-        } else if (kcheckableproxymodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = kcheckableproxymodel_rolenames_callback();
+        }
+        auto rolenames_cb = kcheckableproxymodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -645,9 +573,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return KCheckableProxyModel::roleNames();
         }
+        return KCheckableProxyModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -655,17 +582,18 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_select_isbase) {
             kcheckableproxymodel_select_isbase = false;
             return KCheckableProxyModel::select(selection, command);
-        } else if (kcheckableproxymodel_select_callback != nullptr) {
+        }
+        auto select_cb = kcheckableproxymodel_select_callback;
+        if (select_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
             int cbval2 = static_cast<int>(command);
 
-            bool callback_ret = kcheckableproxymodel_select_callback(this, cbval1, cbval2);
+            bool callback_ret = select_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::select(selection, command);
         }
+        return KCheckableProxyModel::select(selection, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -673,16 +601,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_columncount_isbase) {
             kcheckableproxymodel_columncount_isbase = false;
             return KCheckableProxyModel::columnCount(parent);
-        } else if (kcheckableproxymodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = kcheckableproxymodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kcheckableproxymodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCheckableProxyModel::columnCount(parent);
         }
+        return KCheckableProxyModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,18 +619,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_index_isbase) {
             kcheckableproxymodel_index_isbase = false;
             return KCheckableProxyModel::index(row, column, parent);
-        } else if (kcheckableproxymodel_index_callback != nullptr) {
+        }
+        auto index_cb = kcheckableproxymodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = kcheckableproxymodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::index(row, column, parent);
         }
+        return KCheckableProxyModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,16 +639,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_mapfromsource_isbase) {
             kcheckableproxymodel_mapfromsource_isbase = false;
             return KCheckableProxyModel::mapFromSource(sourceIndex);
-        } else if (kcheckableproxymodel_mapfromsource_callback != nullptr) {
+        }
+        auto mapfromsource_cb = kcheckableproxymodel_mapfromsource_callback;
+        if (mapfromsource_cb) {
             const QModelIndex& sourceIndex_ret = sourceIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
 
-            QModelIndex* callback_ret = kcheckableproxymodel_mapfromsource_callback(this, cbval1);
+            QModelIndex* callback_ret = mapfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::mapFromSource(sourceIndex);
         }
+        return KCheckableProxyModel::mapFromSource(sourceIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,16 +657,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_maptosource_isbase) {
             kcheckableproxymodel_maptosource_isbase = false;
             return KCheckableProxyModel::mapToSource(proxyIndex);
-        } else if (kcheckableproxymodel_maptosource_callback != nullptr) {
+        }
+        auto maptosource_cb = kcheckableproxymodel_maptosource_callback;
+        if (maptosource_cb) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
 
-            QModelIndex* callback_ret = kcheckableproxymodel_maptosource_callback(this, cbval1);
+            QModelIndex* callback_ret = maptosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::mapToSource(proxyIndex);
         }
+        return KCheckableProxyModel::mapToSource(proxyIndex);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -743,16 +675,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_parent_isbase) {
             kcheckableproxymodel_parent_isbase = false;
             return KCheckableProxyModel::parent(child);
-        } else if (kcheckableproxymodel_parent_callback != nullptr) {
+        }
+        auto parent_cb = kcheckableproxymodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = kcheckableproxymodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::parent(child);
         }
+        return KCheckableProxyModel::parent(child);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,16 +693,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_rowcount_isbase) {
             kcheckableproxymodel_rowcount_isbase = false;
             return KCheckableProxyModel::rowCount(parent);
-        } else if (kcheckableproxymodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = kcheckableproxymodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = kcheckableproxymodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCheckableProxyModel::rowCount(parent);
         }
+        return KCheckableProxyModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,16 +711,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_headerdata_isbase) {
             kcheckableproxymodel_headerdata_isbase = false;
             return KCheckableProxyModel::headerData(section, orientation, role);
-        } else if (kcheckableproxymodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = kcheckableproxymodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = kcheckableproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::headerData(section, orientation, role);
         }
+        return KCheckableProxyModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,7 +729,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_dropmimedata_isbase) {
             kcheckableproxymodel_dropmimedata_isbase = false;
             return KCheckableProxyModel::dropMimeData(data, action, row, column, parent);
-        } else if (kcheckableproxymodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = kcheckableproxymodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -803,11 +740,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::dropMimeData(data, action, row, column, parent);
         }
+        return KCheckableProxyModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,18 +751,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_sibling_isbase) {
             kcheckableproxymodel_sibling_isbase = false;
             return KCheckableProxyModel::sibling(row, column, idx);
-        } else if (kcheckableproxymodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = kcheckableproxymodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = kcheckableproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::sibling(row, column, idx);
         }
+        return KCheckableProxyModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -834,16 +771,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_mapselectionfromsource_isbase) {
             kcheckableproxymodel_mapselectionfromsource_isbase = false;
             return KCheckableProxyModel::mapSelectionFromSource(selection);
-        } else if (kcheckableproxymodel_mapselectionfromsource_callback != nullptr) {
+        }
+        auto mapselectionfromsource_cb = kcheckableproxymodel_mapselectionfromsource_callback;
+        if (mapselectionfromsource_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QItemSelection* callback_ret = kcheckableproxymodel_mapselectionfromsource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectionfromsource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::mapSelectionFromSource(selection);
         }
+        return KCheckableProxyModel::mapSelectionFromSource(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,16 +789,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_mapselectiontosource_isbase) {
             kcheckableproxymodel_mapselectiontosource_isbase = false;
             return KCheckableProxyModel::mapSelectionToSource(selection);
-        } else if (kcheckableproxymodel_mapselectiontosource_callback != nullptr) {
+        }
+        auto mapselectiontosource_cb = kcheckableproxymodel_mapselectiontosource_callback;
+        if (mapselectiontosource_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QItemSelection* callback_ret = kcheckableproxymodel_mapselectiontosource_callback(this, cbval1);
+            QItemSelection* callback_ret = mapselectiontosource_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::mapSelectionToSource(selection);
         }
+        return KCheckableProxyModel::mapSelectionToSource(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -868,7 +807,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_match_isbase) {
             kcheckableproxymodel_match_isbase = false;
             return KCheckableProxyModel::match(start, role, value, hits, flags);
-        } else if (kcheckableproxymodel_match_callback != nullptr) {
+        }
+        auto match_cb = kcheckableproxymodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -879,7 +820,7 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = kcheckableproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -888,9 +829,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCheckableProxyModel::match(start, role, value, hits, flags);
         }
+        return KCheckableProxyModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,18 +838,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_insertcolumns_isbase) {
             kcheckableproxymodel_insertcolumns_isbase = false;
             return KCheckableProxyModel::insertColumns(column, count, parent);
-        } else if (kcheckableproxymodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = kcheckableproxymodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::insertColumns(column, count, parent);
         }
+        return KCheckableProxyModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -917,18 +858,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_insertrows_isbase) {
             kcheckableproxymodel_insertrows_isbase = false;
             return KCheckableProxyModel::insertRows(row, count, parent);
-        } else if (kcheckableproxymodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = kcheckableproxymodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::insertRows(row, count, parent);
         }
+        return KCheckableProxyModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -936,18 +878,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_removecolumns_isbase) {
             kcheckableproxymodel_removecolumns_isbase = false;
             return KCheckableProxyModel::removeColumns(column, count, parent);
-        } else if (kcheckableproxymodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = kcheckableproxymodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::removeColumns(column, count, parent);
         }
+        return KCheckableProxyModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,18 +898,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_removerows_isbase) {
             kcheckableproxymodel_removerows_isbase = false;
             return KCheckableProxyModel::removeRows(row, count, parent);
-        } else if (kcheckableproxymodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = kcheckableproxymodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::removeRows(row, count, parent);
         }
+        return KCheckableProxyModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -974,7 +918,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_moverows_isbase) {
             kcheckableproxymodel_moverows_isbase = false;
             return KCheckableProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (kcheckableproxymodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = kcheckableproxymodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -985,11 +931,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kcheckableproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return KCheckableProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,7 +942,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_movecolumns_isbase) {
             kcheckableproxymodel_movecolumns_isbase = false;
             return KCheckableProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (kcheckableproxymodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = kcheckableproxymodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1008,11 +955,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = kcheckableproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return KCheckableProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,12 +966,13 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_submit_isbase) {
             kcheckableproxymodel_submit_isbase = false;
             return KCheckableProxyModel::submit();
-        } else if (kcheckableproxymodel_submit_callback != nullptr) {
-            bool callback_ret = kcheckableproxymodel_submit_callback();
-            return callback_ret;
-        } else {
-            return KCheckableProxyModel::submit();
         }
+        auto submit_cb = kcheckableproxymodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return KCheckableProxyModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,11 +980,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_revert_isbase) {
             kcheckableproxymodel_revert_isbase = false;
             KCheckableProxyModel::revert();
-        } else if (kcheckableproxymodel_revert_callback != nullptr) {
-            kcheckableproxymodel_revert_callback();
-        } else {
-            KCheckableProxyModel::revert();
+            return;
         }
+        auto revert_cb = kcheckableproxymodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        KCheckableProxyModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1045,12 +995,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_itemdata_isbase) {
             kcheckableproxymodel_itemdata_isbase = false;
             return KCheckableProxyModel::itemData(index);
-        } else if (kcheckableproxymodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = kcheckableproxymodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = kcheckableproxymodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -1058,9 +1010,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return KCheckableProxyModel::itemData(index);
         }
+        return KCheckableProxyModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,7 +1019,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_setitemdata_isbase) {
             kcheckableproxymodel_setitemdata_isbase = false;
             return KCheckableProxyModel::setItemData(index, roles);
-        } else if (kcheckableproxymodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = kcheckableproxymodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1088,11 +1041,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = kcheckableproxymodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::setItemData(index, roles);
         }
+        return KCheckableProxyModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,7 +1052,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_setheaderdata_isbase) {
             kcheckableproxymodel_setheaderdata_isbase = false;
             return KCheckableProxyModel::setHeaderData(section, orientation, value, role);
-        } else if (kcheckableproxymodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = kcheckableproxymodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -1108,11 +1062,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = kcheckableproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::setHeaderData(section, orientation, value, role);
         }
+        return KCheckableProxyModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,16 +1073,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_clearitemdata_isbase) {
             kcheckableproxymodel_clearitemdata_isbase = false;
             return KCheckableProxyModel::clearItemData(index);
-        } else if (kcheckableproxymodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = kcheckableproxymodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kcheckableproxymodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::clearItemData(index);
         }
+        return KCheckableProxyModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,16 +1091,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_buddy_isbase) {
             kcheckableproxymodel_buddy_isbase = false;
             return KCheckableProxyModel::buddy(index);
-        } else if (kcheckableproxymodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = kcheckableproxymodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = kcheckableproxymodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::buddy(index);
         }
+        return KCheckableProxyModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,16 +1109,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_canfetchmore_isbase) {
             kcheckableproxymodel_canfetchmore_isbase = false;
             return KCheckableProxyModel::canFetchMore(parent);
-        } else if (kcheckableproxymodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = kcheckableproxymodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::canFetchMore(parent);
         }
+        return KCheckableProxyModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,15 +1127,18 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_fetchmore_isbase) {
             kcheckableproxymodel_fetchmore_isbase = false;
             KCheckableProxyModel::fetchMore(parent);
-        } else if (kcheckableproxymodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = kcheckableproxymodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            kcheckableproxymodel_fetchmore_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,14 +1146,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_sort_isbase) {
             kcheckableproxymodel_sort_isbase = false;
             KCheckableProxyModel::sort(column, order);
-        } else if (kcheckableproxymodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = kcheckableproxymodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            kcheckableproxymodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            KCheckableProxyModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        KCheckableProxyModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,16 +1164,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_span_isbase) {
             kcheckableproxymodel_span_isbase = false;
             return KCheckableProxyModel::span(index);
-        } else if (kcheckableproxymodel_span_callback != nullptr) {
+        }
+        auto span_cb = kcheckableproxymodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = kcheckableproxymodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::span(index);
         }
+        return KCheckableProxyModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1219,16 +1182,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_haschildren_isbase) {
             kcheckableproxymodel_haschildren_isbase = false;
             return KCheckableProxyModel::hasChildren(parent);
-        } else if (kcheckableproxymodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = kcheckableproxymodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::hasChildren(parent);
         }
+        return KCheckableProxyModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1236,7 +1200,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_mimedata_isbase) {
             kcheckableproxymodel_mimedata_isbase = false;
             return KCheckableProxyModel::mimeData(indexes);
-        } else if (kcheckableproxymodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = kcheckableproxymodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1248,12 +1214,11 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = kcheckableproxymodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::mimeData(indexes);
         }
+        return KCheckableProxyModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,7 +1226,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_candropmimedata_isbase) {
             kcheckableproxymodel_candropmimedata_isbase = false;
             return KCheckableProxyModel::canDropMimeData(data, action, row, column, parent);
-        } else if (kcheckableproxymodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = kcheckableproxymodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1270,11 +1237,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = kcheckableproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::canDropMimeData(data, action, row, column, parent);
         }
+        return KCheckableProxyModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,8 +1248,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_mimetypes_isbase) {
             kcheckableproxymodel_mimetypes_isbase = false;
             return KCheckableProxyModel::mimeTypes();
-        } else if (kcheckableproxymodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = kcheckableproxymodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = kcheckableproxymodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1294,9 +1262,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return KCheckableProxyModel::mimeTypes();
         }
+        return KCheckableProxyModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,12 +1271,13 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_supporteddragactions_isbase) {
             kcheckableproxymodel_supporteddragactions_isbase = false;
             return KCheckableProxyModel::supportedDragActions();
-        } else if (kcheckableproxymodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = kcheckableproxymodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KCheckableProxyModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = kcheckableproxymodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KCheckableProxyModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,12 +1285,13 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_supporteddropactions_isbase) {
             kcheckableproxymodel_supporteddropactions_isbase = false;
             return KCheckableProxyModel::supportedDropActions();
-        } else if (kcheckableproxymodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = kcheckableproxymodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return KCheckableProxyModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = kcheckableproxymodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return KCheckableProxyModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1330,16 +1299,19 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_multidata_isbase) {
             kcheckableproxymodel_multidata_isbase = false;
             KCheckableProxyModel::multiData(index, roleDataSpan);
-        } else if (kcheckableproxymodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = kcheckableproxymodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            kcheckableproxymodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            KCheckableProxyModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        KCheckableProxyModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1347,11 +1319,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_resetinternaldata_isbase) {
             kcheckableproxymodel_resetinternaldata_isbase = false;
             KCheckableProxyModel::resetInternalData();
-        } else if (kcheckableproxymodel_resetinternaldata_callback != nullptr) {
-            kcheckableproxymodel_resetinternaldata_callback();
-        } else {
-            KCheckableProxyModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = kcheckableproxymodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        KCheckableProxyModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1359,14 +1334,15 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_event_isbase) {
             kcheckableproxymodel_event_isbase = false;
             return KCheckableProxyModel::event(event);
-        } else if (kcheckableproxymodel_event_callback != nullptr) {
+        }
+        auto event_cb = kcheckableproxymodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcheckableproxymodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::event(event);
         }
+        return KCheckableProxyModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1374,15 +1350,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_eventfilter_isbase) {
             kcheckableproxymodel_eventfilter_isbase = false;
             return KCheckableProxyModel::eventFilter(watched, event);
-        } else if (kcheckableproxymodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcheckableproxymodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcheckableproxymodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::eventFilter(watched, event);
         }
+        return KCheckableProxyModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1390,13 +1367,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_timerevent_isbase) {
             kcheckableproxymodel_timerevent_isbase = false;
             KCheckableProxyModel::timerEvent(event);
-        } else if (kcheckableproxymodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcheckableproxymodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcheckableproxymodel_timerevent_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1404,13 +1384,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_childevent_isbase) {
             kcheckableproxymodel_childevent_isbase = false;
             KCheckableProxyModel::childEvent(event);
-        } else if (kcheckableproxymodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcheckableproxymodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcheckableproxymodel_childevent_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1418,13 +1401,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_customevent_isbase) {
             kcheckableproxymodel_customevent_isbase = false;
             KCheckableProxyModel::customEvent(event);
-        } else if (kcheckableproxymodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcheckableproxymodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcheckableproxymodel_customevent_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1432,15 +1418,18 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_connectnotify_isbase) {
             kcheckableproxymodel_connectnotify_isbase = false;
             KCheckableProxyModel::connectNotify(signal);
-        } else if (kcheckableproxymodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcheckableproxymodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcheckableproxymodel_connectnotify_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1448,15 +1437,18 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_disconnectnotify_isbase) {
             kcheckableproxymodel_disconnectnotify_isbase = false;
             KCheckableProxyModel::disconnectNotify(signal);
-        } else if (kcheckableproxymodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcheckableproxymodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcheckableproxymodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1464,13 +1456,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_sethandlesourcelayoutchanges_isbase) {
             kcheckableproxymodel_sethandlesourcelayoutchanges_isbase = false;
             KCheckableProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
-        } else if (kcheckableproxymodel_sethandlesourcelayoutchanges_callback != nullptr) {
+            return;
+        }
+        auto sethandlesourcelayoutchanges_cb = kcheckableproxymodel_sethandlesourcelayoutchanges_callback;
+        if (sethandlesourcelayoutchanges_cb) {
             bool cbval1 = handleSourceLayoutChanges;
 
-            kcheckableproxymodel_sethandlesourcelayoutchanges_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
+            sethandlesourcelayoutchanges_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1478,13 +1473,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_sethandlesourcedatachanges_isbase) {
             kcheckableproxymodel_sethandlesourcedatachanges_isbase = false;
             KCheckableProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
-        } else if (kcheckableproxymodel_sethandlesourcedatachanges_callback != nullptr) {
+            return;
+        }
+        auto sethandlesourcedatachanges_cb = kcheckableproxymodel_sethandlesourcedatachanges_callback;
+        if (sethandlesourcedatachanges_cb) {
             bool cbval1 = handleSourceDataChanges;
 
-            kcheckableproxymodel_sethandlesourcedatachanges_callback(this, cbval1);
-        } else {
-            KCheckableProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
+            sethandlesourcedatachanges_cb(this, cbval1);
+            return;
         }
+        KCheckableProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1492,16 +1490,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_createsourceindex_isbase) {
             kcheckableproxymodel_createsourceindex_isbase = false;
             return KCheckableProxyModel::createSourceIndex(row, col, internalPtr);
-        } else if (kcheckableproxymodel_createsourceindex_callback != nullptr) {
+        }
+        auto createsourceindex_cb = kcheckableproxymodel_createsourceindex_callback;
+        if (createsourceindex_cb) {
             int cbval1 = row;
             int cbval2 = col;
             void* cbval3 = internalPtr;
 
-            QModelIndex* callback_ret = kcheckableproxymodel_createsourceindex_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = createsourceindex_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::createSourceIndex(row, col, internalPtr);
         }
+        return KCheckableProxyModel::createSourceIndex(row, col, internalPtr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1509,15 +1508,16 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_createindex_isbase) {
             kcheckableproxymodel_createindex_isbase = false;
             return KCheckableProxyModel::createIndex(row, column);
-        } else if (kcheckableproxymodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = kcheckableproxymodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = kcheckableproxymodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KCheckableProxyModel::createIndex(row, column);
         }
+        return KCheckableProxyModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1525,7 +1525,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_encodedata_isbase) {
             kcheckableproxymodel_encodedata_isbase = false;
             KCheckableProxyModel::encodeData(indexes, stream);
-        } else if (kcheckableproxymodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = kcheckableproxymodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1540,11 +1543,11 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            kcheckableproxymodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            KCheckableProxyModel::encodeData(indexes, stream);
+            return;
         }
+        KCheckableProxyModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1552,7 +1555,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_decodedata_isbase) {
             kcheckableproxymodel_decodedata_isbase = false;
             return KCheckableProxyModel::decodeData(row, column, parent, stream);
-        } else if (kcheckableproxymodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = kcheckableproxymodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1562,11 +1567,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = kcheckableproxymodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::decodeData(row, column, parent, stream);
         }
+        return KCheckableProxyModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,17 +1578,20 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_begininsertrows_isbase) {
             kcheckableproxymodel_begininsertrows_isbase = false;
             KCheckableProxyModel::beginInsertRows(parent, first, last);
-        } else if (kcheckableproxymodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = kcheckableproxymodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcheckableproxymodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCheckableProxyModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCheckableProxyModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1592,11 +1599,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endinsertrows_isbase) {
             kcheckableproxymodel_endinsertrows_isbase = false;
             KCheckableProxyModel::endInsertRows();
-        } else if (kcheckableproxymodel_endinsertrows_callback != nullptr) {
-            kcheckableproxymodel_endinsertrows_callback();
-        } else {
-            KCheckableProxyModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = kcheckableproxymodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        KCheckableProxyModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1604,17 +1614,20 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_beginremoverows_isbase) {
             kcheckableproxymodel_beginremoverows_isbase = false;
             KCheckableProxyModel::beginRemoveRows(parent, first, last);
-        } else if (kcheckableproxymodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = kcheckableproxymodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcheckableproxymodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCheckableProxyModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCheckableProxyModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1622,11 +1635,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endremoverows_isbase) {
             kcheckableproxymodel_endremoverows_isbase = false;
             KCheckableProxyModel::endRemoveRows();
-        } else if (kcheckableproxymodel_endremoverows_callback != nullptr) {
-            kcheckableproxymodel_endremoverows_callback();
-        } else {
-            KCheckableProxyModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = kcheckableproxymodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        KCheckableProxyModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1634,7 +1650,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_beginmoverows_isbase) {
             kcheckableproxymodel_beginmoverows_isbase = false;
             return KCheckableProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (kcheckableproxymodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = kcheckableproxymodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1645,11 +1663,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = kcheckableproxymodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return KCheckableProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1657,11 +1674,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endmoverows_isbase) {
             kcheckableproxymodel_endmoverows_isbase = false;
             KCheckableProxyModel::endMoveRows();
-        } else if (kcheckableproxymodel_endmoverows_callback != nullptr) {
-            kcheckableproxymodel_endmoverows_callback();
-        } else {
-            KCheckableProxyModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = kcheckableproxymodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        KCheckableProxyModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1669,17 +1689,20 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_begininsertcolumns_isbase) {
             kcheckableproxymodel_begininsertcolumns_isbase = false;
             KCheckableProxyModel::beginInsertColumns(parent, first, last);
-        } else if (kcheckableproxymodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = kcheckableproxymodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcheckableproxymodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCheckableProxyModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCheckableProxyModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1687,11 +1710,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endinsertcolumns_isbase) {
             kcheckableproxymodel_endinsertcolumns_isbase = false;
             KCheckableProxyModel::endInsertColumns();
-        } else if (kcheckableproxymodel_endinsertcolumns_callback != nullptr) {
-            kcheckableproxymodel_endinsertcolumns_callback();
-        } else {
-            KCheckableProxyModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = kcheckableproxymodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        KCheckableProxyModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1699,17 +1725,20 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_beginremovecolumns_isbase) {
             kcheckableproxymodel_beginremovecolumns_isbase = false;
             KCheckableProxyModel::beginRemoveColumns(parent, first, last);
-        } else if (kcheckableproxymodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = kcheckableproxymodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            kcheckableproxymodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCheckableProxyModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCheckableProxyModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1717,11 +1746,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endremovecolumns_isbase) {
             kcheckableproxymodel_endremovecolumns_isbase = false;
             KCheckableProxyModel::endRemoveColumns();
-        } else if (kcheckableproxymodel_endremovecolumns_callback != nullptr) {
-            kcheckableproxymodel_endremovecolumns_callback();
-        } else {
-            KCheckableProxyModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = kcheckableproxymodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        KCheckableProxyModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1729,7 +1761,9 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_beginmovecolumns_isbase) {
             kcheckableproxymodel_beginmovecolumns_isbase = false;
             return KCheckableProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (kcheckableproxymodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = kcheckableproxymodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1740,11 +1774,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = kcheckableproxymodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return KCheckableProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1752,11 +1785,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endmovecolumns_isbase) {
             kcheckableproxymodel_endmovecolumns_isbase = false;
             KCheckableProxyModel::endMoveColumns();
-        } else if (kcheckableproxymodel_endmovecolumns_callback != nullptr) {
-            kcheckableproxymodel_endmovecolumns_callback();
-        } else {
-            KCheckableProxyModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = kcheckableproxymodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        KCheckableProxyModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1764,11 +1800,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_beginresetmodel_isbase) {
             kcheckableproxymodel_beginresetmodel_isbase = false;
             KCheckableProxyModel::beginResetModel();
-        } else if (kcheckableproxymodel_beginresetmodel_callback != nullptr) {
-            kcheckableproxymodel_beginresetmodel_callback();
-        } else {
-            KCheckableProxyModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = kcheckableproxymodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        KCheckableProxyModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1776,11 +1815,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_endresetmodel_isbase) {
             kcheckableproxymodel_endresetmodel_isbase = false;
             KCheckableProxyModel::endResetModel();
-        } else if (kcheckableproxymodel_endresetmodel_callback != nullptr) {
-            kcheckableproxymodel_endresetmodel_callback();
-        } else {
-            KCheckableProxyModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = kcheckableproxymodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        KCheckableProxyModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1788,7 +1830,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_changepersistentindex_isbase) {
             kcheckableproxymodel_changepersistentindex_isbase = false;
             KCheckableProxyModel::changePersistentIndex(from, to);
-        } else if (kcheckableproxymodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = kcheckableproxymodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1796,10 +1841,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            kcheckableproxymodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            KCheckableProxyModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KCheckableProxyModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1807,7 +1852,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_changepersistentindexlist_isbase) {
             kcheckableproxymodel_changepersistentindexlist_isbase = false;
             KCheckableProxyModel::changePersistentIndexList(from, to);
-        } else if (kcheckableproxymodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = kcheckableproxymodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1829,12 +1877,12 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            kcheckableproxymodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            KCheckableProxyModel::changePersistentIndexList(from, to);
+            return;
         }
+        KCheckableProxyModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1842,8 +1890,10 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_persistentindexlist_isbase) {
             kcheckableproxymodel_persistentindexlist_isbase = false;
             return KCheckableProxyModel::persistentIndexList();
-        } else if (kcheckableproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kcheckableproxymodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = kcheckableproxymodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1852,9 +1902,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCheckableProxyModel::persistentIndexList();
         }
+        return KCheckableProxyModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1862,12 +1911,13 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_sender_isbase) {
             kcheckableproxymodel_sender_isbase = false;
             return KCheckableProxyModel::sender();
-        } else if (kcheckableproxymodel_sender_callback != nullptr) {
-            QObject* callback_ret = kcheckableproxymodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KCheckableProxyModel::sender();
         }
+        auto sender_cb = kcheckableproxymodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCheckableProxyModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1875,12 +1925,13 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_sendersignalindex_isbase) {
             kcheckableproxymodel_sendersignalindex_isbase = false;
             return KCheckableProxyModel::senderSignalIndex();
-        } else if (kcheckableproxymodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcheckableproxymodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCheckableProxyModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcheckableproxymodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCheckableProxyModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1888,14 +1939,15 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_receivers_isbase) {
             kcheckableproxymodel_receivers_isbase = false;
             return KCheckableProxyModel::receivers(signal);
-        } else if (kcheckableproxymodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcheckableproxymodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcheckableproxymodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCheckableProxyModel::receivers(signal);
         }
+        return KCheckableProxyModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1903,16 +1955,17 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
         if (kcheckableproxymodel_issignalconnected_isbase) {
             kcheckableproxymodel_issignalconnected_isbase = false;
             return KCheckableProxyModel::isSignalConnected(signal);
-        } else if (kcheckableproxymodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcheckableproxymodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcheckableproxymodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCheckableProxyModel::isSignalConnected(signal);
         }
+        return KCheckableProxyModel::isSignalConnected(signal);
     }
 
     // Friend functions

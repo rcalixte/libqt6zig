@@ -30,10 +30,6 @@ class VirtualKRemoteEncoding final : public KRemoteEncoding {
     VirtualKRemoteEncoding() : KRemoteEncoding() {};
     VirtualKRemoteEncoding(const char* name) : KRemoteEncoding(name) {};
 
-    ~VirtualKRemoteEncoding() {
-        kremoteencoding_virtualhook_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRemoteEncoding_VirtualHook_Callback(KRemoteEncoding_VirtualHook_Callback cb) { kremoteencoding_virtualhook_callback = cb; }
 
@@ -45,14 +41,17 @@ class VirtualKRemoteEncoding final : public KRemoteEncoding {
         if (kremoteencoding_virtualhook_isbase) {
             kremoteencoding_virtualhook_isbase = false;
             KRemoteEncoding::virtual_hook(id, data);
-        } else if (kremoteencoding_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kremoteencoding_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kremoteencoding_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KRemoteEncoding::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KRemoteEncoding::virtual_hook(id, data);
     }
 
     // Friend functions

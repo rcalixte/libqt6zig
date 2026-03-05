@@ -399,132 +399,6 @@ class VirtualKCategorizedView final : public KCategorizedView {
     VirtualKCategorizedView(QWidget* parent) : KCategorizedView(parent) {};
     VirtualKCategorizedView() : KCategorizedView() {};
 
-    ~VirtualKCategorizedView() {
-        kcategorizedview_metaobject_callback = nullptr;
-        kcategorizedview_metacast_callback = nullptr;
-        kcategorizedview_metacall_callback = nullptr;
-        kcategorizedview_setmodel_callback = nullptr;
-        kcategorizedview_visualrect_callback = nullptr;
-        kcategorizedview_indexat_callback = nullptr;
-        kcategorizedview_reset_callback = nullptr;
-        kcategorizedview_paintevent_callback = nullptr;
-        kcategorizedview_resizeevent_callback = nullptr;
-        kcategorizedview_setselection_callback = nullptr;
-        kcategorizedview_mousemoveevent_callback = nullptr;
-        kcategorizedview_mousepressevent_callback = nullptr;
-        kcategorizedview_mousereleaseevent_callback = nullptr;
-        kcategorizedview_leaveevent_callback = nullptr;
-        kcategorizedview_startdrag_callback = nullptr;
-        kcategorizedview_dragmoveevent_callback = nullptr;
-        kcategorizedview_dragenterevent_callback = nullptr;
-        kcategorizedview_dragleaveevent_callback = nullptr;
-        kcategorizedview_dropevent_callback = nullptr;
-        kcategorizedview_movecursor_callback = nullptr;
-        kcategorizedview_rowsabouttoberemoved_callback = nullptr;
-        kcategorizedview_updategeometries_callback = nullptr;
-        kcategorizedview_currentchanged_callback = nullptr;
-        kcategorizedview_datachanged_callback = nullptr;
-        kcategorizedview_rowsinserted_callback = nullptr;
-        kcategorizedview_slotlayoutchanged_callback = nullptr;
-        kcategorizedview_scrollto_callback = nullptr;
-        kcategorizedview_doitemslayout_callback = nullptr;
-        kcategorizedview_setrootindex_callback = nullptr;
-        kcategorizedview_event_callback = nullptr;
-        kcategorizedview_scrollcontentsby_callback = nullptr;
-        kcategorizedview_wheelevent_callback = nullptr;
-        kcategorizedview_timerevent_callback = nullptr;
-        kcategorizedview_initviewitemoption_callback = nullptr;
-        kcategorizedview_horizontaloffset_callback = nullptr;
-        kcategorizedview_verticaloffset_callback = nullptr;
-        kcategorizedview_visualregionforselection_callback = nullptr;
-        kcategorizedview_selectedindexes_callback = nullptr;
-        kcategorizedview_isindexhidden_callback = nullptr;
-        kcategorizedview_selectionchanged_callback = nullptr;
-        kcategorizedview_viewportsizehint_callback = nullptr;
-        kcategorizedview_setselectionmodel_callback = nullptr;
-        kcategorizedview_keyboardsearch_callback = nullptr;
-        kcategorizedview_sizehintforrow_callback = nullptr;
-        kcategorizedview_sizehintforcolumn_callback = nullptr;
-        kcategorizedview_itemdelegateforindex_callback = nullptr;
-        kcategorizedview_inputmethodquery_callback = nullptr;
-        kcategorizedview_selectall_callback = nullptr;
-        kcategorizedview_updateeditordata_callback = nullptr;
-        kcategorizedview_updateeditorgeometries_callback = nullptr;
-        kcategorizedview_verticalscrollbaraction_callback = nullptr;
-        kcategorizedview_horizontalscrollbaraction_callback = nullptr;
-        kcategorizedview_verticalscrollbarvaluechanged_callback = nullptr;
-        kcategorizedview_horizontalscrollbarvaluechanged_callback = nullptr;
-        kcategorizedview_closeeditor_callback = nullptr;
-        kcategorizedview_commitdata_callback = nullptr;
-        kcategorizedview_editordestroyed_callback = nullptr;
-        kcategorizedview_edit2_callback = nullptr;
-        kcategorizedview_selectioncommand_callback = nullptr;
-        kcategorizedview_focusnextprevchild_callback = nullptr;
-        kcategorizedview_viewportevent_callback = nullptr;
-        kcategorizedview_mousedoubleclickevent_callback = nullptr;
-        kcategorizedview_focusinevent_callback = nullptr;
-        kcategorizedview_focusoutevent_callback = nullptr;
-        kcategorizedview_keypressevent_callback = nullptr;
-        kcategorizedview_inputmethodevent_callback = nullptr;
-        kcategorizedview_eventfilter_callback = nullptr;
-        kcategorizedview_minimumsizehint_callback = nullptr;
-        kcategorizedview_sizehint_callback = nullptr;
-        kcategorizedview_setupviewport_callback = nullptr;
-        kcategorizedview_contextmenuevent_callback = nullptr;
-        kcategorizedview_changeevent_callback = nullptr;
-        kcategorizedview_initstyleoption_callback = nullptr;
-        kcategorizedview_devtype_callback = nullptr;
-        kcategorizedview_setvisible_callback = nullptr;
-        kcategorizedview_heightforwidth_callback = nullptr;
-        kcategorizedview_hasheightforwidth_callback = nullptr;
-        kcategorizedview_paintengine_callback = nullptr;
-        kcategorizedview_keyreleaseevent_callback = nullptr;
-        kcategorizedview_enterevent_callback = nullptr;
-        kcategorizedview_moveevent_callback = nullptr;
-        kcategorizedview_closeevent_callback = nullptr;
-        kcategorizedview_tabletevent_callback = nullptr;
-        kcategorizedview_actionevent_callback = nullptr;
-        kcategorizedview_showevent_callback = nullptr;
-        kcategorizedview_hideevent_callback = nullptr;
-        kcategorizedview_nativeevent_callback = nullptr;
-        kcategorizedview_metric_callback = nullptr;
-        kcategorizedview_initpainter_callback = nullptr;
-        kcategorizedview_redirected_callback = nullptr;
-        kcategorizedview_sharedpainter_callback = nullptr;
-        kcategorizedview_childevent_callback = nullptr;
-        kcategorizedview_customevent_callback = nullptr;
-        kcategorizedview_connectnotify_callback = nullptr;
-        kcategorizedview_disconnectnotify_callback = nullptr;
-        kcategorizedview_resizecontents_callback = nullptr;
-        kcategorizedview_contentssize_callback = nullptr;
-        kcategorizedview_rectforindex_callback = nullptr;
-        kcategorizedview_setpositionforindex_callback = nullptr;
-        kcategorizedview_state_callback = nullptr;
-        kcategorizedview_setstate_callback = nullptr;
-        kcategorizedview_scheduledelayeditemslayout_callback = nullptr;
-        kcategorizedview_executedelayeditemslayout_callback = nullptr;
-        kcategorizedview_setdirtyregion_callback = nullptr;
-        kcategorizedview_scrolldirtyregion_callback = nullptr;
-        kcategorizedview_dirtyregionoffset_callback = nullptr;
-        kcategorizedview_startautoscroll_callback = nullptr;
-        kcategorizedview_stopautoscroll_callback = nullptr;
-        kcategorizedview_doautoscroll_callback = nullptr;
-        kcategorizedview_dropindicatorposition_callback = nullptr;
-        kcategorizedview_setviewportmargins_callback = nullptr;
-        kcategorizedview_viewportmargins_callback = nullptr;
-        kcategorizedview_drawframe_callback = nullptr;
-        kcategorizedview_updatemicrofocus_callback = nullptr;
-        kcategorizedview_create_callback = nullptr;
-        kcategorizedview_destroy_callback = nullptr;
-        kcategorizedview_focusnextchild_callback = nullptr;
-        kcategorizedview_focuspreviouschild_callback = nullptr;
-        kcategorizedview_sender_callback = nullptr;
-        kcategorizedview_sendersignalindex_callback = nullptr;
-        kcategorizedview_receivers_callback = nullptr;
-        kcategorizedview_issignalconnected_callback = nullptr;
-        kcategorizedview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCategorizedView_MetaObject_Callback(KCategorizedView_MetaObject_Callback cb) { kcategorizedview_metaobject_callback = cb; }
     inline void setKCategorizedView_Metacast_Callback(KCategorizedView_Metacast_Callback cb) { kcategorizedview_metacast_callback = cb; }
@@ -780,12 +654,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_metaobject_isbase) {
             kcategorizedview_metaobject_isbase = false;
             return KCategorizedView::metaObject();
-        } else if (kcategorizedview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcategorizedview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::metaObject();
         }
+        auto metaobject_cb = kcategorizedview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,14 +668,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_metacast_isbase) {
             kcategorizedview_metacast_isbase = false;
             return KCategorizedView::qt_metacast(param1);
-        } else if (kcategorizedview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcategorizedview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcategorizedview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::qt_metacast(param1);
         }
+        return KCategorizedView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,16 +684,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_metacall_isbase) {
             kcategorizedview_metacall_isbase = false;
             return KCategorizedView::qt_metacall(param1, param2, param3);
-        } else if (kcategorizedview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcategorizedview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcategorizedview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::qt_metacall(param1, param2, param3);
         }
+        return KCategorizedView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -825,13 +702,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setmodel_isbase) {
             kcategorizedview_setmodel_isbase = false;
             KCategorizedView::setModel(model);
-        } else if (kcategorizedview_setmodel_callback != nullptr) {
+            return;
+        }
+        auto setmodel_cb = kcategorizedview_setmodel_callback;
+        if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
 
-            kcategorizedview_setmodel_callback(this, cbval1);
-        } else {
-            KCategorizedView::setModel(model);
+            setmodel_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setModel(model);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,16 +719,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_visualrect_isbase) {
             kcategorizedview_visualrect_isbase = false;
             return KCategorizedView::visualRect(index);
-        } else if (kcategorizedview_visualrect_callback != nullptr) {
+        }
+        auto visualrect_cb = kcategorizedview_visualrect_callback;
+        if (visualrect_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kcategorizedview_visualrect_callback(this, cbval1);
+            QRect* callback_ret = visualrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedView::visualRect(index);
         }
+        return KCategorizedView::visualRect(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,16 +737,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_indexat_isbase) {
             kcategorizedview_indexat_isbase = false;
             return KCategorizedView::indexAt(point);
-        } else if (kcategorizedview_indexat_callback != nullptr) {
+        }
+        auto indexat_cb = kcategorizedview_indexat_callback;
+        if (indexat_cb) {
             const QPoint& point_ret = point;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&point_ret);
 
-            QModelIndex* callback_ret = kcategorizedview_indexat_callback(this, cbval1);
+            QModelIndex* callback_ret = indexat_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedView::indexAt(point);
         }
+        return KCategorizedView::indexAt(point);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -873,11 +755,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_reset_isbase) {
             kcategorizedview_reset_isbase = false;
             KCategorizedView::reset();
-        } else if (kcategorizedview_reset_callback != nullptr) {
-            kcategorizedview_reset_callback();
-        } else {
-            KCategorizedView::reset();
+            return;
         }
+        auto reset_cb = kcategorizedview_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        KCategorizedView::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +770,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_paintevent_isbase) {
             kcategorizedview_paintevent_isbase = false;
             KCategorizedView::paintEvent(event);
-        } else if (kcategorizedview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcategorizedview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kcategorizedview_paintevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +787,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_resizeevent_isbase) {
             kcategorizedview_resizeevent_isbase = false;
             KCategorizedView::resizeEvent(event);
-        } else if (kcategorizedview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcategorizedview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kcategorizedview_resizeevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,16 +804,19 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setselection_isbase) {
             kcategorizedview_setselection_isbase = false;
             KCategorizedView::setSelection(rect, flags);
-        } else if (kcategorizedview_setselection_callback != nullptr) {
+            return;
+        }
+        auto setselection_cb = kcategorizedview_setselection_callback;
+        if (setselection_cb) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(flags);
 
-            kcategorizedview_setselection_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::setSelection(rect, flags);
+            setselection_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::setSelection(rect, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +824,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_mousemoveevent_isbase) {
             kcategorizedview_mousemoveevent_isbase = false;
             KCategorizedView::mouseMoveEvent(event);
-        } else if (kcategorizedview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcategorizedview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcategorizedview_mousemoveevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +841,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_mousepressevent_isbase) {
             kcategorizedview_mousepressevent_isbase = false;
             KCategorizedView::mousePressEvent(event);
-        } else if (kcategorizedview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcategorizedview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcategorizedview_mousepressevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +858,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_mousereleaseevent_isbase) {
             kcategorizedview_mousereleaseevent_isbase = false;
             KCategorizedView::mouseReleaseEvent(event);
-        } else if (kcategorizedview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcategorizedview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcategorizedview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +875,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_leaveevent_isbase) {
             kcategorizedview_leaveevent_isbase = false;
             KCategorizedView::leaveEvent(event);
-        } else if (kcategorizedview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcategorizedview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kcategorizedview_leaveevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +892,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_startdrag_isbase) {
             kcategorizedview_startdrag_isbase = false;
             KCategorizedView::startDrag(supportedActions);
-        } else if (kcategorizedview_startdrag_callback != nullptr) {
+            return;
+        }
+        auto startdrag_cb = kcategorizedview_startdrag_callback;
+        if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
 
-            kcategorizedview_startdrag_callback(this, cbval1);
-        } else {
-            KCategorizedView::startDrag(supportedActions);
+            startdrag_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::startDrag(supportedActions);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,13 +909,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_dragmoveevent_isbase) {
             kcategorizedview_dragmoveevent_isbase = false;
             KCategorizedView::dragMoveEvent(event);
-        } else if (kcategorizedview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcategorizedview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcategorizedview_dragmoveevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,13 +926,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_dragenterevent_isbase) {
             kcategorizedview_dragenterevent_isbase = false;
             KCategorizedView::dragEnterEvent(event);
-        } else if (kcategorizedview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcategorizedview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcategorizedview_dragenterevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,13 +943,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_dragleaveevent_isbase) {
             kcategorizedview_dragleaveevent_isbase = false;
             KCategorizedView::dragLeaveEvent(event);
-        } else if (kcategorizedview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcategorizedview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcategorizedview_dragleaveevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1042,13 +960,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_dropevent_isbase) {
             kcategorizedview_dropevent_isbase = false;
             KCategorizedView::dropEvent(event);
-        } else if (kcategorizedview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcategorizedview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcategorizedview_dropevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,15 +977,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_movecursor_isbase) {
             kcategorizedview_movecursor_isbase = false;
             return KCategorizedView::moveCursor(cursorAction, modifiers);
-        } else if (kcategorizedview_movecursor_callback != nullptr) {
+        }
+        auto movecursor_cb = kcategorizedview_movecursor_callback;
+        if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
 
-            QModelIndex* callback_ret = kcategorizedview_movecursor_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KCategorizedView::moveCursor(cursorAction, modifiers);
         }
+        return KCategorizedView::moveCursor(cursorAction, modifiers);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,17 +994,20 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_rowsabouttoberemoved_isbase) {
             kcategorizedview_rowsabouttoberemoved_isbase = false;
             KCategorizedView::rowsAboutToBeRemoved(parent, start, end);
-        } else if (kcategorizedview_rowsabouttoberemoved_callback != nullptr) {
+            return;
+        }
+        auto rowsabouttoberemoved_cb = kcategorizedview_rowsabouttoberemoved_callback;
+        if (rowsabouttoberemoved_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            kcategorizedview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategorizedView::rowsAboutToBeRemoved(parent, start, end);
+            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategorizedView::rowsAboutToBeRemoved(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1090,11 +1015,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_updategeometries_isbase) {
             kcategorizedview_updategeometries_isbase = false;
             KCategorizedView::updateGeometries();
-        } else if (kcategorizedview_updategeometries_callback != nullptr) {
-            kcategorizedview_updategeometries_callback();
-        } else {
-            KCategorizedView::updateGeometries();
+            return;
         }
+        auto updategeometries_cb = kcategorizedview_updategeometries_callback;
+        if (updategeometries_cb) {
+            updategeometries_cb();
+            return;
+        }
+        KCategorizedView::updateGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,7 +1030,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_currentchanged_isbase) {
             kcategorizedview_currentchanged_isbase = false;
             KCategorizedView::currentChanged(current, previous);
-        } else if (kcategorizedview_currentchanged_callback != nullptr) {
+            return;
+        }
+        auto currentchanged_cb = kcategorizedview_currentchanged_callback;
+        if (currentchanged_cb) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
@@ -1110,10 +1041,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
 
-            kcategorizedview_currentchanged_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::currentChanged(current, previous);
+            currentchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::currentChanged(current, previous);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,7 +1052,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_datachanged_isbase) {
             kcategorizedview_datachanged_isbase = false;
             KCategorizedView::dataChanged(topLeft, bottomRight, roles);
-        } else if (kcategorizedview_datachanged_callback != nullptr) {
+            return;
+        }
+        auto datachanged_cb = kcategorizedview_datachanged_callback;
+        if (datachanged_cb) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1139,11 +1073,11 @@ class VirtualKCategorizedView final : public KCategorizedView {
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
-            kcategorizedview_datachanged_callback(this, cbval1, cbval2, cbval3);
+            datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
-        } else {
-            KCategorizedView::dataChanged(topLeft, bottomRight, roles);
+            return;
         }
+        KCategorizedView::dataChanged(topLeft, bottomRight, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,17 +1085,20 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_rowsinserted_isbase) {
             kcategorizedview_rowsinserted_isbase = false;
             KCategorizedView::rowsInserted(parent, start, end);
-        } else if (kcategorizedview_rowsinserted_callback != nullptr) {
+            return;
+        }
+        auto rowsinserted_cb = kcategorizedview_rowsinserted_callback;
+        if (rowsinserted_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
 
-            kcategorizedview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KCategorizedView::rowsInserted(parent, start, end);
+            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KCategorizedView::rowsInserted(parent, start, end);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,11 +1106,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_slotlayoutchanged_isbase) {
             kcategorizedview_slotlayoutchanged_isbase = false;
             KCategorizedView::slotLayoutChanged();
-        } else if (kcategorizedview_slotlayoutchanged_callback != nullptr) {
-            kcategorizedview_slotlayoutchanged_callback();
-        } else {
-            KCategorizedView::slotLayoutChanged();
+            return;
         }
+        auto slotlayoutchanged_cb = kcategorizedview_slotlayoutchanged_callback;
+        if (slotlayoutchanged_cb) {
+            slotlayoutchanged_cb();
+            return;
+        }
+        KCategorizedView::slotLayoutChanged();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,16 +1121,19 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_scrollto_isbase) {
             kcategorizedview_scrollto_isbase = false;
             KCategorizedView::scrollTo(index, hint);
-        } else if (kcategorizedview_scrollto_callback != nullptr) {
+            return;
+        }
+        auto scrollto_cb = kcategorizedview_scrollto_callback;
+        if (scrollto_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
 
-            kcategorizedview_scrollto_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::scrollTo(index, hint);
+            scrollto_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::scrollTo(index, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1198,11 +1141,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_doitemslayout_isbase) {
             kcategorizedview_doitemslayout_isbase = false;
             KCategorizedView::doItemsLayout();
-        } else if (kcategorizedview_doitemslayout_callback != nullptr) {
-            kcategorizedview_doitemslayout_callback();
-        } else {
-            KCategorizedView::doItemsLayout();
+            return;
         }
+        auto doitemslayout_cb = kcategorizedview_doitemslayout_callback;
+        if (doitemslayout_cb) {
+            doitemslayout_cb();
+            return;
+        }
+        KCategorizedView::doItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1210,15 +1156,18 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setrootindex_isbase) {
             kcategorizedview_setrootindex_isbase = false;
             KCategorizedView::setRootIndex(index);
-        } else if (kcategorizedview_setrootindex_callback != nullptr) {
+            return;
+        }
+        auto setrootindex_cb = kcategorizedview_setrootindex_callback;
+        if (setrootindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            kcategorizedview_setrootindex_callback(this, cbval1);
-        } else {
-            KCategorizedView::setRootIndex(index);
+            setrootindex_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setRootIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,14 +1175,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_event_isbase) {
             kcategorizedview_event_isbase = false;
             return KCategorizedView::event(e);
-        } else if (kcategorizedview_event_callback != nullptr) {
+        }
+        auto event_cb = kcategorizedview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kcategorizedview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::event(e);
         }
+        return KCategorizedView::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,14 +1191,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_scrollcontentsby_isbase) {
             kcategorizedview_scrollcontentsby_isbase = false;
             KCategorizedView::scrollContentsBy(dx, dy);
-        } else if (kcategorizedview_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = kcategorizedview_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kcategorizedview_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,13 +1209,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_wheelevent_isbase) {
             kcategorizedview_wheelevent_isbase = false;
             KCategorizedView::wheelEvent(e);
-        } else if (kcategorizedview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcategorizedview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            kcategorizedview_wheelevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,13 +1226,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_timerevent_isbase) {
             kcategorizedview_timerevent_isbase = false;
             KCategorizedView::timerEvent(e);
-        } else if (kcategorizedview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcategorizedview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            kcategorizedview_timerevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,13 +1243,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_initviewitemoption_isbase) {
             kcategorizedview_initviewitemoption_isbase = false;
             KCategorizedView::initViewItemOption(option);
-        } else if (kcategorizedview_initviewitemoption_callback != nullptr) {
+            return;
+        }
+        auto initviewitemoption_cb = kcategorizedview_initviewitemoption_callback;
+        if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
 
-            kcategorizedview_initviewitemoption_callback(this, cbval1);
-        } else {
-            KCategorizedView::initViewItemOption(option);
+            initviewitemoption_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::initViewItemOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1298,12 +1260,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_horizontaloffset_isbase) {
             kcategorizedview_horizontaloffset_isbase = false;
             return KCategorizedView::horizontalOffset();
-        } else if (kcategorizedview_horizontaloffset_callback != nullptr) {
-            int callback_ret = kcategorizedview_horizontaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::horizontalOffset();
         }
+        auto horizontaloffset_cb = kcategorizedview_horizontaloffset_callback;
+        if (horizontaloffset_cb) {
+            int callback_ret = horizontaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategorizedView::horizontalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,12 +1274,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_verticaloffset_isbase) {
             kcategorizedview_verticaloffset_isbase = false;
             return KCategorizedView::verticalOffset();
-        } else if (kcategorizedview_verticaloffset_callback != nullptr) {
-            int callback_ret = kcategorizedview_verticaloffset_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::verticalOffset();
         }
+        auto verticaloffset_cb = kcategorizedview_verticaloffset_callback;
+        if (verticaloffset_cb) {
+            int callback_ret = verticaloffset_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategorizedView::verticalOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,16 +1288,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_visualregionforselection_isbase) {
             kcategorizedview_visualregionforselection_isbase = false;
             return KCategorizedView::visualRegionForSelection(selection);
-        } else if (kcategorizedview_visualregionforselection_callback != nullptr) {
+        }
+        auto visualregionforselection_cb = kcategorizedview_visualregionforselection_callback;
+        if (visualregionforselection_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
 
-            QRegion* callback_ret = kcategorizedview_visualregionforselection_callback(this, cbval1);
+            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedView::visualRegionForSelection(selection);
         }
+        return KCategorizedView::visualRegionForSelection(selection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,8 +1306,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_selectedindexes_isbase) {
             kcategorizedview_selectedindexes_isbase = false;
             return KCategorizedView::selectedIndexes();
-        } else if (kcategorizedview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = kcategorizedview_selectedindexes_callback();
+        }
+        auto selectedindexes_cb = kcategorizedview_selectedindexes_callback;
+        if (selectedindexes_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1351,9 +1318,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return KCategorizedView::selectedIndexes();
         }
+        return KCategorizedView::selectedIndexes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1361,16 +1327,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_isindexhidden_isbase) {
             kcategorizedview_isindexhidden_isbase = false;
             return KCategorizedView::isIndexHidden(index);
-        } else if (kcategorizedview_isindexhidden_callback != nullptr) {
+        }
+        auto isindexhidden_cb = kcategorizedview_isindexhidden_callback;
+        if (isindexhidden_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = kcategorizedview_isindexhidden_callback(this, cbval1);
+            bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::isIndexHidden(index);
         }
+        return KCategorizedView::isIndexHidden(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1378,7 +1345,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_selectionchanged_isbase) {
             kcategorizedview_selectionchanged_isbase = false;
             KCategorizedView::selectionChanged(selected, deselected);
-        } else if (kcategorizedview_selectionchanged_callback != nullptr) {
+            return;
+        }
+        auto selectionchanged_cb = kcategorizedview_selectionchanged_callback;
+        if (selectionchanged_cb) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
@@ -1386,10 +1356,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
 
-            kcategorizedview_selectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::selectionChanged(selected, deselected);
+            selectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::selectionChanged(selected, deselected);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1397,12 +1367,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_viewportsizehint_isbase) {
             kcategorizedview_viewportsizehint_isbase = false;
             return KCategorizedView::viewportSizeHint();
-        } else if (kcategorizedview_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = kcategorizedview_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCategorizedView::viewportSizeHint();
         }
+        auto viewportsizehint_cb = kcategorizedview_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return KCategorizedView::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1410,13 +1381,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setselectionmodel_isbase) {
             kcategorizedview_setselectionmodel_isbase = false;
             KCategorizedView::setSelectionModel(selectionModel);
-        } else if (kcategorizedview_setselectionmodel_callback != nullptr) {
+            return;
+        }
+        auto setselectionmodel_cb = kcategorizedview_setselectionmodel_callback;
+        if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
 
-            kcategorizedview_setselectionmodel_callback(this, cbval1);
-        } else {
-            KCategorizedView::setSelectionModel(selectionModel);
+            setselectionmodel_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setSelectionModel(selectionModel);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1424,7 +1398,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_keyboardsearch_isbase) {
             kcategorizedview_keyboardsearch_isbase = false;
             KCategorizedView::keyboardSearch(search);
-        } else if (kcategorizedview_keyboardsearch_callback != nullptr) {
+            return;
+        }
+        auto keyboardsearch_cb = kcategorizedview_keyboardsearch_callback;
+        if (keyboardsearch_cb) {
             const QString search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1434,11 +1411,11 @@ class VirtualKCategorizedView final : public KCategorizedView {
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
 
-            kcategorizedview_keyboardsearch_callback(this, cbval1);
+            keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
-        } else {
-            KCategorizedView::keyboardSearch(search);
+            return;
         }
+        KCategorizedView::keyboardSearch(search);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1446,14 +1423,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_sizehintforrow_isbase) {
             kcategorizedview_sizehintforrow_isbase = false;
             return KCategorizedView::sizeHintForRow(row);
-        } else if (kcategorizedview_sizehintforrow_callback != nullptr) {
+        }
+        auto sizehintforrow_cb = kcategorizedview_sizehintforrow_callback;
+        if (sizehintforrow_cb) {
             int cbval1 = row;
 
-            int callback_ret = kcategorizedview_sizehintforrow_callback(this, cbval1);
+            int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::sizeHintForRow(row);
         }
+        return KCategorizedView::sizeHintForRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,14 +1439,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_sizehintforcolumn_isbase) {
             kcategorizedview_sizehintforcolumn_isbase = false;
             return KCategorizedView::sizeHintForColumn(column);
-        } else if (kcategorizedview_sizehintforcolumn_callback != nullptr) {
+        }
+        auto sizehintforcolumn_cb = kcategorizedview_sizehintforcolumn_callback;
+        if (sizehintforcolumn_cb) {
             int cbval1 = column;
 
-            int callback_ret = kcategorizedview_sizehintforcolumn_callback(this, cbval1);
+            int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::sizeHintForColumn(column);
         }
+        return KCategorizedView::sizeHintForColumn(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1476,16 +1455,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_itemdelegateforindex_isbase) {
             kcategorizedview_itemdelegateforindex_isbase = false;
             return KCategorizedView::itemDelegateForIndex(index);
-        } else if (kcategorizedview_itemdelegateforindex_callback != nullptr) {
+        }
+        auto itemdelegateforindex_cb = kcategorizedview_itemdelegateforindex_callback;
+        if (itemdelegateforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QAbstractItemDelegate* callback_ret = kcategorizedview_itemdelegateforindex_callback(this, cbval1);
+            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::itemDelegateForIndex(index);
         }
+        return KCategorizedView::itemDelegateForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1493,14 +1473,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_inputmethodquery_isbase) {
             kcategorizedview_inputmethodquery_isbase = false;
             return KCategorizedView::inputMethodQuery(query);
-        } else if (kcategorizedview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcategorizedview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
 
-            QVariant* callback_ret = kcategorizedview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedView::inputMethodQuery(query);
         }
+        return KCategorizedView::inputMethodQuery(query);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,11 +1489,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_selectall_isbase) {
             kcategorizedview_selectall_isbase = false;
             KCategorizedView::selectAll();
-        } else if (kcategorizedview_selectall_callback != nullptr) {
-            kcategorizedview_selectall_callback();
-        } else {
-            KCategorizedView::selectAll();
+            return;
         }
+        auto selectall_cb = kcategorizedview_selectall_callback;
+        if (selectall_cb) {
+            selectall_cb();
+            return;
+        }
+        KCategorizedView::selectAll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1520,11 +1504,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_updateeditordata_isbase) {
             kcategorizedview_updateeditordata_isbase = false;
             KCategorizedView::updateEditorData();
-        } else if (kcategorizedview_updateeditordata_callback != nullptr) {
-            kcategorizedview_updateeditordata_callback();
-        } else {
-            KCategorizedView::updateEditorData();
+            return;
         }
+        auto updateeditordata_cb = kcategorizedview_updateeditordata_callback;
+        if (updateeditordata_cb) {
+            updateeditordata_cb();
+            return;
+        }
+        KCategorizedView::updateEditorData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1532,11 +1519,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_updateeditorgeometries_isbase) {
             kcategorizedview_updateeditorgeometries_isbase = false;
             KCategorizedView::updateEditorGeometries();
-        } else if (kcategorizedview_updateeditorgeometries_callback != nullptr) {
-            kcategorizedview_updateeditorgeometries_callback();
-        } else {
-            KCategorizedView::updateEditorGeometries();
+            return;
         }
+        auto updateeditorgeometries_cb = kcategorizedview_updateeditorgeometries_callback;
+        if (updateeditorgeometries_cb) {
+            updateeditorgeometries_cb();
+            return;
+        }
+        KCategorizedView::updateEditorGeometries();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1544,13 +1534,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_verticalscrollbaraction_isbase) {
             kcategorizedview_verticalscrollbaraction_isbase = false;
             KCategorizedView::verticalScrollbarAction(action);
-        } else if (kcategorizedview_verticalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbaraction_cb = kcategorizedview_verticalscrollbaraction_callback;
+        if (verticalscrollbaraction_cb) {
             int cbval1 = action;
 
-            kcategorizedview_verticalscrollbaraction_callback(this, cbval1);
-        } else {
-            KCategorizedView::verticalScrollbarAction(action);
+            verticalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::verticalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1558,13 +1551,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_horizontalscrollbaraction_isbase) {
             kcategorizedview_horizontalscrollbaraction_isbase = false;
             KCategorizedView::horizontalScrollbarAction(action);
-        } else if (kcategorizedview_horizontalscrollbaraction_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbaraction_cb = kcategorizedview_horizontalscrollbaraction_callback;
+        if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
 
-            kcategorizedview_horizontalscrollbaraction_callback(this, cbval1);
-        } else {
-            KCategorizedView::horizontalScrollbarAction(action);
+            horizontalscrollbaraction_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::horizontalScrollbarAction(action);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1572,13 +1568,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_verticalscrollbarvaluechanged_isbase) {
             kcategorizedview_verticalscrollbarvaluechanged_isbase = false;
             KCategorizedView::verticalScrollbarValueChanged(value);
-        } else if (kcategorizedview_verticalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto verticalscrollbarvaluechanged_cb = kcategorizedview_verticalscrollbarvaluechanged_callback;
+        if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            kcategorizedview_verticalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            KCategorizedView::verticalScrollbarValueChanged(value);
+            verticalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::verticalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1586,13 +1585,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_horizontalscrollbarvaluechanged_isbase) {
             kcategorizedview_horizontalscrollbarvaluechanged_isbase = false;
             KCategorizedView::horizontalScrollbarValueChanged(value);
-        } else if (kcategorizedview_horizontalscrollbarvaluechanged_callback != nullptr) {
+            return;
+        }
+        auto horizontalscrollbarvaluechanged_cb = kcategorizedview_horizontalscrollbarvaluechanged_callback;
+        if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
 
-            kcategorizedview_horizontalscrollbarvaluechanged_callback(this, cbval1);
-        } else {
-            KCategorizedView::horizontalScrollbarValueChanged(value);
+            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::horizontalScrollbarValueChanged(value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1600,14 +1602,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_closeeditor_isbase) {
             kcategorizedview_closeeditor_isbase = false;
             KCategorizedView::closeEditor(editor, hint);
-        } else if (kcategorizedview_closeeditor_callback != nullptr) {
+            return;
+        }
+        auto closeeditor_cb = kcategorizedview_closeeditor_callback;
+        if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
 
-            kcategorizedview_closeeditor_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::closeEditor(editor, hint);
+            closeeditor_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::closeEditor(editor, hint);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1615,13 +1620,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_commitdata_isbase) {
             kcategorizedview_commitdata_isbase = false;
             KCategorizedView::commitData(editor);
-        } else if (kcategorizedview_commitdata_callback != nullptr) {
+            return;
+        }
+        auto commitdata_cb = kcategorizedview_commitdata_callback;
+        if (commitdata_cb) {
             QWidget* cbval1 = editor;
 
-            kcategorizedview_commitdata_callback(this, cbval1);
-        } else {
-            KCategorizedView::commitData(editor);
+            commitdata_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::commitData(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1629,13 +1637,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_editordestroyed_isbase) {
             kcategorizedview_editordestroyed_isbase = false;
             KCategorizedView::editorDestroyed(editor);
-        } else if (kcategorizedview_editordestroyed_callback != nullptr) {
+            return;
+        }
+        auto editordestroyed_cb = kcategorizedview_editordestroyed_callback;
+        if (editordestroyed_cb) {
             QObject* cbval1 = editor;
 
-            kcategorizedview_editordestroyed_callback(this, cbval1);
-        } else {
-            KCategorizedView::editorDestroyed(editor);
+            editordestroyed_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::editorDestroyed(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1643,18 +1654,19 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_edit2_isbase) {
             kcategorizedview_edit2_isbase = false;
             return KCategorizedView::edit(index, trigger, event);
-        } else if (kcategorizedview_edit2_callback != nullptr) {
+        }
+        auto edit2_cb = kcategorizedview_edit2_callback;
+        if (edit2_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
 
-            bool callback_ret = kcategorizedview_edit2_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return KCategorizedView::edit(index, trigger, event);
         }
+        return KCategorizedView::edit(index, trigger, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1662,17 +1674,18 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_selectioncommand_isbase) {
             kcategorizedview_selectioncommand_isbase = false;
             return KCategorizedView::selectionCommand(index, event);
-        } else if (kcategorizedview_selectioncommand_callback != nullptr) {
+        }
+        auto selectioncommand_cb = kcategorizedview_selectioncommand_callback;
+        if (selectioncommand_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
 
-            int callback_ret = kcategorizedview_selectioncommand_callback(this, cbval1, cbval2);
+            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
-        } else {
-            return KCategorizedView::selectionCommand(index, event);
         }
+        return KCategorizedView::selectionCommand(index, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1680,14 +1693,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_focusnextprevchild_isbase) {
             kcategorizedview_focusnextprevchild_isbase = false;
             return KCategorizedView::focusNextPrevChild(next);
-        } else if (kcategorizedview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcategorizedview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcategorizedview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::focusNextPrevChild(next);
         }
+        return KCategorizedView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1695,14 +1709,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_viewportevent_isbase) {
             kcategorizedview_viewportevent_isbase = false;
             return KCategorizedView::viewportEvent(event);
-        } else if (kcategorizedview_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = kcategorizedview_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcategorizedview_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::viewportEvent(event);
         }
+        return KCategorizedView::viewportEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1710,13 +1725,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_mousedoubleclickevent_isbase) {
             kcategorizedview_mousedoubleclickevent_isbase = false;
             KCategorizedView::mouseDoubleClickEvent(event);
-        } else if (kcategorizedview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcategorizedview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcategorizedview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1724,13 +1742,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_focusinevent_isbase) {
             kcategorizedview_focusinevent_isbase = false;
             KCategorizedView::focusInEvent(event);
-        } else if (kcategorizedview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcategorizedview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcategorizedview_focusinevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1738,13 +1759,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_focusoutevent_isbase) {
             kcategorizedview_focusoutevent_isbase = false;
             KCategorizedView::focusOutEvent(event);
-        } else if (kcategorizedview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcategorizedview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcategorizedview_focusoutevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1752,13 +1776,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_keypressevent_isbase) {
             kcategorizedview_keypressevent_isbase = false;
             KCategorizedView::keyPressEvent(event);
-        } else if (kcategorizedview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcategorizedview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcategorizedview_keypressevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1766,13 +1793,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_inputmethodevent_isbase) {
             kcategorizedview_inputmethodevent_isbase = false;
             KCategorizedView::inputMethodEvent(event);
-        } else if (kcategorizedview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcategorizedview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
 
-            kcategorizedview_inputmethodevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::inputMethodEvent(event);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::inputMethodEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1780,15 +1810,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_eventfilter_isbase) {
             kcategorizedview_eventfilter_isbase = false;
             return KCategorizedView::eventFilter(object, event);
-        } else if (kcategorizedview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcategorizedview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcategorizedview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCategorizedView::eventFilter(object, event);
         }
+        return KCategorizedView::eventFilter(object, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1796,12 +1827,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_minimumsizehint_isbase) {
             kcategorizedview_minimumsizehint_isbase = false;
             return KCategorizedView::minimumSizeHint();
-        } else if (kcategorizedview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcategorizedview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCategorizedView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcategorizedview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KCategorizedView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1809,12 +1841,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_sizehint_isbase) {
             kcategorizedview_sizehint_isbase = false;
             return KCategorizedView::sizeHint();
-        } else if (kcategorizedview_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcategorizedview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCategorizedView::sizeHint();
         }
+        auto sizehint_cb = kcategorizedview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KCategorizedView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1822,13 +1855,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setupviewport_isbase) {
             kcategorizedview_setupviewport_isbase = false;
             KCategorizedView::setupViewport(viewport);
-        } else if (kcategorizedview_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = kcategorizedview_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            kcategorizedview_setupviewport_callback(this, cbval1);
-        } else {
-            KCategorizedView::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1836,13 +1872,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_contextmenuevent_isbase) {
             kcategorizedview_contextmenuevent_isbase = false;
             KCategorizedView::contextMenuEvent(param1);
-        } else if (kcategorizedview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcategorizedview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kcategorizedview_contextmenuevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1850,13 +1889,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_changeevent_isbase) {
             kcategorizedview_changeevent_isbase = false;
             KCategorizedView::changeEvent(param1);
-        } else if (kcategorizedview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcategorizedview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcategorizedview_changeevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1864,13 +1906,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_initstyleoption_isbase) {
             kcategorizedview_initstyleoption_isbase = false;
             KCategorizedView::initStyleOption(option);
-        } else if (kcategorizedview_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kcategorizedview_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kcategorizedview_initstyleoption_callback(this, cbval1);
-        } else {
-            KCategorizedView::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1878,12 +1923,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_devtype_isbase) {
             kcategorizedview_devtype_isbase = false;
             return KCategorizedView::devType();
-        } else if (kcategorizedview_devtype_callback != nullptr) {
-            int callback_ret = kcategorizedview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::devType();
         }
+        auto devtype_cb = kcategorizedview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategorizedView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1891,13 +1937,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setvisible_isbase) {
             kcategorizedview_setvisible_isbase = false;
             KCategorizedView::setVisible(visible);
-        } else if (kcategorizedview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcategorizedview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcategorizedview_setvisible_callback(this, cbval1);
-        } else {
-            KCategorizedView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1905,14 +1954,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_heightforwidth_isbase) {
             kcategorizedview_heightforwidth_isbase = false;
             return KCategorizedView::heightForWidth(param1);
-        } else if (kcategorizedview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcategorizedview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcategorizedview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::heightForWidth(param1);
         }
+        return KCategorizedView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1920,12 +1970,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_hasheightforwidth_isbase) {
             kcategorizedview_hasheightforwidth_isbase = false;
             return KCategorizedView::hasHeightForWidth();
-        } else if (kcategorizedview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcategorizedview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcategorizedview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1933,12 +1984,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_paintengine_isbase) {
             kcategorizedview_paintengine_isbase = false;
             return KCategorizedView::paintEngine();
-        } else if (kcategorizedview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcategorizedview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::paintEngine();
         }
+        auto paintengine_cb = kcategorizedview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1946,13 +1998,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_keyreleaseevent_isbase) {
             kcategorizedview_keyreleaseevent_isbase = false;
             KCategorizedView::keyReleaseEvent(event);
-        } else if (kcategorizedview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcategorizedview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcategorizedview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1960,13 +2015,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_enterevent_isbase) {
             kcategorizedview_enterevent_isbase = false;
             KCategorizedView::enterEvent(event);
-        } else if (kcategorizedview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcategorizedview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcategorizedview_enterevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1974,13 +2032,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_moveevent_isbase) {
             kcategorizedview_moveevent_isbase = false;
             KCategorizedView::moveEvent(event);
-        } else if (kcategorizedview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcategorizedview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcategorizedview_moveevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1988,13 +2049,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_closeevent_isbase) {
             kcategorizedview_closeevent_isbase = false;
             KCategorizedView::closeEvent(event);
-        } else if (kcategorizedview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcategorizedview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcategorizedview_closeevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2002,13 +2066,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_tabletevent_isbase) {
             kcategorizedview_tabletevent_isbase = false;
             KCategorizedView::tabletEvent(event);
-        } else if (kcategorizedview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcategorizedview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcategorizedview_tabletevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2016,13 +2083,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_actionevent_isbase) {
             kcategorizedview_actionevent_isbase = false;
             KCategorizedView::actionEvent(event);
-        } else if (kcategorizedview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcategorizedview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcategorizedview_actionevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2030,13 +2100,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_showevent_isbase) {
             kcategorizedview_showevent_isbase = false;
             KCategorizedView::showEvent(event);
-        } else if (kcategorizedview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcategorizedview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcategorizedview_showevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2044,13 +2117,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_hideevent_isbase) {
             kcategorizedview_hideevent_isbase = false;
             KCategorizedView::hideEvent(event);
-        } else if (kcategorizedview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcategorizedview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcategorizedview_hideevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2058,7 +2134,9 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_nativeevent_isbase) {
             kcategorizedview_nativeevent_isbase = false;
             return KCategorizedView::nativeEvent(eventType, message, result);
-        } else if (kcategorizedview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcategorizedview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2069,12 +2147,11 @@ class VirtualKCategorizedView final : public KCategorizedView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcategorizedview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KCategorizedView::nativeEvent(eventType, message, result);
         }
+        return KCategorizedView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2082,14 +2159,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_metric_isbase) {
             kcategorizedview_metric_isbase = false;
             return KCategorizedView::metric(param1);
-        } else if (kcategorizedview_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcategorizedview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcategorizedview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::metric(param1);
         }
+        return KCategorizedView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2097,13 +2175,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_initpainter_isbase) {
             kcategorizedview_initpainter_isbase = false;
             KCategorizedView::initPainter(painter);
-        } else if (kcategorizedview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcategorizedview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcategorizedview_initpainter_callback(this, cbval1);
-        } else {
-            KCategorizedView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2111,14 +2192,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_redirected_isbase) {
             kcategorizedview_redirected_isbase = false;
             return KCategorizedView::redirected(offset);
-        } else if (kcategorizedview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcategorizedview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcategorizedview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::redirected(offset);
         }
+        return KCategorizedView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2126,12 +2208,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_sharedpainter_isbase) {
             kcategorizedview_sharedpainter_isbase = false;
             return KCategorizedView::sharedPainter();
-        } else if (kcategorizedview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcategorizedview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::sharedPainter();
         }
+        auto sharedpainter_cb = kcategorizedview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2139,13 +2222,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_childevent_isbase) {
             kcategorizedview_childevent_isbase = false;
             KCategorizedView::childEvent(event);
-        } else if (kcategorizedview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcategorizedview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcategorizedview_childevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2153,13 +2239,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_customevent_isbase) {
             kcategorizedview_customevent_isbase = false;
             KCategorizedView::customEvent(event);
-        } else if (kcategorizedview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcategorizedview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcategorizedview_customevent_callback(this, cbval1);
-        } else {
-            KCategorizedView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2167,15 +2256,18 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_connectnotify_isbase) {
             kcategorizedview_connectnotify_isbase = false;
             KCategorizedView::connectNotify(signal);
-        } else if (kcategorizedview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcategorizedview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcategorizedview_connectnotify_callback(this, cbval1);
-        } else {
-            KCategorizedView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2183,15 +2275,18 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_disconnectnotify_isbase) {
             kcategorizedview_disconnectnotify_isbase = false;
             KCategorizedView::disconnectNotify(signal);
-        } else if (kcategorizedview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcategorizedview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcategorizedview_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCategorizedView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2199,14 +2294,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_resizecontents_isbase) {
             kcategorizedview_resizecontents_isbase = false;
             KCategorizedView::resizeContents(width, height);
-        } else if (kcategorizedview_resizecontents_callback != nullptr) {
+            return;
+        }
+        auto resizecontents_cb = kcategorizedview_resizecontents_callback;
+        if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
 
-            kcategorizedview_resizecontents_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::resizeContents(width, height);
+            resizecontents_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::resizeContents(width, height);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2214,12 +2312,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_contentssize_isbase) {
             kcategorizedview_contentssize_isbase = false;
             return KCategorizedView::contentsSize();
-        } else if (kcategorizedview_contentssize_callback != nullptr) {
-            QSize* callback_ret = kcategorizedview_contentssize_callback();
-            return *callback_ret;
-        } else {
-            return KCategorizedView::contentsSize();
         }
+        auto contentssize_cb = kcategorizedview_contentssize_callback;
+        if (contentssize_cb) {
+            QSize* callback_ret = contentssize_cb();
+            return *callback_ret;
+        }
+        return KCategorizedView::contentsSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2227,16 +2326,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_rectforindex_isbase) {
             kcategorizedview_rectforindex_isbase = false;
             return KCategorizedView::rectForIndex(index);
-        } else if (kcategorizedview_rectforindex_callback != nullptr) {
+        }
+        auto rectforindex_cb = kcategorizedview_rectforindex_callback;
+        if (rectforindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QRect* callback_ret = kcategorizedview_rectforindex_callback(this, cbval1);
+            QRect* callback_ret = rectforindex_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCategorizedView::rectForIndex(index);
         }
+        return KCategorizedView::rectForIndex(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2244,7 +2344,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setpositionforindex_isbase) {
             kcategorizedview_setpositionforindex_isbase = false;
             KCategorizedView::setPositionForIndex(position, index);
-        } else if (kcategorizedview_setpositionforindex_callback != nullptr) {
+            return;
+        }
+        auto setpositionforindex_cb = kcategorizedview_setpositionforindex_callback;
+        if (setpositionforindex_cb) {
             const QPoint& position_ret = position;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
@@ -2252,10 +2355,10 @@ class VirtualKCategorizedView final : public KCategorizedView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
 
-            kcategorizedview_setpositionforindex_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::setPositionForIndex(position, index);
+            setpositionforindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::setPositionForIndex(position, index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2263,12 +2366,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_state_isbase) {
             kcategorizedview_state_isbase = false;
             return KCategorizedView::state();
-        } else if (kcategorizedview_state_callback != nullptr) {
-            int callback_ret = kcategorizedview_state_callback();
-            return static_cast<VirtualKCategorizedView::State>(callback_ret);
-        } else {
-            return KCategorizedView::state();
         }
+        auto state_cb = kcategorizedview_state_callback;
+        if (state_cb) {
+            int callback_ret = state_cb();
+            return static_cast<VirtualKCategorizedView::State>(callback_ret);
+        }
+        return KCategorizedView::state();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2276,13 +2380,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setstate_isbase) {
             kcategorizedview_setstate_isbase = false;
             KCategorizedView::setState(state);
-        } else if (kcategorizedview_setstate_callback != nullptr) {
+            return;
+        }
+        auto setstate_cb = kcategorizedview_setstate_callback;
+        if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            kcategorizedview_setstate_callback(this, cbval1);
-        } else {
-            KCategorizedView::setState(state);
+            setstate_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2290,11 +2397,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_scheduledelayeditemslayout_isbase) {
             kcategorizedview_scheduledelayeditemslayout_isbase = false;
             KCategorizedView::scheduleDelayedItemsLayout();
-        } else if (kcategorizedview_scheduledelayeditemslayout_callback != nullptr) {
-            kcategorizedview_scheduledelayeditemslayout_callback();
-        } else {
-            KCategorizedView::scheduleDelayedItemsLayout();
+            return;
         }
+        auto scheduledelayeditemslayout_cb = kcategorizedview_scheduledelayeditemslayout_callback;
+        if (scheduledelayeditemslayout_cb) {
+            scheduledelayeditemslayout_cb();
+            return;
+        }
+        KCategorizedView::scheduleDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2302,11 +2412,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_executedelayeditemslayout_isbase) {
             kcategorizedview_executedelayeditemslayout_isbase = false;
             KCategorizedView::executeDelayedItemsLayout();
-        } else if (kcategorizedview_executedelayeditemslayout_callback != nullptr) {
-            kcategorizedview_executedelayeditemslayout_callback();
-        } else {
-            KCategorizedView::executeDelayedItemsLayout();
+            return;
         }
+        auto executedelayeditemslayout_cb = kcategorizedview_executedelayeditemslayout_callback;
+        if (executedelayeditemslayout_cb) {
+            executedelayeditemslayout_cb();
+            return;
+        }
+        KCategorizedView::executeDelayedItemsLayout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2314,15 +2427,18 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setdirtyregion_isbase) {
             kcategorizedview_setdirtyregion_isbase = false;
             KCategorizedView::setDirtyRegion(region);
-        } else if (kcategorizedview_setdirtyregion_callback != nullptr) {
+            return;
+        }
+        auto setdirtyregion_cb = kcategorizedview_setdirtyregion_callback;
+        if (setdirtyregion_cb) {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
 
-            kcategorizedview_setdirtyregion_callback(this, cbval1);
-        } else {
-            KCategorizedView::setDirtyRegion(region);
+            setdirtyregion_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::setDirtyRegion(region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2330,14 +2446,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_scrolldirtyregion_isbase) {
             kcategorizedview_scrolldirtyregion_isbase = false;
             KCategorizedView::scrollDirtyRegion(dx, dy);
-        } else if (kcategorizedview_scrolldirtyregion_callback != nullptr) {
+            return;
+        }
+        auto scrolldirtyregion_cb = kcategorizedview_scrolldirtyregion_callback;
+        if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            kcategorizedview_scrolldirtyregion_callback(this, cbval1, cbval2);
-        } else {
-            KCategorizedView::scrollDirtyRegion(dx, dy);
+            scrolldirtyregion_cb(this, cbval1, cbval2);
+            return;
         }
+        KCategorizedView::scrollDirtyRegion(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2345,12 +2464,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_dirtyregionoffset_isbase) {
             kcategorizedview_dirtyregionoffset_isbase = false;
             return KCategorizedView::dirtyRegionOffset();
-        } else if (kcategorizedview_dirtyregionoffset_callback != nullptr) {
-            QPoint* callback_ret = kcategorizedview_dirtyregionoffset_callback();
-            return *callback_ret;
-        } else {
-            return KCategorizedView::dirtyRegionOffset();
         }
+        auto dirtyregionoffset_cb = kcategorizedview_dirtyregionoffset_callback;
+        if (dirtyregionoffset_cb) {
+            QPoint* callback_ret = dirtyregionoffset_cb();
+            return *callback_ret;
+        }
+        return KCategorizedView::dirtyRegionOffset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2358,11 +2478,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_startautoscroll_isbase) {
             kcategorizedview_startautoscroll_isbase = false;
             KCategorizedView::startAutoScroll();
-        } else if (kcategorizedview_startautoscroll_callback != nullptr) {
-            kcategorizedview_startautoscroll_callback();
-        } else {
-            KCategorizedView::startAutoScroll();
+            return;
         }
+        auto startautoscroll_cb = kcategorizedview_startautoscroll_callback;
+        if (startautoscroll_cb) {
+            startautoscroll_cb();
+            return;
+        }
+        KCategorizedView::startAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2370,11 +2493,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_stopautoscroll_isbase) {
             kcategorizedview_stopautoscroll_isbase = false;
             KCategorizedView::stopAutoScroll();
-        } else if (kcategorizedview_stopautoscroll_callback != nullptr) {
-            kcategorizedview_stopautoscroll_callback();
-        } else {
-            KCategorizedView::stopAutoScroll();
+            return;
         }
+        auto stopautoscroll_cb = kcategorizedview_stopautoscroll_callback;
+        if (stopautoscroll_cb) {
+            stopautoscroll_cb();
+            return;
+        }
+        KCategorizedView::stopAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2382,11 +2508,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_doautoscroll_isbase) {
             kcategorizedview_doautoscroll_isbase = false;
             KCategorizedView::doAutoScroll();
-        } else if (kcategorizedview_doautoscroll_callback != nullptr) {
-            kcategorizedview_doautoscroll_callback();
-        } else {
-            KCategorizedView::doAutoScroll();
+            return;
         }
+        auto doautoscroll_cb = kcategorizedview_doautoscroll_callback;
+        if (doautoscroll_cb) {
+            doautoscroll_cb();
+            return;
+        }
+        KCategorizedView::doAutoScroll();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2394,12 +2523,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_dropindicatorposition_isbase) {
             kcategorizedview_dropindicatorposition_isbase = false;
             return KCategorizedView::dropIndicatorPosition();
-        } else if (kcategorizedview_dropindicatorposition_callback != nullptr) {
-            int callback_ret = kcategorizedview_dropindicatorposition_callback();
-            return static_cast<VirtualKCategorizedView::DropIndicatorPosition>(callback_ret);
-        } else {
-            return KCategorizedView::dropIndicatorPosition();
         }
+        auto dropindicatorposition_cb = kcategorizedview_dropindicatorposition_callback;
+        if (dropindicatorposition_cb) {
+            int callback_ret = dropindicatorposition_cb();
+            return static_cast<VirtualKCategorizedView::DropIndicatorPosition>(callback_ret);
+        }
+        return KCategorizedView::dropIndicatorPosition();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2407,16 +2537,19 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_setviewportmargins_isbase) {
             kcategorizedview_setviewportmargins_isbase = false;
             KCategorizedView::setViewportMargins(left, top, right, bottom);
-        } else if (kcategorizedview_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = kcategorizedview_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            kcategorizedview_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KCategorizedView::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KCategorizedView::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2424,12 +2557,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_viewportmargins_isbase) {
             kcategorizedview_viewportmargins_isbase = false;
             return KCategorizedView::viewportMargins();
-        } else if (kcategorizedview_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = kcategorizedview_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return KCategorizedView::viewportMargins();
         }
+        auto viewportmargins_cb = kcategorizedview_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return KCategorizedView::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2437,13 +2571,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_drawframe_isbase) {
             kcategorizedview_drawframe_isbase = false;
             KCategorizedView::drawFrame(param1);
-        } else if (kcategorizedview_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kcategorizedview_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kcategorizedview_drawframe_callback(this, cbval1);
-        } else {
-            KCategorizedView::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KCategorizedView::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2451,11 +2588,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_updatemicrofocus_isbase) {
             kcategorizedview_updatemicrofocus_isbase = false;
             KCategorizedView::updateMicroFocus();
-        } else if (kcategorizedview_updatemicrofocus_callback != nullptr) {
-            kcategorizedview_updatemicrofocus_callback();
-        } else {
-            KCategorizedView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcategorizedview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KCategorizedView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2463,11 +2603,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_create_isbase) {
             kcategorizedview_create_isbase = false;
             KCategorizedView::create();
-        } else if (kcategorizedview_create_callback != nullptr) {
-            kcategorizedview_create_callback();
-        } else {
-            KCategorizedView::create();
+            return;
         }
+        auto create_cb = kcategorizedview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KCategorizedView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2475,11 +2618,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_destroy_isbase) {
             kcategorizedview_destroy_isbase = false;
             KCategorizedView::destroy();
-        } else if (kcategorizedview_destroy_callback != nullptr) {
-            kcategorizedview_destroy_callback();
-        } else {
-            KCategorizedView::destroy();
+            return;
         }
+        auto destroy_cb = kcategorizedview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KCategorizedView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2487,12 +2633,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_focusnextchild_isbase) {
             kcategorizedview_focusnextchild_isbase = false;
             return KCategorizedView::focusNextChild();
-        } else if (kcategorizedview_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcategorizedview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::focusNextChild();
         }
+        auto focusnextchild_cb = kcategorizedview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2500,12 +2647,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_focuspreviouschild_isbase) {
             kcategorizedview_focuspreviouschild_isbase = false;
             return KCategorizedView::focusPreviousChild();
-        } else if (kcategorizedview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcategorizedview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcategorizedview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2513,12 +2661,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_sender_isbase) {
             kcategorizedview_sender_isbase = false;
             return KCategorizedView::sender();
-        } else if (kcategorizedview_sender_callback != nullptr) {
-            QObject* callback_ret = kcategorizedview_sender_callback();
-            return callback_ret;
-        } else {
-            return KCategorizedView::sender();
         }
+        auto sender_cb = kcategorizedview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCategorizedView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2526,12 +2675,13 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_sendersignalindex_isbase) {
             kcategorizedview_sendersignalindex_isbase = false;
             return KCategorizedView::senderSignalIndex();
-        } else if (kcategorizedview_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcategorizedview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcategorizedview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCategorizedView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2539,14 +2689,15 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_receivers_isbase) {
             kcategorizedview_receivers_isbase = false;
             return KCategorizedView::receivers(signal);
-        } else if (kcategorizedview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcategorizedview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcategorizedview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCategorizedView::receivers(signal);
         }
+        return KCategorizedView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2554,16 +2705,17 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_issignalconnected_isbase) {
             kcategorizedview_issignalconnected_isbase = false;
             return KCategorizedView::isSignalConnected(signal);
-        } else if (kcategorizedview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcategorizedview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcategorizedview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCategorizedView::isSignalConnected(signal);
         }
+        return KCategorizedView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2571,15 +2723,16 @@ class VirtualKCategorizedView final : public KCategorizedView {
         if (kcategorizedview_getdecodedmetricf_isbase) {
             kcategorizedview_getdecodedmetricf_isbase = false;
             return KCategorizedView::getDecodedMetricF(metricA, metricB);
-        } else if (kcategorizedview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcategorizedview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcategorizedview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KCategorizedView::getDecodedMetricF(metricA, metricB);
         }
+        return KCategorizedView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

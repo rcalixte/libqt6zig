@@ -29,10 +29,6 @@ class VirtualKTextEditorTextHintProvider : public KTextEditor::TextHintProvider 
   public:
     VirtualKTextEditorTextHintProvider() : KTextEditor::TextHintProvider() {};
 
-    ~VirtualKTextEditorTextHintProvider() {
-        ktexteditor__texthintprovider_texthint_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__TextHintProvider_TextHint_Callback(KTextEditor__TextHintProvider_TextHint_Callback cb) { ktexteditor__texthintprovider_texthint_callback = cb; }
 
@@ -41,18 +37,18 @@ class VirtualKTextEditorTextHintProvider : public KTextEditor::TextHintProvider 
 
     // Virtual method for C ABI access and custom callback
     virtual QString textHint(KTextEditor::View* view, const KTextEditor::Cursor& position) override {
-        if (ktexteditor__texthintprovider_texthint_callback != nullptr) {
+        auto texthint_cb = ktexteditor__texthintprovider_texthint_callback;
+        if (texthint_cb) {
             KTextEditor__View* cbval1 = view;
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval2 = const_cast<KTextEditor::Cursor*>(&position_ret);
 
-            const char* callback_ret = ktexteditor__texthintprovider_texthint_callback(this, cbval1, cbval2);
+            const char* callback_ret = texthint_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 

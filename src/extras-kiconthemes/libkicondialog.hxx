@@ -228,76 +228,6 @@ class VirtualKIconDialog final : public KIconDialog {
     VirtualKIconDialog(QWidget* parent) : KIconDialog(parent) {};
     VirtualKIconDialog() : KIconDialog() {};
 
-    ~VirtualKIconDialog() {
-        kicondialog_metaobject_callback = nullptr;
-        kicondialog_metacast_callback = nullptr;
-        kicondialog_metacall_callback = nullptr;
-        kicondialog_showevent_callback = nullptr;
-        kicondialog_setvisible_callback = nullptr;
-        kicondialog_sizehint_callback = nullptr;
-        kicondialog_minimumsizehint_callback = nullptr;
-        kicondialog_open_callback = nullptr;
-        kicondialog_exec_callback = nullptr;
-        kicondialog_done_callback = nullptr;
-        kicondialog_accept_callback = nullptr;
-        kicondialog_reject_callback = nullptr;
-        kicondialog_keypressevent_callback = nullptr;
-        kicondialog_closeevent_callback = nullptr;
-        kicondialog_resizeevent_callback = nullptr;
-        kicondialog_contextmenuevent_callback = nullptr;
-        kicondialog_eventfilter_callback = nullptr;
-        kicondialog_devtype_callback = nullptr;
-        kicondialog_heightforwidth_callback = nullptr;
-        kicondialog_hasheightforwidth_callback = nullptr;
-        kicondialog_paintengine_callback = nullptr;
-        kicondialog_event_callback = nullptr;
-        kicondialog_mousepressevent_callback = nullptr;
-        kicondialog_mousereleaseevent_callback = nullptr;
-        kicondialog_mousedoubleclickevent_callback = nullptr;
-        kicondialog_mousemoveevent_callback = nullptr;
-        kicondialog_wheelevent_callback = nullptr;
-        kicondialog_keyreleaseevent_callback = nullptr;
-        kicondialog_focusinevent_callback = nullptr;
-        kicondialog_focusoutevent_callback = nullptr;
-        kicondialog_enterevent_callback = nullptr;
-        kicondialog_leaveevent_callback = nullptr;
-        kicondialog_paintevent_callback = nullptr;
-        kicondialog_moveevent_callback = nullptr;
-        kicondialog_tabletevent_callback = nullptr;
-        kicondialog_actionevent_callback = nullptr;
-        kicondialog_dragenterevent_callback = nullptr;
-        kicondialog_dragmoveevent_callback = nullptr;
-        kicondialog_dragleaveevent_callback = nullptr;
-        kicondialog_dropevent_callback = nullptr;
-        kicondialog_hideevent_callback = nullptr;
-        kicondialog_nativeevent_callback = nullptr;
-        kicondialog_changeevent_callback = nullptr;
-        kicondialog_metric_callback = nullptr;
-        kicondialog_initpainter_callback = nullptr;
-        kicondialog_redirected_callback = nullptr;
-        kicondialog_sharedpainter_callback = nullptr;
-        kicondialog_inputmethodevent_callback = nullptr;
-        kicondialog_inputmethodquery_callback = nullptr;
-        kicondialog_focusnextprevchild_callback = nullptr;
-        kicondialog_timerevent_callback = nullptr;
-        kicondialog_childevent_callback = nullptr;
-        kicondialog_customevent_callback = nullptr;
-        kicondialog_connectnotify_callback = nullptr;
-        kicondialog_disconnectnotify_callback = nullptr;
-        kicondialog_slotok_callback = nullptr;
-        kicondialog_adjustposition_callback = nullptr;
-        kicondialog_updatemicrofocus_callback = nullptr;
-        kicondialog_create_callback = nullptr;
-        kicondialog_destroy_callback = nullptr;
-        kicondialog_focusnextchild_callback = nullptr;
-        kicondialog_focuspreviouschild_callback = nullptr;
-        kicondialog_sender_callback = nullptr;
-        kicondialog_sendersignalindex_callback = nullptr;
-        kicondialog_receivers_callback = nullptr;
-        kicondialog_issignalconnected_callback = nullptr;
-        kicondialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKIconDialog_MetaObject_Callback(KIconDialog_MetaObject_Callback cb) { kicondialog_metaobject_callback = cb; }
     inline void setKIconDialog_Metacast_Callback(KIconDialog_Metacast_Callback cb) { kicondialog_metacast_callback = cb; }
@@ -441,12 +371,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_metaobject_isbase) {
             kicondialog_metaobject_isbase = false;
             return KIconDialog::metaObject();
-        } else if (kicondialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kicondialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::metaObject();
         }
+        auto metaobject_cb = kicondialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KIconDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,14 +385,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_metacast_isbase) {
             kicondialog_metacast_isbase = false;
             return KIconDialog::qt_metacast(param1);
-        } else if (kicondialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kicondialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kicondialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconDialog::qt_metacast(param1);
         }
+        return KIconDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,16 +401,17 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_metacall_isbase) {
             kicondialog_metacall_isbase = false;
             return KIconDialog::qt_metacall(param1, param2, param3);
-        } else if (kicondialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kicondialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kicondialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::qt_metacall(param1, param2, param3);
         }
+        return KIconDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,13 +419,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_showevent_isbase) {
             kicondialog_showevent_isbase = false;
             KIconDialog::showEvent(event);
-        } else if (kicondialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kicondialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kicondialog_showevent_callback(this, cbval1);
-        } else {
-            KIconDialog::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,13 +436,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_setvisible_isbase) {
             kicondialog_setvisible_isbase = false;
             KIconDialog::setVisible(visible);
-        } else if (kicondialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kicondialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kicondialog_setvisible_callback(this, cbval1);
-        } else {
-            KIconDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KIconDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,12 +453,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_sizehint_isbase) {
             kicondialog_sizehint_isbase = false;
             return KIconDialog::sizeHint();
-        } else if (kicondialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kicondialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KIconDialog::sizeHint();
         }
+        auto sizehint_cb = kicondialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KIconDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,12 +467,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_minimumsizehint_isbase) {
             kicondialog_minimumsizehint_isbase = false;
             return KIconDialog::minimumSizeHint();
-        } else if (kicondialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kicondialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KIconDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kicondialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KIconDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,11 +481,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_open_isbase) {
             kicondialog_open_isbase = false;
             KIconDialog::open();
-        } else if (kicondialog_open_callback != nullptr) {
-            kicondialog_open_callback();
-        } else {
-            KIconDialog::open();
+            return;
         }
+        auto open_cb = kicondialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KIconDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,12 +496,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_exec_isbase) {
             kicondialog_exec_isbase = false;
             return KIconDialog::exec();
-        } else if (kicondialog_exec_callback != nullptr) {
-            int callback_ret = kicondialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::exec();
         }
+        auto exec_cb = kicondialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIconDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,13 +510,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_done_isbase) {
             kicondialog_done_isbase = false;
             KIconDialog::done(param1);
-        } else if (kicondialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kicondialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kicondialog_done_callback(this, cbval1);
-        } else {
-            KIconDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KIconDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,11 +527,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_accept_isbase) {
             kicondialog_accept_isbase = false;
             KIconDialog::accept();
-        } else if (kicondialog_accept_callback != nullptr) {
-            kicondialog_accept_callback();
-        } else {
-            KIconDialog::accept();
+            return;
         }
+        auto accept_cb = kicondialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KIconDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,11 +542,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_reject_isbase) {
             kicondialog_reject_isbase = false;
             KIconDialog::reject();
-        } else if (kicondialog_reject_callback != nullptr) {
-            kicondialog_reject_callback();
-        } else {
-            KIconDialog::reject();
+            return;
         }
+        auto reject_cb = kicondialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KIconDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -603,13 +557,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_keypressevent_isbase) {
             kicondialog_keypressevent_isbase = false;
             KIconDialog::keyPressEvent(param1);
-        } else if (kicondialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kicondialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kicondialog_keypressevent_callback(this, cbval1);
-        } else {
-            KIconDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,13 +574,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_closeevent_isbase) {
             kicondialog_closeevent_isbase = false;
             KIconDialog::closeEvent(param1);
-        } else if (kicondialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kicondialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kicondialog_closeevent_callback(this, cbval1);
-        } else {
-            KIconDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,13 +591,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_resizeevent_isbase) {
             kicondialog_resizeevent_isbase = false;
             KIconDialog::resizeEvent(param1);
-        } else if (kicondialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kicondialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kicondialog_resizeevent_callback(this, cbval1);
-        } else {
-            KIconDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,13 +608,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_contextmenuevent_isbase) {
             kicondialog_contextmenuevent_isbase = false;
             KIconDialog::contextMenuEvent(param1);
-        } else if (kicondialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kicondialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kicondialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KIconDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -659,15 +625,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_eventfilter_isbase) {
             kicondialog_eventfilter_isbase = false;
             return KIconDialog::eventFilter(param1, param2);
-        } else if (kicondialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kicondialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kicondialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KIconDialog::eventFilter(param1, param2);
         }
+        return KIconDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,12 +642,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_devtype_isbase) {
             kicondialog_devtype_isbase = false;
             return KIconDialog::devType();
-        } else if (kicondialog_devtype_callback != nullptr) {
-            int callback_ret = kicondialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::devType();
         }
+        auto devtype_cb = kicondialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIconDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -688,14 +656,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_heightforwidth_isbase) {
             kicondialog_heightforwidth_isbase = false;
             return KIconDialog::heightForWidth(param1);
-        } else if (kicondialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kicondialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kicondialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::heightForWidth(param1);
         }
+        return KIconDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,12 +672,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_hasheightforwidth_isbase) {
             kicondialog_hasheightforwidth_isbase = false;
             return KIconDialog::hasHeightForWidth();
-        } else if (kicondialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kicondialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kicondialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KIconDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,12 +686,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_paintengine_isbase) {
             kicondialog_paintengine_isbase = false;
             return KIconDialog::paintEngine();
-        } else if (kicondialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kicondialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::paintEngine();
         }
+        auto paintengine_cb = kicondialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KIconDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,14 +700,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_event_isbase) {
             kicondialog_event_isbase = false;
             return KIconDialog::event(event);
-        } else if (kicondialog_event_callback != nullptr) {
+        }
+        auto event_cb = kicondialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kicondialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconDialog::event(event);
         }
+        return KIconDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +716,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_mousepressevent_isbase) {
             kicondialog_mousepressevent_isbase = false;
             KIconDialog::mousePressEvent(event);
-        } else if (kicondialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kicondialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kicondialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KIconDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,13 +733,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_mousereleaseevent_isbase) {
             kicondialog_mousereleaseevent_isbase = false;
             KIconDialog::mouseReleaseEvent(event);
-        } else if (kicondialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kicondialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kicondialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KIconDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -772,13 +750,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_mousedoubleclickevent_isbase) {
             kicondialog_mousedoubleclickevent_isbase = false;
             KIconDialog::mouseDoubleClickEvent(event);
-        } else if (kicondialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kicondialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kicondialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KIconDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -786,13 +767,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_mousemoveevent_isbase) {
             kicondialog_mousemoveevent_isbase = false;
             KIconDialog::mouseMoveEvent(event);
-        } else if (kicondialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kicondialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kicondialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KIconDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -800,13 +784,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_wheelevent_isbase) {
             kicondialog_wheelevent_isbase = false;
             KIconDialog::wheelEvent(event);
-        } else if (kicondialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kicondialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kicondialog_wheelevent_callback(this, cbval1);
-        } else {
-            KIconDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +801,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_keyreleaseevent_isbase) {
             kicondialog_keyreleaseevent_isbase = false;
             KIconDialog::keyReleaseEvent(event);
-        } else if (kicondialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kicondialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kicondialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KIconDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +818,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_focusinevent_isbase) {
             kicondialog_focusinevent_isbase = false;
             KIconDialog::focusInEvent(event);
-        } else if (kicondialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kicondialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kicondialog_focusinevent_callback(this, cbval1);
-        } else {
-            KIconDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +835,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_focusoutevent_isbase) {
             kicondialog_focusoutevent_isbase = false;
             KIconDialog::focusOutEvent(event);
-        } else if (kicondialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kicondialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kicondialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KIconDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +852,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_enterevent_isbase) {
             kicondialog_enterevent_isbase = false;
             KIconDialog::enterEvent(event);
-        } else if (kicondialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kicondialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kicondialog_enterevent_callback(this, cbval1);
-        } else {
-            KIconDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +869,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_leaveevent_isbase) {
             kicondialog_leaveevent_isbase = false;
             KIconDialog::leaveEvent(event);
-        } else if (kicondialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kicondialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kicondialog_leaveevent_callback(this, cbval1);
-        } else {
-            KIconDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +886,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_paintevent_isbase) {
             kicondialog_paintevent_isbase = false;
             KIconDialog::paintEvent(event);
-        } else if (kicondialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kicondialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kicondialog_paintevent_callback(this, cbval1);
-        } else {
-            KIconDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +903,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_moveevent_isbase) {
             kicondialog_moveevent_isbase = false;
             KIconDialog::moveEvent(event);
-        } else if (kicondialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kicondialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kicondialog_moveevent_callback(this, cbval1);
-        } else {
-            KIconDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +920,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_tabletevent_isbase) {
             kicondialog_tabletevent_isbase = false;
             KIconDialog::tabletEvent(event);
-        } else if (kicondialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kicondialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kicondialog_tabletevent_callback(this, cbval1);
-        } else {
-            KIconDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +937,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_actionevent_isbase) {
             kicondialog_actionevent_isbase = false;
             KIconDialog::actionEvent(event);
-        } else if (kicondialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kicondialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kicondialog_actionevent_callback(this, cbval1);
-        } else {
-            KIconDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +954,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_dragenterevent_isbase) {
             kicondialog_dragenterevent_isbase = false;
             KIconDialog::dragEnterEvent(event);
-        } else if (kicondialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kicondialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kicondialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KIconDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +971,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_dragmoveevent_isbase) {
             kicondialog_dragmoveevent_isbase = false;
             KIconDialog::dragMoveEvent(event);
-        } else if (kicondialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kicondialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kicondialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KIconDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +988,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_dragleaveevent_isbase) {
             kicondialog_dragleaveevent_isbase = false;
             KIconDialog::dragLeaveEvent(event);
-        } else if (kicondialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kicondialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kicondialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KIconDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1005,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_dropevent_isbase) {
             kicondialog_dropevent_isbase = false;
             KIconDialog::dropEvent(event);
-        } else if (kicondialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kicondialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kicondialog_dropevent_callback(this, cbval1);
-        } else {
-            KIconDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,13 +1022,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_hideevent_isbase) {
             kicondialog_hideevent_isbase = false;
             KIconDialog::hideEvent(event);
-        } else if (kicondialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kicondialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kicondialog_hideevent_callback(this, cbval1);
-        } else {
-            KIconDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1010,7 +1039,9 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_nativeevent_isbase) {
             kicondialog_nativeevent_isbase = false;
             return KIconDialog::nativeEvent(eventType, message, result);
-        } else if (kicondialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kicondialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1021,12 +1052,11 @@ class VirtualKIconDialog final : public KIconDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kicondialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KIconDialog::nativeEvent(eventType, message, result);
         }
+        return KIconDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1034,13 +1064,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_changeevent_isbase) {
             kicondialog_changeevent_isbase = false;
             KIconDialog::changeEvent(param1);
-        } else if (kicondialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kicondialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kicondialog_changeevent_callback(this, cbval1);
-        } else {
-            KIconDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1081,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_metric_isbase) {
             kicondialog_metric_isbase = false;
             return KIconDialog::metric(param1);
-        } else if (kicondialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kicondialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kicondialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::metric(param1);
         }
+        return KIconDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,13 +1097,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_initpainter_isbase) {
             kicondialog_initpainter_isbase = false;
             KIconDialog::initPainter(painter);
-        } else if (kicondialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kicondialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kicondialog_initpainter_callback(this, cbval1);
-        } else {
-            KIconDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KIconDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,14 +1114,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_redirected_isbase) {
             kicondialog_redirected_isbase = false;
             return KIconDialog::redirected(offset);
-        } else if (kicondialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kicondialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kicondialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconDialog::redirected(offset);
         }
+        return KIconDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,12 +1130,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_sharedpainter_isbase) {
             kicondialog_sharedpainter_isbase = false;
             return KIconDialog::sharedPainter();
-        } else if (kicondialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kicondialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kicondialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KIconDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1105,13 +1144,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_inputmethodevent_isbase) {
             kicondialog_inputmethodevent_isbase = false;
             KIconDialog::inputMethodEvent(param1);
-        } else if (kicondialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kicondialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kicondialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KIconDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1119,14 +1161,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_inputmethodquery_isbase) {
             kicondialog_inputmethodquery_isbase = false;
             return KIconDialog::inputMethodQuery(param1);
-        } else if (kicondialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kicondialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kicondialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KIconDialog::inputMethodQuery(param1);
         }
+        return KIconDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1134,14 +1177,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_focusnextprevchild_isbase) {
             kicondialog_focusnextprevchild_isbase = false;
             return KIconDialog::focusNextPrevChild(next);
-        } else if (kicondialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kicondialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kicondialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconDialog::focusNextPrevChild(next);
         }
+        return KIconDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1149,13 +1193,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_timerevent_isbase) {
             kicondialog_timerevent_isbase = false;
             KIconDialog::timerEvent(event);
-        } else if (kicondialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kicondialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kicondialog_timerevent_callback(this, cbval1);
-        } else {
-            KIconDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1163,13 +1210,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_childevent_isbase) {
             kicondialog_childevent_isbase = false;
             KIconDialog::childEvent(event);
-        } else if (kicondialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kicondialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kicondialog_childevent_callback(this, cbval1);
-        } else {
-            KIconDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1177,13 +1227,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_customevent_isbase) {
             kicondialog_customevent_isbase = false;
             KIconDialog::customEvent(event);
-        } else if (kicondialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kicondialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kicondialog_customevent_callback(this, cbval1);
-        } else {
-            KIconDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KIconDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1191,15 +1244,18 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_connectnotify_isbase) {
             kicondialog_connectnotify_isbase = false;
             KIconDialog::connectNotify(signal);
-        } else if (kicondialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kicondialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kicondialog_connectnotify_callback(this, cbval1);
-        } else {
-            KIconDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KIconDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1207,15 +1263,18 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_disconnectnotify_isbase) {
             kicondialog_disconnectnotify_isbase = false;
             KIconDialog::disconnectNotify(signal);
-        } else if (kicondialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kicondialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kicondialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KIconDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KIconDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,11 +1282,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_slotok_isbase) {
             kicondialog_slotok_isbase = false;
             KIconDialog::slotOk();
-        } else if (kicondialog_slotok_callback != nullptr) {
-            kicondialog_slotok_callback();
-        } else {
-            KIconDialog::slotOk();
+            return;
         }
+        auto slotok_cb = kicondialog_slotok_callback;
+        if (slotok_cb) {
+            slotok_cb();
+            return;
+        }
+        KIconDialog::slotOk();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,13 +1297,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_adjustposition_isbase) {
             kicondialog_adjustposition_isbase = false;
             KIconDialog::adjustPosition(param1);
-        } else if (kicondialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kicondialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kicondialog_adjustposition_callback(this, cbval1);
-        } else {
-            KIconDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KIconDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1249,11 +1314,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_updatemicrofocus_isbase) {
             kicondialog_updatemicrofocus_isbase = false;
             KIconDialog::updateMicroFocus();
-        } else if (kicondialog_updatemicrofocus_callback != nullptr) {
-            kicondialog_updatemicrofocus_callback();
-        } else {
-            KIconDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kicondialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KIconDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,11 +1329,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_create_isbase) {
             kicondialog_create_isbase = false;
             KIconDialog::create();
-        } else if (kicondialog_create_callback != nullptr) {
-            kicondialog_create_callback();
-        } else {
-            KIconDialog::create();
+            return;
         }
+        auto create_cb = kicondialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KIconDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1273,11 +1344,14 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_destroy_isbase) {
             kicondialog_destroy_isbase = false;
             KIconDialog::destroy();
-        } else if (kicondialog_destroy_callback != nullptr) {
-            kicondialog_destroy_callback();
-        } else {
-            KIconDialog::destroy();
+            return;
         }
+        auto destroy_cb = kicondialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KIconDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,12 +1359,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_focusnextchild_isbase) {
             kicondialog_focusnextchild_isbase = false;
             return KIconDialog::focusNextChild();
-        } else if (kicondialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kicondialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kicondialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KIconDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1298,12 +1373,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_focuspreviouschild_isbase) {
             kicondialog_focuspreviouschild_isbase = false;
             return KIconDialog::focusPreviousChild();
-        } else if (kicondialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kicondialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kicondialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KIconDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1311,12 +1387,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_sender_isbase) {
             kicondialog_sender_isbase = false;
             return KIconDialog::sender();
-        } else if (kicondialog_sender_callback != nullptr) {
-            QObject* callback_ret = kicondialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KIconDialog::sender();
         }
+        auto sender_cb = kicondialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KIconDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,12 +1401,13 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_sendersignalindex_isbase) {
             kicondialog_sendersignalindex_isbase = false;
             return KIconDialog::senderSignalIndex();
-        } else if (kicondialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kicondialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kicondialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KIconDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,14 +1415,15 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_receivers_isbase) {
             kicondialog_receivers_isbase = false;
             return KIconDialog::receivers(signal);
-        } else if (kicondialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kicondialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kicondialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KIconDialog::receivers(signal);
         }
+        return KIconDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1352,16 +1431,17 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_issignalconnected_isbase) {
             kicondialog_issignalconnected_isbase = false;
             return KIconDialog::isSignalConnected(signal);
-        } else if (kicondialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kicondialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kicondialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KIconDialog::isSignalConnected(signal);
         }
+        return KIconDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1369,15 +1449,16 @@ class VirtualKIconDialog final : public KIconDialog {
         if (kicondialog_getdecodedmetricf_isbase) {
             kicondialog_getdecodedmetricf_isbase = false;
             return KIconDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kicondialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kicondialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kicondialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KIconDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KIconDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

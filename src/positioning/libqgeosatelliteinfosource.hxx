@@ -92,31 +92,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
   public:
     VirtualQGeoSatelliteInfoSource(QObject* parent) : QGeoSatelliteInfoSource(parent) {};
 
-    ~VirtualQGeoSatelliteInfoSource() {
-        qgeosatelliteinfosource_metaobject_callback = nullptr;
-        qgeosatelliteinfosource_metacast_callback = nullptr;
-        qgeosatelliteinfosource_metacall_callback = nullptr;
-        qgeosatelliteinfosource_setupdateinterval_callback = nullptr;
-        qgeosatelliteinfosource_minimumupdateinterval_callback = nullptr;
-        qgeosatelliteinfosource_error_callback = nullptr;
-        qgeosatelliteinfosource_setbackendproperty_callback = nullptr;
-        qgeosatelliteinfosource_backendproperty_callback = nullptr;
-        qgeosatelliteinfosource_startupdates_callback = nullptr;
-        qgeosatelliteinfosource_stopupdates_callback = nullptr;
-        qgeosatelliteinfosource_requestupdate_callback = nullptr;
-        qgeosatelliteinfosource_event_callback = nullptr;
-        qgeosatelliteinfosource_eventfilter_callback = nullptr;
-        qgeosatelliteinfosource_timerevent_callback = nullptr;
-        qgeosatelliteinfosource_childevent_callback = nullptr;
-        qgeosatelliteinfosource_customevent_callback = nullptr;
-        qgeosatelliteinfosource_connectnotify_callback = nullptr;
-        qgeosatelliteinfosource_disconnectnotify_callback = nullptr;
-        qgeosatelliteinfosource_sender_callback = nullptr;
-        qgeosatelliteinfosource_sendersignalindex_callback = nullptr;
-        qgeosatelliteinfosource_receivers_callback = nullptr;
-        qgeosatelliteinfosource_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGeoSatelliteInfoSource_MetaObject_Callback(QGeoSatelliteInfoSource_MetaObject_Callback cb) { qgeosatelliteinfosource_metaobject_callback = cb; }
     inline void setQGeoSatelliteInfoSource_Metacast_Callback(QGeoSatelliteInfoSource_Metacast_Callback cb) { qgeosatelliteinfosource_metacast_callback = cb; }
@@ -170,12 +145,13 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_metaobject_isbase) {
             qgeosatelliteinfosource_metaobject_isbase = false;
             return QGeoSatelliteInfoSource::metaObject();
-        } else if (qgeosatelliteinfosource_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgeosatelliteinfosource_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::metaObject();
         }
+        auto metaobject_cb = qgeosatelliteinfosource_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGeoSatelliteInfoSource::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,14 +159,15 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_metacast_isbase) {
             qgeosatelliteinfosource_metacast_isbase = false;
             return QGeoSatelliteInfoSource::qt_metacast(param1);
-        } else if (qgeosatelliteinfosource_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgeosatelliteinfosource_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgeosatelliteinfosource_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::qt_metacast(param1);
         }
+        return QGeoSatelliteInfoSource::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,16 +175,17 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_metacall_isbase) {
             qgeosatelliteinfosource_metacall_isbase = false;
             return QGeoSatelliteInfoSource::qt_metacall(param1, param2, param3);
-        } else if (qgeosatelliteinfosource_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgeosatelliteinfosource_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgeosatelliteinfosource_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoSatelliteInfoSource::qt_metacall(param1, param2, param3);
         }
+        return QGeoSatelliteInfoSource::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,33 +193,36 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_setupdateinterval_isbase) {
             qgeosatelliteinfosource_setupdateinterval_isbase = false;
             QGeoSatelliteInfoSource::setUpdateInterval(msec);
-        } else if (qgeosatelliteinfosource_setupdateinterval_callback != nullptr) {
+            return;
+        }
+        auto setupdateinterval_cb = qgeosatelliteinfosource_setupdateinterval_callback;
+        if (setupdateinterval_cb) {
             int cbval1 = msec;
 
-            qgeosatelliteinfosource_setupdateinterval_callback(this, cbval1);
-        } else {
-            QGeoSatelliteInfoSource::setUpdateInterval(msec);
+            setupdateinterval_cb(this, cbval1);
+            return;
         }
+        QGeoSatelliteInfoSource::setUpdateInterval(msec);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int minimumUpdateInterval() const override {
-        if (qgeosatelliteinfosource_minimumupdateinterval_callback != nullptr) {
-            int callback_ret = qgeosatelliteinfosource_minimumupdateinterval_callback();
+        auto minimumupdateinterval_cb = qgeosatelliteinfosource_minimumupdateinterval_callback;
+        if (minimumupdateinterval_cb) {
+            int callback_ret = minimumupdateinterval_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QGeoSatelliteInfoSource::Error error() const override {
-        if (qgeosatelliteinfosource_error_callback != nullptr) {
-            int callback_ret = qgeosatelliteinfosource_error_callback();
+        auto error_cb = qgeosatelliteinfosource_error_callback;
+        if (error_cb) {
+            int callback_ret = error_cb();
             return static_cast<QGeoSatelliteInfoSource::Error>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,7 +230,9 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_setbackendproperty_isbase) {
             qgeosatelliteinfosource_setbackendproperty_isbase = false;
             return QGeoSatelliteInfoSource::setBackendProperty(name, value);
-        } else if (qgeosatelliteinfosource_setbackendproperty_callback != nullptr) {
+        }
+        auto setbackendproperty_cb = qgeosatelliteinfosource_setbackendproperty_callback;
+        if (setbackendproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -262,12 +245,11 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            bool callback_ret = qgeosatelliteinfosource_setbackendproperty_callback(this, cbval1, cbval2);
+            bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::setBackendProperty(name, value);
         }
+        return QGeoSatelliteInfoSource::setBackendProperty(name, value);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,7 +257,9 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_backendproperty_isbase) {
             qgeosatelliteinfosource_backendproperty_isbase = false;
             return QGeoSatelliteInfoSource::backendProperty(name);
-        } else if (qgeosatelliteinfosource_backendproperty_callback != nullptr) {
+        }
+        auto backendproperty_cb = qgeosatelliteinfosource_backendproperty_callback;
+        if (backendproperty_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -285,34 +269,36 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            QVariant* callback_ret = qgeosatelliteinfosource_backendproperty_callback(this, cbval1);
+            QVariant* callback_ret = backendproperty_cb(this, cbval1);
             libqt_free(name_str);
             return *callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::backendProperty(name);
         }
+        return QGeoSatelliteInfoSource::backendProperty(name);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void startUpdates() override {
-        if (qgeosatelliteinfosource_startupdates_callback != nullptr) {
-            qgeosatelliteinfosource_startupdates_callback();
+        auto startupdates_cb = qgeosatelliteinfosource_startupdates_callback;
+        if (startupdates_cb) {
+            startupdates_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void stopUpdates() override {
-        if (qgeosatelliteinfosource_stopupdates_callback != nullptr) {
-            qgeosatelliteinfosource_stopupdates_callback();
+        auto stopupdates_cb = qgeosatelliteinfosource_stopupdates_callback;
+        if (stopupdates_cb) {
+            stopupdates_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void requestUpdate(int timeout) override {
-        if (qgeosatelliteinfosource_requestupdate_callback != nullptr) {
+        auto requestupdate_cb = qgeosatelliteinfosource_requestupdate_callback;
+        if (requestupdate_cb) {
             int cbval1 = timeout;
 
-            qgeosatelliteinfosource_requestupdate_callback(this, cbval1);
+            requestupdate_cb(this, cbval1);
         }
     }
 
@@ -321,14 +307,15 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_event_isbase) {
             qgeosatelliteinfosource_event_isbase = false;
             return QGeoSatelliteInfoSource::event(event);
-        } else if (qgeosatelliteinfosource_event_callback != nullptr) {
+        }
+        auto event_cb = qgeosatelliteinfosource_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgeosatelliteinfosource_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::event(event);
         }
+        return QGeoSatelliteInfoSource::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,15 +323,16 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_eventfilter_isbase) {
             qgeosatelliteinfosource_eventfilter_isbase = false;
             return QGeoSatelliteInfoSource::eventFilter(watched, event);
-        } else if (qgeosatelliteinfosource_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgeosatelliteinfosource_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgeosatelliteinfosource_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::eventFilter(watched, event);
         }
+        return QGeoSatelliteInfoSource::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,13 +340,16 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_timerevent_isbase) {
             qgeosatelliteinfosource_timerevent_isbase = false;
             QGeoSatelliteInfoSource::timerEvent(event);
-        } else if (qgeosatelliteinfosource_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgeosatelliteinfosource_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgeosatelliteinfosource_timerevent_callback(this, cbval1);
-        } else {
-            QGeoSatelliteInfoSource::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGeoSatelliteInfoSource::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,13 +357,16 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_childevent_isbase) {
             qgeosatelliteinfosource_childevent_isbase = false;
             QGeoSatelliteInfoSource::childEvent(event);
-        } else if (qgeosatelliteinfosource_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgeosatelliteinfosource_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgeosatelliteinfosource_childevent_callback(this, cbval1);
-        } else {
-            QGeoSatelliteInfoSource::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGeoSatelliteInfoSource::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,13 +374,16 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_customevent_isbase) {
             qgeosatelliteinfosource_customevent_isbase = false;
             QGeoSatelliteInfoSource::customEvent(event);
-        } else if (qgeosatelliteinfosource_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgeosatelliteinfosource_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgeosatelliteinfosource_customevent_callback(this, cbval1);
-        } else {
-            QGeoSatelliteInfoSource::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGeoSatelliteInfoSource::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,15 +391,18 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_connectnotify_isbase) {
             qgeosatelliteinfosource_connectnotify_isbase = false;
             QGeoSatelliteInfoSource::connectNotify(signal);
-        } else if (qgeosatelliteinfosource_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgeosatelliteinfosource_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeosatelliteinfosource_connectnotify_callback(this, cbval1);
-        } else {
-            QGeoSatelliteInfoSource::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoSatelliteInfoSource::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,15 +410,18 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_disconnectnotify_isbase) {
             qgeosatelliteinfosource_disconnectnotify_isbase = false;
             QGeoSatelliteInfoSource::disconnectNotify(signal);
-        } else if (qgeosatelliteinfosource_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgeosatelliteinfosource_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeosatelliteinfosource_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGeoSatelliteInfoSource::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoSatelliteInfoSource::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,12 +429,13 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_sender_isbase) {
             qgeosatelliteinfosource_sender_isbase = false;
             return QGeoSatelliteInfoSource::sender();
-        } else if (qgeosatelliteinfosource_sender_callback != nullptr) {
-            QObject* callback_ret = qgeosatelliteinfosource_sender_callback();
-            return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::sender();
         }
+        auto sender_cb = qgeosatelliteinfosource_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGeoSatelliteInfoSource::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -439,12 +443,13 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_sendersignalindex_isbase) {
             qgeosatelliteinfosource_sendersignalindex_isbase = false;
             return QGeoSatelliteInfoSource::senderSignalIndex();
-        } else if (qgeosatelliteinfosource_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgeosatelliteinfosource_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGeoSatelliteInfoSource::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgeosatelliteinfosource_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGeoSatelliteInfoSource::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,14 +457,15 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_receivers_isbase) {
             qgeosatelliteinfosource_receivers_isbase = false;
             return QGeoSatelliteInfoSource::receivers(signal);
-        } else if (qgeosatelliteinfosource_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgeosatelliteinfosource_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgeosatelliteinfosource_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoSatelliteInfoSource::receivers(signal);
         }
+        return QGeoSatelliteInfoSource::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,16 +473,17 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (qgeosatelliteinfosource_issignalconnected_isbase) {
             qgeosatelliteinfosource_issignalconnected_isbase = false;
             return QGeoSatelliteInfoSource::isSignalConnected(signal);
-        } else if (qgeosatelliteinfosource_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgeosatelliteinfosource_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgeosatelliteinfosource_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoSatelliteInfoSource::isSignalConnected(signal);
         }
+        return QGeoSatelliteInfoSource::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -295,98 +295,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     VirtualQSqlRelationalTableModel(QObject* parent) : QSqlRelationalTableModel(parent) {};
     VirtualQSqlRelationalTableModel(QObject* parent, const QSqlDatabase& db) : QSqlRelationalTableModel(parent, db) {};
 
-    ~VirtualQSqlRelationalTableModel() {
-        qsqlrelationaltablemodel_metaobject_callback = nullptr;
-        qsqlrelationaltablemodel_metacast_callback = nullptr;
-        qsqlrelationaltablemodel_metacall_callback = nullptr;
-        qsqlrelationaltablemodel_data_callback = nullptr;
-        qsqlrelationaltablemodel_setdata_callback = nullptr;
-        qsqlrelationaltablemodel_removecolumns_callback = nullptr;
-        qsqlrelationaltablemodel_clear_callback = nullptr;
-        qsqlrelationaltablemodel_select_callback = nullptr;
-        qsqlrelationaltablemodel_settable_callback = nullptr;
-        qsqlrelationaltablemodel_setrelation_callback = nullptr;
-        qsqlrelationaltablemodel_relationmodel_callback = nullptr;
-        qsqlrelationaltablemodel_revertrow_callback = nullptr;
-        qsqlrelationaltablemodel_selectstatement_callback = nullptr;
-        qsqlrelationaltablemodel_updaterowintable_callback = nullptr;
-        qsqlrelationaltablemodel_insertrowintotable_callback = nullptr;
-        qsqlrelationaltablemodel_orderbyclause_callback = nullptr;
-        qsqlrelationaltablemodel_flags_callback = nullptr;
-        qsqlrelationaltablemodel_clearitemdata_callback = nullptr;
-        qsqlrelationaltablemodel_headerdata_callback = nullptr;
-        qsqlrelationaltablemodel_seteditstrategy_callback = nullptr;
-        qsqlrelationaltablemodel_sort_callback = nullptr;
-        qsqlrelationaltablemodel_setsort_callback = nullptr;
-        qsqlrelationaltablemodel_setfilter_callback = nullptr;
-        qsqlrelationaltablemodel_rowcount_callback = nullptr;
-        qsqlrelationaltablemodel_removerows_callback = nullptr;
-        qsqlrelationaltablemodel_insertrows_callback = nullptr;
-        qsqlrelationaltablemodel_selectrow_callback = nullptr;
-        qsqlrelationaltablemodel_submit_callback = nullptr;
-        qsqlrelationaltablemodel_revert_callback = nullptr;
-        qsqlrelationaltablemodel_deleterowfromtable_callback = nullptr;
-        qsqlrelationaltablemodel_indexinquery_callback = nullptr;
-        qsqlrelationaltablemodel_columncount_callback = nullptr;
-        qsqlrelationaltablemodel_setheaderdata_callback = nullptr;
-        qsqlrelationaltablemodel_insertcolumns_callback = nullptr;
-        qsqlrelationaltablemodel_fetchmore_callback = nullptr;
-        qsqlrelationaltablemodel_canfetchmore_callback = nullptr;
-        qsqlrelationaltablemodel_rolenames_callback = nullptr;
-        qsqlrelationaltablemodel_querychange_callback = nullptr;
-        qsqlrelationaltablemodel_index_callback = nullptr;
-        qsqlrelationaltablemodel_sibling_callback = nullptr;
-        qsqlrelationaltablemodel_dropmimedata_callback = nullptr;
-        qsqlrelationaltablemodel_itemdata_callback = nullptr;
-        qsqlrelationaltablemodel_setitemdata_callback = nullptr;
-        qsqlrelationaltablemodel_mimetypes_callback = nullptr;
-        qsqlrelationaltablemodel_mimedata_callback = nullptr;
-        qsqlrelationaltablemodel_candropmimedata_callback = nullptr;
-        qsqlrelationaltablemodel_supporteddropactions_callback = nullptr;
-        qsqlrelationaltablemodel_supporteddragactions_callback = nullptr;
-        qsqlrelationaltablemodel_moverows_callback = nullptr;
-        qsqlrelationaltablemodel_movecolumns_callback = nullptr;
-        qsqlrelationaltablemodel_buddy_callback = nullptr;
-        qsqlrelationaltablemodel_match_callback = nullptr;
-        qsqlrelationaltablemodel_span_callback = nullptr;
-        qsqlrelationaltablemodel_multidata_callback = nullptr;
-        qsqlrelationaltablemodel_resetinternaldata_callback = nullptr;
-        qsqlrelationaltablemodel_event_callback = nullptr;
-        qsqlrelationaltablemodel_eventfilter_callback = nullptr;
-        qsqlrelationaltablemodel_timerevent_callback = nullptr;
-        qsqlrelationaltablemodel_childevent_callback = nullptr;
-        qsqlrelationaltablemodel_customevent_callback = nullptr;
-        qsqlrelationaltablemodel_connectnotify_callback = nullptr;
-        qsqlrelationaltablemodel_disconnectnotify_callback = nullptr;
-        qsqlrelationaltablemodel_setprimarykey_callback = nullptr;
-        qsqlrelationaltablemodel_primaryvalues_callback = nullptr;
-        qsqlrelationaltablemodel_begininsertrows_callback = nullptr;
-        qsqlrelationaltablemodel_endinsertrows_callback = nullptr;
-        qsqlrelationaltablemodel_beginremoverows_callback = nullptr;
-        qsqlrelationaltablemodel_endremoverows_callback = nullptr;
-        qsqlrelationaltablemodel_begininsertcolumns_callback = nullptr;
-        qsqlrelationaltablemodel_endinsertcolumns_callback = nullptr;
-        qsqlrelationaltablemodel_beginremovecolumns_callback = nullptr;
-        qsqlrelationaltablemodel_endremovecolumns_callback = nullptr;
-        qsqlrelationaltablemodel_beginresetmodel_callback = nullptr;
-        qsqlrelationaltablemodel_endresetmodel_callback = nullptr;
-        qsqlrelationaltablemodel_setlasterror_callback = nullptr;
-        qsqlrelationaltablemodel_createindex_callback = nullptr;
-        qsqlrelationaltablemodel_encodedata_callback = nullptr;
-        qsqlrelationaltablemodel_decodedata_callback = nullptr;
-        qsqlrelationaltablemodel_beginmoverows_callback = nullptr;
-        qsqlrelationaltablemodel_endmoverows_callback = nullptr;
-        qsqlrelationaltablemodel_beginmovecolumns_callback = nullptr;
-        qsqlrelationaltablemodel_endmovecolumns_callback = nullptr;
-        qsqlrelationaltablemodel_changepersistentindex_callback = nullptr;
-        qsqlrelationaltablemodel_changepersistentindexlist_callback = nullptr;
-        qsqlrelationaltablemodel_persistentindexlist_callback = nullptr;
-        qsqlrelationaltablemodel_sender_callback = nullptr;
-        qsqlrelationaltablemodel_sendersignalindex_callback = nullptr;
-        qsqlrelationaltablemodel_receivers_callback = nullptr;
-        qsqlrelationaltablemodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSqlRelationalTableModel_MetaObject_Callback(QSqlRelationalTableModel_MetaObject_Callback cb) { qsqlrelationaltablemodel_metaobject_callback = cb; }
     inline void setQSqlRelationalTableModel_Metacast_Callback(QSqlRelationalTableModel_Metacast_Callback cb) { qsqlrelationaltablemodel_metacast_callback = cb; }
@@ -574,12 +482,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_metaobject_isbase) {
             qsqlrelationaltablemodel_metaobject_isbase = false;
             return QSqlRelationalTableModel::metaObject();
-        } else if (qsqlrelationaltablemodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsqlrelationaltablemodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::metaObject();
         }
+        auto metaobject_cb = qsqlrelationaltablemodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSqlRelationalTableModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,14 +496,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_metacast_isbase) {
             qsqlrelationaltablemodel_metacast_isbase = false;
             return QSqlRelationalTableModel::qt_metacast(param1);
-        } else if (qsqlrelationaltablemodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsqlrelationaltablemodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsqlrelationaltablemodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::qt_metacast(param1);
         }
+        return QSqlRelationalTableModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,16 +512,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_metacall_isbase) {
             qsqlrelationaltablemodel_metacall_isbase = false;
             return QSqlRelationalTableModel::qt_metacall(param1, param2, param3);
-        } else if (qsqlrelationaltablemodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsqlrelationaltablemodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsqlrelationaltablemodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::qt_metacall(param1, param2, param3);
         }
+        return QSqlRelationalTableModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,17 +530,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_data_isbase) {
             qsqlrelationaltablemodel_data_isbase = false;
             return QSqlRelationalTableModel::data(item, role);
-        } else if (qsqlrelationaltablemodel_data_callback != nullptr) {
+        }
+        auto data_cb = qsqlrelationaltablemodel_data_callback;
+        if (data_cb) {
             const QModelIndex& item_ret = item;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qsqlrelationaltablemodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::data(item, role);
         }
+        return QSqlRelationalTableModel::data(item, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,7 +549,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setdata_isbase) {
             qsqlrelationaltablemodel_setdata_isbase = false;
             return QSqlRelationalTableModel::setData(item, value, role);
-        } else if (qsqlrelationaltablemodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qsqlrelationaltablemodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& item_ret = item;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
@@ -646,11 +560,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qsqlrelationaltablemodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::setData(item, value, role);
         }
+        return QSqlRelationalTableModel::setData(item, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -658,18 +571,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_removecolumns_isbase) {
             qsqlrelationaltablemodel_removecolumns_isbase = false;
             return QSqlRelationalTableModel::removeColumns(column, count, parent);
-        } else if (qsqlrelationaltablemodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qsqlrelationaltablemodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::removeColumns(column, count, parent);
         }
+        return QSqlRelationalTableModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,11 +591,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_clear_isbase) {
             qsqlrelationaltablemodel_clear_isbase = false;
             QSqlRelationalTableModel::clear();
-        } else if (qsqlrelationaltablemodel_clear_callback != nullptr) {
-            qsqlrelationaltablemodel_clear_callback();
-        } else {
-            QSqlRelationalTableModel::clear();
+            return;
         }
+        auto clear_cb = qsqlrelationaltablemodel_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QSqlRelationalTableModel::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,12 +606,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_select_isbase) {
             qsqlrelationaltablemodel_select_isbase = false;
             return QSqlRelationalTableModel::select();
-        } else if (qsqlrelationaltablemodel_select_callback != nullptr) {
-            bool callback_ret = qsqlrelationaltablemodel_select_callback();
-            return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::select();
         }
+        auto select_cb = qsqlrelationaltablemodel_select_callback;
+        if (select_cb) {
+            bool callback_ret = select_cb();
+            return callback_ret;
+        }
+        return QSqlRelationalTableModel::select();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -702,7 +620,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_settable_isbase) {
             qsqlrelationaltablemodel_settable_isbase = false;
             QSqlRelationalTableModel::setTable(tableName);
-        } else if (qsqlrelationaltablemodel_settable_callback != nullptr) {
+            return;
+        }
+        auto settable_cb = qsqlrelationaltablemodel_settable_callback;
+        if (settable_cb) {
             const QString tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
@@ -712,11 +633,11 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             ((char*)tableName_str)[tableName_str_len] = '\0';
             const char* cbval1 = tableName_str;
 
-            qsqlrelationaltablemodel_settable_callback(this, cbval1);
+            settable_cb(this, cbval1);
             libqt_free(tableName_str);
-        } else {
-            QSqlRelationalTableModel::setTable(tableName);
+            return;
         }
+        QSqlRelationalTableModel::setTable(tableName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,16 +645,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setrelation_isbase) {
             qsqlrelationaltablemodel_setrelation_isbase = false;
             QSqlRelationalTableModel::setRelation(column, relation);
-        } else if (qsqlrelationaltablemodel_setrelation_callback != nullptr) {
+            return;
+        }
+        auto setrelation_cb = qsqlrelationaltablemodel_setrelation_callback;
+        if (setrelation_cb) {
             int cbval1 = column;
             const QSqlRelation& relation_ret = relation;
             // Cast returned reference into pointer
             QSqlRelation* cbval2 = const_cast<QSqlRelation*>(&relation_ret);
 
-            qsqlrelationaltablemodel_setrelation_callback(this, cbval1, cbval2);
-        } else {
-            QSqlRelationalTableModel::setRelation(column, relation);
+            setrelation_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlRelationalTableModel::setRelation(column, relation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,14 +665,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_relationmodel_isbase) {
             qsqlrelationaltablemodel_relationmodel_isbase = false;
             return QSqlRelationalTableModel::relationModel(column);
-        } else if (qsqlrelationaltablemodel_relationmodel_callback != nullptr) {
+        }
+        auto relationmodel_cb = qsqlrelationaltablemodel_relationmodel_callback;
+        if (relationmodel_cb) {
             int cbval1 = column;
 
-            QSqlTableModel* callback_ret = qsqlrelationaltablemodel_relationmodel_callback(this, cbval1);
+            QSqlTableModel* callback_ret = relationmodel_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::relationModel(column);
         }
+        return QSqlRelationalTableModel::relationModel(column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -756,13 +681,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_revertrow_isbase) {
             qsqlrelationaltablemodel_revertrow_isbase = false;
             QSqlRelationalTableModel::revertRow(row);
-        } else if (qsqlrelationaltablemodel_revertrow_callback != nullptr) {
+            return;
+        }
+        auto revertrow_cb = qsqlrelationaltablemodel_revertrow_callback;
+        if (revertrow_cb) {
             int cbval1 = row;
 
-            qsqlrelationaltablemodel_revertrow_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::revertRow(row);
+            revertrow_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::revertRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,13 +698,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_selectstatement_isbase) {
             qsqlrelationaltablemodel_selectstatement_isbase = false;
             return QSqlRelationalTableModel::selectStatement();
-        } else if (qsqlrelationaltablemodel_selectstatement_callback != nullptr) {
-            const char* callback_ret = qsqlrelationaltablemodel_selectstatement_callback();
+        }
+        auto selectstatement_cb = qsqlrelationaltablemodel_selectstatement_callback;
+        if (selectstatement_cb) {
+            const char* callback_ret = selectstatement_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QSqlRelationalTableModel::selectStatement();
         }
+        return QSqlRelationalTableModel::selectStatement();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,17 +713,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_updaterowintable_isbase) {
             qsqlrelationaltablemodel_updaterowintable_isbase = false;
             return QSqlRelationalTableModel::updateRowInTable(row, values);
-        } else if (qsqlrelationaltablemodel_updaterowintable_callback != nullptr) {
+        }
+        auto updaterowintable_cb = qsqlrelationaltablemodel_updaterowintable_callback;
+        if (updaterowintable_cb) {
             int cbval1 = row;
             const QSqlRecord& values_ret = values;
             // Cast returned reference into pointer
             QSqlRecord* cbval2 = const_cast<QSqlRecord*>(&values_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_updaterowintable_callback(this, cbval1, cbval2);
+            bool callback_ret = updaterowintable_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::updateRowInTable(row, values);
         }
+        return QSqlRelationalTableModel::updateRowInTable(row, values);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,16 +732,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_insertrowintotable_isbase) {
             qsqlrelationaltablemodel_insertrowintotable_isbase = false;
             return QSqlRelationalTableModel::insertRowIntoTable(values);
-        } else if (qsqlrelationaltablemodel_insertrowintotable_callback != nullptr) {
+        }
+        auto insertrowintotable_cb = qsqlrelationaltablemodel_insertrowintotable_callback;
+        if (insertrowintotable_cb) {
             const QSqlRecord& values_ret = values;
             // Cast returned reference into pointer
             QSqlRecord* cbval1 = const_cast<QSqlRecord*>(&values_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_insertrowintotable_callback(this, cbval1);
+            bool callback_ret = insertrowintotable_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::insertRowIntoTable(values);
         }
+        return QSqlRelationalTableModel::insertRowIntoTable(values);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +750,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_orderbyclause_isbase) {
             qsqlrelationaltablemodel_orderbyclause_isbase = false;
             return QSqlRelationalTableModel::orderByClause();
-        } else if (qsqlrelationaltablemodel_orderbyclause_callback != nullptr) {
-            const char* callback_ret = qsqlrelationaltablemodel_orderbyclause_callback();
+        }
+        auto orderbyclause_cb = qsqlrelationaltablemodel_orderbyclause_callback;
+        if (orderbyclause_cb) {
+            const char* callback_ret = orderbyclause_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QSqlRelationalTableModel::orderByClause();
         }
+        return QSqlRelationalTableModel::orderByClause();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,16 +765,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_flags_isbase) {
             qsqlrelationaltablemodel_flags_isbase = false;
             return QSqlRelationalTableModel::flags(index);
-        } else if (qsqlrelationaltablemodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qsqlrelationaltablemodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qsqlrelationaltablemodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::flags(index);
         }
+        return QSqlRelationalTableModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,16 +783,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_clearitemdata_isbase) {
             qsqlrelationaltablemodel_clearitemdata_isbase = false;
             return QSqlRelationalTableModel::clearItemData(index);
-        } else if (qsqlrelationaltablemodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qsqlrelationaltablemodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::clearItemData(index);
         }
+        return QSqlRelationalTableModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,16 +801,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_headerdata_isbase) {
             qsqlrelationaltablemodel_headerdata_isbase = false;
             return QSqlRelationalTableModel::headerData(section, orientation, role);
-        } else if (qsqlrelationaltablemodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qsqlrelationaltablemodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qsqlrelationaltablemodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::headerData(section, orientation, role);
         }
+        return QSqlRelationalTableModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +819,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_seteditstrategy_isbase) {
             qsqlrelationaltablemodel_seteditstrategy_isbase = false;
             QSqlRelationalTableModel::setEditStrategy(strategy);
-        } else if (qsqlrelationaltablemodel_seteditstrategy_callback != nullptr) {
+            return;
+        }
+        auto seteditstrategy_cb = qsqlrelationaltablemodel_seteditstrategy_callback;
+        if (seteditstrategy_cb) {
             int cbval1 = static_cast<int>(strategy);
 
-            qsqlrelationaltablemodel_seteditstrategy_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::setEditStrategy(strategy);
+            seteditstrategy_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::setEditStrategy(strategy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,14 +836,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_sort_isbase) {
             qsqlrelationaltablemodel_sort_isbase = false;
             QSqlRelationalTableModel::sort(column, order);
-        } else if (qsqlrelationaltablemodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qsqlrelationaltablemodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qsqlrelationaltablemodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QSqlRelationalTableModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlRelationalTableModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,14 +854,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setsort_isbase) {
             qsqlrelationaltablemodel_setsort_isbase = false;
             QSqlRelationalTableModel::setSort(column, order);
-        } else if (qsqlrelationaltablemodel_setsort_callback != nullptr) {
+            return;
+        }
+        auto setsort_cb = qsqlrelationaltablemodel_setsort_callback;
+        if (setsort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qsqlrelationaltablemodel_setsort_callback(this, cbval1, cbval2);
-        } else {
-            QSqlRelationalTableModel::setSort(column, order);
+            setsort_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlRelationalTableModel::setSort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -928,7 +872,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setfilter_isbase) {
             qsqlrelationaltablemodel_setfilter_isbase = false;
             QSqlRelationalTableModel::setFilter(filter);
-        } else if (qsqlrelationaltablemodel_setfilter_callback != nullptr) {
+            return;
+        }
+        auto setfilter_cb = qsqlrelationaltablemodel_setfilter_callback;
+        if (setfilter_cb) {
             const QString filter_ret = filter;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filter_b = filter_ret.toUtf8();
@@ -938,11 +885,11 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             ((char*)filter_str)[filter_str_len] = '\0';
             const char* cbval1 = filter_str;
 
-            qsqlrelationaltablemodel_setfilter_callback(this, cbval1);
+            setfilter_cb(this, cbval1);
             libqt_free(filter_str);
-        } else {
-            QSqlRelationalTableModel::setFilter(filter);
+            return;
         }
+        QSqlRelationalTableModel::setFilter(filter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -950,16 +897,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_rowcount_isbase) {
             qsqlrelationaltablemodel_rowcount_isbase = false;
             return QSqlRelationalTableModel::rowCount(parent);
-        } else if (qsqlrelationaltablemodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = qsqlrelationaltablemodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qsqlrelationaltablemodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::rowCount(parent);
         }
+        return QSqlRelationalTableModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,18 +915,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_removerows_isbase) {
             qsqlrelationaltablemodel_removerows_isbase = false;
             return QSqlRelationalTableModel::removeRows(row, count, parent);
-        } else if (qsqlrelationaltablemodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qsqlrelationaltablemodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::removeRows(row, count, parent);
         }
+        return QSqlRelationalTableModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,18 +935,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_insertrows_isbase) {
             qsqlrelationaltablemodel_insertrows_isbase = false;
             return QSqlRelationalTableModel::insertRows(row, count, parent);
-        } else if (qsqlrelationaltablemodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qsqlrelationaltablemodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::insertRows(row, count, parent);
         }
+        return QSqlRelationalTableModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,14 +955,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_selectrow_isbase) {
             qsqlrelationaltablemodel_selectrow_isbase = false;
             return QSqlRelationalTableModel::selectRow(row);
-        } else if (qsqlrelationaltablemodel_selectrow_callback != nullptr) {
+        }
+        auto selectrow_cb = qsqlrelationaltablemodel_selectrow_callback;
+        if (selectrow_cb) {
             int cbval1 = row;
 
-            bool callback_ret = qsqlrelationaltablemodel_selectrow_callback(this, cbval1);
+            bool callback_ret = selectrow_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::selectRow(row);
         }
+        return QSqlRelationalTableModel::selectRow(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,12 +971,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_submit_isbase) {
             qsqlrelationaltablemodel_submit_isbase = false;
             return QSqlRelationalTableModel::submit();
-        } else if (qsqlrelationaltablemodel_submit_callback != nullptr) {
-            bool callback_ret = qsqlrelationaltablemodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::submit();
         }
+        auto submit_cb = qsqlrelationaltablemodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QSqlRelationalTableModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1033,11 +985,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_revert_isbase) {
             qsqlrelationaltablemodel_revert_isbase = false;
             QSqlRelationalTableModel::revert();
-        } else if (qsqlrelationaltablemodel_revert_callback != nullptr) {
-            qsqlrelationaltablemodel_revert_callback();
-        } else {
-            QSqlRelationalTableModel::revert();
+            return;
         }
+        auto revert_cb = qsqlrelationaltablemodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QSqlRelationalTableModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1045,14 +1000,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_deleterowfromtable_isbase) {
             qsqlrelationaltablemodel_deleterowfromtable_isbase = false;
             return QSqlRelationalTableModel::deleteRowFromTable(row);
-        } else if (qsqlrelationaltablemodel_deleterowfromtable_callback != nullptr) {
+        }
+        auto deleterowfromtable_cb = qsqlrelationaltablemodel_deleterowfromtable_callback;
+        if (deleterowfromtable_cb) {
             int cbval1 = row;
 
-            bool callback_ret = qsqlrelationaltablemodel_deleterowfromtable_callback(this, cbval1);
+            bool callback_ret = deleterowfromtable_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::deleteRowFromTable(row);
         }
+        return QSqlRelationalTableModel::deleteRowFromTable(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1060,16 +1016,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_indexinquery_isbase) {
             qsqlrelationaltablemodel_indexinquery_isbase = false;
             return QSqlRelationalTableModel::indexInQuery(item);
-        } else if (qsqlrelationaltablemodel_indexinquery_callback != nullptr) {
+        }
+        auto indexinquery_cb = qsqlrelationaltablemodel_indexinquery_callback;
+        if (indexinquery_cb) {
             const QModelIndex& item_ret = item;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
 
-            QModelIndex* callback_ret = qsqlrelationaltablemodel_indexinquery_callback(this, cbval1);
+            QModelIndex* callback_ret = indexinquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::indexInQuery(item);
         }
+        return QSqlRelationalTableModel::indexInQuery(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,16 +1034,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_columncount_isbase) {
             qsqlrelationaltablemodel_columncount_isbase = false;
             return QSqlRelationalTableModel::columnCount(parent);
-        } else if (qsqlrelationaltablemodel_columncount_callback != nullptr) {
+        }
+        auto columncount_cb = qsqlrelationaltablemodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qsqlrelationaltablemodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::columnCount(parent);
         }
+        return QSqlRelationalTableModel::columnCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,7 +1052,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setheaderdata_isbase) {
             qsqlrelationaltablemodel_setheaderdata_isbase = false;
             return QSqlRelationalTableModel::setHeaderData(section, orientation, value, role);
-        } else if (qsqlrelationaltablemodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qsqlrelationaltablemodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -1102,11 +1062,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qsqlrelationaltablemodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::setHeaderData(section, orientation, value, role);
         }
+        return QSqlRelationalTableModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,18 +1073,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_insertcolumns_isbase) {
             qsqlrelationaltablemodel_insertcolumns_isbase = false;
             return QSqlRelationalTableModel::insertColumns(column, count, parent);
-        } else if (qsqlrelationaltablemodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qsqlrelationaltablemodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::insertColumns(column, count, parent);
         }
+        return QSqlRelationalTableModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1133,15 +1093,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_fetchmore_isbase) {
             qsqlrelationaltablemodel_fetchmore_isbase = false;
             QSqlRelationalTableModel::fetchMore(parent);
-        } else if (qsqlrelationaltablemodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qsqlrelationaltablemodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qsqlrelationaltablemodel_fetchmore_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1149,16 +1112,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_canfetchmore_isbase) {
             qsqlrelationaltablemodel_canfetchmore_isbase = false;
             return QSqlRelationalTableModel::canFetchMore(parent);
-        } else if (qsqlrelationaltablemodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qsqlrelationaltablemodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::canFetchMore(parent);
         }
+        return QSqlRelationalTableModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,8 +1130,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_rolenames_isbase) {
             qsqlrelationaltablemodel_rolenames_isbase = false;
             return QSqlRelationalTableModel::roleNames();
-        } else if (qsqlrelationaltablemodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qsqlrelationaltablemodel_rolenames_callback();
+        }
+        auto rolenames_cb = qsqlrelationaltablemodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1177,9 +1143,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QSqlRelationalTableModel::roleNames();
         }
+        return QSqlRelationalTableModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,11 +1152,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_querychange_isbase) {
             qsqlrelationaltablemodel_querychange_isbase = false;
             QSqlRelationalTableModel::queryChange();
-        } else if (qsqlrelationaltablemodel_querychange_callback != nullptr) {
-            qsqlrelationaltablemodel_querychange_callback();
-        } else {
-            QSqlRelationalTableModel::queryChange();
+            return;
         }
+        auto querychange_cb = qsqlrelationaltablemodel_querychange_callback;
+        if (querychange_cb) {
+            querychange_cb();
+            return;
+        }
+        QSqlRelationalTableModel::queryChange();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1199,18 +1167,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_index_isbase) {
             qsqlrelationaltablemodel_index_isbase = false;
             return QSqlRelationalTableModel::index(row, column, parent);
-        } else if (qsqlrelationaltablemodel_index_callback != nullptr) {
+        }
+        auto index_cb = qsqlrelationaltablemodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qsqlrelationaltablemodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::index(row, column, parent);
         }
+        return QSqlRelationalTableModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,18 +1187,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_sibling_isbase) {
             qsqlrelationaltablemodel_sibling_isbase = false;
             return QSqlRelationalTableModel::sibling(row, column, idx);
-        } else if (qsqlrelationaltablemodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qsqlrelationaltablemodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qsqlrelationaltablemodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::sibling(row, column, idx);
         }
+        return QSqlRelationalTableModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,7 +1207,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_dropmimedata_isbase) {
             qsqlrelationaltablemodel_dropmimedata_isbase = false;
             return QSqlRelationalTableModel::dropMimeData(data, action, row, column, parent);
-        } else if (qsqlrelationaltablemodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qsqlrelationaltablemodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1246,11 +1218,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::dropMimeData(data, action, row, column, parent);
         }
+        return QSqlRelationalTableModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,12 +1229,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_itemdata_isbase) {
             qsqlrelationaltablemodel_itemdata_isbase = false;
             return QSqlRelationalTableModel::itemData(index);
-        } else if (qsqlrelationaltablemodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qsqlrelationaltablemodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qsqlrelationaltablemodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -1271,9 +1244,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QSqlRelationalTableModel::itemData(index);
         }
+        return QSqlRelationalTableModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1281,7 +1253,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setitemdata_isbase) {
             qsqlrelationaltablemodel_setitemdata_isbase = false;
             return QSqlRelationalTableModel::setItemData(index, roles);
-        } else if (qsqlrelationaltablemodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qsqlrelationaltablemodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1301,11 +1275,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qsqlrelationaltablemodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::setItemData(index, roles);
         }
+        return QSqlRelationalTableModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1313,8 +1286,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_mimetypes_isbase) {
             qsqlrelationaltablemodel_mimetypes_isbase = false;
             return QSqlRelationalTableModel::mimeTypes();
-        } else if (qsqlrelationaltablemodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qsqlrelationaltablemodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qsqlrelationaltablemodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1325,9 +1300,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QSqlRelationalTableModel::mimeTypes();
         }
+        return QSqlRelationalTableModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,7 +1309,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_mimedata_isbase) {
             qsqlrelationaltablemodel_mimedata_isbase = false;
             return QSqlRelationalTableModel::mimeData(indexes);
-        } else if (qsqlrelationaltablemodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qsqlrelationaltablemodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1347,12 +1323,11 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qsqlrelationaltablemodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::mimeData(indexes);
         }
+        return QSqlRelationalTableModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1360,7 +1335,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_candropmimedata_isbase) {
             qsqlrelationaltablemodel_candropmimedata_isbase = false;
             return QSqlRelationalTableModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qsqlrelationaltablemodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qsqlrelationaltablemodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1369,11 +1346,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QSqlRelationalTableModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1381,12 +1357,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_supporteddropactions_isbase) {
             qsqlrelationaltablemodel_supporteddropactions_isbase = false;
             return QSqlRelationalTableModel::supportedDropActions();
-        } else if (qsqlrelationaltablemodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qsqlrelationaltablemodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qsqlrelationaltablemodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QSqlRelationalTableModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1394,12 +1371,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_supporteddragactions_isbase) {
             qsqlrelationaltablemodel_supporteddragactions_isbase = false;
             return QSqlRelationalTableModel::supportedDragActions();
-        } else if (qsqlrelationaltablemodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qsqlrelationaltablemodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qsqlrelationaltablemodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QSqlRelationalTableModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1407,7 +1385,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_moverows_isbase) {
             qsqlrelationaltablemodel_moverows_isbase = false;
             return QSqlRelationalTableModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qsqlrelationaltablemodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qsqlrelationaltablemodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1418,11 +1398,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qsqlrelationaltablemodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QSqlRelationalTableModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1430,7 +1409,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_movecolumns_isbase) {
             qsqlrelationaltablemodel_movecolumns_isbase = false;
             return QSqlRelationalTableModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qsqlrelationaltablemodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qsqlrelationaltablemodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1441,11 +1422,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qsqlrelationaltablemodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QSqlRelationalTableModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1453,16 +1433,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_buddy_isbase) {
             qsqlrelationaltablemodel_buddy_isbase = false;
             return QSqlRelationalTableModel::buddy(index);
-        } else if (qsqlrelationaltablemodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qsqlrelationaltablemodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qsqlrelationaltablemodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::buddy(index);
         }
+        return QSqlRelationalTableModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,7 +1451,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_match_isbase) {
             qsqlrelationaltablemodel_match_isbase = false;
             return QSqlRelationalTableModel::match(start, role, value, hits, flags);
-        } else if (qsqlrelationaltablemodel_match_callback != nullptr) {
+        }
+        auto match_cb = qsqlrelationaltablemodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1481,7 +1464,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qsqlrelationaltablemodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1490,9 +1473,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QSqlRelationalTableModel::match(start, role, value, hits, flags);
         }
+        return QSqlRelationalTableModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1500,16 +1482,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_span_isbase) {
             qsqlrelationaltablemodel_span_isbase = false;
             return QSqlRelationalTableModel::span(index);
-        } else if (qsqlrelationaltablemodel_span_callback != nullptr) {
+        }
+        auto span_cb = qsqlrelationaltablemodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qsqlrelationaltablemodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::span(index);
         }
+        return QSqlRelationalTableModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1517,16 +1500,19 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_multidata_isbase) {
             qsqlrelationaltablemodel_multidata_isbase = false;
             QSqlRelationalTableModel::multiData(index, roleDataSpan);
-        } else if (qsqlrelationaltablemodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qsqlrelationaltablemodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qsqlrelationaltablemodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QSqlRelationalTableModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlRelationalTableModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1534,11 +1520,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_resetinternaldata_isbase) {
             qsqlrelationaltablemodel_resetinternaldata_isbase = false;
             QSqlRelationalTableModel::resetInternalData();
-        } else if (qsqlrelationaltablemodel_resetinternaldata_callback != nullptr) {
-            qsqlrelationaltablemodel_resetinternaldata_callback();
-        } else {
-            QSqlRelationalTableModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qsqlrelationaltablemodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QSqlRelationalTableModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1546,14 +1535,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_event_isbase) {
             qsqlrelationaltablemodel_event_isbase = false;
             return QSqlRelationalTableModel::event(event);
-        } else if (qsqlrelationaltablemodel_event_callback != nullptr) {
+        }
+        auto event_cb = qsqlrelationaltablemodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsqlrelationaltablemodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::event(event);
         }
+        return QSqlRelationalTableModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1561,15 +1551,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_eventfilter_isbase) {
             qsqlrelationaltablemodel_eventfilter_isbase = false;
             return QSqlRelationalTableModel::eventFilter(watched, event);
-        } else if (qsqlrelationaltablemodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsqlrelationaltablemodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsqlrelationaltablemodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::eventFilter(watched, event);
         }
+        return QSqlRelationalTableModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1577,13 +1568,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_timerevent_isbase) {
             qsqlrelationaltablemodel_timerevent_isbase = false;
             QSqlRelationalTableModel::timerEvent(event);
-        } else if (qsqlrelationaltablemodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsqlrelationaltablemodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsqlrelationaltablemodel_timerevent_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1591,13 +1585,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_childevent_isbase) {
             qsqlrelationaltablemodel_childevent_isbase = false;
             QSqlRelationalTableModel::childEvent(event);
-        } else if (qsqlrelationaltablemodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsqlrelationaltablemodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsqlrelationaltablemodel_childevent_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1605,13 +1602,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_customevent_isbase) {
             qsqlrelationaltablemodel_customevent_isbase = false;
             QSqlRelationalTableModel::customEvent(event);
-        } else if (qsqlrelationaltablemodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsqlrelationaltablemodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsqlrelationaltablemodel_customevent_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1619,15 +1619,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_connectnotify_isbase) {
             qsqlrelationaltablemodel_connectnotify_isbase = false;
             QSqlRelationalTableModel::connectNotify(signal);
-        } else if (qsqlrelationaltablemodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsqlrelationaltablemodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsqlrelationaltablemodel_connectnotify_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1635,15 +1638,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_disconnectnotify_isbase) {
             qsqlrelationaltablemodel_disconnectnotify_isbase = false;
             QSqlRelationalTableModel::disconnectNotify(signal);
-        } else if (qsqlrelationaltablemodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsqlrelationaltablemodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsqlrelationaltablemodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1651,15 +1657,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setprimarykey_isbase) {
             qsqlrelationaltablemodel_setprimarykey_isbase = false;
             QSqlRelationalTableModel::setPrimaryKey(key);
-        } else if (qsqlrelationaltablemodel_setprimarykey_callback != nullptr) {
+            return;
+        }
+        auto setprimarykey_cb = qsqlrelationaltablemodel_setprimarykey_callback;
+        if (setprimarykey_cb) {
             const QSqlIndex& key_ret = key;
             // Cast returned reference into pointer
             QSqlIndex* cbval1 = const_cast<QSqlIndex*>(&key_ret);
 
-            qsqlrelationaltablemodel_setprimarykey_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::setPrimaryKey(key);
+            setprimarykey_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::setPrimaryKey(key);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1667,14 +1676,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_primaryvalues_isbase) {
             qsqlrelationaltablemodel_primaryvalues_isbase = false;
             return QSqlRelationalTableModel::primaryValues(row);
-        } else if (qsqlrelationaltablemodel_primaryvalues_callback != nullptr) {
+        }
+        auto primaryvalues_cb = qsqlrelationaltablemodel_primaryvalues_callback;
+        if (primaryvalues_cb) {
             int cbval1 = row;
 
-            QSqlRecord* callback_ret = qsqlrelationaltablemodel_primaryvalues_callback(this, cbval1);
+            QSqlRecord* callback_ret = primaryvalues_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::primaryValues(row);
         }
+        return QSqlRelationalTableModel::primaryValues(row);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1682,17 +1692,20 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_begininsertrows_isbase) {
             qsqlrelationaltablemodel_begininsertrows_isbase = false;
             QSqlRelationalTableModel::beginInsertRows(parent, first, last);
-        } else if (qsqlrelationaltablemodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qsqlrelationaltablemodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlrelationaltablemodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlRelationalTableModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlRelationalTableModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1700,11 +1713,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endinsertrows_isbase) {
             qsqlrelationaltablemodel_endinsertrows_isbase = false;
             QSqlRelationalTableModel::endInsertRows();
-        } else if (qsqlrelationaltablemodel_endinsertrows_callback != nullptr) {
-            qsqlrelationaltablemodel_endinsertrows_callback();
-        } else {
-            QSqlRelationalTableModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qsqlrelationaltablemodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1712,17 +1728,20 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_beginremoverows_isbase) {
             qsqlrelationaltablemodel_beginremoverows_isbase = false;
             QSqlRelationalTableModel::beginRemoveRows(parent, first, last);
-        } else if (qsqlrelationaltablemodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qsqlrelationaltablemodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlrelationaltablemodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlRelationalTableModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlRelationalTableModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1730,11 +1749,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endremoverows_isbase) {
             qsqlrelationaltablemodel_endremoverows_isbase = false;
             QSqlRelationalTableModel::endRemoveRows();
-        } else if (qsqlrelationaltablemodel_endremoverows_callback != nullptr) {
-            qsqlrelationaltablemodel_endremoverows_callback();
-        } else {
-            QSqlRelationalTableModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qsqlrelationaltablemodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1742,17 +1764,20 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_begininsertcolumns_isbase) {
             qsqlrelationaltablemodel_begininsertcolumns_isbase = false;
             QSqlRelationalTableModel::beginInsertColumns(parent, first, last);
-        } else if (qsqlrelationaltablemodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qsqlrelationaltablemodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlrelationaltablemodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlRelationalTableModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlRelationalTableModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1760,11 +1785,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endinsertcolumns_isbase) {
             qsqlrelationaltablemodel_endinsertcolumns_isbase = false;
             QSqlRelationalTableModel::endInsertColumns();
-        } else if (qsqlrelationaltablemodel_endinsertcolumns_callback != nullptr) {
-            qsqlrelationaltablemodel_endinsertcolumns_callback();
-        } else {
-            QSqlRelationalTableModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qsqlrelationaltablemodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1772,17 +1800,20 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_beginremovecolumns_isbase) {
             qsqlrelationaltablemodel_beginremovecolumns_isbase = false;
             QSqlRelationalTableModel::beginRemoveColumns(parent, first, last);
-        } else if (qsqlrelationaltablemodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qsqlrelationaltablemodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qsqlrelationaltablemodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QSqlRelationalTableModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QSqlRelationalTableModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1790,11 +1821,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endremovecolumns_isbase) {
             qsqlrelationaltablemodel_endremovecolumns_isbase = false;
             QSqlRelationalTableModel::endRemoveColumns();
-        } else if (qsqlrelationaltablemodel_endremovecolumns_callback != nullptr) {
-            qsqlrelationaltablemodel_endremovecolumns_callback();
-        } else {
-            QSqlRelationalTableModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qsqlrelationaltablemodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1802,11 +1836,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_beginresetmodel_isbase) {
             qsqlrelationaltablemodel_beginresetmodel_isbase = false;
             QSqlRelationalTableModel::beginResetModel();
-        } else if (qsqlrelationaltablemodel_beginresetmodel_callback != nullptr) {
-            qsqlrelationaltablemodel_beginresetmodel_callback();
-        } else {
-            QSqlRelationalTableModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qsqlrelationaltablemodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QSqlRelationalTableModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1814,11 +1851,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endresetmodel_isbase) {
             qsqlrelationaltablemodel_endresetmodel_isbase = false;
             QSqlRelationalTableModel::endResetModel();
-        } else if (qsqlrelationaltablemodel_endresetmodel_callback != nullptr) {
-            qsqlrelationaltablemodel_endresetmodel_callback();
-        } else {
-            QSqlRelationalTableModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qsqlrelationaltablemodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1826,15 +1866,18 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_setlasterror_isbase) {
             qsqlrelationaltablemodel_setlasterror_isbase = false;
             QSqlRelationalTableModel::setLastError(errorVal);
-        } else if (qsqlrelationaltablemodel_setlasterror_callback != nullptr) {
+            return;
+        }
+        auto setlasterror_cb = qsqlrelationaltablemodel_setlasterror_callback;
+        if (setlasterror_cb) {
             const QSqlError& errorVal_ret = errorVal;
             // Cast returned reference into pointer
             QSqlError* cbval1 = const_cast<QSqlError*>(&errorVal_ret);
 
-            qsqlrelationaltablemodel_setlasterror_callback(this, cbval1);
-        } else {
-            QSqlRelationalTableModel::setLastError(errorVal);
+            setlasterror_cb(this, cbval1);
+            return;
         }
+        QSqlRelationalTableModel::setLastError(errorVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1842,15 +1885,16 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_createindex_isbase) {
             qsqlrelationaltablemodel_createindex_isbase = false;
             return QSqlRelationalTableModel::createIndex(row, column);
-        } else if (qsqlrelationaltablemodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qsqlrelationaltablemodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qsqlrelationaltablemodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QSqlRelationalTableModel::createIndex(row, column);
         }
+        return QSqlRelationalTableModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1858,7 +1902,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_encodedata_isbase) {
             qsqlrelationaltablemodel_encodedata_isbase = false;
             QSqlRelationalTableModel::encodeData(indexes, stream);
-        } else if (qsqlrelationaltablemodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qsqlrelationaltablemodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1873,11 +1920,11 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qsqlrelationaltablemodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QSqlRelationalTableModel::encodeData(indexes, stream);
+            return;
         }
+        QSqlRelationalTableModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1885,7 +1932,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_decodedata_isbase) {
             qsqlrelationaltablemodel_decodedata_isbase = false;
             return QSqlRelationalTableModel::decodeData(row, column, parent, stream);
-        } else if (qsqlrelationaltablemodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qsqlrelationaltablemodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1895,11 +1944,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qsqlrelationaltablemodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::decodeData(row, column, parent, stream);
         }
+        return QSqlRelationalTableModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1907,7 +1955,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_beginmoverows_isbase) {
             qsqlrelationaltablemodel_beginmoverows_isbase = false;
             return QSqlRelationalTableModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qsqlrelationaltablemodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qsqlrelationaltablemodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1918,11 +1968,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qsqlrelationaltablemodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QSqlRelationalTableModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1930,11 +1979,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endmoverows_isbase) {
             qsqlrelationaltablemodel_endmoverows_isbase = false;
             QSqlRelationalTableModel::endMoveRows();
-        } else if (qsqlrelationaltablemodel_endmoverows_callback != nullptr) {
-            qsqlrelationaltablemodel_endmoverows_callback();
-        } else {
-            QSqlRelationalTableModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qsqlrelationaltablemodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1942,7 +1994,9 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_beginmovecolumns_isbase) {
             qsqlrelationaltablemodel_beginmovecolumns_isbase = false;
             return QSqlRelationalTableModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qsqlrelationaltablemodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qsqlrelationaltablemodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1953,11 +2007,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qsqlrelationaltablemodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QSqlRelationalTableModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1965,11 +2018,14 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_endmovecolumns_isbase) {
             qsqlrelationaltablemodel_endmovecolumns_isbase = false;
             QSqlRelationalTableModel::endMoveColumns();
-        } else if (qsqlrelationaltablemodel_endmovecolumns_callback != nullptr) {
-            qsqlrelationaltablemodel_endmovecolumns_callback();
-        } else {
-            QSqlRelationalTableModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qsqlrelationaltablemodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QSqlRelationalTableModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1977,7 +2033,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_changepersistentindex_isbase) {
             qsqlrelationaltablemodel_changepersistentindex_isbase = false;
             QSqlRelationalTableModel::changePersistentIndex(from, to);
-        } else if (qsqlrelationaltablemodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qsqlrelationaltablemodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1985,10 +2044,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qsqlrelationaltablemodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QSqlRelationalTableModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QSqlRelationalTableModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1996,7 +2055,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_changepersistentindexlist_isbase) {
             qsqlrelationaltablemodel_changepersistentindexlist_isbase = false;
             QSqlRelationalTableModel::changePersistentIndexList(from, to);
-        } else if (qsqlrelationaltablemodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qsqlrelationaltablemodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -2018,12 +2080,12 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qsqlrelationaltablemodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QSqlRelationalTableModel::changePersistentIndexList(from, to);
+            return;
         }
+        QSqlRelationalTableModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2031,8 +2093,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_persistentindexlist_isbase) {
             qsqlrelationaltablemodel_persistentindexlist_isbase = false;
             return QSqlRelationalTableModel::persistentIndexList();
-        } else if (qsqlrelationaltablemodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qsqlrelationaltablemodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qsqlrelationaltablemodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -2041,9 +2105,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QSqlRelationalTableModel::persistentIndexList();
         }
+        return QSqlRelationalTableModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2051,12 +2114,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_sender_isbase) {
             qsqlrelationaltablemodel_sender_isbase = false;
             return QSqlRelationalTableModel::sender();
-        } else if (qsqlrelationaltablemodel_sender_callback != nullptr) {
-            QObject* callback_ret = qsqlrelationaltablemodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::sender();
         }
+        auto sender_cb = qsqlrelationaltablemodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSqlRelationalTableModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2064,12 +2128,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_sendersignalindex_isbase) {
             qsqlrelationaltablemodel_sendersignalindex_isbase = false;
             return QSqlRelationalTableModel::senderSignalIndex();
-        } else if (qsqlrelationaltablemodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsqlrelationaltablemodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsqlrelationaltablemodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSqlRelationalTableModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2077,14 +2142,15 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_receivers_isbase) {
             qsqlrelationaltablemodel_receivers_isbase = false;
             return QSqlRelationalTableModel::receivers(signal);
-        } else if (qsqlrelationaltablemodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsqlrelationaltablemodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsqlrelationaltablemodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSqlRelationalTableModel::receivers(signal);
         }
+        return QSqlRelationalTableModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2092,16 +2158,17 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (qsqlrelationaltablemodel_issignalconnected_isbase) {
             qsqlrelationaltablemodel_issignalconnected_isbase = false;
             return QSqlRelationalTableModel::isSignalConnected(signal);
-        } else if (qsqlrelationaltablemodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsqlrelationaltablemodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsqlrelationaltablemodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSqlRelationalTableModel::isSignalConnected(signal);
         }
+        return QSqlRelationalTableModel::isSignalConnected(signal);
     }
 
     // Friend functions

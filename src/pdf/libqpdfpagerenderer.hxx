@@ -69,23 +69,6 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     VirtualQPdfPageRenderer() : QPdfPageRenderer() {};
     VirtualQPdfPageRenderer(QObject* parent) : QPdfPageRenderer(parent) {};
 
-    ~VirtualQPdfPageRenderer() {
-        qpdfpagerenderer_metaobject_callback = nullptr;
-        qpdfpagerenderer_metacast_callback = nullptr;
-        qpdfpagerenderer_metacall_callback = nullptr;
-        qpdfpagerenderer_event_callback = nullptr;
-        qpdfpagerenderer_eventfilter_callback = nullptr;
-        qpdfpagerenderer_timerevent_callback = nullptr;
-        qpdfpagerenderer_childevent_callback = nullptr;
-        qpdfpagerenderer_customevent_callback = nullptr;
-        qpdfpagerenderer_connectnotify_callback = nullptr;
-        qpdfpagerenderer_disconnectnotify_callback = nullptr;
-        qpdfpagerenderer_sender_callback = nullptr;
-        qpdfpagerenderer_sendersignalindex_callback = nullptr;
-        qpdfpagerenderer_receivers_callback = nullptr;
-        qpdfpagerenderer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPdfPageRenderer_MetaObject_Callback(QPdfPageRenderer_MetaObject_Callback cb) { qpdfpagerenderer_metaobject_callback = cb; }
     inline void setQPdfPageRenderer_Metacast_Callback(QPdfPageRenderer_Metacast_Callback cb) { qpdfpagerenderer_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_metaobject_isbase) {
             qpdfpagerenderer_metaobject_isbase = false;
             return QPdfPageRenderer::metaObject();
-        } else if (qpdfpagerenderer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpdfpagerenderer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPdfPageRenderer::metaObject();
         }
+        auto metaobject_cb = qpdfpagerenderer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPdfPageRenderer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_metacast_isbase) {
             qpdfpagerenderer_metacast_isbase = false;
             return QPdfPageRenderer::qt_metacast(param1);
-        } else if (qpdfpagerenderer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpdfpagerenderer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpdfpagerenderer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfPageRenderer::qt_metacast(param1);
         }
+        return QPdfPageRenderer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_metacall_isbase) {
             qpdfpagerenderer_metacall_isbase = false;
             return QPdfPageRenderer::qt_metacall(param1, param2, param3);
-        } else if (qpdfpagerenderer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpdfpagerenderer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpdfpagerenderer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfPageRenderer::qt_metacall(param1, param2, param3);
         }
+        return QPdfPageRenderer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_event_isbase) {
             qpdfpagerenderer_event_isbase = false;
             return QPdfPageRenderer::event(event);
-        } else if (qpdfpagerenderer_event_callback != nullptr) {
+        }
+        auto event_cb = qpdfpagerenderer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpdfpagerenderer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfPageRenderer::event(event);
         }
+        return QPdfPageRenderer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_eventfilter_isbase) {
             qpdfpagerenderer_eventfilter_isbase = false;
             return QPdfPageRenderer::eventFilter(watched, event);
-        } else if (qpdfpagerenderer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpdfpagerenderer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpdfpagerenderer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPdfPageRenderer::eventFilter(watched, event);
         }
+        return QPdfPageRenderer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_timerevent_isbase) {
             qpdfpagerenderer_timerevent_isbase = false;
             QPdfPageRenderer::timerEvent(event);
-        } else if (qpdfpagerenderer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpdfpagerenderer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpdfpagerenderer_timerevent_callback(this, cbval1);
-        } else {
-            QPdfPageRenderer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPdfPageRenderer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_childevent_isbase) {
             qpdfpagerenderer_childevent_isbase = false;
             QPdfPageRenderer::childEvent(event);
-        } else if (qpdfpagerenderer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpdfpagerenderer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpdfpagerenderer_childevent_callback(this, cbval1);
-        } else {
-            QPdfPageRenderer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPdfPageRenderer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_customevent_isbase) {
             qpdfpagerenderer_customevent_isbase = false;
             QPdfPageRenderer::customEvent(event);
-        } else if (qpdfpagerenderer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpdfpagerenderer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpdfpagerenderer_customevent_callback(this, cbval1);
-        } else {
-            QPdfPageRenderer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPdfPageRenderer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_connectnotify_isbase) {
             qpdfpagerenderer_connectnotify_isbase = false;
             QPdfPageRenderer::connectNotify(signal);
-        } else if (qpdfpagerenderer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpdfpagerenderer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpdfpagerenderer_connectnotify_callback(this, cbval1);
-        } else {
-            QPdfPageRenderer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPdfPageRenderer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_disconnectnotify_isbase) {
             qpdfpagerenderer_disconnectnotify_isbase = false;
             QPdfPageRenderer::disconnectNotify(signal);
-        } else if (qpdfpagerenderer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpdfpagerenderer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpdfpagerenderer_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPdfPageRenderer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPdfPageRenderer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_sender_isbase) {
             qpdfpagerenderer_sender_isbase = false;
             return QPdfPageRenderer::sender();
-        } else if (qpdfpagerenderer_sender_callback != nullptr) {
-            QObject* callback_ret = qpdfpagerenderer_sender_callback();
-            return callback_ret;
-        } else {
-            return QPdfPageRenderer::sender();
         }
+        auto sender_cb = qpdfpagerenderer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPdfPageRenderer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_sendersignalindex_isbase) {
             qpdfpagerenderer_sendersignalindex_isbase = false;
             return QPdfPageRenderer::senderSignalIndex();
-        } else if (qpdfpagerenderer_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpdfpagerenderer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPdfPageRenderer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpdfpagerenderer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPdfPageRenderer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_receivers_isbase) {
             qpdfpagerenderer_receivers_isbase = false;
             return QPdfPageRenderer::receivers(signal);
-        } else if (qpdfpagerenderer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpdfpagerenderer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpdfpagerenderer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfPageRenderer::receivers(signal);
         }
+        return QPdfPageRenderer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
         if (qpdfpagerenderer_issignalconnected_isbase) {
             qpdfpagerenderer_issignalconnected_isbase = false;
             return QPdfPageRenderer::isSignalConnected(signal);
-        } else if (qpdfpagerenderer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpdfpagerenderer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpdfpagerenderer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfPageRenderer::isSignalConnected(signal);
         }
+        return QPdfPageRenderer::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -71,24 +71,6 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
   public:
     VirtualKAbstractFileItemActionPlugin(QObject* parent) : KAbstractFileItemActionPlugin(parent) {};
 
-    ~VirtualKAbstractFileItemActionPlugin() {
-        kabstractfileitemactionplugin_metaobject_callback = nullptr;
-        kabstractfileitemactionplugin_metacast_callback = nullptr;
-        kabstractfileitemactionplugin_metacall_callback = nullptr;
-        kabstractfileitemactionplugin_actions_callback = nullptr;
-        kabstractfileitemactionplugin_event_callback = nullptr;
-        kabstractfileitemactionplugin_eventfilter_callback = nullptr;
-        kabstractfileitemactionplugin_timerevent_callback = nullptr;
-        kabstractfileitemactionplugin_childevent_callback = nullptr;
-        kabstractfileitemactionplugin_customevent_callback = nullptr;
-        kabstractfileitemactionplugin_connectnotify_callback = nullptr;
-        kabstractfileitemactionplugin_disconnectnotify_callback = nullptr;
-        kabstractfileitemactionplugin_sender_callback = nullptr;
-        kabstractfileitemactionplugin_sendersignalindex_callback = nullptr;
-        kabstractfileitemactionplugin_receivers_callback = nullptr;
-        kabstractfileitemactionplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAbstractFileItemActionPlugin_MetaObject_Callback(KAbstractFileItemActionPlugin_MetaObject_Callback cb) { kabstractfileitemactionplugin_metaobject_callback = cb; }
     inline void setKAbstractFileItemActionPlugin_Metacast_Callback(KAbstractFileItemActionPlugin_Metacast_Callback cb) { kabstractfileitemactionplugin_metacast_callback = cb; }
@@ -128,12 +110,13 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_metaobject_isbase) {
             kabstractfileitemactionplugin_metaobject_isbase = false;
             return KAbstractFileItemActionPlugin::metaObject();
-        } else if (kabstractfileitemactionplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kabstractfileitemactionplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KAbstractFileItemActionPlugin::metaObject();
         }
+        auto metaobject_cb = kabstractfileitemactionplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KAbstractFileItemActionPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +124,15 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_metacast_isbase) {
             kabstractfileitemactionplugin_metacast_isbase = false;
             return KAbstractFileItemActionPlugin::qt_metacast(param1);
-        } else if (kabstractfileitemactionplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kabstractfileitemactionplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kabstractfileitemactionplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAbstractFileItemActionPlugin::qt_metacast(param1);
         }
+        return KAbstractFileItemActionPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,27 +140,29 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_metacall_isbase) {
             kabstractfileitemactionplugin_metacall_isbase = false;
             return KAbstractFileItemActionPlugin::qt_metacall(param1, param2, param3);
-        } else if (kabstractfileitemactionplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kabstractfileitemactionplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kabstractfileitemactionplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAbstractFileItemActionPlugin::qt_metacall(param1, param2, param3);
         }
+        return KAbstractFileItemActionPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QAction*> actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) override {
-        if (kabstractfileitemactionplugin_actions_callback != nullptr) {
+        auto actions_cb = kabstractfileitemactionplugin_actions_callback;
+        if (actions_cb) {
             const KFileItemListProperties& fileItemInfos_ret = fileItemInfos;
             // Cast returned reference into pointer
             KFileItemListProperties* cbval1 = const_cast<KFileItemListProperties*>(&fileItemInfos_ret);
             QWidget* cbval2 = parentWidget;
 
-            libqt_list /* of QAction* */ callback_ret = kabstractfileitemactionplugin_actions_callback(this, cbval1, cbval2);
+            libqt_list /* of QAction* */ callback_ret = actions_cb(this, cbval1, cbval2);
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -185,9 +171,8 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,14 +180,15 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_event_isbase) {
             kabstractfileitemactionplugin_event_isbase = false;
             return KAbstractFileItemActionPlugin::event(event);
-        } else if (kabstractfileitemactionplugin_event_callback != nullptr) {
+        }
+        auto event_cb = kabstractfileitemactionplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kabstractfileitemactionplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAbstractFileItemActionPlugin::event(event);
         }
+        return KAbstractFileItemActionPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -210,15 +196,16 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_eventfilter_isbase) {
             kabstractfileitemactionplugin_eventfilter_isbase = false;
             return KAbstractFileItemActionPlugin::eventFilter(watched, event);
-        } else if (kabstractfileitemactionplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kabstractfileitemactionplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kabstractfileitemactionplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAbstractFileItemActionPlugin::eventFilter(watched, event);
         }
+        return KAbstractFileItemActionPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +213,16 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_timerevent_isbase) {
             kabstractfileitemactionplugin_timerevent_isbase = false;
             KAbstractFileItemActionPlugin::timerEvent(event);
-        } else if (kabstractfileitemactionplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kabstractfileitemactionplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kabstractfileitemactionplugin_timerevent_callback(this, cbval1);
-        } else {
-            KAbstractFileItemActionPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KAbstractFileItemActionPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,13 +230,16 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_childevent_isbase) {
             kabstractfileitemactionplugin_childevent_isbase = false;
             KAbstractFileItemActionPlugin::childEvent(event);
-        } else if (kabstractfileitemactionplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kabstractfileitemactionplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kabstractfileitemactionplugin_childevent_callback(this, cbval1);
-        } else {
-            KAbstractFileItemActionPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KAbstractFileItemActionPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,13 +247,16 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_customevent_isbase) {
             kabstractfileitemactionplugin_customevent_isbase = false;
             KAbstractFileItemActionPlugin::customEvent(event);
-        } else if (kabstractfileitemactionplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kabstractfileitemactionplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kabstractfileitemactionplugin_customevent_callback(this, cbval1);
-        } else {
-            KAbstractFileItemActionPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KAbstractFileItemActionPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -268,15 +264,18 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_connectnotify_isbase) {
             kabstractfileitemactionplugin_connectnotify_isbase = false;
             KAbstractFileItemActionPlugin::connectNotify(signal);
-        } else if (kabstractfileitemactionplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kabstractfileitemactionplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kabstractfileitemactionplugin_connectnotify_callback(this, cbval1);
-        } else {
-            KAbstractFileItemActionPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KAbstractFileItemActionPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,15 +283,18 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_disconnectnotify_isbase) {
             kabstractfileitemactionplugin_disconnectnotify_isbase = false;
             KAbstractFileItemActionPlugin::disconnectNotify(signal);
-        } else if (kabstractfileitemactionplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kabstractfileitemactionplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kabstractfileitemactionplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            KAbstractFileItemActionPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KAbstractFileItemActionPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,12 +302,13 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_sender_isbase) {
             kabstractfileitemactionplugin_sender_isbase = false;
             return KAbstractFileItemActionPlugin::sender();
-        } else if (kabstractfileitemactionplugin_sender_callback != nullptr) {
-            QObject* callback_ret = kabstractfileitemactionplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return KAbstractFileItemActionPlugin::sender();
         }
+        auto sender_cb = kabstractfileitemactionplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KAbstractFileItemActionPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,12 +316,13 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_sendersignalindex_isbase) {
             kabstractfileitemactionplugin_sendersignalindex_isbase = false;
             return KAbstractFileItemActionPlugin::senderSignalIndex();
-        } else if (kabstractfileitemactionplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = kabstractfileitemactionplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KAbstractFileItemActionPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kabstractfileitemactionplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KAbstractFileItemActionPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -326,14 +330,15 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_receivers_isbase) {
             kabstractfileitemactionplugin_receivers_isbase = false;
             return KAbstractFileItemActionPlugin::receivers(signal);
-        } else if (kabstractfileitemactionplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kabstractfileitemactionplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kabstractfileitemactionplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KAbstractFileItemActionPlugin::receivers(signal);
         }
+        return KAbstractFileItemActionPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,16 +346,17 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
         if (kabstractfileitemactionplugin_issignalconnected_isbase) {
             kabstractfileitemactionplugin_issignalconnected_isbase = false;
             return KAbstractFileItemActionPlugin::isSignalConnected(signal);
-        } else if (kabstractfileitemactionplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kabstractfileitemactionplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kabstractfileitemactionplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAbstractFileItemActionPlugin::isSignalConnected(signal);
         }
+        return KAbstractFileItemActionPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

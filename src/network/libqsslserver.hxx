@@ -81,27 +81,6 @@ class VirtualQSslServer final : public QSslServer {
     VirtualQSslServer() : QSslServer() {};
     VirtualQSslServer(QObject* parent) : QSslServer(parent) {};
 
-    ~VirtualQSslServer() {
-        qsslserver_metaobject_callback = nullptr;
-        qsslserver_metacast_callback = nullptr;
-        qsslserver_metacall_callback = nullptr;
-        qsslserver_incomingconnection_callback = nullptr;
-        qsslserver_haspendingconnections_callback = nullptr;
-        qsslserver_nextpendingconnection_callback = nullptr;
-        qsslserver_event_callback = nullptr;
-        qsslserver_eventfilter_callback = nullptr;
-        qsslserver_timerevent_callback = nullptr;
-        qsslserver_childevent_callback = nullptr;
-        qsslserver_customevent_callback = nullptr;
-        qsslserver_connectnotify_callback = nullptr;
-        qsslserver_disconnectnotify_callback = nullptr;
-        qsslserver_addpendingconnection_callback = nullptr;
-        qsslserver_sender_callback = nullptr;
-        qsslserver_sendersignalindex_callback = nullptr;
-        qsslserver_receivers_callback = nullptr;
-        qsslserver_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSslServer_MetaObject_Callback(QSslServer_MetaObject_Callback cb) { qsslserver_metaobject_callback = cb; }
     inline void setQSslServer_Metacast_Callback(QSslServer_Metacast_Callback cb) { qsslserver_metacast_callback = cb; }
@@ -147,12 +126,13 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_metaobject_isbase) {
             qsslserver_metaobject_isbase = false;
             return QSslServer::metaObject();
-        } else if (qsslserver_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsslserver_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSslServer::metaObject();
         }
+        auto metaobject_cb = qsslserver_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSslServer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +140,15 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_metacast_isbase) {
             qsslserver_metacast_isbase = false;
             return QSslServer::qt_metacast(param1);
-        } else if (qsslserver_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsslserver_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsslserver_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslServer::qt_metacast(param1);
         }
+        return QSslServer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,16 +156,17 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_metacall_isbase) {
             qsslserver_metacall_isbase = false;
             return QSslServer::qt_metacall(param1, param2, param3);
-        } else if (qsslserver_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsslserver_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsslserver_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSslServer::qt_metacall(param1, param2, param3);
         }
+        return QSslServer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,14 +174,17 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_incomingconnection_isbase) {
             qsslserver_incomingconnection_isbase = false;
             QSslServer::incomingConnection(socket);
-        } else if (qsslserver_incomingconnection_callback != nullptr) {
+            return;
+        }
+        auto incomingconnection_cb = qsslserver_incomingconnection_callback;
+        if (incomingconnection_cb) {
             qintptr socket_ret = socket;
             intptr_t cbval1 = (intptr_t)(socket_ret);
 
-            qsslserver_incomingconnection_callback(this, cbval1);
-        } else {
-            QSslServer::incomingConnection(socket);
+            incomingconnection_cb(this, cbval1);
+            return;
         }
+        QSslServer::incomingConnection(socket);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,12 +192,13 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_haspendingconnections_isbase) {
             qsslserver_haspendingconnections_isbase = false;
             return QSslServer::hasPendingConnections();
-        } else if (qsslserver_haspendingconnections_callback != nullptr) {
-            bool callback_ret = qsslserver_haspendingconnections_callback();
-            return callback_ret;
-        } else {
-            return QSslServer::hasPendingConnections();
         }
+        auto haspendingconnections_cb = qsslserver_haspendingconnections_callback;
+        if (haspendingconnections_cb) {
+            bool callback_ret = haspendingconnections_cb();
+            return callback_ret;
+        }
+        return QSslServer::hasPendingConnections();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -220,12 +206,13 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_nextpendingconnection_isbase) {
             qsslserver_nextpendingconnection_isbase = false;
             return QSslServer::nextPendingConnection();
-        } else if (qsslserver_nextpendingconnection_callback != nullptr) {
-            QTcpSocket* callback_ret = qsslserver_nextpendingconnection_callback();
-            return callback_ret;
-        } else {
-            return QSslServer::nextPendingConnection();
         }
+        auto nextpendingconnection_cb = qsslserver_nextpendingconnection_callback;
+        if (nextpendingconnection_cb) {
+            QTcpSocket* callback_ret = nextpendingconnection_cb();
+            return callback_ret;
+        }
+        return QSslServer::nextPendingConnection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -233,14 +220,15 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_event_isbase) {
             qsslserver_event_isbase = false;
             return QSslServer::event(event);
-        } else if (qsslserver_event_callback != nullptr) {
+        }
+        auto event_cb = qsslserver_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsslserver_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslServer::event(event);
         }
+        return QSslServer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -248,15 +236,16 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_eventfilter_isbase) {
             qsslserver_eventfilter_isbase = false;
             return QSslServer::eventFilter(watched, event);
-        } else if (qsslserver_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsslserver_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsslserver_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSslServer::eventFilter(watched, event);
         }
+        return QSslServer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,13 +253,16 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_timerevent_isbase) {
             qsslserver_timerevent_isbase = false;
             QSslServer::timerEvent(event);
-        } else if (qsslserver_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsslserver_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsslserver_timerevent_callback(this, cbval1);
-        } else {
-            QSslServer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSslServer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -278,13 +270,16 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_childevent_isbase) {
             qsslserver_childevent_isbase = false;
             QSslServer::childEvent(event);
-        } else if (qsslserver_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsslserver_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsslserver_childevent_callback(this, cbval1);
-        } else {
-            QSslServer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSslServer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,13 +287,16 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_customevent_isbase) {
             qsslserver_customevent_isbase = false;
             QSslServer::customEvent(event);
-        } else if (qsslserver_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsslserver_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsslserver_customevent_callback(this, cbval1);
-        } else {
-            QSslServer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSslServer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -306,15 +304,18 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_connectnotify_isbase) {
             qsslserver_connectnotify_isbase = false;
             QSslServer::connectNotify(signal);
-        } else if (qsslserver_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsslserver_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsslserver_connectnotify_callback(this, cbval1);
-        } else {
-            QSslServer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSslServer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,15 +323,18 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_disconnectnotify_isbase) {
             qsslserver_disconnectnotify_isbase = false;
             QSslServer::disconnectNotify(signal);
-        } else if (qsslserver_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsslserver_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsslserver_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSslServer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSslServer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -338,13 +342,16 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_addpendingconnection_isbase) {
             qsslserver_addpendingconnection_isbase = false;
             QSslServer::addPendingConnection(socket);
-        } else if (qsslserver_addpendingconnection_callback != nullptr) {
+            return;
+        }
+        auto addpendingconnection_cb = qsslserver_addpendingconnection_callback;
+        if (addpendingconnection_cb) {
             QTcpSocket* cbval1 = socket;
 
-            qsslserver_addpendingconnection_callback(this, cbval1);
-        } else {
-            QSslServer::addPendingConnection(socket);
+            addpendingconnection_cb(this, cbval1);
+            return;
         }
+        QSslServer::addPendingConnection(socket);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,12 +359,13 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_sender_isbase) {
             qsslserver_sender_isbase = false;
             return QSslServer::sender();
-        } else if (qsslserver_sender_callback != nullptr) {
-            QObject* callback_ret = qsslserver_sender_callback();
-            return callback_ret;
-        } else {
-            return QSslServer::sender();
         }
+        auto sender_cb = qsslserver_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSslServer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,12 +373,13 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_sendersignalindex_isbase) {
             qsslserver_sendersignalindex_isbase = false;
             return QSslServer::senderSignalIndex();
-        } else if (qsslserver_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsslserver_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSslServer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsslserver_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSslServer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -378,14 +387,15 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_receivers_isbase) {
             qsslserver_receivers_isbase = false;
             return QSslServer::receivers(signal);
-        } else if (qsslserver_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsslserver_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsslserver_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSslServer::receivers(signal);
         }
+        return QSslServer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -393,16 +403,17 @@ class VirtualQSslServer final : public QSslServer {
         if (qsslserver_issignalconnected_isbase) {
             qsslserver_issignalconnected_isbase = false;
             return QSslServer::isSignalConnected(signal);
-        } else if (qsslserver_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsslserver_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsslserver_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSslServer::isSignalConnected(signal);
         }
+        return QSslServer::isSignalConnected(signal);
     }
 
     // Friend functions

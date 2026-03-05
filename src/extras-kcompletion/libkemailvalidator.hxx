@@ -75,25 +75,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
     VirtualKEmailValidator() : KEmailValidator() {};
     VirtualKEmailValidator(QObject* parent) : KEmailValidator(parent) {};
 
-    ~VirtualKEmailValidator() {
-        kemailvalidator_metaobject_callback = nullptr;
-        kemailvalidator_metacast_callback = nullptr;
-        kemailvalidator_metacall_callback = nullptr;
-        kemailvalidator_validate_callback = nullptr;
-        kemailvalidator_fixup_callback = nullptr;
-        kemailvalidator_event_callback = nullptr;
-        kemailvalidator_eventfilter_callback = nullptr;
-        kemailvalidator_timerevent_callback = nullptr;
-        kemailvalidator_childevent_callback = nullptr;
-        kemailvalidator_customevent_callback = nullptr;
-        kemailvalidator_connectnotify_callback = nullptr;
-        kemailvalidator_disconnectnotify_callback = nullptr;
-        kemailvalidator_sender_callback = nullptr;
-        kemailvalidator_sendersignalindex_callback = nullptr;
-        kemailvalidator_receivers_callback = nullptr;
-        kemailvalidator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKEmailValidator_MetaObject_Callback(KEmailValidator_MetaObject_Callback cb) { kemailvalidator_metaobject_callback = cb; }
     inline void setKEmailValidator_Metacast_Callback(KEmailValidator_Metacast_Callback cb) { kemailvalidator_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_metaobject_isbase) {
             kemailvalidator_metaobject_isbase = false;
             return KEmailValidator::metaObject();
-        } else if (kemailvalidator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kemailvalidator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KEmailValidator::metaObject();
         }
+        auto metaobject_cb = kemailvalidator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KEmailValidator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_metacast_isbase) {
             kemailvalidator_metacast_isbase = false;
             return KEmailValidator::qt_metacast(param1);
-        } else if (kemailvalidator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kemailvalidator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kemailvalidator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEmailValidator::qt_metacast(param1);
         }
+        return KEmailValidator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_metacall_isbase) {
             kemailvalidator_metacall_isbase = false;
             return KEmailValidator::qt_metacall(param1, param2, param3);
-        } else if (kemailvalidator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kemailvalidator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kemailvalidator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEmailValidator::qt_metacall(param1, param2, param3);
         }
+        return KEmailValidator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,7 +164,9 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_validate_isbase) {
             kemailvalidator_validate_isbase = false;
             return KEmailValidator::validate(str, pos);
-        } else if (kemailvalidator_validate_callback != nullptr) {
+        }
+        auto validate_cb = kemailvalidator_validate_callback;
+        if (validate_cb) {
             QString str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
@@ -191,12 +177,11 @@ class VirtualKEmailValidator final : public KEmailValidator {
             const char* cbval1 = str_str;
             int* cbval2 = &pos;
 
-            int callback_ret = kemailvalidator_validate_callback(this, cbval1, cbval2);
+            int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(str_str);
             return static_cast<QValidator::State>(callback_ret);
-        } else {
-            return KEmailValidator::validate(str, pos);
         }
+        return KEmailValidator::validate(str, pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,7 +189,10 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_fixup_isbase) {
             kemailvalidator_fixup_isbase = false;
             KEmailValidator::fixup(str);
-        } else if (kemailvalidator_fixup_callback != nullptr) {
+            return;
+        }
+        auto fixup_cb = kemailvalidator_fixup_callback;
+        if (fixup_cb) {
             QString str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
@@ -214,11 +202,11 @@ class VirtualKEmailValidator final : public KEmailValidator {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
 
-            kemailvalidator_fixup_callback(this, cbval1);
+            fixup_cb(this, cbval1);
             libqt_free(str_str);
-        } else {
-            KEmailValidator::fixup(str);
+            return;
         }
+        KEmailValidator::fixup(str);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,14 +214,15 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_event_isbase) {
             kemailvalidator_event_isbase = false;
             return KEmailValidator::event(event);
-        } else if (kemailvalidator_event_callback != nullptr) {
+        }
+        auto event_cb = kemailvalidator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kemailvalidator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEmailValidator::event(event);
         }
+        return KEmailValidator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +230,16 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_eventfilter_isbase) {
             kemailvalidator_eventfilter_isbase = false;
             return KEmailValidator::eventFilter(watched, event);
-        } else if (kemailvalidator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kemailvalidator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kemailvalidator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KEmailValidator::eventFilter(watched, event);
         }
+        return KEmailValidator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,13 +247,16 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_timerevent_isbase) {
             kemailvalidator_timerevent_isbase = false;
             KEmailValidator::timerEvent(event);
-        } else if (kemailvalidator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kemailvalidator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kemailvalidator_timerevent_callback(this, cbval1);
-        } else {
-            KEmailValidator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KEmailValidator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,13 +264,16 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_childevent_isbase) {
             kemailvalidator_childevent_isbase = false;
             KEmailValidator::childEvent(event);
-        } else if (kemailvalidator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kemailvalidator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kemailvalidator_childevent_callback(this, cbval1);
-        } else {
-            KEmailValidator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KEmailValidator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,13 +281,16 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_customevent_isbase) {
             kemailvalidator_customevent_isbase = false;
             KEmailValidator::customEvent(event);
-        } else if (kemailvalidator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kemailvalidator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kemailvalidator_customevent_callback(this, cbval1);
-        } else {
-            KEmailValidator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KEmailValidator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,15 +298,18 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_connectnotify_isbase) {
             kemailvalidator_connectnotify_isbase = false;
             KEmailValidator::connectNotify(signal);
-        } else if (kemailvalidator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kemailvalidator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kemailvalidator_connectnotify_callback(this, cbval1);
-        } else {
-            KEmailValidator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KEmailValidator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,15 +317,18 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_disconnectnotify_isbase) {
             kemailvalidator_disconnectnotify_isbase = false;
             KEmailValidator::disconnectNotify(signal);
-        } else if (kemailvalidator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kemailvalidator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kemailvalidator_disconnectnotify_callback(this, cbval1);
-        } else {
-            KEmailValidator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KEmailValidator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,12 +336,13 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_sender_isbase) {
             kemailvalidator_sender_isbase = false;
             return KEmailValidator::sender();
-        } else if (kemailvalidator_sender_callback != nullptr) {
-            QObject* callback_ret = kemailvalidator_sender_callback();
-            return callback_ret;
-        } else {
-            return KEmailValidator::sender();
         }
+        auto sender_cb = kemailvalidator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KEmailValidator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,12 +350,13 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_sendersignalindex_isbase) {
             kemailvalidator_sendersignalindex_isbase = false;
             return KEmailValidator::senderSignalIndex();
-        } else if (kemailvalidator_sendersignalindex_callback != nullptr) {
-            int callback_ret = kemailvalidator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KEmailValidator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kemailvalidator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KEmailValidator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,14 +364,15 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_receivers_isbase) {
             kemailvalidator_receivers_isbase = false;
             return KEmailValidator::receivers(signal);
-        } else if (kemailvalidator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kemailvalidator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kemailvalidator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KEmailValidator::receivers(signal);
         }
+        return KEmailValidator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,16 +380,17 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (kemailvalidator_issignalconnected_isbase) {
             kemailvalidator_issignalconnected_isbase = false;
             return KEmailValidator::isSignalConnected(signal);
-        } else if (kemailvalidator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kemailvalidator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kemailvalidator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KEmailValidator::isSignalConnected(signal);
         }
+        return KEmailValidator::isSignalConnected(signal);
     }
 
     // Friend functions

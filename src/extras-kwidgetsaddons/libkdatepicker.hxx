@@ -251,83 +251,6 @@ class VirtualKDatePicker final : public KDatePicker {
     VirtualKDatePicker(const QDate& dt) : KDatePicker(dt) {};
     VirtualKDatePicker(const QDate& dt, QWidget* parent) : KDatePicker(dt, parent) {};
 
-    ~VirtualKDatePicker() {
-        kdatepicker_metaobject_callback = nullptr;
-        kdatepicker_metacast_callback = nullptr;
-        kdatepicker_metacall_callback = nullptr;
-        kdatepicker_sizehint_callback = nullptr;
-        kdatepicker_eventfilter_callback = nullptr;
-        kdatepicker_resizeevent_callback = nullptr;
-        kdatepicker_changeevent_callback = nullptr;
-        kdatepicker_event_callback = nullptr;
-        kdatepicker_paintevent_callback = nullptr;
-        kdatepicker_initstyleoption_callback = nullptr;
-        kdatepicker_devtype_callback = nullptr;
-        kdatepicker_setvisible_callback = nullptr;
-        kdatepicker_minimumsizehint_callback = nullptr;
-        kdatepicker_heightforwidth_callback = nullptr;
-        kdatepicker_hasheightforwidth_callback = nullptr;
-        kdatepicker_paintengine_callback = nullptr;
-        kdatepicker_mousepressevent_callback = nullptr;
-        kdatepicker_mousereleaseevent_callback = nullptr;
-        kdatepicker_mousedoubleclickevent_callback = nullptr;
-        kdatepicker_mousemoveevent_callback = nullptr;
-        kdatepicker_wheelevent_callback = nullptr;
-        kdatepicker_keypressevent_callback = nullptr;
-        kdatepicker_keyreleaseevent_callback = nullptr;
-        kdatepicker_focusinevent_callback = nullptr;
-        kdatepicker_focusoutevent_callback = nullptr;
-        kdatepicker_enterevent_callback = nullptr;
-        kdatepicker_leaveevent_callback = nullptr;
-        kdatepicker_moveevent_callback = nullptr;
-        kdatepicker_closeevent_callback = nullptr;
-        kdatepicker_contextmenuevent_callback = nullptr;
-        kdatepicker_tabletevent_callback = nullptr;
-        kdatepicker_actionevent_callback = nullptr;
-        kdatepicker_dragenterevent_callback = nullptr;
-        kdatepicker_dragmoveevent_callback = nullptr;
-        kdatepicker_dragleaveevent_callback = nullptr;
-        kdatepicker_dropevent_callback = nullptr;
-        kdatepicker_showevent_callback = nullptr;
-        kdatepicker_hideevent_callback = nullptr;
-        kdatepicker_nativeevent_callback = nullptr;
-        kdatepicker_metric_callback = nullptr;
-        kdatepicker_initpainter_callback = nullptr;
-        kdatepicker_redirected_callback = nullptr;
-        kdatepicker_sharedpainter_callback = nullptr;
-        kdatepicker_inputmethodevent_callback = nullptr;
-        kdatepicker_inputmethodquery_callback = nullptr;
-        kdatepicker_focusnextprevchild_callback = nullptr;
-        kdatepicker_timerevent_callback = nullptr;
-        kdatepicker_childevent_callback = nullptr;
-        kdatepicker_customevent_callback = nullptr;
-        kdatepicker_connectnotify_callback = nullptr;
-        kdatepicker_disconnectnotify_callback = nullptr;
-        kdatepicker_datechangedslot_callback = nullptr;
-        kdatepicker_tableclickedslot_callback = nullptr;
-        kdatepicker_monthforwardclicked_callback = nullptr;
-        kdatepicker_monthbackwardclicked_callback = nullptr;
-        kdatepicker_yearforwardclicked_callback = nullptr;
-        kdatepicker_yearbackwardclicked_callback = nullptr;
-        kdatepicker_selectmonthclicked_callback = nullptr;
-        kdatepicker_selectyearclicked_callback = nullptr;
-        kdatepicker_uncheckyearselector_callback = nullptr;
-        kdatepicker_lineenterpressed_callback = nullptr;
-        kdatepicker_todaybuttonclicked_callback = nullptr;
-        kdatepicker_weekselected_callback = nullptr;
-        kdatepicker_drawframe_callback = nullptr;
-        kdatepicker_updatemicrofocus_callback = nullptr;
-        kdatepicker_create_callback = nullptr;
-        kdatepicker_destroy_callback = nullptr;
-        kdatepicker_focusnextchild_callback = nullptr;
-        kdatepicker_focuspreviouschild_callback = nullptr;
-        kdatepicker_sender_callback = nullptr;
-        kdatepicker_sendersignalindex_callback = nullptr;
-        kdatepicker_receivers_callback = nullptr;
-        kdatepicker_issignalconnected_callback = nullptr;
-        kdatepicker_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDatePicker_MetaObject_Callback(KDatePicker_MetaObject_Callback cb) { kdatepicker_metaobject_callback = cb; }
     inline void setKDatePicker_Metacast_Callback(KDatePicker_Metacast_Callback cb) { kdatepicker_metacast_callback = cb; }
@@ -485,12 +408,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_metaobject_isbase) {
             kdatepicker_metaobject_isbase = false;
             return KDatePicker::metaObject();
-        } else if (kdatepicker_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdatepicker_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::metaObject();
         }
+        auto metaobject_cb = kdatepicker_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDatePicker::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,14 +422,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_metacast_isbase) {
             kdatepicker_metacast_isbase = false;
             return KDatePicker::qt_metacast(param1);
-        } else if (kdatepicker_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdatepicker_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdatepicker_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePicker::qt_metacast(param1);
         }
+        return KDatePicker::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,16 +438,17 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_metacall_isbase) {
             kdatepicker_metacall_isbase = false;
             return KDatePicker::qt_metacall(param1, param2, param3);
-        } else if (kdatepicker_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdatepicker_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdatepicker_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePicker::qt_metacall(param1, param2, param3);
         }
+        return KDatePicker::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,12 +456,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_sizehint_isbase) {
             kdatepicker_sizehint_isbase = false;
             return KDatePicker::sizeHint();
-        } else if (kdatepicker_sizehint_callback != nullptr) {
-            QSize* callback_ret = kdatepicker_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDatePicker::sizeHint();
         }
+        auto sizehint_cb = kdatepicker_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KDatePicker::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,15 +470,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_eventfilter_isbase) {
             kdatepicker_eventfilter_isbase = false;
             return KDatePicker::eventFilter(o, e);
-        } else if (kdatepicker_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdatepicker_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = o;
             QEvent* cbval2 = e;
 
-            bool callback_ret = kdatepicker_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDatePicker::eventFilter(o, e);
         }
+        return KDatePicker::eventFilter(o, e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,13 +487,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_resizeevent_isbase) {
             kdatepicker_resizeevent_isbase = false;
             KDatePicker::resizeEvent(param1);
-        } else if (kdatepicker_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kdatepicker_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kdatepicker_resizeevent_callback(this, cbval1);
-        } else {
-            KDatePicker::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,13 +504,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_changeevent_isbase) {
             kdatepicker_changeevent_isbase = false;
             KDatePicker::changeEvent(event);
-        } else if (kdatepicker_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kdatepicker_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatepicker_changeevent_callback(this, cbval1);
-        } else {
-            KDatePicker::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,14 +521,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_event_isbase) {
             kdatepicker_event_isbase = false;
             return KDatePicker::event(e);
-        } else if (kdatepicker_event_callback != nullptr) {
+        }
+        auto event_cb = kdatepicker_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = kdatepicker_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePicker::event(e);
         }
+        return KDatePicker::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -602,13 +537,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_paintevent_isbase) {
             kdatepicker_paintevent_isbase = false;
             KDatePicker::paintEvent(param1);
-        } else if (kdatepicker_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kdatepicker_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kdatepicker_paintevent_callback(this, cbval1);
-        } else {
-            KDatePicker::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,13 +554,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_initstyleoption_isbase) {
             kdatepicker_initstyleoption_isbase = false;
             KDatePicker::initStyleOption(option);
-        } else if (kdatepicker_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = kdatepicker_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            kdatepicker_initstyleoption_callback(this, cbval1);
-        } else {
-            KDatePicker::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KDatePicker::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -630,12 +571,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_devtype_isbase) {
             kdatepicker_devtype_isbase = false;
             return KDatePicker::devType();
-        } else if (kdatepicker_devtype_callback != nullptr) {
-            int callback_ret = kdatepicker_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDatePicker::devType();
         }
+        auto devtype_cb = kdatepicker_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDatePicker::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -643,13 +585,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_setvisible_isbase) {
             kdatepicker_setvisible_isbase = false;
             KDatePicker::setVisible(visible);
-        } else if (kdatepicker_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kdatepicker_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kdatepicker_setvisible_callback(this, cbval1);
-        } else {
-            KDatePicker::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KDatePicker::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -657,12 +602,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_minimumsizehint_isbase) {
             kdatepicker_minimumsizehint_isbase = false;
             return KDatePicker::minimumSizeHint();
-        } else if (kdatepicker_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kdatepicker_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KDatePicker::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kdatepicker_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KDatePicker::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -670,14 +616,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_heightforwidth_isbase) {
             kdatepicker_heightforwidth_isbase = false;
             return KDatePicker::heightForWidth(param1);
-        } else if (kdatepicker_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kdatepicker_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kdatepicker_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePicker::heightForWidth(param1);
         }
+        return KDatePicker::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,12 +632,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_hasheightforwidth_isbase) {
             kdatepicker_hasheightforwidth_isbase = false;
             return KDatePicker::hasHeightForWidth();
-        } else if (kdatepicker_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kdatepicker_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kdatepicker_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KDatePicker::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,12 +646,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_paintengine_isbase) {
             kdatepicker_paintengine_isbase = false;
             return KDatePicker::paintEngine();
-        } else if (kdatepicker_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kdatepicker_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::paintEngine();
         }
+        auto paintengine_cb = kdatepicker_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KDatePicker::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,13 +660,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_mousepressevent_isbase) {
             kdatepicker_mousepressevent_isbase = false;
             KDatePicker::mousePressEvent(event);
-        } else if (kdatepicker_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kdatepicker_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatepicker_mousepressevent_callback(this, cbval1);
-        } else {
-            KDatePicker::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -725,13 +677,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_mousereleaseevent_isbase) {
             kdatepicker_mousereleaseevent_isbase = false;
             KDatePicker::mouseReleaseEvent(event);
-        } else if (kdatepicker_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kdatepicker_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatepicker_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KDatePicker::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,13 +694,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_mousedoubleclickevent_isbase) {
             kdatepicker_mousedoubleclickevent_isbase = false;
             KDatePicker::mouseDoubleClickEvent(event);
-        } else if (kdatepicker_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kdatepicker_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatepicker_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KDatePicker::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,13 +711,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_mousemoveevent_isbase) {
             kdatepicker_mousemoveevent_isbase = false;
             KDatePicker::mouseMoveEvent(event);
-        } else if (kdatepicker_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kdatepicker_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kdatepicker_mousemoveevent_callback(this, cbval1);
-        } else {
-            KDatePicker::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +728,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_wheelevent_isbase) {
             kdatepicker_wheelevent_isbase = false;
             KDatePicker::wheelEvent(event);
-        } else if (kdatepicker_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kdatepicker_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kdatepicker_wheelevent_callback(this, cbval1);
-        } else {
-            KDatePicker::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +745,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_keypressevent_isbase) {
             kdatepicker_keypressevent_isbase = false;
             KDatePicker::keyPressEvent(event);
-        } else if (kdatepicker_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kdatepicker_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kdatepicker_keypressevent_callback(this, cbval1);
-        } else {
-            KDatePicker::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +762,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_keyreleaseevent_isbase) {
             kdatepicker_keyreleaseevent_isbase = false;
             KDatePicker::keyReleaseEvent(event);
-        } else if (kdatepicker_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kdatepicker_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kdatepicker_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KDatePicker::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +779,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_focusinevent_isbase) {
             kdatepicker_focusinevent_isbase = false;
             KDatePicker::focusInEvent(event);
-        } else if (kdatepicker_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kdatepicker_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdatepicker_focusinevent_callback(this, cbval1);
-        } else {
-            KDatePicker::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,13 +796,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_focusoutevent_isbase) {
             kdatepicker_focusoutevent_isbase = false;
             KDatePicker::focusOutEvent(event);
-        } else if (kdatepicker_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kdatepicker_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kdatepicker_focusoutevent_callback(this, cbval1);
-        } else {
-            KDatePicker::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,13 +813,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_enterevent_isbase) {
             kdatepicker_enterevent_isbase = false;
             KDatePicker::enterEvent(event);
-        } else if (kdatepicker_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kdatepicker_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kdatepicker_enterevent_callback(this, cbval1);
-        } else {
-            KDatePicker::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,13 +830,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_leaveevent_isbase) {
             kdatepicker_leaveevent_isbase = false;
             KDatePicker::leaveEvent(event);
-        } else if (kdatepicker_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kdatepicker_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatepicker_leaveevent_callback(this, cbval1);
-        } else {
-            KDatePicker::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,13 +847,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_moveevent_isbase) {
             kdatepicker_moveevent_isbase = false;
             KDatePicker::moveEvent(event);
-        } else if (kdatepicker_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kdatepicker_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kdatepicker_moveevent_callback(this, cbval1);
-        } else {
-            KDatePicker::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -879,13 +864,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_closeevent_isbase) {
             kdatepicker_closeevent_isbase = false;
             KDatePicker::closeEvent(event);
-        } else if (kdatepicker_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kdatepicker_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kdatepicker_closeevent_callback(this, cbval1);
-        } else {
-            KDatePicker::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,13 +881,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_contextmenuevent_isbase) {
             kdatepicker_contextmenuevent_isbase = false;
             KDatePicker::contextMenuEvent(event);
-        } else if (kdatepicker_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kdatepicker_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kdatepicker_contextmenuevent_callback(this, cbval1);
-        } else {
-            KDatePicker::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,13 +898,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_tabletevent_isbase) {
             kdatepicker_tabletevent_isbase = false;
             KDatePicker::tabletEvent(event);
-        } else if (kdatepicker_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kdatepicker_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kdatepicker_tabletevent_callback(this, cbval1);
-        } else {
-            KDatePicker::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,13 +915,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_actionevent_isbase) {
             kdatepicker_actionevent_isbase = false;
             KDatePicker::actionEvent(event);
-        } else if (kdatepicker_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kdatepicker_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kdatepicker_actionevent_callback(this, cbval1);
-        } else {
-            KDatePicker::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,13 +932,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_dragenterevent_isbase) {
             kdatepicker_dragenterevent_isbase = false;
             KDatePicker::dragEnterEvent(event);
-        } else if (kdatepicker_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kdatepicker_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kdatepicker_dragenterevent_callback(this, cbval1);
-        } else {
-            KDatePicker::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +949,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_dragmoveevent_isbase) {
             kdatepicker_dragmoveevent_isbase = false;
             KDatePicker::dragMoveEvent(event);
-        } else if (kdatepicker_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kdatepicker_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kdatepicker_dragmoveevent_callback(this, cbval1);
-        } else {
-            KDatePicker::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,13 +966,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_dragleaveevent_isbase) {
             kdatepicker_dragleaveevent_isbase = false;
             KDatePicker::dragLeaveEvent(event);
-        } else if (kdatepicker_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kdatepicker_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kdatepicker_dragleaveevent_callback(this, cbval1);
-        } else {
-            KDatePicker::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +983,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_dropevent_isbase) {
             kdatepicker_dropevent_isbase = false;
             KDatePicker::dropEvent(event);
-        } else if (kdatepicker_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kdatepicker_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kdatepicker_dropevent_callback(this, cbval1);
-        } else {
-            KDatePicker::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,13 +1000,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_showevent_isbase) {
             kdatepicker_showevent_isbase = false;
             KDatePicker::showEvent(event);
-        } else if (kdatepicker_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kdatepicker_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kdatepicker_showevent_callback(this, cbval1);
-        } else {
-            KDatePicker::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,13 +1017,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_hideevent_isbase) {
             kdatepicker_hideevent_isbase = false;
             KDatePicker::hideEvent(event);
-        } else if (kdatepicker_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kdatepicker_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kdatepicker_hideevent_callback(this, cbval1);
-        } else {
-            KDatePicker::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1019,7 +1034,9 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_nativeevent_isbase) {
             kdatepicker_nativeevent_isbase = false;
             return KDatePicker::nativeEvent(eventType, message, result);
-        } else if (kdatepicker_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kdatepicker_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1030,12 +1047,11 @@ class VirtualKDatePicker final : public KDatePicker {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kdatepicker_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KDatePicker::nativeEvent(eventType, message, result);
         }
+        return KDatePicker::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,14 +1059,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_metric_isbase) {
             kdatepicker_metric_isbase = false;
             return KDatePicker::metric(param1);
-        } else if (kdatepicker_metric_callback != nullptr) {
+        }
+        auto metric_cb = kdatepicker_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kdatepicker_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePicker::metric(param1);
         }
+        return KDatePicker::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1075,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_initpainter_isbase) {
             kdatepicker_initpainter_isbase = false;
             KDatePicker::initPainter(painter);
-        } else if (kdatepicker_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kdatepicker_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kdatepicker_initpainter_callback(this, cbval1);
-        } else {
-            KDatePicker::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KDatePicker::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,14 +1092,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_redirected_isbase) {
             kdatepicker_redirected_isbase = false;
             return KDatePicker::redirected(offset);
-        } else if (kdatepicker_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kdatepicker_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kdatepicker_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePicker::redirected(offset);
         }
+        return KDatePicker::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,12 +1108,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_sharedpainter_isbase) {
             kdatepicker_sharedpainter_isbase = false;
             return KDatePicker::sharedPainter();
-        } else if (kdatepicker_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kdatepicker_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::sharedPainter();
         }
+        auto sharedpainter_cb = kdatepicker_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KDatePicker::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,13 +1122,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_inputmethodevent_isbase) {
             kdatepicker_inputmethodevent_isbase = false;
             KDatePicker::inputMethodEvent(param1);
-        } else if (kdatepicker_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kdatepicker_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kdatepicker_inputmethodevent_callback(this, cbval1);
-        } else {
-            KDatePicker::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,14 +1139,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_inputmethodquery_isbase) {
             kdatepicker_inputmethodquery_isbase = false;
             return KDatePicker::inputMethodQuery(param1);
-        } else if (kdatepicker_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kdatepicker_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kdatepicker_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KDatePicker::inputMethodQuery(param1);
         }
+        return KDatePicker::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,14 +1155,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_focusnextprevchild_isbase) {
             kdatepicker_focusnextprevchild_isbase = false;
             return KDatePicker::focusNextPrevChild(next);
-        } else if (kdatepicker_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kdatepicker_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kdatepicker_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePicker::focusNextPrevChild(next);
         }
+        return KDatePicker::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,13 +1171,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_timerevent_isbase) {
             kdatepicker_timerevent_isbase = false;
             KDatePicker::timerEvent(event);
-        } else if (kdatepicker_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdatepicker_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdatepicker_timerevent_callback(this, cbval1);
-        } else {
-            KDatePicker::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,13 +1188,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_childevent_isbase) {
             kdatepicker_childevent_isbase = false;
             KDatePicker::childEvent(event);
-        } else if (kdatepicker_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdatepicker_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdatepicker_childevent_callback(this, cbval1);
-        } else {
-            KDatePicker::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,13 +1205,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_customevent_isbase) {
             kdatepicker_customevent_isbase = false;
             KDatePicker::customEvent(event);
-        } else if (kdatepicker_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdatepicker_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdatepicker_customevent_callback(this, cbval1);
-        } else {
-            KDatePicker::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDatePicker::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1186,15 +1222,18 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_connectnotify_isbase) {
             kdatepicker_connectnotify_isbase = false;
             KDatePicker::connectNotify(signal);
-        } else if (kdatepicker_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdatepicker_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatepicker_connectnotify_callback(this, cbval1);
-        } else {
-            KDatePicker::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDatePicker::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,15 +1241,18 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_disconnectnotify_isbase) {
             kdatepicker_disconnectnotify_isbase = false;
             KDatePicker::disconnectNotify(signal);
-        } else if (kdatepicker_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdatepicker_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdatepicker_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDatePicker::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDatePicker::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,15 +1260,18 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_datechangedslot_isbase) {
             kdatepicker_datechangedslot_isbase = false;
             KDatePicker::dateChangedSlot(date);
-        } else if (kdatepicker_datechangedslot_callback != nullptr) {
+            return;
+        }
+        auto datechangedslot_cb = kdatepicker_datechangedslot_callback;
+        if (datechangedslot_cb) {
             const QDate& date_ret = date;
             // Cast returned reference into pointer
             QDate* cbval1 = const_cast<QDate*>(&date_ret);
 
-            kdatepicker_datechangedslot_callback(this, cbval1);
-        } else {
-            KDatePicker::dateChangedSlot(date);
+            datechangedslot_cb(this, cbval1);
+            return;
         }
+        KDatePicker::dateChangedSlot(date);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,11 +1279,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_tableclickedslot_isbase) {
             kdatepicker_tableclickedslot_isbase = false;
             KDatePicker::tableClickedSlot();
-        } else if (kdatepicker_tableclickedslot_callback != nullptr) {
-            kdatepicker_tableclickedslot_callback();
-        } else {
-            KDatePicker::tableClickedSlot();
+            return;
         }
+        auto tableclickedslot_cb = kdatepicker_tableclickedslot_callback;
+        if (tableclickedslot_cb) {
+            tableclickedslot_cb();
+            return;
+        }
+        KDatePicker::tableClickedSlot();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,11 +1294,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_monthforwardclicked_isbase) {
             kdatepicker_monthforwardclicked_isbase = false;
             KDatePicker::monthForwardClicked();
-        } else if (kdatepicker_monthforwardclicked_callback != nullptr) {
-            kdatepicker_monthforwardclicked_callback();
-        } else {
-            KDatePicker::monthForwardClicked();
+            return;
         }
+        auto monthforwardclicked_cb = kdatepicker_monthforwardclicked_callback;
+        if (monthforwardclicked_cb) {
+            monthforwardclicked_cb();
+            return;
+        }
+        KDatePicker::monthForwardClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,11 +1309,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_monthbackwardclicked_isbase) {
             kdatepicker_monthbackwardclicked_isbase = false;
             KDatePicker::monthBackwardClicked();
-        } else if (kdatepicker_monthbackwardclicked_callback != nullptr) {
-            kdatepicker_monthbackwardclicked_callback();
-        } else {
-            KDatePicker::monthBackwardClicked();
+            return;
         }
+        auto monthbackwardclicked_cb = kdatepicker_monthbackwardclicked_callback;
+        if (monthbackwardclicked_cb) {
+            monthbackwardclicked_cb();
+            return;
+        }
+        KDatePicker::monthBackwardClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,11 +1324,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_yearforwardclicked_isbase) {
             kdatepicker_yearforwardclicked_isbase = false;
             KDatePicker::yearForwardClicked();
-        } else if (kdatepicker_yearforwardclicked_callback != nullptr) {
-            kdatepicker_yearforwardclicked_callback();
-        } else {
-            KDatePicker::yearForwardClicked();
+            return;
         }
+        auto yearforwardclicked_cb = kdatepicker_yearforwardclicked_callback;
+        if (yearforwardclicked_cb) {
+            yearforwardclicked_cb();
+            return;
+        }
+        KDatePicker::yearForwardClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1282,11 +1339,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_yearbackwardclicked_isbase) {
             kdatepicker_yearbackwardclicked_isbase = false;
             KDatePicker::yearBackwardClicked();
-        } else if (kdatepicker_yearbackwardclicked_callback != nullptr) {
-            kdatepicker_yearbackwardclicked_callback();
-        } else {
-            KDatePicker::yearBackwardClicked();
+            return;
         }
+        auto yearbackwardclicked_cb = kdatepicker_yearbackwardclicked_callback;
+        if (yearbackwardclicked_cb) {
+            yearbackwardclicked_cb();
+            return;
+        }
+        KDatePicker::yearBackwardClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,11 +1354,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_selectmonthclicked_isbase) {
             kdatepicker_selectmonthclicked_isbase = false;
             KDatePicker::selectMonthClicked();
-        } else if (kdatepicker_selectmonthclicked_callback != nullptr) {
-            kdatepicker_selectmonthclicked_callback();
-        } else {
-            KDatePicker::selectMonthClicked();
+            return;
         }
+        auto selectmonthclicked_cb = kdatepicker_selectmonthclicked_callback;
+        if (selectmonthclicked_cb) {
+            selectmonthclicked_cb();
+            return;
+        }
+        KDatePicker::selectMonthClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1306,11 +1369,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_selectyearclicked_isbase) {
             kdatepicker_selectyearclicked_isbase = false;
             KDatePicker::selectYearClicked();
-        } else if (kdatepicker_selectyearclicked_callback != nullptr) {
-            kdatepicker_selectyearclicked_callback();
-        } else {
-            KDatePicker::selectYearClicked();
+            return;
         }
+        auto selectyearclicked_cb = kdatepicker_selectyearclicked_callback;
+        if (selectyearclicked_cb) {
+            selectyearclicked_cb();
+            return;
+        }
+        KDatePicker::selectYearClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1318,11 +1384,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_uncheckyearselector_isbase) {
             kdatepicker_uncheckyearselector_isbase = false;
             KDatePicker::uncheckYearSelector();
-        } else if (kdatepicker_uncheckyearselector_callback != nullptr) {
-            kdatepicker_uncheckyearselector_callback();
-        } else {
-            KDatePicker::uncheckYearSelector();
+            return;
         }
+        auto uncheckyearselector_cb = kdatepicker_uncheckyearselector_callback;
+        if (uncheckyearselector_cb) {
+            uncheckyearselector_cb();
+            return;
+        }
+        KDatePicker::uncheckYearSelector();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1330,11 +1399,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_lineenterpressed_isbase) {
             kdatepicker_lineenterpressed_isbase = false;
             KDatePicker::lineEnterPressed();
-        } else if (kdatepicker_lineenterpressed_callback != nullptr) {
-            kdatepicker_lineenterpressed_callback();
-        } else {
-            KDatePicker::lineEnterPressed();
+            return;
         }
+        auto lineenterpressed_cb = kdatepicker_lineenterpressed_callback;
+        if (lineenterpressed_cb) {
+            lineenterpressed_cb();
+            return;
+        }
+        KDatePicker::lineEnterPressed();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1342,11 +1414,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_todaybuttonclicked_isbase) {
             kdatepicker_todaybuttonclicked_isbase = false;
             KDatePicker::todayButtonClicked();
-        } else if (kdatepicker_todaybuttonclicked_callback != nullptr) {
-            kdatepicker_todaybuttonclicked_callback();
-        } else {
-            KDatePicker::todayButtonClicked();
+            return;
         }
+        auto todaybuttonclicked_cb = kdatepicker_todaybuttonclicked_callback;
+        if (todaybuttonclicked_cb) {
+            todaybuttonclicked_cb();
+            return;
+        }
+        KDatePicker::todayButtonClicked();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,13 +1429,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_weekselected_isbase) {
             kdatepicker_weekselected_isbase = false;
             KDatePicker::weekSelected(param1);
-        } else if (kdatepicker_weekselected_callback != nullptr) {
+            return;
+        }
+        auto weekselected_cb = kdatepicker_weekselected_callback;
+        if (weekselected_cb) {
             int cbval1 = param1;
 
-            kdatepicker_weekselected_callback(this, cbval1);
-        } else {
-            KDatePicker::weekSelected(param1);
+            weekselected_cb(this, cbval1);
+            return;
         }
+        KDatePicker::weekSelected(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1368,13 +1446,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_drawframe_isbase) {
             kdatepicker_drawframe_isbase = false;
             KDatePicker::drawFrame(param1);
-        } else if (kdatepicker_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = kdatepicker_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            kdatepicker_drawframe_callback(this, cbval1);
-        } else {
-            KDatePicker::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KDatePicker::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1382,11 +1463,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_updatemicrofocus_isbase) {
             kdatepicker_updatemicrofocus_isbase = false;
             KDatePicker::updateMicroFocus();
-        } else if (kdatepicker_updatemicrofocus_callback != nullptr) {
-            kdatepicker_updatemicrofocus_callback();
-        } else {
-            KDatePicker::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kdatepicker_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KDatePicker::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1394,11 +1478,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_create_isbase) {
             kdatepicker_create_isbase = false;
             KDatePicker::create();
-        } else if (kdatepicker_create_callback != nullptr) {
-            kdatepicker_create_callback();
-        } else {
-            KDatePicker::create();
+            return;
         }
+        auto create_cb = kdatepicker_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KDatePicker::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1406,11 +1493,14 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_destroy_isbase) {
             kdatepicker_destroy_isbase = false;
             KDatePicker::destroy();
-        } else if (kdatepicker_destroy_callback != nullptr) {
-            kdatepicker_destroy_callback();
-        } else {
-            KDatePicker::destroy();
+            return;
         }
+        auto destroy_cb = kdatepicker_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KDatePicker::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1418,12 +1508,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_focusnextchild_isbase) {
             kdatepicker_focusnextchild_isbase = false;
             return KDatePicker::focusNextChild();
-        } else if (kdatepicker_focusnextchild_callback != nullptr) {
-            bool callback_ret = kdatepicker_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::focusNextChild();
         }
+        auto focusnextchild_cb = kdatepicker_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KDatePicker::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1431,12 +1522,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_focuspreviouschild_isbase) {
             kdatepicker_focuspreviouschild_isbase = false;
             return KDatePicker::focusPreviousChild();
-        } else if (kdatepicker_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kdatepicker_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kdatepicker_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KDatePicker::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1444,12 +1536,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_sender_isbase) {
             kdatepicker_sender_isbase = false;
             return KDatePicker::sender();
-        } else if (kdatepicker_sender_callback != nullptr) {
-            QObject* callback_ret = kdatepicker_sender_callback();
-            return callback_ret;
-        } else {
-            return KDatePicker::sender();
         }
+        auto sender_cb = kdatepicker_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDatePicker::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1457,12 +1550,13 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_sendersignalindex_isbase) {
             kdatepicker_sendersignalindex_isbase = false;
             return KDatePicker::senderSignalIndex();
-        } else if (kdatepicker_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdatepicker_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDatePicker::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdatepicker_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDatePicker::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1470,14 +1564,15 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_receivers_isbase) {
             kdatepicker_receivers_isbase = false;
             return KDatePicker::receivers(signal);
-        } else if (kdatepicker_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdatepicker_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdatepicker_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDatePicker::receivers(signal);
         }
+        return KDatePicker::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1485,16 +1580,17 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_issignalconnected_isbase) {
             kdatepicker_issignalconnected_isbase = false;
             return KDatePicker::isSignalConnected(signal);
-        } else if (kdatepicker_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdatepicker_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdatepicker_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDatePicker::isSignalConnected(signal);
         }
+        return KDatePicker::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1502,15 +1598,16 @@ class VirtualKDatePicker final : public KDatePicker {
         if (kdatepicker_getdecodedmetricf_isbase) {
             kdatepicker_getdecodedmetricf_isbase = false;
             return KDatePicker::getDecodedMetricF(metricA, metricB);
-        } else if (kdatepicker_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kdatepicker_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kdatepicker_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KDatePicker::getDecodedMetricF(metricA, metricB);
         }
+        return KDatePicker::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -69,23 +69,6 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     VirtualQMediaRecorder() : QMediaRecorder() {};
     VirtualQMediaRecorder(QObject* parent) : QMediaRecorder(parent) {};
 
-    ~VirtualQMediaRecorder() {
-        qmediarecorder_metaobject_callback = nullptr;
-        qmediarecorder_metacast_callback = nullptr;
-        qmediarecorder_metacall_callback = nullptr;
-        qmediarecorder_event_callback = nullptr;
-        qmediarecorder_eventfilter_callback = nullptr;
-        qmediarecorder_timerevent_callback = nullptr;
-        qmediarecorder_childevent_callback = nullptr;
-        qmediarecorder_customevent_callback = nullptr;
-        qmediarecorder_connectnotify_callback = nullptr;
-        qmediarecorder_disconnectnotify_callback = nullptr;
-        qmediarecorder_sender_callback = nullptr;
-        qmediarecorder_sendersignalindex_callback = nullptr;
-        qmediarecorder_receivers_callback = nullptr;
-        qmediarecorder_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMediaRecorder_MetaObject_Callback(QMediaRecorder_MetaObject_Callback cb) { qmediarecorder_metaobject_callback = cb; }
     inline void setQMediaRecorder_Metacast_Callback(QMediaRecorder_Metacast_Callback cb) { qmediarecorder_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_metaobject_isbase) {
             qmediarecorder_metaobject_isbase = false;
             return QMediaRecorder::metaObject();
-        } else if (qmediarecorder_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmediarecorder_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMediaRecorder::metaObject();
         }
+        auto metaobject_cb = qmediarecorder_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMediaRecorder::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_metacast_isbase) {
             qmediarecorder_metacast_isbase = false;
             return QMediaRecorder::qt_metacast(param1);
-        } else if (qmediarecorder_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmediarecorder_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmediarecorder_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMediaRecorder::qt_metacast(param1);
         }
+        return QMediaRecorder::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_metacall_isbase) {
             qmediarecorder_metacall_isbase = false;
             return QMediaRecorder::qt_metacall(param1, param2, param3);
-        } else if (qmediarecorder_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmediarecorder_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmediarecorder_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMediaRecorder::qt_metacall(param1, param2, param3);
         }
+        return QMediaRecorder::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_event_isbase) {
             qmediarecorder_event_isbase = false;
             return QMediaRecorder::event(event);
-        } else if (qmediarecorder_event_callback != nullptr) {
+        }
+        auto event_cb = qmediarecorder_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmediarecorder_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMediaRecorder::event(event);
         }
+        return QMediaRecorder::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_eventfilter_isbase) {
             qmediarecorder_eventfilter_isbase = false;
             return QMediaRecorder::eventFilter(watched, event);
-        } else if (qmediarecorder_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmediarecorder_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmediarecorder_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMediaRecorder::eventFilter(watched, event);
         }
+        return QMediaRecorder::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_timerevent_isbase) {
             qmediarecorder_timerevent_isbase = false;
             QMediaRecorder::timerEvent(event);
-        } else if (qmediarecorder_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmediarecorder_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmediarecorder_timerevent_callback(this, cbval1);
-        } else {
-            QMediaRecorder::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMediaRecorder::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_childevent_isbase) {
             qmediarecorder_childevent_isbase = false;
             QMediaRecorder::childEvent(event);
-        } else if (qmediarecorder_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmediarecorder_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmediarecorder_childevent_callback(this, cbval1);
-        } else {
-            QMediaRecorder::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMediaRecorder::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_customevent_isbase) {
             qmediarecorder_customevent_isbase = false;
             QMediaRecorder::customEvent(event);
-        } else if (qmediarecorder_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmediarecorder_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmediarecorder_customevent_callback(this, cbval1);
-        } else {
-            QMediaRecorder::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMediaRecorder::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_connectnotify_isbase) {
             qmediarecorder_connectnotify_isbase = false;
             QMediaRecorder::connectNotify(signal);
-        } else if (qmediarecorder_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmediarecorder_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmediarecorder_connectnotify_callback(this, cbval1);
-        } else {
-            QMediaRecorder::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMediaRecorder::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_disconnectnotify_isbase) {
             qmediarecorder_disconnectnotify_isbase = false;
             QMediaRecorder::disconnectNotify(signal);
-        } else if (qmediarecorder_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmediarecorder_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmediarecorder_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMediaRecorder::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMediaRecorder::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_sender_isbase) {
             qmediarecorder_sender_isbase = false;
             return QMediaRecorder::sender();
-        } else if (qmediarecorder_sender_callback != nullptr) {
-            QObject* callback_ret = qmediarecorder_sender_callback();
-            return callback_ret;
-        } else {
-            return QMediaRecorder::sender();
         }
+        auto sender_cb = qmediarecorder_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMediaRecorder::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_sendersignalindex_isbase) {
             qmediarecorder_sendersignalindex_isbase = false;
             return QMediaRecorder::senderSignalIndex();
-        } else if (qmediarecorder_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmediarecorder_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMediaRecorder::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmediarecorder_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMediaRecorder::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_receivers_isbase) {
             qmediarecorder_receivers_isbase = false;
             return QMediaRecorder::receivers(signal);
-        } else if (qmediarecorder_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmediarecorder_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmediarecorder_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMediaRecorder::receivers(signal);
         }
+        return QMediaRecorder::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
         if (qmediarecorder_issignalconnected_isbase) {
             qmediarecorder_issignalconnected_isbase = false;
             return QMediaRecorder::isSignalConnected(signal);
-        } else if (qmediarecorder_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmediarecorder_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmediarecorder_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMediaRecorder::isSignalConnected(signal);
         }
+        return QMediaRecorder::isSignalConnected(signal);
     }
 
     // Friend functions

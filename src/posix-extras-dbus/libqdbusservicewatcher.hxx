@@ -72,23 +72,6 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     VirtualQDBusServiceWatcher(const QString& service, const QDBusConnection& connection, QDBusServiceWatcher::WatchMode watchMode) : QDBusServiceWatcher(service, connection, watchMode) {};
     VirtualQDBusServiceWatcher(const QString& service, const QDBusConnection& connection, QDBusServiceWatcher::WatchMode watchMode, QObject* parent) : QDBusServiceWatcher(service, connection, watchMode, parent) {};
 
-    ~VirtualQDBusServiceWatcher() {
-        qdbusservicewatcher_metaobject_callback = nullptr;
-        qdbusservicewatcher_metacast_callback = nullptr;
-        qdbusservicewatcher_metacall_callback = nullptr;
-        qdbusservicewatcher_event_callback = nullptr;
-        qdbusservicewatcher_eventfilter_callback = nullptr;
-        qdbusservicewatcher_timerevent_callback = nullptr;
-        qdbusservicewatcher_childevent_callback = nullptr;
-        qdbusservicewatcher_customevent_callback = nullptr;
-        qdbusservicewatcher_connectnotify_callback = nullptr;
-        qdbusservicewatcher_disconnectnotify_callback = nullptr;
-        qdbusservicewatcher_sender_callback = nullptr;
-        qdbusservicewatcher_sendersignalindex_callback = nullptr;
-        qdbusservicewatcher_receivers_callback = nullptr;
-        qdbusservicewatcher_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDBusServiceWatcher_MetaObject_Callback(QDBusServiceWatcher_MetaObject_Callback cb) { qdbusservicewatcher_metaobject_callback = cb; }
     inline void setQDBusServiceWatcher_Metacast_Callback(QDBusServiceWatcher_Metacast_Callback cb) { qdbusservicewatcher_metacast_callback = cb; }
@@ -126,12 +109,13 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_metaobject_isbase) {
             qdbusservicewatcher_metaobject_isbase = false;
             return QDBusServiceWatcher::metaObject();
-        } else if (qdbusservicewatcher_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdbusservicewatcher_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDBusServiceWatcher::metaObject();
         }
+        auto metaobject_cb = qdbusservicewatcher_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDBusServiceWatcher::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -139,14 +123,15 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_metacast_isbase) {
             qdbusservicewatcher_metacast_isbase = false;
             return QDBusServiceWatcher::qt_metacast(param1);
-        } else if (qdbusservicewatcher_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdbusservicewatcher_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdbusservicewatcher_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusServiceWatcher::qt_metacast(param1);
         }
+        return QDBusServiceWatcher::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,16 +139,17 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_metacall_isbase) {
             qdbusservicewatcher_metacall_isbase = false;
             return QDBusServiceWatcher::qt_metacall(param1, param2, param3);
-        } else if (qdbusservicewatcher_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdbusservicewatcher_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdbusservicewatcher_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusServiceWatcher::qt_metacall(param1, param2, param3);
         }
+        return QDBusServiceWatcher::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -171,14 +157,15 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_event_isbase) {
             qdbusservicewatcher_event_isbase = false;
             return QDBusServiceWatcher::event(event);
-        } else if (qdbusservicewatcher_event_callback != nullptr) {
+        }
+        auto event_cb = qdbusservicewatcher_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdbusservicewatcher_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusServiceWatcher::event(event);
         }
+        return QDBusServiceWatcher::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,15 +173,16 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_eventfilter_isbase) {
             qdbusservicewatcher_eventfilter_isbase = false;
             return QDBusServiceWatcher::eventFilter(watched, event);
-        } else if (qdbusservicewatcher_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdbusservicewatcher_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdbusservicewatcher_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDBusServiceWatcher::eventFilter(watched, event);
         }
+        return QDBusServiceWatcher::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,13 +190,16 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_timerevent_isbase) {
             qdbusservicewatcher_timerevent_isbase = false;
             QDBusServiceWatcher::timerEvent(event);
-        } else if (qdbusservicewatcher_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdbusservicewatcher_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdbusservicewatcher_timerevent_callback(this, cbval1);
-        } else {
-            QDBusServiceWatcher::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDBusServiceWatcher::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -216,13 +207,16 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_childevent_isbase) {
             qdbusservicewatcher_childevent_isbase = false;
             QDBusServiceWatcher::childEvent(event);
-        } else if (qdbusservicewatcher_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdbusservicewatcher_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdbusservicewatcher_childevent_callback(this, cbval1);
-        } else {
-            QDBusServiceWatcher::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDBusServiceWatcher::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,13 +224,16 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_customevent_isbase) {
             qdbusservicewatcher_customevent_isbase = false;
             QDBusServiceWatcher::customEvent(event);
-        } else if (qdbusservicewatcher_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdbusservicewatcher_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdbusservicewatcher_customevent_callback(this, cbval1);
-        } else {
-            QDBusServiceWatcher::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDBusServiceWatcher::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -244,15 +241,18 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_connectnotify_isbase) {
             qdbusservicewatcher_connectnotify_isbase = false;
             QDBusServiceWatcher::connectNotify(signal);
-        } else if (qdbusservicewatcher_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdbusservicewatcher_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbusservicewatcher_connectnotify_callback(this, cbval1);
-        } else {
-            QDBusServiceWatcher::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusServiceWatcher::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +260,18 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_disconnectnotify_isbase) {
             qdbusservicewatcher_disconnectnotify_isbase = false;
             QDBusServiceWatcher::disconnectNotify(signal);
-        } else if (qdbusservicewatcher_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdbusservicewatcher_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdbusservicewatcher_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDBusServiceWatcher::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDBusServiceWatcher::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,12 +279,13 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_sender_isbase) {
             qdbusservicewatcher_sender_isbase = false;
             return QDBusServiceWatcher::sender();
-        } else if (qdbusservicewatcher_sender_callback != nullptr) {
-            QObject* callback_ret = qdbusservicewatcher_sender_callback();
-            return callback_ret;
-        } else {
-            return QDBusServiceWatcher::sender();
         }
+        auto sender_cb = qdbusservicewatcher_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDBusServiceWatcher::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,12 +293,13 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_sendersignalindex_isbase) {
             qdbusservicewatcher_sendersignalindex_isbase = false;
             return QDBusServiceWatcher::senderSignalIndex();
-        } else if (qdbusservicewatcher_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdbusservicewatcher_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDBusServiceWatcher::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdbusservicewatcher_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDBusServiceWatcher::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -302,14 +307,15 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_receivers_isbase) {
             qdbusservicewatcher_receivers_isbase = false;
             return QDBusServiceWatcher::receivers(signal);
-        } else if (qdbusservicewatcher_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdbusservicewatcher_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdbusservicewatcher_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDBusServiceWatcher::receivers(signal);
         }
+        return QDBusServiceWatcher::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,16 +323,17 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
         if (qdbusservicewatcher_issignalconnected_isbase) {
             qdbusservicewatcher_issignalconnected_isbase = false;
             return QDBusServiceWatcher::isSignalConnected(signal);
-        } else if (qdbusservicewatcher_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdbusservicewatcher_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdbusservicewatcher_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDBusServiceWatcher::isSignalConnected(signal);
         }
+        return QDBusServiceWatcher::isSignalConnected(signal);
     }
 
     // Friend functions

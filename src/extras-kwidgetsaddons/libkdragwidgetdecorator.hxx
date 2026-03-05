@@ -78,26 +78,6 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     VirtualKDragWidgetDecoratorBase(QWidget* parent) : KDragWidgetDecoratorBase(parent) {};
     VirtualKDragWidgetDecoratorBase() : KDragWidgetDecoratorBase() {};
 
-    ~VirtualKDragWidgetDecoratorBase() {
-        kdragwidgetdecoratorbase_metaobject_callback = nullptr;
-        kdragwidgetdecoratorbase_metacast_callback = nullptr;
-        kdragwidgetdecoratorbase_metacall_callback = nullptr;
-        kdragwidgetdecoratorbase_dragobject_callback = nullptr;
-        kdragwidgetdecoratorbase_eventfilter_callback = nullptr;
-        kdragwidgetdecoratorbase_startdrag_callback = nullptr;
-        kdragwidgetdecoratorbase_event_callback = nullptr;
-        kdragwidgetdecoratorbase_timerevent_callback = nullptr;
-        kdragwidgetdecoratorbase_childevent_callback = nullptr;
-        kdragwidgetdecoratorbase_customevent_callback = nullptr;
-        kdragwidgetdecoratorbase_connectnotify_callback = nullptr;
-        kdragwidgetdecoratorbase_disconnectnotify_callback = nullptr;
-        kdragwidgetdecoratorbase_decoratedwidget_callback = nullptr;
-        kdragwidgetdecoratorbase_sender_callback = nullptr;
-        kdragwidgetdecoratorbase_sendersignalindex_callback = nullptr;
-        kdragwidgetdecoratorbase_receivers_callback = nullptr;
-        kdragwidgetdecoratorbase_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKDragWidgetDecoratorBase_MetaObject_Callback(KDragWidgetDecoratorBase_MetaObject_Callback cb) { kdragwidgetdecoratorbase_metaobject_callback = cb; }
     inline void setKDragWidgetDecoratorBase_Metacast_Callback(KDragWidgetDecoratorBase_Metacast_Callback cb) { kdragwidgetdecoratorbase_metacast_callback = cb; }
@@ -141,12 +121,13 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_metaobject_isbase) {
             kdragwidgetdecoratorbase_metaobject_isbase = false;
             return KDragWidgetDecoratorBase::metaObject();
-        } else if (kdragwidgetdecoratorbase_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kdragwidgetdecoratorbase_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::metaObject();
         }
+        auto metaobject_cb = kdragwidgetdecoratorbase_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KDragWidgetDecoratorBase::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,14 +135,15 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_metacast_isbase) {
             kdragwidgetdecoratorbase_metacast_isbase = false;
             return KDragWidgetDecoratorBase::qt_metacast(param1);
-        } else if (kdragwidgetdecoratorbase_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kdragwidgetdecoratorbase_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kdragwidgetdecoratorbase_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::qt_metacast(param1);
         }
+        return KDragWidgetDecoratorBase::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,16 +151,17 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_metacall_isbase) {
             kdragwidgetdecoratorbase_metacall_isbase = false;
             return KDragWidgetDecoratorBase::qt_metacall(param1, param2, param3);
-        } else if (kdragwidgetdecoratorbase_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kdragwidgetdecoratorbase_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kdragwidgetdecoratorbase_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDragWidgetDecoratorBase::qt_metacall(param1, param2, param3);
         }
+        return KDragWidgetDecoratorBase::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,12 +169,13 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_dragobject_isbase) {
             kdragwidgetdecoratorbase_dragobject_isbase = false;
             return KDragWidgetDecoratorBase::dragObject();
-        } else if (kdragwidgetdecoratorbase_dragobject_callback != nullptr) {
-            QDrag* callback_ret = kdragwidgetdecoratorbase_dragobject_callback();
-            return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::dragObject();
         }
+        auto dragobject_cb = kdragwidgetdecoratorbase_dragobject_callback;
+        if (dragobject_cb) {
+            QDrag* callback_ret = dragobject_cb();
+            return callback_ret;
+        }
+        return KDragWidgetDecoratorBase::dragObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,15 +183,16 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_eventfilter_isbase) {
             kdragwidgetdecoratorbase_eventfilter_isbase = false;
             return KDragWidgetDecoratorBase::eventFilter(watched, event);
-        } else if (kdragwidgetdecoratorbase_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kdragwidgetdecoratorbase_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kdragwidgetdecoratorbase_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::eventFilter(watched, event);
         }
+        return KDragWidgetDecoratorBase::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,11 +200,14 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_startdrag_isbase) {
             kdragwidgetdecoratorbase_startdrag_isbase = false;
             KDragWidgetDecoratorBase::startDrag();
-        } else if (kdragwidgetdecoratorbase_startdrag_callback != nullptr) {
-            kdragwidgetdecoratorbase_startdrag_callback();
-        } else {
-            KDragWidgetDecoratorBase::startDrag();
+            return;
         }
+        auto startdrag_cb = kdragwidgetdecoratorbase_startdrag_callback;
+        if (startdrag_cb) {
+            startdrag_cb();
+            return;
+        }
+        KDragWidgetDecoratorBase::startDrag();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,14 +215,15 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_event_isbase) {
             kdragwidgetdecoratorbase_event_isbase = false;
             return KDragWidgetDecoratorBase::event(event);
-        } else if (kdragwidgetdecoratorbase_event_callback != nullptr) {
+        }
+        auto event_cb = kdragwidgetdecoratorbase_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kdragwidgetdecoratorbase_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::event(event);
         }
+        return KDragWidgetDecoratorBase::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,13 +231,16 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_timerevent_isbase) {
             kdragwidgetdecoratorbase_timerevent_isbase = false;
             KDragWidgetDecoratorBase::timerEvent(event);
-        } else if (kdragwidgetdecoratorbase_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kdragwidgetdecoratorbase_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kdragwidgetdecoratorbase_timerevent_callback(this, cbval1);
-        } else {
-            KDragWidgetDecoratorBase::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KDragWidgetDecoratorBase::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,13 +248,16 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_childevent_isbase) {
             kdragwidgetdecoratorbase_childevent_isbase = false;
             KDragWidgetDecoratorBase::childEvent(event);
-        } else if (kdragwidgetdecoratorbase_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kdragwidgetdecoratorbase_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kdragwidgetdecoratorbase_childevent_callback(this, cbval1);
-        } else {
-            KDragWidgetDecoratorBase::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KDragWidgetDecoratorBase::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -270,13 +265,16 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_customevent_isbase) {
             kdragwidgetdecoratorbase_customevent_isbase = false;
             KDragWidgetDecoratorBase::customEvent(event);
-        } else if (kdragwidgetdecoratorbase_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kdragwidgetdecoratorbase_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kdragwidgetdecoratorbase_customevent_callback(this, cbval1);
-        } else {
-            KDragWidgetDecoratorBase::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KDragWidgetDecoratorBase::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,15 +282,18 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_connectnotify_isbase) {
             kdragwidgetdecoratorbase_connectnotify_isbase = false;
             KDragWidgetDecoratorBase::connectNotify(signal);
-        } else if (kdragwidgetdecoratorbase_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kdragwidgetdecoratorbase_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdragwidgetdecoratorbase_connectnotify_callback(this, cbval1);
-        } else {
-            KDragWidgetDecoratorBase::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KDragWidgetDecoratorBase::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,15 +301,18 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_disconnectnotify_isbase) {
             kdragwidgetdecoratorbase_disconnectnotify_isbase = false;
             KDragWidgetDecoratorBase::disconnectNotify(signal);
-        } else if (kdragwidgetdecoratorbase_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kdragwidgetdecoratorbase_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kdragwidgetdecoratorbase_disconnectnotify_callback(this, cbval1);
-        } else {
-            KDragWidgetDecoratorBase::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KDragWidgetDecoratorBase::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,12 +320,13 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_decoratedwidget_isbase) {
             kdragwidgetdecoratorbase_decoratedwidget_isbase = false;
             return KDragWidgetDecoratorBase::decoratedWidget();
-        } else if (kdragwidgetdecoratorbase_decoratedwidget_callback != nullptr) {
-            QWidget* callback_ret = kdragwidgetdecoratorbase_decoratedwidget_callback();
-            return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::decoratedWidget();
         }
+        auto decoratedwidget_cb = kdragwidgetdecoratorbase_decoratedwidget_callback;
+        if (decoratedwidget_cb) {
+            QWidget* callback_ret = decoratedwidget_cb();
+            return callback_ret;
+        }
+        return KDragWidgetDecoratorBase::decoratedWidget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,12 +334,13 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_sender_isbase) {
             kdragwidgetdecoratorbase_sender_isbase = false;
             return KDragWidgetDecoratorBase::sender();
-        } else if (kdragwidgetdecoratorbase_sender_callback != nullptr) {
-            QObject* callback_ret = kdragwidgetdecoratorbase_sender_callback();
-            return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::sender();
         }
+        auto sender_cb = kdragwidgetdecoratorbase_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KDragWidgetDecoratorBase::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,12 +348,13 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_sendersignalindex_isbase) {
             kdragwidgetdecoratorbase_sendersignalindex_isbase = false;
             return KDragWidgetDecoratorBase::senderSignalIndex();
-        } else if (kdragwidgetdecoratorbase_sendersignalindex_callback != nullptr) {
-            int callback_ret = kdragwidgetdecoratorbase_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KDragWidgetDecoratorBase::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kdragwidgetdecoratorbase_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KDragWidgetDecoratorBase::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,14 +362,15 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_receivers_isbase) {
             kdragwidgetdecoratorbase_receivers_isbase = false;
             return KDragWidgetDecoratorBase::receivers(signal);
-        } else if (kdragwidgetdecoratorbase_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kdragwidgetdecoratorbase_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kdragwidgetdecoratorbase_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KDragWidgetDecoratorBase::receivers(signal);
         }
+        return KDragWidgetDecoratorBase::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -370,16 +378,17 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
         if (kdragwidgetdecoratorbase_issignalconnected_isbase) {
             kdragwidgetdecoratorbase_issignalconnected_isbase = false;
             return KDragWidgetDecoratorBase::isSignalConnected(signal);
-        } else if (kdragwidgetdecoratorbase_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kdragwidgetdecoratorbase_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kdragwidgetdecoratorbase_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KDragWidgetDecoratorBase::isSignalConnected(signal);
         }
+        return KDragWidgetDecoratorBase::isSignalConnected(signal);
     }
 
     // Friend functions

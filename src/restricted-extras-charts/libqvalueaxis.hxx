@@ -72,24 +72,6 @@ class VirtualQValueAxis final : public QValueAxis {
     VirtualQValueAxis() : QValueAxis() {};
     VirtualQValueAxis(QObject* parent) : QValueAxis(parent) {};
 
-    ~VirtualQValueAxis() {
-        qvalueaxis_metaobject_callback = nullptr;
-        qvalueaxis_metacast_callback = nullptr;
-        qvalueaxis_metacall_callback = nullptr;
-        qvalueaxis_type_callback = nullptr;
-        qvalueaxis_event_callback = nullptr;
-        qvalueaxis_eventfilter_callback = nullptr;
-        qvalueaxis_timerevent_callback = nullptr;
-        qvalueaxis_childevent_callback = nullptr;
-        qvalueaxis_customevent_callback = nullptr;
-        qvalueaxis_connectnotify_callback = nullptr;
-        qvalueaxis_disconnectnotify_callback = nullptr;
-        qvalueaxis_sender_callback = nullptr;
-        qvalueaxis_sendersignalindex_callback = nullptr;
-        qvalueaxis_receivers_callback = nullptr;
-        qvalueaxis_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQValueAxis_MetaObject_Callback(QValueAxis_MetaObject_Callback cb) { qvalueaxis_metaobject_callback = cb; }
     inline void setQValueAxis_Metacast_Callback(QValueAxis_Metacast_Callback cb) { qvalueaxis_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_metaobject_isbase) {
             qvalueaxis_metaobject_isbase = false;
             return QValueAxis::metaObject();
-        } else if (qvalueaxis_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qvalueaxis_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QValueAxis::metaObject();
         }
+        auto metaobject_cb = qvalueaxis_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QValueAxis::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_metacast_isbase) {
             qvalueaxis_metacast_isbase = false;
             return QValueAxis::qt_metacast(param1);
-        } else if (qvalueaxis_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qvalueaxis_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qvalueaxis_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QValueAxis::qt_metacast(param1);
         }
+        return QValueAxis::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_metacall_isbase) {
             qvalueaxis_metacall_isbase = false;
             return QValueAxis::qt_metacall(param1, param2, param3);
-        } else if (qvalueaxis_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qvalueaxis_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qvalueaxis_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QValueAxis::qt_metacall(param1, param2, param3);
         }
+        return QValueAxis::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_type_isbase) {
             qvalueaxis_type_isbase = false;
             return QValueAxis::type();
-        } else if (qvalueaxis_type_callback != nullptr) {
-            int callback_ret = qvalueaxis_type_callback();
-            return static_cast<QAbstractAxis::AxisType>(callback_ret);
-        } else {
-            return QValueAxis::type();
         }
+        auto type_cb = qvalueaxis_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractAxis::AxisType>(callback_ret);
+        }
+        return QValueAxis::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_event_isbase) {
             qvalueaxis_event_isbase = false;
             return QValueAxis::event(event);
-        } else if (qvalueaxis_event_callback != nullptr) {
+        }
+        auto event_cb = qvalueaxis_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qvalueaxis_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QValueAxis::event(event);
         }
+        return QValueAxis::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_eventfilter_isbase) {
             qvalueaxis_eventfilter_isbase = false;
             return QValueAxis::eventFilter(watched, event);
-        } else if (qvalueaxis_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qvalueaxis_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qvalueaxis_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QValueAxis::eventFilter(watched, event);
         }
+        return QValueAxis::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_timerevent_isbase) {
             qvalueaxis_timerevent_isbase = false;
             QValueAxis::timerEvent(event);
-        } else if (qvalueaxis_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qvalueaxis_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qvalueaxis_timerevent_callback(this, cbval1);
-        } else {
-            QValueAxis::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QValueAxis::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_childevent_isbase) {
             qvalueaxis_childevent_isbase = false;
             QValueAxis::childEvent(event);
-        } else if (qvalueaxis_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qvalueaxis_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qvalueaxis_childevent_callback(this, cbval1);
-        } else {
-            QValueAxis::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QValueAxis::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_customevent_isbase) {
             qvalueaxis_customevent_isbase = false;
             QValueAxis::customEvent(event);
-        } else if (qvalueaxis_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qvalueaxis_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qvalueaxis_customevent_callback(this, cbval1);
-        } else {
-            QValueAxis::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QValueAxis::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_connectnotify_isbase) {
             qvalueaxis_connectnotify_isbase = false;
             QValueAxis::connectNotify(signal);
-        } else if (qvalueaxis_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qvalueaxis_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvalueaxis_connectnotify_callback(this, cbval1);
-        } else {
-            QValueAxis::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QValueAxis::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_disconnectnotify_isbase) {
             qvalueaxis_disconnectnotify_isbase = false;
             QValueAxis::disconnectNotify(signal);
-        } else if (qvalueaxis_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qvalueaxis_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qvalueaxis_disconnectnotify_callback(this, cbval1);
-        } else {
-            QValueAxis::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QValueAxis::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_sender_isbase) {
             qvalueaxis_sender_isbase = false;
             return QValueAxis::sender();
-        } else if (qvalueaxis_sender_callback != nullptr) {
-            QObject* callback_ret = qvalueaxis_sender_callback();
-            return callback_ret;
-        } else {
-            return QValueAxis::sender();
         }
+        auto sender_cb = qvalueaxis_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QValueAxis::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_sendersignalindex_isbase) {
             qvalueaxis_sendersignalindex_isbase = false;
             return QValueAxis::senderSignalIndex();
-        } else if (qvalueaxis_sendersignalindex_callback != nullptr) {
-            int callback_ret = qvalueaxis_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QValueAxis::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qvalueaxis_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QValueAxis::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_receivers_isbase) {
             qvalueaxis_receivers_isbase = false;
             return QValueAxis::receivers(signal);
-        } else if (qvalueaxis_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qvalueaxis_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qvalueaxis_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QValueAxis::receivers(signal);
         }
+        return QValueAxis::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQValueAxis final : public QValueAxis {
         if (qvalueaxis_issignalconnected_isbase) {
             qvalueaxis_issignalconnected_isbase = false;
             return QValueAxis::isSignalConnected(signal);
-        } else if (qvalueaxis_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qvalueaxis_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qvalueaxis_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QValueAxis::isSignalConnected(signal);
         }
+        return QValueAxis::isSignalConnected(signal);
     }
 
     // Friend functions

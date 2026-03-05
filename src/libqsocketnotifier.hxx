@@ -71,23 +71,6 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     VirtualQSocketNotifier(QSocketNotifier::Type param1, QObject* parent) : QSocketNotifier(param1, parent) {};
     VirtualQSocketNotifier(qintptr socket, QSocketNotifier::Type param2, QObject* parent) : QSocketNotifier(socket, param2, parent) {};
 
-    ~VirtualQSocketNotifier() {
-        qsocketnotifier_metaobject_callback = nullptr;
-        qsocketnotifier_metacast_callback = nullptr;
-        qsocketnotifier_metacall_callback = nullptr;
-        qsocketnotifier_event_callback = nullptr;
-        qsocketnotifier_eventfilter_callback = nullptr;
-        qsocketnotifier_timerevent_callback = nullptr;
-        qsocketnotifier_childevent_callback = nullptr;
-        qsocketnotifier_customevent_callback = nullptr;
-        qsocketnotifier_connectnotify_callback = nullptr;
-        qsocketnotifier_disconnectnotify_callback = nullptr;
-        qsocketnotifier_sender_callback = nullptr;
-        qsocketnotifier_sendersignalindex_callback = nullptr;
-        qsocketnotifier_receivers_callback = nullptr;
-        qsocketnotifier_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSocketNotifier_MetaObject_Callback(QSocketNotifier_MetaObject_Callback cb) { qsocketnotifier_metaobject_callback = cb; }
     inline void setQSocketNotifier_Metacast_Callback(QSocketNotifier_Metacast_Callback cb) { qsocketnotifier_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_metaobject_isbase) {
             qsocketnotifier_metaobject_isbase = false;
             return QSocketNotifier::metaObject();
-        } else if (qsocketnotifier_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsocketnotifier_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSocketNotifier::metaObject();
         }
+        auto metaobject_cb = qsocketnotifier_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSocketNotifier::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_metacast_isbase) {
             qsocketnotifier_metacast_isbase = false;
             return QSocketNotifier::qt_metacast(param1);
-        } else if (qsocketnotifier_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsocketnotifier_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsocketnotifier_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSocketNotifier::qt_metacast(param1);
         }
+        return QSocketNotifier::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_metacall_isbase) {
             qsocketnotifier_metacall_isbase = false;
             return QSocketNotifier::qt_metacall(param1, param2, param3);
-        } else if (qsocketnotifier_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsocketnotifier_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsocketnotifier_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSocketNotifier::qt_metacall(param1, param2, param3);
         }
+        return QSocketNotifier::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,14 +156,15 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_event_isbase) {
             qsocketnotifier_event_isbase = false;
             return QSocketNotifier::event(param1);
-        } else if (qsocketnotifier_event_callback != nullptr) {
+        }
+        auto event_cb = qsocketnotifier_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qsocketnotifier_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSocketNotifier::event(param1);
         }
+        return QSocketNotifier::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -185,15 +172,16 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_eventfilter_isbase) {
             qsocketnotifier_eventfilter_isbase = false;
             return QSocketNotifier::eventFilter(watched, event);
-        } else if (qsocketnotifier_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsocketnotifier_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsocketnotifier_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSocketNotifier::eventFilter(watched, event);
         }
+        return QSocketNotifier::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_timerevent_isbase) {
             qsocketnotifier_timerevent_isbase = false;
             QSocketNotifier::timerEvent(event);
-        } else if (qsocketnotifier_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsocketnotifier_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsocketnotifier_timerevent_callback(this, cbval1);
-        } else {
-            QSocketNotifier::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSocketNotifier::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_childevent_isbase) {
             qsocketnotifier_childevent_isbase = false;
             QSocketNotifier::childEvent(event);
-        } else if (qsocketnotifier_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsocketnotifier_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsocketnotifier_childevent_callback(this, cbval1);
-        } else {
-            QSocketNotifier::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSocketNotifier::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_customevent_isbase) {
             qsocketnotifier_customevent_isbase = false;
             QSocketNotifier::customEvent(event);
-        } else if (qsocketnotifier_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsocketnotifier_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsocketnotifier_customevent_callback(this, cbval1);
-        } else {
-            QSocketNotifier::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSocketNotifier::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_connectnotify_isbase) {
             qsocketnotifier_connectnotify_isbase = false;
             QSocketNotifier::connectNotify(signal);
-        } else if (qsocketnotifier_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsocketnotifier_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsocketnotifier_connectnotify_callback(this, cbval1);
-        } else {
-            QSocketNotifier::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSocketNotifier::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_disconnectnotify_isbase) {
             qsocketnotifier_disconnectnotify_isbase = false;
             QSocketNotifier::disconnectNotify(signal);
-        } else if (qsocketnotifier_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsocketnotifier_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsocketnotifier_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSocketNotifier::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSocketNotifier::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_sender_isbase) {
             qsocketnotifier_sender_isbase = false;
             return QSocketNotifier::sender();
-        } else if (qsocketnotifier_sender_callback != nullptr) {
-            QObject* callback_ret = qsocketnotifier_sender_callback();
-            return callback_ret;
-        } else {
-            return QSocketNotifier::sender();
         }
+        auto sender_cb = qsocketnotifier_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSocketNotifier::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_sendersignalindex_isbase) {
             qsocketnotifier_sendersignalindex_isbase = false;
             return QSocketNotifier::senderSignalIndex();
-        } else if (qsocketnotifier_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsocketnotifier_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSocketNotifier::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsocketnotifier_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSocketNotifier::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_receivers_isbase) {
             qsocketnotifier_receivers_isbase = false;
             return QSocketNotifier::receivers(signal);
-        } else if (qsocketnotifier_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsocketnotifier_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsocketnotifier_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSocketNotifier::receivers(signal);
         }
+        return QSocketNotifier::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
         if (qsocketnotifier_issignalconnected_isbase) {
             qsocketnotifier_issignalconnected_isbase = false;
             return QSocketNotifier::isSignalConnected(signal);
-        } else if (qsocketnotifier_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsocketnotifier_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsocketnotifier_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSocketNotifier::isSignalConnected(signal);
         }
+        return QSocketNotifier::isSignalConnected(signal);
     }
 
     // Friend functions

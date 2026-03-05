@@ -246,82 +246,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     VirtualQAbstractItemModel() : QAbstractItemModel() {};
     VirtualQAbstractItemModel(QObject* parent) : QAbstractItemModel(parent) {};
 
-    ~VirtualQAbstractItemModel() {
-        qabstractitemmodel_metaobject_callback = nullptr;
-        qabstractitemmodel_metacast_callback = nullptr;
-        qabstractitemmodel_metacall_callback = nullptr;
-        qabstractitemmodel_index_callback = nullptr;
-        qabstractitemmodel_parent_callback = nullptr;
-        qabstractitemmodel_sibling_callback = nullptr;
-        qabstractitemmodel_rowcount_callback = nullptr;
-        qabstractitemmodel_columncount_callback = nullptr;
-        qabstractitemmodel_haschildren_callback = nullptr;
-        qabstractitemmodel_data_callback = nullptr;
-        qabstractitemmodel_setdata_callback = nullptr;
-        qabstractitemmodel_headerdata_callback = nullptr;
-        qabstractitemmodel_setheaderdata_callback = nullptr;
-        qabstractitemmodel_itemdata_callback = nullptr;
-        qabstractitemmodel_setitemdata_callback = nullptr;
-        qabstractitemmodel_clearitemdata_callback = nullptr;
-        qabstractitemmodel_mimetypes_callback = nullptr;
-        qabstractitemmodel_mimedata_callback = nullptr;
-        qabstractitemmodel_candropmimedata_callback = nullptr;
-        qabstractitemmodel_dropmimedata_callback = nullptr;
-        qabstractitemmodel_supporteddropactions_callback = nullptr;
-        qabstractitemmodel_supporteddragactions_callback = nullptr;
-        qabstractitemmodel_insertrows_callback = nullptr;
-        qabstractitemmodel_insertcolumns_callback = nullptr;
-        qabstractitemmodel_removerows_callback = nullptr;
-        qabstractitemmodel_removecolumns_callback = nullptr;
-        qabstractitemmodel_moverows_callback = nullptr;
-        qabstractitemmodel_movecolumns_callback = nullptr;
-        qabstractitemmodel_fetchmore_callback = nullptr;
-        qabstractitemmodel_canfetchmore_callback = nullptr;
-        qabstractitemmodel_flags_callback = nullptr;
-        qabstractitemmodel_sort_callback = nullptr;
-        qabstractitemmodel_buddy_callback = nullptr;
-        qabstractitemmodel_match_callback = nullptr;
-        qabstractitemmodel_span_callback = nullptr;
-        qabstractitemmodel_rolenames_callback = nullptr;
-        qabstractitemmodel_multidata_callback = nullptr;
-        qabstractitemmodel_submit_callback = nullptr;
-        qabstractitemmodel_revert_callback = nullptr;
-        qabstractitemmodel_resetinternaldata_callback = nullptr;
-        qabstractitemmodel_event_callback = nullptr;
-        qabstractitemmodel_eventfilter_callback = nullptr;
-        qabstractitemmodel_timerevent_callback = nullptr;
-        qabstractitemmodel_childevent_callback = nullptr;
-        qabstractitemmodel_customevent_callback = nullptr;
-        qabstractitemmodel_connectnotify_callback = nullptr;
-        qabstractitemmodel_disconnectnotify_callback = nullptr;
-        qabstractitemmodel_createindex_callback = nullptr;
-        qabstractitemmodel_createindex2_callback = nullptr;
-        qabstractitemmodel_encodedata_callback = nullptr;
-        qabstractitemmodel_decodedata_callback = nullptr;
-        qabstractitemmodel_begininsertrows_callback = nullptr;
-        qabstractitemmodel_endinsertrows_callback = nullptr;
-        qabstractitemmodel_beginremoverows_callback = nullptr;
-        qabstractitemmodel_endremoverows_callback = nullptr;
-        qabstractitemmodel_beginmoverows_callback = nullptr;
-        qabstractitemmodel_endmoverows_callback = nullptr;
-        qabstractitemmodel_begininsertcolumns_callback = nullptr;
-        qabstractitemmodel_endinsertcolumns_callback = nullptr;
-        qabstractitemmodel_beginremovecolumns_callback = nullptr;
-        qabstractitemmodel_endremovecolumns_callback = nullptr;
-        qabstractitemmodel_beginmovecolumns_callback = nullptr;
-        qabstractitemmodel_endmovecolumns_callback = nullptr;
-        qabstractitemmodel_beginresetmodel_callback = nullptr;
-        qabstractitemmodel_endresetmodel_callback = nullptr;
-        qabstractitemmodel_changepersistentindex_callback = nullptr;
-        qabstractitemmodel_changepersistentindexlist_callback = nullptr;
-        qabstractitemmodel_persistentindexlist_callback = nullptr;
-        qabstractitemmodel_createindex3_callback = nullptr;
-        qabstractitemmodel_sender_callback = nullptr;
-        qabstractitemmodel_sendersignalindex_callback = nullptr;
-        qabstractitemmodel_receivers_callback = nullptr;
-        qabstractitemmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractItemModel_MetaObject_Callback(QAbstractItemModel_MetaObject_Callback cb) { qabstractitemmodel_metaobject_callback = cb; }
     inline void setQAbstractItemModel_Metacast_Callback(QAbstractItemModel_Metacast_Callback cb) { qabstractitemmodel_metacast_callback = cb; }
@@ -477,12 +401,13 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_metaobject_isbase) {
             qabstractitemmodel_metaobject_isbase = false;
             return QAbstractItemModel::metaObject();
-        } else if (qabstractitemmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractitemmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemModel::metaObject();
         }
+        auto metaobject_cb = qabstractitemmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractItemModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,14 +415,15 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_metacast_isbase) {
             qabstractitemmodel_metacast_isbase = false;
             return QAbstractItemModel::qt_metacast(param1);
-        } else if (qabstractitemmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractitemmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractitemmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::qt_metacast(param1);
         }
+        return QAbstractItemModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -505,46 +431,47 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_metacall_isbase) {
             qabstractitemmodel_metacall_isbase = false;
             return QAbstractItemModel::qt_metacall(param1, param2, param3);
-        } else if (qabstractitemmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractitemmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractitemmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemModel::qt_metacall(param1, param2, param3);
         }
+        return QAbstractItemModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex index(int row, int column, const QModelIndex& parent) const override {
-        if (qabstractitemmodel_index_callback != nullptr) {
+        auto index_cb = qabstractitemmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qabstractitemmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex parent(const QModelIndex& child) const override {
-        if (qabstractitemmodel_parent_callback != nullptr) {
+        auto parent_cb = qabstractitemmodel_parent_callback;
+        if (parent_cb) {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
 
-            QModelIndex* callback_ret = qabstractitemmodel_parent_callback(this, cbval1);
+            QModelIndex* callback_ret = parent_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -552,46 +479,47 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_sibling_isbase) {
             qabstractitemmodel_sibling_isbase = false;
             return QAbstractItemModel::sibling(row, column, idx);
-        } else if (qabstractitemmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qabstractitemmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qabstractitemmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::sibling(row, column, idx);
         }
+        return QAbstractItemModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int rowCount(const QModelIndex& parent) const override {
-        if (qabstractitemmodel_rowcount_callback != nullptr) {
+        auto rowcount_cb = qabstractitemmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qabstractitemmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int columnCount(const QModelIndex& parent) const override {
-        if (qabstractitemmodel_columncount_callback != nullptr) {
+        auto columncount_cb = qabstractitemmodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qabstractitemmodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,31 +527,32 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_haschildren_isbase) {
             qabstractitemmodel_haschildren_isbase = false;
             return QAbstractItemModel::hasChildren(parent);
-        } else if (qabstractitemmodel_haschildren_callback != nullptr) {
+        }
+        auto haschildren_cb = qabstractitemmodel_haschildren_callback;
+        if (haschildren_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_haschildren_callback(this, cbval1);
+            bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::hasChildren(parent);
         }
+        return QAbstractItemModel::hasChildren(parent);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant data(const QModelIndex& index, int role) const override {
-        if (qabstractitemmodel_data_callback != nullptr) {
+        auto data_cb = qabstractitemmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qabstractitemmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -631,7 +560,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_setdata_isbase) {
             qabstractitemmodel_setdata_isbase = false;
             return QAbstractItemModel::setData(index, value, role);
-        } else if (qabstractitemmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qabstractitemmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -640,11 +571,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qabstractitemmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::setData(index, value, role);
         }
+        return QAbstractItemModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -652,16 +582,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_headerdata_isbase) {
             qabstractitemmodel_headerdata_isbase = false;
             return QAbstractItemModel::headerData(section, orientation, role);
-        } else if (qabstractitemmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qabstractitemmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qabstractitemmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::headerData(section, orientation, role);
         }
+        return QAbstractItemModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -669,7 +600,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_setheaderdata_isbase) {
             qabstractitemmodel_setheaderdata_isbase = false;
             return QAbstractItemModel::setHeaderData(section, orientation, value, role);
-        } else if (qabstractitemmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qabstractitemmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -677,11 +610,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qabstractitemmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::setHeaderData(section, orientation, value, role);
         }
+        return QAbstractItemModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,12 +621,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_itemdata_isbase) {
             qabstractitemmodel_itemdata_isbase = false;
             return QAbstractItemModel::itemData(index);
-        } else if (qabstractitemmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qabstractitemmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qabstractitemmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -702,9 +636,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QAbstractItemModel::itemData(index);
         }
+        return QAbstractItemModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -712,7 +645,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_setitemdata_isbase) {
             qabstractitemmodel_setitemdata_isbase = false;
             return QAbstractItemModel::setItemData(index, roles);
-        } else if (qabstractitemmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qabstractitemmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -732,11 +667,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qabstractitemmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::setItemData(index, roles);
         }
+        return QAbstractItemModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,16 +678,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_clearitemdata_isbase) {
             qabstractitemmodel_clearitemdata_isbase = false;
             return QAbstractItemModel::clearItemData(index);
-        } else if (qabstractitemmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qabstractitemmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qabstractitemmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::clearItemData(index);
         }
+        return QAbstractItemModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -761,8 +696,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_mimetypes_isbase) {
             qabstractitemmodel_mimetypes_isbase = false;
             return QAbstractItemModel::mimeTypes();
-        } else if (qabstractitemmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qabstractitemmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qabstractitemmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -773,9 +710,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QAbstractItemModel::mimeTypes();
         }
+        return QAbstractItemModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,7 +719,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_mimedata_isbase) {
             qabstractitemmodel_mimedata_isbase = false;
             return QAbstractItemModel::mimeData(indexes);
-        } else if (qabstractitemmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qabstractitemmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -795,12 +733,11 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qabstractitemmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::mimeData(indexes);
         }
+        return QAbstractItemModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -808,7 +745,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_candropmimedata_isbase) {
             qabstractitemmodel_candropmimedata_isbase = false;
             return QAbstractItemModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qabstractitemmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qabstractitemmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -817,11 +756,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QAbstractItemModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,7 +767,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_dropmimedata_isbase) {
             qabstractitemmodel_dropmimedata_isbase = false;
             return QAbstractItemModel::dropMimeData(data, action, row, column, parent);
-        } else if (qabstractitemmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qabstractitemmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -838,11 +778,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::dropMimeData(data, action, row, column, parent);
         }
+        return QAbstractItemModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,12 +789,13 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_supporteddropactions_isbase) {
             qabstractitemmodel_supporteddropactions_isbase = false;
             return QAbstractItemModel::supportedDropActions();
-        } else if (qabstractitemmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qabstractitemmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QAbstractItemModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qabstractitemmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QAbstractItemModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,12 +803,13 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_supporteddragactions_isbase) {
             qabstractitemmodel_supporteddragactions_isbase = false;
             return QAbstractItemModel::supportedDragActions();
-        } else if (qabstractitemmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qabstractitemmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QAbstractItemModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qabstractitemmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QAbstractItemModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -876,18 +817,19 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_insertrows_isbase) {
             qabstractitemmodel_insertrows_isbase = false;
             return QAbstractItemModel::insertRows(row, count, parent);
-        } else if (qabstractitemmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qabstractitemmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::insertRows(row, count, parent);
         }
+        return QAbstractItemModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,18 +837,19 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_insertcolumns_isbase) {
             qabstractitemmodel_insertcolumns_isbase = false;
             return QAbstractItemModel::insertColumns(column, count, parent);
-        } else if (qabstractitemmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qabstractitemmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::insertColumns(column, count, parent);
         }
+        return QAbstractItemModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -914,18 +857,19 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_removerows_isbase) {
             qabstractitemmodel_removerows_isbase = false;
             return QAbstractItemModel::removeRows(row, count, parent);
-        } else if (qabstractitemmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qabstractitemmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::removeRows(row, count, parent);
         }
+        return QAbstractItemModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,18 +877,19 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_removecolumns_isbase) {
             qabstractitemmodel_removecolumns_isbase = false;
             return QAbstractItemModel::removeColumns(column, count, parent);
-        } else if (qabstractitemmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qabstractitemmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::removeColumns(column, count, parent);
         }
+        return QAbstractItemModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,7 +897,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_moverows_isbase) {
             qabstractitemmodel_moverows_isbase = false;
             return QAbstractItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qabstractitemmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qabstractitemmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -963,11 +910,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qabstractitemmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QAbstractItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,7 +921,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_movecolumns_isbase) {
             qabstractitemmodel_movecolumns_isbase = false;
             return QAbstractItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qabstractitemmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qabstractitemmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -986,11 +934,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qabstractitemmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QAbstractItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,15 +945,18 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_fetchmore_isbase) {
             qabstractitemmodel_fetchmore_isbase = false;
             QAbstractItemModel::fetchMore(parent);
-        } else if (qabstractitemmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qabstractitemmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qabstractitemmodel_fetchmore_callback(this, cbval1);
-        } else {
-            QAbstractItemModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QAbstractItemModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,16 +964,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_canfetchmore_isbase) {
             qabstractitemmodel_canfetchmore_isbase = false;
             return QAbstractItemModel::canFetchMore(parent);
-        } else if (qabstractitemmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qabstractitemmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractitemmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::canFetchMore(parent);
         }
+        return QAbstractItemModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,16 +982,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_flags_isbase) {
             qabstractitemmodel_flags_isbase = false;
             return QAbstractItemModel::flags(index);
-        } else if (qabstractitemmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qabstractitemmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qabstractitemmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QAbstractItemModel::flags(index);
         }
+        return QAbstractItemModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1048,14 +1000,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_sort_isbase) {
             qabstractitemmodel_sort_isbase = false;
             QAbstractItemModel::sort(column, order);
-        } else if (qabstractitemmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qabstractitemmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qabstractitemmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1063,16 +1018,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_buddy_isbase) {
             qabstractitemmodel_buddy_isbase = false;
             return QAbstractItemModel::buddy(index);
-        } else if (qabstractitemmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qabstractitemmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qabstractitemmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::buddy(index);
         }
+        return QAbstractItemModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1080,7 +1036,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_match_isbase) {
             qabstractitemmodel_match_isbase = false;
             return QAbstractItemModel::match(start, role, value, hits, flags);
-        } else if (qabstractitemmodel_match_callback != nullptr) {
+        }
+        auto match_cb = qabstractitemmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1091,7 +1049,7 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qabstractitemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1100,9 +1058,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractItemModel::match(start, role, value, hits, flags);
         }
+        return QAbstractItemModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,16 +1067,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_span_isbase) {
             qabstractitemmodel_span_isbase = false;
             return QAbstractItemModel::span(index);
-        } else if (qabstractitemmodel_span_callback != nullptr) {
+        }
+        auto span_cb = qabstractitemmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qabstractitemmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::span(index);
         }
+        return QAbstractItemModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,8 +1085,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_rolenames_isbase) {
             qabstractitemmodel_rolenames_isbase = false;
             return QAbstractItemModel::roleNames();
-        } else if (qabstractitemmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qabstractitemmodel_rolenames_callback();
+        }
+        auto rolenames_cb = qabstractitemmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1138,9 +1098,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QAbstractItemModel::roleNames();
         }
+        return QAbstractItemModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1148,16 +1107,19 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_multidata_isbase) {
             qabstractitemmodel_multidata_isbase = false;
             QAbstractItemModel::multiData(index, roleDataSpan);
-        } else if (qabstractitemmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qabstractitemmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qabstractitemmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,12 +1127,13 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_submit_isbase) {
             qabstractitemmodel_submit_isbase = false;
             return QAbstractItemModel::submit();
-        } else if (qabstractitemmodel_submit_callback != nullptr) {
-            bool callback_ret = qabstractitemmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemModel::submit();
         }
+        auto submit_cb = qabstractitemmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QAbstractItemModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,11 +1141,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_revert_isbase) {
             qabstractitemmodel_revert_isbase = false;
             QAbstractItemModel::revert();
-        } else if (qabstractitemmodel_revert_callback != nullptr) {
-            qabstractitemmodel_revert_callback();
-        } else {
-            QAbstractItemModel::revert();
+            return;
         }
+        auto revert_cb = qabstractitemmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QAbstractItemModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1190,11 +1156,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_resetinternaldata_isbase) {
             qabstractitemmodel_resetinternaldata_isbase = false;
             QAbstractItemModel::resetInternalData();
-        } else if (qabstractitemmodel_resetinternaldata_callback != nullptr) {
-            qabstractitemmodel_resetinternaldata_callback();
-        } else {
-            QAbstractItemModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qabstractitemmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QAbstractItemModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,14 +1171,15 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_event_isbase) {
             qabstractitemmodel_event_isbase = false;
             return QAbstractItemModel::event(event);
-        } else if (qabstractitemmodel_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractitemmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractitemmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::event(event);
         }
+        return QAbstractItemModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1217,15 +1187,16 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_eventfilter_isbase) {
             qabstractitemmodel_eventfilter_isbase = false;
             return QAbstractItemModel::eventFilter(watched, event);
-        } else if (qabstractitemmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractitemmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractitemmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::eventFilter(watched, event);
         }
+        return QAbstractItemModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,13 +1204,16 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_timerevent_isbase) {
             qabstractitemmodel_timerevent_isbase = false;
             QAbstractItemModel::timerEvent(event);
-        } else if (qabstractitemmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractitemmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstractitemmodel_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractItemModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1247,13 +1221,16 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_childevent_isbase) {
             qabstractitemmodel_childevent_isbase = false;
             QAbstractItemModel::childEvent(event);
-        } else if (qabstractitemmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractitemmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractitemmodel_childevent_callback(this, cbval1);
-        } else {
-            QAbstractItemModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,13 +1238,16 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_customevent_isbase) {
             qabstractitemmodel_customevent_isbase = false;
             QAbstractItemModel::customEvent(event);
-        } else if (qabstractitemmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractitemmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractitemmodel_customevent_callback(this, cbval1);
-        } else {
-            QAbstractItemModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractItemModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1275,15 +1255,18 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_connectnotify_isbase) {
             qabstractitemmodel_connectnotify_isbase = false;
             QAbstractItemModel::connectNotify(signal);
-        } else if (qabstractitemmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractitemmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractitemmodel_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractItemModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractItemModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1291,15 +1274,18 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_disconnectnotify_isbase) {
             qabstractitemmodel_disconnectnotify_isbase = false;
             QAbstractItemModel::disconnectNotify(signal);
-        } else if (qabstractitemmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractitemmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractitemmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractItemModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractItemModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1307,15 +1293,16 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_createindex_isbase) {
             qabstractitemmodel_createindex_isbase = false;
             return QAbstractItemModel::createIndex(row, column);
-        } else if (qabstractitemmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qabstractitemmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qabstractitemmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::createIndex(row, column);
         }
+        return QAbstractItemModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1323,16 +1310,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_createindex2_isbase) {
             qabstractitemmodel_createindex2_isbase = false;
             return QAbstractItemModel::createIndex(row, column, id);
-        } else if (qabstractitemmodel_createindex2_callback != nullptr) {
+        }
+        auto createindex2_cb = qabstractitemmodel_createindex2_callback;
+        if (createindex2_cb) {
             int cbval1 = row;
             int cbval2 = column;
             uintptr_t cbval3 = static_cast<uintptr_t>(id);
 
-            QModelIndex* callback_ret = qabstractitemmodel_createindex2_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = createindex2_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::createIndex(row, column, id);
         }
+        return QAbstractItemModel::createIndex(row, column, id);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1340,7 +1328,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_encodedata_isbase) {
             qabstractitemmodel_encodedata_isbase = false;
             QAbstractItemModel::encodeData(indexes, stream);
-        } else if (qabstractitemmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qabstractitemmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1355,11 +1346,11 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qabstractitemmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QAbstractItemModel::encodeData(indexes, stream);
+            return;
         }
+        QAbstractItemModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1367,7 +1358,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_decodedata_isbase) {
             qabstractitemmodel_decodedata_isbase = false;
             return QAbstractItemModel::decodeData(row, column, parent, stream);
-        } else if (qabstractitemmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qabstractitemmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1377,11 +1370,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qabstractitemmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::decodeData(row, column, parent, stream);
         }
+        return QAbstractItemModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1389,17 +1381,20 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_begininsertrows_isbase) {
             qabstractitemmodel_begininsertrows_isbase = false;
             QAbstractItemModel::beginInsertRows(parent, first, last);
-        } else if (qabstractitemmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qabstractitemmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractitemmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractItemModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractItemModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1407,11 +1402,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endinsertrows_isbase) {
             qabstractitemmodel_endinsertrows_isbase = false;
             QAbstractItemModel::endInsertRows();
-        } else if (qabstractitemmodel_endinsertrows_callback != nullptr) {
-            qabstractitemmodel_endinsertrows_callback();
-        } else {
-            QAbstractItemModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qabstractitemmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QAbstractItemModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,17 +1417,20 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_beginremoverows_isbase) {
             qabstractitemmodel_beginremoverows_isbase = false;
             QAbstractItemModel::beginRemoveRows(parent, first, last);
-        } else if (qabstractitemmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qabstractitemmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractitemmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractItemModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractItemModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1437,11 +1438,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endremoverows_isbase) {
             qabstractitemmodel_endremoverows_isbase = false;
             QAbstractItemModel::endRemoveRows();
-        } else if (qabstractitemmodel_endremoverows_callback != nullptr) {
-            qabstractitemmodel_endremoverows_callback();
-        } else {
-            QAbstractItemModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qabstractitemmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QAbstractItemModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1449,7 +1453,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_beginmoverows_isbase) {
             qabstractitemmodel_beginmoverows_isbase = false;
             return QAbstractItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qabstractitemmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qabstractitemmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1460,11 +1466,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qabstractitemmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QAbstractItemModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1472,11 +1477,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endmoverows_isbase) {
             qabstractitemmodel_endmoverows_isbase = false;
             QAbstractItemModel::endMoveRows();
-        } else if (qabstractitemmodel_endmoverows_callback != nullptr) {
-            qabstractitemmodel_endmoverows_callback();
-        } else {
-            QAbstractItemModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qabstractitemmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QAbstractItemModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,17 +1492,20 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_begininsertcolumns_isbase) {
             qabstractitemmodel_begininsertcolumns_isbase = false;
             QAbstractItemModel::beginInsertColumns(parent, first, last);
-        } else if (qabstractitemmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qabstractitemmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractitemmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractItemModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractItemModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1502,11 +1513,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endinsertcolumns_isbase) {
             qabstractitemmodel_endinsertcolumns_isbase = false;
             QAbstractItemModel::endInsertColumns();
-        } else if (qabstractitemmodel_endinsertcolumns_callback != nullptr) {
-            qabstractitemmodel_endinsertcolumns_callback();
-        } else {
-            QAbstractItemModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qabstractitemmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QAbstractItemModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1514,17 +1528,20 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_beginremovecolumns_isbase) {
             qabstractitemmodel_beginremovecolumns_isbase = false;
             QAbstractItemModel::beginRemoveColumns(parent, first, last);
-        } else if (qabstractitemmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qabstractitemmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractitemmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractItemModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractItemModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1532,11 +1549,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endremovecolumns_isbase) {
             qabstractitemmodel_endremovecolumns_isbase = false;
             QAbstractItemModel::endRemoveColumns();
-        } else if (qabstractitemmodel_endremovecolumns_callback != nullptr) {
-            qabstractitemmodel_endremovecolumns_callback();
-        } else {
-            QAbstractItemModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qabstractitemmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QAbstractItemModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1544,7 +1564,9 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_beginmovecolumns_isbase) {
             qabstractitemmodel_beginmovecolumns_isbase = false;
             return QAbstractItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qabstractitemmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qabstractitemmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1555,11 +1577,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qabstractitemmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QAbstractItemModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1567,11 +1588,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endmovecolumns_isbase) {
             qabstractitemmodel_endmovecolumns_isbase = false;
             QAbstractItemModel::endMoveColumns();
-        } else if (qabstractitemmodel_endmovecolumns_callback != nullptr) {
-            qabstractitemmodel_endmovecolumns_callback();
-        } else {
-            QAbstractItemModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qabstractitemmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QAbstractItemModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1579,11 +1603,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_beginresetmodel_isbase) {
             qabstractitemmodel_beginresetmodel_isbase = false;
             QAbstractItemModel::beginResetModel();
-        } else if (qabstractitemmodel_beginresetmodel_callback != nullptr) {
-            qabstractitemmodel_beginresetmodel_callback();
-        } else {
-            QAbstractItemModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qabstractitemmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QAbstractItemModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1591,11 +1618,14 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_endresetmodel_isbase) {
             qabstractitemmodel_endresetmodel_isbase = false;
             QAbstractItemModel::endResetModel();
-        } else if (qabstractitemmodel_endresetmodel_callback != nullptr) {
-            qabstractitemmodel_endresetmodel_callback();
-        } else {
-            QAbstractItemModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qabstractitemmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QAbstractItemModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1603,7 +1633,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_changepersistentindex_isbase) {
             qabstractitemmodel_changepersistentindex_isbase = false;
             QAbstractItemModel::changePersistentIndex(from, to);
-        } else if (qabstractitemmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qabstractitemmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1611,10 +1644,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qabstractitemmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractItemModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractItemModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1622,7 +1655,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_changepersistentindexlist_isbase) {
             qabstractitemmodel_changepersistentindexlist_isbase = false;
             QAbstractItemModel::changePersistentIndexList(from, to);
-        } else if (qabstractitemmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qabstractitemmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1644,12 +1680,12 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qabstractitemmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QAbstractItemModel::changePersistentIndexList(from, to);
+            return;
         }
+        QAbstractItemModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1657,8 +1693,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_persistentindexlist_isbase) {
             qabstractitemmodel_persistentindexlist_isbase = false;
             return QAbstractItemModel::persistentIndexList();
-        } else if (qabstractitemmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qabstractitemmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qabstractitemmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1667,9 +1705,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractItemModel::persistentIndexList();
         }
+        return QAbstractItemModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1677,16 +1714,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_createindex3_isbase) {
             qabstractitemmodel_createindex3_isbase = false;
             return QAbstractItemModel::createIndex(row, column, data);
-        } else if (qabstractitemmodel_createindex3_callback != nullptr) {
+        }
+        auto createindex3_cb = qabstractitemmodel_createindex3_callback;
+        if (createindex3_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const void* cbval3 = (const void*)data;
 
-            QModelIndex* callback_ret = qabstractitemmodel_createindex3_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = createindex3_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractItemModel::createIndex(row, column, data);
         }
+        return QAbstractItemModel::createIndex(row, column, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1694,12 +1732,13 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_sender_isbase) {
             qabstractitemmodel_sender_isbase = false;
             return QAbstractItemModel::sender();
-        } else if (qabstractitemmodel_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractitemmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractItemModel::sender();
         }
+        auto sender_cb = qabstractitemmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractItemModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1707,12 +1746,13 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_sendersignalindex_isbase) {
             qabstractitemmodel_sendersignalindex_isbase = false;
             return QAbstractItemModel::senderSignalIndex();
-        } else if (qabstractitemmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractitemmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractitemmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractItemModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1720,14 +1760,15 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_receivers_isbase) {
             qabstractitemmodel_receivers_isbase = false;
             return QAbstractItemModel::receivers(signal);
-        } else if (qabstractitemmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractitemmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractitemmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractItemModel::receivers(signal);
         }
+        return QAbstractItemModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1735,16 +1776,17 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (qabstractitemmodel_issignalconnected_isbase) {
             qabstractitemmodel_issignalconnected_isbase = false;
             return QAbstractItemModel::isSignalConnected(signal);
-        } else if (qabstractitemmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractitemmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractitemmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractItemModel::isSignalConnected(signal);
         }
+        return QAbstractItemModel::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -2039,78 +2081,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     VirtualQAbstractTableModel() : QAbstractTableModel() {};
     VirtualQAbstractTableModel(QObject* parent) : QAbstractTableModel(parent) {};
 
-    ~VirtualQAbstractTableModel() {
-        qabstracttablemodel_metaobject_callback = nullptr;
-        qabstracttablemodel_metacast_callback = nullptr;
-        qabstracttablemodel_metacall_callback = nullptr;
-        qabstracttablemodel_index_callback = nullptr;
-        qabstracttablemodel_sibling_callback = nullptr;
-        qabstracttablemodel_dropmimedata_callback = nullptr;
-        qabstracttablemodel_flags_callback = nullptr;
-        qabstracttablemodel_rowcount_callback = nullptr;
-        qabstracttablemodel_columncount_callback = nullptr;
-        qabstracttablemodel_data_callback = nullptr;
-        qabstracttablemodel_setdata_callback = nullptr;
-        qabstracttablemodel_headerdata_callback = nullptr;
-        qabstracttablemodel_setheaderdata_callback = nullptr;
-        qabstracttablemodel_itemdata_callback = nullptr;
-        qabstracttablemodel_setitemdata_callback = nullptr;
-        qabstracttablemodel_clearitemdata_callback = nullptr;
-        qabstracttablemodel_mimetypes_callback = nullptr;
-        qabstracttablemodel_mimedata_callback = nullptr;
-        qabstracttablemodel_candropmimedata_callback = nullptr;
-        qabstracttablemodel_supporteddropactions_callback = nullptr;
-        qabstracttablemodel_supporteddragactions_callback = nullptr;
-        qabstracttablemodel_insertrows_callback = nullptr;
-        qabstracttablemodel_insertcolumns_callback = nullptr;
-        qabstracttablemodel_removerows_callback = nullptr;
-        qabstracttablemodel_removecolumns_callback = nullptr;
-        qabstracttablemodel_moverows_callback = nullptr;
-        qabstracttablemodel_movecolumns_callback = nullptr;
-        qabstracttablemodel_fetchmore_callback = nullptr;
-        qabstracttablemodel_canfetchmore_callback = nullptr;
-        qabstracttablemodel_sort_callback = nullptr;
-        qabstracttablemodel_buddy_callback = nullptr;
-        qabstracttablemodel_match_callback = nullptr;
-        qabstracttablemodel_span_callback = nullptr;
-        qabstracttablemodel_rolenames_callback = nullptr;
-        qabstracttablemodel_multidata_callback = nullptr;
-        qabstracttablemodel_submit_callback = nullptr;
-        qabstracttablemodel_revert_callback = nullptr;
-        qabstracttablemodel_resetinternaldata_callback = nullptr;
-        qabstracttablemodel_event_callback = nullptr;
-        qabstracttablemodel_eventfilter_callback = nullptr;
-        qabstracttablemodel_timerevent_callback = nullptr;
-        qabstracttablemodel_childevent_callback = nullptr;
-        qabstracttablemodel_customevent_callback = nullptr;
-        qabstracttablemodel_connectnotify_callback = nullptr;
-        qabstracttablemodel_disconnectnotify_callback = nullptr;
-        qabstracttablemodel_createindex_callback = nullptr;
-        qabstracttablemodel_encodedata_callback = nullptr;
-        qabstracttablemodel_decodedata_callback = nullptr;
-        qabstracttablemodel_begininsertrows_callback = nullptr;
-        qabstracttablemodel_endinsertrows_callback = nullptr;
-        qabstracttablemodel_beginremoverows_callback = nullptr;
-        qabstracttablemodel_endremoverows_callback = nullptr;
-        qabstracttablemodel_beginmoverows_callback = nullptr;
-        qabstracttablemodel_endmoverows_callback = nullptr;
-        qabstracttablemodel_begininsertcolumns_callback = nullptr;
-        qabstracttablemodel_endinsertcolumns_callback = nullptr;
-        qabstracttablemodel_beginremovecolumns_callback = nullptr;
-        qabstracttablemodel_endremovecolumns_callback = nullptr;
-        qabstracttablemodel_beginmovecolumns_callback = nullptr;
-        qabstracttablemodel_endmovecolumns_callback = nullptr;
-        qabstracttablemodel_beginresetmodel_callback = nullptr;
-        qabstracttablemodel_endresetmodel_callback = nullptr;
-        qabstracttablemodel_changepersistentindex_callback = nullptr;
-        qabstracttablemodel_changepersistentindexlist_callback = nullptr;
-        qabstracttablemodel_persistentindexlist_callback = nullptr;
-        qabstracttablemodel_sender_callback = nullptr;
-        qabstracttablemodel_sendersignalindex_callback = nullptr;
-        qabstracttablemodel_receivers_callback = nullptr;
-        qabstracttablemodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractTableModel_MetaObject_Callback(QAbstractTableModel_MetaObject_Callback cb) { qabstracttablemodel_metaobject_callback = cb; }
     inline void setQAbstractTableModel_Metacast_Callback(QAbstractTableModel_Metacast_Callback cb) { qabstracttablemodel_metacast_callback = cb; }
@@ -2258,12 +2228,13 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_metaobject_isbase) {
             qabstracttablemodel_metaobject_isbase = false;
             return QAbstractTableModel::metaObject();
-        } else if (qabstracttablemodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstracttablemodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractTableModel::metaObject();
         }
+        auto metaobject_cb = qabstracttablemodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractTableModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2271,14 +2242,15 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_metacast_isbase) {
             qabstracttablemodel_metacast_isbase = false;
             return QAbstractTableModel::qt_metacast(param1);
-        } else if (qabstracttablemodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstracttablemodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstracttablemodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::qt_metacast(param1);
         }
+        return QAbstractTableModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2286,16 +2258,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_metacall_isbase) {
             qabstracttablemodel_metacall_isbase = false;
             return QAbstractTableModel::qt_metacall(param1, param2, param3);
-        } else if (qabstracttablemodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstracttablemodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstracttablemodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTableModel::qt_metacall(param1, param2, param3);
         }
+        return QAbstractTableModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2303,18 +2276,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_index_isbase) {
             qabstracttablemodel_index_isbase = false;
             return QAbstractTableModel::index(row, column, parent);
-        } else if (qabstracttablemodel_index_callback != nullptr) {
+        }
+        auto index_cb = qabstracttablemodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qabstracttablemodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractTableModel::index(row, column, parent);
         }
+        return QAbstractTableModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2322,18 +2296,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_sibling_isbase) {
             qabstracttablemodel_sibling_isbase = false;
             return QAbstractTableModel::sibling(row, column, idx);
-        } else if (qabstracttablemodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qabstracttablemodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qabstracttablemodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractTableModel::sibling(row, column, idx);
         }
+        return QAbstractTableModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2341,7 +2316,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_dropmimedata_isbase) {
             qabstracttablemodel_dropmimedata_isbase = false;
             return QAbstractTableModel::dropMimeData(data, action, row, column, parent);
-        } else if (qabstracttablemodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qabstracttablemodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -2350,11 +2327,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::dropMimeData(data, action, row, column, parent);
         }
+        return QAbstractTableModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2362,59 +2338,60 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_flags_isbase) {
             qabstracttablemodel_flags_isbase = false;
             return QAbstractTableModel::flags(index);
-        } else if (qabstracttablemodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qabstracttablemodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qabstracttablemodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QAbstractTableModel::flags(index);
         }
+        return QAbstractTableModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int rowCount(const QModelIndex& parent) const override {
-        if (qabstracttablemodel_rowcount_callback != nullptr) {
+        auto rowcount_cb = qabstracttablemodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qabstracttablemodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int columnCount(const QModelIndex& parent) const override {
-        if (qabstracttablemodel_columncount_callback != nullptr) {
+        auto columncount_cb = qabstracttablemodel_columncount_callback;
+        if (columncount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qabstracttablemodel_columncount_callback(this, cbval1);
+            int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant data(const QModelIndex& index, int role) const override {
-        if (qabstracttablemodel_data_callback != nullptr) {
+        auto data_cb = qabstracttablemodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qabstracttablemodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2422,7 +2399,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_setdata_isbase) {
             qabstracttablemodel_setdata_isbase = false;
             return QAbstractTableModel::setData(index, value, role);
-        } else if (qabstracttablemodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qabstracttablemodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2431,11 +2410,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qabstracttablemodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::setData(index, value, role);
         }
+        return QAbstractTableModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2443,16 +2421,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_headerdata_isbase) {
             qabstracttablemodel_headerdata_isbase = false;
             return QAbstractTableModel::headerData(section, orientation, role);
-        } else if (qabstracttablemodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qabstracttablemodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qabstracttablemodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractTableModel::headerData(section, orientation, role);
         }
+        return QAbstractTableModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2460,7 +2439,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_setheaderdata_isbase) {
             qabstracttablemodel_setheaderdata_isbase = false;
             return QAbstractTableModel::setHeaderData(section, orientation, value, role);
-        } else if (qabstracttablemodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qabstracttablemodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -2468,11 +2449,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qabstracttablemodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::setHeaderData(section, orientation, value, role);
         }
+        return QAbstractTableModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2480,12 +2460,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_itemdata_isbase) {
             qabstracttablemodel_itemdata_isbase = false;
             return QAbstractTableModel::itemData(index);
-        } else if (qabstracttablemodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qabstracttablemodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qabstracttablemodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -2493,9 +2475,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QAbstractTableModel::itemData(index);
         }
+        return QAbstractTableModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2503,7 +2484,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_setitemdata_isbase) {
             qabstracttablemodel_setitemdata_isbase = false;
             return QAbstractTableModel::setItemData(index, roles);
-        } else if (qabstracttablemodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qabstracttablemodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2523,11 +2506,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qabstracttablemodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::setItemData(index, roles);
         }
+        return QAbstractTableModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2535,16 +2517,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_clearitemdata_isbase) {
             qabstracttablemodel_clearitemdata_isbase = false;
             return QAbstractTableModel::clearItemData(index);
-        } else if (qabstracttablemodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qabstracttablemodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qabstracttablemodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::clearItemData(index);
         }
+        return QAbstractTableModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2552,8 +2535,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_mimetypes_isbase) {
             qabstracttablemodel_mimetypes_isbase = false;
             return QAbstractTableModel::mimeTypes();
-        } else if (qabstracttablemodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qabstracttablemodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qabstracttablemodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -2564,9 +2549,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QAbstractTableModel::mimeTypes();
         }
+        return QAbstractTableModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2574,7 +2558,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_mimedata_isbase) {
             qabstracttablemodel_mimedata_isbase = false;
             return QAbstractTableModel::mimeData(indexes);
-        } else if (qabstracttablemodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qabstracttablemodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -2586,12 +2572,11 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qabstracttablemodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::mimeData(indexes);
         }
+        return QAbstractTableModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2599,7 +2584,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_candropmimedata_isbase) {
             qabstracttablemodel_candropmimedata_isbase = false;
             return QAbstractTableModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qabstracttablemodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qabstracttablemodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -2608,11 +2595,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QAbstractTableModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2620,12 +2606,13 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_supporteddropactions_isbase) {
             qabstracttablemodel_supporteddropactions_isbase = false;
             return QAbstractTableModel::supportedDropActions();
-        } else if (qabstracttablemodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qabstracttablemodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QAbstractTableModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qabstracttablemodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QAbstractTableModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2633,12 +2620,13 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_supporteddragactions_isbase) {
             qabstracttablemodel_supporteddragactions_isbase = false;
             return QAbstractTableModel::supportedDragActions();
-        } else if (qabstracttablemodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qabstracttablemodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QAbstractTableModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qabstracttablemodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QAbstractTableModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2646,18 +2634,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_insertrows_isbase) {
             qabstracttablemodel_insertrows_isbase = false;
             return QAbstractTableModel::insertRows(row, count, parent);
-        } else if (qabstracttablemodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qabstracttablemodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::insertRows(row, count, parent);
         }
+        return QAbstractTableModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2665,18 +2654,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_insertcolumns_isbase) {
             qabstracttablemodel_insertcolumns_isbase = false;
             return QAbstractTableModel::insertColumns(column, count, parent);
-        } else if (qabstracttablemodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qabstracttablemodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::insertColumns(column, count, parent);
         }
+        return QAbstractTableModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2684,18 +2674,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_removerows_isbase) {
             qabstracttablemodel_removerows_isbase = false;
             return QAbstractTableModel::removeRows(row, count, parent);
-        } else if (qabstracttablemodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qabstracttablemodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::removeRows(row, count, parent);
         }
+        return QAbstractTableModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2703,18 +2694,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_removecolumns_isbase) {
             qabstracttablemodel_removecolumns_isbase = false;
             return QAbstractTableModel::removeColumns(column, count, parent);
-        } else if (qabstracttablemodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qabstracttablemodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::removeColumns(column, count, parent);
         }
+        return QAbstractTableModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2722,7 +2714,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_moverows_isbase) {
             qabstracttablemodel_moverows_isbase = false;
             return QAbstractTableModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qabstracttablemodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qabstracttablemodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -2733,11 +2727,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qabstracttablemodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QAbstractTableModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2745,7 +2738,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_movecolumns_isbase) {
             qabstracttablemodel_movecolumns_isbase = false;
             return QAbstractTableModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qabstracttablemodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qabstracttablemodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -2756,11 +2751,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qabstracttablemodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QAbstractTableModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2768,15 +2762,18 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_fetchmore_isbase) {
             qabstracttablemodel_fetchmore_isbase = false;
             QAbstractTableModel::fetchMore(parent);
-        } else if (qabstracttablemodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qabstracttablemodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qabstracttablemodel_fetchmore_callback(this, cbval1);
-        } else {
-            QAbstractTableModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QAbstractTableModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2784,16 +2781,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_canfetchmore_isbase) {
             qabstracttablemodel_canfetchmore_isbase = false;
             return QAbstractTableModel::canFetchMore(parent);
-        } else if (qabstracttablemodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qabstracttablemodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstracttablemodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::canFetchMore(parent);
         }
+        return QAbstractTableModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2801,14 +2799,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_sort_isbase) {
             qabstracttablemodel_sort_isbase = false;
             QAbstractTableModel::sort(column, order);
-        } else if (qabstracttablemodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qabstracttablemodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qabstracttablemodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractTableModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractTableModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2816,16 +2817,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_buddy_isbase) {
             qabstracttablemodel_buddy_isbase = false;
             return QAbstractTableModel::buddy(index);
-        } else if (qabstracttablemodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qabstracttablemodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qabstracttablemodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractTableModel::buddy(index);
         }
+        return QAbstractTableModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2833,7 +2835,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_match_isbase) {
             qabstracttablemodel_match_isbase = false;
             return QAbstractTableModel::match(start, role, value, hits, flags);
-        } else if (qabstracttablemodel_match_callback != nullptr) {
+        }
+        auto match_cb = qabstracttablemodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -2844,7 +2848,7 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qabstracttablemodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -2853,9 +2857,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractTableModel::match(start, role, value, hits, flags);
         }
+        return QAbstractTableModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2863,16 +2866,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_span_isbase) {
             qabstracttablemodel_span_isbase = false;
             return QAbstractTableModel::span(index);
-        } else if (qabstracttablemodel_span_callback != nullptr) {
+        }
+        auto span_cb = qabstracttablemodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qabstracttablemodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractTableModel::span(index);
         }
+        return QAbstractTableModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2880,8 +2884,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_rolenames_isbase) {
             qabstracttablemodel_rolenames_isbase = false;
             return QAbstractTableModel::roleNames();
-        } else if (qabstracttablemodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qabstracttablemodel_rolenames_callback();
+        }
+        auto rolenames_cb = qabstracttablemodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -2891,9 +2897,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QAbstractTableModel::roleNames();
         }
+        return QAbstractTableModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2901,16 +2906,19 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_multidata_isbase) {
             qabstracttablemodel_multidata_isbase = false;
             QAbstractTableModel::multiData(index, roleDataSpan);
-        } else if (qabstracttablemodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qabstracttablemodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qabstracttablemodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractTableModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractTableModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2918,12 +2926,13 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_submit_isbase) {
             qabstracttablemodel_submit_isbase = false;
             return QAbstractTableModel::submit();
-        } else if (qabstracttablemodel_submit_callback != nullptr) {
-            bool callback_ret = qabstracttablemodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QAbstractTableModel::submit();
         }
+        auto submit_cb = qabstracttablemodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QAbstractTableModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2931,11 +2940,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_revert_isbase) {
             qabstracttablemodel_revert_isbase = false;
             QAbstractTableModel::revert();
-        } else if (qabstracttablemodel_revert_callback != nullptr) {
-            qabstracttablemodel_revert_callback();
-        } else {
-            QAbstractTableModel::revert();
+            return;
         }
+        auto revert_cb = qabstracttablemodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QAbstractTableModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2943,11 +2955,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_resetinternaldata_isbase) {
             qabstracttablemodel_resetinternaldata_isbase = false;
             QAbstractTableModel::resetInternalData();
-        } else if (qabstracttablemodel_resetinternaldata_callback != nullptr) {
-            qabstracttablemodel_resetinternaldata_callback();
-        } else {
-            QAbstractTableModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qabstracttablemodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QAbstractTableModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2955,14 +2970,15 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_event_isbase) {
             qabstracttablemodel_event_isbase = false;
             return QAbstractTableModel::event(event);
-        } else if (qabstracttablemodel_event_callback != nullptr) {
+        }
+        auto event_cb = qabstracttablemodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstracttablemodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::event(event);
         }
+        return QAbstractTableModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2970,15 +2986,16 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_eventfilter_isbase) {
             qabstracttablemodel_eventfilter_isbase = false;
             return QAbstractTableModel::eventFilter(watched, event);
-        } else if (qabstracttablemodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstracttablemodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstracttablemodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::eventFilter(watched, event);
         }
+        return QAbstractTableModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2986,13 +3003,16 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_timerevent_isbase) {
             qabstracttablemodel_timerevent_isbase = false;
             QAbstractTableModel::timerEvent(event);
-        } else if (qabstracttablemodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstracttablemodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstracttablemodel_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractTableModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractTableModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3000,13 +3020,16 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_childevent_isbase) {
             qabstracttablemodel_childevent_isbase = false;
             QAbstractTableModel::childEvent(event);
-        } else if (qabstracttablemodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstracttablemodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstracttablemodel_childevent_callback(this, cbval1);
-        } else {
-            QAbstractTableModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractTableModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3014,13 +3037,16 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_customevent_isbase) {
             qabstracttablemodel_customevent_isbase = false;
             QAbstractTableModel::customEvent(event);
-        } else if (qabstracttablemodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstracttablemodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstracttablemodel_customevent_callback(this, cbval1);
-        } else {
-            QAbstractTableModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractTableModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3028,15 +3054,18 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_connectnotify_isbase) {
             qabstracttablemodel_connectnotify_isbase = false;
             QAbstractTableModel::connectNotify(signal);
-        } else if (qabstracttablemodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstracttablemodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstracttablemodel_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractTableModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractTableModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3044,15 +3073,18 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_disconnectnotify_isbase) {
             qabstracttablemodel_disconnectnotify_isbase = false;
             QAbstractTableModel::disconnectNotify(signal);
-        } else if (qabstracttablemodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstracttablemodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstracttablemodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractTableModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractTableModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3060,15 +3092,16 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_createindex_isbase) {
             qabstracttablemodel_createindex_isbase = false;
             return QAbstractTableModel::createIndex(row, column);
-        } else if (qabstracttablemodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qabstracttablemodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qabstracttablemodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QAbstractTableModel::createIndex(row, column);
         }
+        return QAbstractTableModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3076,7 +3109,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_encodedata_isbase) {
             qabstracttablemodel_encodedata_isbase = false;
             QAbstractTableModel::encodeData(indexes, stream);
-        } else if (qabstracttablemodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qabstracttablemodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -3091,11 +3127,11 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qabstracttablemodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QAbstractTableModel::encodeData(indexes, stream);
+            return;
         }
+        QAbstractTableModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3103,7 +3139,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_decodedata_isbase) {
             qabstracttablemodel_decodedata_isbase = false;
             return QAbstractTableModel::decodeData(row, column, parent, stream);
-        } else if (qabstracttablemodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qabstracttablemodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -3113,11 +3151,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qabstracttablemodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::decodeData(row, column, parent, stream);
         }
+        return QAbstractTableModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3125,17 +3162,20 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_begininsertrows_isbase) {
             qabstracttablemodel_begininsertrows_isbase = false;
             QAbstractTableModel::beginInsertRows(parent, first, last);
-        } else if (qabstracttablemodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qabstracttablemodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstracttablemodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractTableModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractTableModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3143,11 +3183,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endinsertrows_isbase) {
             qabstracttablemodel_endinsertrows_isbase = false;
             QAbstractTableModel::endInsertRows();
-        } else if (qabstracttablemodel_endinsertrows_callback != nullptr) {
-            qabstracttablemodel_endinsertrows_callback();
-        } else {
-            QAbstractTableModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qabstracttablemodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QAbstractTableModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3155,17 +3198,20 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_beginremoverows_isbase) {
             qabstracttablemodel_beginremoverows_isbase = false;
             QAbstractTableModel::beginRemoveRows(parent, first, last);
-        } else if (qabstracttablemodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qabstracttablemodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstracttablemodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractTableModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractTableModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3173,11 +3219,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endremoverows_isbase) {
             qabstracttablemodel_endremoverows_isbase = false;
             QAbstractTableModel::endRemoveRows();
-        } else if (qabstracttablemodel_endremoverows_callback != nullptr) {
-            qabstracttablemodel_endremoverows_callback();
-        } else {
-            QAbstractTableModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qabstracttablemodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QAbstractTableModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3185,7 +3234,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_beginmoverows_isbase) {
             qabstracttablemodel_beginmoverows_isbase = false;
             return QAbstractTableModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qabstracttablemodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qabstracttablemodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -3196,11 +3247,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qabstracttablemodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QAbstractTableModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3208,11 +3258,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endmoverows_isbase) {
             qabstracttablemodel_endmoverows_isbase = false;
             QAbstractTableModel::endMoveRows();
-        } else if (qabstracttablemodel_endmoverows_callback != nullptr) {
-            qabstracttablemodel_endmoverows_callback();
-        } else {
-            QAbstractTableModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qabstracttablemodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QAbstractTableModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3220,17 +3273,20 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_begininsertcolumns_isbase) {
             qabstracttablemodel_begininsertcolumns_isbase = false;
             QAbstractTableModel::beginInsertColumns(parent, first, last);
-        } else if (qabstracttablemodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qabstracttablemodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstracttablemodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractTableModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractTableModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3238,11 +3294,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endinsertcolumns_isbase) {
             qabstracttablemodel_endinsertcolumns_isbase = false;
             QAbstractTableModel::endInsertColumns();
-        } else if (qabstracttablemodel_endinsertcolumns_callback != nullptr) {
-            qabstracttablemodel_endinsertcolumns_callback();
-        } else {
-            QAbstractTableModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qabstracttablemodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QAbstractTableModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3250,17 +3309,20 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_beginremovecolumns_isbase) {
             qabstracttablemodel_beginremovecolumns_isbase = false;
             QAbstractTableModel::beginRemoveColumns(parent, first, last);
-        } else if (qabstracttablemodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qabstracttablemodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstracttablemodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractTableModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractTableModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3268,11 +3330,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endremovecolumns_isbase) {
             qabstracttablemodel_endremovecolumns_isbase = false;
             QAbstractTableModel::endRemoveColumns();
-        } else if (qabstracttablemodel_endremovecolumns_callback != nullptr) {
-            qabstracttablemodel_endremovecolumns_callback();
-        } else {
-            QAbstractTableModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qabstracttablemodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QAbstractTableModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3280,7 +3345,9 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_beginmovecolumns_isbase) {
             qabstracttablemodel_beginmovecolumns_isbase = false;
             return QAbstractTableModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qabstracttablemodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qabstracttablemodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -3291,11 +3358,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qabstracttablemodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QAbstractTableModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3303,11 +3369,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endmovecolumns_isbase) {
             qabstracttablemodel_endmovecolumns_isbase = false;
             QAbstractTableModel::endMoveColumns();
-        } else if (qabstracttablemodel_endmovecolumns_callback != nullptr) {
-            qabstracttablemodel_endmovecolumns_callback();
-        } else {
-            QAbstractTableModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qabstracttablemodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QAbstractTableModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3315,11 +3384,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_beginresetmodel_isbase) {
             qabstracttablemodel_beginresetmodel_isbase = false;
             QAbstractTableModel::beginResetModel();
-        } else if (qabstracttablemodel_beginresetmodel_callback != nullptr) {
-            qabstracttablemodel_beginresetmodel_callback();
-        } else {
-            QAbstractTableModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qabstracttablemodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QAbstractTableModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3327,11 +3399,14 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_endresetmodel_isbase) {
             qabstracttablemodel_endresetmodel_isbase = false;
             QAbstractTableModel::endResetModel();
-        } else if (qabstracttablemodel_endresetmodel_callback != nullptr) {
-            qabstracttablemodel_endresetmodel_callback();
-        } else {
-            QAbstractTableModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qabstracttablemodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QAbstractTableModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3339,7 +3414,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_changepersistentindex_isbase) {
             qabstracttablemodel_changepersistentindex_isbase = false;
             QAbstractTableModel::changePersistentIndex(from, to);
-        } else if (qabstracttablemodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qabstracttablemodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -3347,10 +3425,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qabstracttablemodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractTableModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractTableModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3358,7 +3436,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_changepersistentindexlist_isbase) {
             qabstracttablemodel_changepersistentindexlist_isbase = false;
             QAbstractTableModel::changePersistentIndexList(from, to);
-        } else if (qabstracttablemodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qabstracttablemodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -3380,12 +3461,12 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qabstracttablemodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QAbstractTableModel::changePersistentIndexList(from, to);
+            return;
         }
+        QAbstractTableModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3393,8 +3474,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_persistentindexlist_isbase) {
             qabstracttablemodel_persistentindexlist_isbase = false;
             return QAbstractTableModel::persistentIndexList();
-        } else if (qabstracttablemodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qabstracttablemodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qabstracttablemodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -3403,9 +3486,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractTableModel::persistentIndexList();
         }
+        return QAbstractTableModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3413,12 +3495,13 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_sender_isbase) {
             qabstracttablemodel_sender_isbase = false;
             return QAbstractTableModel::sender();
-        } else if (qabstracttablemodel_sender_callback != nullptr) {
-            QObject* callback_ret = qabstracttablemodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractTableModel::sender();
         }
+        auto sender_cb = qabstracttablemodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractTableModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3426,12 +3509,13 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_sendersignalindex_isbase) {
             qabstracttablemodel_sendersignalindex_isbase = false;
             return QAbstractTableModel::senderSignalIndex();
-        } else if (qabstracttablemodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstracttablemodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTableModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstracttablemodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractTableModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3439,14 +3523,15 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_receivers_isbase) {
             qabstracttablemodel_receivers_isbase = false;
             return QAbstractTableModel::receivers(signal);
-        } else if (qabstracttablemodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstracttablemodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstracttablemodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTableModel::receivers(signal);
         }
+        return QAbstractTableModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3454,16 +3539,17 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (qabstracttablemodel_issignalconnected_isbase) {
             qabstracttablemodel_issignalconnected_isbase = false;
             return QAbstractTableModel::isSignalConnected(signal);
-        } else if (qabstracttablemodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstracttablemodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstracttablemodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTableModel::isSignalConnected(signal);
         }
+        return QAbstractTableModel::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -3751,77 +3837,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     VirtualQAbstractListModel() : QAbstractListModel() {};
     VirtualQAbstractListModel(QObject* parent) : QAbstractListModel(parent) {};
 
-    ~VirtualQAbstractListModel() {
-        qabstractlistmodel_metaobject_callback = nullptr;
-        qabstractlistmodel_metacast_callback = nullptr;
-        qabstractlistmodel_metacall_callback = nullptr;
-        qabstractlistmodel_index_callback = nullptr;
-        qabstractlistmodel_sibling_callback = nullptr;
-        qabstractlistmodel_dropmimedata_callback = nullptr;
-        qabstractlistmodel_flags_callback = nullptr;
-        qabstractlistmodel_rowcount_callback = nullptr;
-        qabstractlistmodel_data_callback = nullptr;
-        qabstractlistmodel_setdata_callback = nullptr;
-        qabstractlistmodel_headerdata_callback = nullptr;
-        qabstractlistmodel_setheaderdata_callback = nullptr;
-        qabstractlistmodel_itemdata_callback = nullptr;
-        qabstractlistmodel_setitemdata_callback = nullptr;
-        qabstractlistmodel_clearitemdata_callback = nullptr;
-        qabstractlistmodel_mimetypes_callback = nullptr;
-        qabstractlistmodel_mimedata_callback = nullptr;
-        qabstractlistmodel_candropmimedata_callback = nullptr;
-        qabstractlistmodel_supporteddropactions_callback = nullptr;
-        qabstractlistmodel_supporteddragactions_callback = nullptr;
-        qabstractlistmodel_insertrows_callback = nullptr;
-        qabstractlistmodel_insertcolumns_callback = nullptr;
-        qabstractlistmodel_removerows_callback = nullptr;
-        qabstractlistmodel_removecolumns_callback = nullptr;
-        qabstractlistmodel_moverows_callback = nullptr;
-        qabstractlistmodel_movecolumns_callback = nullptr;
-        qabstractlistmodel_fetchmore_callback = nullptr;
-        qabstractlistmodel_canfetchmore_callback = nullptr;
-        qabstractlistmodel_sort_callback = nullptr;
-        qabstractlistmodel_buddy_callback = nullptr;
-        qabstractlistmodel_match_callback = nullptr;
-        qabstractlistmodel_span_callback = nullptr;
-        qabstractlistmodel_rolenames_callback = nullptr;
-        qabstractlistmodel_multidata_callback = nullptr;
-        qabstractlistmodel_submit_callback = nullptr;
-        qabstractlistmodel_revert_callback = nullptr;
-        qabstractlistmodel_resetinternaldata_callback = nullptr;
-        qabstractlistmodel_event_callback = nullptr;
-        qabstractlistmodel_eventfilter_callback = nullptr;
-        qabstractlistmodel_timerevent_callback = nullptr;
-        qabstractlistmodel_childevent_callback = nullptr;
-        qabstractlistmodel_customevent_callback = nullptr;
-        qabstractlistmodel_connectnotify_callback = nullptr;
-        qabstractlistmodel_disconnectnotify_callback = nullptr;
-        qabstractlistmodel_createindex_callback = nullptr;
-        qabstractlistmodel_encodedata_callback = nullptr;
-        qabstractlistmodel_decodedata_callback = nullptr;
-        qabstractlistmodel_begininsertrows_callback = nullptr;
-        qabstractlistmodel_endinsertrows_callback = nullptr;
-        qabstractlistmodel_beginremoverows_callback = nullptr;
-        qabstractlistmodel_endremoverows_callback = nullptr;
-        qabstractlistmodel_beginmoverows_callback = nullptr;
-        qabstractlistmodel_endmoverows_callback = nullptr;
-        qabstractlistmodel_begininsertcolumns_callback = nullptr;
-        qabstractlistmodel_endinsertcolumns_callback = nullptr;
-        qabstractlistmodel_beginremovecolumns_callback = nullptr;
-        qabstractlistmodel_endremovecolumns_callback = nullptr;
-        qabstractlistmodel_beginmovecolumns_callback = nullptr;
-        qabstractlistmodel_endmovecolumns_callback = nullptr;
-        qabstractlistmodel_beginresetmodel_callback = nullptr;
-        qabstractlistmodel_endresetmodel_callback = nullptr;
-        qabstractlistmodel_changepersistentindex_callback = nullptr;
-        qabstractlistmodel_changepersistentindexlist_callback = nullptr;
-        qabstractlistmodel_persistentindexlist_callback = nullptr;
-        qabstractlistmodel_sender_callback = nullptr;
-        qabstractlistmodel_sendersignalindex_callback = nullptr;
-        qabstractlistmodel_receivers_callback = nullptr;
-        qabstractlistmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractListModel_MetaObject_Callback(QAbstractListModel_MetaObject_Callback cb) { qabstractlistmodel_metaobject_callback = cb; }
     inline void setQAbstractListModel_Metacast_Callback(QAbstractListModel_Metacast_Callback cb) { qabstractlistmodel_metacast_callback = cb; }
@@ -3967,12 +3982,13 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_metaobject_isbase) {
             qabstractlistmodel_metaobject_isbase = false;
             return QAbstractListModel::metaObject();
-        } else if (qabstractlistmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstractlistmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractListModel::metaObject();
         }
+        auto metaobject_cb = qabstractlistmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractListModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3980,14 +3996,15 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_metacast_isbase) {
             qabstractlistmodel_metacast_isbase = false;
             return QAbstractListModel::qt_metacast(param1);
-        } else if (qabstractlistmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstractlistmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstractlistmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractListModel::qt_metacast(param1);
         }
+        return QAbstractListModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -3995,16 +4012,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_metacall_isbase) {
             qabstractlistmodel_metacall_isbase = false;
             return QAbstractListModel::qt_metacall(param1, param2, param3);
-        } else if (qabstractlistmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstractlistmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstractlistmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractListModel::qt_metacall(param1, param2, param3);
         }
+        return QAbstractListModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4012,18 +4030,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_index_isbase) {
             qabstractlistmodel_index_isbase = false;
             return QAbstractListModel::index(row, column, parent);
-        } else if (qabstractlistmodel_index_callback != nullptr) {
+        }
+        auto index_cb = qabstractlistmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qabstractlistmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractListModel::index(row, column, parent);
         }
+        return QAbstractListModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4031,18 +4050,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_sibling_isbase) {
             qabstractlistmodel_sibling_isbase = false;
             return QAbstractListModel::sibling(row, column, idx);
-        } else if (qabstractlistmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qabstractlistmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qabstractlistmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractListModel::sibling(row, column, idx);
         }
+        return QAbstractListModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4050,7 +4070,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_dropmimedata_isbase) {
             qabstractlistmodel_dropmimedata_isbase = false;
             return QAbstractListModel::dropMimeData(data, action, row, column, parent);
-        } else if (qabstractlistmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qabstractlistmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -4059,11 +4081,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractListModel::dropMimeData(data, action, row, column, parent);
         }
+        return QAbstractListModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4071,45 +4092,46 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_flags_isbase) {
             qabstractlistmodel_flags_isbase = false;
             return QAbstractListModel::flags(index);
-        } else if (qabstractlistmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qabstractlistmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qabstractlistmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QAbstractListModel::flags(index);
         }
+        return QAbstractListModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int rowCount(const QModelIndex& parent) const override {
-        if (qabstractlistmodel_rowcount_callback != nullptr) {
+        auto rowcount_cb = qabstractlistmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qabstractlistmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant data(const QModelIndex& index, int role) const override {
-        if (qabstractlistmodel_data_callback != nullptr) {
+        auto data_cb = qabstractlistmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qabstractlistmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4117,7 +4139,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_setdata_isbase) {
             qabstractlistmodel_setdata_isbase = false;
             return QAbstractListModel::setData(index, value, role);
-        } else if (qabstractlistmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qabstractlistmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -4126,11 +4150,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qabstractlistmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractListModel::setData(index, value, role);
         }
+        return QAbstractListModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4138,16 +4161,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_headerdata_isbase) {
             qabstractlistmodel_headerdata_isbase = false;
             return QAbstractListModel::headerData(section, orientation, role);
-        } else if (qabstractlistmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qabstractlistmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qabstractlistmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QAbstractListModel::headerData(section, orientation, role);
         }
+        return QAbstractListModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4155,7 +4179,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_setheaderdata_isbase) {
             qabstractlistmodel_setheaderdata_isbase = false;
             return QAbstractListModel::setHeaderData(section, orientation, value, role);
-        } else if (qabstractlistmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qabstractlistmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -4163,11 +4189,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qabstractlistmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QAbstractListModel::setHeaderData(section, orientation, value, role);
         }
+        return QAbstractListModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4175,12 +4200,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_itemdata_isbase) {
             qabstractlistmodel_itemdata_isbase = false;
             return QAbstractListModel::itemData(index);
-        } else if (qabstractlistmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qabstractlistmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qabstractlistmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -4188,9 +4215,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QAbstractListModel::itemData(index);
         }
+        return QAbstractListModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4198,7 +4224,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_setitemdata_isbase) {
             qabstractlistmodel_setitemdata_isbase = false;
             return QAbstractListModel::setItemData(index, roles);
-        } else if (qabstractlistmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qabstractlistmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -4218,11 +4246,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qabstractlistmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractListModel::setItemData(index, roles);
         }
+        return QAbstractListModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4230,16 +4257,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_clearitemdata_isbase) {
             qabstractlistmodel_clearitemdata_isbase = false;
             return QAbstractListModel::clearItemData(index);
-        } else if (qabstractlistmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qabstractlistmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qabstractlistmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractListModel::clearItemData(index);
         }
+        return QAbstractListModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4247,8 +4275,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_mimetypes_isbase) {
             qabstractlistmodel_mimetypes_isbase = false;
             return QAbstractListModel::mimeTypes();
-        } else if (qabstractlistmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qabstractlistmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qabstractlistmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -4259,9 +4289,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QAbstractListModel::mimeTypes();
         }
+        return QAbstractListModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4269,7 +4298,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_mimedata_isbase) {
             qabstractlistmodel_mimedata_isbase = false;
             return QAbstractListModel::mimeData(indexes);
-        } else if (qabstractlistmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qabstractlistmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -4281,12 +4312,11 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qabstractlistmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QAbstractListModel::mimeData(indexes);
         }
+        return QAbstractListModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4294,7 +4324,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_candropmimedata_isbase) {
             qabstractlistmodel_candropmimedata_isbase = false;
             return QAbstractListModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qabstractlistmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qabstractlistmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -4303,11 +4335,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractListModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QAbstractListModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4315,12 +4346,13 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_supporteddropactions_isbase) {
             qabstractlistmodel_supporteddropactions_isbase = false;
             return QAbstractListModel::supportedDropActions();
-        } else if (qabstractlistmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qabstractlistmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QAbstractListModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qabstractlistmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QAbstractListModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4328,12 +4360,13 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_supporteddragactions_isbase) {
             qabstractlistmodel_supporteddragactions_isbase = false;
             return QAbstractListModel::supportedDragActions();
-        } else if (qabstractlistmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qabstractlistmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QAbstractListModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qabstractlistmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QAbstractListModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4341,18 +4374,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_insertrows_isbase) {
             qabstractlistmodel_insertrows_isbase = false;
             return QAbstractListModel::insertRows(row, count, parent);
-        } else if (qabstractlistmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qabstractlistmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractListModel::insertRows(row, count, parent);
         }
+        return QAbstractListModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4360,18 +4394,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_insertcolumns_isbase) {
             qabstractlistmodel_insertcolumns_isbase = false;
             return QAbstractListModel::insertColumns(column, count, parent);
-        } else if (qabstractlistmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qabstractlistmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractListModel::insertColumns(column, count, parent);
         }
+        return QAbstractListModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4379,18 +4414,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_removerows_isbase) {
             qabstractlistmodel_removerows_isbase = false;
             return QAbstractListModel::removeRows(row, count, parent);
-        } else if (qabstractlistmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qabstractlistmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractListModel::removeRows(row, count, parent);
         }
+        return QAbstractListModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4398,18 +4434,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_removecolumns_isbase) {
             qabstractlistmodel_removecolumns_isbase = false;
             return QAbstractListModel::removeColumns(column, count, parent);
-        } else if (qabstractlistmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qabstractlistmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QAbstractListModel::removeColumns(column, count, parent);
         }
+        return QAbstractListModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4417,7 +4454,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_moverows_isbase) {
             qabstractlistmodel_moverows_isbase = false;
             return QAbstractListModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qabstractlistmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qabstractlistmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -4428,11 +4467,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qabstractlistmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractListModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QAbstractListModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4440,7 +4478,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_movecolumns_isbase) {
             qabstractlistmodel_movecolumns_isbase = false;
             return QAbstractListModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qabstractlistmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qabstractlistmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -4451,11 +4491,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qabstractlistmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractListModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QAbstractListModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4463,15 +4502,18 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_fetchmore_isbase) {
             qabstractlistmodel_fetchmore_isbase = false;
             QAbstractListModel::fetchMore(parent);
-        } else if (qabstractlistmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qabstractlistmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qabstractlistmodel_fetchmore_callback(this, cbval1);
-        } else {
-            QAbstractListModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QAbstractListModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4479,16 +4521,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_canfetchmore_isbase) {
             qabstractlistmodel_canfetchmore_isbase = false;
             return QAbstractListModel::canFetchMore(parent);
-        } else if (qabstractlistmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qabstractlistmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qabstractlistmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractListModel::canFetchMore(parent);
         }
+        return QAbstractListModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4496,14 +4539,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_sort_isbase) {
             qabstractlistmodel_sort_isbase = false;
             QAbstractListModel::sort(column, order);
-        } else if (qabstractlistmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qabstractlistmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qabstractlistmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractListModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractListModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4511,16 +4557,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_buddy_isbase) {
             qabstractlistmodel_buddy_isbase = false;
             return QAbstractListModel::buddy(index);
-        } else if (qabstractlistmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qabstractlistmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qabstractlistmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractListModel::buddy(index);
         }
+        return QAbstractListModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4528,7 +4575,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_match_isbase) {
             qabstractlistmodel_match_isbase = false;
             return QAbstractListModel::match(start, role, value, hits, flags);
-        } else if (qabstractlistmodel_match_callback != nullptr) {
+        }
+        auto match_cb = qabstractlistmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -4539,7 +4588,7 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qabstractlistmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -4548,9 +4597,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractListModel::match(start, role, value, hits, flags);
         }
+        return QAbstractListModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4558,16 +4606,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_span_isbase) {
             qabstractlistmodel_span_isbase = false;
             return QAbstractListModel::span(index);
-        } else if (qabstractlistmodel_span_callback != nullptr) {
+        }
+        auto span_cb = qabstractlistmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qabstractlistmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractListModel::span(index);
         }
+        return QAbstractListModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4575,8 +4624,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_rolenames_isbase) {
             qabstractlistmodel_rolenames_isbase = false;
             return QAbstractListModel::roleNames();
-        } else if (qabstractlistmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qabstractlistmodel_rolenames_callback();
+        }
+        auto rolenames_cb = qabstractlistmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -4586,9 +4637,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QAbstractListModel::roleNames();
         }
+        return QAbstractListModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4596,16 +4646,19 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_multidata_isbase) {
             qabstractlistmodel_multidata_isbase = false;
             QAbstractListModel::multiData(index, roleDataSpan);
-        } else if (qabstractlistmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qabstractlistmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qabstractlistmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractListModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractListModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4613,12 +4666,13 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_submit_isbase) {
             qabstractlistmodel_submit_isbase = false;
             return QAbstractListModel::submit();
-        } else if (qabstractlistmodel_submit_callback != nullptr) {
-            bool callback_ret = qabstractlistmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QAbstractListModel::submit();
         }
+        auto submit_cb = qabstractlistmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QAbstractListModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4626,11 +4680,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_revert_isbase) {
             qabstractlistmodel_revert_isbase = false;
             QAbstractListModel::revert();
-        } else if (qabstractlistmodel_revert_callback != nullptr) {
-            qabstractlistmodel_revert_callback();
-        } else {
-            QAbstractListModel::revert();
+            return;
         }
+        auto revert_cb = qabstractlistmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QAbstractListModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4638,11 +4695,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_resetinternaldata_isbase) {
             qabstractlistmodel_resetinternaldata_isbase = false;
             QAbstractListModel::resetInternalData();
-        } else if (qabstractlistmodel_resetinternaldata_callback != nullptr) {
-            qabstractlistmodel_resetinternaldata_callback();
-        } else {
-            QAbstractListModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qabstractlistmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QAbstractListModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4650,14 +4710,15 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_event_isbase) {
             qabstractlistmodel_event_isbase = false;
             return QAbstractListModel::event(event);
-        } else if (qabstractlistmodel_event_callback != nullptr) {
+        }
+        auto event_cb = qabstractlistmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstractlistmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractListModel::event(event);
         }
+        return QAbstractListModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4665,15 +4726,16 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_eventfilter_isbase) {
             qabstractlistmodel_eventfilter_isbase = false;
             return QAbstractListModel::eventFilter(watched, event);
-        } else if (qabstractlistmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstractlistmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstractlistmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractListModel::eventFilter(watched, event);
         }
+        return QAbstractListModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4681,13 +4743,16 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_timerevent_isbase) {
             qabstractlistmodel_timerevent_isbase = false;
             QAbstractListModel::timerEvent(event);
-        } else if (qabstractlistmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstractlistmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstractlistmodel_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractListModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractListModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4695,13 +4760,16 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_childevent_isbase) {
             qabstractlistmodel_childevent_isbase = false;
             QAbstractListModel::childEvent(event);
-        } else if (qabstractlistmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstractlistmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstractlistmodel_childevent_callback(this, cbval1);
-        } else {
-            QAbstractListModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractListModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4709,13 +4777,16 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_customevent_isbase) {
             qabstractlistmodel_customevent_isbase = false;
             QAbstractListModel::customEvent(event);
-        } else if (qabstractlistmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstractlistmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstractlistmodel_customevent_callback(this, cbval1);
-        } else {
-            QAbstractListModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractListModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4723,15 +4794,18 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_connectnotify_isbase) {
             qabstractlistmodel_connectnotify_isbase = false;
             QAbstractListModel::connectNotify(signal);
-        } else if (qabstractlistmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstractlistmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractlistmodel_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractListModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractListModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4739,15 +4813,18 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_disconnectnotify_isbase) {
             qabstractlistmodel_disconnectnotify_isbase = false;
             QAbstractListModel::disconnectNotify(signal);
-        } else if (qabstractlistmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstractlistmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstractlistmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractListModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractListModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4755,15 +4832,16 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_createindex_isbase) {
             qabstractlistmodel_createindex_isbase = false;
             return QAbstractListModel::createIndex(row, column);
-        } else if (qabstractlistmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qabstractlistmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qabstractlistmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QAbstractListModel::createIndex(row, column);
         }
+        return QAbstractListModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4771,7 +4849,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_encodedata_isbase) {
             qabstractlistmodel_encodedata_isbase = false;
             QAbstractListModel::encodeData(indexes, stream);
-        } else if (qabstractlistmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qabstractlistmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -4786,11 +4867,11 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qabstractlistmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QAbstractListModel::encodeData(indexes, stream);
+            return;
         }
+        QAbstractListModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4798,7 +4879,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_decodedata_isbase) {
             qabstractlistmodel_decodedata_isbase = false;
             return QAbstractListModel::decodeData(row, column, parent, stream);
-        } else if (qabstractlistmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qabstractlistmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -4808,11 +4891,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qabstractlistmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QAbstractListModel::decodeData(row, column, parent, stream);
         }
+        return QAbstractListModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4820,17 +4902,20 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_begininsertrows_isbase) {
             qabstractlistmodel_begininsertrows_isbase = false;
             QAbstractListModel::beginInsertRows(parent, first, last);
-        } else if (qabstractlistmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qabstractlistmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractlistmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractListModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractListModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4838,11 +4923,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endinsertrows_isbase) {
             qabstractlistmodel_endinsertrows_isbase = false;
             QAbstractListModel::endInsertRows();
-        } else if (qabstractlistmodel_endinsertrows_callback != nullptr) {
-            qabstractlistmodel_endinsertrows_callback();
-        } else {
-            QAbstractListModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qabstractlistmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QAbstractListModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4850,17 +4938,20 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_beginremoverows_isbase) {
             qabstractlistmodel_beginremoverows_isbase = false;
             QAbstractListModel::beginRemoveRows(parent, first, last);
-        } else if (qabstractlistmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qabstractlistmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractlistmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractListModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractListModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4868,11 +4959,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endremoverows_isbase) {
             qabstractlistmodel_endremoverows_isbase = false;
             QAbstractListModel::endRemoveRows();
-        } else if (qabstractlistmodel_endremoverows_callback != nullptr) {
-            qabstractlistmodel_endremoverows_callback();
-        } else {
-            QAbstractListModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qabstractlistmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QAbstractListModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4880,7 +4974,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_beginmoverows_isbase) {
             qabstractlistmodel_beginmoverows_isbase = false;
             return QAbstractListModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qabstractlistmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qabstractlistmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -4891,11 +4987,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qabstractlistmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractListModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QAbstractListModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4903,11 +4998,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endmoverows_isbase) {
             qabstractlistmodel_endmoverows_isbase = false;
             QAbstractListModel::endMoveRows();
-        } else if (qabstractlistmodel_endmoverows_callback != nullptr) {
-            qabstractlistmodel_endmoverows_callback();
-        } else {
-            QAbstractListModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qabstractlistmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QAbstractListModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4915,17 +5013,20 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_begininsertcolumns_isbase) {
             qabstractlistmodel_begininsertcolumns_isbase = false;
             QAbstractListModel::beginInsertColumns(parent, first, last);
-        } else if (qabstractlistmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qabstractlistmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractlistmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractListModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractListModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4933,11 +5034,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endinsertcolumns_isbase) {
             qabstractlistmodel_endinsertcolumns_isbase = false;
             QAbstractListModel::endInsertColumns();
-        } else if (qabstractlistmodel_endinsertcolumns_callback != nullptr) {
-            qabstractlistmodel_endinsertcolumns_callback();
-        } else {
-            QAbstractListModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qabstractlistmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QAbstractListModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4945,17 +5049,20 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_beginremovecolumns_isbase) {
             qabstractlistmodel_beginremovecolumns_isbase = false;
             QAbstractListModel::beginRemoveColumns(parent, first, last);
-        } else if (qabstractlistmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qabstractlistmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qabstractlistmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractListModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractListModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4963,11 +5070,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endremovecolumns_isbase) {
             qabstractlistmodel_endremovecolumns_isbase = false;
             QAbstractListModel::endRemoveColumns();
-        } else if (qabstractlistmodel_endremovecolumns_callback != nullptr) {
-            qabstractlistmodel_endremovecolumns_callback();
-        } else {
-            QAbstractListModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qabstractlistmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QAbstractListModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4975,7 +5085,9 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_beginmovecolumns_isbase) {
             qabstractlistmodel_beginmovecolumns_isbase = false;
             return QAbstractListModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qabstractlistmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qabstractlistmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -4986,11 +5098,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qabstractlistmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QAbstractListModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QAbstractListModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -4998,11 +5109,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endmovecolumns_isbase) {
             qabstractlistmodel_endmovecolumns_isbase = false;
             QAbstractListModel::endMoveColumns();
-        } else if (qabstractlistmodel_endmovecolumns_callback != nullptr) {
-            qabstractlistmodel_endmovecolumns_callback();
-        } else {
-            QAbstractListModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qabstractlistmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QAbstractListModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5010,11 +5124,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_beginresetmodel_isbase) {
             qabstractlistmodel_beginresetmodel_isbase = false;
             QAbstractListModel::beginResetModel();
-        } else if (qabstractlistmodel_beginresetmodel_callback != nullptr) {
-            qabstractlistmodel_beginresetmodel_callback();
-        } else {
-            QAbstractListModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qabstractlistmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QAbstractListModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5022,11 +5139,14 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_endresetmodel_isbase) {
             qabstractlistmodel_endresetmodel_isbase = false;
             QAbstractListModel::endResetModel();
-        } else if (qabstractlistmodel_endresetmodel_callback != nullptr) {
-            qabstractlistmodel_endresetmodel_callback();
-        } else {
-            QAbstractListModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qabstractlistmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QAbstractListModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5034,7 +5154,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_changepersistentindex_isbase) {
             qabstractlistmodel_changepersistentindex_isbase = false;
             QAbstractListModel::changePersistentIndex(from, to);
-        } else if (qabstractlistmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qabstractlistmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -5042,10 +5165,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qabstractlistmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QAbstractListModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QAbstractListModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5053,7 +5176,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_changepersistentindexlist_isbase) {
             qabstractlistmodel_changepersistentindexlist_isbase = false;
             QAbstractListModel::changePersistentIndexList(from, to);
-        } else if (qabstractlistmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qabstractlistmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -5075,12 +5201,12 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qabstractlistmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QAbstractListModel::changePersistentIndexList(from, to);
+            return;
         }
+        QAbstractListModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5088,8 +5214,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_persistentindexlist_isbase) {
             qabstractlistmodel_persistentindexlist_isbase = false;
             return QAbstractListModel::persistentIndexList();
-        } else if (qabstractlistmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qabstractlistmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qabstractlistmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -5098,9 +5226,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QAbstractListModel::persistentIndexList();
         }
+        return QAbstractListModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5108,12 +5235,13 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_sender_isbase) {
             qabstractlistmodel_sender_isbase = false;
             return QAbstractListModel::sender();
-        } else if (qabstractlistmodel_sender_callback != nullptr) {
-            QObject* callback_ret = qabstractlistmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractListModel::sender();
         }
+        auto sender_cb = qabstractlistmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractListModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5121,12 +5249,13 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_sendersignalindex_isbase) {
             qabstractlistmodel_sendersignalindex_isbase = false;
             return QAbstractListModel::senderSignalIndex();
-        } else if (qabstractlistmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstractlistmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractListModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstractlistmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractListModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5134,14 +5263,15 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_receivers_isbase) {
             qabstractlistmodel_receivers_isbase = false;
             return QAbstractListModel::receivers(signal);
-        } else if (qabstractlistmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstractlistmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstractlistmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractListModel::receivers(signal);
         }
+        return QAbstractListModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -5149,16 +5279,17 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (qabstractlistmodel_issignalconnected_isbase) {
             qabstractlistmodel_issignalconnected_isbase = false;
             return QAbstractListModel::isSignalConnected(signal);
-        } else if (qabstractlistmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstractlistmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstractlistmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractListModel::isSignalConnected(signal);
         }
+        return QAbstractListModel::isSignalConnected(signal);
     }
 
     // Friend functions

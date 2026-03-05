@@ -76,25 +76,6 @@ class VirtualKAr final : public KAr {
     VirtualKAr(QIODevice* dev) : KAr(dev) {};
     VirtualKAr(const KAr& param1) : KAr(param1) {};
 
-    ~VirtualKAr() {
-        kar_dopreparewriting_callback = nullptr;
-        kar_dofinishwriting_callback = nullptr;
-        kar_dowritedir_callback = nullptr;
-        kar_dowritesymlink_callback = nullptr;
-        kar_openarchive_callback = nullptr;
-        kar_closearchive_callback = nullptr;
-        kar_virtualhook_callback = nullptr;
-        kar_open_callback = nullptr;
-        kar_close_callback = nullptr;
-        kar_rootdir_callback = nullptr;
-        kar_dowritedata_callback = nullptr;
-        kar_createdevice_callback = nullptr;
-        kar_seterrorstring_callback = nullptr;
-        kar_findorcreate_callback = nullptr;
-        kar_setdevice_callback = nullptr;
-        kar_setrootdir_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKAr_DoPrepareWriting_Callback(KAr_DoPrepareWriting_Callback cb) { kar_dopreparewriting_callback = cb; }
     inline void setKAr_DoFinishWriting_Callback(KAr_DoFinishWriting_Callback cb) { kar_dofinishwriting_callback = cb; }
@@ -136,7 +117,9 @@ class VirtualKAr final : public KAr {
         if (kar_dopreparewriting_isbase) {
             kar_dopreparewriting_isbase = false;
             return KAr::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
-        } else if (kar_dopreparewriting_callback != nullptr) {
+        }
+        auto dopreparewriting_cb = kar_dopreparewriting_callback;
+        if (dopreparewriting_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -173,14 +156,13 @@ class VirtualKAr final : public KAr {
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = kar_dopreparewriting_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            bool callback_ret = dopreparewriting_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KAr::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
         }
+        return KAr::doPrepareWriting(name, user, group, size, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,14 +170,15 @@ class VirtualKAr final : public KAr {
         if (kar_dofinishwriting_isbase) {
             kar_dofinishwriting_isbase = false;
             return KAr::doFinishWriting(size);
-        } else if (kar_dofinishwriting_callback != nullptr) {
+        }
+        auto dofinishwriting_cb = kar_dofinishwriting_callback;
+        if (dofinishwriting_cb) {
             long long cbval1 = static_cast<long long>(size);
 
-            bool callback_ret = kar_dofinishwriting_callback(this, cbval1);
+            bool callback_ret = dofinishwriting_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAr::doFinishWriting(size);
         }
+        return KAr::doFinishWriting(size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,7 +186,9 @@ class VirtualKAr final : public KAr {
         if (kar_dowritedir_isbase) {
             kar_dowritedir_isbase = false;
             return KAr::doWriteDir(name, user, group, perm, atime, mtime, ctime);
-        } else if (kar_dowritedir_callback != nullptr) {
+        }
+        auto dowritedir_cb = kar_dowritedir_callback;
+        if (dowritedir_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -239,14 +224,13 @@ class VirtualKAr final : public KAr {
             // Cast returned reference into pointer
             QDateTime* cbval7 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = kar_dowritedir_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            bool callback_ret = dowritedir_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(name_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KAr::doWriteDir(name, user, group, perm, atime, mtime, ctime);
         }
+        return KAr::doWriteDir(name, user, group, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,7 +238,9 @@ class VirtualKAr final : public KAr {
         if (kar_dowritesymlink_isbase) {
             kar_dowritesymlink_isbase = false;
             return KAr::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
-        } else if (kar_dowritesymlink_callback != nullptr) {
+        }
+        auto dowritesymlink_cb = kar_dowritesymlink_callback;
+        if (dowritesymlink_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -298,15 +284,14 @@ class VirtualKAr final : public KAr {
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
 
-            bool callback_ret = kar_dowritesymlink_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
+            bool callback_ret = dowritesymlink_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(target_str);
             libqt_free(user_str);
             libqt_free(group_str);
             return callback_ret;
-        } else {
-            return KAr::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
         }
+        return KAr::doWriteSymLink(name, target, user, group, perm, atime, mtime, ctime);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,14 +299,15 @@ class VirtualKAr final : public KAr {
         if (kar_openarchive_isbase) {
             kar_openarchive_isbase = false;
             return KAr::openArchive(mode);
-        } else if (kar_openarchive_callback != nullptr) {
+        }
+        auto openarchive_cb = kar_openarchive_callback;
+        if (openarchive_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kar_openarchive_callback(this, cbval1);
+            bool callback_ret = openarchive_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAr::openArchive(mode);
         }
+        return KAr::openArchive(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,12 +315,13 @@ class VirtualKAr final : public KAr {
         if (kar_closearchive_isbase) {
             kar_closearchive_isbase = false;
             return KAr::closeArchive();
-        } else if (kar_closearchive_callback != nullptr) {
-            bool callback_ret = kar_closearchive_callback();
-            return callback_ret;
-        } else {
-            return KAr::closeArchive();
         }
+        auto closearchive_cb = kar_closearchive_callback;
+        if (closearchive_cb) {
+            bool callback_ret = closearchive_cb();
+            return callback_ret;
+        }
+        return KAr::closeArchive();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,14 +329,17 @@ class VirtualKAr final : public KAr {
         if (kar_virtualhook_isbase) {
             kar_virtualhook_isbase = false;
             KAr::virtual_hook(id, data);
-        } else if (kar_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kar_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kar_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KAr::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KAr::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,14 +347,15 @@ class VirtualKAr final : public KAr {
         if (kar_open_isbase) {
             kar_open_isbase = false;
             return KAr::open(mode);
-        } else if (kar_open_callback != nullptr) {
+        }
+        auto open_cb = kar_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kar_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAr::open(mode);
         }
+        return KAr::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,12 +363,13 @@ class VirtualKAr final : public KAr {
         if (kar_close_isbase) {
             kar_close_isbase = false;
             return KAr::close();
-        } else if (kar_close_callback != nullptr) {
-            bool callback_ret = kar_close_callback();
-            return callback_ret;
-        } else {
-            return KAr::close();
         }
+        auto close_cb = kar_close_callback;
+        if (close_cb) {
+            bool callback_ret = close_cb();
+            return callback_ret;
+        }
+        return KAr::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,12 +377,13 @@ class VirtualKAr final : public KAr {
         if (kar_rootdir_isbase) {
             kar_rootdir_isbase = false;
             return KAr::rootDir();
-        } else if (kar_rootdir_callback != nullptr) {
-            KArchiveDirectory* callback_ret = kar_rootdir_callback();
-            return callback_ret;
-        } else {
-            return KAr::rootDir();
         }
+        auto rootdir_cb = kar_rootdir_callback;
+        if (rootdir_cb) {
+            KArchiveDirectory* callback_ret = rootdir_cb();
+            return callback_ret;
+        }
+        return KAr::rootDir();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -398,15 +391,16 @@ class VirtualKAr final : public KAr {
         if (kar_dowritedata_isbase) {
             kar_dowritedata_isbase = false;
             return KAr::doWriteData(data, size);
-        } else if (kar_dowritedata_callback != nullptr) {
+        }
+        auto dowritedata_cb = kar_dowritedata_callback;
+        if (dowritedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(size);
 
-            bool callback_ret = kar_dowritedata_callback(this, cbval1, cbval2);
+            bool callback_ret = dowritedata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KAr::doWriteData(data, size);
         }
+        return KAr::doWriteData(data, size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,14 +408,15 @@ class VirtualKAr final : public KAr {
         if (kar_createdevice_isbase) {
             kar_createdevice_isbase = false;
             return KAr::createDevice(mode);
-        } else if (kar_createdevice_callback != nullptr) {
+        }
+        auto createdevice_cb = kar_createdevice_callback;
+        if (createdevice_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kar_createdevice_callback(this, cbval1);
+            bool callback_ret = createdevice_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KAr::createDevice(mode);
         }
+        return KAr::createDevice(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,7 +424,10 @@ class VirtualKAr final : public KAr {
         if (kar_seterrorstring_isbase) {
             kar_seterrorstring_isbase = false;
             KAr::setErrorString(errorStr);
-        } else if (kar_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = kar_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorStr_ret = errorStr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorStr_b = errorStr_ret.toUtf8();
@@ -439,11 +437,11 @@ class VirtualKAr final : public KAr {
             ((char*)errorStr_str)[errorStr_str_len] = '\0';
             const char* cbval1 = errorStr_str;
 
-            kar_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorStr_str);
-        } else {
-            KAr::setErrorString(errorStr);
+            return;
         }
+        KAr::setErrorString(errorStr);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,7 +449,9 @@ class VirtualKAr final : public KAr {
         if (kar_findorcreate_isbase) {
             kar_findorcreate_isbase = false;
             return KAr::findOrCreate(path);
-        } else if (kar_findorcreate_callback != nullptr) {
+        }
+        auto findorcreate_cb = kar_findorcreate_callback;
+        if (findorcreate_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -461,12 +461,11 @@ class VirtualKAr final : public KAr {
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            KArchiveDirectory* callback_ret = kar_findorcreate_callback(this, cbval1);
+            KArchiveDirectory* callback_ret = findorcreate_cb(this, cbval1);
             libqt_free(path_str);
             return callback_ret;
-        } else {
-            return KAr::findOrCreate(path);
         }
+        return KAr::findOrCreate(path);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,13 +473,16 @@ class VirtualKAr final : public KAr {
         if (kar_setdevice_isbase) {
             kar_setdevice_isbase = false;
             KAr::setDevice(dev);
-        } else if (kar_setdevice_callback != nullptr) {
+            return;
+        }
+        auto setdevice_cb = kar_setdevice_callback;
+        if (setdevice_cb) {
             QIODevice* cbval1 = dev;
 
-            kar_setdevice_callback(this, cbval1);
-        } else {
-            KAr::setDevice(dev);
+            setdevice_cb(this, cbval1);
+            return;
         }
+        KAr::setDevice(dev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,13 +490,16 @@ class VirtualKAr final : public KAr {
         if (kar_setrootdir_isbase) {
             kar_setrootdir_isbase = false;
             KAr::setRootDir(rootDir);
-        } else if (kar_setrootdir_callback != nullptr) {
+            return;
+        }
+        auto setrootdir_cb = kar_setrootdir_callback;
+        if (setrootdir_cb) {
             KArchiveDirectory* cbval1 = rootDir;
 
-            kar_setrootdir_callback(this, cbval1);
-        } else {
-            KAr::setRootDir(rootDir);
+            setrootdir_cb(this, cbval1);
+            return;
         }
+        KAr::setRootDir(rootDir);
     }
 
     // Friend functions

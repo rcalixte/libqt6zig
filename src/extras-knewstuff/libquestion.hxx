@@ -70,23 +70,6 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
     VirtualKNSCoreQuestion(KNSCore::Question::QuestionType param1) : KNSCore::Question(param1) {};
     VirtualKNSCoreQuestion(KNSCore::Question::QuestionType param1, QObject* parent) : KNSCore::Question(param1, parent) {};
 
-    ~VirtualKNSCoreQuestion() {
-        knscore__question_metaobject_callback = nullptr;
-        knscore__question_metacast_callback = nullptr;
-        knscore__question_metacall_callback = nullptr;
-        knscore__question_event_callback = nullptr;
-        knscore__question_eventfilter_callback = nullptr;
-        knscore__question_timerevent_callback = nullptr;
-        knscore__question_childevent_callback = nullptr;
-        knscore__question_customevent_callback = nullptr;
-        knscore__question_connectnotify_callback = nullptr;
-        knscore__question_disconnectnotify_callback = nullptr;
-        knscore__question_sender_callback = nullptr;
-        knscore__question_sendersignalindex_callback = nullptr;
-        knscore__question_receivers_callback = nullptr;
-        knscore__question_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNSCore__Question_MetaObject_Callback(KNSCore__Question_MetaObject_Callback cb) { knscore__question_metaobject_callback = cb; }
     inline void setKNSCore__Question_Metacast_Callback(KNSCore__Question_Metacast_Callback cb) { knscore__question_metacast_callback = cb; }
@@ -124,12 +107,13 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_metaobject_isbase) {
             knscore__question_metaobject_isbase = false;
             return KNSCore__Question::metaObject();
-        } else if (knscore__question_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knscore__question_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNSCore__Question::metaObject();
         }
+        auto metaobject_cb = knscore__question_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNSCore__Question::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -137,14 +121,15 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_metacast_isbase) {
             knscore__question_metacast_isbase = false;
             return KNSCore__Question::qt_metacast(param1);
-        } else if (knscore__question_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knscore__question_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knscore__question_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSCore__Question::qt_metacast(param1);
         }
+        return KNSCore__Question::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -152,16 +137,17 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_metacall_isbase) {
             knscore__question_metacall_isbase = false;
             return KNSCore__Question::qt_metacall(param1, param2, param3);
-        } else if (knscore__question_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knscore__question_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knscore__question_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNSCore__Question::qt_metacall(param1, param2, param3);
         }
+        return KNSCore__Question::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,14 +155,15 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_event_isbase) {
             knscore__question_event_isbase = false;
             return KNSCore__Question::event(event);
-        } else if (knscore__question_event_callback != nullptr) {
+        }
+        auto event_cb = knscore__question_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = knscore__question_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSCore__Question::event(event);
         }
+        return KNSCore__Question::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -184,15 +171,16 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_eventfilter_isbase) {
             knscore__question_eventfilter_isbase = false;
             return KNSCore__Question::eventFilter(watched, event);
-        } else if (knscore__question_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knscore__question_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = knscore__question_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNSCore__Question::eventFilter(watched, event);
         }
+        return KNSCore__Question::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,13 +188,16 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_timerevent_isbase) {
             knscore__question_timerevent_isbase = false;
             KNSCore__Question::timerEvent(event);
-        } else if (knscore__question_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knscore__question_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            knscore__question_timerevent_callback(this, cbval1);
-        } else {
-            KNSCore__Question::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNSCore__Question::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -214,13 +205,16 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_childevent_isbase) {
             knscore__question_childevent_isbase = false;
             KNSCore__Question::childEvent(event);
-        } else if (knscore__question_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knscore__question_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knscore__question_childevent_callback(this, cbval1);
-        } else {
-            KNSCore__Question::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNSCore__Question::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,13 +222,16 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_customevent_isbase) {
             knscore__question_customevent_isbase = false;
             KNSCore__Question::customEvent(event);
-        } else if (knscore__question_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knscore__question_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knscore__question_customevent_callback(this, cbval1);
-        } else {
-            KNSCore__Question::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNSCore__Question::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,15 +239,18 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_connectnotify_isbase) {
             knscore__question_connectnotify_isbase = false;
             KNSCore__Question::connectNotify(signal);
-        } else if (knscore__question_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knscore__question_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knscore__question_connectnotify_callback(this, cbval1);
-        } else {
-            KNSCore__Question::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNSCore__Question::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,15 +258,18 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_disconnectnotify_isbase) {
             knscore__question_disconnectnotify_isbase = false;
             KNSCore__Question::disconnectNotify(signal);
-        } else if (knscore__question_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knscore__question_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knscore__question_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNSCore__Question::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNSCore__Question::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -274,12 +277,13 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_sender_isbase) {
             knscore__question_sender_isbase = false;
             return KNSCore__Question::sender();
-        } else if (knscore__question_sender_callback != nullptr) {
-            QObject* callback_ret = knscore__question_sender_callback();
-            return callback_ret;
-        } else {
-            return KNSCore__Question::sender();
         }
+        auto sender_cb = knscore__question_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNSCore__Question::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,12 +291,13 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_sendersignalindex_isbase) {
             knscore__question_sendersignalindex_isbase = false;
             return KNSCore__Question::senderSignalIndex();
-        } else if (knscore__question_sendersignalindex_callback != nullptr) {
-            int callback_ret = knscore__question_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNSCore__Question::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knscore__question_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNSCore__Question::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,14 +305,15 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_receivers_isbase) {
             knscore__question_receivers_isbase = false;
             return KNSCore__Question::receivers(signal);
-        } else if (knscore__question_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knscore__question_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knscore__question_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNSCore__Question::receivers(signal);
         }
+        return KNSCore__Question::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,16 +321,17 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
         if (knscore__question_issignalconnected_isbase) {
             knscore__question_issignalconnected_isbase = false;
             return KNSCore__Question::isSignalConnected(signal);
-        } else if (knscore__question_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knscore__question_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knscore__question_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNSCore__Question::isSignalConnected(signal);
         }
+        return KNSCore__Question::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -72,24 +72,6 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     VirtualQPercentBarSeries() : QPercentBarSeries() {};
     VirtualQPercentBarSeries(QObject* parent) : QPercentBarSeries(parent) {};
 
-    ~VirtualQPercentBarSeries() {
-        qpercentbarseries_metaobject_callback = nullptr;
-        qpercentbarseries_metacast_callback = nullptr;
-        qpercentbarseries_metacall_callback = nullptr;
-        qpercentbarseries_type_callback = nullptr;
-        qpercentbarseries_event_callback = nullptr;
-        qpercentbarseries_eventfilter_callback = nullptr;
-        qpercentbarseries_timerevent_callback = nullptr;
-        qpercentbarseries_childevent_callback = nullptr;
-        qpercentbarseries_customevent_callback = nullptr;
-        qpercentbarseries_connectnotify_callback = nullptr;
-        qpercentbarseries_disconnectnotify_callback = nullptr;
-        qpercentbarseries_sender_callback = nullptr;
-        qpercentbarseries_sendersignalindex_callback = nullptr;
-        qpercentbarseries_receivers_callback = nullptr;
-        qpercentbarseries_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPercentBarSeries_MetaObject_Callback(QPercentBarSeries_MetaObject_Callback cb) { qpercentbarseries_metaobject_callback = cb; }
     inline void setQPercentBarSeries_Metacast_Callback(QPercentBarSeries_Metacast_Callback cb) { qpercentbarseries_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_metaobject_isbase) {
             qpercentbarseries_metaobject_isbase = false;
             return QPercentBarSeries::metaObject();
-        } else if (qpercentbarseries_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpercentbarseries_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPercentBarSeries::metaObject();
         }
+        auto metaobject_cb = qpercentbarseries_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPercentBarSeries::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_metacast_isbase) {
             qpercentbarseries_metacast_isbase = false;
             return QPercentBarSeries::qt_metacast(param1);
-        } else if (qpercentbarseries_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpercentbarseries_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpercentbarseries_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPercentBarSeries::qt_metacast(param1);
         }
+        return QPercentBarSeries::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,16 +141,17 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_metacall_isbase) {
             qpercentbarseries_metacall_isbase = false;
             return QPercentBarSeries::qt_metacall(param1, param2, param3);
-        } else if (qpercentbarseries_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpercentbarseries_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpercentbarseries_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPercentBarSeries::qt_metacall(param1, param2, param3);
         }
+        return QPercentBarSeries::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -174,12 +159,13 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_type_isbase) {
             qpercentbarseries_type_isbase = false;
             return QPercentBarSeries::type();
-        } else if (qpercentbarseries_type_callback != nullptr) {
-            int callback_ret = qpercentbarseries_type_callback();
-            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
-        } else {
-            return QPercentBarSeries::type();
         }
+        auto type_cb = qpercentbarseries_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QAbstractSeries::SeriesType>(callback_ret);
+        }
+        return QPercentBarSeries::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,14 +173,15 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_event_isbase) {
             qpercentbarseries_event_isbase = false;
             return QPercentBarSeries::event(event);
-        } else if (qpercentbarseries_event_callback != nullptr) {
+        }
+        auto event_cb = qpercentbarseries_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpercentbarseries_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPercentBarSeries::event(event);
         }
+        return QPercentBarSeries::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -202,15 +189,16 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_eventfilter_isbase) {
             qpercentbarseries_eventfilter_isbase = false;
             return QPercentBarSeries::eventFilter(watched, event);
-        } else if (qpercentbarseries_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpercentbarseries_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpercentbarseries_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPercentBarSeries::eventFilter(watched, event);
         }
+        return QPercentBarSeries::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -218,13 +206,16 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_timerevent_isbase) {
             qpercentbarseries_timerevent_isbase = false;
             QPercentBarSeries::timerEvent(event);
-        } else if (qpercentbarseries_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpercentbarseries_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpercentbarseries_timerevent_callback(this, cbval1);
-        } else {
-            QPercentBarSeries::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPercentBarSeries::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,13 +223,16 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_childevent_isbase) {
             qpercentbarseries_childevent_isbase = false;
             QPercentBarSeries::childEvent(event);
-        } else if (qpercentbarseries_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpercentbarseries_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpercentbarseries_childevent_callback(this, cbval1);
-        } else {
-            QPercentBarSeries::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPercentBarSeries::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,13 +240,16 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_customevent_isbase) {
             qpercentbarseries_customevent_isbase = false;
             QPercentBarSeries::customEvent(event);
-        } else if (qpercentbarseries_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpercentbarseries_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpercentbarseries_customevent_callback(this, cbval1);
-        } else {
-            QPercentBarSeries::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPercentBarSeries::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -260,15 +257,18 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_connectnotify_isbase) {
             qpercentbarseries_connectnotify_isbase = false;
             QPercentBarSeries::connectNotify(signal);
-        } else if (qpercentbarseries_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpercentbarseries_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpercentbarseries_connectnotify_callback(this, cbval1);
-        } else {
-            QPercentBarSeries::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPercentBarSeries::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -276,15 +276,18 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_disconnectnotify_isbase) {
             qpercentbarseries_disconnectnotify_isbase = false;
             QPercentBarSeries::disconnectNotify(signal);
-        } else if (qpercentbarseries_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpercentbarseries_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpercentbarseries_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPercentBarSeries::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPercentBarSeries::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -292,12 +295,13 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_sender_isbase) {
             qpercentbarseries_sender_isbase = false;
             return QPercentBarSeries::sender();
-        } else if (qpercentbarseries_sender_callback != nullptr) {
-            QObject* callback_ret = qpercentbarseries_sender_callback();
-            return callback_ret;
-        } else {
-            return QPercentBarSeries::sender();
         }
+        auto sender_cb = qpercentbarseries_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPercentBarSeries::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +309,13 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_sendersignalindex_isbase) {
             qpercentbarseries_sendersignalindex_isbase = false;
             return QPercentBarSeries::senderSignalIndex();
-        } else if (qpercentbarseries_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpercentbarseries_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPercentBarSeries::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpercentbarseries_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPercentBarSeries::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +323,15 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_receivers_isbase) {
             qpercentbarseries_receivers_isbase = false;
             return QPercentBarSeries::receivers(signal);
-        } else if (qpercentbarseries_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpercentbarseries_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpercentbarseries_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPercentBarSeries::receivers(signal);
         }
+        return QPercentBarSeries::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,16 +339,17 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
         if (qpercentbarseries_issignalconnected_isbase) {
             qpercentbarseries_issignalconnected_isbase = false;
             return QPercentBarSeries::isSignalConnected(signal);
-        } else if (qpercentbarseries_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpercentbarseries_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpercentbarseries_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPercentBarSeries::isSignalConnected(signal);
         }
+        return QPercentBarSeries::isSignalConnected(signal);
     }
 
     // Friend functions

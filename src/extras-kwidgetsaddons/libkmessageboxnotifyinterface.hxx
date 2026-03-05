@@ -29,10 +29,6 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
   public:
     VirtualKMessageBoxNotifyInterface() : KMessageBoxNotifyInterface() {};
 
-    ~VirtualKMessageBoxNotifyInterface() {
-        kmessageboxnotifyinterface_sendnotification_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKMessageBoxNotifyInterface_SendNotification_Callback(KMessageBoxNotifyInterface_SendNotification_Callback cb) { kmessageboxnotifyinterface_sendnotification_callback = cb; }
 
@@ -41,7 +37,8 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
 
     // Virtual method for C ABI access and custom callback
     virtual void sendNotification(QMessageBox::Icon notificationType, const QString& message, QWidget* parent) override {
-        if (kmessageboxnotifyinterface_sendnotification_callback != nullptr) {
+        auto sendnotification_cb = kmessageboxnotifyinterface_sendnotification_callback;
+        if (sendnotification_cb) {
             int cbval1 = static_cast<int>(notificationType);
             const QString message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -53,7 +50,7 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
             const char* cbval2 = message_str;
             QWidget* cbval3 = parent;
 
-            kmessageboxnotifyinterface_sendnotification_callback(this, cbval1, cbval2, cbval3);
+            sendnotification_cb(this, cbval1, cbval2, cbval3);
             libqt_free(message_str);
         }
     }

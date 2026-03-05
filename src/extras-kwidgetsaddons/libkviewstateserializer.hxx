@@ -78,26 +78,6 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     VirtualKViewStateSerializer() : KViewStateSerializer() {};
     VirtualKViewStateSerializer(QObject* parent) : KViewStateSerializer(parent) {};
 
-    ~VirtualKViewStateSerializer() {
-        kviewstateserializer_metaobject_callback = nullptr;
-        kviewstateserializer_metacast_callback = nullptr;
-        kviewstateserializer_metacall_callback = nullptr;
-        kviewstateserializer_indexfromconfigstring_callback = nullptr;
-        kviewstateserializer_indextoconfigstring_callback = nullptr;
-        kviewstateserializer_event_callback = nullptr;
-        kviewstateserializer_eventfilter_callback = nullptr;
-        kviewstateserializer_timerevent_callback = nullptr;
-        kviewstateserializer_childevent_callback = nullptr;
-        kviewstateserializer_customevent_callback = nullptr;
-        kviewstateserializer_connectnotify_callback = nullptr;
-        kviewstateserializer_disconnectnotify_callback = nullptr;
-        kviewstateserializer_restorestate_callback = nullptr;
-        kviewstateserializer_sender_callback = nullptr;
-        kviewstateserializer_sendersignalindex_callback = nullptr;
-        kviewstateserializer_receivers_callback = nullptr;
-        kviewstateserializer_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKViewStateSerializer_MetaObject_Callback(KViewStateSerializer_MetaObject_Callback cb) { kviewstateserializer_metaobject_callback = cb; }
     inline void setKViewStateSerializer_Metacast_Callback(KViewStateSerializer_Metacast_Callback cb) { kviewstateserializer_metacast_callback = cb; }
@@ -141,12 +121,13 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_metaobject_isbase) {
             kviewstateserializer_metaobject_isbase = false;
             return KViewStateSerializer::metaObject();
-        } else if (kviewstateserializer_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kviewstateserializer_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KViewStateSerializer::metaObject();
         }
+        auto metaobject_cb = kviewstateserializer_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KViewStateSerializer::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,14 +135,15 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_metacast_isbase) {
             kviewstateserializer_metacast_isbase = false;
             return KViewStateSerializer::qt_metacast(param1);
-        } else if (kviewstateserializer_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kviewstateserializer_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kviewstateserializer_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KViewStateSerializer::qt_metacast(param1);
         }
+        return KViewStateSerializer::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,21 +151,23 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_metacall_isbase) {
             kviewstateserializer_metacall_isbase = false;
             return KViewStateSerializer::qt_metacall(param1, param2, param3);
-        } else if (kviewstateserializer_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kviewstateserializer_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kviewstateserializer_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KViewStateSerializer::qt_metacall(param1, param2, param3);
         }
+        return KViewStateSerializer::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex indexFromConfigString(const QAbstractItemModel* model, const QString& key) const override {
-        if (kviewstateserializer_indexfromconfigstring_callback != nullptr) {
+        auto indexfromconfigstring_cb = kviewstateserializer_indexfromconfigstring_callback;
+        if (indexfromconfigstring_cb) {
             QAbstractItemModel* cbval1 = (QAbstractItemModel*)model;
             const QString key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -194,27 +178,26 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval2 = key_str;
 
-            QModelIndex* callback_ret = kviewstateserializer_indexfromconfigstring_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = indexfromconfigstring_cb(this, cbval1, cbval2);
             libqt_free(key_str);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString indexToConfigString(const QModelIndex& index) const override {
-        if (kviewstateserializer_indextoconfigstring_callback != nullptr) {
+        auto indextoconfigstring_cb = kviewstateserializer_indextoconfigstring_callback;
+        if (indextoconfigstring_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            const char* callback_ret = kviewstateserializer_indextoconfigstring_callback(this, cbval1);
+            const char* callback_ret = indextoconfigstring_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,14 +205,15 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_event_isbase) {
             kviewstateserializer_event_isbase = false;
             return KViewStateSerializer::event(event);
-        } else if (kviewstateserializer_event_callback != nullptr) {
+        }
+        auto event_cb = kviewstateserializer_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kviewstateserializer_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KViewStateSerializer::event(event);
         }
+        return KViewStateSerializer::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,15 +221,16 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_eventfilter_isbase) {
             kviewstateserializer_eventfilter_isbase = false;
             return KViewStateSerializer::eventFilter(watched, event);
-        } else if (kviewstateserializer_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kviewstateserializer_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kviewstateserializer_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KViewStateSerializer::eventFilter(watched, event);
         }
+        return KViewStateSerializer::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,13 +238,16 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_timerevent_isbase) {
             kviewstateserializer_timerevent_isbase = false;
             KViewStateSerializer::timerEvent(event);
-        } else if (kviewstateserializer_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kviewstateserializer_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kviewstateserializer_timerevent_callback(this, cbval1);
-        } else {
-            KViewStateSerializer::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KViewStateSerializer::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -267,13 +255,16 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_childevent_isbase) {
             kviewstateserializer_childevent_isbase = false;
             KViewStateSerializer::childEvent(event);
-        } else if (kviewstateserializer_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kviewstateserializer_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kviewstateserializer_childevent_callback(this, cbval1);
-        } else {
-            KViewStateSerializer::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KViewStateSerializer::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -281,13 +272,16 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_customevent_isbase) {
             kviewstateserializer_customevent_isbase = false;
             KViewStateSerializer::customEvent(event);
-        } else if (kviewstateserializer_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kviewstateserializer_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kviewstateserializer_customevent_callback(this, cbval1);
-        } else {
-            KViewStateSerializer::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KViewStateSerializer::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,15 +289,18 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_connectnotify_isbase) {
             kviewstateserializer_connectnotify_isbase = false;
             KViewStateSerializer::connectNotify(signal);
-        } else if (kviewstateserializer_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kviewstateserializer_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kviewstateserializer_connectnotify_callback(this, cbval1);
-        } else {
-            KViewStateSerializer::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KViewStateSerializer::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,15 +308,18 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_disconnectnotify_isbase) {
             kviewstateserializer_disconnectnotify_isbase = false;
             KViewStateSerializer::disconnectNotify(signal);
-        } else if (kviewstateserializer_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kviewstateserializer_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kviewstateserializer_disconnectnotify_callback(this, cbval1);
-        } else {
-            KViewStateSerializer::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KViewStateSerializer::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,11 +327,14 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_restorestate_isbase) {
             kviewstateserializer_restorestate_isbase = false;
             KViewStateSerializer::restoreState();
-        } else if (kviewstateserializer_restorestate_callback != nullptr) {
-            kviewstateserializer_restorestate_callback();
-        } else {
-            KViewStateSerializer::restoreState();
+            return;
         }
+        auto restorestate_cb = kviewstateserializer_restorestate_callback;
+        if (restorestate_cb) {
+            restorestate_cb();
+            return;
+        }
+        KViewStateSerializer::restoreState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -339,12 +342,13 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_sender_isbase) {
             kviewstateserializer_sender_isbase = false;
             return KViewStateSerializer::sender();
-        } else if (kviewstateserializer_sender_callback != nullptr) {
-            QObject* callback_ret = kviewstateserializer_sender_callback();
-            return callback_ret;
-        } else {
-            return KViewStateSerializer::sender();
         }
+        auto sender_cb = kviewstateserializer_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KViewStateSerializer::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,12 +356,13 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_sendersignalindex_isbase) {
             kviewstateserializer_sendersignalindex_isbase = false;
             return KViewStateSerializer::senderSignalIndex();
-        } else if (kviewstateserializer_sendersignalindex_callback != nullptr) {
-            int callback_ret = kviewstateserializer_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KViewStateSerializer::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kviewstateserializer_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KViewStateSerializer::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,14 +370,15 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_receivers_isbase) {
             kviewstateserializer_receivers_isbase = false;
             return KViewStateSerializer::receivers(signal);
-        } else if (kviewstateserializer_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kviewstateserializer_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kviewstateserializer_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KViewStateSerializer::receivers(signal);
         }
+        return KViewStateSerializer::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,16 +386,17 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         if (kviewstateserializer_issignalconnected_isbase) {
             kviewstateserializer_issignalconnected_isbase = false;
             return KViewStateSerializer::isSignalConnected(signal);
-        } else if (kviewstateserializer_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kviewstateserializer_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kviewstateserializer_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KViewStateSerializer::isSignalConnected(signal);
         }
+        return KViewStateSerializer::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -99,33 +99,6 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     VirtualQHBarModelMapper() : QHBarModelMapper() {};
     VirtualQHBarModelMapper(QObject* parent) : QHBarModelMapper(parent) {};
 
-    ~VirtualQHBarModelMapper() {
-        qhbarmodelmapper_metaobject_callback = nullptr;
-        qhbarmodelmapper_metacast_callback = nullptr;
-        qhbarmodelmapper_metacall_callback = nullptr;
-        qhbarmodelmapper_event_callback = nullptr;
-        qhbarmodelmapper_eventfilter_callback = nullptr;
-        qhbarmodelmapper_timerevent_callback = nullptr;
-        qhbarmodelmapper_childevent_callback = nullptr;
-        qhbarmodelmapper_customevent_callback = nullptr;
-        qhbarmodelmapper_connectnotify_callback = nullptr;
-        qhbarmodelmapper_disconnectnotify_callback = nullptr;
-        qhbarmodelmapper_first_callback = nullptr;
-        qhbarmodelmapper_setfirst_callback = nullptr;
-        qhbarmodelmapper_count_callback = nullptr;
-        qhbarmodelmapper_setcount_callback = nullptr;
-        qhbarmodelmapper_firstbarsetsection_callback = nullptr;
-        qhbarmodelmapper_setfirstbarsetsection_callback = nullptr;
-        qhbarmodelmapper_lastbarsetsection_callback = nullptr;
-        qhbarmodelmapper_setlastbarsetsection_callback = nullptr;
-        qhbarmodelmapper_orientation_callback = nullptr;
-        qhbarmodelmapper_setorientation_callback = nullptr;
-        qhbarmodelmapper_sender_callback = nullptr;
-        qhbarmodelmapper_sendersignalindex_callback = nullptr;
-        qhbarmodelmapper_receivers_callback = nullptr;
-        qhbarmodelmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQHBarModelMapper_MetaObject_Callback(QHBarModelMapper_MetaObject_Callback cb) { qhbarmodelmapper_metaobject_callback = cb; }
     inline void setQHBarModelMapper_Metacast_Callback(QHBarModelMapper_Metacast_Callback cb) { qhbarmodelmapper_metacast_callback = cb; }
@@ -183,12 +156,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_metaobject_isbase) {
             qhbarmodelmapper_metaobject_isbase = false;
             return QHBarModelMapper::metaObject();
-        } else if (qhbarmodelmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qhbarmodelmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QHBarModelMapper::metaObject();
         }
+        auto metaobject_cb = qhbarmodelmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QHBarModelMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -196,14 +170,15 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_metacast_isbase) {
             qhbarmodelmapper_metacast_isbase = false;
             return QHBarModelMapper::qt_metacast(param1);
-        } else if (qhbarmodelmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qhbarmodelmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qhbarmodelmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHBarModelMapper::qt_metacast(param1);
         }
+        return QHBarModelMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -211,16 +186,17 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_metacall_isbase) {
             qhbarmodelmapper_metacall_isbase = false;
             return QHBarModelMapper::qt_metacall(param1, param2, param3);
-        } else if (qhbarmodelmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qhbarmodelmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qhbarmodelmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::qt_metacall(param1, param2, param3);
         }
+        return QHBarModelMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -228,14 +204,15 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_event_isbase) {
             qhbarmodelmapper_event_isbase = false;
             return QHBarModelMapper::event(event);
-        } else if (qhbarmodelmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qhbarmodelmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qhbarmodelmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHBarModelMapper::event(event);
         }
+        return QHBarModelMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +220,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_eventfilter_isbase) {
             qhbarmodelmapper_eventfilter_isbase = false;
             return QHBarModelMapper::eventFilter(watched, event);
-        } else if (qhbarmodelmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qhbarmodelmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qhbarmodelmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QHBarModelMapper::eventFilter(watched, event);
         }
+        return QHBarModelMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +237,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_timerevent_isbase) {
             qhbarmodelmapper_timerevent_isbase = false;
             QHBarModelMapper::timerEvent(event);
-        } else if (qhbarmodelmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qhbarmodelmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qhbarmodelmapper_timerevent_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +254,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_childevent_isbase) {
             qhbarmodelmapper_childevent_isbase = false;
             QHBarModelMapper::childEvent(event);
-        } else if (qhbarmodelmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qhbarmodelmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qhbarmodelmapper_childevent_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,13 +271,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_customevent_isbase) {
             qhbarmodelmapper_customevent_isbase = false;
             QHBarModelMapper::customEvent(event);
-        } else if (qhbarmodelmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qhbarmodelmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qhbarmodelmapper_customevent_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,15 +288,18 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_connectnotify_isbase) {
             qhbarmodelmapper_connectnotify_isbase = false;
             QHBarModelMapper::connectNotify(signal);
-        } else if (qhbarmodelmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qhbarmodelmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qhbarmodelmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -317,15 +307,18 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_disconnectnotify_isbase) {
             qhbarmodelmapper_disconnectnotify_isbase = false;
             QHBarModelMapper::disconnectNotify(signal);
-        } else if (qhbarmodelmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qhbarmodelmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qhbarmodelmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,12 +326,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_first_isbase) {
             qhbarmodelmapper_first_isbase = false;
             return QHBarModelMapper::first();
-        } else if (qhbarmodelmapper_first_callback != nullptr) {
-            int callback_ret = qhbarmodelmapper_first_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::first();
         }
+        auto first_cb = qhbarmodelmapper_first_callback;
+        if (first_cb) {
+            int callback_ret = first_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHBarModelMapper::first();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,13 +340,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_setfirst_isbase) {
             qhbarmodelmapper_setfirst_isbase = false;
             QHBarModelMapper::setFirst(first);
-        } else if (qhbarmodelmapper_setfirst_callback != nullptr) {
+            return;
+        }
+        auto setfirst_cb = qhbarmodelmapper_setfirst_callback;
+        if (setfirst_cb) {
             int cbval1 = first;
 
-            qhbarmodelmapper_setfirst_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::setFirst(first);
+            setfirst_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::setFirst(first);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +357,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_count_isbase) {
             qhbarmodelmapper_count_isbase = false;
             return QHBarModelMapper::count();
-        } else if (qhbarmodelmapper_count_callback != nullptr) {
-            int callback_ret = qhbarmodelmapper_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::count();
         }
+        auto count_cb = qhbarmodelmapper_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHBarModelMapper::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,13 +371,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_setcount_isbase) {
             qhbarmodelmapper_setcount_isbase = false;
             QHBarModelMapper::setCount(count);
-        } else if (qhbarmodelmapper_setcount_callback != nullptr) {
+            return;
+        }
+        auto setcount_cb = qhbarmodelmapper_setcount_callback;
+        if (setcount_cb) {
             int cbval1 = count;
 
-            qhbarmodelmapper_setcount_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::setCount(count);
+            setcount_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::setCount(count);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,12 +388,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_firstbarsetsection_isbase) {
             qhbarmodelmapper_firstbarsetsection_isbase = false;
             return QHBarModelMapper::firstBarSetSection();
-        } else if (qhbarmodelmapper_firstbarsetsection_callback != nullptr) {
-            int callback_ret = qhbarmodelmapper_firstbarsetsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::firstBarSetSection();
         }
+        auto firstbarsetsection_cb = qhbarmodelmapper_firstbarsetsection_callback;
+        if (firstbarsetsection_cb) {
+            int callback_ret = firstbarsetsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHBarModelMapper::firstBarSetSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,13 +402,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_setfirstbarsetsection_isbase) {
             qhbarmodelmapper_setfirstbarsetsection_isbase = false;
             QHBarModelMapper::setFirstBarSetSection(firstBarSetSection);
-        } else if (qhbarmodelmapper_setfirstbarsetsection_callback != nullptr) {
+            return;
+        }
+        auto setfirstbarsetsection_cb = qhbarmodelmapper_setfirstbarsetsection_callback;
+        if (setfirstbarsetsection_cb) {
             int cbval1 = firstBarSetSection;
 
-            qhbarmodelmapper_setfirstbarsetsection_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::setFirstBarSetSection(firstBarSetSection);
+            setfirstbarsetsection_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::setFirstBarSetSection(firstBarSetSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,12 +419,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_lastbarsetsection_isbase) {
             qhbarmodelmapper_lastbarsetsection_isbase = false;
             return QHBarModelMapper::lastBarSetSection();
-        } else if (qhbarmodelmapper_lastbarsetsection_callback != nullptr) {
-            int callback_ret = qhbarmodelmapper_lastbarsetsection_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::lastBarSetSection();
         }
+        auto lastbarsetsection_cb = qhbarmodelmapper_lastbarsetsection_callback;
+        if (lastbarsetsection_cb) {
+            int callback_ret = lastbarsetsection_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHBarModelMapper::lastBarSetSection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,13 +433,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_setlastbarsetsection_isbase) {
             qhbarmodelmapper_setlastbarsetsection_isbase = false;
             QHBarModelMapper::setLastBarSetSection(lastBarSetSection);
-        } else if (qhbarmodelmapper_setlastbarsetsection_callback != nullptr) {
+            return;
+        }
+        auto setlastbarsetsection_cb = qhbarmodelmapper_setlastbarsetsection_callback;
+        if (setlastbarsetsection_cb) {
             int cbval1 = lastBarSetSection;
 
-            qhbarmodelmapper_setlastbarsetsection_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::setLastBarSetSection(lastBarSetSection);
+            setlastbarsetsection_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::setLastBarSetSection(lastBarSetSection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +450,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_orientation_isbase) {
             qhbarmodelmapper_orientation_isbase = false;
             return QHBarModelMapper::orientation();
-        } else if (qhbarmodelmapper_orientation_callback != nullptr) {
-            int callback_ret = qhbarmodelmapper_orientation_callback();
-            return static_cast<Qt::Orientation>(callback_ret);
-        } else {
-            return QHBarModelMapper::orientation();
         }
+        auto orientation_cb = qhbarmodelmapper_orientation_callback;
+        if (orientation_cb) {
+            int callback_ret = orientation_cb();
+            return static_cast<Qt::Orientation>(callback_ret);
+        }
+        return QHBarModelMapper::orientation();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,13 +464,16 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_setorientation_isbase) {
             qhbarmodelmapper_setorientation_isbase = false;
             QHBarModelMapper::setOrientation(orientation);
-        } else if (qhbarmodelmapper_setorientation_callback != nullptr) {
+            return;
+        }
+        auto setorientation_cb = qhbarmodelmapper_setorientation_callback;
+        if (setorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
 
-            qhbarmodelmapper_setorientation_callback(this, cbval1);
-        } else {
-            QHBarModelMapper::setOrientation(orientation);
+            setorientation_cb(this, cbval1);
+            return;
         }
+        QHBarModelMapper::setOrientation(orientation);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +481,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_sender_isbase) {
             qhbarmodelmapper_sender_isbase = false;
             return QHBarModelMapper::sender();
-        } else if (qhbarmodelmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qhbarmodelmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QHBarModelMapper::sender();
         }
+        auto sender_cb = qhbarmodelmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QHBarModelMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +495,13 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_sendersignalindex_isbase) {
             qhbarmodelmapper_sendersignalindex_isbase = false;
             return QHBarModelMapper::senderSignalIndex();
-        } else if (qhbarmodelmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qhbarmodelmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qhbarmodelmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QHBarModelMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +509,15 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_receivers_isbase) {
             qhbarmodelmapper_receivers_isbase = false;
             return QHBarModelMapper::receivers(signal);
-        } else if (qhbarmodelmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qhbarmodelmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qhbarmodelmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QHBarModelMapper::receivers(signal);
         }
+        return QHBarModelMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,16 +525,17 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
         if (qhbarmodelmapper_issignalconnected_isbase) {
             qhbarmodelmapper_issignalconnected_isbase = false;
             return QHBarModelMapper::isSignalConnected(signal);
-        } else if (qhbarmodelmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qhbarmodelmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qhbarmodelmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QHBarModelMapper::isSignalConnected(signal);
         }
+        return QHBarModelMapper::isSignalConnected(signal);
     }
 
     // Friend functions

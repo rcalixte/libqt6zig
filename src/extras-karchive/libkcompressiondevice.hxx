@@ -130,43 +130,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     VirtualKCompressionDevice(const QString& fileName, KCompressionDevice::CompressionType typeVal) : KCompressionDevice(fileName, typeVal) {};
     VirtualKCompressionDevice(const QString& fileName) : KCompressionDevice(fileName) {};
 
-    ~VirtualKCompressionDevice() {
-        kcompressiondevice_metaobject_callback = nullptr;
-        kcompressiondevice_metacast_callback = nullptr;
-        kcompressiondevice_metacall_callback = nullptr;
-        kcompressiondevice_open_callback = nullptr;
-        kcompressiondevice_close_callback = nullptr;
-        kcompressiondevice_seek_callback = nullptr;
-        kcompressiondevice_atend_callback = nullptr;
-        kcompressiondevice_readdata_callback = nullptr;
-        kcompressiondevice_writedata_callback = nullptr;
-        kcompressiondevice_issequential_callback = nullptr;
-        kcompressiondevice_pos_callback = nullptr;
-        kcompressiondevice_size_callback = nullptr;
-        kcompressiondevice_reset_callback = nullptr;
-        kcompressiondevice_bytesavailable_callback = nullptr;
-        kcompressiondevice_bytestowrite_callback = nullptr;
-        kcompressiondevice_canreadline_callback = nullptr;
-        kcompressiondevice_waitforreadyread_callback = nullptr;
-        kcompressiondevice_waitforbyteswritten_callback = nullptr;
-        kcompressiondevice_readlinedata_callback = nullptr;
-        kcompressiondevice_skipdata_callback = nullptr;
-        kcompressiondevice_event_callback = nullptr;
-        kcompressiondevice_eventfilter_callback = nullptr;
-        kcompressiondevice_timerevent_callback = nullptr;
-        kcompressiondevice_childevent_callback = nullptr;
-        kcompressiondevice_customevent_callback = nullptr;
-        kcompressiondevice_connectnotify_callback = nullptr;
-        kcompressiondevice_disconnectnotify_callback = nullptr;
-        kcompressiondevice_filterbase_callback = nullptr;
-        kcompressiondevice_setopenmode_callback = nullptr;
-        kcompressiondevice_seterrorstring_callback = nullptr;
-        kcompressiondevice_sender_callback = nullptr;
-        kcompressiondevice_sendersignalindex_callback = nullptr;
-        kcompressiondevice_receivers_callback = nullptr;
-        kcompressiondevice_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCompressionDevice_MetaObject_Callback(KCompressionDevice_MetaObject_Callback cb) { kcompressiondevice_metaobject_callback = cb; }
     inline void setKCompressionDevice_Metacast_Callback(KCompressionDevice_Metacast_Callback cb) { kcompressiondevice_metacast_callback = cb; }
@@ -244,12 +207,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_metaobject_isbase) {
             kcompressiondevice_metaobject_isbase = false;
             return KCompressionDevice::metaObject();
-        } else if (kcompressiondevice_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcompressiondevice_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::metaObject();
         }
+        auto metaobject_cb = kcompressiondevice_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,14 +221,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_metacast_isbase) {
             kcompressiondevice_metacast_isbase = false;
             return KCompressionDevice::qt_metacast(param1);
-        } else if (kcompressiondevice_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcompressiondevice_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcompressiondevice_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::qt_metacast(param1);
         }
+        return KCompressionDevice::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,16 +237,17 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_metacall_isbase) {
             kcompressiondevice_metacall_isbase = false;
             return KCompressionDevice::qt_metacall(param1, param2, param3);
-        } else if (kcompressiondevice_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcompressiondevice_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcompressiondevice_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompressionDevice::qt_metacall(param1, param2, param3);
         }
+        return KCompressionDevice::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,14 +255,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_open_isbase) {
             kcompressiondevice_open_isbase = false;
             return KCompressionDevice::open(mode);
-        } else if (kcompressiondevice_open_callback != nullptr) {
+        }
+        auto open_cb = kcompressiondevice_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kcompressiondevice_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::open(mode);
         }
+        return KCompressionDevice::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -304,11 +271,14 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_close_isbase) {
             kcompressiondevice_close_isbase = false;
             KCompressionDevice::close();
-        } else if (kcompressiondevice_close_callback != nullptr) {
-            kcompressiondevice_close_callback();
-        } else {
-            KCompressionDevice::close();
+            return;
         }
+        auto close_cb = kcompressiondevice_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        KCompressionDevice::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,14 +286,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_seek_isbase) {
             kcompressiondevice_seek_isbase = false;
             return KCompressionDevice::seek(param1);
-        } else if (kcompressiondevice_seek_callback != nullptr) {
+        }
+        auto seek_cb = kcompressiondevice_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(param1);
 
-            bool callback_ret = kcompressiondevice_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::seek(param1);
         }
+        return KCompressionDevice::seek(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,12 +302,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_atend_isbase) {
             kcompressiondevice_atend_isbase = false;
             return KCompressionDevice::atEnd();
-        } else if (kcompressiondevice_atend_callback != nullptr) {
-            bool callback_ret = kcompressiondevice_atend_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::atEnd();
         }
+        auto atend_cb = kcompressiondevice_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,15 +316,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_readdata_isbase) {
             kcompressiondevice_readdata_isbase = false;
             return KCompressionDevice::readData(data, maxlen);
-        } else if (kcompressiondevice_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = kcompressiondevice_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = kcompressiondevice_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::readData(data, maxlen);
         }
+        return KCompressionDevice::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,15 +333,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_writedata_isbase) {
             kcompressiondevice_writedata_isbase = false;
             return KCompressionDevice::writeData(data, lenVal);
-        } else if (kcompressiondevice_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = kcompressiondevice_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = kcompressiondevice_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::writeData(data, lenVal);
         }
+        return KCompressionDevice::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -376,12 +350,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_issequential_isbase) {
             kcompressiondevice_issequential_isbase = false;
             return KCompressionDevice::isSequential();
-        } else if (kcompressiondevice_issequential_callback != nullptr) {
-            bool callback_ret = kcompressiondevice_issequential_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::isSequential();
         }
+        auto issequential_cb = kcompressiondevice_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,12 +364,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_pos_isbase) {
             kcompressiondevice_pos_isbase = false;
             return KCompressionDevice::pos();
-        } else if (kcompressiondevice_pos_callback != nullptr) {
-            long long callback_ret = kcompressiondevice_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::pos();
         }
+        auto pos_cb = kcompressiondevice_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KCompressionDevice::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,12 +378,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_size_isbase) {
             kcompressiondevice_size_isbase = false;
             return KCompressionDevice::size();
-        } else if (kcompressiondevice_size_callback != nullptr) {
-            long long callback_ret = kcompressiondevice_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::size();
         }
+        auto size_cb = kcompressiondevice_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KCompressionDevice::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -415,12 +392,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_reset_isbase) {
             kcompressiondevice_reset_isbase = false;
             return KCompressionDevice::reset();
-        } else if (kcompressiondevice_reset_callback != nullptr) {
-            bool callback_ret = kcompressiondevice_reset_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::reset();
         }
+        auto reset_cb = kcompressiondevice_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -428,12 +406,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_bytesavailable_isbase) {
             kcompressiondevice_bytesavailable_isbase = false;
             return KCompressionDevice::bytesAvailable();
-        } else if (kcompressiondevice_bytesavailable_callback != nullptr) {
-            long long callback_ret = kcompressiondevice_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::bytesAvailable();
         }
+        auto bytesavailable_cb = kcompressiondevice_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KCompressionDevice::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,12 +420,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_bytestowrite_isbase) {
             kcompressiondevice_bytestowrite_isbase = false;
             return KCompressionDevice::bytesToWrite();
-        } else if (kcompressiondevice_bytestowrite_callback != nullptr) {
-            long long callback_ret = kcompressiondevice_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::bytesToWrite();
         }
+        auto bytestowrite_cb = kcompressiondevice_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KCompressionDevice::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +434,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_canreadline_isbase) {
             kcompressiondevice_canreadline_isbase = false;
             return KCompressionDevice::canReadLine();
-        } else if (kcompressiondevice_canreadline_callback != nullptr) {
-            bool callback_ret = kcompressiondevice_canreadline_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::canReadLine();
         }
+        auto canreadline_cb = kcompressiondevice_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,14 +448,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_waitforreadyread_isbase) {
             kcompressiondevice_waitforreadyread_isbase = false;
             return KCompressionDevice::waitForReadyRead(msecs);
-        } else if (kcompressiondevice_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = kcompressiondevice_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = kcompressiondevice_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::waitForReadyRead(msecs);
         }
+        return KCompressionDevice::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,14 +464,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_waitforbyteswritten_isbase) {
             kcompressiondevice_waitforbyteswritten_isbase = false;
             return KCompressionDevice::waitForBytesWritten(msecs);
-        } else if (kcompressiondevice_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = kcompressiondevice_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = kcompressiondevice_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::waitForBytesWritten(msecs);
         }
+        return KCompressionDevice::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,15 +480,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_readlinedata_isbase) {
             kcompressiondevice_readlinedata_isbase = false;
             return KCompressionDevice::readLineData(data, maxlen);
-        } else if (kcompressiondevice_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = kcompressiondevice_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = kcompressiondevice_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::readLineData(data, maxlen);
         }
+        return KCompressionDevice::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,14 +497,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_skipdata_isbase) {
             kcompressiondevice_skipdata_isbase = false;
             return KCompressionDevice::skipData(maxSize);
-        } else if (kcompressiondevice_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = kcompressiondevice_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = kcompressiondevice_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KCompressionDevice::skipData(maxSize);
         }
+        return KCompressionDevice::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,14 +513,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_event_isbase) {
             kcompressiondevice_event_isbase = false;
             return KCompressionDevice::event(event);
-        } else if (kcompressiondevice_event_callback != nullptr) {
+        }
+        auto event_cb = kcompressiondevice_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcompressiondevice_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::event(event);
         }
+        return KCompressionDevice::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,15 +529,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_eventfilter_isbase) {
             kcompressiondevice_eventfilter_isbase = false;
             return KCompressionDevice::eventFilter(watched, event);
-        } else if (kcompressiondevice_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcompressiondevice_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcompressiondevice_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCompressionDevice::eventFilter(watched, event);
         }
+        return KCompressionDevice::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -559,13 +546,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_timerevent_isbase) {
             kcompressiondevice_timerevent_isbase = false;
             KCompressionDevice::timerEvent(event);
-        } else if (kcompressiondevice_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcompressiondevice_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcompressiondevice_timerevent_callback(this, cbval1);
-        } else {
-            KCompressionDevice::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCompressionDevice::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -573,13 +563,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_childevent_isbase) {
             kcompressiondevice_childevent_isbase = false;
             KCompressionDevice::childEvent(event);
-        } else if (kcompressiondevice_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcompressiondevice_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcompressiondevice_childevent_callback(this, cbval1);
-        } else {
-            KCompressionDevice::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCompressionDevice::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -587,13 +580,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_customevent_isbase) {
             kcompressiondevice_customevent_isbase = false;
             KCompressionDevice::customEvent(event);
-        } else if (kcompressiondevice_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcompressiondevice_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcompressiondevice_customevent_callback(this, cbval1);
-        } else {
-            KCompressionDevice::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCompressionDevice::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -601,15 +597,18 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_connectnotify_isbase) {
             kcompressiondevice_connectnotify_isbase = false;
             KCompressionDevice::connectNotify(signal);
-        } else if (kcompressiondevice_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcompressiondevice_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcompressiondevice_connectnotify_callback(this, cbval1);
-        } else {
-            KCompressionDevice::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCompressionDevice::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -617,15 +616,18 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_disconnectnotify_isbase) {
             kcompressiondevice_disconnectnotify_isbase = false;
             KCompressionDevice::disconnectNotify(signal);
-        } else if (kcompressiondevice_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcompressiondevice_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcompressiondevice_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCompressionDevice::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCompressionDevice::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,12 +635,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_filterbase_isbase) {
             kcompressiondevice_filterbase_isbase = false;
             return KCompressionDevice::filterBase();
-        } else if (kcompressiondevice_filterbase_callback != nullptr) {
-            KFilterBase* callback_ret = kcompressiondevice_filterbase_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::filterBase();
         }
+        auto filterbase_cb = kcompressiondevice_filterbase_callback;
+        if (filterbase_cb) {
+            KFilterBase* callback_ret = filterbase_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::filterBase();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,13 +649,16 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_setopenmode_isbase) {
             kcompressiondevice_setopenmode_isbase = false;
             KCompressionDevice::setOpenMode(openMode);
-        } else if (kcompressiondevice_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = kcompressiondevice_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            kcompressiondevice_setopenmode_callback(this, cbval1);
-        } else {
-            KCompressionDevice::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        KCompressionDevice::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,7 +666,10 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_seterrorstring_isbase) {
             kcompressiondevice_seterrorstring_isbase = false;
             KCompressionDevice::setErrorString(errorString);
-        } else if (kcompressiondevice_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = kcompressiondevice_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -670,11 +679,11 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            kcompressiondevice_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            KCompressionDevice::setErrorString(errorString);
+            return;
         }
+        KCompressionDevice::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +691,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_sender_isbase) {
             kcompressiondevice_sender_isbase = false;
             return KCompressionDevice::sender();
-        } else if (kcompressiondevice_sender_callback != nullptr) {
-            QObject* callback_ret = kcompressiondevice_sender_callback();
-            return callback_ret;
-        } else {
-            return KCompressionDevice::sender();
         }
+        auto sender_cb = kcompressiondevice_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCompressionDevice::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,12 +705,13 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_sendersignalindex_isbase) {
             kcompressiondevice_sendersignalindex_isbase = false;
             return KCompressionDevice::senderSignalIndex();
-        } else if (kcompressiondevice_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcompressiondevice_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCompressionDevice::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcompressiondevice_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCompressionDevice::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,14 +719,15 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_receivers_isbase) {
             kcompressiondevice_receivers_isbase = false;
             return KCompressionDevice::receivers(signal);
-        } else if (kcompressiondevice_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcompressiondevice_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcompressiondevice_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCompressionDevice::receivers(signal);
         }
+        return KCompressionDevice::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,16 +735,17 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (kcompressiondevice_issignalconnected_isbase) {
             kcompressiondevice_issignalconnected_isbase = false;
             return KCompressionDevice::isSignalConnected(signal);
-        } else if (kcompressiondevice_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcompressiondevice_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcompressiondevice_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCompressionDevice::isSignalConnected(signal);
         }
+        return KCompressionDevice::isSignalConnected(signal);
     }
 
     // Friend functions

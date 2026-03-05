@@ -42,14 +42,6 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
     VirtualKUriFilterSearchProvider() : KUriFilterSearchProvider() {};
     VirtualKUriFilterSearchProvider(const KUriFilterSearchProvider& param1) : KUriFilterSearchProvider(param1) {};
 
-    ~VirtualKUriFilterSearchProvider() {
-        kurifiltersearchprovider_iconname_callback = nullptr;
-        kurifiltersearchprovider_setdesktopentryname_callback = nullptr;
-        kurifiltersearchprovider_seticonname_callback = nullptr;
-        kurifiltersearchprovider_setkeys_callback = nullptr;
-        kurifiltersearchprovider_setname_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKUriFilterSearchProvider_IconName_Callback(KUriFilterSearchProvider_IconName_Callback cb) { kurifiltersearchprovider_iconname_callback = cb; }
     inline void setKUriFilterSearchProvider_SetDesktopEntryName_Callback(KUriFilterSearchProvider_SetDesktopEntryName_Callback cb) { kurifiltersearchprovider_setdesktopentryname_callback = cb; }
@@ -69,13 +61,14 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         if (kurifiltersearchprovider_iconname_isbase) {
             kurifiltersearchprovider_iconname_isbase = false;
             return KUriFilterSearchProvider::iconName();
-        } else if (kurifiltersearchprovider_iconname_callback != nullptr) {
-            const char* callback_ret = kurifiltersearchprovider_iconname_callback();
+        }
+        auto iconname_cb = kurifiltersearchprovider_iconname_callback;
+        if (iconname_cb) {
+            const char* callback_ret = iconname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KUriFilterSearchProvider::iconName();
         }
+        return KUriFilterSearchProvider::iconName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -83,7 +76,10 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         if (kurifiltersearchprovider_setdesktopentryname_isbase) {
             kurifiltersearchprovider_setdesktopentryname_isbase = false;
             KUriFilterSearchProvider::setDesktopEntryName(desktopEntryName);
-        } else if (kurifiltersearchprovider_setdesktopentryname_callback != nullptr) {
+            return;
+        }
+        auto setdesktopentryname_cb = kurifiltersearchprovider_setdesktopentryname_callback;
+        if (setdesktopentryname_cb) {
             const QString desktopEntryName_ret = desktopEntryName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray desktopEntryName_b = desktopEntryName_ret.toUtf8();
@@ -93,11 +89,11 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             ((char*)desktopEntryName_str)[desktopEntryName_str_len] = '\0';
             const char* cbval1 = desktopEntryName_str;
 
-            kurifiltersearchprovider_setdesktopentryname_callback(this, cbval1);
+            setdesktopentryname_cb(this, cbval1);
             libqt_free(desktopEntryName_str);
-        } else {
-            KUriFilterSearchProvider::setDesktopEntryName(desktopEntryName);
+            return;
         }
+        KUriFilterSearchProvider::setDesktopEntryName(desktopEntryName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -105,7 +101,10 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         if (kurifiltersearchprovider_seticonname_isbase) {
             kurifiltersearchprovider_seticonname_isbase = false;
             KUriFilterSearchProvider::setIconName(iconName);
-        } else if (kurifiltersearchprovider_seticonname_callback != nullptr) {
+            return;
+        }
+        auto seticonname_cb = kurifiltersearchprovider_seticonname_callback;
+        if (seticonname_cb) {
             const QString iconName_ret = iconName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iconName_b = iconName_ret.toUtf8();
@@ -115,11 +114,11 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             ((char*)iconName_str)[iconName_str_len] = '\0';
             const char* cbval1 = iconName_str;
 
-            kurifiltersearchprovider_seticonname_callback(this, cbval1);
+            seticonname_cb(this, cbval1);
             libqt_free(iconName_str);
-        } else {
-            KUriFilterSearchProvider::setIconName(iconName);
+            return;
         }
+        KUriFilterSearchProvider::setIconName(iconName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -127,7 +126,10 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         if (kurifiltersearchprovider_setkeys_isbase) {
             kurifiltersearchprovider_setkeys_isbase = false;
             KUriFilterSearchProvider::setKeys(keys);
-        } else if (kurifiltersearchprovider_setkeys_callback != nullptr) {
+            return;
+        }
+        auto setkeys_cb = kurifiltersearchprovider_setkeys_callback;
+        if (setkeys_cb) {
             const QList<QString>& keys_ret = keys;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** keys_arr = static_cast<const char**>(malloc(sizeof(const char*) * (keys_ret.size() + 1)));
@@ -143,11 +145,11 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             keys_arr[keys_ret.size()] = nullptr;
             const char** cbval1 = keys_arr;
 
-            kurifiltersearchprovider_setkeys_callback(this, cbval1);
+            setkeys_cb(this, cbval1);
             libqt_free(keys_arr);
-        } else {
-            KUriFilterSearchProvider::setKeys(keys);
+            return;
         }
+        KUriFilterSearchProvider::setKeys(keys);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,7 +157,10 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         if (kurifiltersearchprovider_setname_isbase) {
             kurifiltersearchprovider_setname_isbase = false;
             KUriFilterSearchProvider::setName(name);
-        } else if (kurifiltersearchprovider_setname_callback != nullptr) {
+            return;
+        }
+        auto setname_cb = kurifiltersearchprovider_setname_callback;
+        if (setname_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -165,11 +170,11 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            kurifiltersearchprovider_setname_callback(this, cbval1);
+            setname_cb(this, cbval1);
             libqt_free(name_str);
-        } else {
-            KUriFilterSearchProvider::setName(name);
+            return;
         }
+        KUriFilterSearchProvider::setName(name);
     }
 
     // Friend functions

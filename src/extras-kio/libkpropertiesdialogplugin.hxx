@@ -74,25 +74,6 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
   public:
     VirtualKPropertiesDialogPlugin(QObject* parent) : KPropertiesDialogPlugin(parent) {};
 
-    ~VirtualKPropertiesDialogPlugin() {
-        kpropertiesdialogplugin_metaobject_callback = nullptr;
-        kpropertiesdialogplugin_metacast_callback = nullptr;
-        kpropertiesdialogplugin_metacall_callback = nullptr;
-        kpropertiesdialogplugin_applychanges_callback = nullptr;
-        kpropertiesdialogplugin_event_callback = nullptr;
-        kpropertiesdialogplugin_eventfilter_callback = nullptr;
-        kpropertiesdialogplugin_timerevent_callback = nullptr;
-        kpropertiesdialogplugin_childevent_callback = nullptr;
-        kpropertiesdialogplugin_customevent_callback = nullptr;
-        kpropertiesdialogplugin_connectnotify_callback = nullptr;
-        kpropertiesdialogplugin_disconnectnotify_callback = nullptr;
-        kpropertiesdialogplugin_fontheight_callback = nullptr;
-        kpropertiesdialogplugin_sender_callback = nullptr;
-        kpropertiesdialogplugin_sendersignalindex_callback = nullptr;
-        kpropertiesdialogplugin_receivers_callback = nullptr;
-        kpropertiesdialogplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPropertiesDialogPlugin_MetaObject_Callback(KPropertiesDialogPlugin_MetaObject_Callback cb) { kpropertiesdialogplugin_metaobject_callback = cb; }
     inline void setKPropertiesDialogPlugin_Metacast_Callback(KPropertiesDialogPlugin_Metacast_Callback cb) { kpropertiesdialogplugin_metacast_callback = cb; }
@@ -134,12 +115,13 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_metaobject_isbase) {
             kpropertiesdialogplugin_metaobject_isbase = false;
             return KPropertiesDialogPlugin::metaObject();
-        } else if (kpropertiesdialogplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpropertiesdialogplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPropertiesDialogPlugin::metaObject();
         }
+        auto metaobject_cb = kpropertiesdialogplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPropertiesDialogPlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -147,14 +129,15 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_metacast_isbase) {
             kpropertiesdialogplugin_metacast_isbase = false;
             return KPropertiesDialogPlugin::qt_metacast(param1);
-        } else if (kpropertiesdialogplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpropertiesdialogplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpropertiesdialogplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPropertiesDialogPlugin::qt_metacast(param1);
         }
+        return KPropertiesDialogPlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -162,16 +145,17 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_metacall_isbase) {
             kpropertiesdialogplugin_metacall_isbase = false;
             return KPropertiesDialogPlugin::qt_metacall(param1, param2, param3);
-        } else if (kpropertiesdialogplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpropertiesdialogplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpropertiesdialogplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPropertiesDialogPlugin::qt_metacall(param1, param2, param3);
         }
+        return KPropertiesDialogPlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -179,11 +163,14 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_applychanges_isbase) {
             kpropertiesdialogplugin_applychanges_isbase = false;
             KPropertiesDialogPlugin::applyChanges();
-        } else if (kpropertiesdialogplugin_applychanges_callback != nullptr) {
-            kpropertiesdialogplugin_applychanges_callback();
-        } else {
-            KPropertiesDialogPlugin::applyChanges();
+            return;
         }
+        auto applychanges_cb = kpropertiesdialogplugin_applychanges_callback;
+        if (applychanges_cb) {
+            applychanges_cb();
+            return;
+        }
+        KPropertiesDialogPlugin::applyChanges();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -191,14 +178,15 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_event_isbase) {
             kpropertiesdialogplugin_event_isbase = false;
             return KPropertiesDialogPlugin::event(event);
-        } else if (kpropertiesdialogplugin_event_callback != nullptr) {
+        }
+        auto event_cb = kpropertiesdialogplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpropertiesdialogplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPropertiesDialogPlugin::event(event);
         }
+        return KPropertiesDialogPlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,15 +194,16 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_eventfilter_isbase) {
             kpropertiesdialogplugin_eventfilter_isbase = false;
             return KPropertiesDialogPlugin::eventFilter(watched, event);
-        } else if (kpropertiesdialogplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpropertiesdialogplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpropertiesdialogplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPropertiesDialogPlugin::eventFilter(watched, event);
         }
+        return KPropertiesDialogPlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,13 +211,16 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_timerevent_isbase) {
             kpropertiesdialogplugin_timerevent_isbase = false;
             KPropertiesDialogPlugin::timerEvent(event);
-        } else if (kpropertiesdialogplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpropertiesdialogplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpropertiesdialogplugin_timerevent_callback(this, cbval1);
-        } else {
-            KPropertiesDialogPlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPropertiesDialogPlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -236,13 +228,16 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_childevent_isbase) {
             kpropertiesdialogplugin_childevent_isbase = false;
             KPropertiesDialogPlugin::childEvent(event);
-        } else if (kpropertiesdialogplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpropertiesdialogplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpropertiesdialogplugin_childevent_callback(this, cbval1);
-        } else {
-            KPropertiesDialogPlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPropertiesDialogPlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,13 +245,16 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_customevent_isbase) {
             kpropertiesdialogplugin_customevent_isbase = false;
             KPropertiesDialogPlugin::customEvent(event);
-        } else if (kpropertiesdialogplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpropertiesdialogplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpropertiesdialogplugin_customevent_callback(this, cbval1);
-        } else {
-            KPropertiesDialogPlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPropertiesDialogPlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -264,15 +262,18 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_connectnotify_isbase) {
             kpropertiesdialogplugin_connectnotify_isbase = false;
             KPropertiesDialogPlugin::connectNotify(signal);
-        } else if (kpropertiesdialogplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpropertiesdialogplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpropertiesdialogplugin_connectnotify_callback(this, cbval1);
-        } else {
-            KPropertiesDialogPlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPropertiesDialogPlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,15 +281,18 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_disconnectnotify_isbase) {
             kpropertiesdialogplugin_disconnectnotify_isbase = false;
             KPropertiesDialogPlugin::disconnectNotify(signal);
-        } else if (kpropertiesdialogplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpropertiesdialogplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpropertiesdialogplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPropertiesDialogPlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPropertiesDialogPlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -296,12 +300,13 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_fontheight_isbase) {
             kpropertiesdialogplugin_fontheight_isbase = false;
             return KPropertiesDialogPlugin::fontHeight();
-        } else if (kpropertiesdialogplugin_fontheight_callback != nullptr) {
-            int callback_ret = kpropertiesdialogplugin_fontheight_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPropertiesDialogPlugin::fontHeight();
         }
+        auto fontheight_cb = kpropertiesdialogplugin_fontheight_callback;
+        if (fontheight_cb) {
+            int callback_ret = fontheight_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPropertiesDialogPlugin::fontHeight();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -309,12 +314,13 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_sender_isbase) {
             kpropertiesdialogplugin_sender_isbase = false;
             return KPropertiesDialogPlugin::sender();
-        } else if (kpropertiesdialogplugin_sender_callback != nullptr) {
-            QObject* callback_ret = kpropertiesdialogplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return KPropertiesDialogPlugin::sender();
         }
+        auto sender_cb = kpropertiesdialogplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPropertiesDialogPlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -322,12 +328,13 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_sendersignalindex_isbase) {
             kpropertiesdialogplugin_sendersignalindex_isbase = false;
             return KPropertiesDialogPlugin::senderSignalIndex();
-        } else if (kpropertiesdialogplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpropertiesdialogplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPropertiesDialogPlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpropertiesdialogplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPropertiesDialogPlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,14 +342,15 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_receivers_isbase) {
             kpropertiesdialogplugin_receivers_isbase = false;
             return KPropertiesDialogPlugin::receivers(signal);
-        } else if (kpropertiesdialogplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpropertiesdialogplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpropertiesdialogplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPropertiesDialogPlugin::receivers(signal);
         }
+        return KPropertiesDialogPlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,16 +358,17 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
         if (kpropertiesdialogplugin_issignalconnected_isbase) {
             kpropertiesdialogplugin_issignalconnected_isbase = false;
             return KPropertiesDialogPlugin::isSignalConnected(signal);
-        } else if (kpropertiesdialogplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpropertiesdialogplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpropertiesdialogplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPropertiesDialogPlugin::isSignalConnected(signal);
         }
+        return KPropertiesDialogPlugin::isSignalConnected(signal);
     }
 
     // Friend functions

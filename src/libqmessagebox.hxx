@@ -232,75 +232,6 @@ class VirtualQMessageBox final : public QMessageBox {
     VirtualQMessageBox(const QString& title, const QString& text, QMessageBox::Icon icon, int button0, int button1, int button2, QWidget* parent) : QMessageBox(title, text, icon, button0, button1, button2, parent) {};
     VirtualQMessageBox(const QString& title, const QString& text, QMessageBox::Icon icon, int button0, int button1, int button2, QWidget* parent, Qt::WindowFlags f) : QMessageBox(title, text, icon, button0, button1, button2, parent, f) {};
 
-    ~VirtualQMessageBox() {
-        qmessagebox_metaobject_callback = nullptr;
-        qmessagebox_metacast_callback = nullptr;
-        qmessagebox_metacall_callback = nullptr;
-        qmessagebox_event_callback = nullptr;
-        qmessagebox_resizeevent_callback = nullptr;
-        qmessagebox_showevent_callback = nullptr;
-        qmessagebox_closeevent_callback = nullptr;
-        qmessagebox_keypressevent_callback = nullptr;
-        qmessagebox_changeevent_callback = nullptr;
-        qmessagebox_setvisible_callback = nullptr;
-        qmessagebox_sizehint_callback = nullptr;
-        qmessagebox_minimumsizehint_callback = nullptr;
-        qmessagebox_open_callback = nullptr;
-        qmessagebox_exec_callback = nullptr;
-        qmessagebox_done_callback = nullptr;
-        qmessagebox_accept_callback = nullptr;
-        qmessagebox_reject_callback = nullptr;
-        qmessagebox_contextmenuevent_callback = nullptr;
-        qmessagebox_eventfilter_callback = nullptr;
-        qmessagebox_devtype_callback = nullptr;
-        qmessagebox_heightforwidth_callback = nullptr;
-        qmessagebox_hasheightforwidth_callback = nullptr;
-        qmessagebox_paintengine_callback = nullptr;
-        qmessagebox_mousepressevent_callback = nullptr;
-        qmessagebox_mousereleaseevent_callback = nullptr;
-        qmessagebox_mousedoubleclickevent_callback = nullptr;
-        qmessagebox_mousemoveevent_callback = nullptr;
-        qmessagebox_wheelevent_callback = nullptr;
-        qmessagebox_keyreleaseevent_callback = nullptr;
-        qmessagebox_focusinevent_callback = nullptr;
-        qmessagebox_focusoutevent_callback = nullptr;
-        qmessagebox_enterevent_callback = nullptr;
-        qmessagebox_leaveevent_callback = nullptr;
-        qmessagebox_paintevent_callback = nullptr;
-        qmessagebox_moveevent_callback = nullptr;
-        qmessagebox_tabletevent_callback = nullptr;
-        qmessagebox_actionevent_callback = nullptr;
-        qmessagebox_dragenterevent_callback = nullptr;
-        qmessagebox_dragmoveevent_callback = nullptr;
-        qmessagebox_dragleaveevent_callback = nullptr;
-        qmessagebox_dropevent_callback = nullptr;
-        qmessagebox_hideevent_callback = nullptr;
-        qmessagebox_nativeevent_callback = nullptr;
-        qmessagebox_metric_callback = nullptr;
-        qmessagebox_initpainter_callback = nullptr;
-        qmessagebox_redirected_callback = nullptr;
-        qmessagebox_sharedpainter_callback = nullptr;
-        qmessagebox_inputmethodevent_callback = nullptr;
-        qmessagebox_inputmethodquery_callback = nullptr;
-        qmessagebox_focusnextprevchild_callback = nullptr;
-        qmessagebox_timerevent_callback = nullptr;
-        qmessagebox_childevent_callback = nullptr;
-        qmessagebox_customevent_callback = nullptr;
-        qmessagebox_connectnotify_callback = nullptr;
-        qmessagebox_disconnectnotify_callback = nullptr;
-        qmessagebox_adjustposition_callback = nullptr;
-        qmessagebox_updatemicrofocus_callback = nullptr;
-        qmessagebox_create_callback = nullptr;
-        qmessagebox_destroy_callback = nullptr;
-        qmessagebox_focusnextchild_callback = nullptr;
-        qmessagebox_focuspreviouschild_callback = nullptr;
-        qmessagebox_sender_callback = nullptr;
-        qmessagebox_sendersignalindex_callback = nullptr;
-        qmessagebox_receivers_callback = nullptr;
-        qmessagebox_issignalconnected_callback = nullptr;
-        qmessagebox_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMessageBox_MetaObject_Callback(QMessageBox_MetaObject_Callback cb) { qmessagebox_metaobject_callback = cb; }
     inline void setQMessageBox_Metacast_Callback(QMessageBox_Metacast_Callback cb) { qmessagebox_metacast_callback = cb; }
@@ -442,12 +373,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_metaobject_isbase) {
             qmessagebox_metaobject_isbase = false;
             return QMessageBox::metaObject();
-        } else if (qmessagebox_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmessagebox_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::metaObject();
         }
+        auto metaobject_cb = qmessagebox_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMessageBox::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,14 +387,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_metacast_isbase) {
             qmessagebox_metacast_isbase = false;
             return QMessageBox::qt_metacast(param1);
-        } else if (qmessagebox_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmessagebox_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmessagebox_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMessageBox::qt_metacast(param1);
         }
+        return QMessageBox::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,16 +403,17 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_metacall_isbase) {
             qmessagebox_metacall_isbase = false;
             return QMessageBox::qt_metacall(param1, param2, param3);
-        } else if (qmessagebox_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmessagebox_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmessagebox_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::qt_metacall(param1, param2, param3);
         }
+        return QMessageBox::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -487,14 +421,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_event_isbase) {
             qmessagebox_event_isbase = false;
             return QMessageBox::event(e);
-        } else if (qmessagebox_event_callback != nullptr) {
+        }
+        auto event_cb = qmessagebox_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qmessagebox_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMessageBox::event(e);
         }
+        return QMessageBox::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -502,13 +437,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_resizeevent_isbase) {
             qmessagebox_resizeevent_isbase = false;
             QMessageBox::resizeEvent(event);
-        } else if (qmessagebox_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qmessagebox_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qmessagebox_resizeevent_callback(this, cbval1);
-        } else {
-            QMessageBox::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,13 +454,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_showevent_isbase) {
             qmessagebox_showevent_isbase = false;
             QMessageBox::showEvent(event);
-        } else if (qmessagebox_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qmessagebox_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qmessagebox_showevent_callback(this, cbval1);
-        } else {
-            QMessageBox::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,13 +471,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_closeevent_isbase) {
             qmessagebox_closeevent_isbase = false;
             QMessageBox::closeEvent(event);
-        } else if (qmessagebox_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qmessagebox_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qmessagebox_closeevent_callback(this, cbval1);
-        } else {
-            QMessageBox::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -544,13 +488,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_keypressevent_isbase) {
             qmessagebox_keypressevent_isbase = false;
             QMessageBox::keyPressEvent(event);
-        } else if (qmessagebox_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qmessagebox_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qmessagebox_keypressevent_callback(this, cbval1);
-        } else {
-            QMessageBox::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,13 +505,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_changeevent_isbase) {
             qmessagebox_changeevent_isbase = false;
             QMessageBox::changeEvent(event);
-        } else if (qmessagebox_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qmessagebox_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = event;
 
-            qmessagebox_changeevent_callback(this, cbval1);
-        } else {
-            QMessageBox::changeEvent(event);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::changeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,13 +522,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_setvisible_isbase) {
             qmessagebox_setvisible_isbase = false;
             QMessageBox::setVisible(visible);
-        } else if (qmessagebox_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qmessagebox_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qmessagebox_setvisible_callback(this, cbval1);
-        } else {
-            QMessageBox::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QMessageBox::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,12 +539,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_sizehint_isbase) {
             qmessagebox_sizehint_isbase = false;
             return QMessageBox::sizeHint();
-        } else if (qmessagebox_sizehint_callback != nullptr) {
-            QSize* callback_ret = qmessagebox_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMessageBox::sizeHint();
         }
+        auto sizehint_cb = qmessagebox_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QMessageBox::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -599,12 +553,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_minimumsizehint_isbase) {
             qmessagebox_minimumsizehint_isbase = false;
             return QMessageBox::minimumSizeHint();
-        } else if (qmessagebox_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qmessagebox_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QMessageBox::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qmessagebox_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QMessageBox::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,11 +567,14 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_open_isbase) {
             qmessagebox_open_isbase = false;
             QMessageBox::open();
-        } else if (qmessagebox_open_callback != nullptr) {
-            qmessagebox_open_callback();
-        } else {
-            QMessageBox::open();
+            return;
         }
+        auto open_cb = qmessagebox_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QMessageBox::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,12 +582,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_exec_isbase) {
             qmessagebox_exec_isbase = false;
             return QMessageBox::exec();
-        } else if (qmessagebox_exec_callback != nullptr) {
-            int callback_ret = qmessagebox_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::exec();
         }
+        auto exec_cb = qmessagebox_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMessageBox::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +596,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_done_isbase) {
             qmessagebox_done_isbase = false;
             QMessageBox::done(param1);
-        } else if (qmessagebox_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qmessagebox_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            qmessagebox_done_callback(this, cbval1);
-        } else {
-            QMessageBox::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        QMessageBox::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,11 +613,14 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_accept_isbase) {
             qmessagebox_accept_isbase = false;
             QMessageBox::accept();
-        } else if (qmessagebox_accept_callback != nullptr) {
-            qmessagebox_accept_callback();
-        } else {
-            QMessageBox::accept();
+            return;
         }
+        auto accept_cb = qmessagebox_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QMessageBox::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -663,11 +628,14 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_reject_isbase) {
             qmessagebox_reject_isbase = false;
             QMessageBox::reject();
-        } else if (qmessagebox_reject_callback != nullptr) {
-            qmessagebox_reject_callback();
-        } else {
-            QMessageBox::reject();
+            return;
         }
+        auto reject_cb = qmessagebox_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QMessageBox::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +643,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_contextmenuevent_isbase) {
             qmessagebox_contextmenuevent_isbase = false;
             QMessageBox::contextMenuEvent(param1);
-        } else if (qmessagebox_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qmessagebox_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qmessagebox_contextmenuevent_callback(this, cbval1);
-        } else {
-            QMessageBox::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,15 +660,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_eventfilter_isbase) {
             qmessagebox_eventfilter_isbase = false;
             return QMessageBox::eventFilter(param1, param2);
-        } else if (qmessagebox_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmessagebox_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qmessagebox_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMessageBox::eventFilter(param1, param2);
         }
+        return QMessageBox::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,12 +677,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_devtype_isbase) {
             qmessagebox_devtype_isbase = false;
             return QMessageBox::devType();
-        } else if (qmessagebox_devtype_callback != nullptr) {
-            int callback_ret = qmessagebox_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::devType();
         }
+        auto devtype_cb = qmessagebox_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMessageBox::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,14 +691,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_heightforwidth_isbase) {
             qmessagebox_heightforwidth_isbase = false;
             return QMessageBox::heightForWidth(param1);
-        } else if (qmessagebox_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qmessagebox_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qmessagebox_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::heightForWidth(param1);
         }
+        return QMessageBox::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -733,12 +707,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_hasheightforwidth_isbase) {
             qmessagebox_hasheightforwidth_isbase = false;
             return QMessageBox::hasHeightForWidth();
-        } else if (qmessagebox_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qmessagebox_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qmessagebox_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QMessageBox::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,12 +721,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_paintengine_isbase) {
             qmessagebox_paintengine_isbase = false;
             return QMessageBox::paintEngine();
-        } else if (qmessagebox_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qmessagebox_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::paintEngine();
         }
+        auto paintengine_cb = qmessagebox_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QMessageBox::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +735,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_mousepressevent_isbase) {
             qmessagebox_mousepressevent_isbase = false;
             QMessageBox::mousePressEvent(event);
-        } else if (qmessagebox_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qmessagebox_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qmessagebox_mousepressevent_callback(this, cbval1);
-        } else {
-            QMessageBox::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +752,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_mousereleaseevent_isbase) {
             qmessagebox_mousereleaseevent_isbase = false;
             QMessageBox::mouseReleaseEvent(event);
-        } else if (qmessagebox_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qmessagebox_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qmessagebox_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QMessageBox::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +769,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_mousedoubleclickevent_isbase) {
             qmessagebox_mousedoubleclickevent_isbase = false;
             QMessageBox::mouseDoubleClickEvent(event);
-        } else if (qmessagebox_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qmessagebox_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qmessagebox_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QMessageBox::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +786,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_mousemoveevent_isbase) {
             qmessagebox_mousemoveevent_isbase = false;
             QMessageBox::mouseMoveEvent(event);
-        } else if (qmessagebox_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qmessagebox_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qmessagebox_mousemoveevent_callback(this, cbval1);
-        } else {
-            QMessageBox::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +803,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_wheelevent_isbase) {
             qmessagebox_wheelevent_isbase = false;
             QMessageBox::wheelEvent(event);
-        } else if (qmessagebox_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qmessagebox_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qmessagebox_wheelevent_callback(this, cbval1);
-        } else {
-            QMessageBox::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +820,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_keyreleaseevent_isbase) {
             qmessagebox_keyreleaseevent_isbase = false;
             QMessageBox::keyReleaseEvent(event);
-        } else if (qmessagebox_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qmessagebox_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qmessagebox_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QMessageBox::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +837,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_focusinevent_isbase) {
             qmessagebox_focusinevent_isbase = false;
             QMessageBox::focusInEvent(event);
-        } else if (qmessagebox_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qmessagebox_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qmessagebox_focusinevent_callback(this, cbval1);
-        } else {
-            QMessageBox::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +854,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_focusoutevent_isbase) {
             qmessagebox_focusoutevent_isbase = false;
             QMessageBox::focusOutEvent(event);
-        } else if (qmessagebox_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qmessagebox_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qmessagebox_focusoutevent_callback(this, cbval1);
-        } else {
-            QMessageBox::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +871,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_enterevent_isbase) {
             qmessagebox_enterevent_isbase = false;
             QMessageBox::enterEvent(event);
-        } else if (qmessagebox_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qmessagebox_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qmessagebox_enterevent_callback(this, cbval1);
-        } else {
-            QMessageBox::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +888,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_leaveevent_isbase) {
             qmessagebox_leaveevent_isbase = false;
             QMessageBox::leaveEvent(event);
-        } else if (qmessagebox_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qmessagebox_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qmessagebox_leaveevent_callback(this, cbval1);
-        } else {
-            QMessageBox::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +905,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_paintevent_isbase) {
             qmessagebox_paintevent_isbase = false;
             QMessageBox::paintEvent(event);
-        } else if (qmessagebox_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qmessagebox_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qmessagebox_paintevent_callback(this, cbval1);
-        } else {
-            QMessageBox::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +922,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_moveevent_isbase) {
             qmessagebox_moveevent_isbase = false;
             QMessageBox::moveEvent(event);
-        } else if (qmessagebox_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qmessagebox_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qmessagebox_moveevent_callback(this, cbval1);
-        } else {
-            QMessageBox::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +939,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_tabletevent_isbase) {
             qmessagebox_tabletevent_isbase = false;
             QMessageBox::tabletEvent(event);
-        } else if (qmessagebox_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qmessagebox_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qmessagebox_tabletevent_callback(this, cbval1);
-        } else {
-            QMessageBox::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +956,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_actionevent_isbase) {
             qmessagebox_actionevent_isbase = false;
             QMessageBox::actionEvent(event);
-        } else if (qmessagebox_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qmessagebox_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qmessagebox_actionevent_callback(this, cbval1);
-        } else {
-            QMessageBox::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +973,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_dragenterevent_isbase) {
             qmessagebox_dragenterevent_isbase = false;
             QMessageBox::dragEnterEvent(event);
-        } else if (qmessagebox_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qmessagebox_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qmessagebox_dragenterevent_callback(this, cbval1);
-        } else {
-            QMessageBox::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +990,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_dragmoveevent_isbase) {
             qmessagebox_dragmoveevent_isbase = false;
             QMessageBox::dragMoveEvent(event);
-        } else if (qmessagebox_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qmessagebox_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qmessagebox_dragmoveevent_callback(this, cbval1);
-        } else {
-            QMessageBox::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,13 +1007,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_dragleaveevent_isbase) {
             qmessagebox_dragleaveevent_isbase = false;
             QMessageBox::dragLeaveEvent(event);
-        } else if (qmessagebox_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qmessagebox_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qmessagebox_dragleaveevent_callback(this, cbval1);
-        } else {
-            QMessageBox::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,13 +1024,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_dropevent_isbase) {
             qmessagebox_dropevent_isbase = false;
             QMessageBox::dropEvent(event);
-        } else if (qmessagebox_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qmessagebox_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qmessagebox_dropevent_callback(this, cbval1);
-        } else {
-            QMessageBox::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1011,13 +1041,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_hideevent_isbase) {
             qmessagebox_hideevent_isbase = false;
             QMessageBox::hideEvent(event);
-        } else if (qmessagebox_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qmessagebox_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qmessagebox_hideevent_callback(this, cbval1);
-        } else {
-            QMessageBox::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1025,7 +1058,9 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_nativeevent_isbase) {
             qmessagebox_nativeevent_isbase = false;
             return QMessageBox::nativeEvent(eventType, message, result);
-        } else if (qmessagebox_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qmessagebox_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1036,12 +1071,11 @@ class VirtualQMessageBox final : public QMessageBox {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qmessagebox_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QMessageBox::nativeEvent(eventType, message, result);
         }
+        return QMessageBox::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1083,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_metric_isbase) {
             qmessagebox_metric_isbase = false;
             return QMessageBox::metric(param1);
-        } else if (qmessagebox_metric_callback != nullptr) {
+        }
+        auto metric_cb = qmessagebox_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qmessagebox_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::metric(param1);
         }
+        return QMessageBox::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,13 +1099,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_initpainter_isbase) {
             qmessagebox_initpainter_isbase = false;
             QMessageBox::initPainter(painter);
-        } else if (qmessagebox_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qmessagebox_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qmessagebox_initpainter_callback(this, cbval1);
-        } else {
-            QMessageBox::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QMessageBox::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,14 +1116,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_redirected_isbase) {
             qmessagebox_redirected_isbase = false;
             return QMessageBox::redirected(offset);
-        } else if (qmessagebox_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qmessagebox_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qmessagebox_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMessageBox::redirected(offset);
         }
+        return QMessageBox::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1093,12 +1132,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_sharedpainter_isbase) {
             qmessagebox_sharedpainter_isbase = false;
             return QMessageBox::sharedPainter();
-        } else if (qmessagebox_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qmessagebox_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::sharedPainter();
         }
+        auto sharedpainter_cb = qmessagebox_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QMessageBox::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,13 +1146,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_inputmethodevent_isbase) {
             qmessagebox_inputmethodevent_isbase = false;
             QMessageBox::inputMethodEvent(param1);
-        } else if (qmessagebox_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qmessagebox_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qmessagebox_inputmethodevent_callback(this, cbval1);
-        } else {
-            QMessageBox::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,14 +1163,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_inputmethodquery_isbase) {
             qmessagebox_inputmethodquery_isbase = false;
             return QMessageBox::inputMethodQuery(param1);
-        } else if (qmessagebox_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qmessagebox_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qmessagebox_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QMessageBox::inputMethodQuery(param1);
         }
+        return QMessageBox::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1135,14 +1179,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_focusnextprevchild_isbase) {
             qmessagebox_focusnextprevchild_isbase = false;
             return QMessageBox::focusNextPrevChild(next);
-        } else if (qmessagebox_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qmessagebox_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qmessagebox_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMessageBox::focusNextPrevChild(next);
         }
+        return QMessageBox::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1150,13 +1195,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_timerevent_isbase) {
             qmessagebox_timerevent_isbase = false;
             QMessageBox::timerEvent(event);
-        } else if (qmessagebox_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmessagebox_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmessagebox_timerevent_callback(this, cbval1);
-        } else {
-            QMessageBox::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,13 +1212,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_childevent_isbase) {
             qmessagebox_childevent_isbase = false;
             QMessageBox::childEvent(event);
-        } else if (qmessagebox_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmessagebox_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmessagebox_childevent_callback(this, cbval1);
-        } else {
-            QMessageBox::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1178,13 +1229,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_customevent_isbase) {
             qmessagebox_customevent_isbase = false;
             QMessageBox::customEvent(event);
-        } else if (qmessagebox_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmessagebox_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmessagebox_customevent_callback(this, cbval1);
-        } else {
-            QMessageBox::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMessageBox::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1192,15 +1246,18 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_connectnotify_isbase) {
             qmessagebox_connectnotify_isbase = false;
             QMessageBox::connectNotify(signal);
-        } else if (qmessagebox_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmessagebox_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmessagebox_connectnotify_callback(this, cbval1);
-        } else {
-            QMessageBox::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMessageBox::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,15 +1265,18 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_disconnectnotify_isbase) {
             qmessagebox_disconnectnotify_isbase = false;
             QMessageBox::disconnectNotify(signal);
-        } else if (qmessagebox_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmessagebox_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmessagebox_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMessageBox::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMessageBox::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,13 +1284,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_adjustposition_isbase) {
             qmessagebox_adjustposition_isbase = false;
             QMessageBox::adjustPosition(param1);
-        } else if (qmessagebox_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qmessagebox_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qmessagebox_adjustposition_callback(this, cbval1);
-        } else {
-            QMessageBox::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QMessageBox::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,11 +1301,14 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_updatemicrofocus_isbase) {
             qmessagebox_updatemicrofocus_isbase = false;
             QMessageBox::updateMicroFocus();
-        } else if (qmessagebox_updatemicrofocus_callback != nullptr) {
-            qmessagebox_updatemicrofocus_callback();
-        } else {
-            QMessageBox::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qmessagebox_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QMessageBox::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,11 +1316,14 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_create_isbase) {
             qmessagebox_create_isbase = false;
             QMessageBox::create();
-        } else if (qmessagebox_create_callback != nullptr) {
-            qmessagebox_create_callback();
-        } else {
-            QMessageBox::create();
+            return;
         }
+        auto create_cb = qmessagebox_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QMessageBox::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1262,11 +1331,14 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_destroy_isbase) {
             qmessagebox_destroy_isbase = false;
             QMessageBox::destroy();
-        } else if (qmessagebox_destroy_callback != nullptr) {
-            qmessagebox_destroy_callback();
-        } else {
-            QMessageBox::destroy();
+            return;
         }
+        auto destroy_cb = qmessagebox_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QMessageBox::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1274,12 +1346,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_focusnextchild_isbase) {
             qmessagebox_focusnextchild_isbase = false;
             return QMessageBox::focusNextChild();
-        } else if (qmessagebox_focusnextchild_callback != nullptr) {
-            bool callback_ret = qmessagebox_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::focusNextChild();
         }
+        auto focusnextchild_cb = qmessagebox_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QMessageBox::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1287,12 +1360,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_focuspreviouschild_isbase) {
             qmessagebox_focuspreviouschild_isbase = false;
             return QMessageBox::focusPreviousChild();
-        } else if (qmessagebox_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qmessagebox_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qmessagebox_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QMessageBox::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,12 +1374,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_sender_isbase) {
             qmessagebox_sender_isbase = false;
             return QMessageBox::sender();
-        } else if (qmessagebox_sender_callback != nullptr) {
-            QObject* callback_ret = qmessagebox_sender_callback();
-            return callback_ret;
-        } else {
-            return QMessageBox::sender();
         }
+        auto sender_cb = qmessagebox_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMessageBox::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1313,12 +1388,13 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_sendersignalindex_isbase) {
             qmessagebox_sendersignalindex_isbase = false;
             return QMessageBox::senderSignalIndex();
-        } else if (qmessagebox_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmessagebox_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmessagebox_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMessageBox::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1326,14 +1402,15 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_receivers_isbase) {
             qmessagebox_receivers_isbase = false;
             return QMessageBox::receivers(signal);
-        } else if (qmessagebox_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmessagebox_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmessagebox_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMessageBox::receivers(signal);
         }
+        return QMessageBox::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1341,16 +1418,17 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_issignalconnected_isbase) {
             qmessagebox_issignalconnected_isbase = false;
             return QMessageBox::isSignalConnected(signal);
-        } else if (qmessagebox_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmessagebox_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmessagebox_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMessageBox::isSignalConnected(signal);
         }
+        return QMessageBox::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1358,15 +1436,16 @@ class VirtualQMessageBox final : public QMessageBox {
         if (qmessagebox_getdecodedmetricf_isbase) {
             qmessagebox_getdecodedmetricf_isbase = false;
             return QMessageBox::getDecodedMetricF(metricA, metricB);
-        } else if (qmessagebox_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qmessagebox_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qmessagebox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QMessageBox::getDecodedMetricF(metricA, metricB);
         }
+        return QMessageBox::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -231,77 +231,6 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     VirtualQPdfLinkModel() : QPdfLinkModel() {};
     VirtualQPdfLinkModel(QObject* parent) : QPdfLinkModel(parent) {};
 
-    ~VirtualQPdfLinkModel() {
-        qpdflinkmodel_metaobject_callback = nullptr;
-        qpdflinkmodel_metacast_callback = nullptr;
-        qpdflinkmodel_metacall_callback = nullptr;
-        qpdflinkmodel_rolenames_callback = nullptr;
-        qpdflinkmodel_rowcount_callback = nullptr;
-        qpdflinkmodel_data_callback = nullptr;
-        qpdflinkmodel_index_callback = nullptr;
-        qpdflinkmodel_sibling_callback = nullptr;
-        qpdflinkmodel_dropmimedata_callback = nullptr;
-        qpdflinkmodel_flags_callback = nullptr;
-        qpdflinkmodel_setdata_callback = nullptr;
-        qpdflinkmodel_headerdata_callback = nullptr;
-        qpdflinkmodel_setheaderdata_callback = nullptr;
-        qpdflinkmodel_itemdata_callback = nullptr;
-        qpdflinkmodel_setitemdata_callback = nullptr;
-        qpdflinkmodel_clearitemdata_callback = nullptr;
-        qpdflinkmodel_mimetypes_callback = nullptr;
-        qpdflinkmodel_mimedata_callback = nullptr;
-        qpdflinkmodel_candropmimedata_callback = nullptr;
-        qpdflinkmodel_supporteddropactions_callback = nullptr;
-        qpdflinkmodel_supporteddragactions_callback = nullptr;
-        qpdflinkmodel_insertrows_callback = nullptr;
-        qpdflinkmodel_insertcolumns_callback = nullptr;
-        qpdflinkmodel_removerows_callback = nullptr;
-        qpdflinkmodel_removecolumns_callback = nullptr;
-        qpdflinkmodel_moverows_callback = nullptr;
-        qpdflinkmodel_movecolumns_callback = nullptr;
-        qpdflinkmodel_fetchmore_callback = nullptr;
-        qpdflinkmodel_canfetchmore_callback = nullptr;
-        qpdflinkmodel_sort_callback = nullptr;
-        qpdflinkmodel_buddy_callback = nullptr;
-        qpdflinkmodel_match_callback = nullptr;
-        qpdflinkmodel_span_callback = nullptr;
-        qpdflinkmodel_multidata_callback = nullptr;
-        qpdflinkmodel_submit_callback = nullptr;
-        qpdflinkmodel_revert_callback = nullptr;
-        qpdflinkmodel_resetinternaldata_callback = nullptr;
-        qpdflinkmodel_event_callback = nullptr;
-        qpdflinkmodel_eventfilter_callback = nullptr;
-        qpdflinkmodel_timerevent_callback = nullptr;
-        qpdflinkmodel_childevent_callback = nullptr;
-        qpdflinkmodel_customevent_callback = nullptr;
-        qpdflinkmodel_connectnotify_callback = nullptr;
-        qpdflinkmodel_disconnectnotify_callback = nullptr;
-        qpdflinkmodel_createindex_callback = nullptr;
-        qpdflinkmodel_encodedata_callback = nullptr;
-        qpdflinkmodel_decodedata_callback = nullptr;
-        qpdflinkmodel_begininsertrows_callback = nullptr;
-        qpdflinkmodel_endinsertrows_callback = nullptr;
-        qpdflinkmodel_beginremoverows_callback = nullptr;
-        qpdflinkmodel_endremoverows_callback = nullptr;
-        qpdflinkmodel_beginmoverows_callback = nullptr;
-        qpdflinkmodel_endmoverows_callback = nullptr;
-        qpdflinkmodel_begininsertcolumns_callback = nullptr;
-        qpdflinkmodel_endinsertcolumns_callback = nullptr;
-        qpdflinkmodel_beginremovecolumns_callback = nullptr;
-        qpdflinkmodel_endremovecolumns_callback = nullptr;
-        qpdflinkmodel_beginmovecolumns_callback = nullptr;
-        qpdflinkmodel_endmovecolumns_callback = nullptr;
-        qpdflinkmodel_beginresetmodel_callback = nullptr;
-        qpdflinkmodel_endresetmodel_callback = nullptr;
-        qpdflinkmodel_changepersistentindex_callback = nullptr;
-        qpdflinkmodel_changepersistentindexlist_callback = nullptr;
-        qpdflinkmodel_persistentindexlist_callback = nullptr;
-        qpdflinkmodel_sender_callback = nullptr;
-        qpdflinkmodel_sendersignalindex_callback = nullptr;
-        qpdflinkmodel_receivers_callback = nullptr;
-        qpdflinkmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQPdfLinkModel_MetaObject_Callback(QPdfLinkModel_MetaObject_Callback cb) { qpdflinkmodel_metaobject_callback = cb; }
     inline void setQPdfLinkModel_Metacast_Callback(QPdfLinkModel_Metacast_Callback cb) { qpdflinkmodel_metacast_callback = cb; }
@@ -447,12 +376,13 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_metaobject_isbase) {
             qpdflinkmodel_metaobject_isbase = false;
             return QPdfLinkModel::metaObject();
-        } else if (qpdflinkmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qpdflinkmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QPdfLinkModel::metaObject();
         }
+        auto metaobject_cb = qpdflinkmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QPdfLinkModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -460,14 +390,15 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_metacast_isbase) {
             qpdflinkmodel_metacast_isbase = false;
             return QPdfLinkModel::qt_metacast(param1);
-        } else if (qpdflinkmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qpdflinkmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qpdflinkmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::qt_metacast(param1);
         }
+        return QPdfLinkModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -475,16 +406,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_metacall_isbase) {
             qpdflinkmodel_metacall_isbase = false;
             return QPdfLinkModel::qt_metacall(param1, param2, param3);
-        } else if (qpdflinkmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qpdflinkmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qpdflinkmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfLinkModel::qt_metacall(param1, param2, param3);
         }
+        return QPdfLinkModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -492,8 +424,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_rolenames_isbase) {
             qpdflinkmodel_rolenames_isbase = false;
             return QPdfLinkModel::roleNames();
-        } else if (qpdflinkmodel_rolenames_callback != nullptr) {
-            libqt_map /* of int to libqt_string */ callback_ret = qpdflinkmodel_rolenames_callback();
+        }
+        auto rolenames_cb = qpdflinkmodel_rolenames_callback;
+        if (rolenames_cb) {
+            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -503,9 +437,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
                 callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
             }
             return callback_ret_QHash;
-        } else {
-            return QPdfLinkModel::roleNames();
         }
+        return QPdfLinkModel::roleNames();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,16 +446,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_rowcount_isbase) {
             qpdflinkmodel_rowcount_isbase = false;
             return QPdfLinkModel::rowCount(parent);
-        } else if (qpdflinkmodel_rowcount_callback != nullptr) {
+        }
+        auto rowcount_cb = qpdflinkmodel_rowcount_callback;
+        if (rowcount_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            int callback_ret = qpdflinkmodel_rowcount_callback(this, cbval1);
+            int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfLinkModel::rowCount(parent);
         }
+        return QPdfLinkModel::rowCount(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,17 +464,18 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_data_isbase) {
             qpdflinkmodel_data_isbase = false;
             return QPdfLinkModel::data(index, role);
-        } else if (qpdflinkmodel_data_callback != nullptr) {
+        }
+        auto data_cb = qpdflinkmodel_data_callback;
+        if (data_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
 
-            QVariant* callback_ret = qpdflinkmodel_data_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::data(index, role);
         }
+        return QPdfLinkModel::data(index, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,18 +483,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_index_isbase) {
             qpdflinkmodel_index_isbase = false;
             return QPdfLinkModel::index(row, column, parent);
-        } else if (qpdflinkmodel_index_callback != nullptr) {
+        }
+        auto index_cb = qpdflinkmodel_index_callback;
+        if (index_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            QModelIndex* callback_ret = qpdflinkmodel_index_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::index(row, column, parent);
         }
+        return QPdfLinkModel::index(row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,18 +503,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_sibling_isbase) {
             qpdflinkmodel_sibling_isbase = false;
             return QPdfLinkModel::sibling(row, column, idx);
-        } else if (qpdflinkmodel_sibling_callback != nullptr) {
+        }
+        auto sibling_cb = qpdflinkmodel_sibling_callback;
+        if (sibling_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
 
-            QModelIndex* callback_ret = qpdflinkmodel_sibling_callback(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::sibling(row, column, idx);
         }
+        return QPdfLinkModel::sibling(row, column, idx);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,7 +523,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_dropmimedata_isbase) {
             qpdflinkmodel_dropmimedata_isbase = false;
             return QPdfLinkModel::dropMimeData(data, action, row, column, parent);
-        } else if (qpdflinkmodel_dropmimedata_callback != nullptr) {
+        }
+        auto dropmimedata_cb = qpdflinkmodel_dropmimedata_callback;
+        if (dropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -595,11 +534,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::dropMimeData(data, action, row, column, parent);
         }
+        return QPdfLinkModel::dropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,16 +545,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_flags_isbase) {
             qpdflinkmodel_flags_isbase = false;
             return QPdfLinkModel::flags(index);
-        } else if (qpdflinkmodel_flags_callback != nullptr) {
+        }
+        auto flags_cb = qpdflinkmodel_flags_callback;
+        if (flags_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            int callback_ret = qpdflinkmodel_flags_callback(this, cbval1);
+            int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
-        } else {
-            return QPdfLinkModel::flags(index);
         }
+        return QPdfLinkModel::flags(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -624,7 +563,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_setdata_isbase) {
             qpdflinkmodel_setdata_isbase = false;
             return QPdfLinkModel::setData(index, value, role);
-        } else if (qpdflinkmodel_setdata_callback != nullptr) {
+        }
+        auto setdata_cb = qpdflinkmodel_setdata_callback;
+        if (setdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -633,11 +574,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
 
-            bool callback_ret = qpdflinkmodel_setdata_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::setData(index, value, role);
         }
+        return QPdfLinkModel::setData(index, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -645,16 +585,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_headerdata_isbase) {
             qpdflinkmodel_headerdata_isbase = false;
             return QPdfLinkModel::headerData(section, orientation, role);
-        } else if (qpdflinkmodel_headerdata_callback != nullptr) {
+        }
+        auto headerdata_cb = qpdflinkmodel_headerdata_callback;
+        if (headerdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
 
-            QVariant* callback_ret = qpdflinkmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::headerData(section, orientation, role);
         }
+        return QPdfLinkModel::headerData(section, orientation, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,7 +603,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_setheaderdata_isbase) {
             qpdflinkmodel_setheaderdata_isbase = false;
             return QPdfLinkModel::setHeaderData(section, orientation, value, role);
-        } else if (qpdflinkmodel_setheaderdata_callback != nullptr) {
+        }
+        auto setheaderdata_cb = qpdflinkmodel_setheaderdata_callback;
+        if (setheaderdata_cb) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
@@ -670,11 +613,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
 
-            bool callback_ret = qpdflinkmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::setHeaderData(section, orientation, value, role);
         }
+        return QPdfLinkModel::setHeaderData(section, orientation, value, role);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +624,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_itemdata_isbase) {
             qpdflinkmodel_itemdata_isbase = false;
             return QPdfLinkModel::itemData(index);
-        } else if (qpdflinkmodel_itemdata_callback != nullptr) {
+        }
+        auto itemdata_cb = qpdflinkmodel_itemdata_callback;
+        if (itemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            libqt_map /* of int to QVariant* */ callback_ret = qpdflinkmodel_itemdata_callback(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -695,9 +639,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
                 callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
             }
             return callback_ret_QMap;
-        } else {
-            return QPdfLinkModel::itemData(index);
         }
+        return QPdfLinkModel::itemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -705,7 +648,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_setitemdata_isbase) {
             qpdflinkmodel_setitemdata_isbase = false;
             return QPdfLinkModel::setItemData(index, roles);
-        } else if (qpdflinkmodel_setitemdata_callback != nullptr) {
+        }
+        auto setitemdata_cb = qpdflinkmodel_setitemdata_callback;
+        if (setitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -725,11 +670,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
 
-            bool callback_ret = qpdflinkmodel_setitemdata_callback(this, cbval1, cbval2);
+            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::setItemData(index, roles);
         }
+        return QPdfLinkModel::setItemData(index, roles);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,16 +681,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_clearitemdata_isbase) {
             qpdflinkmodel_clearitemdata_isbase = false;
             return QPdfLinkModel::clearItemData(index);
-        } else if (qpdflinkmodel_clearitemdata_callback != nullptr) {
+        }
+        auto clearitemdata_cb = qpdflinkmodel_clearitemdata_callback;
+        if (clearitemdata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            bool callback_ret = qpdflinkmodel_clearitemdata_callback(this, cbval1);
+            bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::clearItemData(index);
         }
+        return QPdfLinkModel::clearItemData(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,8 +699,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_mimetypes_isbase) {
             qpdflinkmodel_mimetypes_isbase = false;
             return QPdfLinkModel::mimeTypes();
-        } else if (qpdflinkmodel_mimetypes_callback != nullptr) {
-            const char** callback_ret = qpdflinkmodel_mimetypes_callback();
+        }
+        auto mimetypes_cb = qpdflinkmodel_mimetypes_callback;
+        if (mimetypes_cb) {
+            const char** callback_ret = mimetypes_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -766,9 +713,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QPdfLinkModel::mimeTypes();
         }
+        return QPdfLinkModel::mimeTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,7 +722,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_mimedata_isbase) {
             qpdflinkmodel_mimedata_isbase = false;
             return QPdfLinkModel::mimeData(indexes);
-        } else if (qpdflinkmodel_mimedata_callback != nullptr) {
+        }
+        auto mimedata_cb = qpdflinkmodel_mimedata_callback;
+        if (mimedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -788,12 +736,11 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
 
-            QMimeData* callback_ret = qpdflinkmodel_mimedata_callback(this, cbval1);
+            QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::mimeData(indexes);
         }
+        return QPdfLinkModel::mimeData(indexes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,7 +748,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_candropmimedata_isbase) {
             qpdflinkmodel_candropmimedata_isbase = false;
             return QPdfLinkModel::canDropMimeData(data, action, row, column, parent);
-        } else if (qpdflinkmodel_candropmimedata_callback != nullptr) {
+        }
+        auto candropmimedata_cb = qpdflinkmodel_candropmimedata_callback;
+        if (candropmimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -810,11 +759,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::canDropMimeData(data, action, row, column, parent);
         }
+        return QPdfLinkModel::canDropMimeData(data, action, row, column, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -822,12 +770,13 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_supporteddropactions_isbase) {
             qpdflinkmodel_supporteddropactions_isbase = false;
             return QPdfLinkModel::supportedDropActions();
-        } else if (qpdflinkmodel_supporteddropactions_callback != nullptr) {
-            int callback_ret = qpdflinkmodel_supporteddropactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QPdfLinkModel::supportedDropActions();
         }
+        auto supporteddropactions_cb = qpdflinkmodel_supporteddropactions_callback;
+        if (supporteddropactions_cb) {
+            int callback_ret = supporteddropactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QPdfLinkModel::supportedDropActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,12 +784,13 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_supporteddragactions_isbase) {
             qpdflinkmodel_supporteddragactions_isbase = false;
             return QPdfLinkModel::supportedDragActions();
-        } else if (qpdflinkmodel_supporteddragactions_callback != nullptr) {
-            int callback_ret = qpdflinkmodel_supporteddragactions_callback();
-            return static_cast<Qt::DropActions>(callback_ret);
-        } else {
-            return QPdfLinkModel::supportedDragActions();
         }
+        auto supporteddragactions_cb = qpdflinkmodel_supporteddragactions_callback;
+        if (supporteddragactions_cb) {
+            int callback_ret = supporteddragactions_cb();
+            return static_cast<Qt::DropActions>(callback_ret);
+        }
+        return QPdfLinkModel::supportedDragActions();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -848,18 +798,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_insertrows_isbase) {
             qpdflinkmodel_insertrows_isbase = false;
             return QPdfLinkModel::insertRows(row, count, parent);
-        } else if (qpdflinkmodel_insertrows_callback != nullptr) {
+        }
+        auto insertrows_cb = qpdflinkmodel_insertrows_callback;
+        if (insertrows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::insertRows(row, count, parent);
         }
+        return QPdfLinkModel::insertRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,18 +818,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_insertcolumns_isbase) {
             qpdflinkmodel_insertcolumns_isbase = false;
             return QPdfLinkModel::insertColumns(column, count, parent);
-        } else if (qpdflinkmodel_insertcolumns_callback != nullptr) {
+        }
+        auto insertcolumns_cb = qpdflinkmodel_insertcolumns_callback;
+        if (insertcolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::insertColumns(column, count, parent);
         }
+        return QPdfLinkModel::insertColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,18 +838,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_removerows_isbase) {
             qpdflinkmodel_removerows_isbase = false;
             return QPdfLinkModel::removeRows(row, count, parent);
-        } else if (qpdflinkmodel_removerows_callback != nullptr) {
+        }
+        auto removerows_cb = qpdflinkmodel_removerows_callback;
+        if (removerows_cb) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_removerows_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::removeRows(row, count, parent);
         }
+        return QPdfLinkModel::removeRows(row, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,18 +858,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_removecolumns_isbase) {
             qpdflinkmodel_removecolumns_isbase = false;
             return QPdfLinkModel::removeColumns(column, count, parent);
-        } else if (qpdflinkmodel_removecolumns_callback != nullptr) {
+        }
+        auto removecolumns_cb = qpdflinkmodel_removecolumns_callback;
+        if (removecolumns_cb) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::removeColumns(column, count, parent);
         }
+        return QPdfLinkModel::removeColumns(column, count, parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,7 +878,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_moverows_isbase) {
             qpdflinkmodel_moverows_isbase = false;
             return QPdfLinkModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        } else if (qpdflinkmodel_moverows_callback != nullptr) {
+        }
+        auto moverows_cb = qpdflinkmodel_moverows_callback;
+        if (moverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -935,11 +891,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qpdflinkmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
         }
+        return QPdfLinkModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,7 +902,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_movecolumns_isbase) {
             qpdflinkmodel_movecolumns_isbase = false;
             return QPdfLinkModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        } else if (qpdflinkmodel_movecolumns_callback != nullptr) {
+        }
+        auto movecolumns_cb = qpdflinkmodel_movecolumns_callback;
+        if (movecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -958,11 +915,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
 
-            bool callback_ret = qpdflinkmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
         }
+        return QPdfLinkModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,15 +926,18 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_fetchmore_isbase) {
             qpdflinkmodel_fetchmore_isbase = false;
             QPdfLinkModel::fetchMore(parent);
-        } else if (qpdflinkmodel_fetchmore_callback != nullptr) {
+            return;
+        }
+        auto fetchmore_cb = qpdflinkmodel_fetchmore_callback;
+        if (fetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            qpdflinkmodel_fetchmore_callback(this, cbval1);
-        } else {
-            QPdfLinkModel::fetchMore(parent);
+            fetchmore_cb(this, cbval1);
+            return;
         }
+        QPdfLinkModel::fetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,16 +945,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_canfetchmore_isbase) {
             qpdflinkmodel_canfetchmore_isbase = false;
             return QPdfLinkModel::canFetchMore(parent);
-        } else if (qpdflinkmodel_canfetchmore_callback != nullptr) {
+        }
+        auto canfetchmore_cb = qpdflinkmodel_canfetchmore_callback;
+        if (canfetchmore_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
 
-            bool callback_ret = qpdflinkmodel_canfetchmore_callback(this, cbval1);
+            bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::canFetchMore(parent);
         }
+        return QPdfLinkModel::canFetchMore(parent);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,14 +963,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_sort_isbase) {
             qpdflinkmodel_sort_isbase = false;
             QPdfLinkModel::sort(column, order);
-        } else if (qpdflinkmodel_sort_callback != nullptr) {
+            return;
+        }
+        auto sort_cb = qpdflinkmodel_sort_callback;
+        if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
 
-            qpdflinkmodel_sort_callback(this, cbval1, cbval2);
-        } else {
-            QPdfLinkModel::sort(column, order);
+            sort_cb(this, cbval1, cbval2);
+            return;
         }
+        QPdfLinkModel::sort(column, order);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1018,16 +981,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_buddy_isbase) {
             qpdflinkmodel_buddy_isbase = false;
             return QPdfLinkModel::buddy(index);
-        } else if (qpdflinkmodel_buddy_callback != nullptr) {
+        }
+        auto buddy_cb = qpdflinkmodel_buddy_callback;
+        if (buddy_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QModelIndex* callback_ret = qpdflinkmodel_buddy_callback(this, cbval1);
+            QModelIndex* callback_ret = buddy_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::buddy(index);
         }
+        return QPdfLinkModel::buddy(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,7 +999,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_match_isbase) {
             qpdflinkmodel_match_isbase = false;
             return QPdfLinkModel::match(start, role, value, hits, flags);
-        } else if (qpdflinkmodel_match_callback != nullptr) {
+        }
+        auto match_cb = qpdflinkmodel_match_callback;
+        if (match_cb) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1046,7 +1012,7 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qpdflinkmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1055,9 +1021,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QPdfLinkModel::match(start, role, value, hits, flags);
         }
+        return QPdfLinkModel::match(start, role, value, hits, flags);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,16 +1030,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_span_isbase) {
             qpdflinkmodel_span_isbase = false;
             return QPdfLinkModel::span(index);
-        } else if (qpdflinkmodel_span_callback != nullptr) {
+        }
+        auto span_cb = qpdflinkmodel_span_callback;
+        if (span_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QSize* callback_ret = qpdflinkmodel_span_callback(this, cbval1);
+            QSize* callback_ret = span_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::span(index);
         }
+        return QPdfLinkModel::span(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1082,16 +1048,19 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_multidata_isbase) {
             qpdflinkmodel_multidata_isbase = false;
             QPdfLinkModel::multiData(index, roleDataSpan);
-        } else if (qpdflinkmodel_multidata_callback != nullptr) {
+            return;
+        }
+        auto multidata_cb = qpdflinkmodel_multidata_callback;
+        if (multidata_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
 
-            qpdflinkmodel_multidata_callback(this, cbval1, cbval2);
-        } else {
-            QPdfLinkModel::multiData(index, roleDataSpan);
+            multidata_cb(this, cbval1, cbval2);
+            return;
         }
+        QPdfLinkModel::multiData(index, roleDataSpan);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,12 +1068,13 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_submit_isbase) {
             qpdflinkmodel_submit_isbase = false;
             return QPdfLinkModel::submit();
-        } else if (qpdflinkmodel_submit_callback != nullptr) {
-            bool callback_ret = qpdflinkmodel_submit_callback();
-            return callback_ret;
-        } else {
-            return QPdfLinkModel::submit();
         }
+        auto submit_cb = qpdflinkmodel_submit_callback;
+        if (submit_cb) {
+            bool callback_ret = submit_cb();
+            return callback_ret;
+        }
+        return QPdfLinkModel::submit();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,11 +1082,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_revert_isbase) {
             qpdflinkmodel_revert_isbase = false;
             QPdfLinkModel::revert();
-        } else if (qpdflinkmodel_revert_callback != nullptr) {
-            qpdflinkmodel_revert_callback();
-        } else {
-            QPdfLinkModel::revert();
+            return;
         }
+        auto revert_cb = qpdflinkmodel_revert_callback;
+        if (revert_cb) {
+            revert_cb();
+            return;
+        }
+        QPdfLinkModel::revert();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,11 +1097,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_resetinternaldata_isbase) {
             qpdflinkmodel_resetinternaldata_isbase = false;
             QPdfLinkModel::resetInternalData();
-        } else if (qpdflinkmodel_resetinternaldata_callback != nullptr) {
-            qpdflinkmodel_resetinternaldata_callback();
-        } else {
-            QPdfLinkModel::resetInternalData();
+            return;
         }
+        auto resetinternaldata_cb = qpdflinkmodel_resetinternaldata_callback;
+        if (resetinternaldata_cb) {
+            resetinternaldata_cb();
+            return;
+        }
+        QPdfLinkModel::resetInternalData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1136,14 +1112,15 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_event_isbase) {
             qpdflinkmodel_event_isbase = false;
             return QPdfLinkModel::event(event);
-        } else if (qpdflinkmodel_event_callback != nullptr) {
+        }
+        auto event_cb = qpdflinkmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qpdflinkmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::event(event);
         }
+        return QPdfLinkModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,15 +1128,16 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_eventfilter_isbase) {
             qpdflinkmodel_eventfilter_isbase = false;
             return QPdfLinkModel::eventFilter(watched, event);
-        } else if (qpdflinkmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qpdflinkmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qpdflinkmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::eventFilter(watched, event);
         }
+        return QPdfLinkModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,13 +1145,16 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_timerevent_isbase) {
             qpdflinkmodel_timerevent_isbase = false;
             QPdfLinkModel::timerEvent(event);
-        } else if (qpdflinkmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qpdflinkmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qpdflinkmodel_timerevent_callback(this, cbval1);
-        } else {
-            QPdfLinkModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QPdfLinkModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,13 +1162,16 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_childevent_isbase) {
             qpdflinkmodel_childevent_isbase = false;
             QPdfLinkModel::childEvent(event);
-        } else if (qpdflinkmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qpdflinkmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qpdflinkmodel_childevent_callback(this, cbval1);
-        } else {
-            QPdfLinkModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QPdfLinkModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,13 +1179,16 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_customevent_isbase) {
             qpdflinkmodel_customevent_isbase = false;
             QPdfLinkModel::customEvent(event);
-        } else if (qpdflinkmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qpdflinkmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qpdflinkmodel_customevent_callback(this, cbval1);
-        } else {
-            QPdfLinkModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QPdfLinkModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,15 +1196,18 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_connectnotify_isbase) {
             qpdflinkmodel_connectnotify_isbase = false;
             QPdfLinkModel::connectNotify(signal);
-        } else if (qpdflinkmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qpdflinkmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpdflinkmodel_connectnotify_callback(this, cbval1);
-        } else {
-            QPdfLinkModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QPdfLinkModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,15 +1215,18 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_disconnectnotify_isbase) {
             qpdflinkmodel_disconnectnotify_isbase = false;
             QPdfLinkModel::disconnectNotify(signal);
-        } else if (qpdflinkmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qpdflinkmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qpdflinkmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            QPdfLinkModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QPdfLinkModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1241,15 +1234,16 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_createindex_isbase) {
             qpdflinkmodel_createindex_isbase = false;
             return QPdfLinkModel::createIndex(row, column);
-        } else if (qpdflinkmodel_createindex_callback != nullptr) {
+        }
+        auto createindex_cb = qpdflinkmodel_createindex_callback;
+        if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
 
-            QModelIndex* callback_ret = qpdflinkmodel_createindex_callback(this, cbval1, cbval2);
+            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QPdfLinkModel::createIndex(row, column);
         }
+        return QPdfLinkModel::createIndex(row, column);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1257,7 +1251,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_encodedata_isbase) {
             qpdflinkmodel_encodedata_isbase = false;
             QPdfLinkModel::encodeData(indexes, stream);
-        } else if (qpdflinkmodel_encodedata_callback != nullptr) {
+            return;
+        }
+        auto encodedata_cb = qpdflinkmodel_encodedata_callback;
+        if (encodedata_cb) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1272,11 +1269,11 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
 
-            qpdflinkmodel_encodedata_callback(this, cbval1, cbval2);
+            encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
-        } else {
-            QPdfLinkModel::encodeData(indexes, stream);
+            return;
         }
+        QPdfLinkModel::encodeData(indexes, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1284,7 +1281,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_decodedata_isbase) {
             qpdflinkmodel_decodedata_isbase = false;
             return QPdfLinkModel::decodeData(row, column, parent, stream);
-        } else if (qpdflinkmodel_decodedata_callback != nullptr) {
+        }
+        auto decodedata_cb = qpdflinkmodel_decodedata_callback;
+        if (decodedata_cb) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
@@ -1294,11 +1293,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
 
-            bool callback_ret = qpdflinkmodel_decodedata_callback(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::decodeData(row, column, parent, stream);
         }
+        return QPdfLinkModel::decodeData(row, column, parent, stream);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1306,17 +1304,20 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_begininsertrows_isbase) {
             qpdflinkmodel_begininsertrows_isbase = false;
             QPdfLinkModel::beginInsertRows(parent, first, last);
-        } else if (qpdflinkmodel_begininsertrows_callback != nullptr) {
+            return;
+        }
+        auto begininsertrows_cb = qpdflinkmodel_begininsertrows_callback;
+        if (begininsertrows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qpdflinkmodel_begininsertrows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPdfLinkModel::beginInsertRows(parent, first, last);
+            begininsertrows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPdfLinkModel::beginInsertRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1324,11 +1325,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endinsertrows_isbase) {
             qpdflinkmodel_endinsertrows_isbase = false;
             QPdfLinkModel::endInsertRows();
-        } else if (qpdflinkmodel_endinsertrows_callback != nullptr) {
-            qpdflinkmodel_endinsertrows_callback();
-        } else {
-            QPdfLinkModel::endInsertRows();
+            return;
         }
+        auto endinsertrows_cb = qpdflinkmodel_endinsertrows_callback;
+        if (endinsertrows_cb) {
+            endinsertrows_cb();
+            return;
+        }
+        QPdfLinkModel::endInsertRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,17 +1340,20 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_beginremoverows_isbase) {
             qpdflinkmodel_beginremoverows_isbase = false;
             QPdfLinkModel::beginRemoveRows(parent, first, last);
-        } else if (qpdflinkmodel_beginremoverows_callback != nullptr) {
+            return;
+        }
+        auto beginremoverows_cb = qpdflinkmodel_beginremoverows_callback;
+        if (beginremoverows_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qpdflinkmodel_beginremoverows_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPdfLinkModel::beginRemoveRows(parent, first, last);
+            beginremoverows_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPdfLinkModel::beginRemoveRows(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,11 +1361,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endremoverows_isbase) {
             qpdflinkmodel_endremoverows_isbase = false;
             QPdfLinkModel::endRemoveRows();
-        } else if (qpdflinkmodel_endremoverows_callback != nullptr) {
-            qpdflinkmodel_endremoverows_callback();
-        } else {
-            QPdfLinkModel::endRemoveRows();
+            return;
         }
+        auto endremoverows_cb = qpdflinkmodel_endremoverows_callback;
+        if (endremoverows_cb) {
+            endremoverows_cb();
+            return;
+        }
+        QPdfLinkModel::endRemoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1366,7 +1376,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_beginmoverows_isbase) {
             qpdflinkmodel_beginmoverows_isbase = false;
             return QPdfLinkModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        } else if (qpdflinkmodel_beginmoverows_callback != nullptr) {
+        }
+        auto beginmoverows_cb = qpdflinkmodel_beginmoverows_callback;
+        if (beginmoverows_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1377,11 +1389,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
 
-            bool callback_ret = qpdflinkmodel_beginmoverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
         }
+        return QPdfLinkModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1389,11 +1400,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endmoverows_isbase) {
             qpdflinkmodel_endmoverows_isbase = false;
             QPdfLinkModel::endMoveRows();
-        } else if (qpdflinkmodel_endmoverows_callback != nullptr) {
-            qpdflinkmodel_endmoverows_callback();
-        } else {
-            QPdfLinkModel::endMoveRows();
+            return;
         }
+        auto endmoverows_cb = qpdflinkmodel_endmoverows_callback;
+        if (endmoverows_cb) {
+            endmoverows_cb();
+            return;
+        }
+        QPdfLinkModel::endMoveRows();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1401,17 +1415,20 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_begininsertcolumns_isbase) {
             qpdflinkmodel_begininsertcolumns_isbase = false;
             QPdfLinkModel::beginInsertColumns(parent, first, last);
-        } else if (qpdflinkmodel_begininsertcolumns_callback != nullptr) {
+            return;
+        }
+        auto begininsertcolumns_cb = qpdflinkmodel_begininsertcolumns_callback;
+        if (begininsertcolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qpdflinkmodel_begininsertcolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPdfLinkModel::beginInsertColumns(parent, first, last);
+            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPdfLinkModel::beginInsertColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,11 +1436,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endinsertcolumns_isbase) {
             qpdflinkmodel_endinsertcolumns_isbase = false;
             QPdfLinkModel::endInsertColumns();
-        } else if (qpdflinkmodel_endinsertcolumns_callback != nullptr) {
-            qpdflinkmodel_endinsertcolumns_callback();
-        } else {
-            QPdfLinkModel::endInsertColumns();
+            return;
         }
+        auto endinsertcolumns_cb = qpdflinkmodel_endinsertcolumns_callback;
+        if (endinsertcolumns_cb) {
+            endinsertcolumns_cb();
+            return;
+        }
+        QPdfLinkModel::endInsertColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1431,17 +1451,20 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_beginremovecolumns_isbase) {
             qpdflinkmodel_beginremovecolumns_isbase = false;
             QPdfLinkModel::beginRemoveColumns(parent, first, last);
-        } else if (qpdflinkmodel_beginremovecolumns_callback != nullptr) {
+            return;
+        }
+        auto beginremovecolumns_cb = qpdflinkmodel_beginremovecolumns_callback;
+        if (beginremovecolumns_cb) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
 
-            qpdflinkmodel_beginremovecolumns_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QPdfLinkModel::beginRemoveColumns(parent, first, last);
+            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QPdfLinkModel::beginRemoveColumns(parent, first, last);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1449,11 +1472,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endremovecolumns_isbase) {
             qpdflinkmodel_endremovecolumns_isbase = false;
             QPdfLinkModel::endRemoveColumns();
-        } else if (qpdflinkmodel_endremovecolumns_callback != nullptr) {
-            qpdflinkmodel_endremovecolumns_callback();
-        } else {
-            QPdfLinkModel::endRemoveColumns();
+            return;
         }
+        auto endremovecolumns_cb = qpdflinkmodel_endremovecolumns_callback;
+        if (endremovecolumns_cb) {
+            endremovecolumns_cb();
+            return;
+        }
+        QPdfLinkModel::endRemoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1461,7 +1487,9 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_beginmovecolumns_isbase) {
             qpdflinkmodel_beginmovecolumns_isbase = false;
             return QPdfLinkModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        } else if (qpdflinkmodel_beginmovecolumns_callback != nullptr) {
+        }
+        auto beginmovecolumns_cb = qpdflinkmodel_beginmovecolumns_callback;
+        if (beginmovecolumns_cb) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1472,11 +1500,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
 
-            bool callback_ret = qpdflinkmodel_beginmovecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
         }
+        return QPdfLinkModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1484,11 +1511,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endmovecolumns_isbase) {
             qpdflinkmodel_endmovecolumns_isbase = false;
             QPdfLinkModel::endMoveColumns();
-        } else if (qpdflinkmodel_endmovecolumns_callback != nullptr) {
-            qpdflinkmodel_endmovecolumns_callback();
-        } else {
-            QPdfLinkModel::endMoveColumns();
+            return;
         }
+        auto endmovecolumns_cb = qpdflinkmodel_endmovecolumns_callback;
+        if (endmovecolumns_cb) {
+            endmovecolumns_cb();
+            return;
+        }
+        QPdfLinkModel::endMoveColumns();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1496,11 +1526,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_beginresetmodel_isbase) {
             qpdflinkmodel_beginresetmodel_isbase = false;
             QPdfLinkModel::beginResetModel();
-        } else if (qpdflinkmodel_beginresetmodel_callback != nullptr) {
-            qpdflinkmodel_beginresetmodel_callback();
-        } else {
-            QPdfLinkModel::beginResetModel();
+            return;
         }
+        auto beginresetmodel_cb = qpdflinkmodel_beginresetmodel_callback;
+        if (beginresetmodel_cb) {
+            beginresetmodel_cb();
+            return;
+        }
+        QPdfLinkModel::beginResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1508,11 +1541,14 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_endresetmodel_isbase) {
             qpdflinkmodel_endresetmodel_isbase = false;
             QPdfLinkModel::endResetModel();
-        } else if (qpdflinkmodel_endresetmodel_callback != nullptr) {
-            qpdflinkmodel_endresetmodel_callback();
-        } else {
-            QPdfLinkModel::endResetModel();
+            return;
         }
+        auto endresetmodel_cb = qpdflinkmodel_endresetmodel_callback;
+        if (endresetmodel_cb) {
+            endresetmodel_cb();
+            return;
+        }
+        QPdfLinkModel::endResetModel();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1520,7 +1556,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_changepersistentindex_isbase) {
             qpdflinkmodel_changepersistentindex_isbase = false;
             QPdfLinkModel::changePersistentIndex(from, to);
-        } else if (qpdflinkmodel_changepersistentindex_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindex_cb = qpdflinkmodel_changepersistentindex_callback;
+        if (changepersistentindex_cb) {
             const QModelIndex& from_ret = from;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
@@ -1528,10 +1567,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
 
-            qpdflinkmodel_changepersistentindex_callback(this, cbval1, cbval2);
-        } else {
-            QPdfLinkModel::changePersistentIndex(from, to);
+            changepersistentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        QPdfLinkModel::changePersistentIndex(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1539,7 +1578,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_changepersistentindexlist_isbase) {
             qpdflinkmodel_changepersistentindexlist_isbase = false;
             QPdfLinkModel::changePersistentIndexList(from, to);
-        } else if (qpdflinkmodel_changepersistentindexlist_callback != nullptr) {
+            return;
+        }
+        auto changepersistentindexlist_cb = qpdflinkmodel_changepersistentindexlist_callback;
+        if (changepersistentindexlist_cb) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
@@ -1561,12 +1603,12 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
 
-            qpdflinkmodel_changepersistentindexlist_callback(this, cbval1, cbval2);
+            changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
-        } else {
-            QPdfLinkModel::changePersistentIndexList(from, to);
+            return;
         }
+        QPdfLinkModel::changePersistentIndexList(from, to);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1574,8 +1616,10 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_persistentindexlist_isbase) {
             qpdflinkmodel_persistentindexlist_isbase = false;
             return QPdfLinkModel::persistentIndexList();
-        } else if (qpdflinkmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qpdflinkmodel_persistentindexlist_callback();
+        }
+        auto persistentindexlist_cb = qpdflinkmodel_persistentindexlist_callback;
+        if (persistentindexlist_cb) {
+            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1584,9 +1628,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return QPdfLinkModel::persistentIndexList();
         }
+        return QPdfLinkModel::persistentIndexList();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1594,12 +1637,13 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_sender_isbase) {
             qpdflinkmodel_sender_isbase = false;
             return QPdfLinkModel::sender();
-        } else if (qpdflinkmodel_sender_callback != nullptr) {
-            QObject* callback_ret = qpdflinkmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return QPdfLinkModel::sender();
         }
+        auto sender_cb = qpdflinkmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QPdfLinkModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1607,12 +1651,13 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_sendersignalindex_isbase) {
             qpdflinkmodel_sendersignalindex_isbase = false;
             return QPdfLinkModel::senderSignalIndex();
-        } else if (qpdflinkmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = qpdflinkmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QPdfLinkModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qpdflinkmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QPdfLinkModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1620,14 +1665,15 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_receivers_isbase) {
             qpdflinkmodel_receivers_isbase = false;
             return QPdfLinkModel::receivers(signal);
-        } else if (qpdflinkmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qpdflinkmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qpdflinkmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QPdfLinkModel::receivers(signal);
         }
+        return QPdfLinkModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1635,16 +1681,17 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
         if (qpdflinkmodel_issignalconnected_isbase) {
             qpdflinkmodel_issignalconnected_isbase = false;
             return QPdfLinkModel::isSignalConnected(signal);
-        } else if (qpdflinkmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qpdflinkmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qpdflinkmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QPdfLinkModel::isSignalConnected(signal);
         }
+        return QPdfLinkModel::isSignalConnected(signal);
     }
 
     // Friend functions

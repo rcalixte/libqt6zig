@@ -156,52 +156,6 @@ class VirtualQLayout : public QLayout {
     VirtualQLayout(QWidget* parent) : QLayout(parent) {};
     VirtualQLayout() : QLayout() {};
 
-    ~VirtualQLayout() {
-        qlayout_metaobject_callback = nullptr;
-        qlayout_metacast_callback = nullptr;
-        qlayout_metacall_callback = nullptr;
-        qlayout_spacing_callback = nullptr;
-        qlayout_setspacing_callback = nullptr;
-        qlayout_invalidate_callback = nullptr;
-        qlayout_geometry_callback = nullptr;
-        qlayout_additem_callback = nullptr;
-        qlayout_expandingdirections_callback = nullptr;
-        qlayout_minimumsize_callback = nullptr;
-        qlayout_maximumsize_callback = nullptr;
-        qlayout_setgeometry_callback = nullptr;
-        qlayout_itemat_callback = nullptr;
-        qlayout_takeat_callback = nullptr;
-        qlayout_indexof_callback = nullptr;
-        qlayout_indexof2_callback = nullptr;
-        qlayout_count_callback = nullptr;
-        qlayout_isempty_callback = nullptr;
-        qlayout_controltypes_callback = nullptr;
-        qlayout_replacewidget_callback = nullptr;
-        qlayout_layout_callback = nullptr;
-        qlayout_childevent_callback = nullptr;
-        qlayout_event_callback = nullptr;
-        qlayout_eventfilter_callback = nullptr;
-        qlayout_timerevent_callback = nullptr;
-        qlayout_customevent_callback = nullptr;
-        qlayout_connectnotify_callback = nullptr;
-        qlayout_disconnectnotify_callback = nullptr;
-        qlayout_sizehint_callback = nullptr;
-        qlayout_hasheightforwidth_callback = nullptr;
-        qlayout_heightforwidth_callback = nullptr;
-        qlayout_minimumheightforwidth_callback = nullptr;
-        qlayout_widget_callback = nullptr;
-        qlayout_spaceritem_callback = nullptr;
-        qlayout_widgetevent_callback = nullptr;
-        qlayout_addchildlayout_callback = nullptr;
-        qlayout_addchildwidget_callback = nullptr;
-        qlayout_adoptlayout_callback = nullptr;
-        qlayout_alignmentrect_callback = nullptr;
-        qlayout_sender_callback = nullptr;
-        qlayout_sendersignalindex_callback = nullptr;
-        qlayout_receivers_callback = nullptr;
-        qlayout_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQLayout_MetaObject_Callback(QLayout_MetaObject_Callback cb) { qlayout_metaobject_callback = cb; }
     inline void setQLayout_Metacast_Callback(QLayout_Metacast_Callback cb) { qlayout_metacast_callback = cb; }
@@ -297,12 +251,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_metaobject_isbase) {
             qlayout_metaobject_isbase = false;
             return QLayout::metaObject();
-        } else if (qlayout_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qlayout_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QLayout::metaObject();
         }
+        auto metaobject_cb = qlayout_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QLayout::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -310,14 +265,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_metacast_isbase) {
             qlayout_metacast_isbase = false;
             return QLayout::qt_metacast(param1);
-        } else if (qlayout_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qlayout_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qlayout_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLayout::qt_metacast(param1);
         }
+        return QLayout::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,16 +281,17 @@ class VirtualQLayout : public QLayout {
         if (qlayout_metacall_isbase) {
             qlayout_metacall_isbase = false;
             return QLayout::qt_metacall(param1, param2, param3);
-        } else if (qlayout_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qlayout_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qlayout_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::qt_metacall(param1, param2, param3);
         }
+        return QLayout::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -342,12 +299,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_spacing_isbase) {
             qlayout_spacing_isbase = false;
             return QLayout::spacing();
-        } else if (qlayout_spacing_callback != nullptr) {
-            int callback_ret = qlayout_spacing_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::spacing();
         }
+        auto spacing_cb = qlayout_spacing_callback;
+        if (spacing_cb) {
+            int callback_ret = spacing_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLayout::spacing();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -355,13 +313,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_setspacing_isbase) {
             qlayout_setspacing_isbase = false;
             QLayout::setSpacing(spacing);
-        } else if (qlayout_setspacing_callback != nullptr) {
+            return;
+        }
+        auto setspacing_cb = qlayout_setspacing_callback;
+        if (setspacing_cb) {
             int cbval1 = spacing;
 
-            qlayout_setspacing_callback(this, cbval1);
-        } else {
-            QLayout::setSpacing(spacing);
+            setspacing_cb(this, cbval1);
+            return;
         }
+        QLayout::setSpacing(spacing);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -369,11 +330,14 @@ class VirtualQLayout : public QLayout {
         if (qlayout_invalidate_isbase) {
             qlayout_invalidate_isbase = false;
             QLayout::invalidate();
-        } else if (qlayout_invalidate_callback != nullptr) {
-            qlayout_invalidate_callback();
-        } else {
-            QLayout::invalidate();
+            return;
         }
+        auto invalidate_cb = qlayout_invalidate_callback;
+        if (invalidate_cb) {
+            invalidate_cb();
+            return;
+        }
+        QLayout::invalidate();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -381,20 +345,22 @@ class VirtualQLayout : public QLayout {
         if (qlayout_geometry_isbase) {
             qlayout_geometry_isbase = false;
             return QLayout::geometry();
-        } else if (qlayout_geometry_callback != nullptr) {
-            QRect* callback_ret = qlayout_geometry_callback();
-            return *callback_ret;
-        } else {
-            return QLayout::geometry();
         }
+        auto geometry_cb = qlayout_geometry_callback;
+        if (geometry_cb) {
+            QRect* callback_ret = geometry_cb();
+            return *callback_ret;
+        }
+        return QLayout::geometry();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void addItem(QLayoutItem* param1) override {
-        if (qlayout_additem_callback != nullptr) {
+        auto additem_cb = qlayout_additem_callback;
+        if (additem_cb) {
             QLayoutItem* cbval1 = param1;
 
-            qlayout_additem_callback(this, cbval1);
+            additem_cb(this, cbval1);
         }
     }
 
@@ -403,12 +369,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_expandingdirections_isbase) {
             qlayout_expandingdirections_isbase = false;
             return QLayout::expandingDirections();
-        } else if (qlayout_expandingdirections_callback != nullptr) {
-            int callback_ret = qlayout_expandingdirections_callback();
-            return static_cast<Qt::Orientations>(callback_ret);
-        } else {
-            return QLayout::expandingDirections();
         }
+        auto expandingdirections_cb = qlayout_expandingdirections_callback;
+        if (expandingdirections_cb) {
+            int callback_ret = expandingdirections_cb();
+            return static_cast<Qt::Orientations>(callback_ret);
+        }
+        return QLayout::expandingDirections();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,12 +383,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_minimumsize_isbase) {
             qlayout_minimumsize_isbase = false;
             return QLayout::minimumSize();
-        } else if (qlayout_minimumsize_callback != nullptr) {
-            QSize* callback_ret = qlayout_minimumsize_callback();
-            return *callback_ret;
-        } else {
-            return QLayout::minimumSize();
         }
+        auto minimumsize_cb = qlayout_minimumsize_callback;
+        if (minimumsize_cb) {
+            QSize* callback_ret = minimumsize_cb();
+            return *callback_ret;
+        }
+        return QLayout::minimumSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,12 +397,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_maximumsize_isbase) {
             qlayout_maximumsize_isbase = false;
             return QLayout::maximumSize();
-        } else if (qlayout_maximumsize_callback != nullptr) {
-            QSize* callback_ret = qlayout_maximumsize_callback();
-            return *callback_ret;
-        } else {
-            return QLayout::maximumSize();
         }
+        auto maximumsize_cb = qlayout_maximumsize_callback;
+        if (maximumsize_cb) {
+            QSize* callback_ret = maximumsize_cb();
+            return *callback_ret;
+        }
+        return QLayout::maximumSize();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -442,39 +411,42 @@ class VirtualQLayout : public QLayout {
         if (qlayout_setgeometry_isbase) {
             qlayout_setgeometry_isbase = false;
             QLayout::setGeometry(geometry);
-        } else if (qlayout_setgeometry_callback != nullptr) {
+            return;
+        }
+        auto setgeometry_cb = qlayout_setgeometry_callback;
+        if (setgeometry_cb) {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
 
-            qlayout_setgeometry_callback(this, cbval1);
-        } else {
-            QLayout::setGeometry(geometry);
+            setgeometry_cb(this, cbval1);
+            return;
         }
+        QLayout::setGeometry(geometry);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QLayoutItem* itemAt(int index) const override {
-        if (qlayout_itemat_callback != nullptr) {
+        auto itemat_cb = qlayout_itemat_callback;
+        if (itemat_cb) {
             int cbval1 = index;
 
-            QLayoutItem* callback_ret = qlayout_itemat_callback(this, cbval1);
+            QLayoutItem* callback_ret = itemat_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QLayoutItem* takeAt(int index) override {
-        if (qlayout_takeat_callback != nullptr) {
+        auto takeat_cb = qlayout_takeat_callback;
+        if (takeat_cb) {
             int cbval1 = index;
 
-            QLayoutItem* callback_ret = qlayout_takeat_callback(this, cbval1);
+            QLayoutItem* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,14 +454,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_indexof_isbase) {
             qlayout_indexof_isbase = false;
             return QLayout::indexOf(param1);
-        } else if (qlayout_indexof_callback != nullptr) {
+        }
+        auto indexof_cb = qlayout_indexof_callback;
+        if (indexof_cb) {
             QWidget* cbval1 = (QWidget*)param1;
 
-            int callback_ret = qlayout_indexof_callback(this, cbval1);
+            int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::indexOf(param1);
         }
+        return QLayout::indexOf(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,24 +470,25 @@ class VirtualQLayout : public QLayout {
         if (qlayout_indexof2_isbase) {
             qlayout_indexof2_isbase = false;
             return QLayout::indexOf(param1);
-        } else if (qlayout_indexof2_callback != nullptr) {
+        }
+        auto indexof2_cb = qlayout_indexof2_callback;
+        if (indexof2_cb) {
             QLayoutItem* cbval1 = (QLayoutItem*)param1;
 
-            int callback_ret = qlayout_indexof2_callback(this, cbval1);
+            int callback_ret = indexof2_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::indexOf(param1);
         }
+        return QLayout::indexOf(param1);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int count() const override {
-        if (qlayout_count_callback != nullptr) {
-            int callback_ret = qlayout_count_callback();
+        auto count_cb = qlayout_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,12 +496,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_isempty_isbase) {
             qlayout_isempty_isbase = false;
             return QLayout::isEmpty();
-        } else if (qlayout_isempty_callback != nullptr) {
-            bool callback_ret = qlayout_isempty_callback();
-            return callback_ret;
-        } else {
-            return QLayout::isEmpty();
         }
+        auto isempty_cb = qlayout_isempty_callback;
+        if (isempty_cb) {
+            bool callback_ret = isempty_cb();
+            return callback_ret;
+        }
+        return QLayout::isEmpty();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,12 +510,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_controltypes_isbase) {
             qlayout_controltypes_isbase = false;
             return QLayout::controlTypes();
-        } else if (qlayout_controltypes_callback != nullptr) {
-            int callback_ret = qlayout_controltypes_callback();
-            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
-        } else {
-            return QLayout::controlTypes();
         }
+        auto controltypes_cb = qlayout_controltypes_callback;
+        if (controltypes_cb) {
+            int callback_ret = controltypes_cb();
+            return static_cast<QSizePolicy::ControlTypes>(callback_ret);
+        }
+        return QLayout::controlTypes();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -548,16 +524,17 @@ class VirtualQLayout : public QLayout {
         if (qlayout_replacewidget_isbase) {
             qlayout_replacewidget_isbase = false;
             return QLayout::replaceWidget(from, to, options);
-        } else if (qlayout_replacewidget_callback != nullptr) {
+        }
+        auto replacewidget_cb = qlayout_replacewidget_callback;
+        if (replacewidget_cb) {
             QWidget* cbval1 = from;
             QWidget* cbval2 = to;
             int cbval3 = static_cast<int>(options);
 
-            QLayoutItem* callback_ret = qlayout_replacewidget_callback(this, cbval1, cbval2, cbval3);
+            QLayoutItem* callback_ret = replacewidget_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QLayout::replaceWidget(from, to, options);
         }
+        return QLayout::replaceWidget(from, to, options);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,12 +542,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_layout_isbase) {
             qlayout_layout_isbase = false;
             return QLayout::layout();
-        } else if (qlayout_layout_callback != nullptr) {
-            QLayout* callback_ret = qlayout_layout_callback();
-            return callback_ret;
-        } else {
-            return QLayout::layout();
         }
+        auto layout_cb = qlayout_layout_callback;
+        if (layout_cb) {
+            QLayout* callback_ret = layout_cb();
+            return callback_ret;
+        }
+        return QLayout::layout();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,13 +556,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_childevent_isbase) {
             qlayout_childevent_isbase = false;
             QLayout::childEvent(e);
-        } else if (qlayout_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qlayout_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = e;
 
-            qlayout_childevent_callback(this, cbval1);
-        } else {
-            QLayout::childEvent(e);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QLayout::childEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -592,14 +573,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_event_isbase) {
             qlayout_event_isbase = false;
             return QLayout::event(event);
-        } else if (qlayout_event_callback != nullptr) {
+        }
+        auto event_cb = qlayout_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qlayout_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLayout::event(event);
         }
+        return QLayout::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,15 +589,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_eventfilter_isbase) {
             qlayout_eventfilter_isbase = false;
             return QLayout::eventFilter(watched, event);
-        } else if (qlayout_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qlayout_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qlayout_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QLayout::eventFilter(watched, event);
         }
+        return QLayout::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +606,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_timerevent_isbase) {
             qlayout_timerevent_isbase = false;
             QLayout::timerEvent(event);
-        } else if (qlayout_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qlayout_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qlayout_timerevent_callback(this, cbval1);
-        } else {
-            QLayout::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QLayout::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +623,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_customevent_isbase) {
             qlayout_customevent_isbase = false;
             QLayout::customEvent(event);
-        } else if (qlayout_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qlayout_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qlayout_customevent_callback(this, cbval1);
-        } else {
-            QLayout::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QLayout::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,15 +640,18 @@ class VirtualQLayout : public QLayout {
         if (qlayout_connectnotify_isbase) {
             qlayout_connectnotify_isbase = false;
             QLayout::connectNotify(signal);
-        } else if (qlayout_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qlayout_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlayout_connectnotify_callback(this, cbval1);
-        } else {
-            QLayout::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QLayout::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,25 +659,28 @@ class VirtualQLayout : public QLayout {
         if (qlayout_disconnectnotify_isbase) {
             qlayout_disconnectnotify_isbase = false;
             QLayout::disconnectNotify(signal);
-        } else if (qlayout_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qlayout_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qlayout_disconnectnotify_callback(this, cbval1);
-        } else {
-            QLayout::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QLayout::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qlayout_sizehint_callback != nullptr) {
-            QSize* callback_ret = qlayout_sizehint_callback();
+        auto sizehint_cb = qlayout_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,12 +688,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_hasheightforwidth_isbase) {
             qlayout_hasheightforwidth_isbase = false;
             return QLayout::hasHeightForWidth();
-        } else if (qlayout_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qlayout_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QLayout::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qlayout_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QLayout::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -706,14 +702,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_heightforwidth_isbase) {
             qlayout_heightforwidth_isbase = false;
             return QLayout::heightForWidth(param1);
-        } else if (qlayout_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qlayout_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qlayout_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::heightForWidth(param1);
         }
+        return QLayout::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,14 +718,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_minimumheightforwidth_isbase) {
             qlayout_minimumheightforwidth_isbase = false;
             return QLayout::minimumHeightForWidth(param1);
-        } else if (qlayout_minimumheightforwidth_callback != nullptr) {
+        }
+        auto minimumheightforwidth_cb = qlayout_minimumheightforwidth_callback;
+        if (minimumheightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qlayout_minimumheightforwidth_callback(this, cbval1);
+            int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::minimumHeightForWidth(param1);
         }
+        return QLayout::minimumHeightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,12 +734,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_widget_isbase) {
             qlayout_widget_isbase = false;
             return QLayout::widget();
-        } else if (qlayout_widget_callback != nullptr) {
-            QWidget* callback_ret = qlayout_widget_callback();
-            return callback_ret;
-        } else {
-            return QLayout::widget();
         }
+        auto widget_cb = qlayout_widget_callback;
+        if (widget_cb) {
+            QWidget* callback_ret = widget_cb();
+            return callback_ret;
+        }
+        return QLayout::widget();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,12 +748,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_spaceritem_isbase) {
             qlayout_spaceritem_isbase = false;
             return QLayout::spacerItem();
-        } else if (qlayout_spaceritem_callback != nullptr) {
-            QSpacerItem* callback_ret = qlayout_spaceritem_callback();
-            return callback_ret;
-        } else {
-            return QLayout::spacerItem();
         }
+        auto spaceritem_cb = qlayout_spaceritem_callback;
+        if (spaceritem_cb) {
+            QSpacerItem* callback_ret = spaceritem_cb();
+            return callback_ret;
+        }
+        return QLayout::spacerItem();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -762,13 +762,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_widgetevent_isbase) {
             qlayout_widgetevent_isbase = false;
             QLayout::widgetEvent(param1);
-        } else if (qlayout_widgetevent_callback != nullptr) {
+            return;
+        }
+        auto widgetevent_cb = qlayout_widgetevent_callback;
+        if (widgetevent_cb) {
             QEvent* cbval1 = param1;
 
-            qlayout_widgetevent_callback(this, cbval1);
-        } else {
-            QLayout::widgetEvent(param1);
+            widgetevent_cb(this, cbval1);
+            return;
         }
+        QLayout::widgetEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +779,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_addchildlayout_isbase) {
             qlayout_addchildlayout_isbase = false;
             QLayout::addChildLayout(l);
-        } else if (qlayout_addchildlayout_callback != nullptr) {
+            return;
+        }
+        auto addchildlayout_cb = qlayout_addchildlayout_callback;
+        if (addchildlayout_cb) {
             QLayout* cbval1 = l;
 
-            qlayout_addchildlayout_callback(this, cbval1);
-        } else {
-            QLayout::addChildLayout(l);
+            addchildlayout_cb(this, cbval1);
+            return;
         }
+        QLayout::addChildLayout(l);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +796,16 @@ class VirtualQLayout : public QLayout {
         if (qlayout_addchildwidget_isbase) {
             qlayout_addchildwidget_isbase = false;
             QLayout::addChildWidget(w);
-        } else if (qlayout_addchildwidget_callback != nullptr) {
+            return;
+        }
+        auto addchildwidget_cb = qlayout_addchildwidget_callback;
+        if (addchildwidget_cb) {
             QWidget* cbval1 = w;
 
-            qlayout_addchildwidget_callback(this, cbval1);
-        } else {
-            QLayout::addChildWidget(w);
+            addchildwidget_cb(this, cbval1);
+            return;
         }
+        QLayout::addChildWidget(w);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,14 +813,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_adoptlayout_isbase) {
             qlayout_adoptlayout_isbase = false;
             return QLayout::adoptLayout(layout);
-        } else if (qlayout_adoptlayout_callback != nullptr) {
+        }
+        auto adoptlayout_cb = qlayout_adoptlayout_callback;
+        if (adoptlayout_cb) {
             QLayout* cbval1 = layout;
 
-            bool callback_ret = qlayout_adoptlayout_callback(this, cbval1);
+            bool callback_ret = adoptlayout_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLayout::adoptLayout(layout);
         }
+        return QLayout::adoptLayout(layout);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,16 +829,17 @@ class VirtualQLayout : public QLayout {
         if (qlayout_alignmentrect_isbase) {
             qlayout_alignmentrect_isbase = false;
             return QLayout::alignmentRect(param1);
-        } else if (qlayout_alignmentrect_callback != nullptr) {
+        }
+        auto alignmentrect_cb = qlayout_alignmentrect_callback;
+        if (alignmentrect_cb) {
             const QRect& param1_ret = param1;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&param1_ret);
 
-            QRect* callback_ret = qlayout_alignmentrect_callback(this, cbval1);
+            QRect* callback_ret = alignmentrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QLayout::alignmentRect(param1);
         }
+        return QLayout::alignmentRect(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,12 +847,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_sender_isbase) {
             qlayout_sender_isbase = false;
             return QLayout::sender();
-        } else if (qlayout_sender_callback != nullptr) {
-            QObject* callback_ret = qlayout_sender_callback();
-            return callback_ret;
-        } else {
-            return QLayout::sender();
         }
+        auto sender_cb = qlayout_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QLayout::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,12 +861,13 @@ class VirtualQLayout : public QLayout {
         if (qlayout_sendersignalindex_isbase) {
             qlayout_sendersignalindex_isbase = false;
             return QLayout::senderSignalIndex();
-        } else if (qlayout_sendersignalindex_callback != nullptr) {
-            int callback_ret = qlayout_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qlayout_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QLayout::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -862,14 +875,15 @@ class VirtualQLayout : public QLayout {
         if (qlayout_receivers_isbase) {
             qlayout_receivers_isbase = false;
             return QLayout::receivers(signal);
-        } else if (qlayout_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qlayout_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qlayout_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QLayout::receivers(signal);
         }
+        return QLayout::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,16 +891,17 @@ class VirtualQLayout : public QLayout {
         if (qlayout_issignalconnected_isbase) {
             qlayout_issignalconnected_isbase = false;
             return QLayout::isSignalConnected(signal);
-        } else if (qlayout_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qlayout_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qlayout_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QLayout::isSignalConnected(signal);
         }
+        return QLayout::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -213,70 +213,6 @@ class VirtualKUrlRequester final : public KUrlRequester {
     VirtualKUrlRequester(QWidget* editWidget, QWidget* parent) : KUrlRequester(editWidget, parent) {};
     VirtualKUrlRequester(const QUrl& url, QWidget* parent) : KUrlRequester(url, parent) {};
 
-    ~VirtualKUrlRequester() {
-        kurlrequester_metaobject_callback = nullptr;
-        kurlrequester_metacast_callback = nullptr;
-        kurlrequester_metacall_callback = nullptr;
-        kurlrequester_filedialog_callback = nullptr;
-        kurlrequester_changeevent_callback = nullptr;
-        kurlrequester_eventfilter_callback = nullptr;
-        kurlrequester_devtype_callback = nullptr;
-        kurlrequester_setvisible_callback = nullptr;
-        kurlrequester_sizehint_callback = nullptr;
-        kurlrequester_minimumsizehint_callback = nullptr;
-        kurlrequester_heightforwidth_callback = nullptr;
-        kurlrequester_hasheightforwidth_callback = nullptr;
-        kurlrequester_paintengine_callback = nullptr;
-        kurlrequester_event_callback = nullptr;
-        kurlrequester_mousepressevent_callback = nullptr;
-        kurlrequester_mousereleaseevent_callback = nullptr;
-        kurlrequester_mousedoubleclickevent_callback = nullptr;
-        kurlrequester_mousemoveevent_callback = nullptr;
-        kurlrequester_wheelevent_callback = nullptr;
-        kurlrequester_keypressevent_callback = nullptr;
-        kurlrequester_keyreleaseevent_callback = nullptr;
-        kurlrequester_focusinevent_callback = nullptr;
-        kurlrequester_focusoutevent_callback = nullptr;
-        kurlrequester_enterevent_callback = nullptr;
-        kurlrequester_leaveevent_callback = nullptr;
-        kurlrequester_paintevent_callback = nullptr;
-        kurlrequester_moveevent_callback = nullptr;
-        kurlrequester_resizeevent_callback = nullptr;
-        kurlrequester_closeevent_callback = nullptr;
-        kurlrequester_contextmenuevent_callback = nullptr;
-        kurlrequester_tabletevent_callback = nullptr;
-        kurlrequester_actionevent_callback = nullptr;
-        kurlrequester_dragenterevent_callback = nullptr;
-        kurlrequester_dragmoveevent_callback = nullptr;
-        kurlrequester_dragleaveevent_callback = nullptr;
-        kurlrequester_dropevent_callback = nullptr;
-        kurlrequester_showevent_callback = nullptr;
-        kurlrequester_hideevent_callback = nullptr;
-        kurlrequester_nativeevent_callback = nullptr;
-        kurlrequester_metric_callback = nullptr;
-        kurlrequester_initpainter_callback = nullptr;
-        kurlrequester_redirected_callback = nullptr;
-        kurlrequester_sharedpainter_callback = nullptr;
-        kurlrequester_inputmethodevent_callback = nullptr;
-        kurlrequester_inputmethodquery_callback = nullptr;
-        kurlrequester_focusnextprevchild_callback = nullptr;
-        kurlrequester_timerevent_callback = nullptr;
-        kurlrequester_childevent_callback = nullptr;
-        kurlrequester_customevent_callback = nullptr;
-        kurlrequester_connectnotify_callback = nullptr;
-        kurlrequester_disconnectnotify_callback = nullptr;
-        kurlrequester_updatemicrofocus_callback = nullptr;
-        kurlrequester_create_callback = nullptr;
-        kurlrequester_destroy_callback = nullptr;
-        kurlrequester_focusnextchild_callback = nullptr;
-        kurlrequester_focuspreviouschild_callback = nullptr;
-        kurlrequester_sender_callback = nullptr;
-        kurlrequester_sendersignalindex_callback = nullptr;
-        kurlrequester_receivers_callback = nullptr;
-        kurlrequester_issignalconnected_callback = nullptr;
-        kurlrequester_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKUrlRequester_MetaObject_Callback(KUrlRequester_MetaObject_Callback cb) { kurlrequester_metaobject_callback = cb; }
     inline void setKUrlRequester_Metacast_Callback(KUrlRequester_Metacast_Callback cb) { kurlrequester_metacast_callback = cb; }
@@ -408,12 +344,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_metaobject_isbase) {
             kurlrequester_metaobject_isbase = false;
             return KUrlRequester::metaObject();
-        } else if (kurlrequester_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kurlrequester_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::metaObject();
         }
+        auto metaobject_cb = kurlrequester_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -421,14 +358,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_metacast_isbase) {
             kurlrequester_metacast_isbase = false;
             return KUrlRequester::qt_metacast(param1);
-        } else if (kurlrequester_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kurlrequester_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kurlrequester_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlRequester::qt_metacast(param1);
         }
+        return KUrlRequester::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,16 +374,17 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_metacall_isbase) {
             kurlrequester_metacall_isbase = false;
             return KUrlRequester::qt_metacall(param1, param2, param3);
-        } else if (kurlrequester_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kurlrequester_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kurlrequester_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlRequester::qt_metacall(param1, param2, param3);
         }
+        return KUrlRequester::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -453,12 +392,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_filedialog_isbase) {
             kurlrequester_filedialog_isbase = false;
             return KUrlRequester::fileDialog();
-        } else if (kurlrequester_filedialog_callback != nullptr) {
-            QFileDialog* callback_ret = kurlrequester_filedialog_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::fileDialog();
         }
+        auto filedialog_cb = kurlrequester_filedialog_callback;
+        if (filedialog_cb) {
+            QFileDialog* callback_ret = filedialog_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::fileDialog();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -466,13 +406,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_changeevent_isbase) {
             kurlrequester_changeevent_isbase = false;
             KUrlRequester::changeEvent(e);
-        } else if (kurlrequester_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kurlrequester_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kurlrequester_changeevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -480,15 +423,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_eventfilter_isbase) {
             kurlrequester_eventfilter_isbase = false;
             return KUrlRequester::eventFilter(obj, ev);
-        } else if (kurlrequester_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kurlrequester_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = ev;
 
-            bool callback_ret = kurlrequester_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KUrlRequester::eventFilter(obj, ev);
         }
+        return KUrlRequester::eventFilter(obj, ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,12 +440,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_devtype_isbase) {
             kurlrequester_devtype_isbase = false;
             return KUrlRequester::devType();
-        } else if (kurlrequester_devtype_callback != nullptr) {
-            int callback_ret = kurlrequester_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlRequester::devType();
         }
+        auto devtype_cb = kurlrequester_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlRequester::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +454,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_setvisible_isbase) {
             kurlrequester_setvisible_isbase = false;
             KUrlRequester::setVisible(visible);
-        } else if (kurlrequester_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kurlrequester_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kurlrequester_setvisible_callback(this, cbval1);
-        } else {
-            KUrlRequester::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,12 +471,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_sizehint_isbase) {
             kurlrequester_sizehint_isbase = false;
             return KUrlRequester::sizeHint();
-        } else if (kurlrequester_sizehint_callback != nullptr) {
-            QSize* callback_ret = kurlrequester_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlRequester::sizeHint();
         }
+        auto sizehint_cb = kurlrequester_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlRequester::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -536,12 +485,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_minimumsizehint_isbase) {
             kurlrequester_minimumsizehint_isbase = false;
             return KUrlRequester::minimumSizeHint();
-        } else if (kurlrequester_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kurlrequester_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlRequester::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kurlrequester_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlRequester::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -549,14 +499,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_heightforwidth_isbase) {
             kurlrequester_heightforwidth_isbase = false;
             return KUrlRequester::heightForWidth(param1);
-        } else if (kurlrequester_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kurlrequester_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kurlrequester_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlRequester::heightForWidth(param1);
         }
+        return KUrlRequester::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -564,12 +515,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_hasheightforwidth_isbase) {
             kurlrequester_hasheightforwidth_isbase = false;
             return KUrlRequester::hasHeightForWidth();
-        } else if (kurlrequester_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kurlrequester_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kurlrequester_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -577,12 +529,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_paintengine_isbase) {
             kurlrequester_paintengine_isbase = false;
             return KUrlRequester::paintEngine();
-        } else if (kurlrequester_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kurlrequester_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::paintEngine();
         }
+        auto paintengine_cb = kurlrequester_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -590,14 +543,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_event_isbase) {
             kurlrequester_event_isbase = false;
             return KUrlRequester::event(event);
-        } else if (kurlrequester_event_callback != nullptr) {
+        }
+        auto event_cb = kurlrequester_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kurlrequester_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlRequester::event(event);
         }
+        return KUrlRequester::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -605,13 +559,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_mousepressevent_isbase) {
             kurlrequester_mousepressevent_isbase = false;
             KUrlRequester::mousePressEvent(event);
-        } else if (kurlrequester_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kurlrequester_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlrequester_mousepressevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,13 +576,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_mousereleaseevent_isbase) {
             kurlrequester_mousereleaseevent_isbase = false;
             KUrlRequester::mouseReleaseEvent(event);
-        } else if (kurlrequester_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kurlrequester_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlrequester_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -633,13 +593,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_mousedoubleclickevent_isbase) {
             kurlrequester_mousedoubleclickevent_isbase = false;
             KUrlRequester::mouseDoubleClickEvent(event);
-        } else if (kurlrequester_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kurlrequester_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlrequester_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,13 +610,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_mousemoveevent_isbase) {
             kurlrequester_mousemoveevent_isbase = false;
             KUrlRequester::mouseMoveEvent(event);
-        } else if (kurlrequester_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kurlrequester_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlrequester_mousemoveevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,13 +627,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_wheelevent_isbase) {
             kurlrequester_wheelevent_isbase = false;
             KUrlRequester::wheelEvent(event);
-        } else if (kurlrequester_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kurlrequester_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kurlrequester_wheelevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +644,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_keypressevent_isbase) {
             kurlrequester_keypressevent_isbase = false;
             KUrlRequester::keyPressEvent(event);
-        } else if (kurlrequester_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kurlrequester_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kurlrequester_keypressevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +661,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_keyreleaseevent_isbase) {
             kurlrequester_keyreleaseevent_isbase = false;
             KUrlRequester::keyReleaseEvent(event);
-        } else if (kurlrequester_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kurlrequester_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kurlrequester_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,13 +678,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_focusinevent_isbase) {
             kurlrequester_focusinevent_isbase = false;
             KUrlRequester::focusInEvent(event);
-        } else if (kurlrequester_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kurlrequester_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kurlrequester_focusinevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +695,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_focusoutevent_isbase) {
             kurlrequester_focusoutevent_isbase = false;
             KUrlRequester::focusOutEvent(event);
-        } else if (kurlrequester_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kurlrequester_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kurlrequester_focusoutevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,13 +712,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_enterevent_isbase) {
             kurlrequester_enterevent_isbase = false;
             KUrlRequester::enterEvent(event);
-        } else if (kurlrequester_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kurlrequester_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kurlrequester_enterevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,13 +729,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_leaveevent_isbase) {
             kurlrequester_leaveevent_isbase = false;
             KUrlRequester::leaveEvent(event);
-        } else if (kurlrequester_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kurlrequester_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlrequester_leaveevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +746,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_paintevent_isbase) {
             kurlrequester_paintevent_isbase = false;
             KUrlRequester::paintEvent(event);
-        } else if (kurlrequester_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kurlrequester_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kurlrequester_paintevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +763,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_moveevent_isbase) {
             kurlrequester_moveevent_isbase = false;
             KUrlRequester::moveEvent(event);
-        } else if (kurlrequester_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kurlrequester_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kurlrequester_moveevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +780,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_resizeevent_isbase) {
             kurlrequester_resizeevent_isbase = false;
             KUrlRequester::resizeEvent(event);
-        } else if (kurlrequester_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kurlrequester_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kurlrequester_resizeevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +797,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_closeevent_isbase) {
             kurlrequester_closeevent_isbase = false;
             KUrlRequester::closeEvent(event);
-        } else if (kurlrequester_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kurlrequester_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kurlrequester_closeevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +814,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_contextmenuevent_isbase) {
             kurlrequester_contextmenuevent_isbase = false;
             KUrlRequester::contextMenuEvent(event);
-        } else if (kurlrequester_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kurlrequester_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kurlrequester_contextmenuevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +831,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_tabletevent_isbase) {
             kurlrequester_tabletevent_isbase = false;
             KUrlRequester::tabletEvent(event);
-        } else if (kurlrequester_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kurlrequester_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kurlrequester_tabletevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +848,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_actionevent_isbase) {
             kurlrequester_actionevent_isbase = false;
             KUrlRequester::actionEvent(event);
-        } else if (kurlrequester_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kurlrequester_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kurlrequester_actionevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +865,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_dragenterevent_isbase) {
             kurlrequester_dragenterevent_isbase = false;
             KUrlRequester::dragEnterEvent(event);
-        } else if (kurlrequester_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kurlrequester_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kurlrequester_dragenterevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +882,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_dragmoveevent_isbase) {
             kurlrequester_dragmoveevent_isbase = false;
             KUrlRequester::dragMoveEvent(event);
-        } else if (kurlrequester_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kurlrequester_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kurlrequester_dragmoveevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +899,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_dragleaveevent_isbase) {
             kurlrequester_dragleaveevent_isbase = false;
             KUrlRequester::dragLeaveEvent(event);
-        } else if (kurlrequester_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kurlrequester_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kurlrequester_dragleaveevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +916,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_dropevent_isbase) {
             kurlrequester_dropevent_isbase = false;
             KUrlRequester::dropEvent(event);
-        } else if (kurlrequester_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kurlrequester_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kurlrequester_dropevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +933,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_showevent_isbase) {
             kurlrequester_showevent_isbase = false;
             KUrlRequester::showEvent(event);
-        } else if (kurlrequester_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kurlrequester_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kurlrequester_showevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +950,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_hideevent_isbase) {
             kurlrequester_hideevent_isbase = false;
             KUrlRequester::hideEvent(event);
-        } else if (kurlrequester_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kurlrequester_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kurlrequester_hideevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,7 +967,9 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_nativeevent_isbase) {
             kurlrequester_nativeevent_isbase = false;
             return KUrlRequester::nativeEvent(eventType, message, result);
-        } else if (kurlrequester_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kurlrequester_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -952,12 +980,11 @@ class VirtualKUrlRequester final : public KUrlRequester {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kurlrequester_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KUrlRequester::nativeEvent(eventType, message, result);
         }
+        return KUrlRequester::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -965,14 +992,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_metric_isbase) {
             kurlrequester_metric_isbase = false;
             return KUrlRequester::metric(param1);
-        } else if (kurlrequester_metric_callback != nullptr) {
+        }
+        auto metric_cb = kurlrequester_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kurlrequester_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlRequester::metric(param1);
         }
+        return KUrlRequester::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -980,13 +1008,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_initpainter_isbase) {
             kurlrequester_initpainter_isbase = false;
             KUrlRequester::initPainter(painter);
-        } else if (kurlrequester_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kurlrequester_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kurlrequester_initpainter_callback(this, cbval1);
-        } else {
-            KUrlRequester::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -994,14 +1025,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_redirected_isbase) {
             kurlrequester_redirected_isbase = false;
             return KUrlRequester::redirected(offset);
-        } else if (kurlrequester_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kurlrequester_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kurlrequester_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlRequester::redirected(offset);
         }
+        return KUrlRequester::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,12 +1041,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_sharedpainter_isbase) {
             kurlrequester_sharedpainter_isbase = false;
             return KUrlRequester::sharedPainter();
-        } else if (kurlrequester_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kurlrequester_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::sharedPainter();
         }
+        auto sharedpainter_cb = kurlrequester_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1022,13 +1055,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_inputmethodevent_isbase) {
             kurlrequester_inputmethodevent_isbase = false;
             KUrlRequester::inputMethodEvent(param1);
-        } else if (kurlrequester_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kurlrequester_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kurlrequester_inputmethodevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1036,14 +1072,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_inputmethodquery_isbase) {
             kurlrequester_inputmethodquery_isbase = false;
             return KUrlRequester::inputMethodQuery(param1);
-        } else if (kurlrequester_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kurlrequester_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kurlrequester_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KUrlRequester::inputMethodQuery(param1);
         }
+        return KUrlRequester::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1051,14 +1088,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_focusnextprevchild_isbase) {
             kurlrequester_focusnextprevchild_isbase = false;
             return KUrlRequester::focusNextPrevChild(next);
-        } else if (kurlrequester_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kurlrequester_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kurlrequester_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlRequester::focusNextPrevChild(next);
         }
+        return KUrlRequester::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1066,13 +1104,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_timerevent_isbase) {
             kurlrequester_timerevent_isbase = false;
             KUrlRequester::timerEvent(event);
-        } else if (kurlrequester_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kurlrequester_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kurlrequester_timerevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1080,13 +1121,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_childevent_isbase) {
             kurlrequester_childevent_isbase = false;
             KUrlRequester::childEvent(event);
-        } else if (kurlrequester_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kurlrequester_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kurlrequester_childevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1094,13 +1138,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_customevent_isbase) {
             kurlrequester_customevent_isbase = false;
             KUrlRequester::customEvent(event);
-        } else if (kurlrequester_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kurlrequester_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlrequester_customevent_callback(this, cbval1);
-        } else {
-            KUrlRequester::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1108,15 +1155,18 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_connectnotify_isbase) {
             kurlrequester_connectnotify_isbase = false;
             KUrlRequester::connectNotify(signal);
-        } else if (kurlrequester_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kurlrequester_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlrequester_connectnotify_callback(this, cbval1);
-        } else {
-            KUrlRequester::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,15 +1174,18 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_disconnectnotify_isbase) {
             kurlrequester_disconnectnotify_isbase = false;
             KUrlRequester::disconnectNotify(signal);
-        } else if (kurlrequester_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kurlrequester_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlrequester_disconnectnotify_callback(this, cbval1);
-        } else {
-            KUrlRequester::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlRequester::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1140,11 +1193,14 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_updatemicrofocus_isbase) {
             kurlrequester_updatemicrofocus_isbase = false;
             KUrlRequester::updateMicroFocus();
-        } else if (kurlrequester_updatemicrofocus_callback != nullptr) {
-            kurlrequester_updatemicrofocus_callback();
-        } else {
-            KUrlRequester::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kurlrequester_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KUrlRequester::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,11 +1208,14 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_create_isbase) {
             kurlrequester_create_isbase = false;
             KUrlRequester::create();
-        } else if (kurlrequester_create_callback != nullptr) {
-            kurlrequester_create_callback();
-        } else {
-            KUrlRequester::create();
+            return;
         }
+        auto create_cb = kurlrequester_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KUrlRequester::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1164,11 +1223,14 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_destroy_isbase) {
             kurlrequester_destroy_isbase = false;
             KUrlRequester::destroy();
-        } else if (kurlrequester_destroy_callback != nullptr) {
-            kurlrequester_destroy_callback();
-        } else {
-            KUrlRequester::destroy();
+            return;
         }
+        auto destroy_cb = kurlrequester_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KUrlRequester::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1176,12 +1238,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_focusnextchild_isbase) {
             kurlrequester_focusnextchild_isbase = false;
             return KUrlRequester::focusNextChild();
-        } else if (kurlrequester_focusnextchild_callback != nullptr) {
-            bool callback_ret = kurlrequester_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::focusNextChild();
         }
+        auto focusnextchild_cb = kurlrequester_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1189,12 +1252,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_focuspreviouschild_isbase) {
             kurlrequester_focuspreviouschild_isbase = false;
             return KUrlRequester::focusPreviousChild();
-        } else if (kurlrequester_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kurlrequester_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kurlrequester_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,12 +1266,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_sender_isbase) {
             kurlrequester_sender_isbase = false;
             return KUrlRequester::sender();
-        } else if (kurlrequester_sender_callback != nullptr) {
-            QObject* callback_ret = kurlrequester_sender_callback();
-            return callback_ret;
-        } else {
-            return KUrlRequester::sender();
         }
+        auto sender_cb = kurlrequester_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KUrlRequester::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1215,12 +1280,13 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_sendersignalindex_isbase) {
             kurlrequester_sendersignalindex_isbase = false;
             return KUrlRequester::senderSignalIndex();
-        } else if (kurlrequester_sendersignalindex_callback != nullptr) {
-            int callback_ret = kurlrequester_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlRequester::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kurlrequester_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlRequester::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,14 +1294,15 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_receivers_isbase) {
             kurlrequester_receivers_isbase = false;
             return KUrlRequester::receivers(signal);
-        } else if (kurlrequester_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kurlrequester_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kurlrequester_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlRequester::receivers(signal);
         }
+        return KUrlRequester::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1243,16 +1310,17 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_issignalconnected_isbase) {
             kurlrequester_issignalconnected_isbase = false;
             return KUrlRequester::isSignalConnected(signal);
-        } else if (kurlrequester_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kurlrequester_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kurlrequester_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlRequester::isSignalConnected(signal);
         }
+        return KUrlRequester::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1260,15 +1328,16 @@ class VirtualKUrlRequester final : public KUrlRequester {
         if (kurlrequester_getdecodedmetricf_isbase) {
             kurlrequester_getdecodedmetricf_isbase = false;
             return KUrlRequester::getDecodedMetricF(metricA, metricB);
-        } else if (kurlrequester_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kurlrequester_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kurlrequester_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KUrlRequester::getDecodedMetricF(metricA, metricB);
         }
+        return KUrlRequester::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions
@@ -1573,70 +1642,6 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     VirtualKUrlComboRequester(QWidget* parent) : KUrlComboRequester(parent) {};
     VirtualKUrlComboRequester() : KUrlComboRequester() {};
 
-    ~VirtualKUrlComboRequester() {
-        kurlcomborequester_metaobject_callback = nullptr;
-        kurlcomborequester_metacast_callback = nullptr;
-        kurlcomborequester_metacall_callback = nullptr;
-        kurlcomborequester_filedialog_callback = nullptr;
-        kurlcomborequester_changeevent_callback = nullptr;
-        kurlcomborequester_eventfilter_callback = nullptr;
-        kurlcomborequester_devtype_callback = nullptr;
-        kurlcomborequester_setvisible_callback = nullptr;
-        kurlcomborequester_sizehint_callback = nullptr;
-        kurlcomborequester_minimumsizehint_callback = nullptr;
-        kurlcomborequester_heightforwidth_callback = nullptr;
-        kurlcomborequester_hasheightforwidth_callback = nullptr;
-        kurlcomborequester_paintengine_callback = nullptr;
-        kurlcomborequester_event_callback = nullptr;
-        kurlcomborequester_mousepressevent_callback = nullptr;
-        kurlcomborequester_mousereleaseevent_callback = nullptr;
-        kurlcomborequester_mousedoubleclickevent_callback = nullptr;
-        kurlcomborequester_mousemoveevent_callback = nullptr;
-        kurlcomborequester_wheelevent_callback = nullptr;
-        kurlcomborequester_keypressevent_callback = nullptr;
-        kurlcomborequester_keyreleaseevent_callback = nullptr;
-        kurlcomborequester_focusinevent_callback = nullptr;
-        kurlcomborequester_focusoutevent_callback = nullptr;
-        kurlcomborequester_enterevent_callback = nullptr;
-        kurlcomborequester_leaveevent_callback = nullptr;
-        kurlcomborequester_paintevent_callback = nullptr;
-        kurlcomborequester_moveevent_callback = nullptr;
-        kurlcomborequester_resizeevent_callback = nullptr;
-        kurlcomborequester_closeevent_callback = nullptr;
-        kurlcomborequester_contextmenuevent_callback = nullptr;
-        kurlcomborequester_tabletevent_callback = nullptr;
-        kurlcomborequester_actionevent_callback = nullptr;
-        kurlcomborequester_dragenterevent_callback = nullptr;
-        kurlcomborequester_dragmoveevent_callback = nullptr;
-        kurlcomborequester_dragleaveevent_callback = nullptr;
-        kurlcomborequester_dropevent_callback = nullptr;
-        kurlcomborequester_showevent_callback = nullptr;
-        kurlcomborequester_hideevent_callback = nullptr;
-        kurlcomborequester_nativeevent_callback = nullptr;
-        kurlcomborequester_metric_callback = nullptr;
-        kurlcomborequester_initpainter_callback = nullptr;
-        kurlcomborequester_redirected_callback = nullptr;
-        kurlcomborequester_sharedpainter_callback = nullptr;
-        kurlcomborequester_inputmethodevent_callback = nullptr;
-        kurlcomborequester_inputmethodquery_callback = nullptr;
-        kurlcomborequester_focusnextprevchild_callback = nullptr;
-        kurlcomborequester_timerevent_callback = nullptr;
-        kurlcomborequester_childevent_callback = nullptr;
-        kurlcomborequester_customevent_callback = nullptr;
-        kurlcomborequester_connectnotify_callback = nullptr;
-        kurlcomborequester_disconnectnotify_callback = nullptr;
-        kurlcomborequester_updatemicrofocus_callback = nullptr;
-        kurlcomborequester_create_callback = nullptr;
-        kurlcomborequester_destroy_callback = nullptr;
-        kurlcomborequester_focusnextchild_callback = nullptr;
-        kurlcomborequester_focuspreviouschild_callback = nullptr;
-        kurlcomborequester_sender_callback = nullptr;
-        kurlcomborequester_sendersignalindex_callback = nullptr;
-        kurlcomborequester_receivers_callback = nullptr;
-        kurlcomborequester_issignalconnected_callback = nullptr;
-        kurlcomborequester_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKUrlComboRequester_MetaObject_Callback(KUrlComboRequester_MetaObject_Callback cb) { kurlcomborequester_metaobject_callback = cb; }
     inline void setKUrlComboRequester_Metacast_Callback(KUrlComboRequester_Metacast_Callback cb) { kurlcomborequester_metacast_callback = cb; }
@@ -1768,12 +1773,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_metaobject_isbase) {
             kurlcomborequester_metaobject_isbase = false;
             return KUrlComboRequester::metaObject();
-        } else if (kurlcomborequester_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kurlcomborequester_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::metaObject();
         }
+        auto metaobject_cb = kurlcomborequester_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1781,14 +1787,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_metacast_isbase) {
             kurlcomborequester_metacast_isbase = false;
             return KUrlComboRequester::qt_metacast(param1);
-        } else if (kurlcomborequester_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kurlcomborequester_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kurlcomborequester_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::qt_metacast(param1);
         }
+        return KUrlComboRequester::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1796,16 +1803,17 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_metacall_isbase) {
             kurlcomborequester_metacall_isbase = false;
             return KUrlComboRequester::qt_metacall(param1, param2, param3);
-        } else if (kurlcomborequester_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kurlcomborequester_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kurlcomborequester_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboRequester::qt_metacall(param1, param2, param3);
         }
+        return KUrlComboRequester::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1813,12 +1821,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_filedialog_isbase) {
             kurlcomborequester_filedialog_isbase = false;
             return KUrlComboRequester::fileDialog();
-        } else if (kurlcomborequester_filedialog_callback != nullptr) {
-            QFileDialog* callback_ret = kurlcomborequester_filedialog_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::fileDialog();
         }
+        auto filedialog_cb = kurlcomborequester_filedialog_callback;
+        if (filedialog_cb) {
+            QFileDialog* callback_ret = filedialog_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::fileDialog();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1826,13 +1835,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_changeevent_isbase) {
             kurlcomborequester_changeevent_isbase = false;
             KUrlComboRequester::changeEvent(e);
-        } else if (kurlcomborequester_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kurlcomborequester_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            kurlcomborequester_changeevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1840,15 +1852,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_eventfilter_isbase) {
             kurlcomborequester_eventfilter_isbase = false;
             return KUrlComboRequester::eventFilter(obj, ev);
-        } else if (kurlcomborequester_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kurlcomborequester_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = ev;
 
-            bool callback_ret = kurlcomborequester_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::eventFilter(obj, ev);
         }
+        return KUrlComboRequester::eventFilter(obj, ev);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1856,12 +1869,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_devtype_isbase) {
             kurlcomborequester_devtype_isbase = false;
             return KUrlComboRequester::devType();
-        } else if (kurlcomborequester_devtype_callback != nullptr) {
-            int callback_ret = kurlcomborequester_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboRequester::devType();
         }
+        auto devtype_cb = kurlcomborequester_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlComboRequester::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1869,13 +1883,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_setvisible_isbase) {
             kurlcomborequester_setvisible_isbase = false;
             KUrlComboRequester::setVisible(visible);
-        } else if (kurlcomborequester_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kurlcomborequester_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kurlcomborequester_setvisible_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1883,12 +1900,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_sizehint_isbase) {
             kurlcomborequester_sizehint_isbase = false;
             return KUrlComboRequester::sizeHint();
-        } else if (kurlcomborequester_sizehint_callback != nullptr) {
-            QSize* callback_ret = kurlcomborequester_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlComboRequester::sizeHint();
         }
+        auto sizehint_cb = kurlcomborequester_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlComboRequester::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1896,12 +1914,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_minimumsizehint_isbase) {
             kurlcomborequester_minimumsizehint_isbase = false;
             return KUrlComboRequester::minimumSizeHint();
-        } else if (kurlcomborequester_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kurlcomborequester_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KUrlComboRequester::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kurlcomborequester_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KUrlComboRequester::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1909,14 +1928,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_heightforwidth_isbase) {
             kurlcomborequester_heightforwidth_isbase = false;
             return KUrlComboRequester::heightForWidth(param1);
-        } else if (kurlcomborequester_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kurlcomborequester_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kurlcomborequester_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboRequester::heightForWidth(param1);
         }
+        return KUrlComboRequester::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1924,12 +1944,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_hasheightforwidth_isbase) {
             kurlcomborequester_hasheightforwidth_isbase = false;
             return KUrlComboRequester::hasHeightForWidth();
-        } else if (kurlcomborequester_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kurlcomborequester_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kurlcomborequester_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1937,12 +1958,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_paintengine_isbase) {
             kurlcomborequester_paintengine_isbase = false;
             return KUrlComboRequester::paintEngine();
-        } else if (kurlcomborequester_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kurlcomborequester_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::paintEngine();
         }
+        auto paintengine_cb = kurlcomborequester_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1950,14 +1972,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_event_isbase) {
             kurlcomborequester_event_isbase = false;
             return KUrlComboRequester::event(event);
-        } else if (kurlcomborequester_event_callback != nullptr) {
+        }
+        auto event_cb = kurlcomborequester_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kurlcomborequester_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::event(event);
         }
+        return KUrlComboRequester::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1965,13 +1988,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_mousepressevent_isbase) {
             kurlcomborequester_mousepressevent_isbase = false;
             KUrlComboRequester::mousePressEvent(event);
-        } else if (kurlcomborequester_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kurlcomborequester_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcomborequester_mousepressevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1979,13 +2005,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_mousereleaseevent_isbase) {
             kurlcomborequester_mousereleaseevent_isbase = false;
             KUrlComboRequester::mouseReleaseEvent(event);
-        } else if (kurlcomborequester_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kurlcomborequester_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcomborequester_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1993,13 +2022,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_mousedoubleclickevent_isbase) {
             kurlcomborequester_mousedoubleclickevent_isbase = false;
             KUrlComboRequester::mouseDoubleClickEvent(event);
-        } else if (kurlcomborequester_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kurlcomborequester_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcomborequester_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2007,13 +2039,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_mousemoveevent_isbase) {
             kurlcomborequester_mousemoveevent_isbase = false;
             KUrlComboRequester::mouseMoveEvent(event);
-        } else if (kurlcomborequester_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kurlcomborequester_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kurlcomborequester_mousemoveevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2021,13 +2056,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_wheelevent_isbase) {
             kurlcomborequester_wheelevent_isbase = false;
             KUrlComboRequester::wheelEvent(event);
-        } else if (kurlcomborequester_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kurlcomborequester_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kurlcomborequester_wheelevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2035,13 +2073,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_keypressevent_isbase) {
             kurlcomborequester_keypressevent_isbase = false;
             KUrlComboRequester::keyPressEvent(event);
-        } else if (kurlcomborequester_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kurlcomborequester_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kurlcomborequester_keypressevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2049,13 +2090,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_keyreleaseevent_isbase) {
             kurlcomborequester_keyreleaseevent_isbase = false;
             KUrlComboRequester::keyReleaseEvent(event);
-        } else if (kurlcomborequester_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kurlcomborequester_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kurlcomborequester_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2063,13 +2107,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_focusinevent_isbase) {
             kurlcomborequester_focusinevent_isbase = false;
             KUrlComboRequester::focusInEvent(event);
-        } else if (kurlcomborequester_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kurlcomborequester_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kurlcomborequester_focusinevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2077,13 +2124,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_focusoutevent_isbase) {
             kurlcomborequester_focusoutevent_isbase = false;
             KUrlComboRequester::focusOutEvent(event);
-        } else if (kurlcomborequester_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kurlcomborequester_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kurlcomborequester_focusoutevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2091,13 +2141,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_enterevent_isbase) {
             kurlcomborequester_enterevent_isbase = false;
             KUrlComboRequester::enterEvent(event);
-        } else if (kurlcomborequester_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kurlcomborequester_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kurlcomborequester_enterevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2105,13 +2158,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_leaveevent_isbase) {
             kurlcomborequester_leaveevent_isbase = false;
             KUrlComboRequester::leaveEvent(event);
-        } else if (kurlcomborequester_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kurlcomborequester_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlcomborequester_leaveevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2119,13 +2175,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_paintevent_isbase) {
             kurlcomborequester_paintevent_isbase = false;
             KUrlComboRequester::paintEvent(event);
-        } else if (kurlcomborequester_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kurlcomborequester_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kurlcomborequester_paintevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2133,13 +2192,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_moveevent_isbase) {
             kurlcomborequester_moveevent_isbase = false;
             KUrlComboRequester::moveEvent(event);
-        } else if (kurlcomborequester_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kurlcomborequester_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kurlcomborequester_moveevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2147,13 +2209,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_resizeevent_isbase) {
             kurlcomborequester_resizeevent_isbase = false;
             KUrlComboRequester::resizeEvent(event);
-        } else if (kurlcomborequester_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kurlcomborequester_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kurlcomborequester_resizeevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2161,13 +2226,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_closeevent_isbase) {
             kurlcomborequester_closeevent_isbase = false;
             KUrlComboRequester::closeEvent(event);
-        } else if (kurlcomborequester_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kurlcomborequester_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kurlcomborequester_closeevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2175,13 +2243,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_contextmenuevent_isbase) {
             kurlcomborequester_contextmenuevent_isbase = false;
             KUrlComboRequester::contextMenuEvent(event);
-        } else if (kurlcomborequester_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kurlcomborequester_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kurlcomborequester_contextmenuevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2189,13 +2260,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_tabletevent_isbase) {
             kurlcomborequester_tabletevent_isbase = false;
             KUrlComboRequester::tabletEvent(event);
-        } else if (kurlcomborequester_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kurlcomborequester_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kurlcomborequester_tabletevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2203,13 +2277,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_actionevent_isbase) {
             kurlcomborequester_actionevent_isbase = false;
             KUrlComboRequester::actionEvent(event);
-        } else if (kurlcomborequester_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kurlcomborequester_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kurlcomborequester_actionevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2217,13 +2294,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_dragenterevent_isbase) {
             kurlcomborequester_dragenterevent_isbase = false;
             KUrlComboRequester::dragEnterEvent(event);
-        } else if (kurlcomborequester_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kurlcomborequester_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kurlcomborequester_dragenterevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2231,13 +2311,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_dragmoveevent_isbase) {
             kurlcomborequester_dragmoveevent_isbase = false;
             KUrlComboRequester::dragMoveEvent(event);
-        } else if (kurlcomborequester_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kurlcomborequester_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kurlcomborequester_dragmoveevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2245,13 +2328,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_dragleaveevent_isbase) {
             kurlcomborequester_dragleaveevent_isbase = false;
             KUrlComboRequester::dragLeaveEvent(event);
-        } else if (kurlcomborequester_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kurlcomborequester_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kurlcomborequester_dragleaveevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2259,13 +2345,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_dropevent_isbase) {
             kurlcomborequester_dropevent_isbase = false;
             KUrlComboRequester::dropEvent(event);
-        } else if (kurlcomborequester_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kurlcomborequester_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kurlcomborequester_dropevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2273,13 +2362,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_showevent_isbase) {
             kurlcomborequester_showevent_isbase = false;
             KUrlComboRequester::showEvent(event);
-        } else if (kurlcomborequester_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kurlcomborequester_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kurlcomborequester_showevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2287,13 +2379,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_hideevent_isbase) {
             kurlcomborequester_hideevent_isbase = false;
             KUrlComboRequester::hideEvent(event);
-        } else if (kurlcomborequester_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kurlcomborequester_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kurlcomborequester_hideevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2301,7 +2396,9 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_nativeevent_isbase) {
             kurlcomborequester_nativeevent_isbase = false;
             return KUrlComboRequester::nativeEvent(eventType, message, result);
-        } else if (kurlcomborequester_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kurlcomborequester_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2312,12 +2409,11 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kurlcomborequester_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::nativeEvent(eventType, message, result);
         }
+        return KUrlComboRequester::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2325,14 +2421,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_metric_isbase) {
             kurlcomborequester_metric_isbase = false;
             return KUrlComboRequester::metric(param1);
-        } else if (kurlcomborequester_metric_callback != nullptr) {
+        }
+        auto metric_cb = kurlcomborequester_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kurlcomborequester_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboRequester::metric(param1);
         }
+        return KUrlComboRequester::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2340,13 +2437,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_initpainter_isbase) {
             kurlcomborequester_initpainter_isbase = false;
             KUrlComboRequester::initPainter(painter);
-        } else if (kurlcomborequester_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kurlcomborequester_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kurlcomborequester_initpainter_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2354,14 +2454,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_redirected_isbase) {
             kurlcomborequester_redirected_isbase = false;
             return KUrlComboRequester::redirected(offset);
-        } else if (kurlcomborequester_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kurlcomborequester_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kurlcomborequester_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::redirected(offset);
         }
+        return KUrlComboRequester::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2369,12 +2470,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_sharedpainter_isbase) {
             kurlcomborequester_sharedpainter_isbase = false;
             return KUrlComboRequester::sharedPainter();
-        } else if (kurlcomborequester_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kurlcomborequester_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::sharedPainter();
         }
+        auto sharedpainter_cb = kurlcomborequester_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2382,13 +2484,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_inputmethodevent_isbase) {
             kurlcomborequester_inputmethodevent_isbase = false;
             KUrlComboRequester::inputMethodEvent(param1);
-        } else if (kurlcomborequester_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kurlcomborequester_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kurlcomborequester_inputmethodevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2396,14 +2501,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_inputmethodquery_isbase) {
             kurlcomborequester_inputmethodquery_isbase = false;
             return KUrlComboRequester::inputMethodQuery(param1);
-        } else if (kurlcomborequester_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kurlcomborequester_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kurlcomborequester_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KUrlComboRequester::inputMethodQuery(param1);
         }
+        return KUrlComboRequester::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2411,14 +2517,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_focusnextprevchild_isbase) {
             kurlcomborequester_focusnextprevchild_isbase = false;
             return KUrlComboRequester::focusNextPrevChild(next);
-        } else if (kurlcomborequester_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kurlcomborequester_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kurlcomborequester_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::focusNextPrevChild(next);
         }
+        return KUrlComboRequester::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2426,13 +2533,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_timerevent_isbase) {
             kurlcomborequester_timerevent_isbase = false;
             KUrlComboRequester::timerEvent(event);
-        } else if (kurlcomborequester_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kurlcomborequester_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kurlcomborequester_timerevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2440,13 +2550,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_childevent_isbase) {
             kurlcomborequester_childevent_isbase = false;
             KUrlComboRequester::childEvent(event);
-        } else if (kurlcomborequester_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kurlcomborequester_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kurlcomborequester_childevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2454,13 +2567,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_customevent_isbase) {
             kurlcomborequester_customevent_isbase = false;
             KUrlComboRequester::customEvent(event);
-        } else if (kurlcomborequester_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kurlcomborequester_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kurlcomborequester_customevent_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2468,15 +2584,18 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_connectnotify_isbase) {
             kurlcomborequester_connectnotify_isbase = false;
             KUrlComboRequester::connectNotify(signal);
-        } else if (kurlcomborequester_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kurlcomborequester_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlcomborequester_connectnotify_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2484,15 +2603,18 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_disconnectnotify_isbase) {
             kurlcomborequester_disconnectnotify_isbase = false;
             KUrlComboRequester::disconnectNotify(signal);
-        } else if (kurlcomborequester_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kurlcomborequester_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kurlcomborequester_disconnectnotify_callback(this, cbval1);
-        } else {
-            KUrlComboRequester::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KUrlComboRequester::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2500,11 +2622,14 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_updatemicrofocus_isbase) {
             kurlcomborequester_updatemicrofocus_isbase = false;
             KUrlComboRequester::updateMicroFocus();
-        } else if (kurlcomborequester_updatemicrofocus_callback != nullptr) {
-            kurlcomborequester_updatemicrofocus_callback();
-        } else {
-            KUrlComboRequester::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kurlcomborequester_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KUrlComboRequester::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2512,11 +2637,14 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_create_isbase) {
             kurlcomborequester_create_isbase = false;
             KUrlComboRequester::create();
-        } else if (kurlcomborequester_create_callback != nullptr) {
-            kurlcomborequester_create_callback();
-        } else {
-            KUrlComboRequester::create();
+            return;
         }
+        auto create_cb = kurlcomborequester_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KUrlComboRequester::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2524,11 +2652,14 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_destroy_isbase) {
             kurlcomborequester_destroy_isbase = false;
             KUrlComboRequester::destroy();
-        } else if (kurlcomborequester_destroy_callback != nullptr) {
-            kurlcomborequester_destroy_callback();
-        } else {
-            KUrlComboRequester::destroy();
+            return;
         }
+        auto destroy_cb = kurlcomborequester_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KUrlComboRequester::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2536,12 +2667,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_focusnextchild_isbase) {
             kurlcomborequester_focusnextchild_isbase = false;
             return KUrlComboRequester::focusNextChild();
-        } else if (kurlcomborequester_focusnextchild_callback != nullptr) {
-            bool callback_ret = kurlcomborequester_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::focusNextChild();
         }
+        auto focusnextchild_cb = kurlcomborequester_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2549,12 +2681,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_focuspreviouschild_isbase) {
             kurlcomborequester_focuspreviouschild_isbase = false;
             return KUrlComboRequester::focusPreviousChild();
-        } else if (kurlcomborequester_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kurlcomborequester_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kurlcomborequester_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2562,12 +2695,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_sender_isbase) {
             kurlcomborequester_sender_isbase = false;
             return KUrlComboRequester::sender();
-        } else if (kurlcomborequester_sender_callback != nullptr) {
-            QObject* callback_ret = kurlcomborequester_sender_callback();
-            return callback_ret;
-        } else {
-            return KUrlComboRequester::sender();
         }
+        auto sender_cb = kurlcomborequester_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KUrlComboRequester::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2575,12 +2709,13 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_sendersignalindex_isbase) {
             kurlcomborequester_sendersignalindex_isbase = false;
             return KUrlComboRequester::senderSignalIndex();
-        } else if (kurlcomborequester_sendersignalindex_callback != nullptr) {
-            int callback_ret = kurlcomborequester_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboRequester::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kurlcomborequester_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KUrlComboRequester::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2588,14 +2723,15 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_receivers_isbase) {
             kurlcomborequester_receivers_isbase = false;
             return KUrlComboRequester::receivers(signal);
-        } else if (kurlcomborequester_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kurlcomborequester_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kurlcomborequester_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KUrlComboRequester::receivers(signal);
         }
+        return KUrlComboRequester::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2603,16 +2739,17 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_issignalconnected_isbase) {
             kurlcomborequester_issignalconnected_isbase = false;
             return KUrlComboRequester::isSignalConnected(signal);
-        } else if (kurlcomborequester_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kurlcomborequester_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kurlcomborequester_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KUrlComboRequester::isSignalConnected(signal);
         }
+        return KUrlComboRequester::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -2620,15 +2757,16 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
         if (kurlcomborequester_getdecodedmetricf_isbase) {
             kurlcomborequester_getdecodedmetricf_isbase = false;
             return KUrlComboRequester::getDecodedMetricF(metricA, metricB);
-        } else if (kurlcomborequester_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kurlcomborequester_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kurlcomborequester_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KUrlComboRequester::getDecodedMetricF(metricA, metricB);
         }
+        return KUrlComboRequester::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

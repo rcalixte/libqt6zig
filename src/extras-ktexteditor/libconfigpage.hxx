@@ -224,75 +224,6 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
   public:
     VirtualKTextEditorConfigPage(QWidget* parent) : KTextEditor::ConfigPage(parent) {};
 
-    ~VirtualKTextEditorConfigPage() {
-        ktexteditor__configpage_metaobject_callback = nullptr;
-        ktexteditor__configpage_metacast_callback = nullptr;
-        ktexteditor__configpage_metacall_callback = nullptr;
-        ktexteditor__configpage_name_callback = nullptr;
-        ktexteditor__configpage_fullname_callback = nullptr;
-        ktexteditor__configpage_icon_callback = nullptr;
-        ktexteditor__configpage_apply_callback = nullptr;
-        ktexteditor__configpage_reset_callback = nullptr;
-        ktexteditor__configpage_defaults_callback = nullptr;
-        ktexteditor__configpage_devtype_callback = nullptr;
-        ktexteditor__configpage_setvisible_callback = nullptr;
-        ktexteditor__configpage_sizehint_callback = nullptr;
-        ktexteditor__configpage_minimumsizehint_callback = nullptr;
-        ktexteditor__configpage_heightforwidth_callback = nullptr;
-        ktexteditor__configpage_hasheightforwidth_callback = nullptr;
-        ktexteditor__configpage_paintengine_callback = nullptr;
-        ktexteditor__configpage_event_callback = nullptr;
-        ktexteditor__configpage_mousepressevent_callback = nullptr;
-        ktexteditor__configpage_mousereleaseevent_callback = nullptr;
-        ktexteditor__configpage_mousedoubleclickevent_callback = nullptr;
-        ktexteditor__configpage_mousemoveevent_callback = nullptr;
-        ktexteditor__configpage_wheelevent_callback = nullptr;
-        ktexteditor__configpage_keypressevent_callback = nullptr;
-        ktexteditor__configpage_keyreleaseevent_callback = nullptr;
-        ktexteditor__configpage_focusinevent_callback = nullptr;
-        ktexteditor__configpage_focusoutevent_callback = nullptr;
-        ktexteditor__configpage_enterevent_callback = nullptr;
-        ktexteditor__configpage_leaveevent_callback = nullptr;
-        ktexteditor__configpage_paintevent_callback = nullptr;
-        ktexteditor__configpage_moveevent_callback = nullptr;
-        ktexteditor__configpage_resizeevent_callback = nullptr;
-        ktexteditor__configpage_closeevent_callback = nullptr;
-        ktexteditor__configpage_contextmenuevent_callback = nullptr;
-        ktexteditor__configpage_tabletevent_callback = nullptr;
-        ktexteditor__configpage_actionevent_callback = nullptr;
-        ktexteditor__configpage_dragenterevent_callback = nullptr;
-        ktexteditor__configpage_dragmoveevent_callback = nullptr;
-        ktexteditor__configpage_dragleaveevent_callback = nullptr;
-        ktexteditor__configpage_dropevent_callback = nullptr;
-        ktexteditor__configpage_showevent_callback = nullptr;
-        ktexteditor__configpage_hideevent_callback = nullptr;
-        ktexteditor__configpage_nativeevent_callback = nullptr;
-        ktexteditor__configpage_changeevent_callback = nullptr;
-        ktexteditor__configpage_metric_callback = nullptr;
-        ktexteditor__configpage_initpainter_callback = nullptr;
-        ktexteditor__configpage_redirected_callback = nullptr;
-        ktexteditor__configpage_sharedpainter_callback = nullptr;
-        ktexteditor__configpage_inputmethodevent_callback = nullptr;
-        ktexteditor__configpage_inputmethodquery_callback = nullptr;
-        ktexteditor__configpage_focusnextprevchild_callback = nullptr;
-        ktexteditor__configpage_eventfilter_callback = nullptr;
-        ktexteditor__configpage_timerevent_callback = nullptr;
-        ktexteditor__configpage_childevent_callback = nullptr;
-        ktexteditor__configpage_customevent_callback = nullptr;
-        ktexteditor__configpage_connectnotify_callback = nullptr;
-        ktexteditor__configpage_disconnectnotify_callback = nullptr;
-        ktexteditor__configpage_updatemicrofocus_callback = nullptr;
-        ktexteditor__configpage_create_callback = nullptr;
-        ktexteditor__configpage_destroy_callback = nullptr;
-        ktexteditor__configpage_focusnextchild_callback = nullptr;
-        ktexteditor__configpage_focuspreviouschild_callback = nullptr;
-        ktexteditor__configpage_sender_callback = nullptr;
-        ktexteditor__configpage_sendersignalindex_callback = nullptr;
-        ktexteditor__configpage_receivers_callback = nullptr;
-        ktexteditor__configpage_issignalconnected_callback = nullptr;
-        ktexteditor__configpage_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKTextEditor__ConfigPage_MetaObject_Callback(KTextEditor__ConfigPage_MetaObject_Callback cb) { ktexteditor__configpage_metaobject_callback = cb; }
     inline void setKTextEditor__ConfigPage_Metacast_Callback(KTextEditor__ConfigPage_Metacast_Callback cb) { ktexteditor__configpage_metacast_callback = cb; }
@@ -434,12 +365,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_metaobject_isbase) {
             ktexteditor__configpage_metaobject_isbase = false;
             return KTextEditor__ConfigPage::metaObject();
-        } else if (ktexteditor__configpage_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ktexteditor__configpage_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::metaObject();
         }
+        auto metaobject_cb = ktexteditor__configpage_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -447,14 +379,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_metacast_isbase) {
             ktexteditor__configpage_metacast_isbase = false;
             return KTextEditor__ConfigPage::qt_metacast(param1);
-        } else if (ktexteditor__configpage_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ktexteditor__configpage_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ktexteditor__configpage_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::qt_metacast(param1);
         }
+        return KTextEditor__ConfigPage::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -462,27 +395,28 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_metacall_isbase) {
             ktexteditor__configpage_metacall_isbase = false;
             return KTextEditor__ConfigPage::qt_metacall(param1, param2, param3);
-        } else if (ktexteditor__configpage_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ktexteditor__configpage_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ktexteditor__configpage_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::qt_metacall(param1, param2, param3);
         }
+        return KTextEditor__ConfigPage::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString name() const override {
-        if (ktexteditor__configpage_name_callback != nullptr) {
-            const char* callback_ret = ktexteditor__configpage_name_callback();
+        auto name_cb = ktexteditor__configpage_name_callback;
+        if (name_cb) {
+            const char* callback_ret = name_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -490,13 +424,14 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_fullname_isbase) {
             ktexteditor__configpage_fullname_isbase = false;
             return KTextEditor__ConfigPage::fullName();
-        } else if (ktexteditor__configpage_fullname_callback != nullptr) {
-            const char* callback_ret = ktexteditor__configpage_fullname_callback();
+        }
+        auto fullname_cb = ktexteditor__configpage_fullname_callback;
+        if (fullname_cb) {
+            const char* callback_ret = fullname_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return KTextEditor__ConfigPage::fullName();
         }
+        return KTextEditor__ConfigPage::fullName();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -504,32 +439,36 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_icon_isbase) {
             ktexteditor__configpage_icon_isbase = false;
             return KTextEditor__ConfigPage::icon();
-        } else if (ktexteditor__configpage_icon_callback != nullptr) {
-            QIcon* callback_ret = ktexteditor__configpage_icon_callback();
-            return *callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::icon();
         }
+        auto icon_cb = ktexteditor__configpage_icon_callback;
+        if (icon_cb) {
+            QIcon* callback_ret = icon_cb();
+            return *callback_ret;
+        }
+        return KTextEditor__ConfigPage::icon();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void apply() override {
-        if (ktexteditor__configpage_apply_callback != nullptr) {
-            ktexteditor__configpage_apply_callback();
+        auto apply_cb = ktexteditor__configpage_apply_callback;
+        if (apply_cb) {
+            apply_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void reset() override {
-        if (ktexteditor__configpage_reset_callback != nullptr) {
-            ktexteditor__configpage_reset_callback();
+        auto reset_cb = ktexteditor__configpage_reset_callback;
+        if (reset_cb) {
+            reset_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void defaults() override {
-        if (ktexteditor__configpage_defaults_callback != nullptr) {
-            ktexteditor__configpage_defaults_callback();
+        auto defaults_cb = ktexteditor__configpage_defaults_callback;
+        if (defaults_cb) {
+            defaults_cb();
         }
     }
 
@@ -538,12 +477,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_devtype_isbase) {
             ktexteditor__configpage_devtype_isbase = false;
             return KTextEditor__ConfigPage::devType();
-        } else if (ktexteditor__configpage_devtype_callback != nullptr) {
-            int callback_ret = ktexteditor__configpage_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::devType();
         }
+        auto devtype_cb = ktexteditor__configpage_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KTextEditor__ConfigPage::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +491,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_setvisible_isbase) {
             ktexteditor__configpage_setvisible_isbase = false;
             KTextEditor__ConfigPage::setVisible(visible);
-        } else if (ktexteditor__configpage_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = ktexteditor__configpage_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            ktexteditor__configpage_setvisible_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,12 +508,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_sizehint_isbase) {
             ktexteditor__configpage_sizehint_isbase = false;
             return KTextEditor__ConfigPage::sizeHint();
-        } else if (ktexteditor__configpage_sizehint_callback != nullptr) {
-            QSize* callback_ret = ktexteditor__configpage_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::sizeHint();
         }
+        auto sizehint_cb = ktexteditor__configpage_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KTextEditor__ConfigPage::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -578,12 +522,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_minimumsizehint_isbase) {
             ktexteditor__configpage_minimumsizehint_isbase = false;
             return KTextEditor__ConfigPage::minimumSizeHint();
-        } else if (ktexteditor__configpage_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = ktexteditor__configpage_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::minimumSizeHint();
         }
+        auto minimumsizehint_cb = ktexteditor__configpage_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KTextEditor__ConfigPage::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -591,14 +536,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_heightforwidth_isbase) {
             ktexteditor__configpage_heightforwidth_isbase = false;
             return KTextEditor__ConfigPage::heightForWidth(param1);
-        } else if (ktexteditor__configpage_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = ktexteditor__configpage_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = ktexteditor__configpage_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::heightForWidth(param1);
         }
+        return KTextEditor__ConfigPage::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -606,12 +552,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_hasheightforwidth_isbase) {
             ktexteditor__configpage_hasheightforwidth_isbase = false;
             return KTextEditor__ConfigPage::hasHeightForWidth();
-        } else if (ktexteditor__configpage_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = ktexteditor__configpage_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = ktexteditor__configpage_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -619,12 +566,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_paintengine_isbase) {
             ktexteditor__configpage_paintengine_isbase = false;
             return KTextEditor__ConfigPage::paintEngine();
-        } else if (ktexteditor__configpage_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = ktexteditor__configpage_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::paintEngine();
         }
+        auto paintengine_cb = ktexteditor__configpage_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,14 +580,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_event_isbase) {
             ktexteditor__configpage_event_isbase = false;
             return KTextEditor__ConfigPage::event(event);
-        } else if (ktexteditor__configpage_event_callback != nullptr) {
+        }
+        auto event_cb = ktexteditor__configpage_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ktexteditor__configpage_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::event(event);
         }
+        return KTextEditor__ConfigPage::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -647,13 +596,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_mousepressevent_isbase) {
             ktexteditor__configpage_mousepressevent_isbase = false;
             KTextEditor__ConfigPage::mousePressEvent(event);
-        } else if (ktexteditor__configpage_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = ktexteditor__configpage_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktexteditor__configpage_mousepressevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -661,13 +613,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_mousereleaseevent_isbase) {
             ktexteditor__configpage_mousereleaseevent_isbase = false;
             KTextEditor__ConfigPage::mouseReleaseEvent(event);
-        } else if (ktexteditor__configpage_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = ktexteditor__configpage_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktexteditor__configpage_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -675,13 +630,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_mousedoubleclickevent_isbase) {
             ktexteditor__configpage_mousedoubleclickevent_isbase = false;
             KTextEditor__ConfigPage::mouseDoubleClickEvent(event);
-        } else if (ktexteditor__configpage_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = ktexteditor__configpage_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktexteditor__configpage_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -689,13 +647,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_mousemoveevent_isbase) {
             ktexteditor__configpage_mousemoveevent_isbase = false;
             KTextEditor__ConfigPage::mouseMoveEvent(event);
-        } else if (ktexteditor__configpage_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = ktexteditor__configpage_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            ktexteditor__configpage_mousemoveevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -703,13 +664,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_wheelevent_isbase) {
             ktexteditor__configpage_wheelevent_isbase = false;
             KTextEditor__ConfigPage::wheelEvent(event);
-        } else if (ktexteditor__configpage_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = ktexteditor__configpage_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            ktexteditor__configpage_wheelevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -717,13 +681,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_keypressevent_isbase) {
             ktexteditor__configpage_keypressevent_isbase = false;
             KTextEditor__ConfigPage::keyPressEvent(event);
-        } else if (ktexteditor__configpage_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = ktexteditor__configpage_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ktexteditor__configpage_keypressevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,13 +698,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_keyreleaseevent_isbase) {
             ktexteditor__configpage_keyreleaseevent_isbase = false;
             KTextEditor__ConfigPage::keyReleaseEvent(event);
-        } else if (ktexteditor__configpage_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = ktexteditor__configpage_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            ktexteditor__configpage_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -745,13 +715,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_focusinevent_isbase) {
             ktexteditor__configpage_focusinevent_isbase = false;
             KTextEditor__ConfigPage::focusInEvent(event);
-        } else if (ktexteditor__configpage_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = ktexteditor__configpage_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ktexteditor__configpage_focusinevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +732,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_focusoutevent_isbase) {
             ktexteditor__configpage_focusoutevent_isbase = false;
             KTextEditor__ConfigPage::focusOutEvent(event);
-        } else if (ktexteditor__configpage_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = ktexteditor__configpage_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            ktexteditor__configpage_focusoutevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,13 +749,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_enterevent_isbase) {
             ktexteditor__configpage_enterevent_isbase = false;
             KTextEditor__ConfigPage::enterEvent(event);
-        } else if (ktexteditor__configpage_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = ktexteditor__configpage_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            ktexteditor__configpage_enterevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -787,13 +766,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_leaveevent_isbase) {
             ktexteditor__configpage_leaveevent_isbase = false;
             KTextEditor__ConfigPage::leaveEvent(event);
-        } else if (ktexteditor__configpage_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = ktexteditor__configpage_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            ktexteditor__configpage_leaveevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,13 +783,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_paintevent_isbase) {
             ktexteditor__configpage_paintevent_isbase = false;
             KTextEditor__ConfigPage::paintEvent(event);
-        } else if (ktexteditor__configpage_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = ktexteditor__configpage_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            ktexteditor__configpage_paintevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -815,13 +800,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_moveevent_isbase) {
             ktexteditor__configpage_moveevent_isbase = false;
             KTextEditor__ConfigPage::moveEvent(event);
-        } else if (ktexteditor__configpage_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = ktexteditor__configpage_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            ktexteditor__configpage_moveevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +817,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_resizeevent_isbase) {
             ktexteditor__configpage_resizeevent_isbase = false;
             KTextEditor__ConfigPage::resizeEvent(event);
-        } else if (ktexteditor__configpage_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = ktexteditor__configpage_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            ktexteditor__configpage_resizeevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +834,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_closeevent_isbase) {
             ktexteditor__configpage_closeevent_isbase = false;
             KTextEditor__ConfigPage::closeEvent(event);
-        } else if (ktexteditor__configpage_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = ktexteditor__configpage_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            ktexteditor__configpage_closeevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +851,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_contextmenuevent_isbase) {
             ktexteditor__configpage_contextmenuevent_isbase = false;
             KTextEditor__ConfigPage::contextMenuEvent(event);
-        } else if (ktexteditor__configpage_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = ktexteditor__configpage_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            ktexteditor__configpage_contextmenuevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +868,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_tabletevent_isbase) {
             ktexteditor__configpage_tabletevent_isbase = false;
             KTextEditor__ConfigPage::tabletEvent(event);
-        } else if (ktexteditor__configpage_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = ktexteditor__configpage_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            ktexteditor__configpage_tabletevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +885,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_actionevent_isbase) {
             ktexteditor__configpage_actionevent_isbase = false;
             KTextEditor__ConfigPage::actionEvent(event);
-        } else if (ktexteditor__configpage_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = ktexteditor__configpage_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            ktexteditor__configpage_actionevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +902,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_dragenterevent_isbase) {
             ktexteditor__configpage_dragenterevent_isbase = false;
             KTextEditor__ConfigPage::dragEnterEvent(event);
-        } else if (ktexteditor__configpage_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = ktexteditor__configpage_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            ktexteditor__configpage_dragenterevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +919,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_dragmoveevent_isbase) {
             ktexteditor__configpage_dragmoveevent_isbase = false;
             KTextEditor__ConfigPage::dragMoveEvent(event);
-        } else if (ktexteditor__configpage_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = ktexteditor__configpage_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            ktexteditor__configpage_dragmoveevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +936,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_dragleaveevent_isbase) {
             ktexteditor__configpage_dragleaveevent_isbase = false;
             KTextEditor__ConfigPage::dragLeaveEvent(event);
-        } else if (ktexteditor__configpage_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = ktexteditor__configpage_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            ktexteditor__configpage_dragleaveevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,13 +953,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_dropevent_isbase) {
             ktexteditor__configpage_dropevent_isbase = false;
             KTextEditor__ConfigPage::dropEvent(event);
-        } else if (ktexteditor__configpage_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = ktexteditor__configpage_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            ktexteditor__configpage_dropevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -955,13 +970,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_showevent_isbase) {
             ktexteditor__configpage_showevent_isbase = false;
             KTextEditor__ConfigPage::showEvent(event);
-        } else if (ktexteditor__configpage_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = ktexteditor__configpage_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            ktexteditor__configpage_showevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,13 +987,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_hideevent_isbase) {
             ktexteditor__configpage_hideevent_isbase = false;
             KTextEditor__ConfigPage::hideEvent(event);
-        } else if (ktexteditor__configpage_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = ktexteditor__configpage_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            ktexteditor__configpage_hideevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -983,7 +1004,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_nativeevent_isbase) {
             ktexteditor__configpage_nativeevent_isbase = false;
             return KTextEditor__ConfigPage::nativeEvent(eventType, message, result);
-        } else if (ktexteditor__configpage_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = ktexteditor__configpage_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -994,12 +1017,11 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = ktexteditor__configpage_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::nativeEvent(eventType, message, result);
         }
+        return KTextEditor__ConfigPage::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,13 +1029,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_changeevent_isbase) {
             ktexteditor__configpage_changeevent_isbase = false;
             KTextEditor__ConfigPage::changeEvent(param1);
-        } else if (ktexteditor__configpage_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = ktexteditor__configpage_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            ktexteditor__configpage_changeevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1021,14 +1046,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_metric_isbase) {
             ktexteditor__configpage_metric_isbase = false;
             return KTextEditor__ConfigPage::metric(param1);
-        } else if (ktexteditor__configpage_metric_callback != nullptr) {
+        }
+        auto metric_cb = ktexteditor__configpage_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = ktexteditor__configpage_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::metric(param1);
         }
+        return KTextEditor__ConfigPage::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1036,13 +1062,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_initpainter_isbase) {
             ktexteditor__configpage_initpainter_isbase = false;
             KTextEditor__ConfigPage::initPainter(painter);
-        } else if (ktexteditor__configpage_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = ktexteditor__configpage_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            ktexteditor__configpage_initpainter_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1050,14 +1079,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_redirected_isbase) {
             ktexteditor__configpage_redirected_isbase = false;
             return KTextEditor__ConfigPage::redirected(offset);
-        } else if (ktexteditor__configpage_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = ktexteditor__configpage_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = ktexteditor__configpage_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::redirected(offset);
         }
+        return KTextEditor__ConfigPage::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1065,12 +1095,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_sharedpainter_isbase) {
             ktexteditor__configpage_sharedpainter_isbase = false;
             return KTextEditor__ConfigPage::sharedPainter();
-        } else if (ktexteditor__configpage_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = ktexteditor__configpage_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::sharedPainter();
         }
+        auto sharedpainter_cb = ktexteditor__configpage_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1078,13 +1109,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_inputmethodevent_isbase) {
             ktexteditor__configpage_inputmethodevent_isbase = false;
             KTextEditor__ConfigPage::inputMethodEvent(param1);
-        } else if (ktexteditor__configpage_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = ktexteditor__configpage_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            ktexteditor__configpage_inputmethodevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1092,14 +1126,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_inputmethodquery_isbase) {
             ktexteditor__configpage_inputmethodquery_isbase = false;
             return KTextEditor__ConfigPage::inputMethodQuery(param1);
-        } else if (ktexteditor__configpage_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = ktexteditor__configpage_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = ktexteditor__configpage_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::inputMethodQuery(param1);
         }
+        return KTextEditor__ConfigPage::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1107,14 +1142,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_focusnextprevchild_isbase) {
             ktexteditor__configpage_focusnextprevchild_isbase = false;
             return KTextEditor__ConfigPage::focusNextPrevChild(next);
-        } else if (ktexteditor__configpage_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = ktexteditor__configpage_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = ktexteditor__configpage_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::focusNextPrevChild(next);
         }
+        return KTextEditor__ConfigPage::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1122,15 +1158,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_eventfilter_isbase) {
             ktexteditor__configpage_eventfilter_isbase = false;
             return KTextEditor__ConfigPage::eventFilter(watched, event);
-        } else if (ktexteditor__configpage_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ktexteditor__configpage_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ktexteditor__configpage_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::eventFilter(watched, event);
         }
+        return KTextEditor__ConfigPage::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1138,13 +1175,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_timerevent_isbase) {
             ktexteditor__configpage_timerevent_isbase = false;
             KTextEditor__ConfigPage::timerEvent(event);
-        } else if (ktexteditor__configpage_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ktexteditor__configpage_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ktexteditor__configpage_timerevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1152,13 +1192,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_childevent_isbase) {
             ktexteditor__configpage_childevent_isbase = false;
             KTextEditor__ConfigPage::childEvent(event);
-        } else if (ktexteditor__configpage_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ktexteditor__configpage_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ktexteditor__configpage_childevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1166,13 +1209,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_customevent_isbase) {
             ktexteditor__configpage_customevent_isbase = false;
             KTextEditor__ConfigPage::customEvent(event);
-        } else if (ktexteditor__configpage_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ktexteditor__configpage_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ktexteditor__configpage_customevent_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,15 +1226,18 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_connectnotify_isbase) {
             ktexteditor__configpage_connectnotify_isbase = false;
             KTextEditor__ConfigPage::connectNotify(signal);
-        } else if (ktexteditor__configpage_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ktexteditor__configpage_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktexteditor__configpage_connectnotify_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,15 +1245,18 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_disconnectnotify_isbase) {
             ktexteditor__configpage_disconnectnotify_isbase = false;
             KTextEditor__ConfigPage::disconnectNotify(signal);
-        } else if (ktexteditor__configpage_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ktexteditor__configpage_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ktexteditor__configpage_disconnectnotify_callback(this, cbval1);
-        } else {
-            KTextEditor__ConfigPage::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KTextEditor__ConfigPage::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1212,11 +1264,14 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_updatemicrofocus_isbase) {
             ktexteditor__configpage_updatemicrofocus_isbase = false;
             KTextEditor__ConfigPage::updateMicroFocus();
-        } else if (ktexteditor__configpage_updatemicrofocus_callback != nullptr) {
-            ktexteditor__configpage_updatemicrofocus_callback();
-        } else {
-            KTextEditor__ConfigPage::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = ktexteditor__configpage_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KTextEditor__ConfigPage::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1224,11 +1279,14 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_create_isbase) {
             ktexteditor__configpage_create_isbase = false;
             KTextEditor__ConfigPage::create();
-        } else if (ktexteditor__configpage_create_callback != nullptr) {
-            ktexteditor__configpage_create_callback();
-        } else {
-            KTextEditor__ConfigPage::create();
+            return;
         }
+        auto create_cb = ktexteditor__configpage_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KTextEditor__ConfigPage::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1236,11 +1294,14 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_destroy_isbase) {
             ktexteditor__configpage_destroy_isbase = false;
             KTextEditor__ConfigPage::destroy();
-        } else if (ktexteditor__configpage_destroy_callback != nullptr) {
-            ktexteditor__configpage_destroy_callback();
-        } else {
-            KTextEditor__ConfigPage::destroy();
+            return;
         }
+        auto destroy_cb = ktexteditor__configpage_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KTextEditor__ConfigPage::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,12 +1309,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_focusnextchild_isbase) {
             ktexteditor__configpage_focusnextchild_isbase = false;
             return KTextEditor__ConfigPage::focusNextChild();
-        } else if (ktexteditor__configpage_focusnextchild_callback != nullptr) {
-            bool callback_ret = ktexteditor__configpage_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::focusNextChild();
         }
+        auto focusnextchild_cb = ktexteditor__configpage_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1261,12 +1323,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_focuspreviouschild_isbase) {
             ktexteditor__configpage_focuspreviouschild_isbase = false;
             return KTextEditor__ConfigPage::focusPreviousChild();
-        } else if (ktexteditor__configpage_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = ktexteditor__configpage_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = ktexteditor__configpage_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1274,12 +1337,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_sender_isbase) {
             ktexteditor__configpage_sender_isbase = false;
             return KTextEditor__ConfigPage::sender();
-        } else if (ktexteditor__configpage_sender_callback != nullptr) {
-            QObject* callback_ret = ktexteditor__configpage_sender_callback();
-            return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::sender();
         }
+        auto sender_cb = ktexteditor__configpage_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KTextEditor__ConfigPage::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1287,12 +1351,13 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_sendersignalindex_isbase) {
             ktexteditor__configpage_sendersignalindex_isbase = false;
             return KTextEditor__ConfigPage::senderSignalIndex();
-        } else if (ktexteditor__configpage_sendersignalindex_callback != nullptr) {
-            int callback_ret = ktexteditor__configpage_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ktexteditor__configpage_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KTextEditor__ConfigPage::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,14 +1365,15 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_receivers_isbase) {
             ktexteditor__configpage_receivers_isbase = false;
             return KTextEditor__ConfigPage::receivers(signal);
-        } else if (ktexteditor__configpage_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ktexteditor__configpage_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ktexteditor__configpage_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::receivers(signal);
         }
+        return KTextEditor__ConfigPage::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1315,16 +1381,17 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_issignalconnected_isbase) {
             ktexteditor__configpage_issignalconnected_isbase = false;
             return KTextEditor__ConfigPage::isSignalConnected(signal);
-        } else if (ktexteditor__configpage_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ktexteditor__configpage_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ktexteditor__configpage_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KTextEditor__ConfigPage::isSignalConnected(signal);
         }
+        return KTextEditor__ConfigPage::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1332,15 +1399,16 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
         if (ktexteditor__configpage_getdecodedmetricf_isbase) {
             ktexteditor__configpage_getdecodedmetricf_isbase = false;
             return KTextEditor__ConfigPage::getDecodedMetricF(metricA, metricB);
-        } else if (ktexteditor__configpage_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = ktexteditor__configpage_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = ktexteditor__configpage_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KTextEditor__ConfigPage::getDecodedMetricF(metricA, metricB);
         }
+        return KTextEditor__ConfigPage::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

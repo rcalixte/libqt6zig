@@ -92,30 +92,6 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     VirtualKLinkItemSelectionModel(QAbstractItemModel* targetModel, QItemSelectionModel* linkedItemSelectionModel, QObject* parent) : KLinkItemSelectionModel(targetModel, linkedItemSelectionModel, parent) {};
     VirtualKLinkItemSelectionModel(QObject* parent) : KLinkItemSelectionModel(parent) {};
 
-    ~VirtualKLinkItemSelectionModel() {
-        klinkitemselectionmodel_metaobject_callback = nullptr;
-        klinkitemselectionmodel_metacast_callback = nullptr;
-        klinkitemselectionmodel_metacall_callback = nullptr;
-        klinkitemselectionmodel_select_callback = nullptr;
-        klinkitemselectionmodel_select2_callback = nullptr;
-        klinkitemselectionmodel_setcurrentindex_callback = nullptr;
-        klinkitemselectionmodel_clear_callback = nullptr;
-        klinkitemselectionmodel_reset_callback = nullptr;
-        klinkitemselectionmodel_clearcurrentindex_callback = nullptr;
-        klinkitemselectionmodel_event_callback = nullptr;
-        klinkitemselectionmodel_eventfilter_callback = nullptr;
-        klinkitemselectionmodel_timerevent_callback = nullptr;
-        klinkitemselectionmodel_childevent_callback = nullptr;
-        klinkitemselectionmodel_customevent_callback = nullptr;
-        klinkitemselectionmodel_connectnotify_callback = nullptr;
-        klinkitemselectionmodel_disconnectnotify_callback = nullptr;
-        klinkitemselectionmodel_emitselectionchanged_callback = nullptr;
-        klinkitemselectionmodel_sender_callback = nullptr;
-        klinkitemselectionmodel_sendersignalindex_callback = nullptr;
-        klinkitemselectionmodel_receivers_callback = nullptr;
-        klinkitemselectionmodel_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKLinkItemSelectionModel_MetaObject_Callback(KLinkItemSelectionModel_MetaObject_Callback cb) { klinkitemselectionmodel_metaobject_callback = cb; }
     inline void setKLinkItemSelectionModel_Metacast_Callback(KLinkItemSelectionModel_Metacast_Callback cb) { klinkitemselectionmodel_metacast_callback = cb; }
@@ -167,12 +143,13 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_metaobject_isbase) {
             klinkitemselectionmodel_metaobject_isbase = false;
             return KLinkItemSelectionModel::metaObject();
-        } else if (klinkitemselectionmodel_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = klinkitemselectionmodel_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KLinkItemSelectionModel::metaObject();
         }
+        auto metaobject_cb = klinkitemselectionmodel_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KLinkItemSelectionModel::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,14 +157,15 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_metacast_isbase) {
             klinkitemselectionmodel_metacast_isbase = false;
             return KLinkItemSelectionModel::qt_metacast(param1);
-        } else if (klinkitemselectionmodel_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = klinkitemselectionmodel_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = klinkitemselectionmodel_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLinkItemSelectionModel::qt_metacast(param1);
         }
+        return KLinkItemSelectionModel::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,16 +173,17 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_metacall_isbase) {
             klinkitemselectionmodel_metacall_isbase = false;
             return KLinkItemSelectionModel::qt_metacall(param1, param2, param3);
-        } else if (klinkitemselectionmodel_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = klinkitemselectionmodel_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = klinkitemselectionmodel_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLinkItemSelectionModel::qt_metacall(param1, param2, param3);
         }
+        return KLinkItemSelectionModel::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,16 +191,19 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_select_isbase) {
             klinkitemselectionmodel_select_isbase = false;
             KLinkItemSelectionModel::select(index, command);
-        } else if (klinkitemselectionmodel_select_callback != nullptr) {
+            return;
+        }
+        auto select_cb = klinkitemselectionmodel_select_callback;
+        if (select_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(command);
 
-            klinkitemselectionmodel_select_callback(this, cbval1, cbval2);
-        } else {
-            KLinkItemSelectionModel::select(index, command);
+            select_cb(this, cbval1, cbval2);
+            return;
         }
+        KLinkItemSelectionModel::select(index, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,16 +211,19 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_select2_isbase) {
             klinkitemselectionmodel_select2_isbase = false;
             KLinkItemSelectionModel::select(selection, command);
-        } else if (klinkitemselectionmodel_select2_callback != nullptr) {
+            return;
+        }
+        auto select2_cb = klinkitemselectionmodel_select2_callback;
+        if (select2_cb) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
             int cbval2 = static_cast<int>(command);
 
-            klinkitemselectionmodel_select2_callback(this, cbval1, cbval2);
-        } else {
-            KLinkItemSelectionModel::select(selection, command);
+            select2_cb(this, cbval1, cbval2);
+            return;
         }
+        KLinkItemSelectionModel::select(selection, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -246,16 +231,19 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_setcurrentindex_isbase) {
             klinkitemselectionmodel_setcurrentindex_isbase = false;
             KLinkItemSelectionModel::setCurrentIndex(index, command);
-        } else if (klinkitemselectionmodel_setcurrentindex_callback != nullptr) {
+            return;
+        }
+        auto setcurrentindex_cb = klinkitemselectionmodel_setcurrentindex_callback;
+        if (setcurrentindex_cb) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(command);
 
-            klinkitemselectionmodel_setcurrentindex_callback(this, cbval1, cbval2);
-        } else {
-            KLinkItemSelectionModel::setCurrentIndex(index, command);
+            setcurrentindex_cb(this, cbval1, cbval2);
+            return;
         }
+        KLinkItemSelectionModel::setCurrentIndex(index, command);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,11 +251,14 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_clear_isbase) {
             klinkitemselectionmodel_clear_isbase = false;
             KLinkItemSelectionModel::clear();
-        } else if (klinkitemselectionmodel_clear_callback != nullptr) {
-            klinkitemselectionmodel_clear_callback();
-        } else {
-            KLinkItemSelectionModel::clear();
+            return;
         }
+        auto clear_cb = klinkitemselectionmodel_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        KLinkItemSelectionModel::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,11 +266,14 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_reset_isbase) {
             klinkitemselectionmodel_reset_isbase = false;
             KLinkItemSelectionModel::reset();
-        } else if (klinkitemselectionmodel_reset_callback != nullptr) {
-            klinkitemselectionmodel_reset_callback();
-        } else {
-            KLinkItemSelectionModel::reset();
+            return;
         }
+        auto reset_cb = klinkitemselectionmodel_reset_callback;
+        if (reset_cb) {
+            reset_cb();
+            return;
+        }
+        KLinkItemSelectionModel::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,11 +281,14 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_clearcurrentindex_isbase) {
             klinkitemselectionmodel_clearcurrentindex_isbase = false;
             KLinkItemSelectionModel::clearCurrentIndex();
-        } else if (klinkitemselectionmodel_clearcurrentindex_callback != nullptr) {
-            klinkitemselectionmodel_clearcurrentindex_callback();
-        } else {
-            KLinkItemSelectionModel::clearCurrentIndex();
+            return;
         }
+        auto clearcurrentindex_cb = klinkitemselectionmodel_clearcurrentindex_callback;
+        if (clearcurrentindex_cb) {
+            clearcurrentindex_cb();
+            return;
+        }
+        KLinkItemSelectionModel::clearCurrentIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +296,15 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_event_isbase) {
             klinkitemselectionmodel_event_isbase = false;
             return KLinkItemSelectionModel::event(event);
-        } else if (klinkitemselectionmodel_event_callback != nullptr) {
+        }
+        auto event_cb = klinkitemselectionmodel_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = klinkitemselectionmodel_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLinkItemSelectionModel::event(event);
         }
+        return KLinkItemSelectionModel::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,15 +312,16 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_eventfilter_isbase) {
             klinkitemselectionmodel_eventfilter_isbase = false;
             return KLinkItemSelectionModel::eventFilter(watched, event);
-        } else if (klinkitemselectionmodel_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = klinkitemselectionmodel_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = klinkitemselectionmodel_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KLinkItemSelectionModel::eventFilter(watched, event);
         }
+        return KLinkItemSelectionModel::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -330,13 +329,16 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_timerevent_isbase) {
             klinkitemselectionmodel_timerevent_isbase = false;
             KLinkItemSelectionModel::timerEvent(event);
-        } else if (klinkitemselectionmodel_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = klinkitemselectionmodel_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            klinkitemselectionmodel_timerevent_callback(this, cbval1);
-        } else {
-            KLinkItemSelectionModel::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KLinkItemSelectionModel::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -344,13 +346,16 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_childevent_isbase) {
             klinkitemselectionmodel_childevent_isbase = false;
             KLinkItemSelectionModel::childEvent(event);
-        } else if (klinkitemselectionmodel_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = klinkitemselectionmodel_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            klinkitemselectionmodel_childevent_callback(this, cbval1);
-        } else {
-            KLinkItemSelectionModel::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KLinkItemSelectionModel::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -358,13 +363,16 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_customevent_isbase) {
             klinkitemselectionmodel_customevent_isbase = false;
             KLinkItemSelectionModel::customEvent(event);
-        } else if (klinkitemselectionmodel_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = klinkitemselectionmodel_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            klinkitemselectionmodel_customevent_callback(this, cbval1);
-        } else {
-            KLinkItemSelectionModel::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KLinkItemSelectionModel::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,15 +380,18 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_connectnotify_isbase) {
             klinkitemselectionmodel_connectnotify_isbase = false;
             KLinkItemSelectionModel::connectNotify(signal);
-        } else if (klinkitemselectionmodel_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = klinkitemselectionmodel_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klinkitemselectionmodel_connectnotify_callback(this, cbval1);
-        } else {
-            KLinkItemSelectionModel::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KLinkItemSelectionModel::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -388,15 +399,18 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_disconnectnotify_isbase) {
             klinkitemselectionmodel_disconnectnotify_isbase = false;
             KLinkItemSelectionModel::disconnectNotify(signal);
-        } else if (klinkitemselectionmodel_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = klinkitemselectionmodel_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klinkitemselectionmodel_disconnectnotify_callback(this, cbval1);
-        } else {
-            KLinkItemSelectionModel::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KLinkItemSelectionModel::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -404,7 +418,10 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_emitselectionchanged_isbase) {
             klinkitemselectionmodel_emitselectionchanged_isbase = false;
             KLinkItemSelectionModel::emitSelectionChanged(newSelection, oldSelection);
-        } else if (klinkitemselectionmodel_emitselectionchanged_callback != nullptr) {
+            return;
+        }
+        auto emitselectionchanged_cb = klinkitemselectionmodel_emitselectionchanged_callback;
+        if (emitselectionchanged_cb) {
             const QItemSelection& newSelection_ret = newSelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&newSelection_ret);
@@ -412,10 +429,10 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&oldSelection_ret);
 
-            klinkitemselectionmodel_emitselectionchanged_callback(this, cbval1, cbval2);
-        } else {
-            KLinkItemSelectionModel::emitSelectionChanged(newSelection, oldSelection);
+            emitselectionchanged_cb(this, cbval1, cbval2);
+            return;
         }
+        KLinkItemSelectionModel::emitSelectionChanged(newSelection, oldSelection);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -423,12 +440,13 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_sender_isbase) {
             klinkitemselectionmodel_sender_isbase = false;
             return KLinkItemSelectionModel::sender();
-        } else if (klinkitemselectionmodel_sender_callback != nullptr) {
-            QObject* callback_ret = klinkitemselectionmodel_sender_callback();
-            return callback_ret;
-        } else {
-            return KLinkItemSelectionModel::sender();
         }
+        auto sender_cb = klinkitemselectionmodel_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KLinkItemSelectionModel::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,12 +454,13 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_sendersignalindex_isbase) {
             klinkitemselectionmodel_sendersignalindex_isbase = false;
             return KLinkItemSelectionModel::senderSignalIndex();
-        } else if (klinkitemselectionmodel_sendersignalindex_callback != nullptr) {
-            int callback_ret = klinkitemselectionmodel_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KLinkItemSelectionModel::senderSignalIndex();
         }
+        auto sendersignalindex_cb = klinkitemselectionmodel_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KLinkItemSelectionModel::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +468,15 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_receivers_isbase) {
             klinkitemselectionmodel_receivers_isbase = false;
             return KLinkItemSelectionModel::receivers(signal);
-        } else if (klinkitemselectionmodel_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = klinkitemselectionmodel_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = klinkitemselectionmodel_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KLinkItemSelectionModel::receivers(signal);
         }
+        return KLinkItemSelectionModel::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,16 +484,17 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
         if (klinkitemselectionmodel_issignalconnected_isbase) {
             klinkitemselectionmodel_issignalconnected_isbase = false;
             return KLinkItemSelectionModel::isSignalConnected(signal);
-        } else if (klinkitemselectionmodel_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = klinkitemselectionmodel_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = klinkitemselectionmodel_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KLinkItemSelectionModel::isSignalConnected(signal);
         }
+        return KLinkItemSelectionModel::isSignalConnected(signal);
     }
 
     // Friend functions

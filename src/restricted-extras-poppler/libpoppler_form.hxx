@@ -68,23 +68,6 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
   public:
     VirtualPopplerAsyncObject() : Poppler::AsyncObject() {};
 
-    ~VirtualPopplerAsyncObject() {
-        poppler__asyncobject_metaobject_callback = nullptr;
-        poppler__asyncobject_metacast_callback = nullptr;
-        poppler__asyncobject_metacall_callback = nullptr;
-        poppler__asyncobject_event_callback = nullptr;
-        poppler__asyncobject_eventfilter_callback = nullptr;
-        poppler__asyncobject_timerevent_callback = nullptr;
-        poppler__asyncobject_childevent_callback = nullptr;
-        poppler__asyncobject_customevent_callback = nullptr;
-        poppler__asyncobject_connectnotify_callback = nullptr;
-        poppler__asyncobject_disconnectnotify_callback = nullptr;
-        poppler__asyncobject_sender_callback = nullptr;
-        poppler__asyncobject_sendersignalindex_callback = nullptr;
-        poppler__asyncobject_receivers_callback = nullptr;
-        poppler__asyncobject_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setPoppler__AsyncObject_MetaObject_Callback(Poppler__AsyncObject_MetaObject_Callback cb) { poppler__asyncobject_metaobject_callback = cb; }
     inline void setPoppler__AsyncObject_Metacast_Callback(Poppler__AsyncObject_Metacast_Callback cb) { poppler__asyncobject_metacast_callback = cb; }
@@ -122,12 +105,13 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_metaobject_isbase) {
             poppler__asyncobject_metaobject_isbase = false;
             return Poppler__AsyncObject::metaObject();
-        } else if (poppler__asyncobject_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = poppler__asyncobject_metaobject_callback();
-            return callback_ret;
-        } else {
-            return Poppler__AsyncObject::metaObject();
         }
+        auto metaobject_cb = poppler__asyncobject_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return Poppler__AsyncObject::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -135,14 +119,15 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_metacast_isbase) {
             poppler__asyncobject_metacast_isbase = false;
             return Poppler__AsyncObject::qt_metacast(param1);
-        } else if (poppler__asyncobject_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = poppler__asyncobject_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = poppler__asyncobject_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Poppler__AsyncObject::qt_metacast(param1);
         }
+        return Poppler__AsyncObject::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -150,16 +135,17 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_metacall_isbase) {
             poppler__asyncobject_metacall_isbase = false;
             return Poppler__AsyncObject::qt_metacall(param1, param2, param3);
-        } else if (poppler__asyncobject_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = poppler__asyncobject_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = poppler__asyncobject_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return Poppler__AsyncObject::qt_metacall(param1, param2, param3);
         }
+        return Poppler__AsyncObject::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -167,14 +153,15 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_event_isbase) {
             poppler__asyncobject_event_isbase = false;
             return Poppler__AsyncObject::event(event);
-        } else if (poppler__asyncobject_event_callback != nullptr) {
+        }
+        auto event_cb = poppler__asyncobject_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = poppler__asyncobject_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Poppler__AsyncObject::event(event);
         }
+        return Poppler__AsyncObject::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,15 +169,16 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_eventfilter_isbase) {
             poppler__asyncobject_eventfilter_isbase = false;
             return Poppler__AsyncObject::eventFilter(watched, event);
-        } else if (poppler__asyncobject_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = poppler__asyncobject_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = poppler__asyncobject_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return Poppler__AsyncObject::eventFilter(watched, event);
         }
+        return Poppler__AsyncObject::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -198,13 +186,16 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_timerevent_isbase) {
             poppler__asyncobject_timerevent_isbase = false;
             Poppler__AsyncObject::timerEvent(event);
-        } else if (poppler__asyncobject_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = poppler__asyncobject_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            poppler__asyncobject_timerevent_callback(this, cbval1);
-        } else {
-            Poppler__AsyncObject::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        Poppler__AsyncObject::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,13 +203,16 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_childevent_isbase) {
             poppler__asyncobject_childevent_isbase = false;
             Poppler__AsyncObject::childEvent(event);
-        } else if (poppler__asyncobject_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = poppler__asyncobject_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            poppler__asyncobject_childevent_callback(this, cbval1);
-        } else {
-            Poppler__AsyncObject::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        Poppler__AsyncObject::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -226,13 +220,16 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_customevent_isbase) {
             poppler__asyncobject_customevent_isbase = false;
             Poppler__AsyncObject::customEvent(event);
-        } else if (poppler__asyncobject_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = poppler__asyncobject_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            poppler__asyncobject_customevent_callback(this, cbval1);
-        } else {
-            Poppler__AsyncObject::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        Poppler__AsyncObject::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -240,15 +237,18 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_connectnotify_isbase) {
             poppler__asyncobject_connectnotify_isbase = false;
             Poppler__AsyncObject::connectNotify(signal);
-        } else if (poppler__asyncobject_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = poppler__asyncobject_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            poppler__asyncobject_connectnotify_callback(this, cbval1);
-        } else {
-            Poppler__AsyncObject::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        Poppler__AsyncObject::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,15 +256,18 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_disconnectnotify_isbase) {
             poppler__asyncobject_disconnectnotify_isbase = false;
             Poppler__AsyncObject::disconnectNotify(signal);
-        } else if (poppler__asyncobject_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = poppler__asyncobject_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            poppler__asyncobject_disconnectnotify_callback(this, cbval1);
-        } else {
-            Poppler__AsyncObject::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        Poppler__AsyncObject::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,12 +275,13 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_sender_isbase) {
             poppler__asyncobject_sender_isbase = false;
             return Poppler__AsyncObject::sender();
-        } else if (poppler__asyncobject_sender_callback != nullptr) {
-            QObject* callback_ret = poppler__asyncobject_sender_callback();
-            return callback_ret;
-        } else {
-            return Poppler__AsyncObject::sender();
         }
+        auto sender_cb = poppler__asyncobject_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return Poppler__AsyncObject::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,12 +289,13 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_sendersignalindex_isbase) {
             poppler__asyncobject_sendersignalindex_isbase = false;
             return Poppler__AsyncObject::senderSignalIndex();
-        } else if (poppler__asyncobject_sendersignalindex_callback != nullptr) {
-            int callback_ret = poppler__asyncobject_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return Poppler__AsyncObject::senderSignalIndex();
         }
+        auto sendersignalindex_cb = poppler__asyncobject_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return Poppler__AsyncObject::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -298,14 +303,15 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_receivers_isbase) {
             poppler__asyncobject_receivers_isbase = false;
             return Poppler__AsyncObject::receivers(signal);
-        } else if (poppler__asyncobject_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = poppler__asyncobject_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = poppler__asyncobject_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return Poppler__AsyncObject::receivers(signal);
         }
+        return Poppler__AsyncObject::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,16 +319,17 @@ class VirtualPopplerAsyncObject final : public Poppler::AsyncObject {
         if (poppler__asyncobject_issignalconnected_isbase) {
             poppler__asyncobject_issignalconnected_isbase = false;
             return Poppler__AsyncObject::isSignalConnected(signal);
-        } else if (poppler__asyncobject_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = poppler__asyncobject_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = poppler__asyncobject_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return Poppler__AsyncObject::isSignalConnected(signal);
         }
+        return Poppler__AsyncObject::isSignalConnected(signal);
     }
 
     // Friend functions

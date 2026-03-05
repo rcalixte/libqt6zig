@@ -69,23 +69,6 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     VirtualSignOnAuthService() : SignOn::AuthService() {};
     VirtualSignOnAuthService(QObject* parent) : SignOn::AuthService(parent) {};
 
-    ~VirtualSignOnAuthService() {
-        signon__authservice_metaobject_callback = nullptr;
-        signon__authservice_metacast_callback = nullptr;
-        signon__authservice_metacall_callback = nullptr;
-        signon__authservice_event_callback = nullptr;
-        signon__authservice_eventfilter_callback = nullptr;
-        signon__authservice_timerevent_callback = nullptr;
-        signon__authservice_childevent_callback = nullptr;
-        signon__authservice_customevent_callback = nullptr;
-        signon__authservice_connectnotify_callback = nullptr;
-        signon__authservice_disconnectnotify_callback = nullptr;
-        signon__authservice_sender_callback = nullptr;
-        signon__authservice_sendersignalindex_callback = nullptr;
-        signon__authservice_receivers_callback = nullptr;
-        signon__authservice_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setSignOn__AuthService_MetaObject_Callback(SignOn__AuthService_MetaObject_Callback cb) { signon__authservice_metaobject_callback = cb; }
     inline void setSignOn__AuthService_Metacast_Callback(SignOn__AuthService_Metacast_Callback cb) { signon__authservice_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_metaobject_isbase) {
             signon__authservice_metaobject_isbase = false;
             return SignOn__AuthService::metaObject();
-        } else if (signon__authservice_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = signon__authservice_metaobject_callback();
-            return callback_ret;
-        } else {
-            return SignOn__AuthService::metaObject();
         }
+        auto metaobject_cb = signon__authservice_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return SignOn__AuthService::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_metacast_isbase) {
             signon__authservice_metacast_isbase = false;
             return SignOn__AuthService::qt_metacast(param1);
-        } else if (signon__authservice_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = signon__authservice_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = signon__authservice_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return SignOn__AuthService::qt_metacast(param1);
         }
+        return SignOn__AuthService::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_metacall_isbase) {
             signon__authservice_metacall_isbase = false;
             return SignOn__AuthService::qt_metacall(param1, param2, param3);
-        } else if (signon__authservice_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = signon__authservice_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = signon__authservice_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return SignOn__AuthService::qt_metacall(param1, param2, param3);
         }
+        return SignOn__AuthService::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_event_isbase) {
             signon__authservice_event_isbase = false;
             return SignOn__AuthService::event(event);
-        } else if (signon__authservice_event_callback != nullptr) {
+        }
+        auto event_cb = signon__authservice_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = signon__authservice_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return SignOn__AuthService::event(event);
         }
+        return SignOn__AuthService::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_eventfilter_isbase) {
             signon__authservice_eventfilter_isbase = false;
             return SignOn__AuthService::eventFilter(watched, event);
-        } else if (signon__authservice_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = signon__authservice_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = signon__authservice_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return SignOn__AuthService::eventFilter(watched, event);
         }
+        return SignOn__AuthService::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_timerevent_isbase) {
             signon__authservice_timerevent_isbase = false;
             SignOn__AuthService::timerEvent(event);
-        } else if (signon__authservice_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = signon__authservice_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            signon__authservice_timerevent_callback(this, cbval1);
-        } else {
-            SignOn__AuthService::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        SignOn__AuthService::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_childevent_isbase) {
             signon__authservice_childevent_isbase = false;
             SignOn__AuthService::childEvent(event);
-        } else if (signon__authservice_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = signon__authservice_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            signon__authservice_childevent_callback(this, cbval1);
-        } else {
-            SignOn__AuthService::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        SignOn__AuthService::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_customevent_isbase) {
             signon__authservice_customevent_isbase = false;
             SignOn__AuthService::customEvent(event);
-        } else if (signon__authservice_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = signon__authservice_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            signon__authservice_customevent_callback(this, cbval1);
-        } else {
-            SignOn__AuthService::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        SignOn__AuthService::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_connectnotify_isbase) {
             signon__authservice_connectnotify_isbase = false;
             SignOn__AuthService::connectNotify(signal);
-        } else if (signon__authservice_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = signon__authservice_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            signon__authservice_connectnotify_callback(this, cbval1);
-        } else {
-            SignOn__AuthService::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        SignOn__AuthService::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_disconnectnotify_isbase) {
             signon__authservice_disconnectnotify_isbase = false;
             SignOn__AuthService::disconnectNotify(signal);
-        } else if (signon__authservice_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = signon__authservice_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            signon__authservice_disconnectnotify_callback(this, cbval1);
-        } else {
-            SignOn__AuthService::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        SignOn__AuthService::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_sender_isbase) {
             signon__authservice_sender_isbase = false;
             return SignOn__AuthService::sender();
-        } else if (signon__authservice_sender_callback != nullptr) {
-            QObject* callback_ret = signon__authservice_sender_callback();
-            return callback_ret;
-        } else {
-            return SignOn__AuthService::sender();
         }
+        auto sender_cb = signon__authservice_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return SignOn__AuthService::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_sendersignalindex_isbase) {
             signon__authservice_sendersignalindex_isbase = false;
             return SignOn__AuthService::senderSignalIndex();
-        } else if (signon__authservice_sendersignalindex_callback != nullptr) {
-            int callback_ret = signon__authservice_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return SignOn__AuthService::senderSignalIndex();
         }
+        auto sendersignalindex_cb = signon__authservice_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return SignOn__AuthService::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_receivers_isbase) {
             signon__authservice_receivers_isbase = false;
             return SignOn__AuthService::receivers(signal);
-        } else if (signon__authservice_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = signon__authservice_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = signon__authservice_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return SignOn__AuthService::receivers(signal);
         }
+        return SignOn__AuthService::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
         if (signon__authservice_issignalconnected_isbase) {
             signon__authservice_issignalconnected_isbase = false;
             return SignOn__AuthService::isSignalConnected(signal);
-        } else if (signon__authservice_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = signon__authservice_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = signon__authservice_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return SignOn__AuthService::isSignalConnected(signal);
         }
+        return SignOn__AuthService::isSignalConnected(signal);
     }
 
     // Friend functions

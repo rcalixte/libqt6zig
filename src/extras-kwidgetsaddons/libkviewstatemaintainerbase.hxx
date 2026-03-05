@@ -75,25 +75,6 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     VirtualKViewStateMaintainerBase() : KViewStateMaintainerBase() {};
     VirtualKViewStateMaintainerBase(QObject* parent) : KViewStateMaintainerBase(parent) {};
 
-    ~VirtualKViewStateMaintainerBase() {
-        kviewstatemaintainerbase_metaobject_callback = nullptr;
-        kviewstatemaintainerbase_metacast_callback = nullptr;
-        kviewstatemaintainerbase_metacall_callback = nullptr;
-        kviewstatemaintainerbase_savestate_callback = nullptr;
-        kviewstatemaintainerbase_restorestate_callback = nullptr;
-        kviewstatemaintainerbase_event_callback = nullptr;
-        kviewstatemaintainerbase_eventfilter_callback = nullptr;
-        kviewstatemaintainerbase_timerevent_callback = nullptr;
-        kviewstatemaintainerbase_childevent_callback = nullptr;
-        kviewstatemaintainerbase_customevent_callback = nullptr;
-        kviewstatemaintainerbase_connectnotify_callback = nullptr;
-        kviewstatemaintainerbase_disconnectnotify_callback = nullptr;
-        kviewstatemaintainerbase_sender_callback = nullptr;
-        kviewstatemaintainerbase_sendersignalindex_callback = nullptr;
-        kviewstatemaintainerbase_receivers_callback = nullptr;
-        kviewstatemaintainerbase_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKViewStateMaintainerBase_MetaObject_Callback(KViewStateMaintainerBase_MetaObject_Callback cb) { kviewstatemaintainerbase_metaobject_callback = cb; }
     inline void setKViewStateMaintainerBase_Metacast_Callback(KViewStateMaintainerBase_Metacast_Callback cb) { kviewstatemaintainerbase_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_metaobject_isbase) {
             kviewstatemaintainerbase_metaobject_isbase = false;
             return KViewStateMaintainerBase::metaObject();
-        } else if (kviewstatemaintainerbase_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kviewstatemaintainerbase_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KViewStateMaintainerBase::metaObject();
         }
+        auto metaobject_cb = kviewstatemaintainerbase_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KViewStateMaintainerBase::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_metacast_isbase) {
             kviewstatemaintainerbase_metacast_isbase = false;
             return KViewStateMaintainerBase::qt_metacast(param1);
-        } else if (kviewstatemaintainerbase_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kviewstatemaintainerbase_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kviewstatemaintainerbase_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KViewStateMaintainerBase::qt_metacast(param1);
         }
+        return KViewStateMaintainerBase::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,29 +146,32 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_metacall_isbase) {
             kviewstatemaintainerbase_metacall_isbase = false;
             return KViewStateMaintainerBase::qt_metacall(param1, param2, param3);
-        } else if (kviewstatemaintainerbase_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kviewstatemaintainerbase_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kviewstatemaintainerbase_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KViewStateMaintainerBase::qt_metacall(param1, param2, param3);
         }
+        return KViewStateMaintainerBase::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void saveState() override {
-        if (kviewstatemaintainerbase_savestate_callback != nullptr) {
-            kviewstatemaintainerbase_savestate_callback();
+        auto savestate_cb = kviewstatemaintainerbase_savestate_callback;
+        if (savestate_cb) {
+            savestate_cb();
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void restoreState() override {
-        if (kviewstatemaintainerbase_restorestate_callback != nullptr) {
-            kviewstatemaintainerbase_restorestate_callback();
+        auto restorestate_cb = kviewstatemaintainerbase_restorestate_callback;
+        if (restorestate_cb) {
+            restorestate_cb();
         }
     }
 
@@ -194,14 +180,15 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_event_isbase) {
             kviewstatemaintainerbase_event_isbase = false;
             return KViewStateMaintainerBase::event(event);
-        } else if (kviewstatemaintainerbase_event_callback != nullptr) {
+        }
+        auto event_cb = kviewstatemaintainerbase_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kviewstatemaintainerbase_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KViewStateMaintainerBase::event(event);
         }
+        return KViewStateMaintainerBase::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -209,15 +196,16 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_eventfilter_isbase) {
             kviewstatemaintainerbase_eventfilter_isbase = false;
             return KViewStateMaintainerBase::eventFilter(watched, event);
-        } else if (kviewstatemaintainerbase_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kviewstatemaintainerbase_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kviewstatemaintainerbase_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KViewStateMaintainerBase::eventFilter(watched, event);
         }
+        return KViewStateMaintainerBase::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,13 +213,16 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_timerevent_isbase) {
             kviewstatemaintainerbase_timerevent_isbase = false;
             KViewStateMaintainerBase::timerEvent(event);
-        } else if (kviewstatemaintainerbase_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kviewstatemaintainerbase_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kviewstatemaintainerbase_timerevent_callback(this, cbval1);
-        } else {
-            KViewStateMaintainerBase::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KViewStateMaintainerBase::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,13 +230,16 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_childevent_isbase) {
             kviewstatemaintainerbase_childevent_isbase = false;
             KViewStateMaintainerBase::childEvent(event);
-        } else if (kviewstatemaintainerbase_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kviewstatemaintainerbase_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kviewstatemaintainerbase_childevent_callback(this, cbval1);
-        } else {
-            KViewStateMaintainerBase::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KViewStateMaintainerBase::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,13 +247,16 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_customevent_isbase) {
             kviewstatemaintainerbase_customevent_isbase = false;
             KViewStateMaintainerBase::customEvent(event);
-        } else if (kviewstatemaintainerbase_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kviewstatemaintainerbase_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kviewstatemaintainerbase_customevent_callback(this, cbval1);
-        } else {
-            KViewStateMaintainerBase::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KViewStateMaintainerBase::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -267,15 +264,18 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_connectnotify_isbase) {
             kviewstatemaintainerbase_connectnotify_isbase = false;
             KViewStateMaintainerBase::connectNotify(signal);
-        } else if (kviewstatemaintainerbase_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kviewstatemaintainerbase_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kviewstatemaintainerbase_connectnotify_callback(this, cbval1);
-        } else {
-            KViewStateMaintainerBase::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KViewStateMaintainerBase::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -283,15 +283,18 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_disconnectnotify_isbase) {
             kviewstatemaintainerbase_disconnectnotify_isbase = false;
             KViewStateMaintainerBase::disconnectNotify(signal);
-        } else if (kviewstatemaintainerbase_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kviewstatemaintainerbase_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kviewstatemaintainerbase_disconnectnotify_callback(this, cbval1);
-        } else {
-            KViewStateMaintainerBase::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KViewStateMaintainerBase::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,12 +302,13 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_sender_isbase) {
             kviewstatemaintainerbase_sender_isbase = false;
             return KViewStateMaintainerBase::sender();
-        } else if (kviewstatemaintainerbase_sender_callback != nullptr) {
-            QObject* callback_ret = kviewstatemaintainerbase_sender_callback();
-            return callback_ret;
-        } else {
-            return KViewStateMaintainerBase::sender();
         }
+        auto sender_cb = kviewstatemaintainerbase_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KViewStateMaintainerBase::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,12 +316,13 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_sendersignalindex_isbase) {
             kviewstatemaintainerbase_sendersignalindex_isbase = false;
             return KViewStateMaintainerBase::senderSignalIndex();
-        } else if (kviewstatemaintainerbase_sendersignalindex_callback != nullptr) {
-            int callback_ret = kviewstatemaintainerbase_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KViewStateMaintainerBase::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kviewstatemaintainerbase_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KViewStateMaintainerBase::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,14 +330,15 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_receivers_isbase) {
             kviewstatemaintainerbase_receivers_isbase = false;
             return KViewStateMaintainerBase::receivers(signal);
-        } else if (kviewstatemaintainerbase_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kviewstatemaintainerbase_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kviewstatemaintainerbase_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KViewStateMaintainerBase::receivers(signal);
         }
+        return KViewStateMaintainerBase::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,16 +346,17 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
         if (kviewstatemaintainerbase_issignalconnected_isbase) {
             kviewstatemaintainerbase_issignalconnected_isbase = false;
             return KViewStateMaintainerBase::isSignalConnected(signal);
-        } else if (kviewstatemaintainerbase_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kviewstatemaintainerbase_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kviewstatemaintainerbase_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KViewStateMaintainerBase::isSignalConnected(signal);
         }
+        return KViewStateMaintainerBase::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -228,75 +228,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     VirtualKShortcutsDialog(KShortcutsEditor::ActionTypes actionTypes, KShortcutsEditor::LetterShortcuts allowLetterShortcuts) : KShortcutsDialog(actionTypes, allowLetterShortcuts) {};
     VirtualKShortcutsDialog(KShortcutsEditor::ActionTypes actionTypes, KShortcutsEditor::LetterShortcuts allowLetterShortcuts, QWidget* parent) : KShortcutsDialog(actionTypes, allowLetterShortcuts, parent) {};
 
-    ~VirtualKShortcutsDialog() {
-        kshortcutsdialog_metaobject_callback = nullptr;
-        kshortcutsdialog_metacast_callback = nullptr;
-        kshortcutsdialog_metacall_callback = nullptr;
-        kshortcutsdialog_sizehint_callback = nullptr;
-        kshortcutsdialog_accept_callback = nullptr;
-        kshortcutsdialog_setvisible_callback = nullptr;
-        kshortcutsdialog_minimumsizehint_callback = nullptr;
-        kshortcutsdialog_open_callback = nullptr;
-        kshortcutsdialog_exec_callback = nullptr;
-        kshortcutsdialog_done_callback = nullptr;
-        kshortcutsdialog_reject_callback = nullptr;
-        kshortcutsdialog_keypressevent_callback = nullptr;
-        kshortcutsdialog_closeevent_callback = nullptr;
-        kshortcutsdialog_showevent_callback = nullptr;
-        kshortcutsdialog_resizeevent_callback = nullptr;
-        kshortcutsdialog_contextmenuevent_callback = nullptr;
-        kshortcutsdialog_eventfilter_callback = nullptr;
-        kshortcutsdialog_devtype_callback = nullptr;
-        kshortcutsdialog_heightforwidth_callback = nullptr;
-        kshortcutsdialog_hasheightforwidth_callback = nullptr;
-        kshortcutsdialog_paintengine_callback = nullptr;
-        kshortcutsdialog_event_callback = nullptr;
-        kshortcutsdialog_mousepressevent_callback = nullptr;
-        kshortcutsdialog_mousereleaseevent_callback = nullptr;
-        kshortcutsdialog_mousedoubleclickevent_callback = nullptr;
-        kshortcutsdialog_mousemoveevent_callback = nullptr;
-        kshortcutsdialog_wheelevent_callback = nullptr;
-        kshortcutsdialog_keyreleaseevent_callback = nullptr;
-        kshortcutsdialog_focusinevent_callback = nullptr;
-        kshortcutsdialog_focusoutevent_callback = nullptr;
-        kshortcutsdialog_enterevent_callback = nullptr;
-        kshortcutsdialog_leaveevent_callback = nullptr;
-        kshortcutsdialog_paintevent_callback = nullptr;
-        kshortcutsdialog_moveevent_callback = nullptr;
-        kshortcutsdialog_tabletevent_callback = nullptr;
-        kshortcutsdialog_actionevent_callback = nullptr;
-        kshortcutsdialog_dragenterevent_callback = nullptr;
-        kshortcutsdialog_dragmoveevent_callback = nullptr;
-        kshortcutsdialog_dragleaveevent_callback = nullptr;
-        kshortcutsdialog_dropevent_callback = nullptr;
-        kshortcutsdialog_hideevent_callback = nullptr;
-        kshortcutsdialog_nativeevent_callback = nullptr;
-        kshortcutsdialog_changeevent_callback = nullptr;
-        kshortcutsdialog_metric_callback = nullptr;
-        kshortcutsdialog_initpainter_callback = nullptr;
-        kshortcutsdialog_redirected_callback = nullptr;
-        kshortcutsdialog_sharedpainter_callback = nullptr;
-        kshortcutsdialog_inputmethodevent_callback = nullptr;
-        kshortcutsdialog_inputmethodquery_callback = nullptr;
-        kshortcutsdialog_focusnextprevchild_callback = nullptr;
-        kshortcutsdialog_timerevent_callback = nullptr;
-        kshortcutsdialog_childevent_callback = nullptr;
-        kshortcutsdialog_customevent_callback = nullptr;
-        kshortcutsdialog_connectnotify_callback = nullptr;
-        kshortcutsdialog_disconnectnotify_callback = nullptr;
-        kshortcutsdialog_adjustposition_callback = nullptr;
-        kshortcutsdialog_updatemicrofocus_callback = nullptr;
-        kshortcutsdialog_create_callback = nullptr;
-        kshortcutsdialog_destroy_callback = nullptr;
-        kshortcutsdialog_focusnextchild_callback = nullptr;
-        kshortcutsdialog_focuspreviouschild_callback = nullptr;
-        kshortcutsdialog_sender_callback = nullptr;
-        kshortcutsdialog_sendersignalindex_callback = nullptr;
-        kshortcutsdialog_receivers_callback = nullptr;
-        kshortcutsdialog_issignalconnected_callback = nullptr;
-        kshortcutsdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKShortcutsDialog_MetaObject_Callback(KShortcutsDialog_MetaObject_Callback cb) { kshortcutsdialog_metaobject_callback = cb; }
     inline void setKShortcutsDialog_Metacast_Callback(KShortcutsDialog_Metacast_Callback cb) { kshortcutsdialog_metacast_callback = cb; }
@@ -438,12 +369,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_metaobject_isbase) {
             kshortcutsdialog_metaobject_isbase = false;
             return KShortcutsDialog::metaObject();
-        } else if (kshortcutsdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kshortcutsdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::metaObject();
         }
+        auto metaobject_cb = kshortcutsdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,14 +383,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_metacast_isbase) {
             kshortcutsdialog_metacast_isbase = false;
             return KShortcutsDialog::qt_metacast(param1);
-        } else if (kshortcutsdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kshortcutsdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kshortcutsdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::qt_metacast(param1);
         }
+        return KShortcutsDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -466,16 +399,17 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_metacall_isbase) {
             kshortcutsdialog_metacall_isbase = false;
             return KShortcutsDialog::qt_metacall(param1, param2, param3);
-        } else if (kshortcutsdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kshortcutsdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kshortcutsdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::qt_metacall(param1, param2, param3);
         }
+        return KShortcutsDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +417,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_sizehint_isbase) {
             kshortcutsdialog_sizehint_isbase = false;
             return KShortcutsDialog::sizeHint();
-        } else if (kshortcutsdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = kshortcutsdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KShortcutsDialog::sizeHint();
         }
+        auto sizehint_cb = kshortcutsdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KShortcutsDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,11 +431,14 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_accept_isbase) {
             kshortcutsdialog_accept_isbase = false;
             KShortcutsDialog::accept();
-        } else if (kshortcutsdialog_accept_callback != nullptr) {
-            kshortcutsdialog_accept_callback();
-        } else {
-            KShortcutsDialog::accept();
+            return;
         }
+        auto accept_cb = kshortcutsdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        KShortcutsDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,13 +446,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_setvisible_isbase) {
             kshortcutsdialog_setvisible_isbase = false;
             KShortcutsDialog::setVisible(visible);
-        } else if (kshortcutsdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kshortcutsdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kshortcutsdialog_setvisible_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -522,12 +463,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_minimumsizehint_isbase) {
             kshortcutsdialog_minimumsizehint_isbase = false;
             return KShortcutsDialog::minimumSizeHint();
-        } else if (kshortcutsdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kshortcutsdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KShortcutsDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kshortcutsdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KShortcutsDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -535,11 +477,14 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_open_isbase) {
             kshortcutsdialog_open_isbase = false;
             KShortcutsDialog::open();
-        } else if (kshortcutsdialog_open_callback != nullptr) {
-            kshortcutsdialog_open_callback();
-        } else {
-            KShortcutsDialog::open();
+            return;
         }
+        auto open_cb = kshortcutsdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        KShortcutsDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -547,12 +492,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_exec_isbase) {
             kshortcutsdialog_exec_isbase = false;
             return KShortcutsDialog::exec();
-        } else if (kshortcutsdialog_exec_callback != nullptr) {
-            int callback_ret = kshortcutsdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::exec();
         }
+        auto exec_cb = kshortcutsdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KShortcutsDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,13 +506,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_done_isbase) {
             kshortcutsdialog_done_isbase = false;
             KShortcutsDialog::done(param1);
-        } else if (kshortcutsdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = kshortcutsdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            kshortcutsdialog_done_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -574,11 +523,14 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_reject_isbase) {
             kshortcutsdialog_reject_isbase = false;
             KShortcutsDialog::reject();
-        } else if (kshortcutsdialog_reject_callback != nullptr) {
-            kshortcutsdialog_reject_callback();
-        } else {
-            KShortcutsDialog::reject();
+            return;
         }
+        auto reject_cb = kshortcutsdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        KShortcutsDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,13 +538,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_keypressevent_isbase) {
             kshortcutsdialog_keypressevent_isbase = false;
             KShortcutsDialog::keyPressEvent(param1);
-        } else if (kshortcutsdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kshortcutsdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            kshortcutsdialog_keypressevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,13 +555,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_closeevent_isbase) {
             kshortcutsdialog_closeevent_isbase = false;
             KShortcutsDialog::closeEvent(param1);
-        } else if (kshortcutsdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kshortcutsdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            kshortcutsdialog_closeevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -614,13 +572,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_showevent_isbase) {
             kshortcutsdialog_showevent_isbase = false;
             KShortcutsDialog::showEvent(param1);
-        } else if (kshortcutsdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kshortcutsdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            kshortcutsdialog_showevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -628,13 +589,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_resizeevent_isbase) {
             kshortcutsdialog_resizeevent_isbase = false;
             KShortcutsDialog::resizeEvent(param1);
-        } else if (kshortcutsdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kshortcutsdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            kshortcutsdialog_resizeevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -642,13 +606,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_contextmenuevent_isbase) {
             kshortcutsdialog_contextmenuevent_isbase = false;
             KShortcutsDialog::contextMenuEvent(param1);
-        } else if (kshortcutsdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kshortcutsdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            kshortcutsdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -656,15 +623,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_eventfilter_isbase) {
             kshortcutsdialog_eventfilter_isbase = false;
             return KShortcutsDialog::eventFilter(param1, param2);
-        } else if (kshortcutsdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kshortcutsdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = kshortcutsdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::eventFilter(param1, param2);
         }
+        return KShortcutsDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -672,12 +640,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_devtype_isbase) {
             kshortcutsdialog_devtype_isbase = false;
             return KShortcutsDialog::devType();
-        } else if (kshortcutsdialog_devtype_callback != nullptr) {
-            int callback_ret = kshortcutsdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::devType();
         }
+        auto devtype_cb = kshortcutsdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KShortcutsDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -685,14 +654,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_heightforwidth_isbase) {
             kshortcutsdialog_heightforwidth_isbase = false;
             return KShortcutsDialog::heightForWidth(param1);
-        } else if (kshortcutsdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kshortcutsdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kshortcutsdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::heightForWidth(param1);
         }
+        return KShortcutsDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -700,12 +670,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_hasheightforwidth_isbase) {
             kshortcutsdialog_hasheightforwidth_isbase = false;
             return KShortcutsDialog::hasHeightForWidth();
-        } else if (kshortcutsdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kshortcutsdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kshortcutsdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,12 +684,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_paintengine_isbase) {
             kshortcutsdialog_paintengine_isbase = false;
             return KShortcutsDialog::paintEngine();
-        } else if (kshortcutsdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kshortcutsdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::paintEngine();
         }
+        auto paintengine_cb = kshortcutsdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,14 +698,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_event_isbase) {
             kshortcutsdialog_event_isbase = false;
             return KShortcutsDialog::event(event);
-        } else if (kshortcutsdialog_event_callback != nullptr) {
+        }
+        auto event_cb = kshortcutsdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kshortcutsdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::event(event);
         }
+        return KShortcutsDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -741,13 +714,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_mousepressevent_isbase) {
             kshortcutsdialog_mousepressevent_isbase = false;
             KShortcutsDialog::mousePressEvent(event);
-        } else if (kshortcutsdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kshortcutsdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutsdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -755,13 +731,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_mousereleaseevent_isbase) {
             kshortcutsdialog_mousereleaseevent_isbase = false;
             KShortcutsDialog::mouseReleaseEvent(event);
-        } else if (kshortcutsdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kshortcutsdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutsdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,13 +748,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_mousedoubleclickevent_isbase) {
             kshortcutsdialog_mousedoubleclickevent_isbase = false;
             KShortcutsDialog::mouseDoubleClickEvent(event);
-        } else if (kshortcutsdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kshortcutsdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutsdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -783,13 +765,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_mousemoveevent_isbase) {
             kshortcutsdialog_mousemoveevent_isbase = false;
             KShortcutsDialog::mouseMoveEvent(event);
-        } else if (kshortcutsdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kshortcutsdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutsdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -797,13 +782,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_wheelevent_isbase) {
             kshortcutsdialog_wheelevent_isbase = false;
             KShortcutsDialog::wheelEvent(event);
-        } else if (kshortcutsdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kshortcutsdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kshortcutsdialog_wheelevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,13 +799,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_keyreleaseevent_isbase) {
             kshortcutsdialog_keyreleaseevent_isbase = false;
             KShortcutsDialog::keyReleaseEvent(event);
-        } else if (kshortcutsdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kshortcutsdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kshortcutsdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -825,13 +816,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_focusinevent_isbase) {
             kshortcutsdialog_focusinevent_isbase = false;
             KShortcutsDialog::focusInEvent(event);
-        } else if (kshortcutsdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kshortcutsdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kshortcutsdialog_focusinevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -839,13 +833,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_focusoutevent_isbase) {
             kshortcutsdialog_focusoutevent_isbase = false;
             KShortcutsDialog::focusOutEvent(event);
-        } else if (kshortcutsdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kshortcutsdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kshortcutsdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -853,13 +850,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_enterevent_isbase) {
             kshortcutsdialog_enterevent_isbase = false;
             KShortcutsDialog::enterEvent(event);
-        } else if (kshortcutsdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kshortcutsdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kshortcutsdialog_enterevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -867,13 +867,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_leaveevent_isbase) {
             kshortcutsdialog_leaveevent_isbase = false;
             KShortcutsDialog::leaveEvent(event);
-        } else if (kshortcutsdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kshortcutsdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kshortcutsdialog_leaveevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -881,13 +884,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_paintevent_isbase) {
             kshortcutsdialog_paintevent_isbase = false;
             KShortcutsDialog::paintEvent(event);
-        } else if (kshortcutsdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kshortcutsdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kshortcutsdialog_paintevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -895,13 +901,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_moveevent_isbase) {
             kshortcutsdialog_moveevent_isbase = false;
             KShortcutsDialog::moveEvent(event);
-        } else if (kshortcutsdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kshortcutsdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kshortcutsdialog_moveevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -909,13 +918,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_tabletevent_isbase) {
             kshortcutsdialog_tabletevent_isbase = false;
             KShortcutsDialog::tabletEvent(event);
-        } else if (kshortcutsdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kshortcutsdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kshortcutsdialog_tabletevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -923,13 +935,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_actionevent_isbase) {
             kshortcutsdialog_actionevent_isbase = false;
             KShortcutsDialog::actionEvent(event);
-        } else if (kshortcutsdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kshortcutsdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kshortcutsdialog_actionevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -937,13 +952,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_dragenterevent_isbase) {
             kshortcutsdialog_dragenterevent_isbase = false;
             KShortcutsDialog::dragEnterEvent(event);
-        } else if (kshortcutsdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kshortcutsdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kshortcutsdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -951,13 +969,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_dragmoveevent_isbase) {
             kshortcutsdialog_dragmoveevent_isbase = false;
             KShortcutsDialog::dragMoveEvent(event);
-        } else if (kshortcutsdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kshortcutsdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kshortcutsdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -965,13 +986,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_dragleaveevent_isbase) {
             kshortcutsdialog_dragleaveevent_isbase = false;
             KShortcutsDialog::dragLeaveEvent(event);
-        } else if (kshortcutsdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kshortcutsdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kshortcutsdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -979,13 +1003,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_dropevent_isbase) {
             kshortcutsdialog_dropevent_isbase = false;
             KShortcutsDialog::dropEvent(event);
-        } else if (kshortcutsdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kshortcutsdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kshortcutsdialog_dropevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -993,13 +1020,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_hideevent_isbase) {
             kshortcutsdialog_hideevent_isbase = false;
             KShortcutsDialog::hideEvent(event);
-        } else if (kshortcutsdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kshortcutsdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kshortcutsdialog_hideevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1007,7 +1037,9 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_nativeevent_isbase) {
             kshortcutsdialog_nativeevent_isbase = false;
             return KShortcutsDialog::nativeEvent(eventType, message, result);
-        } else if (kshortcutsdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kshortcutsdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1018,12 +1050,11 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kshortcutsdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::nativeEvent(eventType, message, result);
         }
+        return KShortcutsDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,13 +1062,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_changeevent_isbase) {
             kshortcutsdialog_changeevent_isbase = false;
             KShortcutsDialog::changeEvent(param1);
-        } else if (kshortcutsdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kshortcutsdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kshortcutsdialog_changeevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1045,14 +1079,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_metric_isbase) {
             kshortcutsdialog_metric_isbase = false;
             return KShortcutsDialog::metric(param1);
-        } else if (kshortcutsdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = kshortcutsdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kshortcutsdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::metric(param1);
         }
+        return KShortcutsDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1060,13 +1095,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_initpainter_isbase) {
             kshortcutsdialog_initpainter_isbase = false;
             KShortcutsDialog::initPainter(painter);
-        } else if (kshortcutsdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kshortcutsdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kshortcutsdialog_initpainter_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,14 +1112,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_redirected_isbase) {
             kshortcutsdialog_redirected_isbase = false;
             return KShortcutsDialog::redirected(offset);
-        } else if (kshortcutsdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kshortcutsdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kshortcutsdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::redirected(offset);
         }
+        return KShortcutsDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1089,12 +1128,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_sharedpainter_isbase) {
             kshortcutsdialog_sharedpainter_isbase = false;
             return KShortcutsDialog::sharedPainter();
-        } else if (kshortcutsdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kshortcutsdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::sharedPainter();
         }
+        auto sharedpainter_cb = kshortcutsdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,13 +1142,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_inputmethodevent_isbase) {
             kshortcutsdialog_inputmethodevent_isbase = false;
             KShortcutsDialog::inputMethodEvent(param1);
-        } else if (kshortcutsdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kshortcutsdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kshortcutsdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,14 +1159,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_inputmethodquery_isbase) {
             kshortcutsdialog_inputmethodquery_isbase = false;
             return KShortcutsDialog::inputMethodQuery(param1);
-        } else if (kshortcutsdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kshortcutsdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kshortcutsdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KShortcutsDialog::inputMethodQuery(param1);
         }
+        return KShortcutsDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1131,14 +1175,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_focusnextprevchild_isbase) {
             kshortcutsdialog_focusnextprevchild_isbase = false;
             return KShortcutsDialog::focusNextPrevChild(next);
-        } else if (kshortcutsdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kshortcutsdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kshortcutsdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::focusNextPrevChild(next);
         }
+        return KShortcutsDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1146,13 +1191,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_timerevent_isbase) {
             kshortcutsdialog_timerevent_isbase = false;
             KShortcutsDialog::timerEvent(event);
-        } else if (kshortcutsdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kshortcutsdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kshortcutsdialog_timerevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,13 +1208,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_childevent_isbase) {
             kshortcutsdialog_childevent_isbase = false;
             KShortcutsDialog::childEvent(event);
-        } else if (kshortcutsdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kshortcutsdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kshortcutsdialog_childevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1174,13 +1225,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_customevent_isbase) {
             kshortcutsdialog_customevent_isbase = false;
             KShortcutsDialog::customEvent(event);
-        } else if (kshortcutsdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kshortcutsdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kshortcutsdialog_customevent_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1188,15 +1242,18 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_connectnotify_isbase) {
             kshortcutsdialog_connectnotify_isbase = false;
             KShortcutsDialog::connectNotify(signal);
-        } else if (kshortcutsdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kshortcutsdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kshortcutsdialog_connectnotify_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1204,15 +1261,18 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_disconnectnotify_isbase) {
             kshortcutsdialog_disconnectnotify_isbase = false;
             KShortcutsDialog::disconnectNotify(signal);
-        } else if (kshortcutsdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kshortcutsdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kshortcutsdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1220,13 +1280,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_adjustposition_isbase) {
             kshortcutsdialog_adjustposition_isbase = false;
             KShortcutsDialog::adjustPosition(param1);
-        } else if (kshortcutsdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = kshortcutsdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            kshortcutsdialog_adjustposition_callback(this, cbval1);
-        } else {
-            KShortcutsDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        KShortcutsDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1234,11 +1297,14 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_updatemicrofocus_isbase) {
             kshortcutsdialog_updatemicrofocus_isbase = false;
             KShortcutsDialog::updateMicroFocus();
-        } else if (kshortcutsdialog_updatemicrofocus_callback != nullptr) {
-            kshortcutsdialog_updatemicrofocus_callback();
-        } else {
-            KShortcutsDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kshortcutsdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KShortcutsDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,11 +1312,14 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_create_isbase) {
             kshortcutsdialog_create_isbase = false;
             KShortcutsDialog::create();
-        } else if (kshortcutsdialog_create_callback != nullptr) {
-            kshortcutsdialog_create_callback();
-        } else {
-            KShortcutsDialog::create();
+            return;
         }
+        auto create_cb = kshortcutsdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KShortcutsDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1258,11 +1327,14 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_destroy_isbase) {
             kshortcutsdialog_destroy_isbase = false;
             KShortcutsDialog::destroy();
-        } else if (kshortcutsdialog_destroy_callback != nullptr) {
-            kshortcutsdialog_destroy_callback();
-        } else {
-            KShortcutsDialog::destroy();
+            return;
         }
+        auto destroy_cb = kshortcutsdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KShortcutsDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1270,12 +1342,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_focusnextchild_isbase) {
             kshortcutsdialog_focusnextchild_isbase = false;
             return KShortcutsDialog::focusNextChild();
-        } else if (kshortcutsdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = kshortcutsdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::focusNextChild();
         }
+        auto focusnextchild_cb = kshortcutsdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1283,12 +1356,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_focuspreviouschild_isbase) {
             kshortcutsdialog_focuspreviouschild_isbase = false;
             return KShortcutsDialog::focusPreviousChild();
-        } else if (kshortcutsdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kshortcutsdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kshortcutsdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1296,12 +1370,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_sender_isbase) {
             kshortcutsdialog_sender_isbase = false;
             return KShortcutsDialog::sender();
-        } else if (kshortcutsdialog_sender_callback != nullptr) {
-            QObject* callback_ret = kshortcutsdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return KShortcutsDialog::sender();
         }
+        auto sender_cb = kshortcutsdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KShortcutsDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1309,12 +1384,13 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_sendersignalindex_isbase) {
             kshortcutsdialog_sendersignalindex_isbase = false;
             return KShortcutsDialog::senderSignalIndex();
-        } else if (kshortcutsdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = kshortcutsdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kshortcutsdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KShortcutsDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1322,14 +1398,15 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_receivers_isbase) {
             kshortcutsdialog_receivers_isbase = false;
             return KShortcutsDialog::receivers(signal);
-        } else if (kshortcutsdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kshortcutsdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kshortcutsdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutsDialog::receivers(signal);
         }
+        return KShortcutsDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1337,16 +1414,17 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_issignalconnected_isbase) {
             kshortcutsdialog_issignalconnected_isbase = false;
             return KShortcutsDialog::isSignalConnected(signal);
-        } else if (kshortcutsdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kshortcutsdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kshortcutsdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutsDialog::isSignalConnected(signal);
         }
+        return KShortcutsDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1354,15 +1432,16 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (kshortcutsdialog_getdecodedmetricf_isbase) {
             kshortcutsdialog_getdecodedmetricf_isbase = false;
             return KShortcutsDialog::getDecodedMetricF(metricA, metricB);
-        } else if (kshortcutsdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kshortcutsdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kshortcutsdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KShortcutsDialog::getDecodedMetricF(metricA, metricB);
         }
+        return KShortcutsDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

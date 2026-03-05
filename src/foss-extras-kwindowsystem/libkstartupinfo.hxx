@@ -69,23 +69,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
     VirtualKStartupInfo(int flags) : KStartupInfo(flags) {};
     VirtualKStartupInfo(int flags, QObject* parent) : KStartupInfo(flags, parent) {};
 
-    ~VirtualKStartupInfo() {
-        kstartupinfo_metaobject_callback = nullptr;
-        kstartupinfo_metacast_callback = nullptr;
-        kstartupinfo_metacall_callback = nullptr;
-        kstartupinfo_customevent_callback = nullptr;
-        kstartupinfo_event_callback = nullptr;
-        kstartupinfo_eventfilter_callback = nullptr;
-        kstartupinfo_timerevent_callback = nullptr;
-        kstartupinfo_childevent_callback = nullptr;
-        kstartupinfo_connectnotify_callback = nullptr;
-        kstartupinfo_disconnectnotify_callback = nullptr;
-        kstartupinfo_sender_callback = nullptr;
-        kstartupinfo_sendersignalindex_callback = nullptr;
-        kstartupinfo_receivers_callback = nullptr;
-        kstartupinfo_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKStartupInfo_MetaObject_Callback(KStartupInfo_MetaObject_Callback cb) { kstartupinfo_metaobject_callback = cb; }
     inline void setKStartupInfo_Metacast_Callback(KStartupInfo_Metacast_Callback cb) { kstartupinfo_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_metaobject_isbase) {
             kstartupinfo_metaobject_isbase = false;
             return KStartupInfo::metaObject();
-        } else if (kstartupinfo_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kstartupinfo_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KStartupInfo::metaObject();
         }
+        auto metaobject_cb = kstartupinfo_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KStartupInfo::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_metacast_isbase) {
             kstartupinfo_metacast_isbase = false;
             return KStartupInfo::qt_metacast(param1);
-        } else if (kstartupinfo_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kstartupinfo_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kstartupinfo_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KStartupInfo::qt_metacast(param1);
         }
+        return KStartupInfo::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_metacall_isbase) {
             kstartupinfo_metacall_isbase = false;
             return KStartupInfo::qt_metacall(param1, param2, param3);
-        } else if (kstartupinfo_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kstartupinfo_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kstartupinfo_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KStartupInfo::qt_metacall(param1, param2, param3);
         }
+        return KStartupInfo::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,13 +154,16 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_customevent_isbase) {
             kstartupinfo_customevent_isbase = false;
             KStartupInfo::customEvent(e_P);
-        } else if (kstartupinfo_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kstartupinfo_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = e_P;
 
-            kstartupinfo_customevent_callback(this, cbval1);
-        } else {
-            KStartupInfo::customEvent(e_P);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KStartupInfo::customEvent(e_P);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -182,14 +171,15 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_event_isbase) {
             kstartupinfo_event_isbase = false;
             return KStartupInfo::event(event);
-        } else if (kstartupinfo_event_callback != nullptr) {
+        }
+        auto event_cb = kstartupinfo_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kstartupinfo_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KStartupInfo::event(event);
         }
+        return KStartupInfo::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -197,15 +187,16 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_eventfilter_isbase) {
             kstartupinfo_eventfilter_isbase = false;
             return KStartupInfo::eventFilter(watched, event);
-        } else if (kstartupinfo_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kstartupinfo_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kstartupinfo_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KStartupInfo::eventFilter(watched, event);
         }
+        return KStartupInfo::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_timerevent_isbase) {
             kstartupinfo_timerevent_isbase = false;
             KStartupInfo::timerEvent(event);
-        } else if (kstartupinfo_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kstartupinfo_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kstartupinfo_timerevent_callback(this, cbval1);
-        } else {
-            KStartupInfo::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KStartupInfo::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_childevent_isbase) {
             kstartupinfo_childevent_isbase = false;
             KStartupInfo::childEvent(event);
-        } else if (kstartupinfo_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kstartupinfo_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kstartupinfo_childevent_callback(this, cbval1);
-        } else {
-            KStartupInfo::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KStartupInfo::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_connectnotify_isbase) {
             kstartupinfo_connectnotify_isbase = false;
             KStartupInfo::connectNotify(signal);
-        } else if (kstartupinfo_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kstartupinfo_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kstartupinfo_connectnotify_callback(this, cbval1);
-        } else {
-            KStartupInfo::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KStartupInfo::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_disconnectnotify_isbase) {
             kstartupinfo_disconnectnotify_isbase = false;
             KStartupInfo::disconnectNotify(signal);
-        } else if (kstartupinfo_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kstartupinfo_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kstartupinfo_disconnectnotify_callback(this, cbval1);
-        } else {
-            KStartupInfo::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KStartupInfo::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_sender_isbase) {
             kstartupinfo_sender_isbase = false;
             return KStartupInfo::sender();
-        } else if (kstartupinfo_sender_callback != nullptr) {
-            QObject* callback_ret = kstartupinfo_sender_callback();
-            return callback_ret;
-        } else {
-            return KStartupInfo::sender();
         }
+        auto sender_cb = kstartupinfo_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KStartupInfo::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_sendersignalindex_isbase) {
             kstartupinfo_sendersignalindex_isbase = false;
             return KStartupInfo::senderSignalIndex();
-        } else if (kstartupinfo_sendersignalindex_callback != nullptr) {
-            int callback_ret = kstartupinfo_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KStartupInfo::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kstartupinfo_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KStartupInfo::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_receivers_isbase) {
             kstartupinfo_receivers_isbase = false;
             return KStartupInfo::receivers(signal);
-        } else if (kstartupinfo_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kstartupinfo_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kstartupinfo_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KStartupInfo::receivers(signal);
         }
+        return KStartupInfo::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (kstartupinfo_issignalconnected_isbase) {
             kstartupinfo_issignalconnected_isbase = false;
             return KStartupInfo::isSignalConnected(signal);
-        } else if (kstartupinfo_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kstartupinfo_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kstartupinfo_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KStartupInfo::isSignalConnected(signal);
         }
+        return KStartupInfo::isSignalConnected(signal);
     }
 
     // Friend functions

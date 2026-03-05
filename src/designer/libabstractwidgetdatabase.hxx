@@ -104,35 +104,6 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
   public:
     VirtualQDesignerWidgetDataBaseItemInterface() : QDesignerWidgetDataBaseItemInterface() {};
 
-    ~VirtualQDesignerWidgetDataBaseItemInterface() {
-        qdesignerwidgetdatabaseiteminterface_name_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setname_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_group_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setgroup_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_tooltip_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_settooltip_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_whatsthis_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_includefile_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setincludefile_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_icon_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_seticon_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_iscompat_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setcompat_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_iscontainer_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setcontainer_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_iscustom_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setcustom_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_pluginpath_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setpluginpath_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_ispromoted_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setpromoted_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_extends_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setextends_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_setdefaultpropertyvalues_callback = nullptr;
-        qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerWidgetDataBaseItemInterface_Name_Callback(QDesignerWidgetDataBaseItemInterface_Name_Callback cb) { qdesignerwidgetdatabaseiteminterface_name_callback = cb; }
     inline void setQDesignerWidgetDataBaseItemInterface_SetName_Callback(QDesignerWidgetDataBaseItemInterface_SetName_Callback cb) { qdesignerwidgetdatabaseiteminterface_setname_callback = cb; }
@@ -191,18 +162,19 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
 
     // Virtual method for C ABI access and custom callback
     virtual QString name() const override {
-        if (qdesignerwidgetdatabaseiteminterface_name_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_name_callback();
+        auto name_cb = qdesignerwidgetdatabaseiteminterface_name_callback;
+        if (name_cb) {
+            const char* callback_ret = name_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setName(const QString& name) override {
-        if (qdesignerwidgetdatabaseiteminterface_setname_callback != nullptr) {
+        auto setname_cb = qdesignerwidgetdatabaseiteminterface_setname_callback;
+        if (setname_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -212,25 +184,26 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            qdesignerwidgetdatabaseiteminterface_setname_callback(this, cbval1);
+            setname_cb(this, cbval1);
             libqt_free(name_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString group() const override {
-        if (qdesignerwidgetdatabaseiteminterface_group_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_group_callback();
+        auto group_cb = qdesignerwidgetdatabaseiteminterface_group_callback;
+        if (group_cb) {
+            const char* callback_ret = group_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setGroup(const QString& group) override {
-        if (qdesignerwidgetdatabaseiteminterface_setgroup_callback != nullptr) {
+        auto setgroup_cb = qdesignerwidgetdatabaseiteminterface_setgroup_callback;
+        if (setgroup_cb) {
             const QString group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
@@ -240,25 +213,26 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval1 = group_str;
 
-            qdesignerwidgetdatabaseiteminterface_setgroup_callback(this, cbval1);
+            setgroup_cb(this, cbval1);
             libqt_free(group_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString toolTip() const override {
-        if (qdesignerwidgetdatabaseiteminterface_tooltip_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_tooltip_callback();
+        auto tooltip_cb = qdesignerwidgetdatabaseiteminterface_tooltip_callback;
+        if (tooltip_cb) {
+            const char* callback_ret = tooltip_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setToolTip(const QString& toolTip) override {
-        if (qdesignerwidgetdatabaseiteminterface_settooltip_callback != nullptr) {
+        auto settooltip_cb = qdesignerwidgetdatabaseiteminterface_settooltip_callback;
+        if (settooltip_cb) {
             const QString toolTip_ret = toolTip;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray toolTip_b = toolTip_ret.toUtf8();
@@ -268,25 +242,26 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)toolTip_str)[toolTip_str_len] = '\0';
             const char* cbval1 = toolTip_str;
 
-            qdesignerwidgetdatabaseiteminterface_settooltip_callback(this, cbval1);
+            settooltip_cb(this, cbval1);
             libqt_free(toolTip_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString whatsThis() const override {
-        if (qdesignerwidgetdatabaseiteminterface_whatsthis_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_whatsthis_callback();
+        auto whatsthis_cb = qdesignerwidgetdatabaseiteminterface_whatsthis_callback;
+        if (whatsthis_cb) {
+            const char* callback_ret = whatsthis_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setWhatsThis(const QString& whatsThis) override {
-        if (qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback != nullptr) {
+        auto setwhatsthis_cb = qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback;
+        if (setwhatsthis_cb) {
             const QString whatsThis_ret = whatsThis;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray whatsThis_b = whatsThis_ret.toUtf8();
@@ -296,25 +271,26 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)whatsThis_str)[whatsThis_str_len] = '\0';
             const char* cbval1 = whatsThis_str;
 
-            qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback(this, cbval1);
+            setwhatsthis_cb(this, cbval1);
             libqt_free(whatsThis_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString includeFile() const override {
-        if (qdesignerwidgetdatabaseiteminterface_includefile_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_includefile_callback();
+        auto includefile_cb = qdesignerwidgetdatabaseiteminterface_includefile_callback;
+        if (includefile_cb) {
+            const char* callback_ret = includefile_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setIncludeFile(const QString& includeFile) override {
-        if (qdesignerwidgetdatabaseiteminterface_setincludefile_callback != nullptr) {
+        auto setincludefile_cb = qdesignerwidgetdatabaseiteminterface_setincludefile_callback;
+        if (setincludefile_cb) {
             const QString includeFile_ret = includeFile;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray includeFile_b = includeFile_ret.toUtf8();
@@ -324,103 +300,108 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)includeFile_str)[includeFile_str_len] = '\0';
             const char* cbval1 = includeFile_str;
 
-            qdesignerwidgetdatabaseiteminterface_setincludefile_callback(this, cbval1);
+            setincludefile_cb(this, cbval1);
             libqt_free(includeFile_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QIcon icon() const override {
-        if (qdesignerwidgetdatabaseiteminterface_icon_callback != nullptr) {
-            QIcon* callback_ret = qdesignerwidgetdatabaseiteminterface_icon_callback();
+        auto icon_cb = qdesignerwidgetdatabaseiteminterface_icon_callback;
+        if (icon_cb) {
+            QIcon* callback_ret = icon_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setIcon(const QIcon& icon) override {
-        if (qdesignerwidgetdatabaseiteminterface_seticon_callback != nullptr) {
+        auto seticon_cb = qdesignerwidgetdatabaseiteminterface_seticon_callback;
+        if (seticon_cb) {
             const QIcon& icon_ret = icon;
             // Cast returned reference into pointer
             QIcon* cbval1 = const_cast<QIcon*>(&icon_ret);
 
-            qdesignerwidgetdatabaseiteminterface_seticon_callback(this, cbval1);
+            seticon_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isCompat() const override {
-        if (qdesignerwidgetdatabaseiteminterface_iscompat_callback != nullptr) {
-            bool callback_ret = qdesignerwidgetdatabaseiteminterface_iscompat_callback();
+        auto iscompat_cb = qdesignerwidgetdatabaseiteminterface_iscompat_callback;
+        if (iscompat_cb) {
+            bool callback_ret = iscompat_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompat(bool compat) override {
-        if (qdesignerwidgetdatabaseiteminterface_setcompat_callback != nullptr) {
+        auto setcompat_cb = qdesignerwidgetdatabaseiteminterface_setcompat_callback;
+        if (setcompat_cb) {
             bool cbval1 = compat;
 
-            qdesignerwidgetdatabaseiteminterface_setcompat_callback(this, cbval1);
+            setcompat_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isContainer() const override {
-        if (qdesignerwidgetdatabaseiteminterface_iscontainer_callback != nullptr) {
-            bool callback_ret = qdesignerwidgetdatabaseiteminterface_iscontainer_callback();
+        auto iscontainer_cb = qdesignerwidgetdatabaseiteminterface_iscontainer_callback;
+        if (iscontainer_cb) {
+            bool callback_ret = iscontainer_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setContainer(bool container) override {
-        if (qdesignerwidgetdatabaseiteminterface_setcontainer_callback != nullptr) {
+        auto setcontainer_cb = qdesignerwidgetdatabaseiteminterface_setcontainer_callback;
+        if (setcontainer_cb) {
             bool cbval1 = container;
 
-            qdesignerwidgetdatabaseiteminterface_setcontainer_callback(this, cbval1);
+            setcontainer_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isCustom() const override {
-        if (qdesignerwidgetdatabaseiteminterface_iscustom_callback != nullptr) {
-            bool callback_ret = qdesignerwidgetdatabaseiteminterface_iscustom_callback();
+        auto iscustom_cb = qdesignerwidgetdatabaseiteminterface_iscustom_callback;
+        if (iscustom_cb) {
+            bool callback_ret = iscustom_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setCustom(bool custom) override {
-        if (qdesignerwidgetdatabaseiteminterface_setcustom_callback != nullptr) {
+        auto setcustom_cb = qdesignerwidgetdatabaseiteminterface_setcustom_callback;
+        if (setcustom_cb) {
             bool cbval1 = custom;
 
-            qdesignerwidgetdatabaseiteminterface_setcustom_callback(this, cbval1);
+            setcustom_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString pluginPath() const override {
-        if (qdesignerwidgetdatabaseiteminterface_pluginpath_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_pluginpath_callback();
+        auto pluginpath_cb = qdesignerwidgetdatabaseiteminterface_pluginpath_callback;
+        if (pluginpath_cb) {
+            const char* callback_ret = pluginpath_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setPluginPath(const QString& path) override {
-        if (qdesignerwidgetdatabaseiteminterface_setpluginpath_callback != nullptr) {
+        auto setpluginpath_cb = qdesignerwidgetdatabaseiteminterface_setpluginpath_callback;
+        if (setpluginpath_cb) {
             const QString path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
@@ -430,44 +411,46 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
 
-            qdesignerwidgetdatabaseiteminterface_setpluginpath_callback(this, cbval1);
+            setpluginpath_cb(this, cbval1);
             libqt_free(path_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isPromoted() const override {
-        if (qdesignerwidgetdatabaseiteminterface_ispromoted_callback != nullptr) {
-            bool callback_ret = qdesignerwidgetdatabaseiteminterface_ispromoted_callback();
+        auto ispromoted_cb = qdesignerwidgetdatabaseiteminterface_ispromoted_callback;
+        if (ispromoted_cb) {
+            bool callback_ret = ispromoted_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setPromoted(bool b) override {
-        if (qdesignerwidgetdatabaseiteminterface_setpromoted_callback != nullptr) {
+        auto setpromoted_cb = qdesignerwidgetdatabaseiteminterface_setpromoted_callback;
+        if (setpromoted_cb) {
             bool cbval1 = b;
 
-            qdesignerwidgetdatabaseiteminterface_setpromoted_callback(this, cbval1);
+            setpromoted_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString extends() const override {
-        if (qdesignerwidgetdatabaseiteminterface_extends_callback != nullptr) {
-            const char* callback_ret = qdesignerwidgetdatabaseiteminterface_extends_callback();
+        auto extends_cb = qdesignerwidgetdatabaseiteminterface_extends_callback;
+        if (extends_cb) {
+            const char* callback_ret = extends_cb();
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setExtends(const QString& s) override {
-        if (qdesignerwidgetdatabaseiteminterface_setextends_callback != nullptr) {
+        auto setextends_cb = qdesignerwidgetdatabaseiteminterface_setextends_callback;
+        if (setextends_cb) {
             const QString s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
@@ -477,14 +460,15 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             ((char*)s_str)[s_str_len] = '\0';
             const char* cbval1 = s_str;
 
-            qdesignerwidgetdatabaseiteminterface_setextends_callback(this, cbval1);
+            setextends_cb(this, cbval1);
             libqt_free(s_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setDefaultPropertyValues(const QList<QVariant>& list) override {
-        if (qdesignerwidgetdatabaseiteminterface_setdefaultpropertyvalues_callback != nullptr) {
+        auto setdefaultpropertyvalues_cb = qdesignerwidgetdatabaseiteminterface_setdefaultpropertyvalues_callback;
+        if (setdefaultpropertyvalues_cb) {
             const QList<QVariant>& list_ret = list;
             // Convert QList<> from C++ memory to manually-managed C memory
             QVariant** list_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (list_ret.size())));
@@ -496,15 +480,16 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             list_out.data = static_cast<void*>(list_arr);
             libqt_list /* of QVariant* */ cbval1 = list_out;
 
-            qdesignerwidgetdatabaseiteminterface_setdefaultpropertyvalues_callback(this, cbval1);
+            setdefaultpropertyvalues_cb(this, cbval1);
             free(list_arr);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QVariant> defaultPropertyValues() const override {
-        if (qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback != nullptr) {
-            libqt_list /* of QVariant* */ callback_ret = qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback();
+        auto defaultpropertyvalues_cb = qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback;
+        if (defaultpropertyvalues_cb) {
+            libqt_list /* of QVariant* */ callback_ret = defaultpropertyvalues_cb();
             QList<QVariant> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QVariant** callback_ret_arr = static_cast<QVariant**>(callback_ret.data);
@@ -513,9 +498,8 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 
@@ -603,31 +587,6 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
     VirtualQDesignerWidgetDataBaseInterface() : QDesignerWidgetDataBaseInterface() {};
     VirtualQDesignerWidgetDataBaseInterface(QObject* parent) : QDesignerWidgetDataBaseInterface(parent) {};
 
-    ~VirtualQDesignerWidgetDataBaseInterface() {
-        qdesignerwidgetdatabaseinterface_metaobject_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_metacast_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_metacall_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_count_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_item_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_indexof_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_insert_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_append_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_indexofobject_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_indexofclassname_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_core_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_event_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_eventfilter_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_timerevent_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_childevent_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_customevent_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_connectnotify_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_disconnectnotify_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_sender_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_sendersignalindex_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_receivers_callback = nullptr;
-        qdesignerwidgetdatabaseinterface_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerWidgetDataBaseInterface_MetaObject_Callback(QDesignerWidgetDataBaseInterface_MetaObject_Callback cb) { qdesignerwidgetdatabaseinterface_metaobject_callback = cb; }
     inline void setQDesignerWidgetDataBaseInterface_Metacast_Callback(QDesignerWidgetDataBaseInterface_Metacast_Callback cb) { qdesignerwidgetdatabaseinterface_metacast_callback = cb; }
@@ -681,12 +640,13 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_metaobject_isbase) {
             qdesignerwidgetdatabaseinterface_metaobject_isbase = false;
             return QDesignerWidgetDataBaseInterface::metaObject();
-        } else if (qdesignerwidgetdatabaseinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdesignerwidgetdatabaseinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::metaObject();
         }
+        auto metaobject_cb = qdesignerwidgetdatabaseinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDesignerWidgetDataBaseInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -694,14 +654,15 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_metacast_isbase) {
             qdesignerwidgetdatabaseinterface_metacast_isbase = false;
             return QDesignerWidgetDataBaseInterface::qt_metacast(param1);
-        } else if (qdesignerwidgetdatabaseinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdesignerwidgetdatabaseinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdesignerwidgetdatabaseinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::qt_metacast(param1);
         }
+        return QDesignerWidgetDataBaseInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,16 +670,17 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_metacall_isbase) {
             qdesignerwidgetdatabaseinterface_metacall_isbase = false;
             return QDesignerWidgetDataBaseInterface::qt_metacall(param1, param2, param3);
-        } else if (qdesignerwidgetdatabaseinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdesignerwidgetdatabaseinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdesignerwidgetdatabaseinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::qt_metacall(param1, param2, param3);
         }
+        return QDesignerWidgetDataBaseInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -726,12 +688,13 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_count_isbase) {
             qdesignerwidgetdatabaseinterface_count_isbase = false;
             return QDesignerWidgetDataBaseInterface::count();
-        } else if (qdesignerwidgetdatabaseinterface_count_callback != nullptr) {
-            int callback_ret = qdesignerwidgetdatabaseinterface_count_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::count();
         }
+        auto count_cb = qdesignerwidgetdatabaseinterface_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerWidgetDataBaseInterface::count();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,14 +702,15 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_item_isbase) {
             qdesignerwidgetdatabaseinterface_item_isbase = false;
             return QDesignerWidgetDataBaseInterface::item(index);
-        } else if (qdesignerwidgetdatabaseinterface_item_callback != nullptr) {
+        }
+        auto item_cb = qdesignerwidgetdatabaseinterface_item_callback;
+        if (item_cb) {
             int cbval1 = index;
 
-            QDesignerWidgetDataBaseItemInterface* callback_ret = qdesignerwidgetdatabaseinterface_item_callback(this, cbval1);
+            QDesignerWidgetDataBaseItemInterface* callback_ret = item_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::item(index);
         }
+        return QDesignerWidgetDataBaseInterface::item(index);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -754,14 +718,15 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_indexof_isbase) {
             qdesignerwidgetdatabaseinterface_indexof_isbase = false;
             return QDesignerWidgetDataBaseInterface::indexOf(item);
-        } else if (qdesignerwidgetdatabaseinterface_indexof_callback != nullptr) {
+        }
+        auto indexof_cb = qdesignerwidgetdatabaseinterface_indexof_callback;
+        if (indexof_cb) {
             QDesignerWidgetDataBaseItemInterface* cbval1 = item;
 
-            int callback_ret = qdesignerwidgetdatabaseinterface_indexof_callback(this, cbval1);
+            int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::indexOf(item);
         }
+        return QDesignerWidgetDataBaseInterface::indexOf(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,14 +734,17 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_insert_isbase) {
             qdesignerwidgetdatabaseinterface_insert_isbase = false;
             QDesignerWidgetDataBaseInterface::insert(index, item);
-        } else if (qdesignerwidgetdatabaseinterface_insert_callback != nullptr) {
+            return;
+        }
+        auto insert_cb = qdesignerwidgetdatabaseinterface_insert_callback;
+        if (insert_cb) {
             int cbval1 = index;
             QDesignerWidgetDataBaseItemInterface* cbval2 = item;
 
-            qdesignerwidgetdatabaseinterface_insert_callback(this, cbval1, cbval2);
-        } else {
-            QDesignerWidgetDataBaseInterface::insert(index, item);
+            insert_cb(this, cbval1, cbval2);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::insert(index, item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -784,13 +752,16 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_append_isbase) {
             qdesignerwidgetdatabaseinterface_append_isbase = false;
             QDesignerWidgetDataBaseInterface::append(item);
-        } else if (qdesignerwidgetdatabaseinterface_append_callback != nullptr) {
+            return;
+        }
+        auto append_cb = qdesignerwidgetdatabaseinterface_append_callback;
+        if (append_cb) {
             QDesignerWidgetDataBaseItemInterface* cbval1 = item;
 
-            qdesignerwidgetdatabaseinterface_append_callback(this, cbval1);
-        } else {
-            QDesignerWidgetDataBaseInterface::append(item);
+            append_cb(this, cbval1);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::append(item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -798,15 +769,16 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_indexofobject_isbase) {
             qdesignerwidgetdatabaseinterface_indexofobject_isbase = false;
             return QDesignerWidgetDataBaseInterface::indexOfObject(object, resolveName);
-        } else if (qdesignerwidgetdatabaseinterface_indexofobject_callback != nullptr) {
+        }
+        auto indexofobject_cb = qdesignerwidgetdatabaseinterface_indexofobject_callback;
+        if (indexofobject_cb) {
             QObject* cbval1 = object;
             bool cbval2 = resolveName;
 
-            int callback_ret = qdesignerwidgetdatabaseinterface_indexofobject_callback(this, cbval1, cbval2);
+            int callback_ret = indexofobject_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::indexOfObject(object, resolveName);
         }
+        return QDesignerWidgetDataBaseInterface::indexOfObject(object, resolveName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,7 +786,9 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_indexofclassname_isbase) {
             qdesignerwidgetdatabaseinterface_indexofclassname_isbase = false;
             return QDesignerWidgetDataBaseInterface::indexOfClassName(className, resolveName);
-        } else if (qdesignerwidgetdatabaseinterface_indexofclassname_callback != nullptr) {
+        }
+        auto indexofclassname_cb = qdesignerwidgetdatabaseinterface_indexofclassname_callback;
+        if (indexofclassname_cb) {
             const QString className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
@@ -825,12 +799,11 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
             const char* cbval1 = className_str;
             bool cbval2 = resolveName;
 
-            int callback_ret = qdesignerwidgetdatabaseinterface_indexofclassname_callback(this, cbval1, cbval2);
+            int callback_ret = indexofclassname_cb(this, cbval1, cbval2);
             libqt_free(className_str);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::indexOfClassName(className, resolveName);
         }
+        return QDesignerWidgetDataBaseInterface::indexOfClassName(className, resolveName);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -838,12 +811,13 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_core_isbase) {
             qdesignerwidgetdatabaseinterface_core_isbase = false;
             return QDesignerWidgetDataBaseInterface::core();
-        } else if (qdesignerwidgetdatabaseinterface_core_callback != nullptr) {
-            QDesignerFormEditorInterface* callback_ret = qdesignerwidgetdatabaseinterface_core_callback();
-            return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::core();
         }
+        auto core_cb = qdesignerwidgetdatabaseinterface_core_callback;
+        if (core_cb) {
+            QDesignerFormEditorInterface* callback_ret = core_cb();
+            return callback_ret;
+        }
+        return QDesignerWidgetDataBaseInterface::core();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,14 +825,15 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_event_isbase) {
             qdesignerwidgetdatabaseinterface_event_isbase = false;
             return QDesignerWidgetDataBaseInterface::event(event);
-        } else if (qdesignerwidgetdatabaseinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdesignerwidgetdatabaseinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdesignerwidgetdatabaseinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::event(event);
         }
+        return QDesignerWidgetDataBaseInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -866,15 +841,16 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_eventfilter_isbase) {
             qdesignerwidgetdatabaseinterface_eventfilter_isbase = false;
             return QDesignerWidgetDataBaseInterface::eventFilter(watched, event);
-        } else if (qdesignerwidgetdatabaseinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdesignerwidgetdatabaseinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdesignerwidgetdatabaseinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::eventFilter(watched, event);
         }
+        return QDesignerWidgetDataBaseInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -882,13 +858,16 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_timerevent_isbase) {
             qdesignerwidgetdatabaseinterface_timerevent_isbase = false;
             QDesignerWidgetDataBaseInterface::timerEvent(event);
-        } else if (qdesignerwidgetdatabaseinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdesignerwidgetdatabaseinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdesignerwidgetdatabaseinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDesignerWidgetDataBaseInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -896,13 +875,16 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_childevent_isbase) {
             qdesignerwidgetdatabaseinterface_childevent_isbase = false;
             QDesignerWidgetDataBaseInterface::childEvent(event);
-        } else if (qdesignerwidgetdatabaseinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdesignerwidgetdatabaseinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdesignerwidgetdatabaseinterface_childevent_callback(this, cbval1);
-        } else {
-            QDesignerWidgetDataBaseInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -910,13 +892,16 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_customevent_isbase) {
             qdesignerwidgetdatabaseinterface_customevent_isbase = false;
             QDesignerWidgetDataBaseInterface::customEvent(event);
-        } else if (qdesignerwidgetdatabaseinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdesignerwidgetdatabaseinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerwidgetdatabaseinterface_customevent_callback(this, cbval1);
-        } else {
-            QDesignerWidgetDataBaseInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -924,15 +909,18 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_connectnotify_isbase) {
             qdesignerwidgetdatabaseinterface_connectnotify_isbase = false;
             QDesignerWidgetDataBaseInterface::connectNotify(signal);
-        } else if (qdesignerwidgetdatabaseinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdesignerwidgetdatabaseinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerwidgetdatabaseinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDesignerWidgetDataBaseInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,15 +928,18 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_disconnectnotify_isbase) {
             qdesignerwidgetdatabaseinterface_disconnectnotify_isbase = false;
             QDesignerWidgetDataBaseInterface::disconnectNotify(signal);
-        } else if (qdesignerwidgetdatabaseinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdesignerwidgetdatabaseinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerwidgetdatabaseinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDesignerWidgetDataBaseInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerWidgetDataBaseInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,12 +947,13 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_sender_isbase) {
             qdesignerwidgetdatabaseinterface_sender_isbase = false;
             return QDesignerWidgetDataBaseInterface::sender();
-        } else if (qdesignerwidgetdatabaseinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdesignerwidgetdatabaseinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::sender();
         }
+        auto sender_cb = qdesignerwidgetdatabaseinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDesignerWidgetDataBaseInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -969,12 +961,13 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_sendersignalindex_isbase) {
             qdesignerwidgetdatabaseinterface_sendersignalindex_isbase = false;
             return QDesignerWidgetDataBaseInterface::senderSignalIndex();
-        } else if (qdesignerwidgetdatabaseinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdesignerwidgetdatabaseinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdesignerwidgetdatabaseinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerWidgetDataBaseInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,14 +975,15 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_receivers_isbase) {
             qdesignerwidgetdatabaseinterface_receivers_isbase = false;
             return QDesignerWidgetDataBaseInterface::receivers(signal);
-        } else if (qdesignerwidgetdatabaseinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdesignerwidgetdatabaseinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdesignerwidgetdatabaseinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerWidgetDataBaseInterface::receivers(signal);
         }
+        return QDesignerWidgetDataBaseInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -997,16 +991,17 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         if (qdesignerwidgetdatabaseinterface_issignalconnected_isbase) {
             qdesignerwidgetdatabaseinterface_issignalconnected_isbase = false;
             return QDesignerWidgetDataBaseInterface::isSignalConnected(signal);
-        } else if (qdesignerwidgetdatabaseinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdesignerwidgetdatabaseinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdesignerwidgetdatabaseinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerWidgetDataBaseInterface::isSignalConnected(signal);
         }
+        return QDesignerWidgetDataBaseInterface::isSignalConnected(signal);
     }
 
     // Friend functions

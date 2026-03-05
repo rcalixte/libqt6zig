@@ -109,36 +109,6 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     VirtualKSyntaxHighlightingSyntaxHighlighter(QTextDocument* document) : KSyntaxHighlighting::SyntaxHighlighter(document) {};
     VirtualKSyntaxHighlightingSyntaxHighlighter(QObject* parent) : KSyntaxHighlighting::SyntaxHighlighter(parent) {};
 
-    ~VirtualKSyntaxHighlightingSyntaxHighlighter() {
-        ksyntaxhighlighting__syntaxhighlighter_metaobject_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_metacast_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_metacall_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_settheme_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_applyformat_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_applyfolding_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_event_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_eventfilter_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_timerevent_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_childevent_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_customevent_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_connectnotify_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_disconnectnotify_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_setformat_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_format_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_previousblockstate_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_currentblockstate_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_setcurrentblockstate_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_setcurrentblockuserdata_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_currentblockuserdata_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_currentblock_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_sender_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_receivers_callback = nullptr;
-        ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback(KSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_metaobject_callback = cb; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback(KSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_metacast_callback = cb; }
@@ -202,12 +172,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::metaObject();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = ksyntaxhighlighting__syntaxhighlighter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::metaObject();
         }
+        auto metaobject_cb = ksyntaxhighlighting__syntaxhighlighter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,14 +186,15 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_metacast_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_metacast_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::qt_metacast(param1);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = ksyntaxhighlighting__syntaxhighlighter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = ksyntaxhighlighting__syntaxhighlighter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::qt_metacast(param1);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -230,16 +202,17 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_metacall_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_metacall_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::qt_metacall(param1, param2, param3);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = ksyntaxhighlighting__syntaxhighlighter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = ksyntaxhighlighting__syntaxhighlighter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::qt_metacall(param1, param2, param3);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,15 +220,18 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_setdefinition_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_setdefinition_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::setDefinition(def);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback != nullptr) {
+            return;
+        }
+        auto setdefinition_cb = ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback;
+        if (setdefinition_cb) {
             const KSyntaxHighlighting::Definition& def_ret = def;
             // Cast returned reference into pointer
             KSyntaxHighlighting__Definition* cbval1 = const_cast<KSyntaxHighlighting::Definition*>(&def_ret);
 
-            ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::setDefinition(def);
+            setdefinition_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::setDefinition(def);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,15 +239,18 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_settheme_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_settheme_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::setTheme(theme);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_settheme_callback != nullptr) {
+            return;
+        }
+        auto settheme_cb = ksyntaxhighlighting__syntaxhighlighter_settheme_callback;
+        if (settheme_cb) {
             const KSyntaxHighlighting::Theme& theme_ret = theme;
             // Cast returned reference into pointer
             KSyntaxHighlighting__Theme* cbval1 = const_cast<KSyntaxHighlighting::Theme*>(&theme_ret);
 
-            ksyntaxhighlighting__syntaxhighlighter_settheme_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::setTheme(theme);
+            settheme_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::setTheme(theme);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,7 +258,10 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_highlightblock_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_highlightblock_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::highlightBlock(text);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback != nullptr) {
+            return;
+        }
+        auto highlightblock_cb = ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback;
+        if (highlightblock_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -289,11 +271,11 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback(this, cbval1);
+            highlightblock_cb(this, cbval1);
             libqt_free(text_str);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::highlightBlock(text);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::highlightBlock(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,17 +283,20 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_applyformat_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_applyformat_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::applyFormat(offset, length, format);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_applyformat_callback != nullptr) {
+            return;
+        }
+        auto applyformat_cb = ksyntaxhighlighting__syntaxhighlighter_applyformat_callback;
+        if (applyformat_cb) {
             int cbval1 = offset;
             int cbval2 = length;
             const KSyntaxHighlighting::Format& format_ret = format;
             // Cast returned reference into pointer
             KSyntaxHighlighting__Format* cbval3 = const_cast<KSyntaxHighlighting::Format*>(&format_ret);
 
-            ksyntaxhighlighting__syntaxhighlighter_applyformat_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::applyFormat(offset, length, format);
+            applyformat_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::applyFormat(offset, length, format);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -319,15 +304,18 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_applyfolding_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_applyfolding_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::applyFolding(offset, length, region);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_applyfolding_callback != nullptr) {
+            return;
+        }
+        auto applyfolding_cb = ksyntaxhighlighting__syntaxhighlighter_applyfolding_callback;
+        if (applyfolding_cb) {
             int cbval1 = offset;
             int cbval2 = length;
             KSyntaxHighlighting__FoldingRegion* cbval3 = new KSyntaxHighlighting::FoldingRegion(region);
 
-            ksyntaxhighlighting__syntaxhighlighter_applyfolding_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::applyFolding(offset, length, region);
+            applyfolding_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::applyFolding(offset, length, region);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -335,14 +323,15 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_event_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_event_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::event(event);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_event_callback != nullptr) {
+        }
+        auto event_cb = ksyntaxhighlighting__syntaxhighlighter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = ksyntaxhighlighting__syntaxhighlighter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::event(event);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -350,15 +339,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_eventfilter_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_eventfilter_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::eventFilter(watched, event);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = ksyntaxhighlighting__syntaxhighlighter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = ksyntaxhighlighting__syntaxhighlighter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::eventFilter(watched, event);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,13 +356,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_timerevent_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_timerevent_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::timerEvent(event);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = ksyntaxhighlighting__syntaxhighlighter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            ksyntaxhighlighting__syntaxhighlighter_timerevent_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -380,13 +373,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_childevent_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_childevent_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::childEvent(event);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = ksyntaxhighlighting__syntaxhighlighter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            ksyntaxhighlighting__syntaxhighlighter_childevent_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,13 +390,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_customevent_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_customevent_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::customEvent(event);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = ksyntaxhighlighting__syntaxhighlighter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            ksyntaxhighlighting__syntaxhighlighter_customevent_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -408,15 +407,18 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_connectnotify_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_connectnotify_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::connectNotify(signal);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = ksyntaxhighlighting__syntaxhighlighter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksyntaxhighlighting__syntaxhighlighter_connectnotify_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -424,15 +426,18 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_disconnectnotify_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_disconnectnotify_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::disconnectNotify(signal);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = ksyntaxhighlighting__syntaxhighlighter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            ksyntaxhighlighting__syntaxhighlighter_disconnectnotify_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,17 +445,20 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_setformat_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_setformat_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::setFormat(start, count, format);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_setformat_callback != nullptr) {
+            return;
+        }
+        auto setformat_cb = ksyntaxhighlighting__syntaxhighlighter_setformat_callback;
+        if (setformat_cb) {
             int cbval1 = start;
             int cbval2 = count;
             const QTextCharFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextCharFormat* cbval3 = const_cast<QTextCharFormat*>(&format_ret);
 
-            ksyntaxhighlighting__syntaxhighlighter_setformat_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::setFormat(start, count, format);
+            setformat_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::setFormat(start, count, format);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,14 +466,15 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_format_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_format_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::format(pos);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_format_callback != nullptr) {
+        }
+        auto format_cb = ksyntaxhighlighting__syntaxhighlighter_format_callback;
+        if (format_cb) {
             int cbval1 = pos;
 
-            QTextCharFormat* callback_ret = ksyntaxhighlighting__syntaxhighlighter_format_callback(this, cbval1);
+            QTextCharFormat* callback_ret = format_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::format(pos);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::format(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,12 +482,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_previousblockstate_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_previousblockstate_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::previousBlockState();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_previousblockstate_callback != nullptr) {
-            int callback_ret = ksyntaxhighlighting__syntaxhighlighter_previousblockstate_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::previousBlockState();
         }
+        auto previousblockstate_cb = ksyntaxhighlighting__syntaxhighlighter_previousblockstate_callback;
+        if (previousblockstate_cb) {
+            int callback_ret = previousblockstate_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::previousBlockState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,12 +496,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_currentblockstate_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_currentblockstate_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::currentBlockState();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_currentblockstate_callback != nullptr) {
-            int callback_ret = ksyntaxhighlighting__syntaxhighlighter_currentblockstate_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::currentBlockState();
         }
+        auto currentblockstate_cb = ksyntaxhighlighting__syntaxhighlighter_currentblockstate_callback;
+        if (currentblockstate_cb) {
+            int callback_ret = currentblockstate_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::currentBlockState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,13 +510,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_setcurrentblockstate_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_setcurrentblockstate_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::setCurrentBlockState(newState);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_setcurrentblockstate_callback != nullptr) {
+            return;
+        }
+        auto setcurrentblockstate_cb = ksyntaxhighlighting__syntaxhighlighter_setcurrentblockstate_callback;
+        if (setcurrentblockstate_cb) {
             int cbval1 = newState;
 
-            ksyntaxhighlighting__syntaxhighlighter_setcurrentblockstate_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::setCurrentBlockState(newState);
+            setcurrentblockstate_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::setCurrentBlockState(newState);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +527,16 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_setcurrentblockuserdata_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_setcurrentblockuserdata_isbase = false;
             KSyntaxHighlighting__SyntaxHighlighter::setCurrentBlockUserData(data);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_setcurrentblockuserdata_callback != nullptr) {
+            return;
+        }
+        auto setcurrentblockuserdata_cb = ksyntaxhighlighting__syntaxhighlighter_setcurrentblockuserdata_callback;
+        if (setcurrentblockuserdata_cb) {
             QTextBlockUserData* cbval1 = data;
 
-            ksyntaxhighlighting__syntaxhighlighter_setcurrentblockuserdata_callback(this, cbval1);
-        } else {
-            KSyntaxHighlighting__SyntaxHighlighter::setCurrentBlockUserData(data);
+            setcurrentblockuserdata_cb(this, cbval1);
+            return;
         }
+        KSyntaxHighlighting__SyntaxHighlighter::setCurrentBlockUserData(data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,12 +544,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_currentblockuserdata_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_currentblockuserdata_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::currentBlockUserData();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_currentblockuserdata_callback != nullptr) {
-            QTextBlockUserData* callback_ret = ksyntaxhighlighting__syntaxhighlighter_currentblockuserdata_callback();
-            return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::currentBlockUserData();
         }
+        auto currentblockuserdata_cb = ksyntaxhighlighting__syntaxhighlighter_currentblockuserdata_callback;
+        if (currentblockuserdata_cb) {
+            QTextBlockUserData* callback_ret = currentblockuserdata_cb();
+            return callback_ret;
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::currentBlockUserData();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,12 +558,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_currentblock_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_currentblock_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::currentBlock();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_currentblock_callback != nullptr) {
-            QTextBlock* callback_ret = ksyntaxhighlighting__syntaxhighlighter_currentblock_callback();
-            return *callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::currentBlock();
         }
+        auto currentblock_cb = ksyntaxhighlighting__syntaxhighlighter_currentblock_callback;
+        if (currentblock_cb) {
+            QTextBlock* callback_ret = currentblock_cb();
+            return *callback_ret;
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::currentBlock();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,12 +572,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_sender_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_sender_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::sender();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_sender_callback != nullptr) {
-            QObject* callback_ret = ksyntaxhighlighting__syntaxhighlighter_sender_callback();
-            return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::sender();
         }
+        auto sender_cb = ksyntaxhighlighting__syntaxhighlighter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -566,12 +586,13 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::senderSignalIndex();
-        } else if (ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_callback != nullptr) {
-            int callback_ret = ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,14 +600,15 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_receivers_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_receivers_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::receivers(signal);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = ksyntaxhighlighting__syntaxhighlighter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = ksyntaxhighlighting__syntaxhighlighter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::receivers(signal);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,16 +616,17 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         if (ksyntaxhighlighting__syntaxhighlighter_issignalconnected_isbase) {
             ksyntaxhighlighting__syntaxhighlighter_issignalconnected_isbase = false;
             return KSyntaxHighlighting__SyntaxHighlighter::isSignalConnected(signal);
-        } else if (ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KSyntaxHighlighting__SyntaxHighlighter::isSignalConnected(signal);
         }
+        return KSyntaxHighlighting__SyntaxHighlighter::isSignalConnected(signal);
     }
 
     // Friend functions

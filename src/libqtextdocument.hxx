@@ -80,26 +80,6 @@ class VirtualQTextDocument final : public QTextDocument {
     VirtualQTextDocument(QObject* parent) : QTextDocument(parent) {};
     VirtualQTextDocument(const QString& text, QObject* parent) : QTextDocument(text, parent) {};
 
-    ~VirtualQTextDocument() {
-        qtextdocument_metaobject_callback = nullptr;
-        qtextdocument_metacast_callback = nullptr;
-        qtextdocument_metacall_callback = nullptr;
-        qtextdocument_clear_callback = nullptr;
-        qtextdocument_createobject_callback = nullptr;
-        qtextdocument_loadresource_callback = nullptr;
-        qtextdocument_event_callback = nullptr;
-        qtextdocument_eventfilter_callback = nullptr;
-        qtextdocument_timerevent_callback = nullptr;
-        qtextdocument_childevent_callback = nullptr;
-        qtextdocument_customevent_callback = nullptr;
-        qtextdocument_connectnotify_callback = nullptr;
-        qtextdocument_disconnectnotify_callback = nullptr;
-        qtextdocument_sender_callback = nullptr;
-        qtextdocument_sendersignalindex_callback = nullptr;
-        qtextdocument_receivers_callback = nullptr;
-        qtextdocument_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQTextDocument_MetaObject_Callback(QTextDocument_MetaObject_Callback cb) { qtextdocument_metaobject_callback = cb; }
     inline void setQTextDocument_Metacast_Callback(QTextDocument_Metacast_Callback cb) { qtextdocument_metacast_callback = cb; }
@@ -143,12 +123,13 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_metaobject_isbase) {
             qtextdocument_metaobject_isbase = false;
             return QTextDocument::metaObject();
-        } else if (qtextdocument_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtextdocument_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QTextDocument::metaObject();
         }
+        auto metaobject_cb = qtextdocument_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QTextDocument::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,14 +137,15 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_metacast_isbase) {
             qtextdocument_metacast_isbase = false;
             return QTextDocument::qt_metacast(param1);
-        } else if (qtextdocument_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtextdocument_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtextdocument_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextDocument::qt_metacast(param1);
         }
+        return QTextDocument::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -171,16 +153,17 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_metacall_isbase) {
             qtextdocument_metacall_isbase = false;
             return QTextDocument::qt_metacall(param1, param2, param3);
-        } else if (qtextdocument_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtextdocument_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtextdocument_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextDocument::qt_metacall(param1, param2, param3);
         }
+        return QTextDocument::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,11 +171,14 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_clear_isbase) {
             qtextdocument_clear_isbase = false;
             QTextDocument::clear();
-        } else if (qtextdocument_clear_callback != nullptr) {
-            qtextdocument_clear_callback();
-        } else {
-            QTextDocument::clear();
+            return;
         }
+        auto clear_cb = qtextdocument_clear_callback;
+        if (clear_cb) {
+            clear_cb();
+            return;
+        }
+        QTextDocument::clear();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,16 +186,17 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_createobject_isbase) {
             qtextdocument_createobject_isbase = false;
             return QTextDocument::createObject(f);
-        } else if (qtextdocument_createobject_callback != nullptr) {
+        }
+        auto createobject_cb = qtextdocument_createobject_callback;
+        if (createobject_cb) {
             const QTextFormat& f_ret = f;
             // Cast returned reference into pointer
             QTextFormat* cbval1 = const_cast<QTextFormat*>(&f_ret);
 
-            QTextObject* callback_ret = qtextdocument_createobject_callback(this, cbval1);
+            QTextObject* callback_ret = createobject_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextDocument::createObject(f);
         }
+        return QTextDocument::createObject(f);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,17 +204,18 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_loadresource_isbase) {
             qtextdocument_loadresource_isbase = false;
             return QTextDocument::loadResource(typeVal, name);
-        } else if (qtextdocument_loadresource_callback != nullptr) {
+        }
+        auto loadresource_cb = qtextdocument_loadresource_callback;
+        if (loadresource_cb) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
 
-            QVariant* callback_ret = qtextdocument_loadresource_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return QTextDocument::loadResource(typeVal, name);
         }
+        return QTextDocument::loadResource(typeVal, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,14 +223,15 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_event_isbase) {
             qtextdocument_event_isbase = false;
             return QTextDocument::event(event);
-        } else if (qtextdocument_event_callback != nullptr) {
+        }
+        auto event_cb = qtextdocument_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qtextdocument_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextDocument::event(event);
         }
+        return QTextDocument::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -250,15 +239,16 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_eventfilter_isbase) {
             qtextdocument_eventfilter_isbase = false;
             return QTextDocument::eventFilter(watched, event);
-        } else if (qtextdocument_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtextdocument_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtextdocument_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QTextDocument::eventFilter(watched, event);
         }
+        return QTextDocument::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -266,13 +256,16 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_timerevent_isbase) {
             qtextdocument_timerevent_isbase = false;
             QTextDocument::timerEvent(event);
-        } else if (qtextdocument_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtextdocument_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qtextdocument_timerevent_callback(this, cbval1);
-        } else {
-            QTextDocument::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QTextDocument::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -280,13 +273,16 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_childevent_isbase) {
             qtextdocument_childevent_isbase = false;
             QTextDocument::childEvent(event);
-        } else if (qtextdocument_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtextdocument_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtextdocument_childevent_callback(this, cbval1);
-        } else {
-            QTextDocument::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QTextDocument::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -294,13 +290,16 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_customevent_isbase) {
             qtextdocument_customevent_isbase = false;
             QTextDocument::customEvent(event);
-        } else if (qtextdocument_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtextdocument_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtextdocument_customevent_callback(this, cbval1);
-        } else {
-            QTextDocument::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QTextDocument::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -308,15 +307,18 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_connectnotify_isbase) {
             qtextdocument_connectnotify_isbase = false;
             QTextDocument::connectNotify(signal);
-        } else if (qtextdocument_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtextdocument_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtextdocument_connectnotify_callback(this, cbval1);
-        } else {
-            QTextDocument::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QTextDocument::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,15 +326,18 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_disconnectnotify_isbase) {
             qtextdocument_disconnectnotify_isbase = false;
             QTextDocument::disconnectNotify(signal);
-        } else if (qtextdocument_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtextdocument_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtextdocument_disconnectnotify_callback(this, cbval1);
-        } else {
-            QTextDocument::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QTextDocument::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,12 +345,13 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_sender_isbase) {
             qtextdocument_sender_isbase = false;
             return QTextDocument::sender();
-        } else if (qtextdocument_sender_callback != nullptr) {
-            QObject* callback_ret = qtextdocument_sender_callback();
-            return callback_ret;
-        } else {
-            return QTextDocument::sender();
         }
+        auto sender_cb = qtextdocument_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QTextDocument::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -353,12 +359,13 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_sendersignalindex_isbase) {
             qtextdocument_sendersignalindex_isbase = false;
             return QTextDocument::senderSignalIndex();
-        } else if (qtextdocument_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtextdocument_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QTextDocument::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtextdocument_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QTextDocument::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,14 +373,15 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_receivers_isbase) {
             qtextdocument_receivers_isbase = false;
             return QTextDocument::receivers(signal);
-        } else if (qtextdocument_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtextdocument_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtextdocument_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QTextDocument::receivers(signal);
         }
+        return QTextDocument::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -381,16 +389,17 @@ class VirtualQTextDocument final : public QTextDocument {
         if (qtextdocument_issignalconnected_isbase) {
             qtextdocument_issignalconnected_isbase = false;
             return QTextDocument::isSignalConnected(signal);
-        } else if (qtextdocument_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtextdocument_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtextdocument_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QTextDocument::isSignalConnected(signal);
         }
+        return QTextDocument::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -75,25 +75,6 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend) : QBarLegendMarker(series, barset, legend) {};
     VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend, QObject* parent) : QBarLegendMarker(series, barset, legend, parent) {};
 
-    ~VirtualQBarLegendMarker() {
-        qbarlegendmarker_metaobject_callback = nullptr;
-        qbarlegendmarker_metacast_callback = nullptr;
-        qbarlegendmarker_metacall_callback = nullptr;
-        qbarlegendmarker_type_callback = nullptr;
-        qbarlegendmarker_series_callback = nullptr;
-        qbarlegendmarker_event_callback = nullptr;
-        qbarlegendmarker_eventfilter_callback = nullptr;
-        qbarlegendmarker_timerevent_callback = nullptr;
-        qbarlegendmarker_childevent_callback = nullptr;
-        qbarlegendmarker_customevent_callback = nullptr;
-        qbarlegendmarker_connectnotify_callback = nullptr;
-        qbarlegendmarker_disconnectnotify_callback = nullptr;
-        qbarlegendmarker_sender_callback = nullptr;
-        qbarlegendmarker_sendersignalindex_callback = nullptr;
-        qbarlegendmarker_receivers_callback = nullptr;
-        qbarlegendmarker_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQBarLegendMarker_MetaObject_Callback(QBarLegendMarker_MetaObject_Callback cb) { qbarlegendmarker_metaobject_callback = cb; }
     inline void setQBarLegendMarker_Metacast_Callback(QBarLegendMarker_Metacast_Callback cb) { qbarlegendmarker_metacast_callback = cb; }
@@ -135,12 +116,13 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_metaobject_isbase) {
             qbarlegendmarker_metaobject_isbase = false;
             return QBarLegendMarker::metaObject();
-        } else if (qbarlegendmarker_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qbarlegendmarker_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QBarLegendMarker::metaObject();
         }
+        auto metaobject_cb = qbarlegendmarker_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QBarLegendMarker::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -148,14 +130,15 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_metacast_isbase) {
             qbarlegendmarker_metacast_isbase = false;
             return QBarLegendMarker::qt_metacast(param1);
-        } else if (qbarlegendmarker_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qbarlegendmarker_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qbarlegendmarker_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBarLegendMarker::qt_metacast(param1);
         }
+        return QBarLegendMarker::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -163,16 +146,17 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_metacall_isbase) {
             qbarlegendmarker_metacall_isbase = false;
             return QBarLegendMarker::qt_metacall(param1, param2, param3);
-        } else if (qbarlegendmarker_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qbarlegendmarker_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qbarlegendmarker_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBarLegendMarker::qt_metacall(param1, param2, param3);
         }
+        return QBarLegendMarker::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,12 +164,13 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_type_isbase) {
             qbarlegendmarker_type_isbase = false;
             return QBarLegendMarker::type();
-        } else if (qbarlegendmarker_type_callback != nullptr) {
-            int callback_ret = qbarlegendmarker_type_callback();
-            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
-        } else {
-            return QBarLegendMarker::type();
         }
+        auto type_cb = qbarlegendmarker_type_callback;
+        if (type_cb) {
+            int callback_ret = type_cb();
+            return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
+        }
+        return QBarLegendMarker::type();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -193,12 +178,13 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_series_isbase) {
             qbarlegendmarker_series_isbase = false;
             return QBarLegendMarker::series();
-        } else if (qbarlegendmarker_series_callback != nullptr) {
-            QAbstractBarSeries* callback_ret = qbarlegendmarker_series_callback();
-            return callback_ret;
-        } else {
-            return QBarLegendMarker::series();
         }
+        auto series_cb = qbarlegendmarker_series_callback;
+        if (series_cb) {
+            QAbstractBarSeries* callback_ret = series_cb();
+            return callback_ret;
+        }
+        return QBarLegendMarker::series();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,14 +192,15 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_event_isbase) {
             qbarlegendmarker_event_isbase = false;
             return QBarLegendMarker::event(event);
-        } else if (qbarlegendmarker_event_callback != nullptr) {
+        }
+        auto event_cb = qbarlegendmarker_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qbarlegendmarker_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBarLegendMarker::event(event);
         }
+        return QBarLegendMarker::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -221,15 +208,16 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_eventfilter_isbase) {
             qbarlegendmarker_eventfilter_isbase = false;
             return QBarLegendMarker::eventFilter(watched, event);
-        } else if (qbarlegendmarker_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qbarlegendmarker_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qbarlegendmarker_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QBarLegendMarker::eventFilter(watched, event);
         }
+        return QBarLegendMarker::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -237,13 +225,16 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_timerevent_isbase) {
             qbarlegendmarker_timerevent_isbase = false;
             QBarLegendMarker::timerEvent(event);
-        } else if (qbarlegendmarker_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qbarlegendmarker_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qbarlegendmarker_timerevent_callback(this, cbval1);
-        } else {
-            QBarLegendMarker::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QBarLegendMarker::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -251,13 +242,16 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_childevent_isbase) {
             qbarlegendmarker_childevent_isbase = false;
             QBarLegendMarker::childEvent(event);
-        } else if (qbarlegendmarker_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qbarlegendmarker_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qbarlegendmarker_childevent_callback(this, cbval1);
-        } else {
-            QBarLegendMarker::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QBarLegendMarker::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -265,13 +259,16 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_customevent_isbase) {
             qbarlegendmarker_customevent_isbase = false;
             QBarLegendMarker::customEvent(event);
-        } else if (qbarlegendmarker_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qbarlegendmarker_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qbarlegendmarker_customevent_callback(this, cbval1);
-        } else {
-            QBarLegendMarker::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QBarLegendMarker::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -279,15 +276,18 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_connectnotify_isbase) {
             qbarlegendmarker_connectnotify_isbase = false;
             QBarLegendMarker::connectNotify(signal);
-        } else if (qbarlegendmarker_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qbarlegendmarker_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qbarlegendmarker_connectnotify_callback(this, cbval1);
-        } else {
-            QBarLegendMarker::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QBarLegendMarker::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -295,15 +295,18 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_disconnectnotify_isbase) {
             qbarlegendmarker_disconnectnotify_isbase = false;
             QBarLegendMarker::disconnectNotify(signal);
-        } else if (qbarlegendmarker_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qbarlegendmarker_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qbarlegendmarker_disconnectnotify_callback(this, cbval1);
-        } else {
-            QBarLegendMarker::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QBarLegendMarker::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,12 +314,13 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_sender_isbase) {
             qbarlegendmarker_sender_isbase = false;
             return QBarLegendMarker::sender();
-        } else if (qbarlegendmarker_sender_callback != nullptr) {
-            QObject* callback_ret = qbarlegendmarker_sender_callback();
-            return callback_ret;
-        } else {
-            return QBarLegendMarker::sender();
         }
+        auto sender_cb = qbarlegendmarker_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QBarLegendMarker::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,12 +328,13 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_sendersignalindex_isbase) {
             qbarlegendmarker_sendersignalindex_isbase = false;
             return QBarLegendMarker::senderSignalIndex();
-        } else if (qbarlegendmarker_sendersignalindex_callback != nullptr) {
-            int callback_ret = qbarlegendmarker_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QBarLegendMarker::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qbarlegendmarker_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QBarLegendMarker::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,14 +342,15 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_receivers_isbase) {
             qbarlegendmarker_receivers_isbase = false;
             return QBarLegendMarker::receivers(signal);
-        } else if (qbarlegendmarker_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qbarlegendmarker_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qbarlegendmarker_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBarLegendMarker::receivers(signal);
         }
+        return QBarLegendMarker::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,16 +358,17 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
         if (qbarlegendmarker_issignalconnected_isbase) {
             qbarlegendmarker_issignalconnected_isbase = false;
             return QBarLegendMarker::isSignalConnected(signal);
-        } else if (qbarlegendmarker_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qbarlegendmarker_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qbarlegendmarker_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBarLegendMarker::isSignalConnected(signal);
         }
+        return QBarLegendMarker::isSignalConnected(signal);
     }
 
     // Friend functions

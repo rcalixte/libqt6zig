@@ -88,29 +88,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     VirtualKConfigSkeleton(const QString& configname) : KConfigSkeleton(configname) {};
     VirtualKConfigSkeleton(const QString& configname, QObject* parent) : KConfigSkeleton(configname, parent) {};
 
-    ~VirtualKConfigSkeleton() {
-        kconfigskeleton_metaobject_callback = nullptr;
-        kconfigskeleton_metacast_callback = nullptr;
-        kconfigskeleton_metacall_callback = nullptr;
-        kconfigskeleton_setdefaults_callback = nullptr;
-        kconfigskeleton_usedefaults_callback = nullptr;
-        kconfigskeleton_usrusedefaults_callback = nullptr;
-        kconfigskeleton_usrsetdefaults_callback = nullptr;
-        kconfigskeleton_usrread_callback = nullptr;
-        kconfigskeleton_usrsave_callback = nullptr;
-        kconfigskeleton_event_callback = nullptr;
-        kconfigskeleton_eventfilter_callback = nullptr;
-        kconfigskeleton_timerevent_callback = nullptr;
-        kconfigskeleton_childevent_callback = nullptr;
-        kconfigskeleton_customevent_callback = nullptr;
-        kconfigskeleton_connectnotify_callback = nullptr;
-        kconfigskeleton_disconnectnotify_callback = nullptr;
-        kconfigskeleton_sender_callback = nullptr;
-        kconfigskeleton_sendersignalindex_callback = nullptr;
-        kconfigskeleton_receivers_callback = nullptr;
-        kconfigskeleton_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigSkeleton_MetaObject_Callback(KConfigSkeleton_MetaObject_Callback cb) { kconfigskeleton_metaobject_callback = cb; }
     inline void setKConfigSkeleton_Metacast_Callback(KConfigSkeleton_Metacast_Callback cb) { kconfigskeleton_metacast_callback = cb; }
@@ -160,12 +137,13 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_metaobject_isbase) {
             kconfigskeleton_metaobject_isbase = false;
             return KConfigSkeleton::metaObject();
-        } else if (kconfigskeleton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kconfigskeleton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KConfigSkeleton::metaObject();
         }
+        auto metaobject_cb = kconfigskeleton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KConfigSkeleton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -173,14 +151,15 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_metacast_isbase) {
             kconfigskeleton_metacast_isbase = false;
             return KConfigSkeleton::qt_metacast(param1);
-        } else if (kconfigskeleton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kconfigskeleton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kconfigskeleton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton::qt_metacast(param1);
         }
+        return KConfigSkeleton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -188,16 +167,17 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_metacall_isbase) {
             kconfigskeleton_metacall_isbase = false;
             return KConfigSkeleton::qt_metacall(param1, param2, param3);
-        } else if (kconfigskeleton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kconfigskeleton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kconfigskeleton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigSkeleton::qt_metacall(param1, param2, param3);
         }
+        return KConfigSkeleton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -205,11 +185,14 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_setdefaults_isbase) {
             kconfigskeleton_setdefaults_isbase = false;
             KConfigSkeleton::setDefaults();
-        } else if (kconfigskeleton_setdefaults_callback != nullptr) {
-            kconfigskeleton_setdefaults_callback();
-        } else {
-            KConfigSkeleton::setDefaults();
+            return;
         }
+        auto setdefaults_cb = kconfigskeleton_setdefaults_callback;
+        if (setdefaults_cb) {
+            setdefaults_cb();
+            return;
+        }
+        KConfigSkeleton::setDefaults();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,14 +200,15 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_usedefaults_isbase) {
             kconfigskeleton_usedefaults_isbase = false;
             return KConfigSkeleton::useDefaults(b);
-        } else if (kconfigskeleton_usedefaults_callback != nullptr) {
+        }
+        auto usedefaults_cb = kconfigskeleton_usedefaults_callback;
+        if (usedefaults_cb) {
             bool cbval1 = b;
 
-            bool callback_ret = kconfigskeleton_usedefaults_callback(this, cbval1);
+            bool callback_ret = usedefaults_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton::useDefaults(b);
         }
+        return KConfigSkeleton::useDefaults(b);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -232,14 +216,15 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_usrusedefaults_isbase) {
             kconfigskeleton_usrusedefaults_isbase = false;
             return KConfigSkeleton::usrUseDefaults(b);
-        } else if (kconfigskeleton_usrusedefaults_callback != nullptr) {
+        }
+        auto usrusedefaults_cb = kconfigskeleton_usrusedefaults_callback;
+        if (usrusedefaults_cb) {
             bool cbval1 = b;
 
-            bool callback_ret = kconfigskeleton_usrusedefaults_callback(this, cbval1);
+            bool callback_ret = usrusedefaults_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton::usrUseDefaults(b);
         }
+        return KConfigSkeleton::usrUseDefaults(b);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -247,11 +232,14 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_usrsetdefaults_isbase) {
             kconfigskeleton_usrsetdefaults_isbase = false;
             KConfigSkeleton::usrSetDefaults();
-        } else if (kconfigskeleton_usrsetdefaults_callback != nullptr) {
-            kconfigskeleton_usrsetdefaults_callback();
-        } else {
-            KConfigSkeleton::usrSetDefaults();
+            return;
         }
+        auto usrsetdefaults_cb = kconfigskeleton_usrsetdefaults_callback;
+        if (usrsetdefaults_cb) {
+            usrsetdefaults_cb();
+            return;
+        }
+        KConfigSkeleton::usrSetDefaults();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,11 +247,14 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_usrread_isbase) {
             kconfigskeleton_usrread_isbase = false;
             KConfigSkeleton::usrRead();
-        } else if (kconfigskeleton_usrread_callback != nullptr) {
-            kconfigskeleton_usrread_callback();
-        } else {
-            KConfigSkeleton::usrRead();
+            return;
         }
+        auto usrread_cb = kconfigskeleton_usrread_callback;
+        if (usrread_cb) {
+            usrread_cb();
+            return;
+        }
+        KConfigSkeleton::usrRead();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,12 +262,13 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_usrsave_isbase) {
             kconfigskeleton_usrsave_isbase = false;
             return KConfigSkeleton::usrSave();
-        } else if (kconfigskeleton_usrsave_callback != nullptr) {
-            bool callback_ret = kconfigskeleton_usrsave_callback();
-            return callback_ret;
-        } else {
-            return KConfigSkeleton::usrSave();
         }
+        auto usrsave_cb = kconfigskeleton_usrsave_callback;
+        if (usrsave_cb) {
+            bool callback_ret = usrsave_cb();
+            return callback_ret;
+        }
+        return KConfigSkeleton::usrSave();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -284,14 +276,15 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_event_isbase) {
             kconfigskeleton_event_isbase = false;
             return KConfigSkeleton::event(event);
-        } else if (kconfigskeleton_event_callback != nullptr) {
+        }
+        auto event_cb = kconfigskeleton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kconfigskeleton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton::event(event);
         }
+        return KConfigSkeleton::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,15 +292,16 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_eventfilter_isbase) {
             kconfigskeleton_eventfilter_isbase = false;
             return KConfigSkeleton::eventFilter(watched, event);
-        } else if (kconfigskeleton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kconfigskeleton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kconfigskeleton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KConfigSkeleton::eventFilter(watched, event);
         }
+        return KConfigSkeleton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,13 +309,16 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_timerevent_isbase) {
             kconfigskeleton_timerevent_isbase = false;
             KConfigSkeleton::timerEvent(event);
-        } else if (kconfigskeleton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kconfigskeleton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kconfigskeleton_timerevent_callback(this, cbval1);
-        } else {
-            KConfigSkeleton::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -329,13 +326,16 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_childevent_isbase) {
             kconfigskeleton_childevent_isbase = false;
             KConfigSkeleton::childEvent(event);
-        } else if (kconfigskeleton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kconfigskeleton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kconfigskeleton_childevent_callback(this, cbval1);
-        } else {
-            KConfigSkeleton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,13 +343,16 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_customevent_isbase) {
             kconfigskeleton_customevent_isbase = false;
             KConfigSkeleton::customEvent(event);
-        } else if (kconfigskeleton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kconfigskeleton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kconfigskeleton_customevent_callback(this, cbval1);
-        } else {
-            KConfigSkeleton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -357,15 +360,18 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_connectnotify_isbase) {
             kconfigskeleton_connectnotify_isbase = false;
             KConfigSkeleton::connectNotify(signal);
-        } else if (kconfigskeleton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kconfigskeleton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigskeleton_connectnotify_callback(this, cbval1);
-        } else {
-            KConfigSkeleton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,15 +379,18 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_disconnectnotify_isbase) {
             kconfigskeleton_disconnectnotify_isbase = false;
             KConfigSkeleton::disconnectNotify(signal);
-        } else if (kconfigskeleton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kconfigskeleton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigskeleton_disconnectnotify_callback(this, cbval1);
-        } else {
-            KConfigSkeleton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,12 +398,13 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_sender_isbase) {
             kconfigskeleton_sender_isbase = false;
             return KConfigSkeleton::sender();
-        } else if (kconfigskeleton_sender_callback != nullptr) {
-            QObject* callback_ret = kconfigskeleton_sender_callback();
-            return callback_ret;
-        } else {
-            return KConfigSkeleton::sender();
         }
+        auto sender_cb = kconfigskeleton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KConfigSkeleton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -402,12 +412,13 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_sendersignalindex_isbase) {
             kconfigskeleton_sendersignalindex_isbase = false;
             return KConfigSkeleton::senderSignalIndex();
-        } else if (kconfigskeleton_sendersignalindex_callback != nullptr) {
-            int callback_ret = kconfigskeleton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KConfigSkeleton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kconfigskeleton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KConfigSkeleton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -415,14 +426,15 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_receivers_isbase) {
             kconfigskeleton_receivers_isbase = false;
             return KConfigSkeleton::receivers(signal);
-        } else if (kconfigskeleton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kconfigskeleton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kconfigskeleton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigSkeleton::receivers(signal);
         }
+        return KConfigSkeleton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,16 +442,17 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (kconfigskeleton_issignalconnected_isbase) {
             kconfigskeleton_issignalconnected_isbase = false;
             return KConfigSkeleton::isSignalConnected(signal);
-        } else if (kconfigskeleton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kconfigskeleton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kconfigskeleton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton::isSignalConnected(signal);
         }
+        return KConfigSkeleton::isSignalConnected(signal);
     }
 
     // Friend functions
@@ -501,13 +514,6 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
     VirtualKConfigSkeletonItemColor(const QString& _group, const QString& _key, QColor& reference) : KConfigSkeleton::ItemColor(_group, _key, reference) {};
     VirtualKConfigSkeletonItemColor(const QString& _group, const QString& _key, QColor& reference, const QColor& defaultValue) : KConfigSkeleton::ItemColor(_group, _key, reference, defaultValue) {};
 
-    ~VirtualKConfigSkeletonItemColor() {
-        kconfigskeleton__itemcolor_readconfig_callback = nullptr;
-        kconfigskeleton__itemcolor_setproperty_callback = nullptr;
-        kconfigskeleton__itemcolor_isequal_callback = nullptr;
-        kconfigskeleton__itemcolor_property_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigSkeleton__ItemColor_ReadConfig_Callback(KConfigSkeleton__ItemColor_ReadConfig_Callback cb) { kconfigskeleton__itemcolor_readconfig_callback = cb; }
     inline void setKConfigSkeleton__ItemColor_SetProperty_Callback(KConfigSkeleton__ItemColor_SetProperty_Callback cb) { kconfigskeleton__itemcolor_setproperty_callback = cb; }
@@ -525,13 +531,16 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
         if (kconfigskeleton__itemcolor_readconfig_isbase) {
             kconfigskeleton__itemcolor_readconfig_isbase = false;
             KConfigSkeleton__ItemColor::readConfig(config);
-        } else if (kconfigskeleton__itemcolor_readconfig_callback != nullptr) {
+            return;
+        }
+        auto readconfig_cb = kconfigskeleton__itemcolor_readconfig_callback;
+        if (readconfig_cb) {
             KConfig* cbval1 = config;
 
-            kconfigskeleton__itemcolor_readconfig_callback(this, cbval1);
-        } else {
-            KConfigSkeleton__ItemColor::readConfig(config);
+            readconfig_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton__ItemColor::readConfig(config);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,15 +548,18 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
         if (kconfigskeleton__itemcolor_setproperty_isbase) {
             kconfigskeleton__itemcolor_setproperty_isbase = false;
             KConfigSkeleton__ItemColor::setProperty(p);
-        } else if (kconfigskeleton__itemcolor_setproperty_callback != nullptr) {
+            return;
+        }
+        auto setproperty_cb = kconfigskeleton__itemcolor_setproperty_callback;
+        if (setproperty_cb) {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
 
-            kconfigskeleton__itemcolor_setproperty_callback(this, cbval1);
-        } else {
-            KConfigSkeleton__ItemColor::setProperty(p);
+            setproperty_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton__ItemColor::setProperty(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,16 +567,17 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
         if (kconfigskeleton__itemcolor_isequal_isbase) {
             kconfigskeleton__itemcolor_isequal_isbase = false;
             return KConfigSkeleton__ItemColor::isEqual(p);
-        } else if (kconfigskeleton__itemcolor_isequal_callback != nullptr) {
+        }
+        auto isequal_cb = kconfigskeleton__itemcolor_isequal_callback;
+        if (isequal_cb) {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
 
-            bool callback_ret = kconfigskeleton__itemcolor_isequal_callback(this, cbval1);
+            bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton__ItemColor::isEqual(p);
         }
+        return KConfigSkeleton__ItemColor::isEqual(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,12 +585,13 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
         if (kconfigskeleton__itemcolor_property_isbase) {
             kconfigskeleton__itemcolor_property_isbase = false;
             return KConfigSkeleton__ItemColor::property();
-        } else if (kconfigskeleton__itemcolor_property_callback != nullptr) {
-            QVariant* callback_ret = kconfigskeleton__itemcolor_property_callback();
-            return *callback_ret;
-        } else {
-            return KConfigSkeleton__ItemColor::property();
         }
+        auto property_cb = kconfigskeleton__itemcolor_property_callback;
+        if (property_cb) {
+            QVariant* callback_ret = property_cb();
+            return *callback_ret;
+        }
+        return KConfigSkeleton__ItemColor::property();
     }
 };
 
@@ -611,13 +625,6 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
     VirtualKConfigSkeletonItemFont(const QString& _group, const QString& _key, QFont& reference) : KConfigSkeleton::ItemFont(_group, _key, reference) {};
     VirtualKConfigSkeletonItemFont(const QString& _group, const QString& _key, QFont& reference, const QFont& defaultValue) : KConfigSkeleton::ItemFont(_group, _key, reference, defaultValue) {};
 
-    ~VirtualKConfigSkeletonItemFont() {
-        kconfigskeleton__itemfont_readconfig_callback = nullptr;
-        kconfigskeleton__itemfont_setproperty_callback = nullptr;
-        kconfigskeleton__itemfont_isequal_callback = nullptr;
-        kconfigskeleton__itemfont_property_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigSkeleton__ItemFont_ReadConfig_Callback(KConfigSkeleton__ItemFont_ReadConfig_Callback cb) { kconfigskeleton__itemfont_readconfig_callback = cb; }
     inline void setKConfigSkeleton__ItemFont_SetProperty_Callback(KConfigSkeleton__ItemFont_SetProperty_Callback cb) { kconfigskeleton__itemfont_setproperty_callback = cb; }
@@ -635,13 +642,16 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
         if (kconfigskeleton__itemfont_readconfig_isbase) {
             kconfigskeleton__itemfont_readconfig_isbase = false;
             KConfigSkeleton__ItemFont::readConfig(config);
-        } else if (kconfigskeleton__itemfont_readconfig_callback != nullptr) {
+            return;
+        }
+        auto readconfig_cb = kconfigskeleton__itemfont_readconfig_callback;
+        if (readconfig_cb) {
             KConfig* cbval1 = config;
 
-            kconfigskeleton__itemfont_readconfig_callback(this, cbval1);
-        } else {
-            KConfigSkeleton__ItemFont::readConfig(config);
+            readconfig_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton__ItemFont::readConfig(config);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,15 +659,18 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
         if (kconfigskeleton__itemfont_setproperty_isbase) {
             kconfigskeleton__itemfont_setproperty_isbase = false;
             KConfigSkeleton__ItemFont::setProperty(p);
-        } else if (kconfigskeleton__itemfont_setproperty_callback != nullptr) {
+            return;
+        }
+        auto setproperty_cb = kconfigskeleton__itemfont_setproperty_callback;
+        if (setproperty_cb) {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
 
-            kconfigskeleton__itemfont_setproperty_callback(this, cbval1);
-        } else {
-            KConfigSkeleton__ItemFont::setProperty(p);
+            setproperty_cb(this, cbval1);
+            return;
         }
+        KConfigSkeleton__ItemFont::setProperty(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,16 +678,17 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
         if (kconfigskeleton__itemfont_isequal_isbase) {
             kconfigskeleton__itemfont_isequal_isbase = false;
             return KConfigSkeleton__ItemFont::isEqual(p);
-        } else if (kconfigskeleton__itemfont_isequal_callback != nullptr) {
+        }
+        auto isequal_cb = kconfigskeleton__itemfont_isequal_callback;
+        if (isequal_cb) {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
 
-            bool callback_ret = kconfigskeleton__itemfont_isequal_callback(this, cbval1);
+            bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigSkeleton__ItemFont::isEqual(p);
         }
+        return KConfigSkeleton__ItemFont::isEqual(p);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +696,13 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
         if (kconfigskeleton__itemfont_property_isbase) {
             kconfigskeleton__itemfont_property_isbase = false;
             return KConfigSkeleton__ItemFont::property();
-        } else if (kconfigskeleton__itemfont_property_callback != nullptr) {
-            QVariant* callback_ret = kconfigskeleton__itemfont_property_callback();
-            return *callback_ret;
-        } else {
-            return KConfigSkeleton__ItemFont::property();
         }
+        auto property_cb = kconfigskeleton__itemfont_property_callback;
+        if (property_cb) {
+            QVariant* callback_ret = property_cb();
+            return *callback_ret;
+        }
+        return KConfigSkeleton__ItemFont::property();
     }
 };
 

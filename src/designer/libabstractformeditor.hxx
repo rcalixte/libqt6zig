@@ -87,29 +87,6 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     VirtualQDesignerFormEditorInterface() : QDesignerFormEditorInterface() {};
     VirtualQDesignerFormEditorInterface(QObject* parent) : QDesignerFormEditorInterface(parent) {};
 
-    ~VirtualQDesignerFormEditorInterface() {
-        qdesignerformeditorinterface_metaobject_callback = nullptr;
-        qdesignerformeditorinterface_metacast_callback = nullptr;
-        qdesignerformeditorinterface_metacall_callback = nullptr;
-        qdesignerformeditorinterface_event_callback = nullptr;
-        qdesignerformeditorinterface_eventfilter_callback = nullptr;
-        qdesignerformeditorinterface_timerevent_callback = nullptr;
-        qdesignerformeditorinterface_childevent_callback = nullptr;
-        qdesignerformeditorinterface_customevent_callback = nullptr;
-        qdesignerformeditorinterface_connectnotify_callback = nullptr;
-        qdesignerformeditorinterface_disconnectnotify_callback = nullptr;
-        qdesignerformeditorinterface_setformmanager_callback = nullptr;
-        qdesignerformeditorinterface_setmetadatabase_callback = nullptr;
-        qdesignerformeditorinterface_setwidgetdatabase_callback = nullptr;
-        qdesignerformeditorinterface_setpromotion_callback = nullptr;
-        qdesignerformeditorinterface_setwidgetfactory_callback = nullptr;
-        qdesignerformeditorinterface_setextensionmanager_callback = nullptr;
-        qdesignerformeditorinterface_sender_callback = nullptr;
-        qdesignerformeditorinterface_sendersignalindex_callback = nullptr;
-        qdesignerformeditorinterface_receivers_callback = nullptr;
-        qdesignerformeditorinterface_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerFormEditorInterface_MetaObject_Callback(QDesignerFormEditorInterface_MetaObject_Callback cb) { qdesignerformeditorinterface_metaobject_callback = cb; }
     inline void setQDesignerFormEditorInterface_Metacast_Callback(QDesignerFormEditorInterface_Metacast_Callback cb) { qdesignerformeditorinterface_metacast_callback = cb; }
@@ -159,12 +136,13 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_metaobject_isbase) {
             qdesignerformeditorinterface_metaobject_isbase = false;
             return QDesignerFormEditorInterface::metaObject();
-        } else if (qdesignerformeditorinterface_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdesignerformeditorinterface_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDesignerFormEditorInterface::metaObject();
         }
+        auto metaobject_cb = qdesignerformeditorinterface_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDesignerFormEditorInterface::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -172,14 +150,15 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_metacast_isbase) {
             qdesignerformeditorinterface_metacast_isbase = false;
             return QDesignerFormEditorInterface::qt_metacast(param1);
-        } else if (qdesignerformeditorinterface_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdesignerformeditorinterface_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdesignerformeditorinterface_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerFormEditorInterface::qt_metacast(param1);
         }
+        return QDesignerFormEditorInterface::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,16 +166,17 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_metacall_isbase) {
             qdesignerformeditorinterface_metacall_isbase = false;
             return QDesignerFormEditorInterface::qt_metacall(param1, param2, param3);
-        } else if (qdesignerformeditorinterface_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdesignerformeditorinterface_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdesignerformeditorinterface_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerFormEditorInterface::qt_metacall(param1, param2, param3);
         }
+        return QDesignerFormEditorInterface::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -204,14 +184,15 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_event_isbase) {
             qdesignerformeditorinterface_event_isbase = false;
             return QDesignerFormEditorInterface::event(event);
-        } else if (qdesignerformeditorinterface_event_callback != nullptr) {
+        }
+        auto event_cb = qdesignerformeditorinterface_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdesignerformeditorinterface_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerFormEditorInterface::event(event);
         }
+        return QDesignerFormEditorInterface::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,15 +200,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_eventfilter_isbase) {
             qdesignerformeditorinterface_eventfilter_isbase = false;
             return QDesignerFormEditorInterface::eventFilter(watched, event);
-        } else if (qdesignerformeditorinterface_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdesignerformeditorinterface_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qdesignerformeditorinterface_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDesignerFormEditorInterface::eventFilter(watched, event);
         }
+        return QDesignerFormEditorInterface::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -235,13 +217,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_timerevent_isbase) {
             qdesignerformeditorinterface_timerevent_isbase = false;
             QDesignerFormEditorInterface::timerEvent(event);
-        } else if (qdesignerformeditorinterface_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdesignerformeditorinterface_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdesignerformeditorinterface_timerevent_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -249,13 +234,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_childevent_isbase) {
             qdesignerformeditorinterface_childevent_isbase = false;
             QDesignerFormEditorInterface::childEvent(event);
-        } else if (qdesignerformeditorinterface_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdesignerformeditorinterface_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdesignerformeditorinterface_childevent_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -263,13 +251,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_customevent_isbase) {
             qdesignerformeditorinterface_customevent_isbase = false;
             QDesignerFormEditorInterface::customEvent(event);
-        } else if (qdesignerformeditorinterface_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdesignerformeditorinterface_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdesignerformeditorinterface_customevent_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,15 +268,18 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_connectnotify_isbase) {
             qdesignerformeditorinterface_connectnotify_isbase = false;
             QDesignerFormEditorInterface::connectNotify(signal);
-        } else if (qdesignerformeditorinterface_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdesignerformeditorinterface_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerformeditorinterface_connectnotify_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -293,15 +287,18 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_disconnectnotify_isbase) {
             qdesignerformeditorinterface_disconnectnotify_isbase = false;
             QDesignerFormEditorInterface::disconnectNotify(signal);
-        } else if (qdesignerformeditorinterface_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdesignerformeditorinterface_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdesignerformeditorinterface_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -309,13 +306,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_setformmanager_isbase) {
             qdesignerformeditorinterface_setformmanager_isbase = false;
             QDesignerFormEditorInterface::setFormManager(formWindowManager);
-        } else if (qdesignerformeditorinterface_setformmanager_callback != nullptr) {
+            return;
+        }
+        auto setformmanager_cb = qdesignerformeditorinterface_setformmanager_callback;
+        if (setformmanager_cb) {
             QDesignerFormWindowManagerInterface* cbval1 = formWindowManager;
 
-            qdesignerformeditorinterface_setformmanager_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::setFormManager(formWindowManager);
+            setformmanager_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::setFormManager(formWindowManager);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -323,13 +323,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_setmetadatabase_isbase) {
             qdesignerformeditorinterface_setmetadatabase_isbase = false;
             QDesignerFormEditorInterface::setMetaDataBase(metaDataBase);
-        } else if (qdesignerformeditorinterface_setmetadatabase_callback != nullptr) {
+            return;
+        }
+        auto setmetadatabase_cb = qdesignerformeditorinterface_setmetadatabase_callback;
+        if (setmetadatabase_cb) {
             QDesignerMetaDataBaseInterface* cbval1 = metaDataBase;
 
-            qdesignerformeditorinterface_setmetadatabase_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::setMetaDataBase(metaDataBase);
+            setmetadatabase_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::setMetaDataBase(metaDataBase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -337,13 +340,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_setwidgetdatabase_isbase) {
             qdesignerformeditorinterface_setwidgetdatabase_isbase = false;
             QDesignerFormEditorInterface::setWidgetDataBase(widgetDataBase);
-        } else if (qdesignerformeditorinterface_setwidgetdatabase_callback != nullptr) {
+            return;
+        }
+        auto setwidgetdatabase_cb = qdesignerformeditorinterface_setwidgetdatabase_callback;
+        if (setwidgetdatabase_cb) {
             QDesignerWidgetDataBaseInterface* cbval1 = widgetDataBase;
 
-            qdesignerformeditorinterface_setwidgetdatabase_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::setWidgetDataBase(widgetDataBase);
+            setwidgetdatabase_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::setWidgetDataBase(widgetDataBase);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -351,13 +357,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_setpromotion_isbase) {
             qdesignerformeditorinterface_setpromotion_isbase = false;
             QDesignerFormEditorInterface::setPromotion(promotion);
-        } else if (qdesignerformeditorinterface_setpromotion_callback != nullptr) {
+            return;
+        }
+        auto setpromotion_cb = qdesignerformeditorinterface_setpromotion_callback;
+        if (setpromotion_cb) {
             QDesignerPromotionInterface* cbval1 = promotion;
 
-            qdesignerformeditorinterface_setpromotion_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::setPromotion(promotion);
+            setpromotion_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::setPromotion(promotion);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -365,13 +374,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_setwidgetfactory_isbase) {
             qdesignerformeditorinterface_setwidgetfactory_isbase = false;
             QDesignerFormEditorInterface::setWidgetFactory(widgetFactory);
-        } else if (qdesignerformeditorinterface_setwidgetfactory_callback != nullptr) {
+            return;
+        }
+        auto setwidgetfactory_cb = qdesignerformeditorinterface_setwidgetfactory_callback;
+        if (setwidgetfactory_cb) {
             QDesignerWidgetFactoryInterface* cbval1 = widgetFactory;
 
-            qdesignerformeditorinterface_setwidgetfactory_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::setWidgetFactory(widgetFactory);
+            setwidgetfactory_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::setWidgetFactory(widgetFactory);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -379,13 +391,16 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_setextensionmanager_isbase) {
             qdesignerformeditorinterface_setextensionmanager_isbase = false;
             QDesignerFormEditorInterface::setExtensionManager(extensionManager);
-        } else if (qdesignerformeditorinterface_setextensionmanager_callback != nullptr) {
+            return;
+        }
+        auto setextensionmanager_cb = qdesignerformeditorinterface_setextensionmanager_callback;
+        if (setextensionmanager_cb) {
             QExtensionManager* cbval1 = extensionManager;
 
-            qdesignerformeditorinterface_setextensionmanager_callback(this, cbval1);
-        } else {
-            QDesignerFormEditorInterface::setExtensionManager(extensionManager);
+            setextensionmanager_cb(this, cbval1);
+            return;
         }
+        QDesignerFormEditorInterface::setExtensionManager(extensionManager);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -393,12 +408,13 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_sender_isbase) {
             qdesignerformeditorinterface_sender_isbase = false;
             return QDesignerFormEditorInterface::sender();
-        } else if (qdesignerformeditorinterface_sender_callback != nullptr) {
-            QObject* callback_ret = qdesignerformeditorinterface_sender_callback();
-            return callback_ret;
-        } else {
-            return QDesignerFormEditorInterface::sender();
         }
+        auto sender_cb = qdesignerformeditorinterface_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDesignerFormEditorInterface::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -406,12 +422,13 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_sendersignalindex_isbase) {
             qdesignerformeditorinterface_sendersignalindex_isbase = false;
             return QDesignerFormEditorInterface::senderSignalIndex();
-        } else if (qdesignerformeditorinterface_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdesignerformeditorinterface_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerFormEditorInterface::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdesignerformeditorinterface_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDesignerFormEditorInterface::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -419,14 +436,15 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_receivers_isbase) {
             qdesignerformeditorinterface_receivers_isbase = false;
             return QDesignerFormEditorInterface::receivers(signal);
-        } else if (qdesignerformeditorinterface_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdesignerformeditorinterface_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdesignerformeditorinterface_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDesignerFormEditorInterface::receivers(signal);
         }
+        return QDesignerFormEditorInterface::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -434,16 +452,17 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
         if (qdesignerformeditorinterface_issignalconnected_isbase) {
             qdesignerformeditorinterface_issignalconnected_isbase = false;
             return QDesignerFormEditorInterface::isSignalConnected(signal);
-        } else if (qdesignerformeditorinterface_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdesignerformeditorinterface_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdesignerformeditorinterface_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDesignerFormEditorInterface::isSignalConnected(signal);
         }
+        return QDesignerFormEditorInterface::isSignalConnected(signal);
     }
 
     // Friend functions

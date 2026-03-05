@@ -81,27 +81,6 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     VirtualKJobUiDelegate() : KJobUiDelegate() {};
     VirtualKJobUiDelegate(KJobUiDelegate::Flags flags) : KJobUiDelegate(flags) {};
 
-    ~VirtualKJobUiDelegate() {
-        kjobuidelegate_metaobject_callback = nullptr;
-        kjobuidelegate_metacast_callback = nullptr;
-        kjobuidelegate_metacall_callback = nullptr;
-        kjobuidelegate_setjob_callback = nullptr;
-        kjobuidelegate_showerrormessage_callback = nullptr;
-        kjobuidelegate_slotwarning_callback = nullptr;
-        kjobuidelegate_event_callback = nullptr;
-        kjobuidelegate_eventfilter_callback = nullptr;
-        kjobuidelegate_timerevent_callback = nullptr;
-        kjobuidelegate_childevent_callback = nullptr;
-        kjobuidelegate_customevent_callback = nullptr;
-        kjobuidelegate_connectnotify_callback = nullptr;
-        kjobuidelegate_disconnectnotify_callback = nullptr;
-        kjobuidelegate_job_callback = nullptr;
-        kjobuidelegate_sender_callback = nullptr;
-        kjobuidelegate_sendersignalindex_callback = nullptr;
-        kjobuidelegate_receivers_callback = nullptr;
-        kjobuidelegate_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKJobUiDelegate_MetaObject_Callback(KJobUiDelegate_MetaObject_Callback cb) { kjobuidelegate_metaobject_callback = cb; }
     inline void setKJobUiDelegate_Metacast_Callback(KJobUiDelegate_Metacast_Callback cb) { kjobuidelegate_metacast_callback = cb; }
@@ -147,12 +126,13 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_metaobject_isbase) {
             kjobuidelegate_metaobject_isbase = false;
             return KJobUiDelegate::metaObject();
-        } else if (kjobuidelegate_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kjobuidelegate_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KJobUiDelegate::metaObject();
         }
+        auto metaobject_cb = kjobuidelegate_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KJobUiDelegate::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -160,14 +140,15 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_metacast_isbase) {
             kjobuidelegate_metacast_isbase = false;
             return KJobUiDelegate::qt_metacast(param1);
-        } else if (kjobuidelegate_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kjobuidelegate_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kjobuidelegate_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KJobUiDelegate::qt_metacast(param1);
         }
+        return KJobUiDelegate::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -175,16 +156,17 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_metacall_isbase) {
             kjobuidelegate_metacall_isbase = false;
             return KJobUiDelegate::qt_metacall(param1, param2, param3);
-        } else if (kjobuidelegate_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kjobuidelegate_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kjobuidelegate_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KJobUiDelegate::qt_metacall(param1, param2, param3);
         }
+        return KJobUiDelegate::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -192,14 +174,15 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_setjob_isbase) {
             kjobuidelegate_setjob_isbase = false;
             return KJobUiDelegate::setJob(job);
-        } else if (kjobuidelegate_setjob_callback != nullptr) {
+        }
+        auto setjob_cb = kjobuidelegate_setjob_callback;
+        if (setjob_cb) {
             KJob* cbval1 = job;
 
-            bool callback_ret = kjobuidelegate_setjob_callback(this, cbval1);
+            bool callback_ret = setjob_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KJobUiDelegate::setJob(job);
         }
+        return KJobUiDelegate::setJob(job);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,11 +190,14 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_showerrormessage_isbase) {
             kjobuidelegate_showerrormessage_isbase = false;
             KJobUiDelegate::showErrorMessage();
-        } else if (kjobuidelegate_showerrormessage_callback != nullptr) {
-            kjobuidelegate_showerrormessage_callback();
-        } else {
-            KJobUiDelegate::showErrorMessage();
+            return;
         }
+        auto showerrormessage_cb = kjobuidelegate_showerrormessage_callback;
+        if (showerrormessage_cb) {
+            showerrormessage_cb();
+            return;
+        }
+        KJobUiDelegate::showErrorMessage();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -219,7 +205,10 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_slotwarning_isbase) {
             kjobuidelegate_slotwarning_isbase = false;
             KJobUiDelegate::slotWarning(job, message);
-        } else if (kjobuidelegate_slotwarning_callback != nullptr) {
+            return;
+        }
+        auto slotwarning_cb = kjobuidelegate_slotwarning_callback;
+        if (slotwarning_cb) {
             KJob* cbval1 = job;
             const QString message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -230,11 +219,11 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
 
-            kjobuidelegate_slotwarning_callback(this, cbval1, cbval2);
+            slotwarning_cb(this, cbval1, cbval2);
             libqt_free(message_str);
-        } else {
-            KJobUiDelegate::slotWarning(job, message);
+            return;
         }
+        KJobUiDelegate::slotWarning(job, message);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,14 +231,15 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_event_isbase) {
             kjobuidelegate_event_isbase = false;
             return KJobUiDelegate::event(event);
-        } else if (kjobuidelegate_event_callback != nullptr) {
+        }
+        auto event_cb = kjobuidelegate_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kjobuidelegate_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KJobUiDelegate::event(event);
         }
+        return KJobUiDelegate::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +247,16 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_eventfilter_isbase) {
             kjobuidelegate_eventfilter_isbase = false;
             return KJobUiDelegate::eventFilter(watched, event);
-        } else if (kjobuidelegate_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kjobuidelegate_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kjobuidelegate_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KJobUiDelegate::eventFilter(watched, event);
         }
+        return KJobUiDelegate::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,13 +264,16 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_timerevent_isbase) {
             kjobuidelegate_timerevent_isbase = false;
             KJobUiDelegate::timerEvent(event);
-        } else if (kjobuidelegate_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kjobuidelegate_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kjobuidelegate_timerevent_callback(this, cbval1);
-        } else {
-            KJobUiDelegate::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KJobUiDelegate::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -287,13 +281,16 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_childevent_isbase) {
             kjobuidelegate_childevent_isbase = false;
             KJobUiDelegate::childEvent(event);
-        } else if (kjobuidelegate_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kjobuidelegate_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kjobuidelegate_childevent_callback(this, cbval1);
-        } else {
-            KJobUiDelegate::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KJobUiDelegate::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,13 +298,16 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_customevent_isbase) {
             kjobuidelegate_customevent_isbase = false;
             KJobUiDelegate::customEvent(event);
-        } else if (kjobuidelegate_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kjobuidelegate_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kjobuidelegate_customevent_callback(this, cbval1);
-        } else {
-            KJobUiDelegate::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KJobUiDelegate::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -315,15 +315,18 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_connectnotify_isbase) {
             kjobuidelegate_connectnotify_isbase = false;
             KJobUiDelegate::connectNotify(signal);
-        } else if (kjobuidelegate_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kjobuidelegate_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kjobuidelegate_connectnotify_callback(this, cbval1);
-        } else {
-            KJobUiDelegate::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KJobUiDelegate::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,15 +334,18 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_disconnectnotify_isbase) {
             kjobuidelegate_disconnectnotify_isbase = false;
             KJobUiDelegate::disconnectNotify(signal);
-        } else if (kjobuidelegate_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kjobuidelegate_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kjobuidelegate_disconnectnotify_callback(this, cbval1);
-        } else {
-            KJobUiDelegate::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KJobUiDelegate::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -347,12 +353,13 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_job_isbase) {
             kjobuidelegate_job_isbase = false;
             return KJobUiDelegate::job();
-        } else if (kjobuidelegate_job_callback != nullptr) {
-            KJob* callback_ret = kjobuidelegate_job_callback();
-            return callback_ret;
-        } else {
-            return KJobUiDelegate::job();
         }
+        auto job_cb = kjobuidelegate_job_callback;
+        if (job_cb) {
+            KJob* callback_ret = job_cb();
+            return callback_ret;
+        }
+        return KJobUiDelegate::job();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -360,12 +367,13 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_sender_isbase) {
             kjobuidelegate_sender_isbase = false;
             return KJobUiDelegate::sender();
-        } else if (kjobuidelegate_sender_callback != nullptr) {
-            QObject* callback_ret = kjobuidelegate_sender_callback();
-            return callback_ret;
-        } else {
-            return KJobUiDelegate::sender();
         }
+        auto sender_cb = kjobuidelegate_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KJobUiDelegate::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -373,12 +381,13 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_sendersignalindex_isbase) {
             kjobuidelegate_sendersignalindex_isbase = false;
             return KJobUiDelegate::senderSignalIndex();
-        } else if (kjobuidelegate_sendersignalindex_callback != nullptr) {
-            int callback_ret = kjobuidelegate_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KJobUiDelegate::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kjobuidelegate_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KJobUiDelegate::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -386,14 +395,15 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_receivers_isbase) {
             kjobuidelegate_receivers_isbase = false;
             return KJobUiDelegate::receivers(signal);
-        } else if (kjobuidelegate_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kjobuidelegate_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kjobuidelegate_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KJobUiDelegate::receivers(signal);
         }
+        return KJobUiDelegate::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -401,16 +411,17 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         if (kjobuidelegate_issignalconnected_isbase) {
             kjobuidelegate_issignalconnected_isbase = false;
             return KJobUiDelegate::isSignalConnected(signal);
-        } else if (kjobuidelegate_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kjobuidelegate_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kjobuidelegate_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KJobUiDelegate::isSignalConnected(signal);
         }
+        return KJobUiDelegate::isSignalConnected(signal);
     }
 
     // Friend functions

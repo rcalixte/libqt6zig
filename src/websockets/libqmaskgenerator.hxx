@@ -75,25 +75,6 @@ class VirtualQMaskGenerator : public QMaskGenerator {
     VirtualQMaskGenerator() : QMaskGenerator() {};
     VirtualQMaskGenerator(QObject* parent) : QMaskGenerator(parent) {};
 
-    ~VirtualQMaskGenerator() {
-        qmaskgenerator_seed_callback = nullptr;
-        qmaskgenerator_nextmask_callback = nullptr;
-        qmaskgenerator_metaobject_callback = nullptr;
-        qmaskgenerator_metacast_callback = nullptr;
-        qmaskgenerator_metacall_callback = nullptr;
-        qmaskgenerator_event_callback = nullptr;
-        qmaskgenerator_eventfilter_callback = nullptr;
-        qmaskgenerator_timerevent_callback = nullptr;
-        qmaskgenerator_childevent_callback = nullptr;
-        qmaskgenerator_customevent_callback = nullptr;
-        qmaskgenerator_connectnotify_callback = nullptr;
-        qmaskgenerator_disconnectnotify_callback = nullptr;
-        qmaskgenerator_sender_callback = nullptr;
-        qmaskgenerator_sendersignalindex_callback = nullptr;
-        qmaskgenerator_receivers_callback = nullptr;
-        qmaskgenerator_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQMaskGenerator_Seed_Callback(QMaskGenerator_Seed_Callback cb) { qmaskgenerator_seed_callback = cb; }
     inline void setQMaskGenerator_NextMask_Callback(QMaskGenerator_NextMask_Callback cb) { qmaskgenerator_nextmask_callback = cb; }
@@ -132,22 +113,22 @@ class VirtualQMaskGenerator : public QMaskGenerator {
 
     // Virtual method for C ABI access and custom callback
     virtual bool seed() override {
-        if (qmaskgenerator_seed_callback != nullptr) {
-            bool callback_ret = qmaskgenerator_seed_callback();
+        auto seed_cb = qmaskgenerator_seed_callback;
+        if (seed_cb) {
+            bool callback_ret = seed_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual quint32 nextMask() override {
-        if (qmaskgenerator_nextmask_callback != nullptr) {
-            unsigned int callback_ret = qmaskgenerator_nextmask_callback();
+        auto nextmask_cb = qmaskgenerator_nextmask_callback;
+        if (nextmask_cb) {
+            unsigned int callback_ret = nextmask_cb();
             return static_cast<quint32>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,12 +136,13 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_metaobject_isbase) {
             qmaskgenerator_metaobject_isbase = false;
             return QMaskGenerator::metaObject();
-        } else if (qmaskgenerator_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qmaskgenerator_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QMaskGenerator::metaObject();
         }
+        auto metaobject_cb = qmaskgenerator_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QMaskGenerator::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +150,15 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_metacast_isbase) {
             qmaskgenerator_metacast_isbase = false;
             return QMaskGenerator::qt_metacast(param1);
-        } else if (qmaskgenerator_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qmaskgenerator_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qmaskgenerator_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMaskGenerator::qt_metacast(param1);
         }
+        return QMaskGenerator::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,16 +166,17 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_metacall_isbase) {
             qmaskgenerator_metacall_isbase = false;
             return QMaskGenerator::qt_metacall(param1, param2, param3);
-        } else if (qmaskgenerator_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qmaskgenerator_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qmaskgenerator_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMaskGenerator::qt_metacall(param1, param2, param3);
         }
+        return QMaskGenerator::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -200,14 +184,15 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_event_isbase) {
             qmaskgenerator_event_isbase = false;
             return QMaskGenerator::event(event);
-        } else if (qmaskgenerator_event_callback != nullptr) {
+        }
+        auto event_cb = qmaskgenerator_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qmaskgenerator_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMaskGenerator::event(event);
         }
+        return QMaskGenerator::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,15 +200,16 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_eventfilter_isbase) {
             qmaskgenerator_eventfilter_isbase = false;
             return QMaskGenerator::eventFilter(watched, event);
-        } else if (qmaskgenerator_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qmaskgenerator_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qmaskgenerator_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QMaskGenerator::eventFilter(watched, event);
         }
+        return QMaskGenerator::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,13 +217,16 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_timerevent_isbase) {
             qmaskgenerator_timerevent_isbase = false;
             QMaskGenerator::timerEvent(event);
-        } else if (qmaskgenerator_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qmaskgenerator_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qmaskgenerator_timerevent_callback(this, cbval1);
-        } else {
-            QMaskGenerator::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QMaskGenerator::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,13 +234,16 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_childevent_isbase) {
             qmaskgenerator_childevent_isbase = false;
             QMaskGenerator::childEvent(event);
-        } else if (qmaskgenerator_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qmaskgenerator_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qmaskgenerator_childevent_callback(this, cbval1);
-        } else {
-            QMaskGenerator::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QMaskGenerator::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +251,16 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_customevent_isbase) {
             qmaskgenerator_customevent_isbase = false;
             QMaskGenerator::customEvent(event);
-        } else if (qmaskgenerator_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qmaskgenerator_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qmaskgenerator_customevent_callback(this, cbval1);
-        } else {
-            QMaskGenerator::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QMaskGenerator::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,15 +268,18 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_connectnotify_isbase) {
             qmaskgenerator_connectnotify_isbase = false;
             QMaskGenerator::connectNotify(signal);
-        } else if (qmaskgenerator_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qmaskgenerator_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmaskgenerator_connectnotify_callback(this, cbval1);
-        } else {
-            QMaskGenerator::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QMaskGenerator::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -289,15 +287,18 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_disconnectnotify_isbase) {
             qmaskgenerator_disconnectnotify_isbase = false;
             QMaskGenerator::disconnectNotify(signal);
-        } else if (qmaskgenerator_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qmaskgenerator_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qmaskgenerator_disconnectnotify_callback(this, cbval1);
-        } else {
-            QMaskGenerator::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QMaskGenerator::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -305,12 +306,13 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_sender_isbase) {
             qmaskgenerator_sender_isbase = false;
             return QMaskGenerator::sender();
-        } else if (qmaskgenerator_sender_callback != nullptr) {
-            QObject* callback_ret = qmaskgenerator_sender_callback();
-            return callback_ret;
-        } else {
-            return QMaskGenerator::sender();
         }
+        auto sender_cb = qmaskgenerator_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QMaskGenerator::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,12 +320,13 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_sendersignalindex_isbase) {
             qmaskgenerator_sendersignalindex_isbase = false;
             return QMaskGenerator::senderSignalIndex();
-        } else if (qmaskgenerator_sendersignalindex_callback != nullptr) {
-            int callback_ret = qmaskgenerator_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QMaskGenerator::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qmaskgenerator_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QMaskGenerator::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -331,14 +334,15 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_receivers_isbase) {
             qmaskgenerator_receivers_isbase = false;
             return QMaskGenerator::receivers(signal);
-        } else if (qmaskgenerator_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qmaskgenerator_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qmaskgenerator_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QMaskGenerator::receivers(signal);
         }
+        return QMaskGenerator::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,16 +350,17 @@ class VirtualQMaskGenerator : public QMaskGenerator {
         if (qmaskgenerator_issignalconnected_isbase) {
             qmaskgenerator_issignalconnected_isbase = false;
             return QMaskGenerator::isSignalConnected(signal);
-        } else if (qmaskgenerator_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qmaskgenerator_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qmaskgenerator_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QMaskGenerator::isSignalConnected(signal);
         }
+        return QMaskGenerator::isSignalConnected(signal);
     }
 
     // Friend functions

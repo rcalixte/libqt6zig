@@ -214,70 +214,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
     VirtualQWebEngineView(QWebEngineProfile* profile, QWidget* parent) : QWebEngineView(profile, parent) {};
     VirtualQWebEngineView(QWebEnginePage* page, QWidget* parent) : QWebEngineView(page, parent) {};
 
-    ~VirtualQWebEngineView() {
-        qwebengineview_metaobject_callback = nullptr;
-        qwebengineview_metacast_callback = nullptr;
-        qwebengineview_metacall_callback = nullptr;
-        qwebengineview_sizehint_callback = nullptr;
-        qwebengineview_createwindow_callback = nullptr;
-        qwebengineview_contextmenuevent_callback = nullptr;
-        qwebengineview_event_callback = nullptr;
-        qwebengineview_showevent_callback = nullptr;
-        qwebengineview_hideevent_callback = nullptr;
-        qwebengineview_closeevent_callback = nullptr;
-        qwebengineview_dragenterevent_callback = nullptr;
-        qwebengineview_dragleaveevent_callback = nullptr;
-        qwebengineview_dragmoveevent_callback = nullptr;
-        qwebengineview_dropevent_callback = nullptr;
-        qwebengineview_devtype_callback = nullptr;
-        qwebengineview_setvisible_callback = nullptr;
-        qwebengineview_minimumsizehint_callback = nullptr;
-        qwebengineview_heightforwidth_callback = nullptr;
-        qwebengineview_hasheightforwidth_callback = nullptr;
-        qwebengineview_paintengine_callback = nullptr;
-        qwebengineview_mousepressevent_callback = nullptr;
-        qwebengineview_mousereleaseevent_callback = nullptr;
-        qwebengineview_mousedoubleclickevent_callback = nullptr;
-        qwebengineview_mousemoveevent_callback = nullptr;
-        qwebengineview_wheelevent_callback = nullptr;
-        qwebengineview_keypressevent_callback = nullptr;
-        qwebengineview_keyreleaseevent_callback = nullptr;
-        qwebengineview_focusinevent_callback = nullptr;
-        qwebengineview_focusoutevent_callback = nullptr;
-        qwebengineview_enterevent_callback = nullptr;
-        qwebengineview_leaveevent_callback = nullptr;
-        qwebengineview_paintevent_callback = nullptr;
-        qwebengineview_moveevent_callback = nullptr;
-        qwebengineview_resizeevent_callback = nullptr;
-        qwebengineview_tabletevent_callback = nullptr;
-        qwebengineview_actionevent_callback = nullptr;
-        qwebengineview_nativeevent_callback = nullptr;
-        qwebengineview_changeevent_callback = nullptr;
-        qwebengineview_metric_callback = nullptr;
-        qwebengineview_initpainter_callback = nullptr;
-        qwebengineview_redirected_callback = nullptr;
-        qwebengineview_sharedpainter_callback = nullptr;
-        qwebengineview_inputmethodevent_callback = nullptr;
-        qwebengineview_inputmethodquery_callback = nullptr;
-        qwebengineview_focusnextprevchild_callback = nullptr;
-        qwebengineview_eventfilter_callback = nullptr;
-        qwebengineview_timerevent_callback = nullptr;
-        qwebengineview_childevent_callback = nullptr;
-        qwebengineview_customevent_callback = nullptr;
-        qwebengineview_connectnotify_callback = nullptr;
-        qwebengineview_disconnectnotify_callback = nullptr;
-        qwebengineview_updatemicrofocus_callback = nullptr;
-        qwebengineview_create_callback = nullptr;
-        qwebengineview_destroy_callback = nullptr;
-        qwebengineview_focusnextchild_callback = nullptr;
-        qwebengineview_focuspreviouschild_callback = nullptr;
-        qwebengineview_sender_callback = nullptr;
-        qwebengineview_sendersignalindex_callback = nullptr;
-        qwebengineview_receivers_callback = nullptr;
-        qwebengineview_issignalconnected_callback = nullptr;
-        qwebengineview_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWebEngineView_MetaObject_Callback(QWebEngineView_MetaObject_Callback cb) { qwebengineview_metaobject_callback = cb; }
     inline void setQWebEngineView_Metacast_Callback(QWebEngineView_Metacast_Callback cb) { qwebengineview_metacast_callback = cb; }
@@ -409,12 +345,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_metaobject_isbase) {
             qwebengineview_metaobject_isbase = false;
             return QWebEngineView::metaObject();
-        } else if (qwebengineview_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwebengineview_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::metaObject();
         }
+        auto metaobject_cb = qwebengineview_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -422,14 +359,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_metacast_isbase) {
             qwebengineview_metacast_isbase = false;
             return QWebEngineView::qt_metacast(param1);
-        } else if (qwebengineview_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwebengineview_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwebengineview_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineView::qt_metacast(param1);
         }
+        return QWebEngineView::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,16 +375,17 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_metacall_isbase) {
             qwebengineview_metacall_isbase = false;
             return QWebEngineView::qt_metacall(param1, param2, param3);
-        } else if (qwebengineview_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwebengineview_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwebengineview_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineView::qt_metacall(param1, param2, param3);
         }
+        return QWebEngineView::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +393,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_sizehint_isbase) {
             qwebengineview_sizehint_isbase = false;
             return QWebEngineView::sizeHint();
-        } else if (qwebengineview_sizehint_callback != nullptr) {
-            QSize* callback_ret = qwebengineview_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QWebEngineView::sizeHint();
         }
+        auto sizehint_cb = qwebengineview_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QWebEngineView::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -467,14 +407,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_createwindow_isbase) {
             qwebengineview_createwindow_isbase = false;
             return QWebEngineView::createWindow(typeVal);
-        } else if (qwebengineview_createwindow_callback != nullptr) {
+        }
+        auto createwindow_cb = qwebengineview_createwindow_callback;
+        if (createwindow_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            QWebEngineView* callback_ret = qwebengineview_createwindow_callback(this, cbval1);
+            QWebEngineView* callback_ret = createwindow_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineView::createWindow(typeVal);
         }
+        return QWebEngineView::createWindow(typeVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -482,13 +423,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_contextmenuevent_isbase) {
             qwebengineview_contextmenuevent_isbase = false;
             QWebEngineView::contextMenuEvent(param1);
-        } else if (qwebengineview_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qwebengineview_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qwebengineview_contextmenuevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,14 +440,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_event_isbase) {
             qwebengineview_event_isbase = false;
             return QWebEngineView::event(param1);
-        } else if (qwebengineview_event_callback != nullptr) {
+        }
+        auto event_cb = qwebengineview_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qwebengineview_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineView::event(param1);
         }
+        return QWebEngineView::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,13 +456,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_showevent_isbase) {
             qwebengineview_showevent_isbase = false;
             QWebEngineView::showEvent(param1);
-        } else if (qwebengineview_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qwebengineview_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qwebengineview_showevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,13 +473,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_hideevent_isbase) {
             qwebengineview_hideevent_isbase = false;
             QWebEngineView::hideEvent(param1);
-        } else if (qwebengineview_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qwebengineview_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
 
-            qwebengineview_hideevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::hideEvent(param1);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::hideEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,13 +490,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_closeevent_isbase) {
             qwebengineview_closeevent_isbase = false;
             QWebEngineView::closeEvent(param1);
-        } else if (qwebengineview_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qwebengineview_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qwebengineview_closeevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +507,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_dragenterevent_isbase) {
             qwebengineview_dragenterevent_isbase = false;
             QWebEngineView::dragEnterEvent(e);
-        } else if (qwebengineview_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qwebengineview_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
 
-            qwebengineview_dragenterevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::dragEnterEvent(e);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::dragEnterEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,13 +524,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_dragleaveevent_isbase) {
             qwebengineview_dragleaveevent_isbase = false;
             QWebEngineView::dragLeaveEvent(e);
-        } else if (qwebengineview_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qwebengineview_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            qwebengineview_dragleaveevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +541,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_dragmoveevent_isbase) {
             qwebengineview_dragmoveevent_isbase = false;
             QWebEngineView::dragMoveEvent(e);
-        } else if (qwebengineview_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qwebengineview_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            qwebengineview_dragmoveevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,13 +558,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_dropevent_isbase) {
             qwebengineview_dropevent_isbase = false;
             QWebEngineView::dropEvent(e);
-        } else if (qwebengineview_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qwebengineview_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = e;
 
-            qwebengineview_dropevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::dropEvent(e);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::dropEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,12 +575,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_devtype_isbase) {
             qwebengineview_devtype_isbase = false;
             return QWebEngineView::devType();
-        } else if (qwebengineview_devtype_callback != nullptr) {
-            int callback_ret = qwebengineview_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineView::devType();
         }
+        auto devtype_cb = qwebengineview_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebEngineView::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -622,13 +589,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_setvisible_isbase) {
             qwebengineview_setvisible_isbase = false;
             QWebEngineView::setVisible(visible);
-        } else if (qwebengineview_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qwebengineview_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qwebengineview_setvisible_callback(this, cbval1);
-        } else {
-            QWebEngineView::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -636,12 +606,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_minimumsizehint_isbase) {
             qwebengineview_minimumsizehint_isbase = false;
             return QWebEngineView::minimumSizeHint();
-        } else if (qwebengineview_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qwebengineview_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QWebEngineView::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qwebengineview_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QWebEngineView::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -649,14 +620,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_heightforwidth_isbase) {
             qwebengineview_heightforwidth_isbase = false;
             return QWebEngineView::heightForWidth(param1);
-        } else if (qwebengineview_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qwebengineview_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qwebengineview_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineView::heightForWidth(param1);
         }
+        return QWebEngineView::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -664,12 +636,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_hasheightforwidth_isbase) {
             qwebengineview_hasheightforwidth_isbase = false;
             return QWebEngineView::hasHeightForWidth();
-        } else if (qwebengineview_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qwebengineview_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qwebengineview_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -677,12 +650,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_paintengine_isbase) {
             qwebengineview_paintengine_isbase = false;
             return QWebEngineView::paintEngine();
-        } else if (qwebengineview_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qwebengineview_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::paintEngine();
         }
+        auto paintengine_cb = qwebengineview_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +664,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_mousepressevent_isbase) {
             qwebengineview_mousepressevent_isbase = false;
             QWebEngineView::mousePressEvent(event);
-        } else if (qwebengineview_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qwebengineview_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qwebengineview_mousepressevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +681,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_mousereleaseevent_isbase) {
             qwebengineview_mousereleaseevent_isbase = false;
             QWebEngineView::mouseReleaseEvent(event);
-        } else if (qwebengineview_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qwebengineview_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qwebengineview_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,13 +698,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_mousedoubleclickevent_isbase) {
             qwebengineview_mousedoubleclickevent_isbase = false;
             QWebEngineView::mouseDoubleClickEvent(event);
-        } else if (qwebengineview_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qwebengineview_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qwebengineview_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,13 +715,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_mousemoveevent_isbase) {
             qwebengineview_mousemoveevent_isbase = false;
             QWebEngineView::mouseMoveEvent(event);
-        } else if (qwebengineview_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qwebengineview_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qwebengineview_mousemoveevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,13 +732,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_wheelevent_isbase) {
             qwebengineview_wheelevent_isbase = false;
             QWebEngineView::wheelEvent(event);
-        } else if (qwebengineview_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qwebengineview_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qwebengineview_wheelevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -760,13 +749,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_keypressevent_isbase) {
             qwebengineview_keypressevent_isbase = false;
             QWebEngineView::keyPressEvent(event);
-        } else if (qwebengineview_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qwebengineview_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qwebengineview_keypressevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -774,13 +766,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_keyreleaseevent_isbase) {
             qwebengineview_keyreleaseevent_isbase = false;
             QWebEngineView::keyReleaseEvent(event);
-        } else if (qwebengineview_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qwebengineview_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qwebengineview_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,13 +783,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_focusinevent_isbase) {
             qwebengineview_focusinevent_isbase = false;
             QWebEngineView::focusInEvent(event);
-        } else if (qwebengineview_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qwebengineview_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qwebengineview_focusinevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -802,13 +800,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_focusoutevent_isbase) {
             qwebengineview_focusoutevent_isbase = false;
             QWebEngineView::focusOutEvent(event);
-        } else if (qwebengineview_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qwebengineview_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qwebengineview_focusoutevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -816,13 +817,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_enterevent_isbase) {
             qwebengineview_enterevent_isbase = false;
             QWebEngineView::enterEvent(event);
-        } else if (qwebengineview_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qwebengineview_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qwebengineview_enterevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -830,13 +834,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_leaveevent_isbase) {
             qwebengineview_leaveevent_isbase = false;
             QWebEngineView::leaveEvent(event);
-        } else if (qwebengineview_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qwebengineview_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebengineview_leaveevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -844,13 +851,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_paintevent_isbase) {
             qwebengineview_paintevent_isbase = false;
             QWebEngineView::paintEvent(event);
-        } else if (qwebengineview_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qwebengineview_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qwebengineview_paintevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -858,13 +868,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_moveevent_isbase) {
             qwebengineview_moveevent_isbase = false;
             QWebEngineView::moveEvent(event);
-        } else if (qwebengineview_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qwebengineview_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qwebengineview_moveevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -872,13 +885,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_resizeevent_isbase) {
             qwebengineview_resizeevent_isbase = false;
             QWebEngineView::resizeEvent(event);
-        } else if (qwebengineview_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qwebengineview_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qwebengineview_resizeevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -886,13 +902,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_tabletevent_isbase) {
             qwebengineview_tabletevent_isbase = false;
             QWebEngineView::tabletEvent(event);
-        } else if (qwebengineview_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qwebengineview_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qwebengineview_tabletevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -900,13 +919,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_actionevent_isbase) {
             qwebengineview_actionevent_isbase = false;
             QWebEngineView::actionEvent(event);
-        } else if (qwebengineview_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qwebengineview_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qwebengineview_actionevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -914,7 +936,9 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_nativeevent_isbase) {
             qwebengineview_nativeevent_isbase = false;
             return QWebEngineView::nativeEvent(eventType, message, result);
-        } else if (qwebengineview_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qwebengineview_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -925,12 +949,11 @@ class VirtualQWebEngineView final : public QWebEngineView {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qwebengineview_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QWebEngineView::nativeEvent(eventType, message, result);
         }
+        return QWebEngineView::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -938,13 +961,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_changeevent_isbase) {
             qwebengineview_changeevent_isbase = false;
             QWebEngineView::changeEvent(param1);
-        } else if (qwebengineview_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qwebengineview_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qwebengineview_changeevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -952,14 +978,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_metric_isbase) {
             qwebengineview_metric_isbase = false;
             return QWebEngineView::metric(param1);
-        } else if (qwebengineview_metric_callback != nullptr) {
+        }
+        auto metric_cb = qwebengineview_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qwebengineview_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineView::metric(param1);
         }
+        return QWebEngineView::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -967,13 +994,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_initpainter_isbase) {
             qwebengineview_initpainter_isbase = false;
             QWebEngineView::initPainter(painter);
-        } else if (qwebengineview_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qwebengineview_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qwebengineview_initpainter_callback(this, cbval1);
-        } else {
-            QWebEngineView::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -981,14 +1011,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_redirected_isbase) {
             qwebengineview_redirected_isbase = false;
             return QWebEngineView::redirected(offset);
-        } else if (qwebengineview_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qwebengineview_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qwebengineview_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineView::redirected(offset);
         }
+        return QWebEngineView::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,12 +1027,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_sharedpainter_isbase) {
             qwebengineview_sharedpainter_isbase = false;
             return QWebEngineView::sharedPainter();
-        } else if (qwebengineview_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qwebengineview_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::sharedPainter();
         }
+        auto sharedpainter_cb = qwebengineview_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1009,13 +1041,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_inputmethodevent_isbase) {
             qwebengineview_inputmethodevent_isbase = false;
             QWebEngineView::inputMethodEvent(param1);
-        } else if (qwebengineview_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qwebengineview_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qwebengineview_inputmethodevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1023,14 +1058,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_inputmethodquery_isbase) {
             qwebengineview_inputmethodquery_isbase = false;
             return QWebEngineView::inputMethodQuery(param1);
-        } else if (qwebengineview_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qwebengineview_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qwebengineview_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QWebEngineView::inputMethodQuery(param1);
         }
+        return QWebEngineView::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1038,14 +1074,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_focusnextprevchild_isbase) {
             qwebengineview_focusnextprevchild_isbase = false;
             return QWebEngineView::focusNextPrevChild(next);
-        } else if (qwebengineview_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qwebengineview_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qwebengineview_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineView::focusNextPrevChild(next);
         }
+        return QWebEngineView::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,15 +1090,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_eventfilter_isbase) {
             qwebengineview_eventfilter_isbase = false;
             return QWebEngineView::eventFilter(watched, event);
-        } else if (qwebengineview_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwebengineview_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwebengineview_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWebEngineView::eventFilter(watched, event);
         }
+        return QWebEngineView::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,13 +1107,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_timerevent_isbase) {
             qwebengineview_timerevent_isbase = false;
             QWebEngineView::timerEvent(event);
-        } else if (qwebengineview_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwebengineview_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwebengineview_timerevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1083,13 +1124,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_childevent_isbase) {
             qwebengineview_childevent_isbase = false;
             QWebEngineView::childEvent(event);
-        } else if (qwebengineview_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwebengineview_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwebengineview_childevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1097,13 +1141,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_customevent_isbase) {
             qwebengineview_customevent_isbase = false;
             QWebEngineView::customEvent(event);
-        } else if (qwebengineview_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwebengineview_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebengineview_customevent_callback(this, cbval1);
-        } else {
-            QWebEngineView::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1111,15 +1158,18 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_connectnotify_isbase) {
             qwebengineview_connectnotify_isbase = false;
             QWebEngineView::connectNotify(signal);
-        } else if (qwebengineview_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwebengineview_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebengineview_connectnotify_callback(this, cbval1);
-        } else {
-            QWebEngineView::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,15 +1177,18 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_disconnectnotify_isbase) {
             qwebengineview_disconnectnotify_isbase = false;
             QWebEngineView::disconnectNotify(signal);
-        } else if (qwebengineview_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwebengineview_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebengineview_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWebEngineView::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEngineView::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,11 +1196,14 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_updatemicrofocus_isbase) {
             qwebengineview_updatemicrofocus_isbase = false;
             QWebEngineView::updateMicroFocus();
-        } else if (qwebengineview_updatemicrofocus_callback != nullptr) {
-            qwebengineview_updatemicrofocus_callback();
-        } else {
-            QWebEngineView::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qwebengineview_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QWebEngineView::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,11 +1211,14 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_create_isbase) {
             qwebengineview_create_isbase = false;
             QWebEngineView::create();
-        } else if (qwebengineview_create_callback != nullptr) {
-            qwebengineview_create_callback();
-        } else {
-            QWebEngineView::create();
+            return;
         }
+        auto create_cb = qwebengineview_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QWebEngineView::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,11 +1226,14 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_destroy_isbase) {
             qwebengineview_destroy_isbase = false;
             QWebEngineView::destroy();
-        } else if (qwebengineview_destroy_callback != nullptr) {
-            qwebengineview_destroy_callback();
-        } else {
-            QWebEngineView::destroy();
+            return;
         }
+        auto destroy_cb = qwebengineview_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QWebEngineView::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1179,12 +1241,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_focusnextchild_isbase) {
             qwebengineview_focusnextchild_isbase = false;
             return QWebEngineView::focusNextChild();
-        } else if (qwebengineview_focusnextchild_callback != nullptr) {
-            bool callback_ret = qwebengineview_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::focusNextChild();
         }
+        auto focusnextchild_cb = qwebengineview_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1192,12 +1255,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_focuspreviouschild_isbase) {
             qwebengineview_focuspreviouschild_isbase = false;
             return QWebEngineView::focusPreviousChild();
-        } else if (qwebengineview_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qwebengineview_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qwebengineview_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1205,12 +1269,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_sender_isbase) {
             qwebengineview_sender_isbase = false;
             return QWebEngineView::sender();
-        } else if (qwebengineview_sender_callback != nullptr) {
-            QObject* callback_ret = qwebengineview_sender_callback();
-            return callback_ret;
-        } else {
-            return QWebEngineView::sender();
         }
+        auto sender_cb = qwebengineview_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWebEngineView::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,12 +1283,13 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_sendersignalindex_isbase) {
             qwebengineview_sendersignalindex_isbase = false;
             return QWebEngineView::senderSignalIndex();
-        } else if (qwebengineview_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwebengineview_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineView::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwebengineview_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebEngineView::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1231,14 +1297,15 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_receivers_isbase) {
             qwebengineview_receivers_isbase = false;
             return QWebEngineView::receivers(signal);
-        } else if (qwebengineview_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwebengineview_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwebengineview_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEngineView::receivers(signal);
         }
+        return QWebEngineView::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,16 +1313,17 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_issignalconnected_isbase) {
             qwebengineview_issignalconnected_isbase = false;
             return QWebEngineView::isSignalConnected(signal);
-        } else if (qwebengineview_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwebengineview_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwebengineview_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEngineView::isSignalConnected(signal);
         }
+        return QWebEngineView::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,15 +1331,16 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (qwebengineview_getdecodedmetricf_isbase) {
             qwebengineview_getdecodedmetricf_isbase = false;
             return QWebEngineView::getDecodedMetricF(metricA, metricB);
-        } else if (qwebengineview_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qwebengineview_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qwebengineview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QWebEngineView::getDecodedMetricF(metricA, metricB);
         }
+        return QWebEngineView::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

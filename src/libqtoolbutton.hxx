@@ -219,73 +219,6 @@ class VirtualQToolButton final : public QToolButton {
     VirtualQToolButton(QWidget* parent) : QToolButton(parent) {};
     VirtualQToolButton() : QToolButton() {};
 
-    ~VirtualQToolButton() {
-        qtoolbutton_metaobject_callback = nullptr;
-        qtoolbutton_metacast_callback = nullptr;
-        qtoolbutton_metacall_callback = nullptr;
-        qtoolbutton_sizehint_callback = nullptr;
-        qtoolbutton_minimumsizehint_callback = nullptr;
-        qtoolbutton_event_callback = nullptr;
-        qtoolbutton_mousepressevent_callback = nullptr;
-        qtoolbutton_mousereleaseevent_callback = nullptr;
-        qtoolbutton_paintevent_callback = nullptr;
-        qtoolbutton_actionevent_callback = nullptr;
-        qtoolbutton_enterevent_callback = nullptr;
-        qtoolbutton_leaveevent_callback = nullptr;
-        qtoolbutton_timerevent_callback = nullptr;
-        qtoolbutton_changeevent_callback = nullptr;
-        qtoolbutton_hitbutton_callback = nullptr;
-        qtoolbutton_checkstateset_callback = nullptr;
-        qtoolbutton_nextcheckstate_callback = nullptr;
-        qtoolbutton_initstyleoption_callback = nullptr;
-        qtoolbutton_keypressevent_callback = nullptr;
-        qtoolbutton_keyreleaseevent_callback = nullptr;
-        qtoolbutton_mousemoveevent_callback = nullptr;
-        qtoolbutton_focusinevent_callback = nullptr;
-        qtoolbutton_focusoutevent_callback = nullptr;
-        qtoolbutton_devtype_callback = nullptr;
-        qtoolbutton_setvisible_callback = nullptr;
-        qtoolbutton_heightforwidth_callback = nullptr;
-        qtoolbutton_hasheightforwidth_callback = nullptr;
-        qtoolbutton_paintengine_callback = nullptr;
-        qtoolbutton_mousedoubleclickevent_callback = nullptr;
-        qtoolbutton_wheelevent_callback = nullptr;
-        qtoolbutton_moveevent_callback = nullptr;
-        qtoolbutton_resizeevent_callback = nullptr;
-        qtoolbutton_closeevent_callback = nullptr;
-        qtoolbutton_contextmenuevent_callback = nullptr;
-        qtoolbutton_tabletevent_callback = nullptr;
-        qtoolbutton_dragenterevent_callback = nullptr;
-        qtoolbutton_dragmoveevent_callback = nullptr;
-        qtoolbutton_dragleaveevent_callback = nullptr;
-        qtoolbutton_dropevent_callback = nullptr;
-        qtoolbutton_showevent_callback = nullptr;
-        qtoolbutton_hideevent_callback = nullptr;
-        qtoolbutton_nativeevent_callback = nullptr;
-        qtoolbutton_metric_callback = nullptr;
-        qtoolbutton_initpainter_callback = nullptr;
-        qtoolbutton_redirected_callback = nullptr;
-        qtoolbutton_sharedpainter_callback = nullptr;
-        qtoolbutton_inputmethodevent_callback = nullptr;
-        qtoolbutton_inputmethodquery_callback = nullptr;
-        qtoolbutton_focusnextprevchild_callback = nullptr;
-        qtoolbutton_eventfilter_callback = nullptr;
-        qtoolbutton_childevent_callback = nullptr;
-        qtoolbutton_customevent_callback = nullptr;
-        qtoolbutton_connectnotify_callback = nullptr;
-        qtoolbutton_disconnectnotify_callback = nullptr;
-        qtoolbutton_updatemicrofocus_callback = nullptr;
-        qtoolbutton_create_callback = nullptr;
-        qtoolbutton_destroy_callback = nullptr;
-        qtoolbutton_focusnextchild_callback = nullptr;
-        qtoolbutton_focuspreviouschild_callback = nullptr;
-        qtoolbutton_sender_callback = nullptr;
-        qtoolbutton_sendersignalindex_callback = nullptr;
-        qtoolbutton_receivers_callback = nullptr;
-        qtoolbutton_issignalconnected_callback = nullptr;
-        qtoolbutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQToolButton_MetaObject_Callback(QToolButton_MetaObject_Callback cb) { qtoolbutton_metaobject_callback = cb; }
     inline void setQToolButton_Metacast_Callback(QToolButton_Metacast_Callback cb) { qtoolbutton_metacast_callback = cb; }
@@ -423,12 +356,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_metaobject_isbase) {
             qtoolbutton_metaobject_isbase = false;
             return QToolButton::metaObject();
-        } else if (qtoolbutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qtoolbutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::metaObject();
         }
+        auto metaobject_cb = qtoolbutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QToolButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -436,14 +370,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_metacast_isbase) {
             qtoolbutton_metacast_isbase = false;
             return QToolButton::qt_metacast(param1);
-        } else if (qtoolbutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qtoolbutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qtoolbutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QToolButton::qt_metacast(param1);
         }
+        return QToolButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -451,16 +386,17 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_metacall_isbase) {
             qtoolbutton_metacall_isbase = false;
             return QToolButton::qt_metacall(param1, param2, param3);
-        } else if (qtoolbutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qtoolbutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qtoolbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QToolButton::qt_metacall(param1, param2, param3);
         }
+        return QToolButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -468,12 +404,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_sizehint_isbase) {
             qtoolbutton_sizehint_isbase = false;
             return QToolButton::sizeHint();
-        } else if (qtoolbutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = qtoolbutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QToolButton::sizeHint();
         }
+        auto sizehint_cb = qtoolbutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QToolButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,12 +418,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_minimumsizehint_isbase) {
             qtoolbutton_minimumsizehint_isbase = false;
             return QToolButton::minimumSizeHint();
-        } else if (qtoolbutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qtoolbutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QToolButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qtoolbutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QToolButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -494,14 +432,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_event_isbase) {
             qtoolbutton_event_isbase = false;
             return QToolButton::event(e);
-        } else if (qtoolbutton_event_callback != nullptr) {
+        }
+        auto event_cb = qtoolbutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qtoolbutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QToolButton::event(e);
         }
+        return QToolButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -509,13 +448,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_mousepressevent_isbase) {
             qtoolbutton_mousepressevent_isbase = false;
             QToolButton::mousePressEvent(param1);
-        } else if (qtoolbutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qtoolbutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qtoolbutton_mousepressevent_callback(this, cbval1);
-        } else {
-            QToolButton::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -523,13 +465,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_mousereleaseevent_isbase) {
             qtoolbutton_mousereleaseevent_isbase = false;
             QToolButton::mouseReleaseEvent(param1);
-        } else if (qtoolbutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qtoolbutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qtoolbutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QToolButton::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -537,13 +482,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_paintevent_isbase) {
             qtoolbutton_paintevent_isbase = false;
             QToolButton::paintEvent(param1);
-        } else if (qtoolbutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qtoolbutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qtoolbutton_paintevent_callback(this, cbval1);
-        } else {
-            QToolButton::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -551,13 +499,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_actionevent_isbase) {
             qtoolbutton_actionevent_isbase = false;
             QToolButton::actionEvent(param1);
-        } else if (qtoolbutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qtoolbutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
 
-            qtoolbutton_actionevent_callback(this, cbval1);
-        } else {
-            QToolButton::actionEvent(param1);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::actionEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -565,13 +516,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_enterevent_isbase) {
             qtoolbutton_enterevent_isbase = false;
             QToolButton::enterEvent(param1);
-        } else if (qtoolbutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qtoolbutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
 
-            qtoolbutton_enterevent_callback(this, cbval1);
-        } else {
-            QToolButton::enterEvent(param1);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::enterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -579,13 +533,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_leaveevent_isbase) {
             qtoolbutton_leaveevent_isbase = false;
             QToolButton::leaveEvent(param1);
-        } else if (qtoolbutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qtoolbutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = param1;
 
-            qtoolbutton_leaveevent_callback(this, cbval1);
-        } else {
-            QToolButton::leaveEvent(param1);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::leaveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -593,13 +550,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_timerevent_isbase) {
             qtoolbutton_timerevent_isbase = false;
             QToolButton::timerEvent(param1);
-        } else if (qtoolbutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qtoolbutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            qtoolbutton_timerevent_callback(this, cbval1);
-        } else {
-            QToolButton::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -607,13 +567,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_changeevent_isbase) {
             qtoolbutton_changeevent_isbase = false;
             QToolButton::changeEvent(param1);
-        } else if (qtoolbutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qtoolbutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qtoolbutton_changeevent_callback(this, cbval1);
-        } else {
-            QToolButton::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -621,16 +584,17 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_hitbutton_isbase) {
             qtoolbutton_hitbutton_isbase = false;
             return QToolButton::hitButton(pos);
-        } else if (qtoolbutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = qtoolbutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = qtoolbutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QToolButton::hitButton(pos);
         }
+        return QToolButton::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,11 +602,14 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_checkstateset_isbase) {
             qtoolbutton_checkstateset_isbase = false;
             QToolButton::checkStateSet();
-        } else if (qtoolbutton_checkstateset_callback != nullptr) {
-            qtoolbutton_checkstateset_callback();
-        } else {
-            QToolButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = qtoolbutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        QToolButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -650,11 +617,14 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_nextcheckstate_isbase) {
             qtoolbutton_nextcheckstate_isbase = false;
             QToolButton::nextCheckState();
-        } else if (qtoolbutton_nextcheckstate_callback != nullptr) {
-            qtoolbutton_nextcheckstate_callback();
-        } else {
-            QToolButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = qtoolbutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        QToolButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -662,13 +632,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_initstyleoption_isbase) {
             qtoolbutton_initstyleoption_isbase = false;
             QToolButton::initStyleOption(option);
-        } else if (qtoolbutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qtoolbutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionToolButton* cbval1 = option;
 
-            qtoolbutton_initstyleoption_callback(this, cbval1);
-        } else {
-            QToolButton::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QToolButton::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -676,13 +649,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_keypressevent_isbase) {
             qtoolbutton_keypressevent_isbase = false;
             QToolButton::keyPressEvent(e);
-        } else if (qtoolbutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qtoolbutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qtoolbutton_keypressevent_callback(this, cbval1);
-        } else {
-            QToolButton::keyPressEvent(e);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::keyPressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -690,13 +666,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_keyreleaseevent_isbase) {
             qtoolbutton_keyreleaseevent_isbase = false;
             QToolButton::keyReleaseEvent(e);
-        } else if (qtoolbutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qtoolbutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qtoolbutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QToolButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,13 +683,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_mousemoveevent_isbase) {
             qtoolbutton_mousemoveevent_isbase = false;
             QToolButton::mouseMoveEvent(e);
-        } else if (qtoolbutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qtoolbutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qtoolbutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            QToolButton::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -718,13 +700,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_focusinevent_isbase) {
             qtoolbutton_focusinevent_isbase = false;
             QToolButton::focusInEvent(e);
-        } else if (qtoolbutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qtoolbutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qtoolbutton_focusinevent_callback(this, cbval1);
-        } else {
-            QToolButton::focusInEvent(e);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::focusInEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -732,13 +717,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_focusoutevent_isbase) {
             qtoolbutton_focusoutevent_isbase = false;
             QToolButton::focusOutEvent(e);
-        } else if (qtoolbutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qtoolbutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            qtoolbutton_focusoutevent_callback(this, cbval1);
-        } else {
-            QToolButton::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -746,12 +734,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_devtype_isbase) {
             qtoolbutton_devtype_isbase = false;
             return QToolButton::devType();
-        } else if (qtoolbutton_devtype_callback != nullptr) {
-            int callback_ret = qtoolbutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QToolButton::devType();
         }
+        auto devtype_cb = qtoolbutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QToolButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -759,13 +748,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_setvisible_isbase) {
             qtoolbutton_setvisible_isbase = false;
             QToolButton::setVisible(visible);
-        } else if (qtoolbutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qtoolbutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qtoolbutton_setvisible_callback(this, cbval1);
-        } else {
-            QToolButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QToolButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -773,14 +765,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_heightforwidth_isbase) {
             qtoolbutton_heightforwidth_isbase = false;
             return QToolButton::heightForWidth(param1);
-        } else if (qtoolbutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qtoolbutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qtoolbutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QToolButton::heightForWidth(param1);
         }
+        return QToolButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -788,12 +781,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_hasheightforwidth_isbase) {
             qtoolbutton_hasheightforwidth_isbase = false;
             return QToolButton::hasHeightForWidth();
-        } else if (qtoolbutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qtoolbutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qtoolbutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QToolButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -801,12 +795,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_paintengine_isbase) {
             qtoolbutton_paintengine_isbase = false;
             return QToolButton::paintEngine();
-        } else if (qtoolbutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qtoolbutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::paintEngine();
         }
+        auto paintengine_cb = qtoolbutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QToolButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,13 +809,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_mousedoubleclickevent_isbase) {
             qtoolbutton_mousedoubleclickevent_isbase = false;
             QToolButton::mouseDoubleClickEvent(event);
-        } else if (qtoolbutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qtoolbutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qtoolbutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QToolButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,13 +826,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_wheelevent_isbase) {
             qtoolbutton_wheelevent_isbase = false;
             QToolButton::wheelEvent(event);
-        } else if (qtoolbutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qtoolbutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qtoolbutton_wheelevent_callback(this, cbval1);
-        } else {
-            QToolButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -842,13 +843,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_moveevent_isbase) {
             qtoolbutton_moveevent_isbase = false;
             QToolButton::moveEvent(event);
-        } else if (qtoolbutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qtoolbutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qtoolbutton_moveevent_callback(this, cbval1);
-        } else {
-            QToolButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -856,13 +860,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_resizeevent_isbase) {
             qtoolbutton_resizeevent_isbase = false;
             QToolButton::resizeEvent(event);
-        } else if (qtoolbutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qtoolbutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qtoolbutton_resizeevent_callback(this, cbval1);
-        } else {
-            QToolButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -870,13 +877,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_closeevent_isbase) {
             qtoolbutton_closeevent_isbase = false;
             QToolButton::closeEvent(event);
-        } else if (qtoolbutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qtoolbutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qtoolbutton_closeevent_callback(this, cbval1);
-        } else {
-            QToolButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -884,13 +894,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_contextmenuevent_isbase) {
             qtoolbutton_contextmenuevent_isbase = false;
             QToolButton::contextMenuEvent(event);
-        } else if (qtoolbutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qtoolbutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qtoolbutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            QToolButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -898,13 +911,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_tabletevent_isbase) {
             qtoolbutton_tabletevent_isbase = false;
             QToolButton::tabletEvent(event);
-        } else if (qtoolbutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qtoolbutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qtoolbutton_tabletevent_callback(this, cbval1);
-        } else {
-            QToolButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,13 +928,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_dragenterevent_isbase) {
             qtoolbutton_dragenterevent_isbase = false;
             QToolButton::dragEnterEvent(event);
-        } else if (qtoolbutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qtoolbutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qtoolbutton_dragenterevent_callback(this, cbval1);
-        } else {
-            QToolButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -926,13 +945,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_dragmoveevent_isbase) {
             qtoolbutton_dragmoveevent_isbase = false;
             QToolButton::dragMoveEvent(event);
-        } else if (qtoolbutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qtoolbutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qtoolbutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            QToolButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -940,13 +962,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_dragleaveevent_isbase) {
             qtoolbutton_dragleaveevent_isbase = false;
             QToolButton::dragLeaveEvent(event);
-        } else if (qtoolbutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qtoolbutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qtoolbutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            QToolButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -954,13 +979,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_dropevent_isbase) {
             qtoolbutton_dropevent_isbase = false;
             QToolButton::dropEvent(event);
-        } else if (qtoolbutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qtoolbutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qtoolbutton_dropevent_callback(this, cbval1);
-        } else {
-            QToolButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -968,13 +996,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_showevent_isbase) {
             qtoolbutton_showevent_isbase = false;
             QToolButton::showEvent(event);
-        } else if (qtoolbutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qtoolbutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qtoolbutton_showevent_callback(this, cbval1);
-        } else {
-            QToolButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -982,13 +1013,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_hideevent_isbase) {
             qtoolbutton_hideevent_isbase = false;
             QToolButton::hideEvent(event);
-        } else if (qtoolbutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qtoolbutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qtoolbutton_hideevent_callback(this, cbval1);
-        } else {
-            QToolButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -996,7 +1030,9 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_nativeevent_isbase) {
             qtoolbutton_nativeevent_isbase = false;
             return QToolButton::nativeEvent(eventType, message, result);
-        } else if (qtoolbutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qtoolbutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1007,12 +1043,11 @@ class VirtualQToolButton final : public QToolButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qtoolbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QToolButton::nativeEvent(eventType, message, result);
         }
+        return QToolButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1020,14 +1055,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_metric_isbase) {
             qtoolbutton_metric_isbase = false;
             return QToolButton::metric(param1);
-        } else if (qtoolbutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = qtoolbutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qtoolbutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QToolButton::metric(param1);
         }
+        return QToolButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1035,13 +1071,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_initpainter_isbase) {
             qtoolbutton_initpainter_isbase = false;
             QToolButton::initPainter(painter);
-        } else if (qtoolbutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qtoolbutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qtoolbutton_initpainter_callback(this, cbval1);
-        } else {
-            QToolButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QToolButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1049,14 +1088,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_redirected_isbase) {
             qtoolbutton_redirected_isbase = false;
             return QToolButton::redirected(offset);
-        } else if (qtoolbutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qtoolbutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qtoolbutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QToolButton::redirected(offset);
         }
+        return QToolButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1064,12 +1104,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_sharedpainter_isbase) {
             qtoolbutton_sharedpainter_isbase = false;
             return QToolButton::sharedPainter();
-        } else if (qtoolbutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qtoolbutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::sharedPainter();
         }
+        auto sharedpainter_cb = qtoolbutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QToolButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1077,13 +1118,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_inputmethodevent_isbase) {
             qtoolbutton_inputmethodevent_isbase = false;
             QToolButton::inputMethodEvent(param1);
-        } else if (qtoolbutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qtoolbutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qtoolbutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            QToolButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1091,14 +1135,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_inputmethodquery_isbase) {
             qtoolbutton_inputmethodquery_isbase = false;
             return QToolButton::inputMethodQuery(param1);
-        } else if (qtoolbutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qtoolbutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qtoolbutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QToolButton::inputMethodQuery(param1);
         }
+        return QToolButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1106,14 +1151,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_focusnextprevchild_isbase) {
             qtoolbutton_focusnextprevchild_isbase = false;
             return QToolButton::focusNextPrevChild(next);
-        } else if (qtoolbutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qtoolbutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qtoolbutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QToolButton::focusNextPrevChild(next);
         }
+        return QToolButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1121,15 +1167,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_eventfilter_isbase) {
             qtoolbutton_eventfilter_isbase = false;
             return QToolButton::eventFilter(watched, event);
-        } else if (qtoolbutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qtoolbutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qtoolbutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QToolButton::eventFilter(watched, event);
         }
+        return QToolButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1137,13 +1184,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_childevent_isbase) {
             qtoolbutton_childevent_isbase = false;
             QToolButton::childEvent(event);
-        } else if (qtoolbutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qtoolbutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qtoolbutton_childevent_callback(this, cbval1);
-        } else {
-            QToolButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1151,13 +1201,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_customevent_isbase) {
             qtoolbutton_customevent_isbase = false;
             QToolButton::customEvent(event);
-        } else if (qtoolbutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qtoolbutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qtoolbutton_customevent_callback(this, cbval1);
-        } else {
-            QToolButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QToolButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1165,15 +1218,18 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_connectnotify_isbase) {
             qtoolbutton_connectnotify_isbase = false;
             QToolButton::connectNotify(signal);
-        } else if (qtoolbutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qtoolbutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtoolbutton_connectnotify_callback(this, cbval1);
-        } else {
-            QToolButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QToolButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,15 +1237,18 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_disconnectnotify_isbase) {
             qtoolbutton_disconnectnotify_isbase = false;
             QToolButton::disconnectNotify(signal);
-        } else if (qtoolbutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qtoolbutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qtoolbutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            QToolButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QToolButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1197,11 +1256,14 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_updatemicrofocus_isbase) {
             qtoolbutton_updatemicrofocus_isbase = false;
             QToolButton::updateMicroFocus();
-        } else if (qtoolbutton_updatemicrofocus_callback != nullptr) {
-            qtoolbutton_updatemicrofocus_callback();
-        } else {
-            QToolButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qtoolbutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QToolButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,11 +1271,14 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_create_isbase) {
             qtoolbutton_create_isbase = false;
             QToolButton::create();
-        } else if (qtoolbutton_create_callback != nullptr) {
-            qtoolbutton_create_callback();
-        } else {
-            QToolButton::create();
+            return;
         }
+        auto create_cb = qtoolbutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QToolButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,11 +1286,14 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_destroy_isbase) {
             qtoolbutton_destroy_isbase = false;
             QToolButton::destroy();
-        } else if (qtoolbutton_destroy_callback != nullptr) {
-            qtoolbutton_destroy_callback();
-        } else {
-            QToolButton::destroy();
+            return;
         }
+        auto destroy_cb = qtoolbutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QToolButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1233,12 +1301,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_focusnextchild_isbase) {
             qtoolbutton_focusnextchild_isbase = false;
             return QToolButton::focusNextChild();
-        } else if (qtoolbutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = qtoolbutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::focusNextChild();
         }
+        auto focusnextchild_cb = qtoolbutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QToolButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1246,12 +1315,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_focuspreviouschild_isbase) {
             qtoolbutton_focuspreviouschild_isbase = false;
             return QToolButton::focusPreviousChild();
-        } else if (qtoolbutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qtoolbutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qtoolbutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QToolButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1259,12 +1329,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_sender_isbase) {
             qtoolbutton_sender_isbase = false;
             return QToolButton::sender();
-        } else if (qtoolbutton_sender_callback != nullptr) {
-            QObject* callback_ret = qtoolbutton_sender_callback();
-            return callback_ret;
-        } else {
-            return QToolButton::sender();
         }
+        auto sender_cb = qtoolbutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QToolButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1272,12 +1343,13 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_sendersignalindex_isbase) {
             qtoolbutton_sendersignalindex_isbase = false;
             return QToolButton::senderSignalIndex();
-        } else if (qtoolbutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = qtoolbutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QToolButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qtoolbutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QToolButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1285,14 +1357,15 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_receivers_isbase) {
             qtoolbutton_receivers_isbase = false;
             return QToolButton::receivers(signal);
-        } else if (qtoolbutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qtoolbutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qtoolbutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QToolButton::receivers(signal);
         }
+        return QToolButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1300,16 +1373,17 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_issignalconnected_isbase) {
             qtoolbutton_issignalconnected_isbase = false;
             return QToolButton::isSignalConnected(signal);
-        } else if (qtoolbutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qtoolbutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qtoolbutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QToolButton::isSignalConnected(signal);
         }
+        return QToolButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1317,15 +1391,16 @@ class VirtualQToolButton final : public QToolButton {
         if (qtoolbutton_getdecodedmetricf_isbase) {
             qtoolbutton_getdecodedmetricf_isbase = false;
             return QToolButton::getDecodedMetricF(metricA, metricB);
-        } else if (qtoolbutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qtoolbutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qtoolbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QToolButton::getDecodedMetricF(metricA, metricB);
         }
+        return QToolButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

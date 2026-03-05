@@ -73,23 +73,6 @@ class VirtualQAction final : public QAction {
     VirtualQAction(const QString& text, QObject* parent) : QAction(text, parent) {};
     VirtualQAction(const QIcon& icon, const QString& text, QObject* parent) : QAction(icon, text, parent) {};
 
-    ~VirtualQAction() {
-        qaction_metaobject_callback = nullptr;
-        qaction_metacast_callback = nullptr;
-        qaction_metacall_callback = nullptr;
-        qaction_event_callback = nullptr;
-        qaction_eventfilter_callback = nullptr;
-        qaction_timerevent_callback = nullptr;
-        qaction_childevent_callback = nullptr;
-        qaction_customevent_callback = nullptr;
-        qaction_connectnotify_callback = nullptr;
-        qaction_disconnectnotify_callback = nullptr;
-        qaction_sender_callback = nullptr;
-        qaction_sendersignalindex_callback = nullptr;
-        qaction_receivers_callback = nullptr;
-        qaction_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAction_MetaObject_Callback(QAction_MetaObject_Callback cb) { qaction_metaobject_callback = cb; }
     inline void setQAction_Metacast_Callback(QAction_Metacast_Callback cb) { qaction_metacast_callback = cb; }
@@ -127,12 +110,13 @@ class VirtualQAction final : public QAction {
         if (qaction_metaobject_isbase) {
             qaction_metaobject_isbase = false;
             return QAction::metaObject();
-        } else if (qaction_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qaction_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAction::metaObject();
         }
+        auto metaobject_cb = qaction_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAction::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -140,14 +124,15 @@ class VirtualQAction final : public QAction {
         if (qaction_metacast_isbase) {
             qaction_metacast_isbase = false;
             return QAction::qt_metacast(param1);
-        } else if (qaction_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qaction_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qaction_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAction::qt_metacast(param1);
         }
+        return QAction::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,16 +140,17 @@ class VirtualQAction final : public QAction {
         if (qaction_metacall_isbase) {
             qaction_metacall_isbase = false;
             return QAction::qt_metacall(param1, param2, param3);
-        } else if (qaction_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qaction_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qaction_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAction::qt_metacall(param1, param2, param3);
         }
+        return QAction::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -172,14 +158,15 @@ class VirtualQAction final : public QAction {
         if (qaction_event_isbase) {
             qaction_event_isbase = false;
             return QAction::event(param1);
-        } else if (qaction_event_callback != nullptr) {
+        }
+        auto event_cb = qaction_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qaction_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAction::event(param1);
         }
+        return QAction::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,15 +174,16 @@ class VirtualQAction final : public QAction {
         if (qaction_eventfilter_isbase) {
             qaction_eventfilter_isbase = false;
             return QAction::eventFilter(watched, event);
-        } else if (qaction_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qaction_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qaction_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAction::eventFilter(watched, event);
         }
+        return QAction::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,13 +191,16 @@ class VirtualQAction final : public QAction {
         if (qaction_timerevent_isbase) {
             qaction_timerevent_isbase = false;
             QAction::timerEvent(event);
-        } else if (qaction_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qaction_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qaction_timerevent_callback(this, cbval1);
-        } else {
-            QAction::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAction::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,13 +208,16 @@ class VirtualQAction final : public QAction {
         if (qaction_childevent_isbase) {
             qaction_childevent_isbase = false;
             QAction::childEvent(event);
-        } else if (qaction_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qaction_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qaction_childevent_callback(this, cbval1);
-        } else {
-            QAction::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAction::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,13 +225,16 @@ class VirtualQAction final : public QAction {
         if (qaction_customevent_isbase) {
             qaction_customevent_isbase = false;
             QAction::customEvent(event);
-        } else if (qaction_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qaction_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qaction_customevent_callback(this, cbval1);
-        } else {
-            QAction::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAction::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,15 +242,18 @@ class VirtualQAction final : public QAction {
         if (qaction_connectnotify_isbase) {
             qaction_connectnotify_isbase = false;
             QAction::connectNotify(signal);
-        } else if (qaction_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qaction_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaction_connectnotify_callback(this, cbval1);
-        } else {
-            QAction::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAction::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +261,18 @@ class VirtualQAction final : public QAction {
         if (qaction_disconnectnotify_isbase) {
             qaction_disconnectnotify_isbase = false;
             QAction::disconnectNotify(signal);
-        } else if (qaction_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qaction_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qaction_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAction::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAction::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,12 +280,13 @@ class VirtualQAction final : public QAction {
         if (qaction_sender_isbase) {
             qaction_sender_isbase = false;
             return QAction::sender();
-        } else if (qaction_sender_callback != nullptr) {
-            QObject* callback_ret = qaction_sender_callback();
-            return callback_ret;
-        } else {
-            return QAction::sender();
         }
+        auto sender_cb = qaction_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAction::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,12 +294,13 @@ class VirtualQAction final : public QAction {
         if (qaction_sendersignalindex_isbase) {
             qaction_sendersignalindex_isbase = false;
             return QAction::senderSignalIndex();
-        } else if (qaction_sendersignalindex_callback != nullptr) {
-            int callback_ret = qaction_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAction::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qaction_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAction::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,14 +308,15 @@ class VirtualQAction final : public QAction {
         if (qaction_receivers_isbase) {
             qaction_receivers_isbase = false;
             return QAction::receivers(signal);
-        } else if (qaction_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qaction_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qaction_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAction::receivers(signal);
         }
+        return QAction::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,16 +324,17 @@ class VirtualQAction final : public QAction {
         if (qaction_issignalconnected_isbase) {
             qaction_issignalconnected_isbase = false;
             return QAction::isSignalConnected(signal);
-        } else if (qaction_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qaction_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qaction_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAction::isSignalConnected(signal);
         }
+        return QAction::isSignalConnected(signal);
     }
 
     // Friend functions

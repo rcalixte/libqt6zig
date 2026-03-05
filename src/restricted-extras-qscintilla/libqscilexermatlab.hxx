@@ -177,59 +177,6 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     VirtualQsciLexerMatlab() : QsciLexerMatlab() {};
     VirtualQsciLexerMatlab(QObject* parent) : QsciLexerMatlab(parent) {};
 
-    ~VirtualQsciLexerMatlab() {
-        qscilexermatlab_metaobject_callback = nullptr;
-        qscilexermatlab_metacast_callback = nullptr;
-        qscilexermatlab_metacall_callback = nullptr;
-        qscilexermatlab_language_callback = nullptr;
-        qscilexermatlab_lexer_callback = nullptr;
-        qscilexermatlab_lexerid_callback = nullptr;
-        qscilexermatlab_autocompletionfillups_callback = nullptr;
-        qscilexermatlab_autocompletionwordseparators_callback = nullptr;
-        qscilexermatlab_blockend_callback = nullptr;
-        qscilexermatlab_blocklookback_callback = nullptr;
-        qscilexermatlab_blockstart_callback = nullptr;
-        qscilexermatlab_blockstartkeyword_callback = nullptr;
-        qscilexermatlab_bracestyle_callback = nullptr;
-        qscilexermatlab_casesensitive_callback = nullptr;
-        qscilexermatlab_color_callback = nullptr;
-        qscilexermatlab_eolfill_callback = nullptr;
-        qscilexermatlab_font_callback = nullptr;
-        qscilexermatlab_indentationguideview_callback = nullptr;
-        qscilexermatlab_keywords_callback = nullptr;
-        qscilexermatlab_defaultstyle_callback = nullptr;
-        qscilexermatlab_description_callback = nullptr;
-        qscilexermatlab_paper_callback = nullptr;
-        qscilexermatlab_defaultcolor2_callback = nullptr;
-        qscilexermatlab_defaulteolfill_callback = nullptr;
-        qscilexermatlab_defaultfont2_callback = nullptr;
-        qscilexermatlab_defaultpaper2_callback = nullptr;
-        qscilexermatlab_seteditor_callback = nullptr;
-        qscilexermatlab_refreshproperties_callback = nullptr;
-        qscilexermatlab_stylebitsneeded_callback = nullptr;
-        qscilexermatlab_wordcharacters_callback = nullptr;
-        qscilexermatlab_setautoindentstyle_callback = nullptr;
-        qscilexermatlab_setcolor_callback = nullptr;
-        qscilexermatlab_seteolfill_callback = nullptr;
-        qscilexermatlab_setfont_callback = nullptr;
-        qscilexermatlab_setpaper_callback = nullptr;
-        qscilexermatlab_readproperties_callback = nullptr;
-        qscilexermatlab_writeproperties_callback = nullptr;
-        qscilexermatlab_event_callback = nullptr;
-        qscilexermatlab_eventfilter_callback = nullptr;
-        qscilexermatlab_timerevent_callback = nullptr;
-        qscilexermatlab_childevent_callback = nullptr;
-        qscilexermatlab_customevent_callback = nullptr;
-        qscilexermatlab_connectnotify_callback = nullptr;
-        qscilexermatlab_disconnectnotify_callback = nullptr;
-        qscilexermatlab_textasbytes_callback = nullptr;
-        qscilexermatlab_bytesastext_callback = nullptr;
-        qscilexermatlab_sender_callback = nullptr;
-        qscilexermatlab_sendersignalindex_callback = nullptr;
-        qscilexermatlab_receivers_callback = nullptr;
-        qscilexermatlab_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQsciLexerMatlab_MetaObject_Callback(QsciLexerMatlab_MetaObject_Callback cb) { qscilexermatlab_metaobject_callback = cb; }
     inline void setQsciLexerMatlab_Metacast_Callback(QsciLexerMatlab_Metacast_Callback cb) { qscilexermatlab_metacast_callback = cb; }
@@ -339,12 +286,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_metaobject_isbase) {
             qscilexermatlab_metaobject_isbase = false;
             return QsciLexerMatlab::metaObject();
-        } else if (qscilexermatlab_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qscilexermatlab_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMatlab::metaObject();
         }
+        auto metaobject_cb = qscilexermatlab_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QsciLexerMatlab::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -352,14 +300,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_metacast_isbase) {
             qscilexermatlab_metacast_isbase = false;
             return QsciLexerMatlab::qt_metacast(param1);
-        } else if (qscilexermatlab_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qscilexermatlab_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qscilexermatlab_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::qt_metacast(param1);
         }
+        return QsciLexerMatlab::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -367,26 +316,27 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_metacall_isbase) {
             qscilexermatlab_metacall_isbase = false;
             return QsciLexerMatlab::qt_metacall(param1, param2, param3);
-        } else if (qscilexermatlab_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qscilexermatlab_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qscilexermatlab_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::qt_metacall(param1, param2, param3);
         }
+        return QsciLexerMatlab::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual const char* language() const override {
-        if (qscilexermatlab_language_callback != nullptr) {
-            const char* callback_ret = qscilexermatlab_language_callback();
+        auto language_cb = qscilexermatlab_language_callback;
+        if (language_cb) {
+            const char* callback_ret = language_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,12 +344,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_lexer_isbase) {
             qscilexermatlab_lexer_isbase = false;
             return QsciLexerMatlab::lexer();
-        } else if (qscilexermatlab_lexer_callback != nullptr) {
-            const char* callback_ret = qscilexermatlab_lexer_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMatlab::lexer();
         }
+        auto lexer_cb = qscilexermatlab_lexer_callback;
+        if (lexer_cb) {
+            const char* callback_ret = lexer_cb();
+            return callback_ret;
+        }
+        return QsciLexerMatlab::lexer();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -407,12 +358,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_lexerid_isbase) {
             qscilexermatlab_lexerid_isbase = false;
             return QsciLexerMatlab::lexerId();
-        } else if (qscilexermatlab_lexerid_callback != nullptr) {
-            int callback_ret = qscilexermatlab_lexerid_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::lexerId();
         }
+        auto lexerid_cb = qscilexermatlab_lexerid_callback;
+        if (lexerid_cb) {
+            int callback_ret = lexerid_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::lexerId();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -420,12 +372,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_autocompletionfillups_isbase) {
             qscilexermatlab_autocompletionfillups_isbase = false;
             return QsciLexerMatlab::autoCompletionFillups();
-        } else if (qscilexermatlab_autocompletionfillups_callback != nullptr) {
-            const char* callback_ret = qscilexermatlab_autocompletionfillups_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMatlab::autoCompletionFillups();
         }
+        auto autocompletionfillups_cb = qscilexermatlab_autocompletionfillups_callback;
+        if (autocompletionfillups_cb) {
+            const char* callback_ret = autocompletionfillups_cb();
+            return callback_ret;
+        }
+        return QsciLexerMatlab::autoCompletionFillups();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -433,8 +386,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_autocompletionwordseparators_isbase) {
             qscilexermatlab_autocompletionwordseparators_isbase = false;
             return QsciLexerMatlab::autoCompletionWordSeparators();
-        } else if (qscilexermatlab_autocompletionwordseparators_callback != nullptr) {
-            const char** callback_ret = qscilexermatlab_autocompletionwordseparators_callback();
+        }
+        auto autocompletionwordseparators_cb = qscilexermatlab_autocompletionwordseparators_callback;
+        if (autocompletionwordseparators_cb) {
+            const char** callback_ret = autocompletionwordseparators_cb();
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -445,9 +400,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
             }
             libqt_free(callback_ret);
             return callback_ret_QList;
-        } else {
-            return QsciLexerMatlab::autoCompletionWordSeparators();
         }
+        return QsciLexerMatlab::autoCompletionWordSeparators();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,14 +409,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_blockend_isbase) {
             qscilexermatlab_blockend_isbase = false;
             return QsciLexerMatlab::blockEnd(style);
-        } else if (qscilexermatlab_blockend_callback != nullptr) {
+        }
+        auto blockend_cb = qscilexermatlab_blockend_callback;
+        if (blockend_cb) {
             int* cbval1 = style;
 
-            const char* callback_ret = qscilexermatlab_blockend_callback(this, cbval1);
+            const char* callback_ret = blockend_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::blockEnd(style);
         }
+        return QsciLexerMatlab::blockEnd(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +425,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_blocklookback_isbase) {
             qscilexermatlab_blocklookback_isbase = false;
             return QsciLexerMatlab::blockLookback();
-        } else if (qscilexermatlab_blocklookback_callback != nullptr) {
-            int callback_ret = qscilexermatlab_blocklookback_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::blockLookback();
         }
+        auto blocklookback_cb = qscilexermatlab_blocklookback_callback;
+        if (blocklookback_cb) {
+            int callback_ret = blocklookback_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::blockLookback();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,14 +439,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_blockstart_isbase) {
             qscilexermatlab_blockstart_isbase = false;
             return QsciLexerMatlab::blockStart(style);
-        } else if (qscilexermatlab_blockstart_callback != nullptr) {
+        }
+        auto blockstart_cb = qscilexermatlab_blockstart_callback;
+        if (blockstart_cb) {
             int* cbval1 = style;
 
-            const char* callback_ret = qscilexermatlab_blockstart_callback(this, cbval1);
+            const char* callback_ret = blockstart_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::blockStart(style);
         }
+        return QsciLexerMatlab::blockStart(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,14 +455,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_blockstartkeyword_isbase) {
             qscilexermatlab_blockstartkeyword_isbase = false;
             return QsciLexerMatlab::blockStartKeyword(style);
-        } else if (qscilexermatlab_blockstartkeyword_callback != nullptr) {
+        }
+        auto blockstartkeyword_cb = qscilexermatlab_blockstartkeyword_callback;
+        if (blockstartkeyword_cb) {
             int* cbval1 = style;
 
-            const char* callback_ret = qscilexermatlab_blockstartkeyword_callback(this, cbval1);
+            const char* callback_ret = blockstartkeyword_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::blockStartKeyword(style);
         }
+        return QsciLexerMatlab::blockStartKeyword(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,12 +471,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_bracestyle_isbase) {
             qscilexermatlab_bracestyle_isbase = false;
             return QsciLexerMatlab::braceStyle();
-        } else if (qscilexermatlab_bracestyle_callback != nullptr) {
-            int callback_ret = qscilexermatlab_bracestyle_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::braceStyle();
         }
+        auto bracestyle_cb = qscilexermatlab_bracestyle_callback;
+        if (bracestyle_cb) {
+            int callback_ret = bracestyle_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::braceStyle();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,12 +485,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_casesensitive_isbase) {
             qscilexermatlab_casesensitive_isbase = false;
             return QsciLexerMatlab::caseSensitive();
-        } else if (qscilexermatlab_casesensitive_callback != nullptr) {
-            bool callback_ret = qscilexermatlab_casesensitive_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMatlab::caseSensitive();
         }
+        auto casesensitive_cb = qscilexermatlab_casesensitive_callback;
+        if (casesensitive_cb) {
+            bool callback_ret = casesensitive_cb();
+            return callback_ret;
+        }
+        return QsciLexerMatlab::caseSensitive();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -539,14 +499,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_color_isbase) {
             qscilexermatlab_color_isbase = false;
             return QsciLexerMatlab::color(style);
-        } else if (qscilexermatlab_color_callback != nullptr) {
+        }
+        auto color_cb = qscilexermatlab_color_callback;
+        if (color_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermatlab_color_callback(this, cbval1);
+            QColor* callback_ret = color_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMatlab::color(style);
         }
+        return QsciLexerMatlab::color(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -554,14 +515,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_eolfill_isbase) {
             qscilexermatlab_eolfill_isbase = false;
             return QsciLexerMatlab::eolFill(style);
-        } else if (qscilexermatlab_eolfill_callback != nullptr) {
+        }
+        auto eolfill_cb = qscilexermatlab_eolfill_callback;
+        if (eolfill_cb) {
             int cbval1 = style;
 
-            bool callback_ret = qscilexermatlab_eolfill_callback(this, cbval1);
+            bool callback_ret = eolfill_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::eolFill(style);
         }
+        return QsciLexerMatlab::eolFill(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,14 +531,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_font_isbase) {
             qscilexermatlab_font_isbase = false;
             return QsciLexerMatlab::font(style);
-        } else if (qscilexermatlab_font_callback != nullptr) {
+        }
+        auto font_cb = qscilexermatlab_font_callback;
+        if (font_cb) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexermatlab_font_callback(this, cbval1);
+            QFont* callback_ret = font_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMatlab::font(style);
         }
+        return QsciLexerMatlab::font(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,12 +547,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_indentationguideview_isbase) {
             qscilexermatlab_indentationguideview_isbase = false;
             return QsciLexerMatlab::indentationGuideView();
-        } else if (qscilexermatlab_indentationguideview_callback != nullptr) {
-            int callback_ret = qscilexermatlab_indentationguideview_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::indentationGuideView();
         }
+        auto indentationguideview_cb = qscilexermatlab_indentationguideview_callback;
+        if (indentationguideview_cb) {
+            int callback_ret = indentationguideview_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::indentationGuideView();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,14 +561,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_keywords_isbase) {
             qscilexermatlab_keywords_isbase = false;
             return QsciLexerMatlab::keywords(set);
-        } else if (qscilexermatlab_keywords_callback != nullptr) {
+        }
+        auto keywords_cb = qscilexermatlab_keywords_callback;
+        if (keywords_cb) {
             int cbval1 = set;
 
-            const char* callback_ret = qscilexermatlab_keywords_callback(this, cbval1);
+            const char* callback_ret = keywords_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::keywords(set);
         }
+        return QsciLexerMatlab::keywords(set);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,25 +577,26 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_defaultstyle_isbase) {
             qscilexermatlab_defaultstyle_isbase = false;
             return QsciLexerMatlab::defaultStyle();
-        } else if (qscilexermatlab_defaultstyle_callback != nullptr) {
-            int callback_ret = qscilexermatlab_defaultstyle_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::defaultStyle();
         }
+        auto defaultstyle_cb = qscilexermatlab_defaultstyle_callback;
+        if (defaultstyle_cb) {
+            int callback_ret = defaultstyle_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::defaultStyle();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString description(int style) const override {
-        if (qscilexermatlab_description_callback != nullptr) {
+        auto description_cb = qscilexermatlab_description_callback;
+        if (description_cb) {
             int cbval1 = style;
 
-            const char* callback_ret = qscilexermatlab_description_callback(this, cbval1);
+            const char* callback_ret = description_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -638,14 +604,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_paper_isbase) {
             qscilexermatlab_paper_isbase = false;
             return QsciLexerMatlab::paper(style);
-        } else if (qscilexermatlab_paper_callback != nullptr) {
+        }
+        auto paper_cb = qscilexermatlab_paper_callback;
+        if (paper_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermatlab_paper_callback(this, cbval1);
+            QColor* callback_ret = paper_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMatlab::paper(style);
         }
+        return QsciLexerMatlab::paper(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,14 +620,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_defaultcolor2_isbase) {
             qscilexermatlab_defaultcolor2_isbase = false;
             return QsciLexerMatlab::defaultColor(style);
-        } else if (qscilexermatlab_defaultcolor2_callback != nullptr) {
+        }
+        auto defaultcolor2_cb = qscilexermatlab_defaultcolor2_callback;
+        if (defaultcolor2_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermatlab_defaultcolor2_callback(this, cbval1);
+            QColor* callback_ret = defaultcolor2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMatlab::defaultColor(style);
         }
+        return QsciLexerMatlab::defaultColor(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,14 +636,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_defaulteolfill_isbase) {
             qscilexermatlab_defaulteolfill_isbase = false;
             return QsciLexerMatlab::defaultEolFill(style);
-        } else if (qscilexermatlab_defaulteolfill_callback != nullptr) {
+        }
+        auto defaulteolfill_cb = qscilexermatlab_defaulteolfill_callback;
+        if (defaulteolfill_cb) {
             int cbval1 = style;
 
-            bool callback_ret = qscilexermatlab_defaulteolfill_callback(this, cbval1);
+            bool callback_ret = defaulteolfill_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::defaultEolFill(style);
         }
+        return QsciLexerMatlab::defaultEolFill(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,14 +652,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_defaultfont2_isbase) {
             qscilexermatlab_defaultfont2_isbase = false;
             return QsciLexerMatlab::defaultFont(style);
-        } else if (qscilexermatlab_defaultfont2_callback != nullptr) {
+        }
+        auto defaultfont2_cb = qscilexermatlab_defaultfont2_callback;
+        if (defaultfont2_cb) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexermatlab_defaultfont2_callback(this, cbval1);
+            QFont* callback_ret = defaultfont2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMatlab::defaultFont(style);
         }
+        return QsciLexerMatlab::defaultFont(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,14 +668,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_defaultpaper2_isbase) {
             qscilexermatlab_defaultpaper2_isbase = false;
             return QsciLexerMatlab::defaultPaper(style);
-        } else if (qscilexermatlab_defaultpaper2_callback != nullptr) {
+        }
+        auto defaultpaper2_cb = qscilexermatlab_defaultpaper2_callback;
+        if (defaultpaper2_cb) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermatlab_defaultpaper2_callback(this, cbval1);
+            QColor* callback_ret = defaultpaper2_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QsciLexerMatlab::defaultPaper(style);
         }
+        return QsciLexerMatlab::defaultPaper(style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -713,13 +684,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_seteditor_isbase) {
             qscilexermatlab_seteditor_isbase = false;
             QsciLexerMatlab::setEditor(editor);
-        } else if (qscilexermatlab_seteditor_callback != nullptr) {
+            return;
+        }
+        auto seteditor_cb = qscilexermatlab_seteditor_callback;
+        if (seteditor_cb) {
             QsciScintilla* cbval1 = editor;
 
-            qscilexermatlab_seteditor_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::setEditor(editor);
+            seteditor_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::setEditor(editor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -727,11 +701,14 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_refreshproperties_isbase) {
             qscilexermatlab_refreshproperties_isbase = false;
             QsciLexerMatlab::refreshProperties();
-        } else if (qscilexermatlab_refreshproperties_callback != nullptr) {
-            qscilexermatlab_refreshproperties_callback();
-        } else {
-            QsciLexerMatlab::refreshProperties();
+            return;
         }
+        auto refreshproperties_cb = qscilexermatlab_refreshproperties_callback;
+        if (refreshproperties_cb) {
+            refreshproperties_cb();
+            return;
+        }
+        QsciLexerMatlab::refreshProperties();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,12 +716,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_stylebitsneeded_isbase) {
             qscilexermatlab_stylebitsneeded_isbase = false;
             return QsciLexerMatlab::styleBitsNeeded();
-        } else if (qscilexermatlab_stylebitsneeded_callback != nullptr) {
-            int callback_ret = qscilexermatlab_stylebitsneeded_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::styleBitsNeeded();
         }
+        auto stylebitsneeded_cb = qscilexermatlab_stylebitsneeded_callback;
+        if (stylebitsneeded_cb) {
+            int callback_ret = stylebitsneeded_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::styleBitsNeeded();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,12 +730,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_wordcharacters_isbase) {
             qscilexermatlab_wordcharacters_isbase = false;
             return QsciLexerMatlab::wordCharacters();
-        } else if (qscilexermatlab_wordcharacters_callback != nullptr) {
-            const char* callback_ret = qscilexermatlab_wordcharacters_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMatlab::wordCharacters();
         }
+        auto wordcharacters_cb = qscilexermatlab_wordcharacters_callback;
+        if (wordcharacters_cb) {
+            const char* callback_ret = wordcharacters_cb();
+            return callback_ret;
+        }
+        return QsciLexerMatlab::wordCharacters();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +744,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_setautoindentstyle_isbase) {
             qscilexermatlab_setautoindentstyle_isbase = false;
             QsciLexerMatlab::setAutoIndentStyle(autoindentstyle);
-        } else if (qscilexermatlab_setautoindentstyle_callback != nullptr) {
+            return;
+        }
+        auto setautoindentstyle_cb = qscilexermatlab_setautoindentstyle_callback;
+        if (setautoindentstyle_cb) {
             int cbval1 = autoindentstyle;
 
-            qscilexermatlab_setautoindentstyle_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::setAutoIndentStyle(autoindentstyle);
+            setautoindentstyle_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::setAutoIndentStyle(autoindentstyle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,16 +761,19 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_setcolor_isbase) {
             qscilexermatlab_setcolor_isbase = false;
             QsciLexerMatlab::setColor(c, style);
-        } else if (qscilexermatlab_setcolor_callback != nullptr) {
+            return;
+        }
+        auto setcolor_cb = qscilexermatlab_setcolor_callback;
+        if (setcolor_cb) {
             const QColor& c_ret = c;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
 
-            qscilexermatlab_setcolor_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMatlab::setColor(c, style);
+            setcolor_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMatlab::setColor(c, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,14 +781,17 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_seteolfill_isbase) {
             qscilexermatlab_seteolfill_isbase = false;
             QsciLexerMatlab::setEolFill(eoffill, style);
-        } else if (qscilexermatlab_seteolfill_callback != nullptr) {
+            return;
+        }
+        auto seteolfill_cb = qscilexermatlab_seteolfill_callback;
+        if (seteolfill_cb) {
             bool cbval1 = eoffill;
             int cbval2 = style;
 
-            qscilexermatlab_seteolfill_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMatlab::setEolFill(eoffill, style);
+            seteolfill_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMatlab::setEolFill(eoffill, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,16 +799,19 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_setfont_isbase) {
             qscilexermatlab_setfont_isbase = false;
             QsciLexerMatlab::setFont(f, style);
-        } else if (qscilexermatlab_setfont_callback != nullptr) {
+            return;
+        }
+        auto setfont_cb = qscilexermatlab_setfont_callback;
+        if (setfont_cb) {
             const QFont& f_ret = f;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&f_ret);
             int cbval2 = style;
 
-            qscilexermatlab_setfont_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMatlab::setFont(f, style);
+            setfont_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMatlab::setFont(f, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -828,16 +819,19 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_setpaper_isbase) {
             qscilexermatlab_setpaper_isbase = false;
             QsciLexerMatlab::setPaper(c, style);
-        } else if (qscilexermatlab_setpaper_callback != nullptr) {
+            return;
+        }
+        auto setpaper_cb = qscilexermatlab_setpaper_callback;
+        if (setpaper_cb) {
             const QColor& c_ret = c;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
 
-            qscilexermatlab_setpaper_callback(this, cbval1, cbval2);
-        } else {
-            QsciLexerMatlab::setPaper(c, style);
+            setpaper_cb(this, cbval1, cbval2);
+            return;
         }
+        QsciLexerMatlab::setPaper(c, style);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -845,7 +839,9 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_readproperties_isbase) {
             qscilexermatlab_readproperties_isbase = false;
             return QsciLexerMatlab::readProperties(qs, prefix);
-        } else if (qscilexermatlab_readproperties_callback != nullptr) {
+        }
+        auto readproperties_cb = qscilexermatlab_readproperties_callback;
+        if (readproperties_cb) {
             QSettings& qs_ret = qs;
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
@@ -858,12 +854,11 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
 
-            bool callback_ret = qscilexermatlab_readproperties_callback(this, cbval1, cbval2);
+            bool callback_ret = readproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::readProperties(qs, prefix);
         }
+        return QsciLexerMatlab::readProperties(qs, prefix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,7 +866,9 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_writeproperties_isbase) {
             qscilexermatlab_writeproperties_isbase = false;
             return QsciLexerMatlab::writeProperties(qs, prefix);
-        } else if (qscilexermatlab_writeproperties_callback != nullptr) {
+        }
+        auto writeproperties_cb = qscilexermatlab_writeproperties_callback;
+        if (writeproperties_cb) {
             QSettings& qs_ret = qs;
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
@@ -884,12 +881,11 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
 
-            bool callback_ret = qscilexermatlab_writeproperties_callback(this, cbval1, cbval2);
+            bool callback_ret = writeproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::writeProperties(qs, prefix);
         }
+        return QsciLexerMatlab::writeProperties(qs, prefix);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -897,14 +893,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_event_isbase) {
             qscilexermatlab_event_isbase = false;
             return QsciLexerMatlab::event(event);
-        } else if (qscilexermatlab_event_callback != nullptr) {
+        }
+        auto event_cb = qscilexermatlab_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qscilexermatlab_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::event(event);
         }
+        return QsciLexerMatlab::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -912,15 +909,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_eventfilter_isbase) {
             qscilexermatlab_eventfilter_isbase = false;
             return QsciLexerMatlab::eventFilter(watched, event);
-        } else if (qscilexermatlab_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qscilexermatlab_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qscilexermatlab_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::eventFilter(watched, event);
         }
+        return QsciLexerMatlab::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -928,13 +926,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_timerevent_isbase) {
             qscilexermatlab_timerevent_isbase = false;
             QsciLexerMatlab::timerEvent(event);
-        } else if (qscilexermatlab_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qscilexermatlab_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qscilexermatlab_timerevent_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +943,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_childevent_isbase) {
             qscilexermatlab_childevent_isbase = false;
             QsciLexerMatlab::childEvent(event);
-        } else if (qscilexermatlab_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qscilexermatlab_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qscilexermatlab_childevent_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,13 +960,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_customevent_isbase) {
             qscilexermatlab_customevent_isbase = false;
             QsciLexerMatlab::customEvent(event);
-        } else if (qscilexermatlab_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qscilexermatlab_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qscilexermatlab_customevent_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,15 +977,18 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_connectnotify_isbase) {
             qscilexermatlab_connectnotify_isbase = false;
             QsciLexerMatlab::connectNotify(signal);
-        } else if (qscilexermatlab_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qscilexermatlab_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscilexermatlab_connectnotify_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,15 +996,18 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_disconnectnotify_isbase) {
             qscilexermatlab_disconnectnotify_isbase = false;
             QsciLexerMatlab::disconnectNotify(signal);
-        } else if (qscilexermatlab_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qscilexermatlab_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qscilexermatlab_disconnectnotify_callback(this, cbval1);
-        } else {
-            QsciLexerMatlab::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QsciLexerMatlab::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1002,7 +1015,9 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_textasbytes_isbase) {
             qscilexermatlab_textasbytes_isbase = false;
             return QsciLexerMatlab::textAsBytes(text);
-        } else if (qscilexermatlab_textasbytes_callback != nullptr) {
+        }
+        auto textasbytes_cb = qscilexermatlab_textasbytes_callback;
+        if (textasbytes_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -1012,13 +1027,12 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexermatlab_textasbytes_callback(this, cbval1);
+            libqt_string callback_ret = textasbytes_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             libqt_free(text_str);
             return callback_ret_QByteArray;
-        } else {
-            return QsciLexerMatlab::textAsBytes(text);
         }
+        return QsciLexerMatlab::textAsBytes(text);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1026,16 +1040,17 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_bytesastext_isbase) {
             qscilexermatlab_bytesastext_isbase = false;
             return QsciLexerMatlab::bytesAsText(bytes, size);
-        } else if (qscilexermatlab_bytesastext_callback != nullptr) {
+        }
+        auto bytesastext_cb = qscilexermatlab_bytesastext_callback;
+        if (bytesastext_cb) {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            const char* callback_ret = qscilexermatlab_bytesastext_callback(this, cbval1, cbval2);
+            const char* callback_ret = bytesastext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return QsciLexerMatlab::bytesAsText(bytes, size);
         }
+        return QsciLexerMatlab::bytesAsText(bytes, size);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,12 +1058,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_sender_isbase) {
             qscilexermatlab_sender_isbase = false;
             return QsciLexerMatlab::sender();
-        } else if (qscilexermatlab_sender_callback != nullptr) {
-            QObject* callback_ret = qscilexermatlab_sender_callback();
-            return callback_ret;
-        } else {
-            return QsciLexerMatlab::sender();
         }
+        auto sender_cb = qscilexermatlab_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QsciLexerMatlab::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1056,12 +1072,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_sendersignalindex_isbase) {
             qscilexermatlab_sendersignalindex_isbase = false;
             return QsciLexerMatlab::senderSignalIndex();
-        } else if (qscilexermatlab_sendersignalindex_callback != nullptr) {
-            int callback_ret = qscilexermatlab_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qscilexermatlab_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QsciLexerMatlab::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1069,14 +1086,15 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_receivers_isbase) {
             qscilexermatlab_receivers_isbase = false;
             return QsciLexerMatlab::receivers(signal);
-        } else if (qscilexermatlab_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qscilexermatlab_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qscilexermatlab_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QsciLexerMatlab::receivers(signal);
         }
+        return QsciLexerMatlab::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,16 +1102,17 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         if (qscilexermatlab_issignalconnected_isbase) {
             qscilexermatlab_issignalconnected_isbase = false;
             return QsciLexerMatlab::isSignalConnected(signal);
-        } else if (qscilexermatlab_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qscilexermatlab_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qscilexermatlab_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QsciLexerMatlab::isSignalConnected(signal);
         }
+        return QsciLexerMatlab::isSignalConnected(signal);
     }
 
     // Friend functions

@@ -104,35 +104,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
   public:
     VirtualQAbstractTextDocumentLayout(QTextDocument* doc) : QAbstractTextDocumentLayout(doc) {};
 
-    ~VirtualQAbstractTextDocumentLayout() {
-        qabstracttextdocumentlayout_metaobject_callback = nullptr;
-        qabstracttextdocumentlayout_metacast_callback = nullptr;
-        qabstracttextdocumentlayout_metacall_callback = nullptr;
-        qabstracttextdocumentlayout_draw_callback = nullptr;
-        qabstracttextdocumentlayout_hittest_callback = nullptr;
-        qabstracttextdocumentlayout_pagecount_callback = nullptr;
-        qabstracttextdocumentlayout_documentsize_callback = nullptr;
-        qabstracttextdocumentlayout_frameboundingrect_callback = nullptr;
-        qabstracttextdocumentlayout_blockboundingrect_callback = nullptr;
-        qabstracttextdocumentlayout_documentchanged_callback = nullptr;
-        qabstracttextdocumentlayout_resizeinlineobject_callback = nullptr;
-        qabstracttextdocumentlayout_positioninlineobject_callback = nullptr;
-        qabstracttextdocumentlayout_drawinlineobject_callback = nullptr;
-        qabstracttextdocumentlayout_event_callback = nullptr;
-        qabstracttextdocumentlayout_eventfilter_callback = nullptr;
-        qabstracttextdocumentlayout_timerevent_callback = nullptr;
-        qabstracttextdocumentlayout_childevent_callback = nullptr;
-        qabstracttextdocumentlayout_customevent_callback = nullptr;
-        qabstracttextdocumentlayout_connectnotify_callback = nullptr;
-        qabstracttextdocumentlayout_disconnectnotify_callback = nullptr;
-        qabstracttextdocumentlayout_formatindex_callback = nullptr;
-        qabstracttextdocumentlayout_format_callback = nullptr;
-        qabstracttextdocumentlayout_sender_callback = nullptr;
-        qabstracttextdocumentlayout_sendersignalindex_callback = nullptr;
-        qabstracttextdocumentlayout_receivers_callback = nullptr;
-        qabstracttextdocumentlayout_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQAbstractTextDocumentLayout_MetaObject_Callback(QAbstractTextDocumentLayout_MetaObject_Callback cb) { qabstracttextdocumentlayout_metaobject_callback = cb; }
     inline void setQAbstractTextDocumentLayout_Metacast_Callback(QAbstractTextDocumentLayout_Metacast_Callback cb) { qabstracttextdocumentlayout_metacast_callback = cb; }
@@ -194,12 +165,13 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_metaobject_isbase) {
             qabstracttextdocumentlayout_metaobject_isbase = false;
             return QAbstractTextDocumentLayout::metaObject();
-        } else if (qabstracttextdocumentlayout_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qabstracttextdocumentlayout_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::metaObject();
         }
+        auto metaobject_cb = qabstracttextdocumentlayout_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QAbstractTextDocumentLayout::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -207,14 +179,15 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_metacast_isbase) {
             qabstracttextdocumentlayout_metacast_isbase = false;
             return QAbstractTextDocumentLayout::qt_metacast(param1);
-        } else if (qabstracttextdocumentlayout_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qabstracttextdocumentlayout_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qabstracttextdocumentlayout_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::qt_metacast(param1);
         }
+        return QAbstractTextDocumentLayout::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,99 +195,102 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_metacall_isbase) {
             qabstracttextdocumentlayout_metacall_isbase = false;
             return QAbstractTextDocumentLayout::qt_metacall(param1, param2, param3);
-        } else if (qabstracttextdocumentlayout_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qabstracttextdocumentlayout_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qabstracttextdocumentlayout_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTextDocumentLayout::qt_metacall(param1, param2, param3);
         }
+        return QAbstractTextDocumentLayout::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void draw(QPainter* painter, const QAbstractTextDocumentLayout::PaintContext& context) override {
-        if (qabstracttextdocumentlayout_draw_callback != nullptr) {
+        auto draw_cb = qabstracttextdocumentlayout_draw_callback;
+        if (draw_cb) {
             QPainter* cbval1 = painter;
             const QAbstractTextDocumentLayout::PaintContext& context_ret = context;
             // Cast returned reference into pointer
             QAbstractTextDocumentLayout__PaintContext* cbval2 = const_cast<QAbstractTextDocumentLayout::PaintContext*>(&context_ret);
 
-            qabstracttextdocumentlayout_draw_callback(this, cbval1, cbval2);
+            draw_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int hitTest(const QPointF& point, Qt::HitTestAccuracy accuracy) const override {
-        if (qabstracttextdocumentlayout_hittest_callback != nullptr) {
+        auto hittest_cb = qabstracttextdocumentlayout_hittest_callback;
+        if (hittest_cb) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
             int cbval2 = static_cast<int>(accuracy);
 
-            int callback_ret = qabstracttextdocumentlayout_hittest_callback(this, cbval1, cbval2);
+            int callback_ret = hittest_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int pageCount() const override {
-        if (qabstracttextdocumentlayout_pagecount_callback != nullptr) {
-            int callback_ret = qabstracttextdocumentlayout_pagecount_callback();
+        auto pagecount_cb = qabstracttextdocumentlayout_pagecount_callback;
+        if (pagecount_cb) {
+            int callback_ret = pagecount_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSizeF documentSize() const override {
-        if (qabstracttextdocumentlayout_documentsize_callback != nullptr) {
-            QSizeF* callback_ret = qabstracttextdocumentlayout_documentsize_callback();
+        auto documentsize_cb = qabstracttextdocumentlayout_documentsize_callback;
+        if (documentsize_cb) {
+            QSizeF* callback_ret = documentsize_cb();
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF frameBoundingRect(QTextFrame* frame) const override {
-        if (qabstracttextdocumentlayout_frameboundingrect_callback != nullptr) {
+        auto frameboundingrect_cb = qabstracttextdocumentlayout_frameboundingrect_callback;
+        if (frameboundingrect_cb) {
             QTextFrame* cbval1 = frame;
 
-            QRectF* callback_ret = qabstracttextdocumentlayout_frameboundingrect_callback(this, cbval1);
+            QRectF* callback_ret = frameboundingrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF blockBoundingRect(const QTextBlock& block) const override {
-        if (qabstracttextdocumentlayout_blockboundingrect_callback != nullptr) {
+        auto blockboundingrect_cb = qabstracttextdocumentlayout_blockboundingrect_callback;
+        if (blockboundingrect_cb) {
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
 
-            QRectF* callback_ret = qabstracttextdocumentlayout_blockboundingrect_callback(this, cbval1);
+            QRectF* callback_ret = blockboundingrect_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void documentChanged(int from, int charsRemoved, int charsAdded) override {
-        if (qabstracttextdocumentlayout_documentchanged_callback != nullptr) {
+        auto documentchanged_cb = qabstracttextdocumentlayout_documentchanged_callback;
+        if (documentchanged_cb) {
             int cbval1 = from;
             int cbval2 = charsRemoved;
             int cbval3 = charsAdded;
 
-            qabstracttextdocumentlayout_documentchanged_callback(this, cbval1, cbval2, cbval3);
+            documentchanged_cb(this, cbval1, cbval2, cbval3);
         }
     }
 
@@ -323,17 +299,20 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_resizeinlineobject_isbase) {
             qabstracttextdocumentlayout_resizeinlineobject_isbase = false;
             QAbstractTextDocumentLayout::resizeInlineObject(item, posInDocument, format);
-        } else if (qabstracttextdocumentlayout_resizeinlineobject_callback != nullptr) {
+            return;
+        }
+        auto resizeinlineobject_cb = qabstracttextdocumentlayout_resizeinlineobject_callback;
+        if (resizeinlineobject_cb) {
             QTextInlineObject* cbval1 = new QTextInlineObject(item);
             int cbval2 = posInDocument;
             const QTextFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextFormat* cbval3 = const_cast<QTextFormat*>(&format_ret);
 
-            qabstracttextdocumentlayout_resizeinlineobject_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractTextDocumentLayout::resizeInlineObject(item, posInDocument, format);
+            resizeinlineobject_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractTextDocumentLayout::resizeInlineObject(item, posInDocument, format);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -341,17 +320,20 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_positioninlineobject_isbase) {
             qabstracttextdocumentlayout_positioninlineobject_isbase = false;
             QAbstractTextDocumentLayout::positionInlineObject(item, posInDocument, format);
-        } else if (qabstracttextdocumentlayout_positioninlineobject_callback != nullptr) {
+            return;
+        }
+        auto positioninlineobject_cb = qabstracttextdocumentlayout_positioninlineobject_callback;
+        if (positioninlineobject_cb) {
             QTextInlineObject* cbval1 = new QTextInlineObject(item);
             int cbval2 = posInDocument;
             const QTextFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextFormat* cbval3 = const_cast<QTextFormat*>(&format_ret);
 
-            qabstracttextdocumentlayout_positioninlineobject_callback(this, cbval1, cbval2, cbval3);
-        } else {
-            QAbstractTextDocumentLayout::positionInlineObject(item, posInDocument, format);
+            positioninlineobject_cb(this, cbval1, cbval2, cbval3);
+            return;
         }
+        QAbstractTextDocumentLayout::positionInlineObject(item, posInDocument, format);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,7 +341,10 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_drawinlineobject_isbase) {
             qabstracttextdocumentlayout_drawinlineobject_isbase = false;
             QAbstractTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
-        } else if (qabstracttextdocumentlayout_drawinlineobject_callback != nullptr) {
+            return;
+        }
+        auto drawinlineobject_cb = qabstracttextdocumentlayout_drawinlineobject_callback;
+        if (drawinlineobject_cb) {
             QPainter* cbval1 = painter;
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
@@ -370,10 +355,10 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             // Cast returned reference into pointer
             QTextFormat* cbval5 = const_cast<QTextFormat*>(&format_ret);
 
-            qabstracttextdocumentlayout_drawinlineobject_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
-        } else {
-            QAbstractTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
+            drawinlineobject_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            return;
         }
+        QAbstractTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -381,14 +366,15 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_event_isbase) {
             qabstracttextdocumentlayout_event_isbase = false;
             return QAbstractTextDocumentLayout::event(event);
-        } else if (qabstracttextdocumentlayout_event_callback != nullptr) {
+        }
+        auto event_cb = qabstracttextdocumentlayout_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qabstracttextdocumentlayout_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::event(event);
         }
+        return QAbstractTextDocumentLayout::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -396,15 +382,16 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_eventfilter_isbase) {
             qabstracttextdocumentlayout_eventfilter_isbase = false;
             return QAbstractTextDocumentLayout::eventFilter(watched, event);
-        } else if (qabstracttextdocumentlayout_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qabstracttextdocumentlayout_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qabstracttextdocumentlayout_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::eventFilter(watched, event);
         }
+        return QAbstractTextDocumentLayout::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,13 +399,16 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_timerevent_isbase) {
             qabstracttextdocumentlayout_timerevent_isbase = false;
             QAbstractTextDocumentLayout::timerEvent(event);
-        } else if (qabstracttextdocumentlayout_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qabstracttextdocumentlayout_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qabstracttextdocumentlayout_timerevent_callback(this, cbval1);
-        } else {
-            QAbstractTextDocumentLayout::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QAbstractTextDocumentLayout::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,13 +416,16 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_childevent_isbase) {
             qabstracttextdocumentlayout_childevent_isbase = false;
             QAbstractTextDocumentLayout::childEvent(event);
-        } else if (qabstracttextdocumentlayout_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qabstracttextdocumentlayout_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qabstracttextdocumentlayout_childevent_callback(this, cbval1);
-        } else {
-            QAbstractTextDocumentLayout::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QAbstractTextDocumentLayout::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,13 +433,16 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_customevent_isbase) {
             qabstracttextdocumentlayout_customevent_isbase = false;
             QAbstractTextDocumentLayout::customEvent(event);
-        } else if (qabstracttextdocumentlayout_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qabstracttextdocumentlayout_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qabstracttextdocumentlayout_customevent_callback(this, cbval1);
-        } else {
-            QAbstractTextDocumentLayout::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QAbstractTextDocumentLayout::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,15 +450,18 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_connectnotify_isbase) {
             qabstracttextdocumentlayout_connectnotify_isbase = false;
             QAbstractTextDocumentLayout::connectNotify(signal);
-        } else if (qabstracttextdocumentlayout_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qabstracttextdocumentlayout_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstracttextdocumentlayout_connectnotify_callback(this, cbval1);
-        } else {
-            QAbstractTextDocumentLayout::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractTextDocumentLayout::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,15 +469,18 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_disconnectnotify_isbase) {
             qabstracttextdocumentlayout_disconnectnotify_isbase = false;
             QAbstractTextDocumentLayout::disconnectNotify(signal);
-        } else if (qabstracttextdocumentlayout_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qabstracttextdocumentlayout_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qabstracttextdocumentlayout_disconnectnotify_callback(this, cbval1);
-        } else {
-            QAbstractTextDocumentLayout::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QAbstractTextDocumentLayout::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,14 +488,15 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_formatindex_isbase) {
             qabstracttextdocumentlayout_formatindex_isbase = false;
             return QAbstractTextDocumentLayout::formatIndex(pos);
-        } else if (qabstracttextdocumentlayout_formatindex_callback != nullptr) {
+        }
+        auto formatindex_cb = qabstracttextdocumentlayout_formatindex_callback;
+        if (formatindex_cb) {
             int cbval1 = pos;
 
-            int callback_ret = qabstracttextdocumentlayout_formatindex_callback(this, cbval1);
+            int callback_ret = formatindex_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTextDocumentLayout::formatIndex(pos);
         }
+        return QAbstractTextDocumentLayout::formatIndex(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -501,14 +504,15 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_format_isbase) {
             qabstracttextdocumentlayout_format_isbase = false;
             return QAbstractTextDocumentLayout::format(pos);
-        } else if (qabstracttextdocumentlayout_format_callback != nullptr) {
+        }
+        auto format_cb = qabstracttextdocumentlayout_format_callback;
+        if (format_cb) {
             int cbval1 = pos;
 
-            QTextCharFormat* callback_ret = qabstracttextdocumentlayout_format_callback(this, cbval1);
+            QTextCharFormat* callback_ret = format_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::format(pos);
         }
+        return QAbstractTextDocumentLayout::format(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -516,12 +520,13 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_sender_isbase) {
             qabstracttextdocumentlayout_sender_isbase = false;
             return QAbstractTextDocumentLayout::sender();
-        } else if (qabstracttextdocumentlayout_sender_callback != nullptr) {
-            QObject* callback_ret = qabstracttextdocumentlayout_sender_callback();
-            return callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::sender();
         }
+        auto sender_cb = qabstracttextdocumentlayout_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QAbstractTextDocumentLayout::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -529,12 +534,13 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_sendersignalindex_isbase) {
             qabstracttextdocumentlayout_sendersignalindex_isbase = false;
             return QAbstractTextDocumentLayout::senderSignalIndex();
-        } else if (qabstracttextdocumentlayout_sendersignalindex_callback != nullptr) {
-            int callback_ret = qabstracttextdocumentlayout_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTextDocumentLayout::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qabstracttextdocumentlayout_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QAbstractTextDocumentLayout::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,14 +548,15 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_receivers_isbase) {
             qabstracttextdocumentlayout_receivers_isbase = false;
             return QAbstractTextDocumentLayout::receivers(signal);
-        } else if (qabstracttextdocumentlayout_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qabstracttextdocumentlayout_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qabstracttextdocumentlayout_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QAbstractTextDocumentLayout::receivers(signal);
         }
+        return QAbstractTextDocumentLayout::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -557,16 +564,17 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (qabstracttextdocumentlayout_issignalconnected_isbase) {
             qabstracttextdocumentlayout_issignalconnected_isbase = false;
             return QAbstractTextDocumentLayout::isSignalConnected(signal);
-        } else if (qabstracttextdocumentlayout_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qabstracttextdocumentlayout_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qabstracttextdocumentlayout_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QAbstractTextDocumentLayout::isSignalConnected(signal);
         }
+        return QAbstractTextDocumentLayout::isSignalConnected(signal);
     }
 
     // Friend functions

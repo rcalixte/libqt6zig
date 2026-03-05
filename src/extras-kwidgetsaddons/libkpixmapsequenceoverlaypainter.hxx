@@ -71,23 +71,6 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
     VirtualKPixmapSequenceOverlayPainter(QObject* parent) : KPixmapSequenceOverlayPainter(parent) {};
     VirtualKPixmapSequenceOverlayPainter(const KPixmapSequence& seq, QObject* parent) : KPixmapSequenceOverlayPainter(seq, parent) {};
 
-    ~VirtualKPixmapSequenceOverlayPainter() {
-        kpixmapsequenceoverlaypainter_metaobject_callback = nullptr;
-        kpixmapsequenceoverlaypainter_metacast_callback = nullptr;
-        kpixmapsequenceoverlaypainter_metacall_callback = nullptr;
-        kpixmapsequenceoverlaypainter_eventfilter_callback = nullptr;
-        kpixmapsequenceoverlaypainter_event_callback = nullptr;
-        kpixmapsequenceoverlaypainter_timerevent_callback = nullptr;
-        kpixmapsequenceoverlaypainter_childevent_callback = nullptr;
-        kpixmapsequenceoverlaypainter_customevent_callback = nullptr;
-        kpixmapsequenceoverlaypainter_connectnotify_callback = nullptr;
-        kpixmapsequenceoverlaypainter_disconnectnotify_callback = nullptr;
-        kpixmapsequenceoverlaypainter_sender_callback = nullptr;
-        kpixmapsequenceoverlaypainter_sendersignalindex_callback = nullptr;
-        kpixmapsequenceoverlaypainter_receivers_callback = nullptr;
-        kpixmapsequenceoverlaypainter_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKPixmapSequenceOverlayPainter_MetaObject_Callback(KPixmapSequenceOverlayPainter_MetaObject_Callback cb) { kpixmapsequenceoverlaypainter_metaobject_callback = cb; }
     inline void setKPixmapSequenceOverlayPainter_Metacast_Callback(KPixmapSequenceOverlayPainter_Metacast_Callback cb) { kpixmapsequenceoverlaypainter_metacast_callback = cb; }
@@ -125,12 +108,13 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_metaobject_isbase) {
             kpixmapsequenceoverlaypainter_metaobject_isbase = false;
             return KPixmapSequenceOverlayPainter::metaObject();
-        } else if (kpixmapsequenceoverlaypainter_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kpixmapsequenceoverlaypainter_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KPixmapSequenceOverlayPainter::metaObject();
         }
+        auto metaobject_cb = kpixmapsequenceoverlaypainter_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KPixmapSequenceOverlayPainter::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -138,14 +122,15 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_metacast_isbase) {
             kpixmapsequenceoverlaypainter_metacast_isbase = false;
             return KPixmapSequenceOverlayPainter::qt_metacast(param1);
-        } else if (kpixmapsequenceoverlaypainter_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kpixmapsequenceoverlaypainter_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kpixmapsequenceoverlaypainter_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapSequenceOverlayPainter::qt_metacast(param1);
         }
+        return KPixmapSequenceOverlayPainter::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -153,16 +138,17 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_metacall_isbase) {
             kpixmapsequenceoverlaypainter_metacall_isbase = false;
             return KPixmapSequenceOverlayPainter::qt_metacall(param1, param2, param3);
-        } else if (kpixmapsequenceoverlaypainter_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kpixmapsequenceoverlaypainter_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kpixmapsequenceoverlaypainter_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapSequenceOverlayPainter::qt_metacall(param1, param2, param3);
         }
+        return KPixmapSequenceOverlayPainter::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -170,15 +156,16 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_eventfilter_isbase) {
             kpixmapsequenceoverlaypainter_eventfilter_isbase = false;
             return KPixmapSequenceOverlayPainter::eventFilter(obj, event);
-        } else if (kpixmapsequenceoverlaypainter_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kpixmapsequenceoverlaypainter_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kpixmapsequenceoverlaypainter_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KPixmapSequenceOverlayPainter::eventFilter(obj, event);
         }
+        return KPixmapSequenceOverlayPainter::eventFilter(obj, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,14 +173,15 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_event_isbase) {
             kpixmapsequenceoverlaypainter_event_isbase = false;
             return KPixmapSequenceOverlayPainter::event(event);
-        } else if (kpixmapsequenceoverlaypainter_event_callback != nullptr) {
+        }
+        auto event_cb = kpixmapsequenceoverlaypainter_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kpixmapsequenceoverlaypainter_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapSequenceOverlayPainter::event(event);
         }
+        return KPixmapSequenceOverlayPainter::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -201,13 +189,16 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_timerevent_isbase) {
             kpixmapsequenceoverlaypainter_timerevent_isbase = false;
             KPixmapSequenceOverlayPainter::timerEvent(event);
-        } else if (kpixmapsequenceoverlaypainter_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kpixmapsequenceoverlaypainter_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kpixmapsequenceoverlaypainter_timerevent_callback(this, cbval1);
-        } else {
-            KPixmapSequenceOverlayPainter::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KPixmapSequenceOverlayPainter::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -215,13 +206,16 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_childevent_isbase) {
             kpixmapsequenceoverlaypainter_childevent_isbase = false;
             KPixmapSequenceOverlayPainter::childEvent(event);
-        } else if (kpixmapsequenceoverlaypainter_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kpixmapsequenceoverlaypainter_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kpixmapsequenceoverlaypainter_childevent_callback(this, cbval1);
-        } else {
-            KPixmapSequenceOverlayPainter::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KPixmapSequenceOverlayPainter::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -229,13 +223,16 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_customevent_isbase) {
             kpixmapsequenceoverlaypainter_customevent_isbase = false;
             KPixmapSequenceOverlayPainter::customEvent(event);
-        } else if (kpixmapsequenceoverlaypainter_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kpixmapsequenceoverlaypainter_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kpixmapsequenceoverlaypainter_customevent_callback(this, cbval1);
-        } else {
-            KPixmapSequenceOverlayPainter::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KPixmapSequenceOverlayPainter::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -243,15 +240,18 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_connectnotify_isbase) {
             kpixmapsequenceoverlaypainter_connectnotify_isbase = false;
             KPixmapSequenceOverlayPainter::connectNotify(signal);
-        } else if (kpixmapsequenceoverlaypainter_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kpixmapsequenceoverlaypainter_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpixmapsequenceoverlaypainter_connectnotify_callback(this, cbval1);
-        } else {
-            KPixmapSequenceOverlayPainter::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KPixmapSequenceOverlayPainter::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,15 +259,18 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_disconnectnotify_isbase) {
             kpixmapsequenceoverlaypainter_disconnectnotify_isbase = false;
             KPixmapSequenceOverlayPainter::disconnectNotify(signal);
-        } else if (kpixmapsequenceoverlaypainter_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kpixmapsequenceoverlaypainter_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kpixmapsequenceoverlaypainter_disconnectnotify_callback(this, cbval1);
-        } else {
-            KPixmapSequenceOverlayPainter::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KPixmapSequenceOverlayPainter::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -275,12 +278,13 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_sender_isbase) {
             kpixmapsequenceoverlaypainter_sender_isbase = false;
             return KPixmapSequenceOverlayPainter::sender();
-        } else if (kpixmapsequenceoverlaypainter_sender_callback != nullptr) {
-            QObject* callback_ret = kpixmapsequenceoverlaypainter_sender_callback();
-            return callback_ret;
-        } else {
-            return KPixmapSequenceOverlayPainter::sender();
         }
+        auto sender_cb = kpixmapsequenceoverlaypainter_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KPixmapSequenceOverlayPainter::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,12 +292,13 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_sendersignalindex_isbase) {
             kpixmapsequenceoverlaypainter_sendersignalindex_isbase = false;
             return KPixmapSequenceOverlayPainter::senderSignalIndex();
-        } else if (kpixmapsequenceoverlaypainter_sendersignalindex_callback != nullptr) {
-            int callback_ret = kpixmapsequenceoverlaypainter_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapSequenceOverlayPainter::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kpixmapsequenceoverlaypainter_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KPixmapSequenceOverlayPainter::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -301,14 +306,15 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_receivers_isbase) {
             kpixmapsequenceoverlaypainter_receivers_isbase = false;
             return KPixmapSequenceOverlayPainter::receivers(signal);
-        } else if (kpixmapsequenceoverlaypainter_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kpixmapsequenceoverlaypainter_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kpixmapsequenceoverlaypainter_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KPixmapSequenceOverlayPainter::receivers(signal);
         }
+        return KPixmapSequenceOverlayPainter::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,16 +322,17 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
         if (kpixmapsequenceoverlaypainter_issignalconnected_isbase) {
             kpixmapsequenceoverlaypainter_issignalconnected_isbase = false;
             return KPixmapSequenceOverlayPainter::isSignalConnected(signal);
-        } else if (kpixmapsequenceoverlaypainter_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kpixmapsequenceoverlaypainter_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kpixmapsequenceoverlaypainter_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KPixmapSequenceOverlayPainter::isSignalConnected(signal);
         }
+        return KPixmapSequenceOverlayPainter::isSignalConnected(signal);
     }
 
     // Friend functions

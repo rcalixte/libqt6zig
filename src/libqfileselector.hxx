@@ -69,23 +69,6 @@ class VirtualQFileSelector final : public QFileSelector {
     VirtualQFileSelector() : QFileSelector() {};
     VirtualQFileSelector(QObject* parent) : QFileSelector(parent) {};
 
-    ~VirtualQFileSelector() {
-        qfileselector_metaobject_callback = nullptr;
-        qfileselector_metacast_callback = nullptr;
-        qfileselector_metacall_callback = nullptr;
-        qfileselector_event_callback = nullptr;
-        qfileselector_eventfilter_callback = nullptr;
-        qfileselector_timerevent_callback = nullptr;
-        qfileselector_childevent_callback = nullptr;
-        qfileselector_customevent_callback = nullptr;
-        qfileselector_connectnotify_callback = nullptr;
-        qfileselector_disconnectnotify_callback = nullptr;
-        qfileselector_sender_callback = nullptr;
-        qfileselector_sendersignalindex_callback = nullptr;
-        qfileselector_receivers_callback = nullptr;
-        qfileselector_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQFileSelector_MetaObject_Callback(QFileSelector_MetaObject_Callback cb) { qfileselector_metaobject_callback = cb; }
     inline void setQFileSelector_Metacast_Callback(QFileSelector_Metacast_Callback cb) { qfileselector_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_metaobject_isbase) {
             qfileselector_metaobject_isbase = false;
             return QFileSelector::metaObject();
-        } else if (qfileselector_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qfileselector_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QFileSelector::metaObject();
         }
+        auto metaobject_cb = qfileselector_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QFileSelector::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_metacast_isbase) {
             qfileselector_metacast_isbase = false;
             return QFileSelector::qt_metacast(param1);
-        } else if (qfileselector_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qfileselector_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qfileselector_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSelector::qt_metacast(param1);
         }
+        return QFileSelector::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_metacall_isbase) {
             qfileselector_metacall_isbase = false;
             return QFileSelector::qt_metacall(param1, param2, param3);
-        } else if (qfileselector_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qfileselector_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qfileselector_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileSelector::qt_metacall(param1, param2, param3);
         }
+        return QFileSelector::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_event_isbase) {
             qfileselector_event_isbase = false;
             return QFileSelector::event(event);
-        } else if (qfileselector_event_callback != nullptr) {
+        }
+        auto event_cb = qfileselector_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qfileselector_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSelector::event(event);
         }
+        return QFileSelector::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_eventfilter_isbase) {
             qfileselector_eventfilter_isbase = false;
             return QFileSelector::eventFilter(watched, event);
-        } else if (qfileselector_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qfileselector_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qfileselector_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QFileSelector::eventFilter(watched, event);
         }
+        return QFileSelector::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_timerevent_isbase) {
             qfileselector_timerevent_isbase = false;
             QFileSelector::timerEvent(event);
-        } else if (qfileselector_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qfileselector_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qfileselector_timerevent_callback(this, cbval1);
-        } else {
-            QFileSelector::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QFileSelector::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_childevent_isbase) {
             qfileselector_childevent_isbase = false;
             QFileSelector::childEvent(event);
-        } else if (qfileselector_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qfileselector_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qfileselector_childevent_callback(this, cbval1);
-        } else {
-            QFileSelector::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QFileSelector::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_customevent_isbase) {
             qfileselector_customevent_isbase = false;
             QFileSelector::customEvent(event);
-        } else if (qfileselector_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qfileselector_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qfileselector_customevent_callback(this, cbval1);
-        } else {
-            QFileSelector::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QFileSelector::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_connectnotify_isbase) {
             qfileselector_connectnotify_isbase = false;
             QFileSelector::connectNotify(signal);
-        } else if (qfileselector_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qfileselector_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfileselector_connectnotify_callback(this, cbval1);
-        } else {
-            QFileSelector::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QFileSelector::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_disconnectnotify_isbase) {
             qfileselector_disconnectnotify_isbase = false;
             QFileSelector::disconnectNotify(signal);
-        } else if (qfileselector_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qfileselector_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qfileselector_disconnectnotify_callback(this, cbval1);
-        } else {
-            QFileSelector::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QFileSelector::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_sender_isbase) {
             qfileselector_sender_isbase = false;
             return QFileSelector::sender();
-        } else if (qfileselector_sender_callback != nullptr) {
-            QObject* callback_ret = qfileselector_sender_callback();
-            return callback_ret;
-        } else {
-            return QFileSelector::sender();
         }
+        auto sender_cb = qfileselector_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QFileSelector::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_sendersignalindex_isbase) {
             qfileselector_sendersignalindex_isbase = false;
             return QFileSelector::senderSignalIndex();
-        } else if (qfileselector_sendersignalindex_callback != nullptr) {
-            int callback_ret = qfileselector_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QFileSelector::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qfileselector_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QFileSelector::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_receivers_isbase) {
             qfileselector_receivers_isbase = false;
             return QFileSelector::receivers(signal);
-        } else if (qfileselector_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qfileselector_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qfileselector_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QFileSelector::receivers(signal);
         }
+        return QFileSelector::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQFileSelector final : public QFileSelector {
         if (qfileselector_issignalconnected_isbase) {
             qfileselector_issignalconnected_isbase = false;
             return QFileSelector::isSignalConnected(signal);
-        } else if (qfileselector_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qfileselector_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qfileselector_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QFileSelector::isSignalConnected(signal);
         }
+        return QFileSelector::isSignalConnected(signal);
     }
 
     // Friend functions

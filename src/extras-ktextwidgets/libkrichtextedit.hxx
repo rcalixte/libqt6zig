@@ -299,99 +299,6 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     VirtualKRichTextEdit() : KRichTextEdit() {};
     VirtualKRichTextEdit(const QString& text, QWidget* parent) : KRichTextEdit(text, parent) {};
 
-    ~VirtualKRichTextEdit() {
-        krichtextedit_metaobject_callback = nullptr;
-        krichtextedit_metacast_callback = nullptr;
-        krichtextedit_metacall_callback = nullptr;
-        krichtextedit_keypressevent_callback = nullptr;
-        krichtextedit_setreadonly_callback = nullptr;
-        krichtextedit_setcheckspellingenabled_callback = nullptr;
-        krichtextedit_checkspellingenabled_callback = nullptr;
-        krichtextedit_shouldblockbespellchecked_callback = nullptr;
-        krichtextedit_createhighlighter_callback = nullptr;
-        krichtextedit_mousepopupmenu_callback = nullptr;
-        krichtextedit_event_callback = nullptr;
-        krichtextedit_focusinevent_callback = nullptr;
-        krichtextedit_deletewordback_callback = nullptr;
-        krichtextedit_deletewordforward_callback = nullptr;
-        krichtextedit_contextmenuevent_callback = nullptr;
-        krichtextedit_loadresource_callback = nullptr;
-        krichtextedit_inputmethodquery_callback = nullptr;
-        krichtextedit_timerevent_callback = nullptr;
-        krichtextedit_keyreleaseevent_callback = nullptr;
-        krichtextedit_resizeevent_callback = nullptr;
-        krichtextedit_paintevent_callback = nullptr;
-        krichtextedit_mousepressevent_callback = nullptr;
-        krichtextedit_mousemoveevent_callback = nullptr;
-        krichtextedit_mousereleaseevent_callback = nullptr;
-        krichtextedit_mousedoubleclickevent_callback = nullptr;
-        krichtextedit_focusnextprevchild_callback = nullptr;
-        krichtextedit_dragenterevent_callback = nullptr;
-        krichtextedit_dragleaveevent_callback = nullptr;
-        krichtextedit_dragmoveevent_callback = nullptr;
-        krichtextedit_dropevent_callback = nullptr;
-        krichtextedit_focusoutevent_callback = nullptr;
-        krichtextedit_showevent_callback = nullptr;
-        krichtextedit_changeevent_callback = nullptr;
-        krichtextedit_wheelevent_callback = nullptr;
-        krichtextedit_createmimedatafromselection_callback = nullptr;
-        krichtextedit_caninsertfrommimedata_callback = nullptr;
-        krichtextedit_insertfrommimedata_callback = nullptr;
-        krichtextedit_inputmethodevent_callback = nullptr;
-        krichtextedit_scrollcontentsby_callback = nullptr;
-        krichtextedit_dosettextcursor_callback = nullptr;
-        krichtextedit_minimumsizehint_callback = nullptr;
-        krichtextedit_sizehint_callback = nullptr;
-        krichtextedit_setupviewport_callback = nullptr;
-        krichtextedit_eventfilter_callback = nullptr;
-        krichtextedit_viewportevent_callback = nullptr;
-        krichtextedit_viewportsizehint_callback = nullptr;
-        krichtextedit_initstyleoption_callback = nullptr;
-        krichtextedit_devtype_callback = nullptr;
-        krichtextedit_setvisible_callback = nullptr;
-        krichtextedit_heightforwidth_callback = nullptr;
-        krichtextedit_hasheightforwidth_callback = nullptr;
-        krichtextedit_paintengine_callback = nullptr;
-        krichtextedit_enterevent_callback = nullptr;
-        krichtextedit_leaveevent_callback = nullptr;
-        krichtextedit_moveevent_callback = nullptr;
-        krichtextedit_closeevent_callback = nullptr;
-        krichtextedit_tabletevent_callback = nullptr;
-        krichtextedit_actionevent_callback = nullptr;
-        krichtextedit_hideevent_callback = nullptr;
-        krichtextedit_nativeevent_callback = nullptr;
-        krichtextedit_metric_callback = nullptr;
-        krichtextedit_initpainter_callback = nullptr;
-        krichtextedit_redirected_callback = nullptr;
-        krichtextedit_sharedpainter_callback = nullptr;
-        krichtextedit_childevent_callback = nullptr;
-        krichtextedit_customevent_callback = nullptr;
-        krichtextedit_connectnotify_callback = nullptr;
-        krichtextedit_disconnectnotify_callback = nullptr;
-        krichtextedit_slotdoreplace_callback = nullptr;
-        krichtextedit_slotreplacenext_callback = nullptr;
-        krichtextedit_slotdofind_callback = nullptr;
-        krichtextedit_slotfind_callback = nullptr;
-        krichtextedit_slotfindnext_callback = nullptr;
-        krichtextedit_slotfindprevious_callback = nullptr;
-        krichtextedit_slotreplace_callback = nullptr;
-        krichtextedit_slotspeaktext_callback = nullptr;
-        krichtextedit_zoominf_callback = nullptr;
-        krichtextedit_setviewportmargins_callback = nullptr;
-        krichtextedit_viewportmargins_callback = nullptr;
-        krichtextedit_drawframe_callback = nullptr;
-        krichtextedit_updatemicrofocus_callback = nullptr;
-        krichtextedit_create_callback = nullptr;
-        krichtextedit_destroy_callback = nullptr;
-        krichtextedit_focusnextchild_callback = nullptr;
-        krichtextedit_focuspreviouschild_callback = nullptr;
-        krichtextedit_sender_callback = nullptr;
-        krichtextedit_sendersignalindex_callback = nullptr;
-        krichtextedit_receivers_callback = nullptr;
-        krichtextedit_issignalconnected_callback = nullptr;
-        krichtextedit_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKRichTextEdit_MetaObject_Callback(KRichTextEdit_MetaObject_Callback cb) { krichtextedit_metaobject_callback = cb; }
     inline void setKRichTextEdit_Metacast_Callback(KRichTextEdit_Metacast_Callback cb) { krichtextedit_metacast_callback = cb; }
@@ -581,12 +488,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_metaobject_isbase) {
             krichtextedit_metaobject_isbase = false;
             return KRichTextEdit::metaObject();
-        } else if (krichtextedit_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = krichtextedit_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::metaObject();
         }
+        auto metaobject_cb = krichtextedit_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -594,14 +502,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_metacast_isbase) {
             krichtextedit_metacast_isbase = false;
             return KRichTextEdit::qt_metacast(param1);
-        } else if (krichtextedit_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = krichtextedit_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = krichtextedit_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::qt_metacast(param1);
         }
+        return KRichTextEdit::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,16 +518,17 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_metacall_isbase) {
             krichtextedit_metacall_isbase = false;
             return KRichTextEdit::qt_metacall(param1, param2, param3);
-        } else if (krichtextedit_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = krichtextedit_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = krichtextedit_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRichTextEdit::qt_metacall(param1, param2, param3);
         }
+        return KRichTextEdit::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +536,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_keypressevent_isbase) {
             krichtextedit_keypressevent_isbase = false;
             KRichTextEdit::keyPressEvent(event);
-        } else if (krichtextedit_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = krichtextedit_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            krichtextedit_keypressevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +553,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_setreadonly_isbase) {
             krichtextedit_setreadonly_isbase = false;
             KRichTextEdit::setReadOnly(readOnly);
-        } else if (krichtextedit_setreadonly_callback != nullptr) {
+            return;
+        }
+        auto setreadonly_cb = krichtextedit_setreadonly_callback;
+        if (setreadonly_cb) {
             bool cbval1 = readOnly;
 
-            krichtextedit_setreadonly_callback(this, cbval1);
-        } else {
-            KRichTextEdit::setReadOnly(readOnly);
+            setreadonly_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::setReadOnly(readOnly);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,13 +570,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_setcheckspellingenabled_isbase) {
             krichtextedit_setcheckspellingenabled_isbase = false;
             KRichTextEdit::setCheckSpellingEnabled(check);
-        } else if (krichtextedit_setcheckspellingenabled_callback != nullptr) {
+            return;
+        }
+        auto setcheckspellingenabled_cb = krichtextedit_setcheckspellingenabled_callback;
+        if (setcheckspellingenabled_cb) {
             bool cbval1 = check;
 
-            krichtextedit_setcheckspellingenabled_callback(this, cbval1);
-        } else {
-            KRichTextEdit::setCheckSpellingEnabled(check);
+            setcheckspellingenabled_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::setCheckSpellingEnabled(check);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,12 +587,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_checkspellingenabled_isbase) {
             krichtextedit_checkspellingenabled_isbase = false;
             return KRichTextEdit::checkSpellingEnabled();
-        } else if (krichtextedit_checkspellingenabled_callback != nullptr) {
-            bool callback_ret = krichtextedit_checkspellingenabled_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::checkSpellingEnabled();
         }
+        auto checkspellingenabled_cb = krichtextedit_checkspellingenabled_callback;
+        if (checkspellingenabled_cb) {
+            bool callback_ret = checkspellingenabled_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::checkSpellingEnabled();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,7 +601,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_shouldblockbespellchecked_isbase) {
             krichtextedit_shouldblockbespellchecked_isbase = false;
             return KRichTextEdit::shouldBlockBeSpellChecked(block);
-        } else if (krichtextedit_shouldblockbespellchecked_callback != nullptr) {
+        }
+        auto shouldblockbespellchecked_cb = krichtextedit_shouldblockbespellchecked_callback;
+        if (shouldblockbespellchecked_cb) {
             const QString block_ret = block;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray block_b = block_ret.toUtf8();
@@ -691,12 +613,11 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
             ((char*)block_str)[block_str_len] = '\0';
             const char* cbval1 = block_str;
 
-            bool callback_ret = krichtextedit_shouldblockbespellchecked_callback(this, cbval1);
+            bool callback_ret = shouldblockbespellchecked_cb(this, cbval1);
             libqt_free(block_str);
             return callback_ret;
-        } else {
-            return KRichTextEdit::shouldBlockBeSpellChecked(block);
         }
+        return KRichTextEdit::shouldBlockBeSpellChecked(block);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -704,11 +625,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_createhighlighter_isbase) {
             krichtextedit_createhighlighter_isbase = false;
             KRichTextEdit::createHighlighter();
-        } else if (krichtextedit_createhighlighter_callback != nullptr) {
-            krichtextedit_createhighlighter_callback();
-        } else {
-            KRichTextEdit::createHighlighter();
+            return;
         }
+        auto createhighlighter_cb = krichtextedit_createhighlighter_callback;
+        if (createhighlighter_cb) {
+            createhighlighter_cb();
+            return;
+        }
+        KRichTextEdit::createHighlighter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -716,12 +640,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_mousepopupmenu_isbase) {
             krichtextedit_mousepopupmenu_isbase = false;
             return KRichTextEdit::mousePopupMenu();
-        } else if (krichtextedit_mousepopupmenu_callback != nullptr) {
-            QMenu* callback_ret = krichtextedit_mousepopupmenu_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::mousePopupMenu();
         }
+        auto mousepopupmenu_cb = krichtextedit_mousepopupmenu_callback;
+        if (mousepopupmenu_cb) {
+            QMenu* callback_ret = mousepopupmenu_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::mousePopupMenu();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -729,14 +654,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_event_isbase) {
             krichtextedit_event_isbase = false;
             return KRichTextEdit::event(param1);
-        } else if (krichtextedit_event_callback != nullptr) {
+        }
+        auto event_cb = krichtextedit_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = krichtextedit_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::event(param1);
         }
+        return KRichTextEdit::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -744,13 +670,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_focusinevent_isbase) {
             krichtextedit_focusinevent_isbase = false;
             KRichTextEdit::focusInEvent(param1);
-        } else if (krichtextedit_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = krichtextedit_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            krichtextedit_focusinevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -758,11 +687,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_deletewordback_isbase) {
             krichtextedit_deletewordback_isbase = false;
             KRichTextEdit::deleteWordBack();
-        } else if (krichtextedit_deletewordback_callback != nullptr) {
-            krichtextedit_deletewordback_callback();
-        } else {
-            KRichTextEdit::deleteWordBack();
+            return;
         }
+        auto deletewordback_cb = krichtextedit_deletewordback_callback;
+        if (deletewordback_cb) {
+            deletewordback_cb();
+            return;
+        }
+        KRichTextEdit::deleteWordBack();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -770,11 +702,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_deletewordforward_isbase) {
             krichtextedit_deletewordforward_isbase = false;
             KRichTextEdit::deleteWordForward();
-        } else if (krichtextedit_deletewordforward_callback != nullptr) {
-            krichtextedit_deletewordforward_callback();
-        } else {
-            KRichTextEdit::deleteWordForward();
+            return;
         }
+        auto deletewordforward_cb = krichtextedit_deletewordforward_callback;
+        if (deletewordforward_cb) {
+            deletewordforward_cb();
+            return;
+        }
+        KRichTextEdit::deleteWordForward();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -782,13 +717,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_contextmenuevent_isbase) {
             krichtextedit_contextmenuevent_isbase = false;
             KRichTextEdit::contextMenuEvent(param1);
-        } else if (krichtextedit_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = krichtextedit_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            krichtextedit_contextmenuevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -796,17 +734,18 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_loadresource_isbase) {
             krichtextedit_loadresource_isbase = false;
             return KRichTextEdit::loadResource(typeVal, name);
-        } else if (krichtextedit_loadresource_callback != nullptr) {
+        }
+        auto loadresource_cb = krichtextedit_loadresource_callback;
+        if (loadresource_cb) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
 
-            QVariant* callback_ret = krichtextedit_loadresource_callback(this, cbval1, cbval2);
+            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
             return *callback_ret;
-        } else {
-            return KRichTextEdit::loadResource(typeVal, name);
         }
+        return KRichTextEdit::loadResource(typeVal, name);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -814,14 +753,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_inputmethodquery_isbase) {
             krichtextedit_inputmethodquery_isbase = false;
             return KRichTextEdit::inputMethodQuery(property);
-        } else if (krichtextedit_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = krichtextedit_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(property);
 
-            QVariant* callback_ret = krichtextedit_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KRichTextEdit::inputMethodQuery(property);
         }
+        return KRichTextEdit::inputMethodQuery(property);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -829,13 +769,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_timerevent_isbase) {
             krichtextedit_timerevent_isbase = false;
             KRichTextEdit::timerEvent(e);
-        } else if (krichtextedit_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = krichtextedit_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            krichtextedit_timerevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -843,13 +786,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_keyreleaseevent_isbase) {
             krichtextedit_keyreleaseevent_isbase = false;
             KRichTextEdit::keyReleaseEvent(e);
-        } else if (krichtextedit_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = krichtextedit_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            krichtextedit_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -857,13 +803,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_resizeevent_isbase) {
             krichtextedit_resizeevent_isbase = false;
             KRichTextEdit::resizeEvent(e);
-        } else if (krichtextedit_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = krichtextedit_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
 
-            krichtextedit_resizeevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::resizeEvent(e);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::resizeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -871,13 +820,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_paintevent_isbase) {
             krichtextedit_paintevent_isbase = false;
             KRichTextEdit::paintEvent(e);
-        } else if (krichtextedit_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = krichtextedit_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
 
-            krichtextedit_paintevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::paintEvent(e);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::paintEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -885,13 +837,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_mousepressevent_isbase) {
             krichtextedit_mousepressevent_isbase = false;
             KRichTextEdit::mousePressEvent(e);
-        } else if (krichtextedit_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = krichtextedit_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            krichtextedit_mousepressevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -899,13 +854,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_mousemoveevent_isbase) {
             krichtextedit_mousemoveevent_isbase = false;
             KRichTextEdit::mouseMoveEvent(e);
-        } else if (krichtextedit_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = krichtextedit_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            krichtextedit_mousemoveevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::mouseMoveEvent(e);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::mouseMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +871,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_mousereleaseevent_isbase) {
             krichtextedit_mousereleaseevent_isbase = false;
             KRichTextEdit::mouseReleaseEvent(e);
-        } else if (krichtextedit_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = krichtextedit_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            krichtextedit_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,13 +888,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_mousedoubleclickevent_isbase) {
             krichtextedit_mousedoubleclickevent_isbase = false;
             KRichTextEdit::mouseDoubleClickEvent(e);
-        } else if (krichtextedit_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = krichtextedit_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            krichtextedit_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::mouseDoubleClickEvent(e);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::mouseDoubleClickEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -941,14 +905,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_focusnextprevchild_isbase) {
             krichtextedit_focusnextprevchild_isbase = false;
             return KRichTextEdit::focusNextPrevChild(next);
-        } else if (krichtextedit_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = krichtextedit_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = krichtextedit_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::focusNextPrevChild(next);
         }
+        return KRichTextEdit::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,13 +921,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_dragenterevent_isbase) {
             krichtextedit_dragenterevent_isbase = false;
             KRichTextEdit::dragEnterEvent(e);
-        } else if (krichtextedit_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = krichtextedit_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
 
-            krichtextedit_dragenterevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::dragEnterEvent(e);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::dragEnterEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -970,13 +938,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_dragleaveevent_isbase) {
             krichtextedit_dragleaveevent_isbase = false;
             KRichTextEdit::dragLeaveEvent(e);
-        } else if (krichtextedit_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = krichtextedit_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            krichtextedit_dragleaveevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +955,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_dragmoveevent_isbase) {
             krichtextedit_dragmoveevent_isbase = false;
             KRichTextEdit::dragMoveEvent(e);
-        } else if (krichtextedit_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = krichtextedit_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            krichtextedit_dragmoveevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,13 +972,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_dropevent_isbase) {
             krichtextedit_dropevent_isbase = false;
             KRichTextEdit::dropEvent(e);
-        } else if (krichtextedit_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = krichtextedit_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = e;
 
-            krichtextedit_dropevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::dropEvent(e);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::dropEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1012,13 +989,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_focusoutevent_isbase) {
             krichtextedit_focusoutevent_isbase = false;
             KRichTextEdit::focusOutEvent(e);
-        } else if (krichtextedit_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = krichtextedit_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
 
-            krichtextedit_focusoutevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::focusOutEvent(e);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::focusOutEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1026,13 +1006,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_showevent_isbase) {
             krichtextedit_showevent_isbase = false;
             KRichTextEdit::showEvent(param1);
-        } else if (krichtextedit_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = krichtextedit_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            krichtextedit_showevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1040,13 +1023,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_changeevent_isbase) {
             krichtextedit_changeevent_isbase = false;
             KRichTextEdit::changeEvent(e);
-        } else if (krichtextedit_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = krichtextedit_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            krichtextedit_changeevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1054,13 +1040,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_wheelevent_isbase) {
             krichtextedit_wheelevent_isbase = false;
             KRichTextEdit::wheelEvent(e);
-        } else if (krichtextedit_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = krichtextedit_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
 
-            krichtextedit_wheelevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::wheelEvent(e);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::wheelEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,12 +1057,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_createmimedatafromselection_isbase) {
             krichtextedit_createmimedatafromselection_isbase = false;
             return KRichTextEdit::createMimeDataFromSelection();
-        } else if (krichtextedit_createmimedatafromselection_callback != nullptr) {
-            QMimeData* callback_ret = krichtextedit_createmimedatafromselection_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::createMimeDataFromSelection();
         }
+        auto createmimedatafromselection_cb = krichtextedit_createmimedatafromselection_callback;
+        if (createmimedatafromselection_cb) {
+            QMimeData* callback_ret = createmimedatafromselection_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::createMimeDataFromSelection();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,14 +1071,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_caninsertfrommimedata_isbase) {
             krichtextedit_caninsertfrommimedata_isbase = false;
             return KRichTextEdit::canInsertFromMimeData(source);
-        } else if (krichtextedit_caninsertfrommimedata_callback != nullptr) {
+        }
+        auto caninsertfrommimedata_cb = krichtextedit_caninsertfrommimedata_callback;
+        if (caninsertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
 
-            bool callback_ret = krichtextedit_caninsertfrommimedata_callback(this, cbval1);
+            bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::canInsertFromMimeData(source);
         }
+        return KRichTextEdit::canInsertFromMimeData(source);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1096,13 +1087,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_insertfrommimedata_isbase) {
             krichtextedit_insertfrommimedata_isbase = false;
             KRichTextEdit::insertFromMimeData(source);
-        } else if (krichtextedit_insertfrommimedata_callback != nullptr) {
+            return;
+        }
+        auto insertfrommimedata_cb = krichtextedit_insertfrommimedata_callback;
+        if (insertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
 
-            krichtextedit_insertfrommimedata_callback(this, cbval1);
-        } else {
-            KRichTextEdit::insertFromMimeData(source);
+            insertfrommimedata_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::insertFromMimeData(source);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,13 +1104,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_inputmethodevent_isbase) {
             krichtextedit_inputmethodevent_isbase = false;
             KRichTextEdit::inputMethodEvent(param1);
-        } else if (krichtextedit_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = krichtextedit_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            krichtextedit_inputmethodevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1124,14 +1121,17 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_scrollcontentsby_isbase) {
             krichtextedit_scrollcontentsby_isbase = false;
             KRichTextEdit::scrollContentsBy(dx, dy);
-        } else if (krichtextedit_scrollcontentsby_callback != nullptr) {
+            return;
+        }
+        auto scrollcontentsby_cb = krichtextedit_scrollcontentsby_callback;
+        if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
 
-            krichtextedit_scrollcontentsby_callback(this, cbval1, cbval2);
-        } else {
-            KRichTextEdit::scrollContentsBy(dx, dy);
+            scrollcontentsby_cb(this, cbval1, cbval2);
+            return;
         }
+        KRichTextEdit::scrollContentsBy(dx, dy);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1139,15 +1139,18 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_dosettextcursor_isbase) {
             krichtextedit_dosettextcursor_isbase = false;
             KRichTextEdit::doSetTextCursor(cursor);
-        } else if (krichtextedit_dosettextcursor_callback != nullptr) {
+            return;
+        }
+        auto dosettextcursor_cb = krichtextedit_dosettextcursor_callback;
+        if (dosettextcursor_cb) {
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
 
-            krichtextedit_dosettextcursor_callback(this, cbval1);
-        } else {
-            KRichTextEdit::doSetTextCursor(cursor);
+            dosettextcursor_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::doSetTextCursor(cursor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,12 +1158,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_minimumsizehint_isbase) {
             krichtextedit_minimumsizehint_isbase = false;
             return KRichTextEdit::minimumSizeHint();
-        } else if (krichtextedit_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = krichtextedit_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRichTextEdit::minimumSizeHint();
         }
+        auto minimumsizehint_cb = krichtextedit_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KRichTextEdit::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1168,12 +1172,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_sizehint_isbase) {
             krichtextedit_sizehint_isbase = false;
             return KRichTextEdit::sizeHint();
-        } else if (krichtextedit_sizehint_callback != nullptr) {
-            QSize* callback_ret = krichtextedit_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRichTextEdit::sizeHint();
         }
+        auto sizehint_cb = krichtextedit_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KRichTextEdit::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1181,13 +1186,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_setupviewport_isbase) {
             krichtextedit_setupviewport_isbase = false;
             KRichTextEdit::setupViewport(viewport);
-        } else if (krichtextedit_setupviewport_callback != nullptr) {
+            return;
+        }
+        auto setupviewport_cb = krichtextedit_setupviewport_callback;
+        if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
 
-            krichtextedit_setupviewport_callback(this, cbval1);
-        } else {
-            KRichTextEdit::setupViewport(viewport);
+            setupviewport_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::setupViewport(viewport);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,15 +1203,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_eventfilter_isbase) {
             krichtextedit_eventfilter_isbase = false;
             return KRichTextEdit::eventFilter(param1, param2);
-        } else if (krichtextedit_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = krichtextedit_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = krichtextedit_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KRichTextEdit::eventFilter(param1, param2);
         }
+        return KRichTextEdit::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1211,14 +1220,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_viewportevent_isbase) {
             krichtextedit_viewportevent_isbase = false;
             return KRichTextEdit::viewportEvent(param1);
-        } else if (krichtextedit_viewportevent_callback != nullptr) {
+        }
+        auto viewportevent_cb = krichtextedit_viewportevent_callback;
+        if (viewportevent_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = krichtextedit_viewportevent_callback(this, cbval1);
+            bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::viewportEvent(param1);
         }
+        return KRichTextEdit::viewportEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1226,12 +1236,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_viewportsizehint_isbase) {
             krichtextedit_viewportsizehint_isbase = false;
             return KRichTextEdit::viewportSizeHint();
-        } else if (krichtextedit_viewportsizehint_callback != nullptr) {
-            QSize* callback_ret = krichtextedit_viewportsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KRichTextEdit::viewportSizeHint();
         }
+        auto viewportsizehint_cb = krichtextedit_viewportsizehint_callback;
+        if (viewportsizehint_cb) {
+            QSize* callback_ret = viewportsizehint_cb();
+            return *callback_ret;
+        }
+        return KRichTextEdit::viewportSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1239,13 +1250,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_initstyleoption_isbase) {
             krichtextedit_initstyleoption_isbase = false;
             KRichTextEdit::initStyleOption(option);
-        } else if (krichtextedit_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = krichtextedit_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            krichtextedit_initstyleoption_callback(this, cbval1);
-        } else {
-            KRichTextEdit::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1253,12 +1267,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_devtype_isbase) {
             krichtextedit_devtype_isbase = false;
             return KRichTextEdit::devType();
-        } else if (krichtextedit_devtype_callback != nullptr) {
-            int callback_ret = krichtextedit_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRichTextEdit::devType();
         }
+        auto devtype_cb = krichtextedit_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRichTextEdit::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1266,13 +1281,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_setvisible_isbase) {
             krichtextedit_setvisible_isbase = false;
             KRichTextEdit::setVisible(visible);
-        } else if (krichtextedit_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = krichtextedit_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            krichtextedit_setvisible_callback(this, cbval1);
-        } else {
-            KRichTextEdit::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,14 +1298,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_heightforwidth_isbase) {
             krichtextedit_heightforwidth_isbase = false;
             return KRichTextEdit::heightForWidth(param1);
-        } else if (krichtextedit_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = krichtextedit_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = krichtextedit_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRichTextEdit::heightForWidth(param1);
         }
+        return KRichTextEdit::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1295,12 +1314,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_hasheightforwidth_isbase) {
             krichtextedit_hasheightforwidth_isbase = false;
             return KRichTextEdit::hasHeightForWidth();
-        } else if (krichtextedit_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = krichtextedit_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = krichtextedit_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1308,12 +1328,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_paintengine_isbase) {
             krichtextedit_paintengine_isbase = false;
             return KRichTextEdit::paintEngine();
-        } else if (krichtextedit_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = krichtextedit_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::paintEngine();
         }
+        auto paintengine_cb = krichtextedit_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,13 +1342,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_enterevent_isbase) {
             krichtextedit_enterevent_isbase = false;
             KRichTextEdit::enterEvent(event);
-        } else if (krichtextedit_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = krichtextedit_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            krichtextedit_enterevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,13 +1359,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_leaveevent_isbase) {
             krichtextedit_leaveevent_isbase = false;
             KRichTextEdit::leaveEvent(event);
-        } else if (krichtextedit_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = krichtextedit_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            krichtextedit_leaveevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1349,13 +1376,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_moveevent_isbase) {
             krichtextedit_moveevent_isbase = false;
             KRichTextEdit::moveEvent(event);
-        } else if (krichtextedit_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = krichtextedit_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            krichtextedit_moveevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1363,13 +1393,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_closeevent_isbase) {
             krichtextedit_closeevent_isbase = false;
             KRichTextEdit::closeEvent(event);
-        } else if (krichtextedit_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = krichtextedit_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            krichtextedit_closeevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1377,13 +1410,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_tabletevent_isbase) {
             krichtextedit_tabletevent_isbase = false;
             KRichTextEdit::tabletEvent(event);
-        } else if (krichtextedit_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = krichtextedit_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            krichtextedit_tabletevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1391,13 +1427,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_actionevent_isbase) {
             krichtextedit_actionevent_isbase = false;
             KRichTextEdit::actionEvent(event);
-        } else if (krichtextedit_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = krichtextedit_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            krichtextedit_actionevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1405,13 +1444,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_hideevent_isbase) {
             krichtextedit_hideevent_isbase = false;
             KRichTextEdit::hideEvent(event);
-        } else if (krichtextedit_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = krichtextedit_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            krichtextedit_hideevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1419,7 +1461,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_nativeevent_isbase) {
             krichtextedit_nativeevent_isbase = false;
             return KRichTextEdit::nativeEvent(eventType, message, result);
-        } else if (krichtextedit_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = krichtextedit_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1430,12 +1474,11 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = krichtextedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KRichTextEdit::nativeEvent(eventType, message, result);
         }
+        return KRichTextEdit::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1443,14 +1486,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_metric_isbase) {
             krichtextedit_metric_isbase = false;
             return KRichTextEdit::metric(param1);
-        } else if (krichtextedit_metric_callback != nullptr) {
+        }
+        auto metric_cb = krichtextedit_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = krichtextedit_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRichTextEdit::metric(param1);
         }
+        return KRichTextEdit::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1458,13 +1502,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_initpainter_isbase) {
             krichtextedit_initpainter_isbase = false;
             KRichTextEdit::initPainter(painter);
-        } else if (krichtextedit_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = krichtextedit_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            krichtextedit_initpainter_callback(this, cbval1);
-        } else {
-            KRichTextEdit::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1472,14 +1519,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_redirected_isbase) {
             krichtextedit_redirected_isbase = false;
             return KRichTextEdit::redirected(offset);
-        } else if (krichtextedit_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = krichtextedit_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = krichtextedit_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::redirected(offset);
         }
+        return KRichTextEdit::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1487,12 +1535,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_sharedpainter_isbase) {
             krichtextedit_sharedpainter_isbase = false;
             return KRichTextEdit::sharedPainter();
-        } else if (krichtextedit_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = krichtextedit_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::sharedPainter();
         }
+        auto sharedpainter_cb = krichtextedit_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1500,13 +1549,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_childevent_isbase) {
             krichtextedit_childevent_isbase = false;
             KRichTextEdit::childEvent(event);
-        } else if (krichtextedit_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = krichtextedit_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            krichtextedit_childevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1514,13 +1566,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_customevent_isbase) {
             krichtextedit_customevent_isbase = false;
             KRichTextEdit::customEvent(event);
-        } else if (krichtextedit_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = krichtextedit_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            krichtextedit_customevent_callback(this, cbval1);
-        } else {
-            KRichTextEdit::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1528,15 +1583,18 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_connectnotify_isbase) {
             krichtextedit_connectnotify_isbase = false;
             KRichTextEdit::connectNotify(signal);
-        } else if (krichtextedit_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = krichtextedit_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            krichtextedit_connectnotify_callback(this, cbval1);
-        } else {
-            KRichTextEdit::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1544,15 +1602,18 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_disconnectnotify_isbase) {
             krichtextedit_disconnectnotify_isbase = false;
             KRichTextEdit::disconnectNotify(signal);
-        } else if (krichtextedit_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = krichtextedit_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            krichtextedit_disconnectnotify_callback(this, cbval1);
-        } else {
-            KRichTextEdit::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1560,11 +1621,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotdoreplace_isbase) {
             krichtextedit_slotdoreplace_isbase = false;
             KRichTextEdit::slotDoReplace();
-        } else if (krichtextedit_slotdoreplace_callback != nullptr) {
-            krichtextedit_slotdoreplace_callback();
-        } else {
-            KRichTextEdit::slotDoReplace();
+            return;
         }
+        auto slotdoreplace_cb = krichtextedit_slotdoreplace_callback;
+        if (slotdoreplace_cb) {
+            slotdoreplace_cb();
+            return;
+        }
+        KRichTextEdit::slotDoReplace();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1572,11 +1636,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotreplacenext_isbase) {
             krichtextedit_slotreplacenext_isbase = false;
             KRichTextEdit::slotReplaceNext();
-        } else if (krichtextedit_slotreplacenext_callback != nullptr) {
-            krichtextedit_slotreplacenext_callback();
-        } else {
-            KRichTextEdit::slotReplaceNext();
+            return;
         }
+        auto slotreplacenext_cb = krichtextedit_slotreplacenext_callback;
+        if (slotreplacenext_cb) {
+            slotreplacenext_cb();
+            return;
+        }
+        KRichTextEdit::slotReplaceNext();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1584,11 +1651,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotdofind_isbase) {
             krichtextedit_slotdofind_isbase = false;
             KRichTextEdit::slotDoFind();
-        } else if (krichtextedit_slotdofind_callback != nullptr) {
-            krichtextedit_slotdofind_callback();
-        } else {
-            KRichTextEdit::slotDoFind();
+            return;
         }
+        auto slotdofind_cb = krichtextedit_slotdofind_callback;
+        if (slotdofind_cb) {
+            slotdofind_cb();
+            return;
+        }
+        KRichTextEdit::slotDoFind();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1596,11 +1666,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotfind_isbase) {
             krichtextedit_slotfind_isbase = false;
             KRichTextEdit::slotFind();
-        } else if (krichtextedit_slotfind_callback != nullptr) {
-            krichtextedit_slotfind_callback();
-        } else {
-            KRichTextEdit::slotFind();
+            return;
         }
+        auto slotfind_cb = krichtextedit_slotfind_callback;
+        if (slotfind_cb) {
+            slotfind_cb();
+            return;
+        }
+        KRichTextEdit::slotFind();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1608,11 +1681,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotfindnext_isbase) {
             krichtextedit_slotfindnext_isbase = false;
             KRichTextEdit::slotFindNext();
-        } else if (krichtextedit_slotfindnext_callback != nullptr) {
-            krichtextedit_slotfindnext_callback();
-        } else {
-            KRichTextEdit::slotFindNext();
+            return;
         }
+        auto slotfindnext_cb = krichtextedit_slotfindnext_callback;
+        if (slotfindnext_cb) {
+            slotfindnext_cb();
+            return;
+        }
+        KRichTextEdit::slotFindNext();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1620,11 +1696,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotfindprevious_isbase) {
             krichtextedit_slotfindprevious_isbase = false;
             KRichTextEdit::slotFindPrevious();
-        } else if (krichtextedit_slotfindprevious_callback != nullptr) {
-            krichtextedit_slotfindprevious_callback();
-        } else {
-            KRichTextEdit::slotFindPrevious();
+            return;
         }
+        auto slotfindprevious_cb = krichtextedit_slotfindprevious_callback;
+        if (slotfindprevious_cb) {
+            slotfindprevious_cb();
+            return;
+        }
+        KRichTextEdit::slotFindPrevious();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1632,11 +1711,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotreplace_isbase) {
             krichtextedit_slotreplace_isbase = false;
             KRichTextEdit::slotReplace();
-        } else if (krichtextedit_slotreplace_callback != nullptr) {
-            krichtextedit_slotreplace_callback();
-        } else {
-            KRichTextEdit::slotReplace();
+            return;
         }
+        auto slotreplace_cb = krichtextedit_slotreplace_callback;
+        if (slotreplace_cb) {
+            slotreplace_cb();
+            return;
+        }
+        KRichTextEdit::slotReplace();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1644,11 +1726,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_slotspeaktext_isbase) {
             krichtextedit_slotspeaktext_isbase = false;
             KRichTextEdit::slotSpeakText();
-        } else if (krichtextedit_slotspeaktext_callback != nullptr) {
-            krichtextedit_slotspeaktext_callback();
-        } else {
-            KRichTextEdit::slotSpeakText();
+            return;
         }
+        auto slotspeaktext_cb = krichtextedit_slotspeaktext_callback;
+        if (slotspeaktext_cb) {
+            slotspeaktext_cb();
+            return;
+        }
+        KRichTextEdit::slotSpeakText();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1656,13 +1741,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_zoominf_isbase) {
             krichtextedit_zoominf_isbase = false;
             KRichTextEdit::zoomInF(range);
-        } else if (krichtextedit_zoominf_callback != nullptr) {
+            return;
+        }
+        auto zoominf_cb = krichtextedit_zoominf_callback;
+        if (zoominf_cb) {
             float cbval1 = range;
 
-            krichtextedit_zoominf_callback(this, cbval1);
-        } else {
-            KRichTextEdit::zoomInF(range);
+            zoominf_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::zoomInF(range);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1670,16 +1758,19 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_setviewportmargins_isbase) {
             krichtextedit_setviewportmargins_isbase = false;
             KRichTextEdit::setViewportMargins(left, top, right, bottom);
-        } else if (krichtextedit_setviewportmargins_callback != nullptr) {
+            return;
+        }
+        auto setviewportmargins_cb = krichtextedit_setviewportmargins_callback;
+        if (setviewportmargins_cb) {
             int cbval1 = left;
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
 
-            krichtextedit_setviewportmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
-        } else {
-            KRichTextEdit::setViewportMargins(left, top, right, bottom);
+            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        KRichTextEdit::setViewportMargins(left, top, right, bottom);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1687,12 +1778,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_viewportmargins_isbase) {
             krichtextedit_viewportmargins_isbase = false;
             return KRichTextEdit::viewportMargins();
-        } else if (krichtextedit_viewportmargins_callback != nullptr) {
-            QMargins* callback_ret = krichtextedit_viewportmargins_callback();
-            return *callback_ret;
-        } else {
-            return KRichTextEdit::viewportMargins();
         }
+        auto viewportmargins_cb = krichtextedit_viewportmargins_callback;
+        if (viewportmargins_cb) {
+            QMargins* callback_ret = viewportmargins_cb();
+            return *callback_ret;
+        }
+        return KRichTextEdit::viewportMargins();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1700,13 +1792,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_drawframe_isbase) {
             krichtextedit_drawframe_isbase = false;
             KRichTextEdit::drawFrame(param1);
-        } else if (krichtextedit_drawframe_callback != nullptr) {
+            return;
+        }
+        auto drawframe_cb = krichtextedit_drawframe_callback;
+        if (drawframe_cb) {
             QPainter* cbval1 = param1;
 
-            krichtextedit_drawframe_callback(this, cbval1);
-        } else {
-            KRichTextEdit::drawFrame(param1);
+            drawframe_cb(this, cbval1);
+            return;
         }
+        KRichTextEdit::drawFrame(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1714,11 +1809,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_updatemicrofocus_isbase) {
             krichtextedit_updatemicrofocus_isbase = false;
             KRichTextEdit::updateMicroFocus();
-        } else if (krichtextedit_updatemicrofocus_callback != nullptr) {
-            krichtextedit_updatemicrofocus_callback();
-        } else {
-            KRichTextEdit::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = krichtextedit_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KRichTextEdit::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1726,11 +1824,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_create_isbase) {
             krichtextedit_create_isbase = false;
             KRichTextEdit::create();
-        } else if (krichtextedit_create_callback != nullptr) {
-            krichtextedit_create_callback();
-        } else {
-            KRichTextEdit::create();
+            return;
         }
+        auto create_cb = krichtextedit_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KRichTextEdit::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1738,11 +1839,14 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_destroy_isbase) {
             krichtextedit_destroy_isbase = false;
             KRichTextEdit::destroy();
-        } else if (krichtextedit_destroy_callback != nullptr) {
-            krichtextedit_destroy_callback();
-        } else {
-            KRichTextEdit::destroy();
+            return;
         }
+        auto destroy_cb = krichtextedit_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KRichTextEdit::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1750,12 +1854,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_focusnextchild_isbase) {
             krichtextedit_focusnextchild_isbase = false;
             return KRichTextEdit::focusNextChild();
-        } else if (krichtextedit_focusnextchild_callback != nullptr) {
-            bool callback_ret = krichtextedit_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::focusNextChild();
         }
+        auto focusnextchild_cb = krichtextedit_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1763,12 +1868,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_focuspreviouschild_isbase) {
             krichtextedit_focuspreviouschild_isbase = false;
             return KRichTextEdit::focusPreviousChild();
-        } else if (krichtextedit_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = krichtextedit_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = krichtextedit_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1776,12 +1882,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_sender_isbase) {
             krichtextedit_sender_isbase = false;
             return KRichTextEdit::sender();
-        } else if (krichtextedit_sender_callback != nullptr) {
-            QObject* callback_ret = krichtextedit_sender_callback();
-            return callback_ret;
-        } else {
-            return KRichTextEdit::sender();
         }
+        auto sender_cb = krichtextedit_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KRichTextEdit::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1789,12 +1896,13 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_sendersignalindex_isbase) {
             krichtextedit_sendersignalindex_isbase = false;
             return KRichTextEdit::senderSignalIndex();
-        } else if (krichtextedit_sendersignalindex_callback != nullptr) {
-            int callback_ret = krichtextedit_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KRichTextEdit::senderSignalIndex();
         }
+        auto sendersignalindex_cb = krichtextedit_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KRichTextEdit::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1802,14 +1910,15 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_receivers_isbase) {
             krichtextedit_receivers_isbase = false;
             return KRichTextEdit::receivers(signal);
-        } else if (krichtextedit_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = krichtextedit_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = krichtextedit_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KRichTextEdit::receivers(signal);
         }
+        return KRichTextEdit::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1817,16 +1926,17 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_issignalconnected_isbase) {
             krichtextedit_issignalconnected_isbase = false;
             return KRichTextEdit::isSignalConnected(signal);
-        } else if (krichtextedit_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = krichtextedit_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = krichtextedit_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KRichTextEdit::isSignalConnected(signal);
         }
+        return KRichTextEdit::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1834,15 +1944,16 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
         if (krichtextedit_getdecodedmetricf_isbase) {
             krichtextedit_getdecodedmetricf_isbase = false;
             return KRichTextEdit::getDecodedMetricF(metricA, metricB);
-        } else if (krichtextedit_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = krichtextedit_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = krichtextedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KRichTextEdit::getDecodedMetricF(metricA, metricB);
         }
+        return KRichTextEdit::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -209,69 +209,6 @@ class VirtualKCharSelect final : public KCharSelect {
     VirtualKCharSelect(QWidget* parent, const KCharSelect::Controls controls) : KCharSelect(parent, controls) {};
     VirtualKCharSelect(QWidget* parent, QObject* actionParent, const KCharSelect::Controls controls) : KCharSelect(parent, actionParent, controls) {};
 
-    ~VirtualKCharSelect() {
-        kcharselect_metaobject_callback = nullptr;
-        kcharselect_metacast_callback = nullptr;
-        kcharselect_metacall_callback = nullptr;
-        kcharselect_sizehint_callback = nullptr;
-        kcharselect_devtype_callback = nullptr;
-        kcharselect_setvisible_callback = nullptr;
-        kcharselect_minimumsizehint_callback = nullptr;
-        kcharselect_heightforwidth_callback = nullptr;
-        kcharselect_hasheightforwidth_callback = nullptr;
-        kcharselect_paintengine_callback = nullptr;
-        kcharselect_event_callback = nullptr;
-        kcharselect_mousepressevent_callback = nullptr;
-        kcharselect_mousereleaseevent_callback = nullptr;
-        kcharselect_mousedoubleclickevent_callback = nullptr;
-        kcharselect_mousemoveevent_callback = nullptr;
-        kcharselect_wheelevent_callback = nullptr;
-        kcharselect_keypressevent_callback = nullptr;
-        kcharselect_keyreleaseevent_callback = nullptr;
-        kcharselect_focusinevent_callback = nullptr;
-        kcharselect_focusoutevent_callback = nullptr;
-        kcharselect_enterevent_callback = nullptr;
-        kcharselect_leaveevent_callback = nullptr;
-        kcharselect_paintevent_callback = nullptr;
-        kcharselect_moveevent_callback = nullptr;
-        kcharselect_resizeevent_callback = nullptr;
-        kcharselect_closeevent_callback = nullptr;
-        kcharselect_contextmenuevent_callback = nullptr;
-        kcharselect_tabletevent_callback = nullptr;
-        kcharselect_actionevent_callback = nullptr;
-        kcharselect_dragenterevent_callback = nullptr;
-        kcharselect_dragmoveevent_callback = nullptr;
-        kcharselect_dragleaveevent_callback = nullptr;
-        kcharselect_dropevent_callback = nullptr;
-        kcharselect_showevent_callback = nullptr;
-        kcharselect_hideevent_callback = nullptr;
-        kcharselect_nativeevent_callback = nullptr;
-        kcharselect_changeevent_callback = nullptr;
-        kcharselect_metric_callback = nullptr;
-        kcharselect_initpainter_callback = nullptr;
-        kcharselect_redirected_callback = nullptr;
-        kcharselect_sharedpainter_callback = nullptr;
-        kcharselect_inputmethodevent_callback = nullptr;
-        kcharselect_inputmethodquery_callback = nullptr;
-        kcharselect_focusnextprevchild_callback = nullptr;
-        kcharselect_eventfilter_callback = nullptr;
-        kcharselect_timerevent_callback = nullptr;
-        kcharselect_childevent_callback = nullptr;
-        kcharselect_customevent_callback = nullptr;
-        kcharselect_connectnotify_callback = nullptr;
-        kcharselect_disconnectnotify_callback = nullptr;
-        kcharselect_updatemicrofocus_callback = nullptr;
-        kcharselect_create_callback = nullptr;
-        kcharselect_destroy_callback = nullptr;
-        kcharselect_focusnextchild_callback = nullptr;
-        kcharselect_focuspreviouschild_callback = nullptr;
-        kcharselect_sender_callback = nullptr;
-        kcharselect_sendersignalindex_callback = nullptr;
-        kcharselect_receivers_callback = nullptr;
-        kcharselect_issignalconnected_callback = nullptr;
-        kcharselect_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCharSelect_MetaObject_Callback(KCharSelect_MetaObject_Callback cb) { kcharselect_metaobject_callback = cb; }
     inline void setKCharSelect_Metacast_Callback(KCharSelect_Metacast_Callback cb) { kcharselect_metacast_callback = cb; }
@@ -401,12 +338,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_metaobject_isbase) {
             kcharselect_metaobject_isbase = false;
             return KCharSelect::metaObject();
-        } else if (kcharselect_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kcharselect_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::metaObject();
         }
+        auto metaobject_cb = kcharselect_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KCharSelect::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,14 +352,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_metacast_isbase) {
             kcharselect_metacast_isbase = false;
             return KCharSelect::qt_metacast(param1);
-        } else if (kcharselect_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kcharselect_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kcharselect_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCharSelect::qt_metacast(param1);
         }
+        return KCharSelect::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,16 +368,17 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_metacall_isbase) {
             kcharselect_metacall_isbase = false;
             return KCharSelect::qt_metacall(param1, param2, param3);
-        } else if (kcharselect_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kcharselect_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kcharselect_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCharSelect::qt_metacall(param1, param2, param3);
         }
+        return KCharSelect::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -446,12 +386,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_sizehint_isbase) {
             kcharselect_sizehint_isbase = false;
             return KCharSelect::sizeHint();
-        } else if (kcharselect_sizehint_callback != nullptr) {
-            QSize* callback_ret = kcharselect_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCharSelect::sizeHint();
         }
+        auto sizehint_cb = kcharselect_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KCharSelect::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -459,12 +400,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_devtype_isbase) {
             kcharselect_devtype_isbase = false;
             return KCharSelect::devType();
-        } else if (kcharselect_devtype_callback != nullptr) {
-            int callback_ret = kcharselect_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCharSelect::devType();
         }
+        auto devtype_cb = kcharselect_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCharSelect::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -472,13 +414,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_setvisible_isbase) {
             kcharselect_setvisible_isbase = false;
             KCharSelect::setVisible(visible);
-        } else if (kcharselect_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kcharselect_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kcharselect_setvisible_callback(this, cbval1);
-        } else {
-            KCharSelect::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KCharSelect::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -486,12 +431,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_minimumsizehint_isbase) {
             kcharselect_minimumsizehint_isbase = false;
             return KCharSelect::minimumSizeHint();
-        } else if (kcharselect_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kcharselect_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KCharSelect::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kcharselect_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KCharSelect::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -499,14 +445,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_heightforwidth_isbase) {
             kcharselect_heightforwidth_isbase = false;
             return KCharSelect::heightForWidth(param1);
-        } else if (kcharselect_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kcharselect_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kcharselect_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCharSelect::heightForWidth(param1);
         }
+        return KCharSelect::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -514,12 +461,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_hasheightforwidth_isbase) {
             kcharselect_hasheightforwidth_isbase = false;
             return KCharSelect::hasHeightForWidth();
-        } else if (kcharselect_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kcharselect_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kcharselect_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KCharSelect::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,12 +475,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_paintengine_isbase) {
             kcharselect_paintengine_isbase = false;
             return KCharSelect::paintEngine();
-        } else if (kcharselect_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kcharselect_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::paintEngine();
         }
+        auto paintengine_cb = kcharselect_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KCharSelect::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -540,14 +489,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_event_isbase) {
             kcharselect_event_isbase = false;
             return KCharSelect::event(event);
-        } else if (kcharselect_event_callback != nullptr) {
+        }
+        auto event_cb = kcharselect_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kcharselect_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCharSelect::event(event);
         }
+        return KCharSelect::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -555,13 +505,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_mousepressevent_isbase) {
             kcharselect_mousepressevent_isbase = false;
             KCharSelect::mousePressEvent(event);
-        } else if (kcharselect_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kcharselect_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcharselect_mousepressevent_callback(this, cbval1);
-        } else {
-            KCharSelect::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,13 +522,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_mousereleaseevent_isbase) {
             kcharselect_mousereleaseevent_isbase = false;
             KCharSelect::mouseReleaseEvent(event);
-        } else if (kcharselect_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kcharselect_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcharselect_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KCharSelect::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -583,13 +539,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_mousedoubleclickevent_isbase) {
             kcharselect_mousedoubleclickevent_isbase = false;
             KCharSelect::mouseDoubleClickEvent(event);
-        } else if (kcharselect_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kcharselect_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcharselect_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KCharSelect::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +556,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_mousemoveevent_isbase) {
             kcharselect_mousemoveevent_isbase = false;
             KCharSelect::mouseMoveEvent(event);
-        } else if (kcharselect_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kcharselect_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kcharselect_mousemoveevent_callback(this, cbval1);
-        } else {
-            KCharSelect::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +573,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_wheelevent_isbase) {
             kcharselect_wheelevent_isbase = false;
             KCharSelect::wheelEvent(event);
-        } else if (kcharselect_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kcharselect_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kcharselect_wheelevent_callback(this, cbval1);
-        } else {
-            KCharSelect::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +590,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_keypressevent_isbase) {
             kcharselect_keypressevent_isbase = false;
             KCharSelect::keyPressEvent(event);
-        } else if (kcharselect_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kcharselect_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcharselect_keypressevent_callback(this, cbval1);
-        } else {
-            KCharSelect::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +607,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_keyreleaseevent_isbase) {
             kcharselect_keyreleaseevent_isbase = false;
             KCharSelect::keyReleaseEvent(event);
-        } else if (kcharselect_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kcharselect_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kcharselect_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KCharSelect::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +624,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_focusinevent_isbase) {
             kcharselect_focusinevent_isbase = false;
             KCharSelect::focusInEvent(event);
-        } else if (kcharselect_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kcharselect_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcharselect_focusinevent_callback(this, cbval1);
-        } else {
-            KCharSelect::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +641,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_focusoutevent_isbase) {
             kcharselect_focusoutevent_isbase = false;
             KCharSelect::focusOutEvent(event);
-        } else if (kcharselect_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kcharselect_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kcharselect_focusoutevent_callback(this, cbval1);
-        } else {
-            KCharSelect::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +658,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_enterevent_isbase) {
             kcharselect_enterevent_isbase = false;
             KCharSelect::enterEvent(event);
-        } else if (kcharselect_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kcharselect_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kcharselect_enterevent_callback(this, cbval1);
-        } else {
-            KCharSelect::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +675,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_leaveevent_isbase) {
             kcharselect_leaveevent_isbase = false;
             KCharSelect::leaveEvent(event);
-        } else if (kcharselect_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kcharselect_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kcharselect_leaveevent_callback(this, cbval1);
-        } else {
-            KCharSelect::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +692,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_paintevent_isbase) {
             kcharselect_paintevent_isbase = false;
             KCharSelect::paintEvent(event);
-        } else if (kcharselect_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kcharselect_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kcharselect_paintevent_callback(this, cbval1);
-        } else {
-            KCharSelect::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +709,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_moveevent_isbase) {
             kcharselect_moveevent_isbase = false;
             KCharSelect::moveEvent(event);
-        } else if (kcharselect_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kcharselect_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kcharselect_moveevent_callback(this, cbval1);
-        } else {
-            KCharSelect::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +726,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_resizeevent_isbase) {
             kcharselect_resizeevent_isbase = false;
             KCharSelect::resizeEvent(event);
-        } else if (kcharselect_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kcharselect_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kcharselect_resizeevent_callback(this, cbval1);
-        } else {
-            KCharSelect::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +743,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_closeevent_isbase) {
             kcharselect_closeevent_isbase = false;
             KCharSelect::closeEvent(event);
-        } else if (kcharselect_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kcharselect_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kcharselect_closeevent_callback(this, cbval1);
-        } else {
-            KCharSelect::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +760,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_contextmenuevent_isbase) {
             kcharselect_contextmenuevent_isbase = false;
             KCharSelect::contextMenuEvent(event);
-        } else if (kcharselect_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kcharselect_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kcharselect_contextmenuevent_callback(this, cbval1);
-        } else {
-            KCharSelect::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +777,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_tabletevent_isbase) {
             kcharselect_tabletevent_isbase = false;
             KCharSelect::tabletEvent(event);
-        } else if (kcharselect_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kcharselect_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kcharselect_tabletevent_callback(this, cbval1);
-        } else {
-            KCharSelect::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +794,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_actionevent_isbase) {
             kcharselect_actionevent_isbase = false;
             KCharSelect::actionEvent(event);
-        } else if (kcharselect_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kcharselect_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kcharselect_actionevent_callback(this, cbval1);
-        } else {
-            KCharSelect::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +811,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_dragenterevent_isbase) {
             kcharselect_dragenterevent_isbase = false;
             KCharSelect::dragEnterEvent(event);
-        } else if (kcharselect_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kcharselect_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kcharselect_dragenterevent_callback(this, cbval1);
-        } else {
-            KCharSelect::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +828,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_dragmoveevent_isbase) {
             kcharselect_dragmoveevent_isbase = false;
             KCharSelect::dragMoveEvent(event);
-        } else if (kcharselect_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kcharselect_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kcharselect_dragmoveevent_callback(this, cbval1);
-        } else {
-            KCharSelect::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +845,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_dragleaveevent_isbase) {
             kcharselect_dragleaveevent_isbase = false;
             KCharSelect::dragLeaveEvent(event);
-        } else if (kcharselect_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kcharselect_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kcharselect_dragleaveevent_callback(this, cbval1);
-        } else {
-            KCharSelect::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +862,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_dropevent_isbase) {
             kcharselect_dropevent_isbase = false;
             KCharSelect::dropEvent(event);
-        } else if (kcharselect_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kcharselect_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kcharselect_dropevent_callback(this, cbval1);
-        } else {
-            KCharSelect::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +879,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_showevent_isbase) {
             kcharselect_showevent_isbase = false;
             KCharSelect::showEvent(event);
-        } else if (kcharselect_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kcharselect_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kcharselect_showevent_callback(this, cbval1);
-        } else {
-            KCharSelect::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +896,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_hideevent_isbase) {
             kcharselect_hideevent_isbase = false;
             KCharSelect::hideEvent(event);
-        } else if (kcharselect_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kcharselect_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kcharselect_hideevent_callback(this, cbval1);
-        } else {
-            KCharSelect::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,7 +913,9 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_nativeevent_isbase) {
             kcharselect_nativeevent_isbase = false;
             return KCharSelect::nativeEvent(eventType, message, result);
-        } else if (kcharselect_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kcharselect_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -902,12 +926,11 @@ class VirtualKCharSelect final : public KCharSelect {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kcharselect_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KCharSelect::nativeEvent(eventType, message, result);
         }
+        return KCharSelect::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -915,13 +938,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_changeevent_isbase) {
             kcharselect_changeevent_isbase = false;
             KCharSelect::changeEvent(param1);
-        } else if (kcharselect_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kcharselect_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kcharselect_changeevent_callback(this, cbval1);
-        } else {
-            KCharSelect::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -929,14 +955,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_metric_isbase) {
             kcharselect_metric_isbase = false;
             return KCharSelect::metric(param1);
-        } else if (kcharselect_metric_callback != nullptr) {
+        }
+        auto metric_cb = kcharselect_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kcharselect_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCharSelect::metric(param1);
         }
+        return KCharSelect::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +971,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_initpainter_isbase) {
             kcharselect_initpainter_isbase = false;
             KCharSelect::initPainter(painter);
-        } else if (kcharselect_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kcharselect_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kcharselect_initpainter_callback(this, cbval1);
-        } else {
-            KCharSelect::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KCharSelect::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,14 +988,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_redirected_isbase) {
             kcharselect_redirected_isbase = false;
             return KCharSelect::redirected(offset);
-        } else if (kcharselect_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kcharselect_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kcharselect_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCharSelect::redirected(offset);
         }
+        return KCharSelect::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -973,12 +1004,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_sharedpainter_isbase) {
             kcharselect_sharedpainter_isbase = false;
             return KCharSelect::sharedPainter();
-        } else if (kcharselect_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kcharselect_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::sharedPainter();
         }
+        auto sharedpainter_cb = kcharselect_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KCharSelect::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +1018,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_inputmethodevent_isbase) {
             kcharselect_inputmethodevent_isbase = false;
             KCharSelect::inputMethodEvent(param1);
-        } else if (kcharselect_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kcharselect_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kcharselect_inputmethodevent_callback(this, cbval1);
-        } else {
-            KCharSelect::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,14 +1035,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_inputmethodquery_isbase) {
             kcharselect_inputmethodquery_isbase = false;
             return KCharSelect::inputMethodQuery(param1);
-        } else if (kcharselect_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kcharselect_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kcharselect_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KCharSelect::inputMethodQuery(param1);
         }
+        return KCharSelect::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1015,14 +1051,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_focusnextprevchild_isbase) {
             kcharselect_focusnextprevchild_isbase = false;
             return KCharSelect::focusNextPrevChild(next);
-        } else if (kcharselect_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kcharselect_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kcharselect_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCharSelect::focusNextPrevChild(next);
         }
+        return KCharSelect::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1030,15 +1067,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_eventfilter_isbase) {
             kcharselect_eventfilter_isbase = false;
             return KCharSelect::eventFilter(watched, event);
-        } else if (kcharselect_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kcharselect_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kcharselect_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KCharSelect::eventFilter(watched, event);
         }
+        return KCharSelect::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1046,13 +1084,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_timerevent_isbase) {
             kcharselect_timerevent_isbase = false;
             KCharSelect::timerEvent(event);
-        } else if (kcharselect_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kcharselect_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kcharselect_timerevent_callback(this, cbval1);
-        } else {
-            KCharSelect::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1060,13 +1101,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_childevent_isbase) {
             kcharselect_childevent_isbase = false;
             KCharSelect::childEvent(event);
-        } else if (kcharselect_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kcharselect_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kcharselect_childevent_callback(this, cbval1);
-        } else {
-            KCharSelect::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,13 +1118,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_customevent_isbase) {
             kcharselect_customevent_isbase = false;
             KCharSelect::customEvent(event);
-        } else if (kcharselect_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kcharselect_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kcharselect_customevent_callback(this, cbval1);
-        } else {
-            KCharSelect::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KCharSelect::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,15 +1135,18 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_connectnotify_isbase) {
             kcharselect_connectnotify_isbase = false;
             KCharSelect::connectNotify(signal);
-        } else if (kcharselect_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kcharselect_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcharselect_connectnotify_callback(this, cbval1);
-        } else {
-            KCharSelect::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KCharSelect::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1104,15 +1154,18 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_disconnectnotify_isbase) {
             kcharselect_disconnectnotify_isbase = false;
             KCharSelect::disconnectNotify(signal);
-        } else if (kcharselect_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kcharselect_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kcharselect_disconnectnotify_callback(this, cbval1);
-        } else {
-            KCharSelect::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KCharSelect::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1120,11 +1173,14 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_updatemicrofocus_isbase) {
             kcharselect_updatemicrofocus_isbase = false;
             KCharSelect::updateMicroFocus();
-        } else if (kcharselect_updatemicrofocus_callback != nullptr) {
-            kcharselect_updatemicrofocus_callback();
-        } else {
-            KCharSelect::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kcharselect_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KCharSelect::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,11 +1188,14 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_create_isbase) {
             kcharselect_create_isbase = false;
             KCharSelect::create();
-        } else if (kcharselect_create_callback != nullptr) {
-            kcharselect_create_callback();
-        } else {
-            KCharSelect::create();
+            return;
         }
+        auto create_cb = kcharselect_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KCharSelect::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,11 +1203,14 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_destroy_isbase) {
             kcharselect_destroy_isbase = false;
             KCharSelect::destroy();
-        } else if (kcharselect_destroy_callback != nullptr) {
-            kcharselect_destroy_callback();
-        } else {
-            KCharSelect::destroy();
+            return;
         }
+        auto destroy_cb = kcharselect_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KCharSelect::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1156,12 +1218,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_focusnextchild_isbase) {
             kcharselect_focusnextchild_isbase = false;
             return KCharSelect::focusNextChild();
-        } else if (kcharselect_focusnextchild_callback != nullptr) {
-            bool callback_ret = kcharselect_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::focusNextChild();
         }
+        auto focusnextchild_cb = kcharselect_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KCharSelect::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,12 +1232,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_focuspreviouschild_isbase) {
             kcharselect_focuspreviouschild_isbase = false;
             return KCharSelect::focusPreviousChild();
-        } else if (kcharselect_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kcharselect_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kcharselect_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KCharSelect::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1182,12 +1246,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_sender_isbase) {
             kcharselect_sender_isbase = false;
             return KCharSelect::sender();
-        } else if (kcharselect_sender_callback != nullptr) {
-            QObject* callback_ret = kcharselect_sender_callback();
-            return callback_ret;
-        } else {
-            return KCharSelect::sender();
         }
+        auto sender_cb = kcharselect_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KCharSelect::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1195,12 +1260,13 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_sendersignalindex_isbase) {
             kcharselect_sendersignalindex_isbase = false;
             return KCharSelect::senderSignalIndex();
-        } else if (kcharselect_sendersignalindex_callback != nullptr) {
-            int callback_ret = kcharselect_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KCharSelect::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kcharselect_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KCharSelect::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1208,14 +1274,15 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_receivers_isbase) {
             kcharselect_receivers_isbase = false;
             return KCharSelect::receivers(signal);
-        } else if (kcharselect_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kcharselect_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kcharselect_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KCharSelect::receivers(signal);
         }
+        return KCharSelect::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1223,16 +1290,17 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_issignalconnected_isbase) {
             kcharselect_issignalconnected_isbase = false;
             return KCharSelect::isSignalConnected(signal);
-        } else if (kcharselect_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kcharselect_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kcharselect_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KCharSelect::isSignalConnected(signal);
         }
+        return KCharSelect::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,15 +1308,16 @@ class VirtualKCharSelect final : public KCharSelect {
         if (kcharselect_getdecodedmetricf_isbase) {
             kcharselect_getdecodedmetricf_isbase = false;
             return KCharSelect::getDecodedMetricF(metricA, metricB);
-        } else if (kcharselect_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kcharselect_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kcharselect_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KCharSelect::getDecodedMetricF(metricA, metricB);
         }
+        return KCharSelect::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

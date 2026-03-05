@@ -74,25 +74,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
   public:
     VirtualQDesignerPropertySheetExtension() : QDesignerPropertySheetExtension() {};
 
-    ~VirtualQDesignerPropertySheetExtension() {
-        qdesignerpropertysheetextension_count_callback = nullptr;
-        qdesignerpropertysheetextension_indexof_callback = nullptr;
-        qdesignerpropertysheetextension_propertyname_callback = nullptr;
-        qdesignerpropertysheetextension_propertygroup_callback = nullptr;
-        qdesignerpropertysheetextension_setpropertygroup_callback = nullptr;
-        qdesignerpropertysheetextension_hasreset_callback = nullptr;
-        qdesignerpropertysheetextension_reset_callback = nullptr;
-        qdesignerpropertysheetextension_isvisible_callback = nullptr;
-        qdesignerpropertysheetextension_setvisible_callback = nullptr;
-        qdesignerpropertysheetextension_isattribute_callback = nullptr;
-        qdesignerpropertysheetextension_setattribute_callback = nullptr;
-        qdesignerpropertysheetextension_property_callback = nullptr;
-        qdesignerpropertysheetextension_setproperty_callback = nullptr;
-        qdesignerpropertysheetextension_ischanged_callback = nullptr;
-        qdesignerpropertysheetextension_setchanged_callback = nullptr;
-        qdesignerpropertysheetextension_isenabled_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerPropertySheetExtension_Count_Callback(QDesignerPropertySheetExtension_Count_Callback cb) { qdesignerpropertysheetextension_count_callback = cb; }
     inline void setQDesignerPropertySheetExtension_IndexOf_Callback(QDesignerPropertySheetExtension_IndexOf_Callback cb) { qdesignerpropertysheetextension_indexof_callback = cb; }
@@ -131,17 +112,18 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
 
     // Virtual method for C ABI access and custom callback
     virtual int count() const override {
-        if (qdesignerpropertysheetextension_count_callback != nullptr) {
-            int callback_ret = qdesignerpropertysheetextension_count_callback();
+        auto count_cb = qdesignerpropertysheetextension_count_callback;
+        if (count_cb) {
+            int callback_ret = count_cb();
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int indexOf(const QString& name) const override {
-        if (qdesignerpropertysheetextension_indexof_callback != nullptr) {
+        auto indexof_cb = qdesignerpropertysheetextension_indexof_callback;
+        if (indexof_cb) {
             const QString name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -151,43 +133,43 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
 
-            int callback_ret = qdesignerpropertysheetextension_indexof_callback(this, cbval1);
+            int callback_ret = indexof_cb(this, cbval1);
             libqt_free(name_str);
             return static_cast<int>(callback_ret);
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString propertyName(int index) const override {
-        if (qdesignerpropertysheetextension_propertyname_callback != nullptr) {
+        auto propertyname_cb = qdesignerpropertysheetextension_propertyname_callback;
+        if (propertyname_cb) {
             int cbval1 = index;
 
-            const char* callback_ret = qdesignerpropertysheetextension_propertyname_callback(this, cbval1);
+            const char* callback_ret = propertyname_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString propertyGroup(int index) const override {
-        if (qdesignerpropertysheetextension_propertygroup_callback != nullptr) {
+        auto propertygroup_cb = qdesignerpropertysheetextension_propertygroup_callback;
+        if (propertygroup_cb) {
             int cbval1 = index;
 
-            const char* callback_ret = qdesignerpropertysheetextension_propertygroup_callback(this, cbval1);
+            const char* callback_ret = propertygroup_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setPropertyGroup(int index, const QString& group) override {
-        if (qdesignerpropertysheetextension_setpropertygroup_callback != nullptr) {
+        auto setpropertygroup_cb = qdesignerpropertysheetextension_setpropertygroup_callback;
+        if (setpropertygroup_cb) {
             int cbval1 = index;
             const QString group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -198,135 +180,139 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval2 = group_str;
 
-            qdesignerpropertysheetextension_setpropertygroup_callback(this, cbval1, cbval2);
+            setpropertygroup_cb(this, cbval1, cbval2);
             libqt_free(group_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasReset(int index) const override {
-        if (qdesignerpropertysheetextension_hasreset_callback != nullptr) {
+        auto hasreset_cb = qdesignerpropertysheetextension_hasreset_callback;
+        if (hasreset_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignerpropertysheetextension_hasreset_callback(this, cbval1);
+            bool callback_ret = hasreset_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool reset(int index) override {
-        if (qdesignerpropertysheetextension_reset_callback != nullptr) {
+        auto reset_cb = qdesignerpropertysheetextension_reset_callback;
+        if (reset_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignerpropertysheetextension_reset_callback(this, cbval1);
+            bool callback_ret = reset_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isVisible(int index) const override {
-        if (qdesignerpropertysheetextension_isvisible_callback != nullptr) {
+        auto isvisible_cb = qdesignerpropertysheetextension_isvisible_callback;
+        if (isvisible_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignerpropertysheetextension_isvisible_callback(this, cbval1);
+            bool callback_ret = isvisible_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(int index, bool b) override {
-        if (qdesignerpropertysheetextension_setvisible_callback != nullptr) {
+        auto setvisible_cb = qdesignerpropertysheetextension_setvisible_callback;
+        if (setvisible_cb) {
             int cbval1 = index;
             bool cbval2 = b;
 
-            qdesignerpropertysheetextension_setvisible_callback(this, cbval1, cbval2);
+            setvisible_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isAttribute(int index) const override {
-        if (qdesignerpropertysheetextension_isattribute_callback != nullptr) {
+        auto isattribute_cb = qdesignerpropertysheetextension_isattribute_callback;
+        if (isattribute_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignerpropertysheetextension_isattribute_callback(this, cbval1);
+            bool callback_ret = isattribute_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAttribute(int index, bool b) override {
-        if (qdesignerpropertysheetextension_setattribute_callback != nullptr) {
+        auto setattribute_cb = qdesignerpropertysheetextension_setattribute_callback;
+        if (setattribute_cb) {
             int cbval1 = index;
             bool cbval2 = b;
 
-            qdesignerpropertysheetextension_setattribute_callback(this, cbval1, cbval2);
+            setattribute_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant property(int index) const override {
-        if (qdesignerpropertysheetextension_property_callback != nullptr) {
+        auto property_cb = qdesignerpropertysheetextension_property_callback;
+        if (property_cb) {
             int cbval1 = index;
 
-            QVariant* callback_ret = qdesignerpropertysheetextension_property_callback(this, cbval1);
+            QVariant* callback_ret = property_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setProperty(int index, const QVariant& value) override {
-        if (qdesignerpropertysheetextension_setproperty_callback != nullptr) {
+        auto setproperty_cb = qdesignerpropertysheetextension_setproperty_callback;
+        if (setproperty_cb) {
             int cbval1 = index;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
 
-            qdesignerpropertysheetextension_setproperty_callback(this, cbval1, cbval2);
+            setproperty_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isChanged(int index) const override {
-        if (qdesignerpropertysheetextension_ischanged_callback != nullptr) {
+        auto ischanged_cb = qdesignerpropertysheetextension_ischanged_callback;
+        if (ischanged_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignerpropertysheetextension_ischanged_callback(this, cbval1);
+            bool callback_ret = ischanged_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setChanged(int index, bool changed) override {
-        if (qdesignerpropertysheetextension_setchanged_callback != nullptr) {
+        auto setchanged_cb = qdesignerpropertysheetextension_setchanged_callback;
+        if (setchanged_cb) {
             int cbval1 = index;
             bool cbval2 = changed;
 
-            qdesignerpropertysheetextension_setchanged_callback(this, cbval1, cbval2);
+            setchanged_cb(this, cbval1, cbval2);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isEnabled(int index) const override {
-        if (qdesignerpropertysheetextension_isenabled_callback != nullptr) {
+        auto isenabled_cb = qdesignerpropertysheetextension_isenabled_callback;
+        if (isenabled_cb) {
             int cbval1 = index;
 
-            bool callback_ret = qdesignerpropertysheetextension_isenabled_callback(this, cbval1);
+            bool callback_ret = isenabled_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 

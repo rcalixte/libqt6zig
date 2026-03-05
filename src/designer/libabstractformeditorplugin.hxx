@@ -38,13 +38,6 @@ class VirtualQDesignerFormEditorPluginInterface : public QDesignerFormEditorPlug
   public:
     VirtualQDesignerFormEditorPluginInterface() : QDesignerFormEditorPluginInterface() {};
 
-    ~VirtualQDesignerFormEditorPluginInterface() {
-        qdesignerformeditorplugininterface_isinitialized_callback = nullptr;
-        qdesignerformeditorplugininterface_initialize_callback = nullptr;
-        qdesignerformeditorplugininterface_action_callback = nullptr;
-        qdesignerformeditorplugininterface_core_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerFormEditorPluginInterface_IsInitialized_Callback(QDesignerFormEditorPluginInterface_IsInitialized_Callback cb) { qdesignerformeditorplugininterface_isinitialized_callback = cb; }
     inline void setQDesignerFormEditorPluginInterface_Initialize_Callback(QDesignerFormEditorPluginInterface_Initialize_Callback cb) { qdesignerformeditorplugininterface_initialize_callback = cb; }
@@ -59,41 +52,42 @@ class VirtualQDesignerFormEditorPluginInterface : public QDesignerFormEditorPlug
 
     // Virtual method for C ABI access and custom callback
     virtual bool isInitialized() const override {
-        if (qdesignerformeditorplugininterface_isinitialized_callback != nullptr) {
-            bool callback_ret = qdesignerformeditorplugininterface_isinitialized_callback();
+        auto isinitialized_cb = qdesignerformeditorplugininterface_isinitialized_callback;
+        if (isinitialized_cb) {
+            bool callback_ret = isinitialized_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void initialize(QDesignerFormEditorInterface* core) override {
-        if (qdesignerformeditorplugininterface_initialize_callback != nullptr) {
+        auto initialize_cb = qdesignerformeditorplugininterface_initialize_callback;
+        if (initialize_cb) {
             QDesignerFormEditorInterface* cbval1 = core;
 
-            qdesignerformeditorplugininterface_initialize_callback(this, cbval1);
+            initialize_cb(this, cbval1);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* action() const override {
-        if (qdesignerformeditorplugininterface_action_callback != nullptr) {
-            QAction* callback_ret = qdesignerformeditorplugininterface_action_callback();
+        auto action_cb = qdesignerformeditorplugininterface_action_callback;
+        if (action_cb) {
+            QAction* callback_ret = action_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QDesignerFormEditorInterface* core() const override {
-        if (qdesignerformeditorplugininterface_core_callback != nullptr) {
-            QDesignerFormEditorInterface* callback_ret = qdesignerformeditorplugininterface_core_callback();
+        auto core_cb = qdesignerformeditorplugininterface_core_callback;
+        if (core_cb) {
+            QDesignerFormEditorInterface* callback_ret = core_cb();
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 

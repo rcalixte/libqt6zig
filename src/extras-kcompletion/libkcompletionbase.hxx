@@ -56,19 +56,6 @@ class VirtualKCompletionBase : public KCompletionBase {
   public:
     VirtualKCompletionBase() : KCompletionBase() {};
 
-    ~VirtualKCompletionBase() {
-        kcompletionbase_setcompletionobject_callback = nullptr;
-        kcompletionbase_sethandlesignals_callback = nullptr;
-        kcompletionbase_setcompletionmode_callback = nullptr;
-        kcompletionbase_setcompletedtext_callback = nullptr;
-        kcompletionbase_setcompleteditems_callback = nullptr;
-        kcompletionbase_virtualhook_callback = nullptr;
-        kcompletionbase_keybindingmap_callback = nullptr;
-        kcompletionbase_setkeybindingmap_callback = nullptr;
-        kcompletionbase_setdelegate_callback = nullptr;
-        kcompletionbase_delegate_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKCompletionBase_SetCompletionObject_Callback(KCompletionBase_SetCompletionObject_Callback cb) { kcompletionbase_setcompletionobject_callback = cb; }
     inline void setKCompletionBase_SetHandleSignals_Callback(KCompletionBase_SetHandleSignals_Callback cb) { kcompletionbase_sethandlesignals_callback = cb; }
@@ -98,14 +85,17 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_setcompletionobject_isbase) {
             kcompletionbase_setcompletionobject_isbase = false;
             KCompletionBase::setCompletionObject(completionObject, handleSignals);
-        } else if (kcompletionbase_setcompletionobject_callback != nullptr) {
+            return;
+        }
+        auto setcompletionobject_cb = kcompletionbase_setcompletionobject_callback;
+        if (setcompletionobject_cb) {
             KCompletion* cbval1 = completionObject;
             bool cbval2 = handleSignals;
 
-            kcompletionbase_setcompletionobject_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBase::setCompletionObject(completionObject, handleSignals);
+            setcompletionobject_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBase::setCompletionObject(completionObject, handleSignals);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -113,13 +103,16 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_sethandlesignals_isbase) {
             kcompletionbase_sethandlesignals_isbase = false;
             KCompletionBase::setHandleSignals(handle);
-        } else if (kcompletionbase_sethandlesignals_callback != nullptr) {
+            return;
+        }
+        auto sethandlesignals_cb = kcompletionbase_sethandlesignals_callback;
+        if (sethandlesignals_cb) {
             bool cbval1 = handle;
 
-            kcompletionbase_sethandlesignals_callback(this, cbval1);
-        } else {
-            KCompletionBase::setHandleSignals(handle);
+            sethandlesignals_cb(this, cbval1);
+            return;
         }
+        KCompletionBase::setHandleSignals(handle);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -127,18 +120,22 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_setcompletionmode_isbase) {
             kcompletionbase_setcompletionmode_isbase = false;
             KCompletionBase::setCompletionMode(mode);
-        } else if (kcompletionbase_setcompletionmode_callback != nullptr) {
+            return;
+        }
+        auto setcompletionmode_cb = kcompletionbase_setcompletionmode_callback;
+        if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            kcompletionbase_setcompletionmode_callback(this, cbval1);
-        } else {
-            KCompletionBase::setCompletionMode(mode);
+            setcompletionmode_cb(this, cbval1);
+            return;
         }
+        KCompletionBase::setCompletionMode(mode);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompletedText(const QString& text) override {
-        if (kcompletionbase_setcompletedtext_callback != nullptr) {
+        auto setcompletedtext_cb = kcompletionbase_setcompletedtext_callback;
+        if (setcompletedtext_cb) {
             const QString text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -148,14 +145,15 @@ class VirtualKCompletionBase : public KCompletionBase {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
 
-            kcompletionbase_setcompletedtext_callback(this, cbval1);
+            setcompletedtext_cb(this, cbval1);
             libqt_free(text_str);
         }
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompletedItems(const QList<QString>& items, bool autoSuggest) override {
-        if (kcompletionbase_setcompleteditems_callback != nullptr) {
+        auto setcompleteditems_cb = kcompletionbase_setcompleteditems_callback;
+        if (setcompleteditems_cb) {
             const QList<QString>& items_ret = items;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
@@ -172,7 +170,7 @@ class VirtualKCompletionBase : public KCompletionBase {
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
 
-            kcompletionbase_setcompleteditems_callback(this, cbval1, cbval2);
+            setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
         }
     }
@@ -182,14 +180,17 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_virtualhook_isbase) {
             kcompletionbase_virtualhook_isbase = false;
             KCompletionBase::virtual_hook(id, data);
-        } else if (kcompletionbase_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = kcompletionbase_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            kcompletionbase_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KCompletionBase::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KCompletionBase::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -197,8 +198,10 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_keybindingmap_isbase) {
             kcompletionbase_keybindingmap_isbase = false;
             return KCompletionBase::keyBindingMap();
-        } else if (kcompletionbase_keybindingmap_callback != nullptr) {
-            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = kcompletionbase_keybindingmap_callback();
+        }
+        auto keybindingmap_cb = kcompletionbase_keybindingmap_callback;
+        if (keybindingmap_cb) {
+            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = keybindingmap_cb();
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
@@ -212,9 +215,8 @@ class VirtualKCompletionBase : public KCompletionBase {
                 callback_ret_QMap[static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i])] = callback_ret_varr_i_QList;
             }
             return callback_ret_QMap;
-        } else {
-            return KCompletionBase::keyBindingMap();
         }
+        return KCompletionBase::keyBindingMap();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -222,7 +224,10 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_setkeybindingmap_isbase) {
             kcompletionbase_setkeybindingmap_isbase = false;
             KCompletionBase::setKeyBindingMap(keyBindingMap);
-        } else if (kcompletionbase_setkeybindingmap_callback != nullptr) {
+            return;
+        }
+        auto setkeybindingmap_cb = kcompletionbase_setkeybindingmap_callback;
+        if (setkeybindingmap_cb) {
             QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_ret = keyBindingMap;
             // Convert QMap<> from C++ memory to manually-managed C memory
             int* keyBindingMap_karr = static_cast<int*>(malloc(sizeof(int) * keyBindingMap_ret.size()));
@@ -248,10 +253,10 @@ class VirtualKCompletionBase : public KCompletionBase {
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
 
-            kcompletionbase_setkeybindingmap_callback(this, cbval1);
-        } else {
-            KCompletionBase::setKeyBindingMap(keyBindingMap);
+            setkeybindingmap_cb(this, cbval1);
+            return;
         }
+        KCompletionBase::setKeyBindingMap(keyBindingMap);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,13 +264,16 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_setdelegate_isbase) {
             kcompletionbase_setdelegate_isbase = false;
             KCompletionBase::setDelegate(delegate);
-        } else if (kcompletionbase_setdelegate_callback != nullptr) {
+            return;
+        }
+        auto setdelegate_cb = kcompletionbase_setdelegate_callback;
+        if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
 
-            kcompletionbase_setdelegate_callback(this, cbval1);
-        } else {
-            KCompletionBase::setDelegate(delegate);
+            setdelegate_cb(this, cbval1);
+            return;
         }
+        KCompletionBase::setDelegate(delegate);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +281,13 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (kcompletionbase_delegate_isbase) {
             kcompletionbase_delegate_isbase = false;
             return KCompletionBase::delegate();
-        } else if (kcompletionbase_delegate_callback != nullptr) {
-            KCompletionBase* callback_ret = kcompletionbase_delegate_callback();
-            return callback_ret;
-        } else {
-            return KCompletionBase::delegate();
         }
+        auto delegate_cb = kcompletionbase_delegate_callback;
+        if (delegate_cb) {
+            KCompletionBase* callback_ret = delegate_cb();
+            return callback_ret;
+        }
+        return KCompletionBase::delegate();
     }
 
     // Friend functions

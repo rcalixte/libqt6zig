@@ -220,73 +220,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
     VirtualKListWidgetSearchLine() : KListWidgetSearchLine() {};
     VirtualKListWidgetSearchLine(QWidget* parent, QListWidget* listWidget) : KListWidgetSearchLine(parent, listWidget) {};
 
-    ~VirtualKListWidgetSearchLine() {
-        klistwidgetsearchline_metaobject_callback = nullptr;
-        klistwidgetsearchline_metacast_callback = nullptr;
-        klistwidgetsearchline_metacall_callback = nullptr;
-        klistwidgetsearchline_updatesearch_callback = nullptr;
-        klistwidgetsearchline_itemmatches_callback = nullptr;
-        klistwidgetsearchline_event_callback = nullptr;
-        klistwidgetsearchline_sizehint_callback = nullptr;
-        klistwidgetsearchline_minimumsizehint_callback = nullptr;
-        klistwidgetsearchline_mousepressevent_callback = nullptr;
-        klistwidgetsearchline_mousemoveevent_callback = nullptr;
-        klistwidgetsearchline_mousereleaseevent_callback = nullptr;
-        klistwidgetsearchline_mousedoubleclickevent_callback = nullptr;
-        klistwidgetsearchline_keypressevent_callback = nullptr;
-        klistwidgetsearchline_keyreleaseevent_callback = nullptr;
-        klistwidgetsearchline_focusinevent_callback = nullptr;
-        klistwidgetsearchline_focusoutevent_callback = nullptr;
-        klistwidgetsearchline_paintevent_callback = nullptr;
-        klistwidgetsearchline_dragenterevent_callback = nullptr;
-        klistwidgetsearchline_dragmoveevent_callback = nullptr;
-        klistwidgetsearchline_dragleaveevent_callback = nullptr;
-        klistwidgetsearchline_dropevent_callback = nullptr;
-        klistwidgetsearchline_changeevent_callback = nullptr;
-        klistwidgetsearchline_contextmenuevent_callback = nullptr;
-        klistwidgetsearchline_inputmethodevent_callback = nullptr;
-        klistwidgetsearchline_initstyleoption_callback = nullptr;
-        klistwidgetsearchline_inputmethodquery_callback = nullptr;
-        klistwidgetsearchline_timerevent_callback = nullptr;
-        klistwidgetsearchline_devtype_callback = nullptr;
-        klistwidgetsearchline_setvisible_callback = nullptr;
-        klistwidgetsearchline_heightforwidth_callback = nullptr;
-        klistwidgetsearchline_hasheightforwidth_callback = nullptr;
-        klistwidgetsearchline_paintengine_callback = nullptr;
-        klistwidgetsearchline_wheelevent_callback = nullptr;
-        klistwidgetsearchline_enterevent_callback = nullptr;
-        klistwidgetsearchline_leaveevent_callback = nullptr;
-        klistwidgetsearchline_moveevent_callback = nullptr;
-        klistwidgetsearchline_resizeevent_callback = nullptr;
-        klistwidgetsearchline_closeevent_callback = nullptr;
-        klistwidgetsearchline_tabletevent_callback = nullptr;
-        klistwidgetsearchline_actionevent_callback = nullptr;
-        klistwidgetsearchline_showevent_callback = nullptr;
-        klistwidgetsearchline_hideevent_callback = nullptr;
-        klistwidgetsearchline_nativeevent_callback = nullptr;
-        klistwidgetsearchline_metric_callback = nullptr;
-        klistwidgetsearchline_initpainter_callback = nullptr;
-        klistwidgetsearchline_redirected_callback = nullptr;
-        klistwidgetsearchline_sharedpainter_callback = nullptr;
-        klistwidgetsearchline_focusnextprevchild_callback = nullptr;
-        klistwidgetsearchline_eventfilter_callback = nullptr;
-        klistwidgetsearchline_childevent_callback = nullptr;
-        klistwidgetsearchline_customevent_callback = nullptr;
-        klistwidgetsearchline_connectnotify_callback = nullptr;
-        klistwidgetsearchline_disconnectnotify_callback = nullptr;
-        klistwidgetsearchline_cursorrect_callback = nullptr;
-        klistwidgetsearchline_updatemicrofocus_callback = nullptr;
-        klistwidgetsearchline_create_callback = nullptr;
-        klistwidgetsearchline_destroy_callback = nullptr;
-        klistwidgetsearchline_focusnextchild_callback = nullptr;
-        klistwidgetsearchline_focuspreviouschild_callback = nullptr;
-        klistwidgetsearchline_sender_callback = nullptr;
-        klistwidgetsearchline_sendersignalindex_callback = nullptr;
-        klistwidgetsearchline_receivers_callback = nullptr;
-        klistwidgetsearchline_issignalconnected_callback = nullptr;
-        klistwidgetsearchline_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKListWidgetSearchLine_MetaObject_Callback(KListWidgetSearchLine_MetaObject_Callback cb) { klistwidgetsearchline_metaobject_callback = cb; }
     inline void setKListWidgetSearchLine_Metacast_Callback(KListWidgetSearchLine_Metacast_Callback cb) { klistwidgetsearchline_metacast_callback = cb; }
@@ -424,12 +357,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_metaobject_isbase) {
             klistwidgetsearchline_metaobject_isbase = false;
             return KListWidgetSearchLine::metaObject();
-        } else if (klistwidgetsearchline_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = klistwidgetsearchline_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::metaObject();
         }
+        auto metaobject_cb = klistwidgetsearchline_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -437,14 +371,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_metacast_isbase) {
             klistwidgetsearchline_metacast_isbase = false;
             return KListWidgetSearchLine::qt_metacast(param1);
-        } else if (klistwidgetsearchline_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = klistwidgetsearchline_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = klistwidgetsearchline_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::qt_metacast(param1);
         }
+        return KListWidgetSearchLine::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -452,16 +387,17 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_metacall_isbase) {
             klistwidgetsearchline_metacall_isbase = false;
             return KListWidgetSearchLine::qt_metacall(param1, param2, param3);
-        } else if (klistwidgetsearchline_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = klistwidgetsearchline_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = klistwidgetsearchline_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::qt_metacall(param1, param2, param3);
         }
+        return KListWidgetSearchLine::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -469,7 +405,10 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_updatesearch_isbase) {
             klistwidgetsearchline_updatesearch_isbase = false;
             KListWidgetSearchLine::updateSearch(s);
-        } else if (klistwidgetsearchline_updatesearch_callback != nullptr) {
+            return;
+        }
+        auto updatesearch_cb = klistwidgetsearchline_updatesearch_callback;
+        if (updatesearch_cb) {
             const QString s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
@@ -479,11 +418,11 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             ((char*)s_str)[s_str_len] = '\0';
             const char* cbval1 = s_str;
 
-            klistwidgetsearchline_updatesearch_callback(this, cbval1);
+            updatesearch_cb(this, cbval1);
             libqt_free(s_str);
-        } else {
-            KListWidgetSearchLine::updateSearch(s);
+            return;
         }
+        KListWidgetSearchLine::updateSearch(s);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -491,7 +430,9 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_itemmatches_isbase) {
             klistwidgetsearchline_itemmatches_isbase = false;
             return KListWidgetSearchLine::itemMatches(item, s);
-        } else if (klistwidgetsearchline_itemmatches_callback != nullptr) {
+        }
+        auto itemmatches_cb = klistwidgetsearchline_itemmatches_callback;
+        if (itemmatches_cb) {
             QListWidgetItem* cbval1 = (QListWidgetItem*)item;
             const QString s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -502,12 +443,11 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             ((char*)s_str)[s_str_len] = '\0';
             const char* cbval2 = s_str;
 
-            bool callback_ret = klistwidgetsearchline_itemmatches_callback(this, cbval1, cbval2);
+            bool callback_ret = itemmatches_cb(this, cbval1, cbval2);
             libqt_free(s_str);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::itemMatches(item, s);
         }
+        return KListWidgetSearchLine::itemMatches(item, s);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,14 +455,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_event_isbase) {
             klistwidgetsearchline_event_isbase = false;
             return KListWidgetSearchLine::event(event);
-        } else if (klistwidgetsearchline_event_callback != nullptr) {
+        }
+        auto event_cb = klistwidgetsearchline_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = klistwidgetsearchline_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::event(event);
         }
+        return KListWidgetSearchLine::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,12 +471,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_sizehint_isbase) {
             klistwidgetsearchline_sizehint_isbase = false;
             return KListWidgetSearchLine::sizeHint();
-        } else if (klistwidgetsearchline_sizehint_callback != nullptr) {
-            QSize* callback_ret = klistwidgetsearchline_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KListWidgetSearchLine::sizeHint();
         }
+        auto sizehint_cb = klistwidgetsearchline_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KListWidgetSearchLine::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -543,12 +485,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_minimumsizehint_isbase) {
             klistwidgetsearchline_minimumsizehint_isbase = false;
             return KListWidgetSearchLine::minimumSizeHint();
-        } else if (klistwidgetsearchline_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = klistwidgetsearchline_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KListWidgetSearchLine::minimumSizeHint();
         }
+        auto minimumsizehint_cb = klistwidgetsearchline_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KListWidgetSearchLine::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,13 +499,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_mousepressevent_isbase) {
             klistwidgetsearchline_mousepressevent_isbase = false;
             KListWidgetSearchLine::mousePressEvent(param1);
-        } else if (klistwidgetsearchline_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = klistwidgetsearchline_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klistwidgetsearchline_mousepressevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::mousePressEvent(param1);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::mousePressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,13 +516,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_mousemoveevent_isbase) {
             klistwidgetsearchline_mousemoveevent_isbase = false;
             KListWidgetSearchLine::mouseMoveEvent(param1);
-        } else if (klistwidgetsearchline_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = klistwidgetsearchline_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klistwidgetsearchline_mousemoveevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +533,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_mousereleaseevent_isbase) {
             klistwidgetsearchline_mousereleaseevent_isbase = false;
             KListWidgetSearchLine::mouseReleaseEvent(param1);
-        } else if (klistwidgetsearchline_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = klistwidgetsearchline_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klistwidgetsearchline_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::mouseReleaseEvent(param1);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::mouseReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +550,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_mousedoubleclickevent_isbase) {
             klistwidgetsearchline_mousedoubleclickevent_isbase = false;
             KListWidgetSearchLine::mouseDoubleClickEvent(param1);
-        } else if (klistwidgetsearchline_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = klistwidgetsearchline_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            klistwidgetsearchline_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::mouseDoubleClickEvent(param1);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::mouseDoubleClickEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +567,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_keypressevent_isbase) {
             klistwidgetsearchline_keypressevent_isbase = false;
             KListWidgetSearchLine::keyPressEvent(param1);
-        } else if (klistwidgetsearchline_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = klistwidgetsearchline_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            klistwidgetsearchline_keypressevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +584,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_keyreleaseevent_isbase) {
             klistwidgetsearchline_keyreleaseevent_isbase = false;
             KListWidgetSearchLine::keyReleaseEvent(param1);
-        } else if (klistwidgetsearchline_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = klistwidgetsearchline_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            klistwidgetsearchline_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::keyReleaseEvent(param1);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::keyReleaseEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +601,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_focusinevent_isbase) {
             klistwidgetsearchline_focusinevent_isbase = false;
             KListWidgetSearchLine::focusInEvent(param1);
-        } else if (klistwidgetsearchline_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = klistwidgetsearchline_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            klistwidgetsearchline_focusinevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,13 +618,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_focusoutevent_isbase) {
             klistwidgetsearchline_focusoutevent_isbase = false;
             KListWidgetSearchLine::focusOutEvent(param1);
-        } else if (klistwidgetsearchline_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = klistwidgetsearchline_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            klistwidgetsearchline_focusoutevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -668,13 +635,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_paintevent_isbase) {
             klistwidgetsearchline_paintevent_isbase = false;
             KListWidgetSearchLine::paintEvent(param1);
-        } else if (klistwidgetsearchline_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = klistwidgetsearchline_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            klistwidgetsearchline_paintevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,13 +652,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_dragenterevent_isbase) {
             klistwidgetsearchline_dragenterevent_isbase = false;
             KListWidgetSearchLine::dragEnterEvent(param1);
-        } else if (klistwidgetsearchline_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = klistwidgetsearchline_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
 
-            klistwidgetsearchline_dragenterevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::dragEnterEvent(param1);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::dragEnterEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -696,13 +669,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_dragmoveevent_isbase) {
             klistwidgetsearchline_dragmoveevent_isbase = false;
             KListWidgetSearchLine::dragMoveEvent(e);
-        } else if (klistwidgetsearchline_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = klistwidgetsearchline_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
 
-            klistwidgetsearchline_dragmoveevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::dragMoveEvent(e);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::dragMoveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -710,13 +686,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_dragleaveevent_isbase) {
             klistwidgetsearchline_dragleaveevent_isbase = false;
             KListWidgetSearchLine::dragLeaveEvent(e);
-        } else if (klistwidgetsearchline_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = klistwidgetsearchline_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
 
-            klistwidgetsearchline_dragleaveevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::dragLeaveEvent(e);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::dragLeaveEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,13 +703,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_dropevent_isbase) {
             klistwidgetsearchline_dropevent_isbase = false;
             KListWidgetSearchLine::dropEvent(param1);
-        } else if (klistwidgetsearchline_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = klistwidgetsearchline_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
 
-            klistwidgetsearchline_dropevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::dropEvent(param1);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::dropEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -738,13 +720,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_changeevent_isbase) {
             klistwidgetsearchline_changeevent_isbase = false;
             KListWidgetSearchLine::changeEvent(param1);
-        } else if (klistwidgetsearchline_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = klistwidgetsearchline_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            klistwidgetsearchline_changeevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -752,13 +737,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_contextmenuevent_isbase) {
             klistwidgetsearchline_contextmenuevent_isbase = false;
             KListWidgetSearchLine::contextMenuEvent(param1);
-        } else if (klistwidgetsearchline_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = klistwidgetsearchline_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            klistwidgetsearchline_contextmenuevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -766,13 +754,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_inputmethodevent_isbase) {
             klistwidgetsearchline_inputmethodevent_isbase = false;
             KListWidgetSearchLine::inputMethodEvent(param1);
-        } else if (klistwidgetsearchline_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = klistwidgetsearchline_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            klistwidgetsearchline_inputmethodevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -780,13 +771,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_initstyleoption_isbase) {
             klistwidgetsearchline_initstyleoption_isbase = false;
             KListWidgetSearchLine::initStyleOption(option);
-        } else if (klistwidgetsearchline_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = klistwidgetsearchline_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
 
-            klistwidgetsearchline_initstyleoption_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -794,14 +788,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_inputmethodquery_isbase) {
             klistwidgetsearchline_inputmethodquery_isbase = false;
             return KListWidgetSearchLine::inputMethodQuery(param1);
-        } else if (klistwidgetsearchline_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = klistwidgetsearchline_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = klistwidgetsearchline_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KListWidgetSearchLine::inputMethodQuery(param1);
         }
+        return KListWidgetSearchLine::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +804,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_timerevent_isbase) {
             klistwidgetsearchline_timerevent_isbase = false;
             KListWidgetSearchLine::timerEvent(param1);
-        } else if (klistwidgetsearchline_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = klistwidgetsearchline_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
 
-            klistwidgetsearchline_timerevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::timerEvent(param1);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::timerEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,12 +821,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_devtype_isbase) {
             klistwidgetsearchline_devtype_isbase = false;
             return KListWidgetSearchLine::devType();
-        } else if (klistwidgetsearchline_devtype_callback != nullptr) {
-            int callback_ret = klistwidgetsearchline_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::devType();
         }
+        auto devtype_cb = klistwidgetsearchline_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KListWidgetSearchLine::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -836,13 +835,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_setvisible_isbase) {
             klistwidgetsearchline_setvisible_isbase = false;
             KListWidgetSearchLine::setVisible(visible);
-        } else if (klistwidgetsearchline_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = klistwidgetsearchline_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            klistwidgetsearchline_setvisible_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -850,14 +852,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_heightforwidth_isbase) {
             klistwidgetsearchline_heightforwidth_isbase = false;
             return KListWidgetSearchLine::heightForWidth(param1);
-        } else if (klistwidgetsearchline_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = klistwidgetsearchline_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = klistwidgetsearchline_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::heightForWidth(param1);
         }
+        return KListWidgetSearchLine::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,12 +868,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_hasheightforwidth_isbase) {
             klistwidgetsearchline_hasheightforwidth_isbase = false;
             return KListWidgetSearchLine::hasHeightForWidth();
-        } else if (klistwidgetsearchline_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = klistwidgetsearchline_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = klistwidgetsearchline_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -878,12 +882,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_paintengine_isbase) {
             klistwidgetsearchline_paintengine_isbase = false;
             return KListWidgetSearchLine::paintEngine();
-        } else if (klistwidgetsearchline_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = klistwidgetsearchline_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::paintEngine();
         }
+        auto paintengine_cb = klistwidgetsearchline_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +896,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_wheelevent_isbase) {
             klistwidgetsearchline_wheelevent_isbase = false;
             KListWidgetSearchLine::wheelEvent(event);
-        } else if (klistwidgetsearchline_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = klistwidgetsearchline_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            klistwidgetsearchline_wheelevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +913,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_enterevent_isbase) {
             klistwidgetsearchline_enterevent_isbase = false;
             KListWidgetSearchLine::enterEvent(event);
-        } else if (klistwidgetsearchline_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = klistwidgetsearchline_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            klistwidgetsearchline_enterevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,13 +930,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_leaveevent_isbase) {
             klistwidgetsearchline_leaveevent_isbase = false;
             KListWidgetSearchLine::leaveEvent(event);
-        } else if (klistwidgetsearchline_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = klistwidgetsearchline_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            klistwidgetsearchline_leaveevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -933,13 +947,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_moveevent_isbase) {
             klistwidgetsearchline_moveevent_isbase = false;
             KListWidgetSearchLine::moveEvent(event);
-        } else if (klistwidgetsearchline_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = klistwidgetsearchline_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            klistwidgetsearchline_moveevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -947,13 +964,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_resizeevent_isbase) {
             klistwidgetsearchline_resizeevent_isbase = false;
             KListWidgetSearchLine::resizeEvent(event);
-        } else if (klistwidgetsearchline_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = klistwidgetsearchline_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            klistwidgetsearchline_resizeevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -961,13 +981,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_closeevent_isbase) {
             klistwidgetsearchline_closeevent_isbase = false;
             KListWidgetSearchLine::closeEvent(event);
-        } else if (klistwidgetsearchline_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = klistwidgetsearchline_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            klistwidgetsearchline_closeevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -975,13 +998,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_tabletevent_isbase) {
             klistwidgetsearchline_tabletevent_isbase = false;
             KListWidgetSearchLine::tabletEvent(event);
-        } else if (klistwidgetsearchline_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = klistwidgetsearchline_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            klistwidgetsearchline_tabletevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -989,13 +1015,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_actionevent_isbase) {
             klistwidgetsearchline_actionevent_isbase = false;
             KListWidgetSearchLine::actionEvent(event);
-        } else if (klistwidgetsearchline_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = klistwidgetsearchline_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            klistwidgetsearchline_actionevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1003,13 +1032,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_showevent_isbase) {
             klistwidgetsearchline_showevent_isbase = false;
             KListWidgetSearchLine::showEvent(event);
-        } else if (klistwidgetsearchline_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = klistwidgetsearchline_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            klistwidgetsearchline_showevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1017,13 +1049,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_hideevent_isbase) {
             klistwidgetsearchline_hideevent_isbase = false;
             KListWidgetSearchLine::hideEvent(event);
-        } else if (klistwidgetsearchline_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = klistwidgetsearchline_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            klistwidgetsearchline_hideevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1031,7 +1066,9 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_nativeevent_isbase) {
             klistwidgetsearchline_nativeevent_isbase = false;
             return KListWidgetSearchLine::nativeEvent(eventType, message, result);
-        } else if (klistwidgetsearchline_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = klistwidgetsearchline_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1042,12 +1079,11 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = klistwidgetsearchline_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::nativeEvent(eventType, message, result);
         }
+        return KListWidgetSearchLine::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1055,14 +1091,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_metric_isbase) {
             klistwidgetsearchline_metric_isbase = false;
             return KListWidgetSearchLine::metric(param1);
-        } else if (klistwidgetsearchline_metric_callback != nullptr) {
+        }
+        auto metric_cb = klistwidgetsearchline_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = klistwidgetsearchline_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::metric(param1);
         }
+        return KListWidgetSearchLine::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1070,13 +1107,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_initpainter_isbase) {
             klistwidgetsearchline_initpainter_isbase = false;
             KListWidgetSearchLine::initPainter(painter);
-        } else if (klistwidgetsearchline_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = klistwidgetsearchline_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            klistwidgetsearchline_initpainter_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1084,14 +1124,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_redirected_isbase) {
             klistwidgetsearchline_redirected_isbase = false;
             return KListWidgetSearchLine::redirected(offset);
-        } else if (klistwidgetsearchline_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = klistwidgetsearchline_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = klistwidgetsearchline_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::redirected(offset);
         }
+        return KListWidgetSearchLine::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1099,12 +1140,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_sharedpainter_isbase) {
             klistwidgetsearchline_sharedpainter_isbase = false;
             return KListWidgetSearchLine::sharedPainter();
-        } else if (klistwidgetsearchline_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = klistwidgetsearchline_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::sharedPainter();
         }
+        auto sharedpainter_cb = klistwidgetsearchline_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1112,14 +1154,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_focusnextprevchild_isbase) {
             klistwidgetsearchline_focusnextprevchild_isbase = false;
             return KListWidgetSearchLine::focusNextPrevChild(next);
-        } else if (klistwidgetsearchline_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = klistwidgetsearchline_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = klistwidgetsearchline_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::focusNextPrevChild(next);
         }
+        return KListWidgetSearchLine::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1127,15 +1170,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_eventfilter_isbase) {
             klistwidgetsearchline_eventfilter_isbase = false;
             return KListWidgetSearchLine::eventFilter(watched, event);
-        } else if (klistwidgetsearchline_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = klistwidgetsearchline_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = klistwidgetsearchline_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::eventFilter(watched, event);
         }
+        return KListWidgetSearchLine::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1143,13 +1187,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_childevent_isbase) {
             klistwidgetsearchline_childevent_isbase = false;
             KListWidgetSearchLine::childEvent(event);
-        } else if (klistwidgetsearchline_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = klistwidgetsearchline_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            klistwidgetsearchline_childevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1157,13 +1204,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_customevent_isbase) {
             klistwidgetsearchline_customevent_isbase = false;
             KListWidgetSearchLine::customEvent(event);
-        } else if (klistwidgetsearchline_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = klistwidgetsearchline_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            klistwidgetsearchline_customevent_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1171,15 +1221,18 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_connectnotify_isbase) {
             klistwidgetsearchline_connectnotify_isbase = false;
             KListWidgetSearchLine::connectNotify(signal);
-        } else if (klistwidgetsearchline_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = klistwidgetsearchline_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klistwidgetsearchline_connectnotify_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1187,15 +1240,18 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_disconnectnotify_isbase) {
             klistwidgetsearchline_disconnectnotify_isbase = false;
             KListWidgetSearchLine::disconnectNotify(signal);
-        } else if (klistwidgetsearchline_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = klistwidgetsearchline_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            klistwidgetsearchline_disconnectnotify_callback(this, cbval1);
-        } else {
-            KListWidgetSearchLine::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KListWidgetSearchLine::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1203,12 +1259,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_cursorrect_isbase) {
             klistwidgetsearchline_cursorrect_isbase = false;
             return KListWidgetSearchLine::cursorRect();
-        } else if (klistwidgetsearchline_cursorrect_callback != nullptr) {
-            QRect* callback_ret = klistwidgetsearchline_cursorrect_callback();
-            return *callback_ret;
-        } else {
-            return KListWidgetSearchLine::cursorRect();
         }
+        auto cursorrect_cb = klistwidgetsearchline_cursorrect_callback;
+        if (cursorrect_cb) {
+            QRect* callback_ret = cursorrect_cb();
+            return *callback_ret;
+        }
+        return KListWidgetSearchLine::cursorRect();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1216,11 +1273,14 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_updatemicrofocus_isbase) {
             klistwidgetsearchline_updatemicrofocus_isbase = false;
             KListWidgetSearchLine::updateMicroFocus();
-        } else if (klistwidgetsearchline_updatemicrofocus_callback != nullptr) {
-            klistwidgetsearchline_updatemicrofocus_callback();
-        } else {
-            KListWidgetSearchLine::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = klistwidgetsearchline_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KListWidgetSearchLine::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1228,11 +1288,14 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_create_isbase) {
             klistwidgetsearchline_create_isbase = false;
             KListWidgetSearchLine::create();
-        } else if (klistwidgetsearchline_create_callback != nullptr) {
-            klistwidgetsearchline_create_callback();
-        } else {
-            KListWidgetSearchLine::create();
+            return;
         }
+        auto create_cb = klistwidgetsearchline_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KListWidgetSearchLine::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1240,11 +1303,14 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_destroy_isbase) {
             klistwidgetsearchline_destroy_isbase = false;
             KListWidgetSearchLine::destroy();
-        } else if (klistwidgetsearchline_destroy_callback != nullptr) {
-            klistwidgetsearchline_destroy_callback();
-        } else {
-            KListWidgetSearchLine::destroy();
+            return;
         }
+        auto destroy_cb = klistwidgetsearchline_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KListWidgetSearchLine::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1252,12 +1318,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_focusnextchild_isbase) {
             klistwidgetsearchline_focusnextchild_isbase = false;
             return KListWidgetSearchLine::focusNextChild();
-        } else if (klistwidgetsearchline_focusnextchild_callback != nullptr) {
-            bool callback_ret = klistwidgetsearchline_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::focusNextChild();
         }
+        auto focusnextchild_cb = klistwidgetsearchline_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1265,12 +1332,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_focuspreviouschild_isbase) {
             klistwidgetsearchline_focuspreviouschild_isbase = false;
             return KListWidgetSearchLine::focusPreviousChild();
-        } else if (klistwidgetsearchline_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = klistwidgetsearchline_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = klistwidgetsearchline_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1278,12 +1346,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_sender_isbase) {
             klistwidgetsearchline_sender_isbase = false;
             return KListWidgetSearchLine::sender();
-        } else if (klistwidgetsearchline_sender_callback != nullptr) {
-            QObject* callback_ret = klistwidgetsearchline_sender_callback();
-            return callback_ret;
-        } else {
-            return KListWidgetSearchLine::sender();
         }
+        auto sender_cb = klistwidgetsearchline_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KListWidgetSearchLine::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1291,12 +1360,13 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_sendersignalindex_isbase) {
             klistwidgetsearchline_sendersignalindex_isbase = false;
             return KListWidgetSearchLine::senderSignalIndex();
-        } else if (klistwidgetsearchline_sendersignalindex_callback != nullptr) {
-            int callback_ret = klistwidgetsearchline_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::senderSignalIndex();
         }
+        auto sendersignalindex_cb = klistwidgetsearchline_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KListWidgetSearchLine::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,14 +1374,15 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_receivers_isbase) {
             klistwidgetsearchline_receivers_isbase = false;
             return KListWidgetSearchLine::receivers(signal);
-        } else if (klistwidgetsearchline_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = klistwidgetsearchline_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = klistwidgetsearchline_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::receivers(signal);
         }
+        return KListWidgetSearchLine::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1319,16 +1390,17 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_issignalconnected_isbase) {
             klistwidgetsearchline_issignalconnected_isbase = false;
             return KListWidgetSearchLine::isSignalConnected(signal);
-        } else if (klistwidgetsearchline_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = klistwidgetsearchline_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = klistwidgetsearchline_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KListWidgetSearchLine::isSignalConnected(signal);
         }
+        return KListWidgetSearchLine::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1336,15 +1408,16 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (klistwidgetsearchline_getdecodedmetricf_isbase) {
             klistwidgetsearchline_getdecodedmetricf_isbase = false;
             return KListWidgetSearchLine::getDecodedMetricF(metricA, metricB);
-        } else if (klistwidgetsearchline_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = klistwidgetsearchline_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = klistwidgetsearchline_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KListWidgetSearchLine::getDecodedMetricF(metricA, metricB);
         }
+        return KListWidgetSearchLine::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

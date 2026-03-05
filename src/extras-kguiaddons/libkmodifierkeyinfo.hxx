@@ -69,23 +69,6 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     VirtualKModifierKeyInfo() : KModifierKeyInfo() {};
     VirtualKModifierKeyInfo(QObject* parent) : KModifierKeyInfo(parent) {};
 
-    ~VirtualKModifierKeyInfo() {
-        kmodifierkeyinfo_metaobject_callback = nullptr;
-        kmodifierkeyinfo_metacast_callback = nullptr;
-        kmodifierkeyinfo_metacall_callback = nullptr;
-        kmodifierkeyinfo_event_callback = nullptr;
-        kmodifierkeyinfo_eventfilter_callback = nullptr;
-        kmodifierkeyinfo_timerevent_callback = nullptr;
-        kmodifierkeyinfo_childevent_callback = nullptr;
-        kmodifierkeyinfo_customevent_callback = nullptr;
-        kmodifierkeyinfo_connectnotify_callback = nullptr;
-        kmodifierkeyinfo_disconnectnotify_callback = nullptr;
-        kmodifierkeyinfo_sender_callback = nullptr;
-        kmodifierkeyinfo_sendersignalindex_callback = nullptr;
-        kmodifierkeyinfo_receivers_callback = nullptr;
-        kmodifierkeyinfo_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKModifierKeyInfo_MetaObject_Callback(KModifierKeyInfo_MetaObject_Callback cb) { kmodifierkeyinfo_metaobject_callback = cb; }
     inline void setKModifierKeyInfo_Metacast_Callback(KModifierKeyInfo_Metacast_Callback cb) { kmodifierkeyinfo_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_metaobject_isbase) {
             kmodifierkeyinfo_metaobject_isbase = false;
             return KModifierKeyInfo::metaObject();
-        } else if (kmodifierkeyinfo_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kmodifierkeyinfo_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KModifierKeyInfo::metaObject();
         }
+        auto metaobject_cb = kmodifierkeyinfo_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KModifierKeyInfo::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_metacast_isbase) {
             kmodifierkeyinfo_metacast_isbase = false;
             return KModifierKeyInfo::qt_metacast(param1);
-        } else if (kmodifierkeyinfo_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kmodifierkeyinfo_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kmodifierkeyinfo_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KModifierKeyInfo::qt_metacast(param1);
         }
+        return KModifierKeyInfo::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_metacall_isbase) {
             kmodifierkeyinfo_metacall_isbase = false;
             return KModifierKeyInfo::qt_metacall(param1, param2, param3);
-        } else if (kmodifierkeyinfo_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kmodifierkeyinfo_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kmodifierkeyinfo_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KModifierKeyInfo::qt_metacall(param1, param2, param3);
         }
+        return KModifierKeyInfo::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_event_isbase) {
             kmodifierkeyinfo_event_isbase = false;
             return KModifierKeyInfo::event(event);
-        } else if (kmodifierkeyinfo_event_callback != nullptr) {
+        }
+        auto event_cb = kmodifierkeyinfo_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kmodifierkeyinfo_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KModifierKeyInfo::event(event);
         }
+        return KModifierKeyInfo::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_eventfilter_isbase) {
             kmodifierkeyinfo_eventfilter_isbase = false;
             return KModifierKeyInfo::eventFilter(watched, event);
-        } else if (kmodifierkeyinfo_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kmodifierkeyinfo_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kmodifierkeyinfo_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KModifierKeyInfo::eventFilter(watched, event);
         }
+        return KModifierKeyInfo::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_timerevent_isbase) {
             kmodifierkeyinfo_timerevent_isbase = false;
             KModifierKeyInfo::timerEvent(event);
-        } else if (kmodifierkeyinfo_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kmodifierkeyinfo_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kmodifierkeyinfo_timerevent_callback(this, cbval1);
-        } else {
-            KModifierKeyInfo::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KModifierKeyInfo::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_childevent_isbase) {
             kmodifierkeyinfo_childevent_isbase = false;
             KModifierKeyInfo::childEvent(event);
-        } else if (kmodifierkeyinfo_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kmodifierkeyinfo_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kmodifierkeyinfo_childevent_callback(this, cbval1);
-        } else {
-            KModifierKeyInfo::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KModifierKeyInfo::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_customevent_isbase) {
             kmodifierkeyinfo_customevent_isbase = false;
             KModifierKeyInfo::customEvent(event);
-        } else if (kmodifierkeyinfo_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kmodifierkeyinfo_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kmodifierkeyinfo_customevent_callback(this, cbval1);
-        } else {
-            KModifierKeyInfo::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KModifierKeyInfo::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_connectnotify_isbase) {
             kmodifierkeyinfo_connectnotify_isbase = false;
             KModifierKeyInfo::connectNotify(signal);
-        } else if (kmodifierkeyinfo_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kmodifierkeyinfo_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmodifierkeyinfo_connectnotify_callback(this, cbval1);
-        } else {
-            KModifierKeyInfo::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KModifierKeyInfo::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_disconnectnotify_isbase) {
             kmodifierkeyinfo_disconnectnotify_isbase = false;
             KModifierKeyInfo::disconnectNotify(signal);
-        } else if (kmodifierkeyinfo_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kmodifierkeyinfo_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmodifierkeyinfo_disconnectnotify_callback(this, cbval1);
-        } else {
-            KModifierKeyInfo::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KModifierKeyInfo::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_sender_isbase) {
             kmodifierkeyinfo_sender_isbase = false;
             return KModifierKeyInfo::sender();
-        } else if (kmodifierkeyinfo_sender_callback != nullptr) {
-            QObject* callback_ret = kmodifierkeyinfo_sender_callback();
-            return callback_ret;
-        } else {
-            return KModifierKeyInfo::sender();
         }
+        auto sender_cb = kmodifierkeyinfo_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KModifierKeyInfo::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_sendersignalindex_isbase) {
             kmodifierkeyinfo_sendersignalindex_isbase = false;
             return KModifierKeyInfo::senderSignalIndex();
-        } else if (kmodifierkeyinfo_sendersignalindex_callback != nullptr) {
-            int callback_ret = kmodifierkeyinfo_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KModifierKeyInfo::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kmodifierkeyinfo_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KModifierKeyInfo::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_receivers_isbase) {
             kmodifierkeyinfo_receivers_isbase = false;
             return KModifierKeyInfo::receivers(signal);
-        } else if (kmodifierkeyinfo_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kmodifierkeyinfo_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kmodifierkeyinfo_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KModifierKeyInfo::receivers(signal);
         }
+        return KModifierKeyInfo::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
         if (kmodifierkeyinfo_issignalconnected_isbase) {
             kmodifierkeyinfo_issignalconnected_isbase = false;
             return KModifierKeyInfo::isSignalConnected(signal);
-        } else if (kmodifierkeyinfo_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kmodifierkeyinfo_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kmodifierkeyinfo_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KModifierKeyInfo::isSignalConnected(signal);
         }
+        return KModifierKeyInfo::isSignalConnected(signal);
     }
 
     // Friend functions

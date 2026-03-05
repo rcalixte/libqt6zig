@@ -78,26 +78,6 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     VirtualQGeoCodingManagerEngine(const QMap<QString, QVariant>& parameters) : QGeoCodingManagerEngine(parameters) {};
     VirtualQGeoCodingManagerEngine(const QMap<QString, QVariant>& parameters, QObject* parent) : QGeoCodingManagerEngine(parameters, parent) {};
 
-    ~VirtualQGeoCodingManagerEngine() {
-        qgeocodingmanagerengine_metaobject_callback = nullptr;
-        qgeocodingmanagerengine_metacast_callback = nullptr;
-        qgeocodingmanagerengine_metacall_callback = nullptr;
-        qgeocodingmanagerengine_geocode_callback = nullptr;
-        qgeocodingmanagerengine_geocode2_callback = nullptr;
-        qgeocodingmanagerengine_reversegeocode_callback = nullptr;
-        qgeocodingmanagerengine_event_callback = nullptr;
-        qgeocodingmanagerengine_eventfilter_callback = nullptr;
-        qgeocodingmanagerengine_timerevent_callback = nullptr;
-        qgeocodingmanagerengine_childevent_callback = nullptr;
-        qgeocodingmanagerengine_customevent_callback = nullptr;
-        qgeocodingmanagerengine_connectnotify_callback = nullptr;
-        qgeocodingmanagerengine_disconnectnotify_callback = nullptr;
-        qgeocodingmanagerengine_sender_callback = nullptr;
-        qgeocodingmanagerengine_sendersignalindex_callback = nullptr;
-        qgeocodingmanagerengine_receivers_callback = nullptr;
-        qgeocodingmanagerengine_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGeoCodingManagerEngine_MetaObject_Callback(QGeoCodingManagerEngine_MetaObject_Callback cb) { qgeocodingmanagerengine_metaobject_callback = cb; }
     inline void setQGeoCodingManagerEngine_Metacast_Callback(QGeoCodingManagerEngine_Metacast_Callback cb) { qgeocodingmanagerengine_metacast_callback = cb; }
@@ -141,12 +121,13 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_metaobject_isbase) {
             qgeocodingmanagerengine_metaobject_isbase = false;
             return QGeoCodingManagerEngine::metaObject();
-        } else if (qgeocodingmanagerengine_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qgeocodingmanagerengine_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::metaObject();
         }
+        auto metaobject_cb = qgeocodingmanagerengine_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QGeoCodingManagerEngine::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -154,14 +135,15 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_metacast_isbase) {
             qgeocodingmanagerengine_metacast_isbase = false;
             return QGeoCodingManagerEngine::qt_metacast(param1);
-        } else if (qgeocodingmanagerengine_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qgeocodingmanagerengine_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qgeocodingmanagerengine_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::qt_metacast(param1);
         }
+        return QGeoCodingManagerEngine::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,16 +151,17 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_metacall_isbase) {
             qgeocodingmanagerengine_metacall_isbase = false;
             return QGeoCodingManagerEngine::qt_metacall(param1, param2, param3);
-        } else if (qgeocodingmanagerengine_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qgeocodingmanagerengine_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qgeocodingmanagerengine_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoCodingManagerEngine::qt_metacall(param1, param2, param3);
         }
+        return QGeoCodingManagerEngine::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -186,7 +169,9 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_geocode_isbase) {
             qgeocodingmanagerengine_geocode_isbase = false;
             return QGeoCodingManagerEngine::geocode(address, bounds);
-        } else if (qgeocodingmanagerengine_geocode_callback != nullptr) {
+        }
+        auto geocode_cb = qgeocodingmanagerengine_geocode_callback;
+        if (geocode_cb) {
             const QGeoAddress& address_ret = address;
             // Cast returned reference into pointer
             QGeoAddress* cbval1 = const_cast<QGeoAddress*>(&address_ret);
@@ -194,11 +179,10 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
             // Cast returned reference into pointer
             QGeoShape* cbval2 = const_cast<QGeoShape*>(&bounds_ret);
 
-            QGeoCodeReply* callback_ret = qgeocodingmanagerengine_geocode_callback(this, cbval1, cbval2);
+            QGeoCodeReply* callback_ret = geocode_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::geocode(address, bounds);
         }
+        return QGeoCodingManagerEngine::geocode(address, bounds);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -206,7 +190,9 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_geocode2_isbase) {
             qgeocodingmanagerengine_geocode2_isbase = false;
             return QGeoCodingManagerEngine::geocode(address, limit, offset, bounds);
-        } else if (qgeocodingmanagerengine_geocode2_callback != nullptr) {
+        }
+        auto geocode2_cb = qgeocodingmanagerengine_geocode2_callback;
+        if (geocode2_cb) {
             const QString address_ret = address;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray address_b = address_ret.toUtf8();
@@ -221,12 +207,11 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
             // Cast returned reference into pointer
             QGeoShape* cbval4 = const_cast<QGeoShape*>(&bounds_ret);
 
-            QGeoCodeReply* callback_ret = qgeocodingmanagerengine_geocode2_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QGeoCodeReply* callback_ret = geocode2_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(address_str);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::geocode(address, limit, offset, bounds);
         }
+        return QGeoCodingManagerEngine::geocode(address, limit, offset, bounds);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -234,7 +219,9 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_reversegeocode_isbase) {
             qgeocodingmanagerengine_reversegeocode_isbase = false;
             return QGeoCodingManagerEngine::reverseGeocode(coordinate, bounds);
-        } else if (qgeocodingmanagerengine_reversegeocode_callback != nullptr) {
+        }
+        auto reversegeocode_cb = qgeocodingmanagerengine_reversegeocode_callback;
+        if (reversegeocode_cb) {
             const QGeoCoordinate& coordinate_ret = coordinate;
             // Cast returned reference into pointer
             QGeoCoordinate* cbval1 = const_cast<QGeoCoordinate*>(&coordinate_ret);
@@ -242,11 +229,10 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
             // Cast returned reference into pointer
             QGeoShape* cbval2 = const_cast<QGeoShape*>(&bounds_ret);
 
-            QGeoCodeReply* callback_ret = qgeocodingmanagerengine_reversegeocode_callback(this, cbval1, cbval2);
+            QGeoCodeReply* callback_ret = reversegeocode_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::reverseGeocode(coordinate, bounds);
         }
+        return QGeoCodingManagerEngine::reverseGeocode(coordinate, bounds);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -254,14 +240,15 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_event_isbase) {
             qgeocodingmanagerengine_event_isbase = false;
             return QGeoCodingManagerEngine::event(event);
-        } else if (qgeocodingmanagerengine_event_callback != nullptr) {
+        }
+        auto event_cb = qgeocodingmanagerengine_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qgeocodingmanagerengine_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::event(event);
         }
+        return QGeoCodingManagerEngine::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -269,15 +256,16 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_eventfilter_isbase) {
             qgeocodingmanagerengine_eventfilter_isbase = false;
             return QGeoCodingManagerEngine::eventFilter(watched, event);
-        } else if (qgeocodingmanagerengine_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qgeocodingmanagerengine_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qgeocodingmanagerengine_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::eventFilter(watched, event);
         }
+        return QGeoCodingManagerEngine::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -285,13 +273,16 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_timerevent_isbase) {
             qgeocodingmanagerengine_timerevent_isbase = false;
             QGeoCodingManagerEngine::timerEvent(event);
-        } else if (qgeocodingmanagerengine_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qgeocodingmanagerengine_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qgeocodingmanagerengine_timerevent_callback(this, cbval1);
-        } else {
-            QGeoCodingManagerEngine::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QGeoCodingManagerEngine::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,13 +290,16 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_childevent_isbase) {
             qgeocodingmanagerengine_childevent_isbase = false;
             QGeoCodingManagerEngine::childEvent(event);
-        } else if (qgeocodingmanagerengine_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qgeocodingmanagerengine_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qgeocodingmanagerengine_childevent_callback(this, cbval1);
-        } else {
-            QGeoCodingManagerEngine::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QGeoCodingManagerEngine::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -313,13 +307,16 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_customevent_isbase) {
             qgeocodingmanagerengine_customevent_isbase = false;
             QGeoCodingManagerEngine::customEvent(event);
-        } else if (qgeocodingmanagerengine_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qgeocodingmanagerengine_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qgeocodingmanagerengine_customevent_callback(this, cbval1);
-        } else {
-            QGeoCodingManagerEngine::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QGeoCodingManagerEngine::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -327,15 +324,18 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_connectnotify_isbase) {
             qgeocodingmanagerengine_connectnotify_isbase = false;
             QGeoCodingManagerEngine::connectNotify(signal);
-        } else if (qgeocodingmanagerengine_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qgeocodingmanagerengine_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeocodingmanagerengine_connectnotify_callback(this, cbval1);
-        } else {
-            QGeoCodingManagerEngine::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoCodingManagerEngine::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -343,15 +343,18 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_disconnectnotify_isbase) {
             qgeocodingmanagerengine_disconnectnotify_isbase = false;
             QGeoCodingManagerEngine::disconnectNotify(signal);
-        } else if (qgeocodingmanagerengine_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qgeocodingmanagerengine_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qgeocodingmanagerengine_disconnectnotify_callback(this, cbval1);
-        } else {
-            QGeoCodingManagerEngine::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QGeoCodingManagerEngine::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,12 +362,13 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_sender_isbase) {
             qgeocodingmanagerengine_sender_isbase = false;
             return QGeoCodingManagerEngine::sender();
-        } else if (qgeocodingmanagerengine_sender_callback != nullptr) {
-            QObject* callback_ret = qgeocodingmanagerengine_sender_callback();
-            return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::sender();
         }
+        auto sender_cb = qgeocodingmanagerengine_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QGeoCodingManagerEngine::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -372,12 +376,13 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_sendersignalindex_isbase) {
             qgeocodingmanagerengine_sendersignalindex_isbase = false;
             return QGeoCodingManagerEngine::senderSignalIndex();
-        } else if (qgeocodingmanagerengine_sendersignalindex_callback != nullptr) {
-            int callback_ret = qgeocodingmanagerengine_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QGeoCodingManagerEngine::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qgeocodingmanagerengine_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QGeoCodingManagerEngine::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -385,14 +390,15 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_receivers_isbase) {
             qgeocodingmanagerengine_receivers_isbase = false;
             return QGeoCodingManagerEngine::receivers(signal);
-        } else if (qgeocodingmanagerengine_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qgeocodingmanagerengine_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qgeocodingmanagerengine_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QGeoCodingManagerEngine::receivers(signal);
         }
+        return QGeoCodingManagerEngine::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -400,16 +406,17 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         if (qgeocodingmanagerengine_issignalconnected_isbase) {
             qgeocodingmanagerengine_issignalconnected_isbase = false;
             return QGeoCodingManagerEngine::isSignalConnected(signal);
-        } else if (qgeocodingmanagerengine_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qgeocodingmanagerengine_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qgeocodingmanagerengine_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QGeoCodingManagerEngine::isSignalConnected(signal);
         }
+        return QGeoCodingManagerEngine::isSignalConnected(signal);
     }
 
     // Friend functions

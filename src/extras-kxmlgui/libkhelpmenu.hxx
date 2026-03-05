@@ -73,23 +73,6 @@ class VirtualKHelpMenu final : public KHelpMenu {
     VirtualKHelpMenu(QWidget* parent, const KAboutData& aboutData) : KHelpMenu(parent, aboutData) {};
     VirtualKHelpMenu(QWidget* parent, const QString& unused, bool showWhatsThis) : KHelpMenu(parent, unused, showWhatsThis) {};
 
-    ~VirtualKHelpMenu() {
-        khelpmenu_metaobject_callback = nullptr;
-        khelpmenu_metacast_callback = nullptr;
-        khelpmenu_metacall_callback = nullptr;
-        khelpmenu_event_callback = nullptr;
-        khelpmenu_eventfilter_callback = nullptr;
-        khelpmenu_timerevent_callback = nullptr;
-        khelpmenu_childevent_callback = nullptr;
-        khelpmenu_customevent_callback = nullptr;
-        khelpmenu_connectnotify_callback = nullptr;
-        khelpmenu_disconnectnotify_callback = nullptr;
-        khelpmenu_sender_callback = nullptr;
-        khelpmenu_sendersignalindex_callback = nullptr;
-        khelpmenu_receivers_callback = nullptr;
-        khelpmenu_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKHelpMenu_MetaObject_Callback(KHelpMenu_MetaObject_Callback cb) { khelpmenu_metaobject_callback = cb; }
     inline void setKHelpMenu_Metacast_Callback(KHelpMenu_Metacast_Callback cb) { khelpmenu_metacast_callback = cb; }
@@ -127,12 +110,13 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_metaobject_isbase) {
             khelpmenu_metaobject_isbase = false;
             return KHelpMenu::metaObject();
-        } else if (khelpmenu_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = khelpmenu_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KHelpMenu::metaObject();
         }
+        auto metaobject_cb = khelpmenu_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KHelpMenu::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -140,14 +124,15 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_metacast_isbase) {
             khelpmenu_metacast_isbase = false;
             return KHelpMenu::qt_metacast(param1);
-        } else if (khelpmenu_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = khelpmenu_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = khelpmenu_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHelpMenu::qt_metacast(param1);
         }
+        return KHelpMenu::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -155,16 +140,17 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_metacall_isbase) {
             khelpmenu_metacall_isbase = false;
             return KHelpMenu::qt_metacall(param1, param2, param3);
-        } else if (khelpmenu_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = khelpmenu_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = khelpmenu_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KHelpMenu::qt_metacall(param1, param2, param3);
         }
+        return KHelpMenu::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -172,14 +158,15 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_event_isbase) {
             khelpmenu_event_isbase = false;
             return KHelpMenu::event(event);
-        } else if (khelpmenu_event_callback != nullptr) {
+        }
+        auto event_cb = khelpmenu_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = khelpmenu_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHelpMenu::event(event);
         }
+        return KHelpMenu::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -187,15 +174,16 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_eventfilter_isbase) {
             khelpmenu_eventfilter_isbase = false;
             return KHelpMenu::eventFilter(watched, event);
-        } else if (khelpmenu_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = khelpmenu_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = khelpmenu_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KHelpMenu::eventFilter(watched, event);
         }
+        return KHelpMenu::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -203,13 +191,16 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_timerevent_isbase) {
             khelpmenu_timerevent_isbase = false;
             KHelpMenu::timerEvent(event);
-        } else if (khelpmenu_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = khelpmenu_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            khelpmenu_timerevent_callback(this, cbval1);
-        } else {
-            KHelpMenu::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KHelpMenu::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -217,13 +208,16 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_childevent_isbase) {
             khelpmenu_childevent_isbase = false;
             KHelpMenu::childEvent(event);
-        } else if (khelpmenu_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = khelpmenu_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            khelpmenu_childevent_callback(this, cbval1);
-        } else {
-            KHelpMenu::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KHelpMenu::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -231,13 +225,16 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_customevent_isbase) {
             khelpmenu_customevent_isbase = false;
             KHelpMenu::customEvent(event);
-        } else if (khelpmenu_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = khelpmenu_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            khelpmenu_customevent_callback(this, cbval1);
-        } else {
-            KHelpMenu::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KHelpMenu::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -245,15 +242,18 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_connectnotify_isbase) {
             khelpmenu_connectnotify_isbase = false;
             KHelpMenu::connectNotify(signal);
-        } else if (khelpmenu_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = khelpmenu_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            khelpmenu_connectnotify_callback(this, cbval1);
-        } else {
-            KHelpMenu::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KHelpMenu::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -261,15 +261,18 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_disconnectnotify_isbase) {
             khelpmenu_disconnectnotify_isbase = false;
             KHelpMenu::disconnectNotify(signal);
-        } else if (khelpmenu_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = khelpmenu_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            khelpmenu_disconnectnotify_callback(this, cbval1);
-        } else {
-            KHelpMenu::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KHelpMenu::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -277,12 +280,13 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_sender_isbase) {
             khelpmenu_sender_isbase = false;
             return KHelpMenu::sender();
-        } else if (khelpmenu_sender_callback != nullptr) {
-            QObject* callback_ret = khelpmenu_sender_callback();
-            return callback_ret;
-        } else {
-            return KHelpMenu::sender();
         }
+        auto sender_cb = khelpmenu_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KHelpMenu::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -290,12 +294,13 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_sendersignalindex_isbase) {
             khelpmenu_sendersignalindex_isbase = false;
             return KHelpMenu::senderSignalIndex();
-        } else if (khelpmenu_sendersignalindex_callback != nullptr) {
-            int callback_ret = khelpmenu_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KHelpMenu::senderSignalIndex();
         }
+        auto sendersignalindex_cb = khelpmenu_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KHelpMenu::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,14 +308,15 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_receivers_isbase) {
             khelpmenu_receivers_isbase = false;
             return KHelpMenu::receivers(signal);
-        } else if (khelpmenu_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = khelpmenu_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = khelpmenu_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KHelpMenu::receivers(signal);
         }
+        return KHelpMenu::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,16 +324,17 @@ class VirtualKHelpMenu final : public KHelpMenu {
         if (khelpmenu_issignalconnected_isbase) {
             khelpmenu_issignalconnected_isbase = false;
             return KHelpMenu::isSignalConnected(signal);
-        } else if (khelpmenu_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = khelpmenu_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = khelpmenu_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KHelpMenu::isSignalConnected(signal);
         }
+        return KHelpMenu::isSignalConnected(signal);
     }
 
     // Friend functions

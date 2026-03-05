@@ -69,23 +69,6 @@ class VirtualQSignalMapper final : public QSignalMapper {
     VirtualQSignalMapper() : QSignalMapper() {};
     VirtualQSignalMapper(QObject* parent) : QSignalMapper(parent) {};
 
-    ~VirtualQSignalMapper() {
-        qsignalmapper_metaobject_callback = nullptr;
-        qsignalmapper_metacast_callback = nullptr;
-        qsignalmapper_metacall_callback = nullptr;
-        qsignalmapper_event_callback = nullptr;
-        qsignalmapper_eventfilter_callback = nullptr;
-        qsignalmapper_timerevent_callback = nullptr;
-        qsignalmapper_childevent_callback = nullptr;
-        qsignalmapper_customevent_callback = nullptr;
-        qsignalmapper_connectnotify_callback = nullptr;
-        qsignalmapper_disconnectnotify_callback = nullptr;
-        qsignalmapper_sender_callback = nullptr;
-        qsignalmapper_sendersignalindex_callback = nullptr;
-        qsignalmapper_receivers_callback = nullptr;
-        qsignalmapper_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQSignalMapper_MetaObject_Callback(QSignalMapper_MetaObject_Callback cb) { qsignalmapper_metaobject_callback = cb; }
     inline void setQSignalMapper_Metacast_Callback(QSignalMapper_Metacast_Callback cb) { qsignalmapper_metacast_callback = cb; }
@@ -123,12 +106,13 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_metaobject_isbase) {
             qsignalmapper_metaobject_isbase = false;
             return QSignalMapper::metaObject();
-        } else if (qsignalmapper_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qsignalmapper_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QSignalMapper::metaObject();
         }
+        auto metaobject_cb = qsignalmapper_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QSignalMapper::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -136,14 +120,15 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_metacast_isbase) {
             qsignalmapper_metacast_isbase = false;
             return QSignalMapper::qt_metacast(param1);
-        } else if (qsignalmapper_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qsignalmapper_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qsignalmapper_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSignalMapper::qt_metacast(param1);
         }
+        return QSignalMapper::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -151,16 +136,17 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_metacall_isbase) {
             qsignalmapper_metacall_isbase = false;
             return QSignalMapper::qt_metacall(param1, param2, param3);
-        } else if (qsignalmapper_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qsignalmapper_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qsignalmapper_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSignalMapper::qt_metacall(param1, param2, param3);
         }
+        return QSignalMapper::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -168,14 +154,15 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_event_isbase) {
             qsignalmapper_event_isbase = false;
             return QSignalMapper::event(event);
-        } else if (qsignalmapper_event_callback != nullptr) {
+        }
+        auto event_cb = qsignalmapper_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qsignalmapper_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSignalMapper::event(event);
         }
+        return QSignalMapper::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -183,15 +170,16 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_eventfilter_isbase) {
             qsignalmapper_eventfilter_isbase = false;
             return QSignalMapper::eventFilter(watched, event);
-        } else if (qsignalmapper_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qsignalmapper_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qsignalmapper_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QSignalMapper::eventFilter(watched, event);
         }
+        return QSignalMapper::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -199,13 +187,16 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_timerevent_isbase) {
             qsignalmapper_timerevent_isbase = false;
             QSignalMapper::timerEvent(event);
-        } else if (qsignalmapper_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qsignalmapper_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qsignalmapper_timerevent_callback(this, cbval1);
-        } else {
-            QSignalMapper::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QSignalMapper::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -213,13 +204,16 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_childevent_isbase) {
             qsignalmapper_childevent_isbase = false;
             QSignalMapper::childEvent(event);
-        } else if (qsignalmapper_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qsignalmapper_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qsignalmapper_childevent_callback(this, cbval1);
-        } else {
-            QSignalMapper::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QSignalMapper::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,13 +221,16 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_customevent_isbase) {
             qsignalmapper_customevent_isbase = false;
             QSignalMapper::customEvent(event);
-        } else if (qsignalmapper_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qsignalmapper_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qsignalmapper_customevent_callback(this, cbval1);
-        } else {
-            QSignalMapper::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QSignalMapper::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -241,15 +238,18 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_connectnotify_isbase) {
             qsignalmapper_connectnotify_isbase = false;
             QSignalMapper::connectNotify(signal);
-        } else if (qsignalmapper_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qsignalmapper_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsignalmapper_connectnotify_callback(this, cbval1);
-        } else {
-            QSignalMapper::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QSignalMapper::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,15 +257,18 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_disconnectnotify_isbase) {
             qsignalmapper_disconnectnotify_isbase = false;
             QSignalMapper::disconnectNotify(signal);
-        } else if (qsignalmapper_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qsignalmapper_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qsignalmapper_disconnectnotify_callback(this, cbval1);
-        } else {
-            QSignalMapper::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QSignalMapper::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -273,12 +276,13 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_sender_isbase) {
             qsignalmapper_sender_isbase = false;
             return QSignalMapper::sender();
-        } else if (qsignalmapper_sender_callback != nullptr) {
-            QObject* callback_ret = qsignalmapper_sender_callback();
-            return callback_ret;
-        } else {
-            return QSignalMapper::sender();
         }
+        auto sender_cb = qsignalmapper_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QSignalMapper::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,12 +290,13 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_sendersignalindex_isbase) {
             qsignalmapper_sendersignalindex_isbase = false;
             return QSignalMapper::senderSignalIndex();
-        } else if (qsignalmapper_sendersignalindex_callback != nullptr) {
-            int callback_ret = qsignalmapper_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QSignalMapper::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qsignalmapper_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QSignalMapper::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,14 +304,15 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_receivers_isbase) {
             qsignalmapper_receivers_isbase = false;
             return QSignalMapper::receivers(signal);
-        } else if (qsignalmapper_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qsignalmapper_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qsignalmapper_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QSignalMapper::receivers(signal);
         }
+        return QSignalMapper::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -314,16 +320,17 @@ class VirtualQSignalMapper final : public QSignalMapper {
         if (qsignalmapper_issignalconnected_isbase) {
             qsignalmapper_issignalconnected_isbase = false;
             return QSignalMapper::isSignalConnected(signal);
-        } else if (qsignalmapper_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qsignalmapper_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qsignalmapper_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QSignalMapper::isSignalConnected(signal);
         }
+        return QSignalMapper::isSignalConnected(signal);
     }
 
     // Friend functions

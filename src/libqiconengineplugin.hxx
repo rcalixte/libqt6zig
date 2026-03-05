@@ -72,24 +72,6 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     VirtualQIconEnginePlugin() : QIconEnginePlugin() {};
     VirtualQIconEnginePlugin(QObject* parent) : QIconEnginePlugin(parent) {};
 
-    ~VirtualQIconEnginePlugin() {
-        qiconengineplugin_metaobject_callback = nullptr;
-        qiconengineplugin_metacast_callback = nullptr;
-        qiconengineplugin_metacall_callback = nullptr;
-        qiconengineplugin_create_callback = nullptr;
-        qiconengineplugin_event_callback = nullptr;
-        qiconengineplugin_eventfilter_callback = nullptr;
-        qiconengineplugin_timerevent_callback = nullptr;
-        qiconengineplugin_childevent_callback = nullptr;
-        qiconengineplugin_customevent_callback = nullptr;
-        qiconengineplugin_connectnotify_callback = nullptr;
-        qiconengineplugin_disconnectnotify_callback = nullptr;
-        qiconengineplugin_sender_callback = nullptr;
-        qiconengineplugin_sendersignalindex_callback = nullptr;
-        qiconengineplugin_receivers_callback = nullptr;
-        qiconengineplugin_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQIconEnginePlugin_MetaObject_Callback(QIconEnginePlugin_MetaObject_Callback cb) { qiconengineplugin_metaobject_callback = cb; }
     inline void setQIconEnginePlugin_Metacast_Callback(QIconEnginePlugin_Metacast_Callback cb) { qiconengineplugin_metacast_callback = cb; }
@@ -129,12 +111,13 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_metaobject_isbase) {
             qiconengineplugin_metaobject_isbase = false;
             return QIconEnginePlugin::metaObject();
-        } else if (qiconengineplugin_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qiconengineplugin_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QIconEnginePlugin::metaObject();
         }
+        auto metaobject_cb = qiconengineplugin_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QIconEnginePlugin::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -142,14 +125,15 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_metacast_isbase) {
             qiconengineplugin_metacast_isbase = false;
             return QIconEnginePlugin::qt_metacast(param1);
-        } else if (qiconengineplugin_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qiconengineplugin_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qiconengineplugin_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIconEnginePlugin::qt_metacast(param1);
         }
+        return QIconEnginePlugin::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -157,21 +141,23 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_metacall_isbase) {
             qiconengineplugin_metacall_isbase = false;
             return QIconEnginePlugin::qt_metacall(param1, param2, param3);
-        } else if (qiconengineplugin_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qiconengineplugin_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qiconengineplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QIconEnginePlugin::qt_metacall(param1, param2, param3);
         }
+        return QIconEnginePlugin::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QIconEngine* create(const QString& filename) override {
-        if (qiconengineplugin_create_callback != nullptr) {
+        auto create_cb = qiconengineplugin_create_callback;
+        if (create_cb) {
             const QString filename_ret = filename;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filename_b = filename_ret.toUtf8();
@@ -181,12 +167,11 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
             ((char*)filename_str)[filename_str_len] = '\0';
             const char* cbval1 = filename_str;
 
-            QIconEngine* callback_ret = qiconengineplugin_create_callback(this, cbval1);
+            QIconEngine* callback_ret = create_cb(this, cbval1);
             libqt_free(filename_str);
             return callback_ret;
-        } else {
-            return {};
         }
+        return {};
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,14 +179,15 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_event_isbase) {
             qiconengineplugin_event_isbase = false;
             return QIconEnginePlugin::event(event);
-        } else if (qiconengineplugin_event_callback != nullptr) {
+        }
+        auto event_cb = qiconengineplugin_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qiconengineplugin_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIconEnginePlugin::event(event);
         }
+        return QIconEnginePlugin::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -209,15 +195,16 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_eventfilter_isbase) {
             qiconengineplugin_eventfilter_isbase = false;
             return QIconEnginePlugin::eventFilter(watched, event);
-        } else if (qiconengineplugin_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qiconengineplugin_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qiconengineplugin_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QIconEnginePlugin::eventFilter(watched, event);
         }
+        return QIconEnginePlugin::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -225,13 +212,16 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_timerevent_isbase) {
             qiconengineplugin_timerevent_isbase = false;
             QIconEnginePlugin::timerEvent(event);
-        } else if (qiconengineplugin_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qiconengineplugin_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qiconengineplugin_timerevent_callback(this, cbval1);
-        } else {
-            QIconEnginePlugin::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QIconEnginePlugin::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -239,13 +229,16 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_childevent_isbase) {
             qiconengineplugin_childevent_isbase = false;
             QIconEnginePlugin::childEvent(event);
-        } else if (qiconengineplugin_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qiconengineplugin_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qiconengineplugin_childevent_callback(this, cbval1);
-        } else {
-            QIconEnginePlugin::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QIconEnginePlugin::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -253,13 +246,16 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_customevent_isbase) {
             qiconengineplugin_customevent_isbase = false;
             QIconEnginePlugin::customEvent(event);
-        } else if (qiconengineplugin_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qiconengineplugin_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qiconengineplugin_customevent_callback(this, cbval1);
-        } else {
-            QIconEnginePlugin::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QIconEnginePlugin::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -267,15 +263,18 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_connectnotify_isbase) {
             qiconengineplugin_connectnotify_isbase = false;
             QIconEnginePlugin::connectNotify(signal);
-        } else if (qiconengineplugin_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qiconengineplugin_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qiconengineplugin_connectnotify_callback(this, cbval1);
-        } else {
-            QIconEnginePlugin::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QIconEnginePlugin::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -283,15 +282,18 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_disconnectnotify_isbase) {
             qiconengineplugin_disconnectnotify_isbase = false;
             QIconEnginePlugin::disconnectNotify(signal);
-        } else if (qiconengineplugin_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qiconengineplugin_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qiconengineplugin_disconnectnotify_callback(this, cbval1);
-        } else {
-            QIconEnginePlugin::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QIconEnginePlugin::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -299,12 +301,13 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_sender_isbase) {
             qiconengineplugin_sender_isbase = false;
             return QIconEnginePlugin::sender();
-        } else if (qiconengineplugin_sender_callback != nullptr) {
-            QObject* callback_ret = qiconengineplugin_sender_callback();
-            return callback_ret;
-        } else {
-            return QIconEnginePlugin::sender();
         }
+        auto sender_cb = qiconengineplugin_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QIconEnginePlugin::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -312,12 +315,13 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_sendersignalindex_isbase) {
             qiconengineplugin_sendersignalindex_isbase = false;
             return QIconEnginePlugin::senderSignalIndex();
-        } else if (qiconengineplugin_sendersignalindex_callback != nullptr) {
-            int callback_ret = qiconengineplugin_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QIconEnginePlugin::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qiconengineplugin_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QIconEnginePlugin::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -325,14 +329,15 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_receivers_isbase) {
             qiconengineplugin_receivers_isbase = false;
             return QIconEnginePlugin::receivers(signal);
-        } else if (qiconengineplugin_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qiconengineplugin_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qiconengineplugin_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QIconEnginePlugin::receivers(signal);
         }
+        return QIconEnginePlugin::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -340,16 +345,17 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
         if (qiconengineplugin_issignalconnected_isbase) {
             qiconengineplugin_issignalconnected_isbase = false;
             return QIconEnginePlugin::isSignalConnected(signal);
-        } else if (qiconengineplugin_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qiconengineplugin_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qiconengineplugin_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QIconEnginePlugin::isSignalConnected(signal);
         }
+        return QIconEnginePlugin::isSignalConnected(signal);
     }
 
     // Friend functions

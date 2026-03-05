@@ -32,11 +32,6 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
   public:
     VirtualQDesignerTaskMenuExtension() : QDesignerTaskMenuExtension() {};
 
-    ~VirtualQDesignerTaskMenuExtension() {
-        qdesignertaskmenuextension_preferrededitaction_callback = nullptr;
-        qdesignertaskmenuextension_taskactions_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDesignerTaskMenuExtension_PreferredEditAction_Callback(QDesignerTaskMenuExtension_PreferredEditAction_Callback cb) { qdesignertaskmenuextension_preferrededitaction_callback = cb; }
     inline void setQDesignerTaskMenuExtension_TaskActions_Callback(QDesignerTaskMenuExtension_TaskActions_Callback cb) { qdesignertaskmenuextension_taskactions_callback = cb; }
@@ -50,18 +45,20 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
         if (qdesignertaskmenuextension_preferrededitaction_isbase) {
             qdesignertaskmenuextension_preferrededitaction_isbase = false;
             return QDesignerTaskMenuExtension::preferredEditAction();
-        } else if (qdesignertaskmenuextension_preferrededitaction_callback != nullptr) {
-            QAction* callback_ret = qdesignertaskmenuextension_preferrededitaction_callback();
-            return callback_ret;
-        } else {
-            return QDesignerTaskMenuExtension::preferredEditAction();
         }
+        auto preferrededitaction_cb = qdesignertaskmenuextension_preferrededitaction_callback;
+        if (preferrededitaction_cb) {
+            QAction* callback_ret = preferrededitaction_cb();
+            return callback_ret;
+        }
+        return QDesignerTaskMenuExtension::preferredEditAction();
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QAction*> taskActions() const override {
-        if (qdesignertaskmenuextension_taskactions_callback != nullptr) {
-            libqt_list /* of QAction* */ callback_ret = qdesignertaskmenuextension_taskactions_callback();
+        auto taskactions_cb = qdesignertaskmenuextension_taskactions_callback;
+        if (taskactions_cb) {
+            libqt_list /* of QAction* */ callback_ret = taskactions_cb();
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -70,9 +67,8 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
             }
             libqt_free(callback_ret.data);
             return callback_ret_QList;
-        } else {
-            return {};
         }
+        return {};
     }
 };
 

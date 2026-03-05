@@ -207,69 +207,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     VirtualKNewPasswordWidget(QWidget* parent) : KNewPasswordWidget(parent) {};
     VirtualKNewPasswordWidget() : KNewPasswordWidget() {};
 
-    ~VirtualKNewPasswordWidget() {
-        knewpasswordwidget_metaobject_callback = nullptr;
-        knewpasswordwidget_metacast_callback = nullptr;
-        knewpasswordwidget_metacall_callback = nullptr;
-        knewpasswordwidget_devtype_callback = nullptr;
-        knewpasswordwidget_setvisible_callback = nullptr;
-        knewpasswordwidget_sizehint_callback = nullptr;
-        knewpasswordwidget_minimumsizehint_callback = nullptr;
-        knewpasswordwidget_heightforwidth_callback = nullptr;
-        knewpasswordwidget_hasheightforwidth_callback = nullptr;
-        knewpasswordwidget_paintengine_callback = nullptr;
-        knewpasswordwidget_event_callback = nullptr;
-        knewpasswordwidget_mousepressevent_callback = nullptr;
-        knewpasswordwidget_mousereleaseevent_callback = nullptr;
-        knewpasswordwidget_mousedoubleclickevent_callback = nullptr;
-        knewpasswordwidget_mousemoveevent_callback = nullptr;
-        knewpasswordwidget_wheelevent_callback = nullptr;
-        knewpasswordwidget_keypressevent_callback = nullptr;
-        knewpasswordwidget_keyreleaseevent_callback = nullptr;
-        knewpasswordwidget_focusinevent_callback = nullptr;
-        knewpasswordwidget_focusoutevent_callback = nullptr;
-        knewpasswordwidget_enterevent_callback = nullptr;
-        knewpasswordwidget_leaveevent_callback = nullptr;
-        knewpasswordwidget_paintevent_callback = nullptr;
-        knewpasswordwidget_moveevent_callback = nullptr;
-        knewpasswordwidget_resizeevent_callback = nullptr;
-        knewpasswordwidget_closeevent_callback = nullptr;
-        knewpasswordwidget_contextmenuevent_callback = nullptr;
-        knewpasswordwidget_tabletevent_callback = nullptr;
-        knewpasswordwidget_actionevent_callback = nullptr;
-        knewpasswordwidget_dragenterevent_callback = nullptr;
-        knewpasswordwidget_dragmoveevent_callback = nullptr;
-        knewpasswordwidget_dragleaveevent_callback = nullptr;
-        knewpasswordwidget_dropevent_callback = nullptr;
-        knewpasswordwidget_showevent_callback = nullptr;
-        knewpasswordwidget_hideevent_callback = nullptr;
-        knewpasswordwidget_nativeevent_callback = nullptr;
-        knewpasswordwidget_changeevent_callback = nullptr;
-        knewpasswordwidget_metric_callback = nullptr;
-        knewpasswordwidget_initpainter_callback = nullptr;
-        knewpasswordwidget_redirected_callback = nullptr;
-        knewpasswordwidget_sharedpainter_callback = nullptr;
-        knewpasswordwidget_inputmethodevent_callback = nullptr;
-        knewpasswordwidget_inputmethodquery_callback = nullptr;
-        knewpasswordwidget_focusnextprevchild_callback = nullptr;
-        knewpasswordwidget_eventfilter_callback = nullptr;
-        knewpasswordwidget_timerevent_callback = nullptr;
-        knewpasswordwidget_childevent_callback = nullptr;
-        knewpasswordwidget_customevent_callback = nullptr;
-        knewpasswordwidget_connectnotify_callback = nullptr;
-        knewpasswordwidget_disconnectnotify_callback = nullptr;
-        knewpasswordwidget_updatemicrofocus_callback = nullptr;
-        knewpasswordwidget_create_callback = nullptr;
-        knewpasswordwidget_destroy_callback = nullptr;
-        knewpasswordwidget_focusnextchild_callback = nullptr;
-        knewpasswordwidget_focuspreviouschild_callback = nullptr;
-        knewpasswordwidget_sender_callback = nullptr;
-        knewpasswordwidget_sendersignalindex_callback = nullptr;
-        knewpasswordwidget_receivers_callback = nullptr;
-        knewpasswordwidget_issignalconnected_callback = nullptr;
-        knewpasswordwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKNewPasswordWidget_MetaObject_Callback(KNewPasswordWidget_MetaObject_Callback cb) { knewpasswordwidget_metaobject_callback = cb; }
     inline void setKNewPasswordWidget_Metacast_Callback(KNewPasswordWidget_Metacast_Callback cb) { knewpasswordwidget_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_metaobject_isbase) {
             knewpasswordwidget_metaobject_isbase = false;
             return KNewPasswordWidget::metaObject();
-        } else if (knewpasswordwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = knewpasswordwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::metaObject();
         }
+        auto metaobject_cb = knewpasswordwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_metacast_isbase) {
             knewpasswordwidget_metacast_isbase = false;
             return KNewPasswordWidget::qt_metacast(param1);
-        } else if (knewpasswordwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = knewpasswordwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = knewpasswordwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::qt_metacast(param1);
         }
+        return KNewPasswordWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_metacall_isbase) {
             knewpasswordwidget_metacall_isbase = false;
             return KNewPasswordWidget::qt_metacall(param1, param2, param3);
-        } else if (knewpasswordwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = knewpasswordwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = knewpasswordwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordWidget::qt_metacall(param1, param2, param3);
         }
+        return KNewPasswordWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +384,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_devtype_isbase) {
             knewpasswordwidget_devtype_isbase = false;
             return KNewPasswordWidget::devType();
-        } else if (knewpasswordwidget_devtype_callback != nullptr) {
-            int callback_ret = knewpasswordwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordWidget::devType();
         }
+        auto devtype_cb = knewpasswordwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNewPasswordWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,13 +398,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_setvisible_isbase) {
             knewpasswordwidget_setvisible_isbase = false;
             KNewPasswordWidget::setVisible(visible);
-        } else if (knewpasswordwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = knewpasswordwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            knewpasswordwidget_setvisible_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +415,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_sizehint_isbase) {
             knewpasswordwidget_sizehint_isbase = false;
             return KNewPasswordWidget::sizeHint();
-        } else if (knewpasswordwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = knewpasswordwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNewPasswordWidget::sizeHint();
         }
+        auto sizehint_cb = knewpasswordwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KNewPasswordWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,12 +429,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_minimumsizehint_isbase) {
             knewpasswordwidget_minimumsizehint_isbase = false;
             return KNewPasswordWidget::minimumSizeHint();
-        } else if (knewpasswordwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = knewpasswordwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KNewPasswordWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = knewpasswordwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KNewPasswordWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,14 +443,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_heightforwidth_isbase) {
             knewpasswordwidget_heightforwidth_isbase = false;
             return KNewPasswordWidget::heightForWidth(param1);
-        } else if (knewpasswordwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = knewpasswordwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = knewpasswordwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordWidget::heightForWidth(param1);
         }
+        return KNewPasswordWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +459,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_hasheightforwidth_isbase) {
             knewpasswordwidget_hasheightforwidth_isbase = false;
             return KNewPasswordWidget::hasHeightForWidth();
-        } else if (knewpasswordwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = knewpasswordwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = knewpasswordwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +473,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_paintengine_isbase) {
             knewpasswordwidget_paintengine_isbase = false;
             return KNewPasswordWidget::paintEngine();
-        } else if (knewpasswordwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = knewpasswordwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::paintEngine();
         }
+        auto paintengine_cb = knewpasswordwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,14 +487,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_event_isbase) {
             knewpasswordwidget_event_isbase = false;
             return KNewPasswordWidget::event(event);
-        } else if (knewpasswordwidget_event_callback != nullptr) {
+        }
+        auto event_cb = knewpasswordwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = knewpasswordwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::event(event);
         }
+        return KNewPasswordWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +503,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_mousepressevent_isbase) {
             knewpasswordwidget_mousepressevent_isbase = false;
             KNewPasswordWidget::mousePressEvent(event);
-        } else if (knewpasswordwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = knewpasswordwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpasswordwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,13 +520,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_mousereleaseevent_isbase) {
             knewpasswordwidget_mousereleaseevent_isbase = false;
             KNewPasswordWidget::mouseReleaseEvent(event);
-        } else if (knewpasswordwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = knewpasswordwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpasswordwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +537,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_mousedoubleclickevent_isbase) {
             knewpasswordwidget_mousedoubleclickevent_isbase = false;
             KNewPasswordWidget::mouseDoubleClickEvent(event);
-        } else if (knewpasswordwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = knewpasswordwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpasswordwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,13 +554,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_mousemoveevent_isbase) {
             knewpasswordwidget_mousemoveevent_isbase = false;
             KNewPasswordWidget::mouseMoveEvent(event);
-        } else if (knewpasswordwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = knewpasswordwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            knewpasswordwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,13 +571,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_wheelevent_isbase) {
             knewpasswordwidget_wheelevent_isbase = false;
             KNewPasswordWidget::wheelEvent(event);
-        } else if (knewpasswordwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = knewpasswordwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            knewpasswordwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +588,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_keypressevent_isbase) {
             knewpasswordwidget_keypressevent_isbase = false;
             KNewPasswordWidget::keyPressEvent(event);
-        } else if (knewpasswordwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = knewpasswordwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            knewpasswordwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +605,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_keyreleaseevent_isbase) {
             knewpasswordwidget_keyreleaseevent_isbase = false;
             KNewPasswordWidget::keyReleaseEvent(event);
-        } else if (knewpasswordwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = knewpasswordwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            knewpasswordwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +622,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_focusinevent_isbase) {
             knewpasswordwidget_focusinevent_isbase = false;
             KNewPasswordWidget::focusInEvent(event);
-        } else if (knewpasswordwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = knewpasswordwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            knewpasswordwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +639,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_focusoutevent_isbase) {
             knewpasswordwidget_focusoutevent_isbase = false;
             KNewPasswordWidget::focusOutEvent(event);
-        } else if (knewpasswordwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = knewpasswordwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            knewpasswordwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +656,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_enterevent_isbase) {
             knewpasswordwidget_enterevent_isbase = false;
             KNewPasswordWidget::enterEvent(event);
-        } else if (knewpasswordwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = knewpasswordwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            knewpasswordwidget_enterevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +673,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_leaveevent_isbase) {
             knewpasswordwidget_leaveevent_isbase = false;
             KNewPasswordWidget::leaveEvent(event);
-        } else if (knewpasswordwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = knewpasswordwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            knewpasswordwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +690,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_paintevent_isbase) {
             knewpasswordwidget_paintevent_isbase = false;
             KNewPasswordWidget::paintEvent(event);
-        } else if (knewpasswordwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = knewpasswordwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            knewpasswordwidget_paintevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +707,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_moveevent_isbase) {
             knewpasswordwidget_moveevent_isbase = false;
             KNewPasswordWidget::moveEvent(event);
-        } else if (knewpasswordwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = knewpasswordwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            knewpasswordwidget_moveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +724,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_resizeevent_isbase) {
             knewpasswordwidget_resizeevent_isbase = false;
             KNewPasswordWidget::resizeEvent(event);
-        } else if (knewpasswordwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = knewpasswordwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            knewpasswordwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +741,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_closeevent_isbase) {
             knewpasswordwidget_closeevent_isbase = false;
             KNewPasswordWidget::closeEvent(event);
-        } else if (knewpasswordwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = knewpasswordwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            knewpasswordwidget_closeevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +758,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_contextmenuevent_isbase) {
             knewpasswordwidget_contextmenuevent_isbase = false;
             KNewPasswordWidget::contextMenuEvent(event);
-        } else if (knewpasswordwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = knewpasswordwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            knewpasswordwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +775,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_tabletevent_isbase) {
             knewpasswordwidget_tabletevent_isbase = false;
             KNewPasswordWidget::tabletEvent(event);
-        } else if (knewpasswordwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = knewpasswordwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            knewpasswordwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +792,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_actionevent_isbase) {
             knewpasswordwidget_actionevent_isbase = false;
             KNewPasswordWidget::actionEvent(event);
-        } else if (knewpasswordwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = knewpasswordwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            knewpasswordwidget_actionevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +809,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_dragenterevent_isbase) {
             knewpasswordwidget_dragenterevent_isbase = false;
             KNewPasswordWidget::dragEnterEvent(event);
-        } else if (knewpasswordwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = knewpasswordwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            knewpasswordwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +826,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_dragmoveevent_isbase) {
             knewpasswordwidget_dragmoveevent_isbase = false;
             KNewPasswordWidget::dragMoveEvent(event);
-        } else if (knewpasswordwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = knewpasswordwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            knewpasswordwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +843,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_dragleaveevent_isbase) {
             knewpasswordwidget_dragleaveevent_isbase = false;
             KNewPasswordWidget::dragLeaveEvent(event);
-        } else if (knewpasswordwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = knewpasswordwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            knewpasswordwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +860,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_dropevent_isbase) {
             knewpasswordwidget_dropevent_isbase = false;
             KNewPasswordWidget::dropEvent(event);
-        } else if (knewpasswordwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = knewpasswordwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            knewpasswordwidget_dropevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +877,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_showevent_isbase) {
             knewpasswordwidget_showevent_isbase = false;
             KNewPasswordWidget::showEvent(event);
-        } else if (knewpasswordwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = knewpasswordwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            knewpasswordwidget_showevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +894,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_hideevent_isbase) {
             knewpasswordwidget_hideevent_isbase = false;
             KNewPasswordWidget::hideEvent(event);
-        } else if (knewpasswordwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = knewpasswordwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            knewpasswordwidget_hideevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,7 +911,9 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_nativeevent_isbase) {
             knewpasswordwidget_nativeevent_isbase = false;
             return KNewPasswordWidget::nativeEvent(eventType, message, result);
-        } else if (knewpasswordwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = knewpasswordwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,12 +924,11 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = knewpasswordwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::nativeEvent(eventType, message, result);
         }
+        return KNewPasswordWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +936,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_changeevent_isbase) {
             knewpasswordwidget_changeevent_isbase = false;
             KNewPasswordWidget::changeEvent(param1);
-        } else if (knewpasswordwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = knewpasswordwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            knewpasswordwidget_changeevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,14 +953,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_metric_isbase) {
             knewpasswordwidget_metric_isbase = false;
             return KNewPasswordWidget::metric(param1);
-        } else if (knewpasswordwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = knewpasswordwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = knewpasswordwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordWidget::metric(param1);
         }
+        return KNewPasswordWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +969,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_initpainter_isbase) {
             knewpasswordwidget_initpainter_isbase = false;
             KNewPasswordWidget::initPainter(painter);
-        } else if (knewpasswordwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = knewpasswordwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            knewpasswordwidget_initpainter_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,14 +986,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_redirected_isbase) {
             knewpasswordwidget_redirected_isbase = false;
             return KNewPasswordWidget::redirected(offset);
-        } else if (knewpasswordwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = knewpasswordwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = knewpasswordwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::redirected(offset);
         }
+        return KNewPasswordWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,12 +1002,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_sharedpainter_isbase) {
             knewpasswordwidget_sharedpainter_isbase = false;
             return KNewPasswordWidget::sharedPainter();
-        } else if (knewpasswordwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = knewpasswordwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::sharedPainter();
         }
+        auto sharedpainter_cb = knewpasswordwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1016,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_inputmethodevent_isbase) {
             knewpasswordwidget_inputmethodevent_isbase = false;
             KNewPasswordWidget::inputMethodEvent(param1);
-        } else if (knewpasswordwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = knewpasswordwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            knewpasswordwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1033,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_inputmethodquery_isbase) {
             knewpasswordwidget_inputmethodquery_isbase = false;
             return KNewPasswordWidget::inputMethodQuery(param1);
-        } else if (knewpasswordwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = knewpasswordwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = knewpasswordwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KNewPasswordWidget::inputMethodQuery(param1);
         }
+        return KNewPasswordWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,14 +1049,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_focusnextprevchild_isbase) {
             knewpasswordwidget_focusnextprevchild_isbase = false;
             return KNewPasswordWidget::focusNextPrevChild(next);
-        } else if (knewpasswordwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = knewpasswordwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = knewpasswordwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::focusNextPrevChild(next);
         }
+        return KNewPasswordWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,15 +1065,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_eventfilter_isbase) {
             knewpasswordwidget_eventfilter_isbase = false;
             return KNewPasswordWidget::eventFilter(watched, event);
-        } else if (knewpasswordwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = knewpasswordwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = knewpasswordwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::eventFilter(watched, event);
         }
+        return KNewPasswordWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_timerevent_isbase) {
             knewpasswordwidget_timerevent_isbase = false;
             KNewPasswordWidget::timerEvent(event);
-        } else if (knewpasswordwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = knewpasswordwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            knewpasswordwidget_timerevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_childevent_isbase) {
             knewpasswordwidget_childevent_isbase = false;
             KNewPasswordWidget::childEvent(event);
-        } else if (knewpasswordwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = knewpasswordwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            knewpasswordwidget_childevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_customevent_isbase) {
             knewpasswordwidget_customevent_isbase = false;
             KNewPasswordWidget::customEvent(event);
-        } else if (knewpasswordwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = knewpasswordwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            knewpasswordwidget_customevent_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_connectnotify_isbase) {
             knewpasswordwidget_connectnotify_isbase = false;
             KNewPasswordWidget::connectNotify(signal);
-        } else if (knewpasswordwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = knewpasswordwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knewpasswordwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_disconnectnotify_isbase) {
             knewpasswordwidget_disconnectnotify_isbase = false;
             KNewPasswordWidget::disconnectNotify(signal);
-        } else if (knewpasswordwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = knewpasswordwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            knewpasswordwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KNewPasswordWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KNewPasswordWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_updatemicrofocus_isbase) {
             knewpasswordwidget_updatemicrofocus_isbase = false;
             KNewPasswordWidget::updateMicroFocus();
-        } else if (knewpasswordwidget_updatemicrofocus_callback != nullptr) {
-            knewpasswordwidget_updatemicrofocus_callback();
-        } else {
-            KNewPasswordWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = knewpasswordwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KNewPasswordWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_create_isbase) {
             knewpasswordwidget_create_isbase = false;
             KNewPasswordWidget::create();
-        } else if (knewpasswordwidget_create_callback != nullptr) {
-            knewpasswordwidget_create_callback();
-        } else {
-            KNewPasswordWidget::create();
+            return;
         }
+        auto create_cb = knewpasswordwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KNewPasswordWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_destroy_isbase) {
             knewpasswordwidget_destroy_isbase = false;
             KNewPasswordWidget::destroy();
-        } else if (knewpasswordwidget_destroy_callback != nullptr) {
-            knewpasswordwidget_destroy_callback();
-        } else {
-            KNewPasswordWidget::destroy();
+            return;
         }
+        auto destroy_cb = knewpasswordwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KNewPasswordWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_focusnextchild_isbase) {
             knewpasswordwidget_focusnextchild_isbase = false;
             return KNewPasswordWidget::focusNextChild();
-        } else if (knewpasswordwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = knewpasswordwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::focusNextChild();
         }
+        auto focusnextchild_cb = knewpasswordwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_focuspreviouschild_isbase) {
             knewpasswordwidget_focuspreviouschild_isbase = false;
             return KNewPasswordWidget::focusPreviousChild();
-        } else if (knewpasswordwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = knewpasswordwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = knewpasswordwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_sender_isbase) {
             knewpasswordwidget_sender_isbase = false;
             return KNewPasswordWidget::sender();
-        } else if (knewpasswordwidget_sender_callback != nullptr) {
-            QObject* callback_ret = knewpasswordwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KNewPasswordWidget::sender();
         }
+        auto sender_cb = knewpasswordwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KNewPasswordWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_sendersignalindex_isbase) {
             knewpasswordwidget_sendersignalindex_isbase = false;
             return KNewPasswordWidget::senderSignalIndex();
-        } else if (knewpasswordwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = knewpasswordwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = knewpasswordwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KNewPasswordWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_receivers_isbase) {
             knewpasswordwidget_receivers_isbase = false;
             return KNewPasswordWidget::receivers(signal);
-        } else if (knewpasswordwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = knewpasswordwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = knewpasswordwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KNewPasswordWidget::receivers(signal);
         }
+        return KNewPasswordWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_issignalconnected_isbase) {
             knewpasswordwidget_issignalconnected_isbase = false;
             return KNewPasswordWidget::isSignalConnected(signal);
-        } else if (knewpasswordwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = knewpasswordwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = knewpasswordwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KNewPasswordWidget::isSignalConnected(signal);
         }
+        return KNewPasswordWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (knewpasswordwidget_getdecodedmetricf_isbase) {
             knewpasswordwidget_getdecodedmetricf_isbase = false;
             return KNewPasswordWidget::getDecodedMetricF(metricA, metricB);
-        } else if (knewpasswordwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = knewpasswordwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = knewpasswordwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KNewPasswordWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KNewPasswordWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

@@ -98,33 +98,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
   public:
     VirtualKConfigDialogManager(QWidget* parent, KCoreConfigSkeleton* conf) : KConfigDialogManager(parent, conf) {};
 
-    ~VirtualKConfigDialogManager() {
-        kconfigdialogmanager_metaobject_callback = nullptr;
-        kconfigdialogmanager_metacast_callback = nullptr;
-        kconfigdialogmanager_metacall_callback = nullptr;
-        kconfigdialogmanager_event_callback = nullptr;
-        kconfigdialogmanager_eventfilter_callback = nullptr;
-        kconfigdialogmanager_timerevent_callback = nullptr;
-        kconfigdialogmanager_childevent_callback = nullptr;
-        kconfigdialogmanager_customevent_callback = nullptr;
-        kconfigdialogmanager_connectnotify_callback = nullptr;
-        kconfigdialogmanager_disconnectnotify_callback = nullptr;
-        kconfigdialogmanager_init_callback = nullptr;
-        kconfigdialogmanager_parsechildren_callback = nullptr;
-        kconfigdialogmanager_getuserproperty_callback = nullptr;
-        kconfigdialogmanager_getcustomproperty_callback = nullptr;
-        kconfigdialogmanager_getuserpropertychangedsignal_callback = nullptr;
-        kconfigdialogmanager_getcustompropertychangedsignal_callback = nullptr;
-        kconfigdialogmanager_setproperty_callback = nullptr;
-        kconfigdialogmanager_property_callback = nullptr;
-        kconfigdialogmanager_setupwidget_callback = nullptr;
-        kconfigdialogmanager_initmaps_callback = nullptr;
-        kconfigdialogmanager_sender_callback = nullptr;
-        kconfigdialogmanager_sendersignalindex_callback = nullptr;
-        kconfigdialogmanager_receivers_callback = nullptr;
-        kconfigdialogmanager_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKConfigDialogManager_MetaObject_Callback(KConfigDialogManager_MetaObject_Callback cb) { kconfigdialogmanager_metaobject_callback = cb; }
     inline void setKConfigDialogManager_Metacast_Callback(KConfigDialogManager_Metacast_Callback cb) { kconfigdialogmanager_metacast_callback = cb; }
@@ -182,12 +155,13 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_metaobject_isbase) {
             kconfigdialogmanager_metaobject_isbase = false;
             return KConfigDialogManager::metaObject();
-        } else if (kconfigdialogmanager_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kconfigdialogmanager_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialogManager::metaObject();
         }
+        auto metaobject_cb = kconfigdialogmanager_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KConfigDialogManager::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,14 +169,15 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_metacast_isbase) {
             kconfigdialogmanager_metacast_isbase = false;
             return KConfigDialogManager::qt_metacast(param1);
-        } else if (kconfigdialogmanager_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kconfigdialogmanager_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kconfigdialogmanager_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialogManager::qt_metacast(param1);
         }
+        return KConfigDialogManager::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -210,16 +185,17 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_metacall_isbase) {
             kconfigdialogmanager_metacall_isbase = false;
             return KConfigDialogManager::qt_metacall(param1, param2, param3);
-        } else if (kconfigdialogmanager_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kconfigdialogmanager_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kconfigdialogmanager_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialogManager::qt_metacall(param1, param2, param3);
         }
+        return KConfigDialogManager::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,14 +203,15 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_event_isbase) {
             kconfigdialogmanager_event_isbase = false;
             return KConfigDialogManager::event(event);
-        } else if (kconfigdialogmanager_event_callback != nullptr) {
+        }
+        auto event_cb = kconfigdialogmanager_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kconfigdialogmanager_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialogManager::event(event);
         }
+        return KConfigDialogManager::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,15 +219,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_eventfilter_isbase) {
             kconfigdialogmanager_eventfilter_isbase = false;
             return KConfigDialogManager::eventFilter(watched, event);
-        } else if (kconfigdialogmanager_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kconfigdialogmanager_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kconfigdialogmanager_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KConfigDialogManager::eventFilter(watched, event);
         }
+        return KConfigDialogManager::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -258,13 +236,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_timerevent_isbase) {
             kconfigdialogmanager_timerevent_isbase = false;
             KConfigDialogManager::timerEvent(event);
-        } else if (kconfigdialogmanager_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kconfigdialogmanager_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kconfigdialogmanager_timerevent_callback(this, cbval1);
-        } else {
-            KConfigDialogManager::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialogManager::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -272,13 +253,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_childevent_isbase) {
             kconfigdialogmanager_childevent_isbase = false;
             KConfigDialogManager::childEvent(event);
-        } else if (kconfigdialogmanager_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kconfigdialogmanager_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kconfigdialogmanager_childevent_callback(this, cbval1);
-        } else {
-            KConfigDialogManager::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialogManager::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -286,13 +270,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_customevent_isbase) {
             kconfigdialogmanager_customevent_isbase = false;
             KConfigDialogManager::customEvent(event);
-        } else if (kconfigdialogmanager_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kconfigdialogmanager_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kconfigdialogmanager_customevent_callback(this, cbval1);
-        } else {
-            KConfigDialogManager::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KConfigDialogManager::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -300,15 +287,18 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_connectnotify_isbase) {
             kconfigdialogmanager_connectnotify_isbase = false;
             KConfigDialogManager::connectNotify(signal);
-        } else if (kconfigdialogmanager_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kconfigdialogmanager_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigdialogmanager_connectnotify_callback(this, cbval1);
-        } else {
-            KConfigDialogManager::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigDialogManager::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -316,15 +306,18 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_disconnectnotify_isbase) {
             kconfigdialogmanager_disconnectnotify_isbase = false;
             KConfigDialogManager::disconnectNotify(signal);
-        } else if (kconfigdialogmanager_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kconfigdialogmanager_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kconfigdialogmanager_disconnectnotify_callback(this, cbval1);
-        } else {
-            KConfigDialogManager::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KConfigDialogManager::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -332,13 +325,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_init_isbase) {
             kconfigdialogmanager_init_isbase = false;
             KConfigDialogManager::init(trackChanges);
-        } else if (kconfigdialogmanager_init_callback != nullptr) {
+            return;
+        }
+        auto init_cb = kconfigdialogmanager_init_callback;
+        if (init_cb) {
             bool cbval1 = trackChanges;
 
-            kconfigdialogmanager_init_callback(this, cbval1);
-        } else {
-            KConfigDialogManager::init(trackChanges);
+            init_cb(this, cbval1);
+            return;
         }
+        KConfigDialogManager::init(trackChanges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,15 +342,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_parsechildren_isbase) {
             kconfigdialogmanager_parsechildren_isbase = false;
             return KConfigDialogManager::parseChildren(widget, trackChanges);
-        } else if (kconfigdialogmanager_parsechildren_callback != nullptr) {
+        }
+        auto parsechildren_cb = kconfigdialogmanager_parsechildren_callback;
+        if (parsechildren_cb) {
             QWidget* cbval1 = (QWidget*)widget;
             bool cbval2 = trackChanges;
 
-            bool callback_ret = kconfigdialogmanager_parsechildren_callback(this, cbval1, cbval2);
+            bool callback_ret = parsechildren_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KConfigDialogManager::parseChildren(widget, trackChanges);
         }
+        return KConfigDialogManager::parseChildren(widget, trackChanges);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,15 +359,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_getuserproperty_isbase) {
             kconfigdialogmanager_getuserproperty_isbase = false;
             return KConfigDialogManager::getUserProperty(widget);
-        } else if (kconfigdialogmanager_getuserproperty_callback != nullptr) {
+        }
+        auto getuserproperty_cb = kconfigdialogmanager_getuserproperty_callback;
+        if (getuserproperty_cb) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            libqt_string callback_ret = kconfigdialogmanager_getuserproperty_callback(this, cbval1);
+            libqt_string callback_ret = getuserproperty_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
-        } else {
-            return KConfigDialogManager::getUserProperty(widget);
         }
+        return KConfigDialogManager::getUserProperty(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -378,15 +376,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_getcustomproperty_isbase) {
             kconfigdialogmanager_getcustomproperty_isbase = false;
             return KConfigDialogManager::getCustomProperty(widget);
-        } else if (kconfigdialogmanager_getcustomproperty_callback != nullptr) {
+        }
+        auto getcustomproperty_cb = kconfigdialogmanager_getcustomproperty_callback;
+        if (getcustomproperty_cb) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            libqt_string callback_ret = kconfigdialogmanager_getcustomproperty_callback(this, cbval1);
+            libqt_string callback_ret = getcustomproperty_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
-        } else {
-            return KConfigDialogManager::getCustomProperty(widget);
         }
+        return KConfigDialogManager::getCustomProperty(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -394,15 +393,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_getuserpropertychangedsignal_isbase) {
             kconfigdialogmanager_getuserpropertychangedsignal_isbase = false;
             return KConfigDialogManager::getUserPropertyChangedSignal(widget);
-        } else if (kconfigdialogmanager_getuserpropertychangedsignal_callback != nullptr) {
+        }
+        auto getuserpropertychangedsignal_cb = kconfigdialogmanager_getuserpropertychangedsignal_callback;
+        if (getuserpropertychangedsignal_cb) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            libqt_string callback_ret = kconfigdialogmanager_getuserpropertychangedsignal_callback(this, cbval1);
+            libqt_string callback_ret = getuserpropertychangedsignal_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
-        } else {
-            return KConfigDialogManager::getUserPropertyChangedSignal(widget);
         }
+        return KConfigDialogManager::getUserPropertyChangedSignal(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -410,15 +410,16 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_getcustompropertychangedsignal_isbase) {
             kconfigdialogmanager_getcustompropertychangedsignal_isbase = false;
             return KConfigDialogManager::getCustomPropertyChangedSignal(widget);
-        } else if (kconfigdialogmanager_getcustompropertychangedsignal_callback != nullptr) {
+        }
+        auto getcustompropertychangedsignal_cb = kconfigdialogmanager_getcustompropertychangedsignal_callback;
+        if (getcustompropertychangedsignal_cb) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            libqt_string callback_ret = kconfigdialogmanager_getcustompropertychangedsignal_callback(this, cbval1);
+            libqt_string callback_ret = getcustompropertychangedsignal_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
-        } else {
-            return KConfigDialogManager::getCustomPropertyChangedSignal(widget);
         }
+        return KConfigDialogManager::getCustomPropertyChangedSignal(widget);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,16 +427,19 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_setproperty_isbase) {
             kconfigdialogmanager_setproperty_isbase = false;
             KConfigDialogManager::setProperty(w, v);
-        } else if (kconfigdialogmanager_setproperty_callback != nullptr) {
+            return;
+        }
+        auto setproperty_cb = kconfigdialogmanager_setproperty_callback;
+        if (setproperty_cb) {
             QWidget* cbval1 = w;
             const QVariant& v_ret = v;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&v_ret);
 
-            kconfigdialogmanager_setproperty_callback(this, cbval1, cbval2);
-        } else {
-            KConfigDialogManager::setProperty(w, v);
+            setproperty_cb(this, cbval1, cbval2);
+            return;
         }
+        KConfigDialogManager::setProperty(w, v);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -443,14 +447,15 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_property_isbase) {
             kconfigdialogmanager_property_isbase = false;
             return KConfigDialogManager::property(w);
-        } else if (kconfigdialogmanager_property_callback != nullptr) {
+        }
+        auto property_cb = kconfigdialogmanager_property_callback;
+        if (property_cb) {
             QWidget* cbval1 = w;
 
-            QVariant* callback_ret = kconfigdialogmanager_property_callback(this, cbval1);
+            QVariant* callback_ret = property_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KConfigDialogManager::property(w);
         }
+        return KConfigDialogManager::property(w);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,14 +463,17 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_setupwidget_isbase) {
             kconfigdialogmanager_setupwidget_isbase = false;
             KConfigDialogManager::setupWidget(widget, item);
-        } else if (kconfigdialogmanager_setupwidget_callback != nullptr) {
+            return;
+        }
+        auto setupwidget_cb = kconfigdialogmanager_setupwidget_callback;
+        if (setupwidget_cb) {
             QWidget* cbval1 = widget;
             KConfigSkeletonItem* cbval2 = item;
 
-            kconfigdialogmanager_setupwidget_callback(this, cbval1, cbval2);
-        } else {
-            KConfigDialogManager::setupWidget(widget, item);
+            setupwidget_cb(this, cbval1, cbval2);
+            return;
         }
+        KConfigDialogManager::setupWidget(widget, item);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -473,11 +481,14 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_initmaps_isbase) {
             kconfigdialogmanager_initmaps_isbase = false;
             KConfigDialogManager::initMaps();
-        } else if (kconfigdialogmanager_initmaps_callback != nullptr) {
-            kconfigdialogmanager_initmaps_callback();
-        } else {
-            KConfigDialogManager::initMaps();
+            return;
         }
+        auto initmaps_cb = kconfigdialogmanager_initmaps_callback;
+        if (initmaps_cb) {
+            initmaps_cb();
+            return;
+        }
+        KConfigDialogManager::initMaps();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,12 +496,13 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_sender_isbase) {
             kconfigdialogmanager_sender_isbase = false;
             return KConfigDialogManager::sender();
-        } else if (kconfigdialogmanager_sender_callback != nullptr) {
-            QObject* callback_ret = kconfigdialogmanager_sender_callback();
-            return callback_ret;
-        } else {
-            return KConfigDialogManager::sender();
         }
+        auto sender_cb = kconfigdialogmanager_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KConfigDialogManager::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -498,12 +510,13 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_sendersignalindex_isbase) {
             kconfigdialogmanager_sendersignalindex_isbase = false;
             return KConfigDialogManager::senderSignalIndex();
-        } else if (kconfigdialogmanager_sendersignalindex_callback != nullptr) {
-            int callback_ret = kconfigdialogmanager_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialogManager::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kconfigdialogmanager_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KConfigDialogManager::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -511,14 +524,15 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_receivers_isbase) {
             kconfigdialogmanager_receivers_isbase = false;
             return KConfigDialogManager::receivers(signal);
-        } else if (kconfigdialogmanager_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kconfigdialogmanager_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kconfigdialogmanager_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KConfigDialogManager::receivers(signal);
         }
+        return KConfigDialogManager::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -526,16 +540,17 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (kconfigdialogmanager_issignalconnected_isbase) {
             kconfigdialogmanager_issignalconnected_isbase = false;
             return KConfigDialogManager::isSignalConnected(signal);
-        } else if (kconfigdialogmanager_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kconfigdialogmanager_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kconfigdialogmanager_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KConfigDialogManager::isSignalConnected(signal);
         }
+        return KConfigDialogManager::isSignalConnected(signal);
     }
 
     // Friend functions

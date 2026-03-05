@@ -53,16 +53,6 @@ class VirtualQBitmap final : public QBitmap {
     VirtualQBitmap(const QBitmap& param1) : QBitmap(param1) {};
     VirtualQBitmap(const QString& fileName, const char* format) : QBitmap(fileName, format) {};
 
-    ~VirtualQBitmap() {
-        qbitmap_devtype_callback = nullptr;
-        qbitmap_paintengine_callback = nullptr;
-        qbitmap_metric_callback = nullptr;
-        qbitmap_initpainter_callback = nullptr;
-        qbitmap_redirected_callback = nullptr;
-        qbitmap_sharedpainter_callback = nullptr;
-        qbitmap_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQBitmap_DevType_Callback(QBitmap_DevType_Callback cb) { qbitmap_devtype_callback = cb; }
     inline void setQBitmap_PaintEngine_Callback(QBitmap_PaintEngine_Callback cb) { qbitmap_paintengine_callback = cb; }
@@ -86,12 +76,13 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_devtype_isbase) {
             qbitmap_devtype_isbase = false;
             return QBitmap::devType();
-        } else if (qbitmap_devtype_callback != nullptr) {
-            int callback_ret = qbitmap_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QBitmap::devType();
         }
+        auto devtype_cb = qbitmap_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QBitmap::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -99,12 +90,13 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_paintengine_isbase) {
             qbitmap_paintengine_isbase = false;
             return QBitmap::paintEngine();
-        } else if (qbitmap_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qbitmap_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QBitmap::paintEngine();
         }
+        auto paintengine_cb = qbitmap_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QBitmap::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -112,14 +104,15 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_metric_isbase) {
             qbitmap_metric_isbase = false;
             return QBitmap::metric(param1);
-        } else if (qbitmap_metric_callback != nullptr) {
+        }
+        auto metric_cb = qbitmap_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qbitmap_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QBitmap::metric(param1);
         }
+        return QBitmap::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -127,13 +120,16 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_initpainter_isbase) {
             qbitmap_initpainter_isbase = false;
             QBitmap::initPainter(painter);
-        } else if (qbitmap_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qbitmap_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qbitmap_initpainter_callback(this, cbval1);
-        } else {
-            QBitmap::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QBitmap::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -141,14 +137,15 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_redirected_isbase) {
             qbitmap_redirected_isbase = false;
             return QBitmap::redirected(offset);
-        } else if (qbitmap_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qbitmap_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qbitmap_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QBitmap::redirected(offset);
         }
+        return QBitmap::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -156,12 +153,13 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_sharedpainter_isbase) {
             qbitmap_sharedpainter_isbase = false;
             return QBitmap::sharedPainter();
-        } else if (qbitmap_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qbitmap_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QBitmap::sharedPainter();
         }
+        auto sharedpainter_cb = qbitmap_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QBitmap::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -169,15 +167,16 @@ class VirtualQBitmap final : public QBitmap {
         if (qbitmap_getdecodedmetricf_isbase) {
             qbitmap_getdecodedmetricf_isbase = false;
             return QBitmap::getDecodedMetricF(metricA, metricB);
-        } else if (qbitmap_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qbitmap_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qbitmap_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QBitmap::getDecodedMetricF(metricA, metricB);
         }
+        return QBitmap::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

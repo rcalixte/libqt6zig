@@ -38,13 +38,6 @@ class VirtualKArchiveEntry final : public KArchiveEntry {
   public:
     VirtualKArchiveEntry(KArchive* archive, const QString& name, int access, const QDateTime& date, const QString& user, const QString& group, const QString& symlink) : KArchiveEntry(archive, name, access, date, user, group, symlink) {};
 
-    ~VirtualKArchiveEntry() {
-        karchiveentry_isfile_callback = nullptr;
-        karchiveentry_isdirectory_callback = nullptr;
-        karchiveentry_virtualhook_callback = nullptr;
-        karchiveentry_archive_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKArchiveEntry_IsFile_Callback(KArchiveEntry_IsFile_Callback cb) { karchiveentry_isfile_callback = cb; }
     inline void setKArchiveEntry_IsDirectory_Callback(KArchiveEntry_IsDirectory_Callback cb) { karchiveentry_isdirectory_callback = cb; }
@@ -62,12 +55,13 @@ class VirtualKArchiveEntry final : public KArchiveEntry {
         if (karchiveentry_isfile_isbase) {
             karchiveentry_isfile_isbase = false;
             return KArchiveEntry::isFile();
-        } else if (karchiveentry_isfile_callback != nullptr) {
-            bool callback_ret = karchiveentry_isfile_callback();
-            return callback_ret;
-        } else {
-            return KArchiveEntry::isFile();
         }
+        auto isfile_cb = karchiveentry_isfile_callback;
+        if (isfile_cb) {
+            bool callback_ret = isfile_cb();
+            return callback_ret;
+        }
+        return KArchiveEntry::isFile();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -75,12 +69,13 @@ class VirtualKArchiveEntry final : public KArchiveEntry {
         if (karchiveentry_isdirectory_isbase) {
             karchiveentry_isdirectory_isbase = false;
             return KArchiveEntry::isDirectory();
-        } else if (karchiveentry_isdirectory_callback != nullptr) {
-            bool callback_ret = karchiveentry_isdirectory_callback();
-            return callback_ret;
-        } else {
-            return KArchiveEntry::isDirectory();
         }
+        auto isdirectory_cb = karchiveentry_isdirectory_callback;
+        if (isdirectory_cb) {
+            bool callback_ret = isdirectory_cb();
+            return callback_ret;
+        }
+        return KArchiveEntry::isDirectory();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -88,14 +83,17 @@ class VirtualKArchiveEntry final : public KArchiveEntry {
         if (karchiveentry_virtualhook_isbase) {
             karchiveentry_virtualhook_isbase = false;
             KArchiveEntry::virtual_hook(id, data);
-        } else if (karchiveentry_virtualhook_callback != nullptr) {
+            return;
+        }
+        auto virtualhook_cb = karchiveentry_virtualhook_callback;
+        if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
 
-            karchiveentry_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KArchiveEntry::virtual_hook(id, data);
+            virtualhook_cb(this, cbval1, cbval2);
+            return;
         }
+        KArchiveEntry::virtual_hook(id, data);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -103,12 +101,13 @@ class VirtualKArchiveEntry final : public KArchiveEntry {
         if (karchiveentry_archive_isbase) {
             karchiveentry_archive_isbase = false;
             return KArchiveEntry::archive();
-        } else if (karchiveentry_archive_callback != nullptr) {
-            KArchive* callback_ret = karchiveentry_archive_callback();
-            return callback_ret;
-        } else {
-            return KArchiveEntry::archive();
         }
+        auto archive_cb = karchiveentry_archive_callback;
+        if (archive_cb) {
+            KArchive* callback_ret = archive_cb();
+            return callback_ret;
+        }
+        return KArchiveEntry::archive();
     }
 
     // Friend functions

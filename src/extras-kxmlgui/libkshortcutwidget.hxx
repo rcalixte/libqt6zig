@@ -207,69 +207,6 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     VirtualKShortcutWidget(QWidget* parent) : KShortcutWidget(parent) {};
     VirtualKShortcutWidget() : KShortcutWidget() {};
 
-    ~VirtualKShortcutWidget() {
-        kshortcutwidget_metaobject_callback = nullptr;
-        kshortcutwidget_metacast_callback = nullptr;
-        kshortcutwidget_metacall_callback = nullptr;
-        kshortcutwidget_devtype_callback = nullptr;
-        kshortcutwidget_setvisible_callback = nullptr;
-        kshortcutwidget_sizehint_callback = nullptr;
-        kshortcutwidget_minimumsizehint_callback = nullptr;
-        kshortcutwidget_heightforwidth_callback = nullptr;
-        kshortcutwidget_hasheightforwidth_callback = nullptr;
-        kshortcutwidget_paintengine_callback = nullptr;
-        kshortcutwidget_event_callback = nullptr;
-        kshortcutwidget_mousepressevent_callback = nullptr;
-        kshortcutwidget_mousereleaseevent_callback = nullptr;
-        kshortcutwidget_mousedoubleclickevent_callback = nullptr;
-        kshortcutwidget_mousemoveevent_callback = nullptr;
-        kshortcutwidget_wheelevent_callback = nullptr;
-        kshortcutwidget_keypressevent_callback = nullptr;
-        kshortcutwidget_keyreleaseevent_callback = nullptr;
-        kshortcutwidget_focusinevent_callback = nullptr;
-        kshortcutwidget_focusoutevent_callback = nullptr;
-        kshortcutwidget_enterevent_callback = nullptr;
-        kshortcutwidget_leaveevent_callback = nullptr;
-        kshortcutwidget_paintevent_callback = nullptr;
-        kshortcutwidget_moveevent_callback = nullptr;
-        kshortcutwidget_resizeevent_callback = nullptr;
-        kshortcutwidget_closeevent_callback = nullptr;
-        kshortcutwidget_contextmenuevent_callback = nullptr;
-        kshortcutwidget_tabletevent_callback = nullptr;
-        kshortcutwidget_actionevent_callback = nullptr;
-        kshortcutwidget_dragenterevent_callback = nullptr;
-        kshortcutwidget_dragmoveevent_callback = nullptr;
-        kshortcutwidget_dragleaveevent_callback = nullptr;
-        kshortcutwidget_dropevent_callback = nullptr;
-        kshortcutwidget_showevent_callback = nullptr;
-        kshortcutwidget_hideevent_callback = nullptr;
-        kshortcutwidget_nativeevent_callback = nullptr;
-        kshortcutwidget_changeevent_callback = nullptr;
-        kshortcutwidget_metric_callback = nullptr;
-        kshortcutwidget_initpainter_callback = nullptr;
-        kshortcutwidget_redirected_callback = nullptr;
-        kshortcutwidget_sharedpainter_callback = nullptr;
-        kshortcutwidget_inputmethodevent_callback = nullptr;
-        kshortcutwidget_inputmethodquery_callback = nullptr;
-        kshortcutwidget_focusnextprevchild_callback = nullptr;
-        kshortcutwidget_eventfilter_callback = nullptr;
-        kshortcutwidget_timerevent_callback = nullptr;
-        kshortcutwidget_childevent_callback = nullptr;
-        kshortcutwidget_customevent_callback = nullptr;
-        kshortcutwidget_connectnotify_callback = nullptr;
-        kshortcutwidget_disconnectnotify_callback = nullptr;
-        kshortcutwidget_updatemicrofocus_callback = nullptr;
-        kshortcutwidget_create_callback = nullptr;
-        kshortcutwidget_destroy_callback = nullptr;
-        kshortcutwidget_focusnextchild_callback = nullptr;
-        kshortcutwidget_focuspreviouschild_callback = nullptr;
-        kshortcutwidget_sender_callback = nullptr;
-        kshortcutwidget_sendersignalindex_callback = nullptr;
-        kshortcutwidget_receivers_callback = nullptr;
-        kshortcutwidget_issignalconnected_callback = nullptr;
-        kshortcutwidget_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKShortcutWidget_MetaObject_Callback(KShortcutWidget_MetaObject_Callback cb) { kshortcutwidget_metaobject_callback = cb; }
     inline void setKShortcutWidget_Metacast_Callback(KShortcutWidget_Metacast_Callback cb) { kshortcutwidget_metacast_callback = cb; }
@@ -399,12 +336,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_metaobject_isbase) {
             kshortcutwidget_metaobject_isbase = false;
             return KShortcutWidget::metaObject();
-        } else if (kshortcutwidget_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kshortcutwidget_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::metaObject();
         }
+        auto metaobject_cb = kshortcutwidget_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -412,14 +350,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_metacast_isbase) {
             kshortcutwidget_metacast_isbase = false;
             return KShortcutWidget::qt_metacast(param1);
-        } else if (kshortcutwidget_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kshortcutwidget_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kshortcutwidget_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutWidget::qt_metacast(param1);
         }
+        return KShortcutWidget::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -427,16 +366,17 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_metacall_isbase) {
             kshortcutwidget_metacall_isbase = false;
             return KShortcutWidget::qt_metacall(param1, param2, param3);
-        } else if (kshortcutwidget_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kshortcutwidget_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kshortcutwidget_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutWidget::qt_metacall(param1, param2, param3);
         }
+        return KShortcutWidget::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +384,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_devtype_isbase) {
             kshortcutwidget_devtype_isbase = false;
             return KShortcutWidget::devType();
-        } else if (kshortcutwidget_devtype_callback != nullptr) {
-            int callback_ret = kshortcutwidget_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutWidget::devType();
         }
+        auto devtype_cb = kshortcutwidget_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KShortcutWidget::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,13 +398,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_setvisible_isbase) {
             kshortcutwidget_setvisible_isbase = false;
             KShortcutWidget::setVisible(visible);
-        } else if (kshortcutwidget_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kshortcutwidget_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kshortcutwidget_setvisible_callback(this, cbval1);
-        } else {
-            KShortcutWidget::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -471,12 +415,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_sizehint_isbase) {
             kshortcutwidget_sizehint_isbase = false;
             return KShortcutWidget::sizeHint();
-        } else if (kshortcutwidget_sizehint_callback != nullptr) {
-            QSize* callback_ret = kshortcutwidget_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KShortcutWidget::sizeHint();
         }
+        auto sizehint_cb = kshortcutwidget_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KShortcutWidget::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -484,12 +429,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_minimumsizehint_isbase) {
             kshortcutwidget_minimumsizehint_isbase = false;
             return KShortcutWidget::minimumSizeHint();
-        } else if (kshortcutwidget_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kshortcutwidget_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KShortcutWidget::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kshortcutwidget_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KShortcutWidget::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -497,14 +443,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_heightforwidth_isbase) {
             kshortcutwidget_heightforwidth_isbase = false;
             return KShortcutWidget::heightForWidth(param1);
-        } else if (kshortcutwidget_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kshortcutwidget_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kshortcutwidget_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutWidget::heightForWidth(param1);
         }
+        return KShortcutWidget::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,12 +459,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_hasheightforwidth_isbase) {
             kshortcutwidget_hasheightforwidth_isbase = false;
             return KShortcutWidget::hasHeightForWidth();
-        } else if (kshortcutwidget_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kshortcutwidget_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kshortcutwidget_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -525,12 +473,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_paintengine_isbase) {
             kshortcutwidget_paintengine_isbase = false;
             return KShortcutWidget::paintEngine();
-        } else if (kshortcutwidget_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kshortcutwidget_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::paintEngine();
         }
+        auto paintengine_cb = kshortcutwidget_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -538,14 +487,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_event_isbase) {
             kshortcutwidget_event_isbase = false;
             return KShortcutWidget::event(event);
-        } else if (kshortcutwidget_event_callback != nullptr) {
+        }
+        auto event_cb = kshortcutwidget_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kshortcutwidget_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutWidget::event(event);
         }
+        return KShortcutWidget::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -553,13 +503,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_mousepressevent_isbase) {
             kshortcutwidget_mousepressevent_isbase = false;
             KShortcutWidget::mousePressEvent(event);
-        } else if (kshortcutwidget_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kshortcutwidget_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutwidget_mousepressevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -567,13 +520,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_mousereleaseevent_isbase) {
             kshortcutwidget_mousereleaseevent_isbase = false;
             KShortcutWidget::mouseReleaseEvent(event);
-        } else if (kshortcutwidget_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kshortcutwidget_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutwidget_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -581,13 +537,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_mousedoubleclickevent_isbase) {
             kshortcutwidget_mousedoubleclickevent_isbase = false;
             KShortcutWidget::mouseDoubleClickEvent(event);
-        } else if (kshortcutwidget_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kshortcutwidget_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutwidget_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -595,13 +554,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_mousemoveevent_isbase) {
             kshortcutwidget_mousemoveevent_isbase = false;
             KShortcutWidget::mouseMoveEvent(event);
-        } else if (kshortcutwidget_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kshortcutwidget_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kshortcutwidget_mousemoveevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -609,13 +571,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_wheelevent_isbase) {
             kshortcutwidget_wheelevent_isbase = false;
             KShortcutWidget::wheelEvent(event);
-        } else if (kshortcutwidget_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kshortcutwidget_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kshortcutwidget_wheelevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -623,13 +588,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_keypressevent_isbase) {
             kshortcutwidget_keypressevent_isbase = false;
             KShortcutWidget::keyPressEvent(event);
-        } else if (kshortcutwidget_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kshortcutwidget_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kshortcutwidget_keypressevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -637,13 +605,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_keyreleaseevent_isbase) {
             kshortcutwidget_keyreleaseevent_isbase = false;
             KShortcutWidget::keyReleaseEvent(event);
-        } else if (kshortcutwidget_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kshortcutwidget_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kshortcutwidget_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -651,13 +622,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_focusinevent_isbase) {
             kshortcutwidget_focusinevent_isbase = false;
             KShortcutWidget::focusInEvent(event);
-        } else if (kshortcutwidget_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kshortcutwidget_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kshortcutwidget_focusinevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -665,13 +639,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_focusoutevent_isbase) {
             kshortcutwidget_focusoutevent_isbase = false;
             KShortcutWidget::focusOutEvent(event);
-        } else if (kshortcutwidget_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kshortcutwidget_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kshortcutwidget_focusoutevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -679,13 +656,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_enterevent_isbase) {
             kshortcutwidget_enterevent_isbase = false;
             KShortcutWidget::enterEvent(event);
-        } else if (kshortcutwidget_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kshortcutwidget_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kshortcutwidget_enterevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -693,13 +673,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_leaveevent_isbase) {
             kshortcutwidget_leaveevent_isbase = false;
             KShortcutWidget::leaveEvent(event);
-        } else if (kshortcutwidget_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kshortcutwidget_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kshortcutwidget_leaveevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -707,13 +690,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_paintevent_isbase) {
             kshortcutwidget_paintevent_isbase = false;
             KShortcutWidget::paintEvent(event);
-        } else if (kshortcutwidget_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kshortcutwidget_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            kshortcutwidget_paintevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -721,13 +707,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_moveevent_isbase) {
             kshortcutwidget_moveevent_isbase = false;
             KShortcutWidget::moveEvent(event);
-        } else if (kshortcutwidget_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kshortcutwidget_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kshortcutwidget_moveevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -735,13 +724,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_resizeevent_isbase) {
             kshortcutwidget_resizeevent_isbase = false;
             KShortcutWidget::resizeEvent(event);
-        } else if (kshortcutwidget_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kshortcutwidget_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kshortcutwidget_resizeevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -749,13 +741,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_closeevent_isbase) {
             kshortcutwidget_closeevent_isbase = false;
             KShortcutWidget::closeEvent(event);
-        } else if (kshortcutwidget_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kshortcutwidget_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kshortcutwidget_closeevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,13 +758,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_contextmenuevent_isbase) {
             kshortcutwidget_contextmenuevent_isbase = false;
             KShortcutWidget::contextMenuEvent(event);
-        } else if (kshortcutwidget_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kshortcutwidget_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kshortcutwidget_contextmenuevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -777,13 +775,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_tabletevent_isbase) {
             kshortcutwidget_tabletevent_isbase = false;
             KShortcutWidget::tabletEvent(event);
-        } else if (kshortcutwidget_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kshortcutwidget_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kshortcutwidget_tabletevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -791,13 +792,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_actionevent_isbase) {
             kshortcutwidget_actionevent_isbase = false;
             KShortcutWidget::actionEvent(event);
-        } else if (kshortcutwidget_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kshortcutwidget_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kshortcutwidget_actionevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -805,13 +809,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_dragenterevent_isbase) {
             kshortcutwidget_dragenterevent_isbase = false;
             KShortcutWidget::dragEnterEvent(event);
-        } else if (kshortcutwidget_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kshortcutwidget_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kshortcutwidget_dragenterevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -819,13 +826,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_dragmoveevent_isbase) {
             kshortcutwidget_dragmoveevent_isbase = false;
             KShortcutWidget::dragMoveEvent(event);
-        } else if (kshortcutwidget_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kshortcutwidget_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kshortcutwidget_dragmoveevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -833,13 +843,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_dragleaveevent_isbase) {
             kshortcutwidget_dragleaveevent_isbase = false;
             KShortcutWidget::dragLeaveEvent(event);
-        } else if (kshortcutwidget_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kshortcutwidget_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kshortcutwidget_dragleaveevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -847,13 +860,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_dropevent_isbase) {
             kshortcutwidget_dropevent_isbase = false;
             KShortcutWidget::dropEvent(event);
-        } else if (kshortcutwidget_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kshortcutwidget_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kshortcutwidget_dropevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -861,13 +877,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_showevent_isbase) {
             kshortcutwidget_showevent_isbase = false;
             KShortcutWidget::showEvent(event);
-        } else if (kshortcutwidget_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kshortcutwidget_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kshortcutwidget_showevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -875,13 +894,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_hideevent_isbase) {
             kshortcutwidget_hideevent_isbase = false;
             KShortcutWidget::hideEvent(event);
-        } else if (kshortcutwidget_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kshortcutwidget_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kshortcutwidget_hideevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -889,7 +911,9 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_nativeevent_isbase) {
             kshortcutwidget_nativeevent_isbase = false;
             return KShortcutWidget::nativeEvent(eventType, message, result);
-        } else if (kshortcutwidget_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kshortcutwidget_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,12 +924,11 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kshortcutwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KShortcutWidget::nativeEvent(eventType, message, result);
         }
+        return KShortcutWidget::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -913,13 +936,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_changeevent_isbase) {
             kshortcutwidget_changeevent_isbase = false;
             KShortcutWidget::changeEvent(param1);
-        } else if (kshortcutwidget_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kshortcutwidget_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kshortcutwidget_changeevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -927,14 +953,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_metric_isbase) {
             kshortcutwidget_metric_isbase = false;
             return KShortcutWidget::metric(param1);
-        } else if (kshortcutwidget_metric_callback != nullptr) {
+        }
+        auto metric_cb = kshortcutwidget_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kshortcutwidget_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutWidget::metric(param1);
         }
+        return KShortcutWidget::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -942,13 +969,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_initpainter_isbase) {
             kshortcutwidget_initpainter_isbase = false;
             KShortcutWidget::initPainter(painter);
-        } else if (kshortcutwidget_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kshortcutwidget_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kshortcutwidget_initpainter_callback(this, cbval1);
-        } else {
-            KShortcutWidget::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -956,14 +986,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_redirected_isbase) {
             kshortcutwidget_redirected_isbase = false;
             return KShortcutWidget::redirected(offset);
-        } else if (kshortcutwidget_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kshortcutwidget_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kshortcutwidget_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutWidget::redirected(offset);
         }
+        return KShortcutWidget::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -971,12 +1002,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_sharedpainter_isbase) {
             kshortcutwidget_sharedpainter_isbase = false;
             return KShortcutWidget::sharedPainter();
-        } else if (kshortcutwidget_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kshortcutwidget_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::sharedPainter();
         }
+        auto sharedpainter_cb = kshortcutwidget_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -984,13 +1016,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_inputmethodevent_isbase) {
             kshortcutwidget_inputmethodevent_isbase = false;
             KShortcutWidget::inputMethodEvent(param1);
-        } else if (kshortcutwidget_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kshortcutwidget_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kshortcutwidget_inputmethodevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -998,14 +1033,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_inputmethodquery_isbase) {
             kshortcutwidget_inputmethodquery_isbase = false;
             return KShortcutWidget::inputMethodQuery(param1);
-        } else if (kshortcutwidget_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kshortcutwidget_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kshortcutwidget_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KShortcutWidget::inputMethodQuery(param1);
         }
+        return KShortcutWidget::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1013,14 +1049,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_focusnextprevchild_isbase) {
             kshortcutwidget_focusnextprevchild_isbase = false;
             return KShortcutWidget::focusNextPrevChild(next);
-        } else if (kshortcutwidget_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kshortcutwidget_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kshortcutwidget_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutWidget::focusNextPrevChild(next);
         }
+        return KShortcutWidget::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,15 +1065,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_eventfilter_isbase) {
             kshortcutwidget_eventfilter_isbase = false;
             return KShortcutWidget::eventFilter(watched, event);
-        } else if (kshortcutwidget_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kshortcutwidget_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kshortcutwidget_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KShortcutWidget::eventFilter(watched, event);
         }
+        return KShortcutWidget::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1044,13 +1082,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_timerevent_isbase) {
             kshortcutwidget_timerevent_isbase = false;
             KShortcutWidget::timerEvent(event);
-        } else if (kshortcutwidget_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kshortcutwidget_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kshortcutwidget_timerevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1099,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_childevent_isbase) {
             kshortcutwidget_childevent_isbase = false;
             KShortcutWidget::childEvent(event);
-        } else if (kshortcutwidget_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kshortcutwidget_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kshortcutwidget_childevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,13 +1116,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_customevent_isbase) {
             kshortcutwidget_customevent_isbase = false;
             KShortcutWidget::customEvent(event);
-        } else if (kshortcutwidget_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kshortcutwidget_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kshortcutwidget_customevent_callback(this, cbval1);
-        } else {
-            KShortcutWidget::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1086,15 +1133,18 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_connectnotify_isbase) {
             kshortcutwidget_connectnotify_isbase = false;
             KShortcutWidget::connectNotify(signal);
-        } else if (kshortcutwidget_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kshortcutwidget_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kshortcutwidget_connectnotify_callback(this, cbval1);
-        } else {
-            KShortcutWidget::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,15 +1152,18 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_disconnectnotify_isbase) {
             kshortcutwidget_disconnectnotify_isbase = false;
             KShortcutWidget::disconnectNotify(signal);
-        } else if (kshortcutwidget_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kshortcutwidget_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kshortcutwidget_disconnectnotify_callback(this, cbval1);
-        } else {
-            KShortcutWidget::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KShortcutWidget::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,11 +1171,14 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_updatemicrofocus_isbase) {
             kshortcutwidget_updatemicrofocus_isbase = false;
             KShortcutWidget::updateMicroFocus();
-        } else if (kshortcutwidget_updatemicrofocus_callback != nullptr) {
-            kshortcutwidget_updatemicrofocus_callback();
-        } else {
-            KShortcutWidget::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kshortcutwidget_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KShortcutWidget::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1130,11 +1186,14 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_create_isbase) {
             kshortcutwidget_create_isbase = false;
             KShortcutWidget::create();
-        } else if (kshortcutwidget_create_callback != nullptr) {
-            kshortcutwidget_create_callback();
-        } else {
-            KShortcutWidget::create();
+            return;
         }
+        auto create_cb = kshortcutwidget_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KShortcutWidget::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1142,11 +1201,14 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_destroy_isbase) {
             kshortcutwidget_destroy_isbase = false;
             KShortcutWidget::destroy();
-        } else if (kshortcutwidget_destroy_callback != nullptr) {
-            kshortcutwidget_destroy_callback();
-        } else {
-            KShortcutWidget::destroy();
+            return;
         }
+        auto destroy_cb = kshortcutwidget_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KShortcutWidget::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1154,12 +1216,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_focusnextchild_isbase) {
             kshortcutwidget_focusnextchild_isbase = false;
             return KShortcutWidget::focusNextChild();
-        } else if (kshortcutwidget_focusnextchild_callback != nullptr) {
-            bool callback_ret = kshortcutwidget_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::focusNextChild();
         }
+        auto focusnextchild_cb = kshortcutwidget_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1167,12 +1230,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_focuspreviouschild_isbase) {
             kshortcutwidget_focuspreviouschild_isbase = false;
             return KShortcutWidget::focusPreviousChild();
-        } else if (kshortcutwidget_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kshortcutwidget_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kshortcutwidget_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1180,12 +1244,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_sender_isbase) {
             kshortcutwidget_sender_isbase = false;
             return KShortcutWidget::sender();
-        } else if (kshortcutwidget_sender_callback != nullptr) {
-            QObject* callback_ret = kshortcutwidget_sender_callback();
-            return callback_ret;
-        } else {
-            return KShortcutWidget::sender();
         }
+        auto sender_cb = kshortcutwidget_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KShortcutWidget::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1193,12 +1258,13 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_sendersignalindex_isbase) {
             kshortcutwidget_sendersignalindex_isbase = false;
             return KShortcutWidget::senderSignalIndex();
-        } else if (kshortcutwidget_sendersignalindex_callback != nullptr) {
-            int callback_ret = kshortcutwidget_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutWidget::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kshortcutwidget_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KShortcutWidget::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1206,14 +1272,15 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_receivers_isbase) {
             kshortcutwidget_receivers_isbase = false;
             return KShortcutWidget::receivers(signal);
-        } else if (kshortcutwidget_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kshortcutwidget_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kshortcutwidget_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KShortcutWidget::receivers(signal);
         }
+        return KShortcutWidget::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1221,16 +1288,17 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_issignalconnected_isbase) {
             kshortcutwidget_issignalconnected_isbase = false;
             return KShortcutWidget::isSignalConnected(signal);
-        } else if (kshortcutwidget_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kshortcutwidget_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kshortcutwidget_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KShortcutWidget::isSignalConnected(signal);
         }
+        return KShortcutWidget::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1238,15 +1306,16 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
         if (kshortcutwidget_getdecodedmetricf_isbase) {
             kshortcutwidget_getdecodedmetricf_isbase = false;
             return KShortcutWidget::getDecodedMetricF(metricA, metricB);
-        } else if (kshortcutwidget_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kshortcutwidget_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kshortcutwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KShortcutWidget::getDecodedMetricF(metricA, metricB);
         }
+        return KShortcutWidget::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

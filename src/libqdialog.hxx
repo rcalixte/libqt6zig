@@ -226,75 +226,6 @@ class VirtualQDialog final : public QDialog {
     VirtualQDialog() : QDialog() {};
     VirtualQDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f) {};
 
-    ~VirtualQDialog() {
-        qdialog_metaobject_callback = nullptr;
-        qdialog_metacast_callback = nullptr;
-        qdialog_metacall_callback = nullptr;
-        qdialog_setvisible_callback = nullptr;
-        qdialog_sizehint_callback = nullptr;
-        qdialog_minimumsizehint_callback = nullptr;
-        qdialog_open_callback = nullptr;
-        qdialog_exec_callback = nullptr;
-        qdialog_done_callback = nullptr;
-        qdialog_accept_callback = nullptr;
-        qdialog_reject_callback = nullptr;
-        qdialog_keypressevent_callback = nullptr;
-        qdialog_closeevent_callback = nullptr;
-        qdialog_showevent_callback = nullptr;
-        qdialog_resizeevent_callback = nullptr;
-        qdialog_contextmenuevent_callback = nullptr;
-        qdialog_eventfilter_callback = nullptr;
-        qdialog_devtype_callback = nullptr;
-        qdialog_heightforwidth_callback = nullptr;
-        qdialog_hasheightforwidth_callback = nullptr;
-        qdialog_paintengine_callback = nullptr;
-        qdialog_event_callback = nullptr;
-        qdialog_mousepressevent_callback = nullptr;
-        qdialog_mousereleaseevent_callback = nullptr;
-        qdialog_mousedoubleclickevent_callback = nullptr;
-        qdialog_mousemoveevent_callback = nullptr;
-        qdialog_wheelevent_callback = nullptr;
-        qdialog_keyreleaseevent_callback = nullptr;
-        qdialog_focusinevent_callback = nullptr;
-        qdialog_focusoutevent_callback = nullptr;
-        qdialog_enterevent_callback = nullptr;
-        qdialog_leaveevent_callback = nullptr;
-        qdialog_paintevent_callback = nullptr;
-        qdialog_moveevent_callback = nullptr;
-        qdialog_tabletevent_callback = nullptr;
-        qdialog_actionevent_callback = nullptr;
-        qdialog_dragenterevent_callback = nullptr;
-        qdialog_dragmoveevent_callback = nullptr;
-        qdialog_dragleaveevent_callback = nullptr;
-        qdialog_dropevent_callback = nullptr;
-        qdialog_hideevent_callback = nullptr;
-        qdialog_nativeevent_callback = nullptr;
-        qdialog_changeevent_callback = nullptr;
-        qdialog_metric_callback = nullptr;
-        qdialog_initpainter_callback = nullptr;
-        qdialog_redirected_callback = nullptr;
-        qdialog_sharedpainter_callback = nullptr;
-        qdialog_inputmethodevent_callback = nullptr;
-        qdialog_inputmethodquery_callback = nullptr;
-        qdialog_focusnextprevchild_callback = nullptr;
-        qdialog_timerevent_callback = nullptr;
-        qdialog_childevent_callback = nullptr;
-        qdialog_customevent_callback = nullptr;
-        qdialog_connectnotify_callback = nullptr;
-        qdialog_disconnectnotify_callback = nullptr;
-        qdialog_adjustposition_callback = nullptr;
-        qdialog_updatemicrofocus_callback = nullptr;
-        qdialog_create_callback = nullptr;
-        qdialog_destroy_callback = nullptr;
-        qdialog_focusnextchild_callback = nullptr;
-        qdialog_focuspreviouschild_callback = nullptr;
-        qdialog_sender_callback = nullptr;
-        qdialog_sendersignalindex_callback = nullptr;
-        qdialog_receivers_callback = nullptr;
-        qdialog_issignalconnected_callback = nullptr;
-        qdialog_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQDialog_MetaObject_Callback(QDialog_MetaObject_Callback cb) { qdialog_metaobject_callback = cb; }
     inline void setQDialog_Metacast_Callback(QDialog_Metacast_Callback cb) { qdialog_metacast_callback = cb; }
@@ -436,12 +367,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_metaobject_isbase) {
             qdialog_metaobject_isbase = false;
             return QDialog::metaObject();
-        } else if (qdialog_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qdialog_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QDialog::metaObject();
         }
+        auto metaobject_cb = qdialog_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QDialog::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -449,14 +381,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_metacast_isbase) {
             qdialog_metacast_isbase = false;
             return QDialog::qt_metacast(param1);
-        } else if (qdialog_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qdialog_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qdialog_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDialog::qt_metacast(param1);
         }
+        return QDialog::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -464,16 +397,17 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_metacall_isbase) {
             qdialog_metacall_isbase = false;
             return QDialog::qt_metacall(param1, param2, param3);
-        } else if (qdialog_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qdialog_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qdialog_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::qt_metacall(param1, param2, param3);
         }
+        return QDialog::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -481,13 +415,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_setvisible_isbase) {
             qdialog_setvisible_isbase = false;
             QDialog::setVisible(visible);
-        } else if (qdialog_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qdialog_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qdialog_setvisible_callback(this, cbval1);
-        } else {
-            QDialog::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QDialog::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -495,12 +432,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_sizehint_isbase) {
             qdialog_sizehint_isbase = false;
             return QDialog::sizeHint();
-        } else if (qdialog_sizehint_callback != nullptr) {
-            QSize* callback_ret = qdialog_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDialog::sizeHint();
         }
+        auto sizehint_cb = qdialog_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QDialog::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -508,12 +446,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_minimumsizehint_isbase) {
             qdialog_minimumsizehint_isbase = false;
             return QDialog::minimumSizeHint();
-        } else if (qdialog_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qdialog_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QDialog::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qdialog_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QDialog::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -521,11 +460,14 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_open_isbase) {
             qdialog_open_isbase = false;
             QDialog::open();
-        } else if (qdialog_open_callback != nullptr) {
-            qdialog_open_callback();
-        } else {
-            QDialog::open();
+            return;
         }
+        auto open_cb = qdialog_open_callback;
+        if (open_cb) {
+            open_cb();
+            return;
+        }
+        QDialog::open();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -533,12 +475,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_exec_isbase) {
             qdialog_exec_isbase = false;
             return QDialog::exec();
-        } else if (qdialog_exec_callback != nullptr) {
-            int callback_ret = qdialog_exec_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::exec();
         }
+        auto exec_cb = qdialog_exec_callback;
+        if (exec_cb) {
+            int callback_ret = exec_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDialog::exec();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -546,13 +489,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_done_isbase) {
             qdialog_done_isbase = false;
             QDialog::done(param1);
-        } else if (qdialog_done_callback != nullptr) {
+            return;
+        }
+        auto done_cb = qdialog_done_callback;
+        if (done_cb) {
             int cbval1 = param1;
 
-            qdialog_done_callback(this, cbval1);
-        } else {
-            QDialog::done(param1);
+            done_cb(this, cbval1);
+            return;
         }
+        QDialog::done(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -560,11 +506,14 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_accept_isbase) {
             qdialog_accept_isbase = false;
             QDialog::accept();
-        } else if (qdialog_accept_callback != nullptr) {
-            qdialog_accept_callback();
-        } else {
-            QDialog::accept();
+            return;
         }
+        auto accept_cb = qdialog_accept_callback;
+        if (accept_cb) {
+            accept_cb();
+            return;
+        }
+        QDialog::accept();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,11 +521,14 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_reject_isbase) {
             qdialog_reject_isbase = false;
             QDialog::reject();
-        } else if (qdialog_reject_callback != nullptr) {
-            qdialog_reject_callback();
-        } else {
-            QDialog::reject();
+            return;
         }
+        auto reject_cb = qdialog_reject_callback;
+        if (reject_cb) {
+            reject_cb();
+            return;
+        }
+        QDialog::reject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +536,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_keypressevent_isbase) {
             qdialog_keypressevent_isbase = false;
             QDialog::keyPressEvent(param1);
-        } else if (qdialog_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qdialog_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qdialog_keypressevent_callback(this, cbval1);
-        } else {
-            QDialog::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QDialog::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +553,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_closeevent_isbase) {
             qdialog_closeevent_isbase = false;
             QDialog::closeEvent(param1);
-        } else if (qdialog_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qdialog_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
 
-            qdialog_closeevent_callback(this, cbval1);
-        } else {
-            QDialog::closeEvent(param1);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QDialog::closeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,13 +570,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_showevent_isbase) {
             qdialog_showevent_isbase = false;
             QDialog::showEvent(param1);
-        } else if (qdialog_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qdialog_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = param1;
 
-            qdialog_showevent_callback(this, cbval1);
-        } else {
-            QDialog::showEvent(param1);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QDialog::showEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -626,13 +587,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_resizeevent_isbase) {
             qdialog_resizeevent_isbase = false;
             QDialog::resizeEvent(param1);
-        } else if (qdialog_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qdialog_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
 
-            qdialog_resizeevent_callback(this, cbval1);
-        } else {
-            QDialog::resizeEvent(param1);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QDialog::resizeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -640,13 +604,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_contextmenuevent_isbase) {
             qdialog_contextmenuevent_isbase = false;
             QDialog::contextMenuEvent(param1);
-        } else if (qdialog_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qdialog_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
 
-            qdialog_contextmenuevent_callback(this, cbval1);
-        } else {
-            QDialog::contextMenuEvent(param1);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QDialog::contextMenuEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -654,15 +621,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_eventfilter_isbase) {
             qdialog_eventfilter_isbase = false;
             return QDialog::eventFilter(param1, param2);
-        } else if (qdialog_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qdialog_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
 
-            bool callback_ret = qdialog_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QDialog::eventFilter(param1, param2);
         }
+        return QDialog::eventFilter(param1, param2);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -670,12 +638,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_devtype_isbase) {
             qdialog_devtype_isbase = false;
             return QDialog::devType();
-        } else if (qdialog_devtype_callback != nullptr) {
-            int callback_ret = qdialog_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::devType();
         }
+        auto devtype_cb = qdialog_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDialog::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -683,14 +652,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_heightforwidth_isbase) {
             qdialog_heightforwidth_isbase = false;
             return QDialog::heightForWidth(param1);
-        } else if (qdialog_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qdialog_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qdialog_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::heightForWidth(param1);
         }
+        return QDialog::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -698,12 +668,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_hasheightforwidth_isbase) {
             qdialog_hasheightforwidth_isbase = false;
             return QDialog::hasHeightForWidth();
-        } else if (qdialog_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qdialog_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QDialog::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qdialog_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QDialog::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -711,12 +682,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_paintengine_isbase) {
             qdialog_paintengine_isbase = false;
             return QDialog::paintEngine();
-        } else if (qdialog_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qdialog_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QDialog::paintEngine();
         }
+        auto paintengine_cb = qdialog_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QDialog::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -724,14 +696,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_event_isbase) {
             qdialog_event_isbase = false;
             return QDialog::event(event);
-        } else if (qdialog_event_callback != nullptr) {
+        }
+        auto event_cb = qdialog_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = qdialog_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDialog::event(event);
         }
+        return QDialog::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -739,13 +712,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_mousepressevent_isbase) {
             qdialog_mousepressevent_isbase = false;
             QDialog::mousePressEvent(event);
-        } else if (qdialog_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qdialog_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdialog_mousepressevent_callback(this, cbval1);
-        } else {
-            QDialog::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QDialog::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -753,13 +729,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_mousereleaseevent_isbase) {
             qdialog_mousereleaseevent_isbase = false;
             QDialog::mouseReleaseEvent(event);
-        } else if (qdialog_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qdialog_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdialog_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QDialog::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QDialog::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -767,13 +746,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_mousedoubleclickevent_isbase) {
             qdialog_mousedoubleclickevent_isbase = false;
             QDialog::mouseDoubleClickEvent(event);
-        } else if (qdialog_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qdialog_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdialog_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QDialog::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QDialog::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -781,13 +763,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_mousemoveevent_isbase) {
             qdialog_mousemoveevent_isbase = false;
             QDialog::mouseMoveEvent(event);
-        } else if (qdialog_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qdialog_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qdialog_mousemoveevent_callback(this, cbval1);
-        } else {
-            QDialog::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QDialog::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -795,13 +780,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_wheelevent_isbase) {
             qdialog_wheelevent_isbase = false;
             QDialog::wheelEvent(event);
-        } else if (qdialog_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qdialog_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qdialog_wheelevent_callback(this, cbval1);
-        } else {
-            QDialog::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QDialog::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -809,13 +797,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_keyreleaseevent_isbase) {
             qdialog_keyreleaseevent_isbase = false;
             QDialog::keyReleaseEvent(event);
-        } else if (qdialog_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qdialog_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            qdialog_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QDialog::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QDialog::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -823,13 +814,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_focusinevent_isbase) {
             qdialog_focusinevent_isbase = false;
             QDialog::focusInEvent(event);
-        } else if (qdialog_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qdialog_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdialog_focusinevent_callback(this, cbval1);
-        } else {
-            QDialog::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QDialog::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -837,13 +831,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_focusoutevent_isbase) {
             qdialog_focusoutevent_isbase = false;
             QDialog::focusOutEvent(event);
-        } else if (qdialog_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qdialog_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            qdialog_focusoutevent_callback(this, cbval1);
-        } else {
-            QDialog::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QDialog::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -851,13 +848,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_enterevent_isbase) {
             qdialog_enterevent_isbase = false;
             QDialog::enterEvent(event);
-        } else if (qdialog_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qdialog_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qdialog_enterevent_callback(this, cbval1);
-        } else {
-            QDialog::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QDialog::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -865,13 +865,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_leaveevent_isbase) {
             qdialog_leaveevent_isbase = false;
             QDialog::leaveEvent(event);
-        } else if (qdialog_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qdialog_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qdialog_leaveevent_callback(this, cbval1);
-        } else {
-            QDialog::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QDialog::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -879,13 +882,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_paintevent_isbase) {
             qdialog_paintevent_isbase = false;
             QDialog::paintEvent(event);
-        } else if (qdialog_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qdialog_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
 
-            qdialog_paintevent_callback(this, cbval1);
-        } else {
-            QDialog::paintEvent(event);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QDialog::paintEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -893,13 +899,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_moveevent_isbase) {
             qdialog_moveevent_isbase = false;
             QDialog::moveEvent(event);
-        } else if (qdialog_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qdialog_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qdialog_moveevent_callback(this, cbval1);
-        } else {
-            QDialog::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QDialog::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -907,13 +916,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_tabletevent_isbase) {
             qdialog_tabletevent_isbase = false;
             QDialog::tabletEvent(event);
-        } else if (qdialog_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qdialog_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qdialog_tabletevent_callback(this, cbval1);
-        } else {
-            QDialog::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QDialog::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -921,13 +933,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_actionevent_isbase) {
             qdialog_actionevent_isbase = false;
             QDialog::actionEvent(event);
-        } else if (qdialog_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qdialog_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qdialog_actionevent_callback(this, cbval1);
-        } else {
-            QDialog::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QDialog::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -935,13 +950,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_dragenterevent_isbase) {
             qdialog_dragenterevent_isbase = false;
             QDialog::dragEnterEvent(event);
-        } else if (qdialog_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qdialog_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qdialog_dragenterevent_callback(this, cbval1);
-        } else {
-            QDialog::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QDialog::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -949,13 +967,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_dragmoveevent_isbase) {
             qdialog_dragmoveevent_isbase = false;
             QDialog::dragMoveEvent(event);
-        } else if (qdialog_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qdialog_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qdialog_dragmoveevent_callback(this, cbval1);
-        } else {
-            QDialog::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QDialog::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -963,13 +984,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_dragleaveevent_isbase) {
             qdialog_dragleaveevent_isbase = false;
             QDialog::dragLeaveEvent(event);
-        } else if (qdialog_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qdialog_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qdialog_dragleaveevent_callback(this, cbval1);
-        } else {
-            QDialog::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QDialog::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -977,13 +1001,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_dropevent_isbase) {
             qdialog_dropevent_isbase = false;
             QDialog::dropEvent(event);
-        } else if (qdialog_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qdialog_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qdialog_dropevent_callback(this, cbval1);
-        } else {
-            QDialog::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QDialog::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -991,13 +1018,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_hideevent_isbase) {
             qdialog_hideevent_isbase = false;
             QDialog::hideEvent(event);
-        } else if (qdialog_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qdialog_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qdialog_hideevent_callback(this, cbval1);
-        } else {
-            QDialog::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QDialog::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1005,7 +1035,9 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_nativeevent_isbase) {
             qdialog_nativeevent_isbase = false;
             return QDialog::nativeEvent(eventType, message, result);
-        } else if (qdialog_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qdialog_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1016,12 +1048,11 @@ class VirtualQDialog final : public QDialog {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QDialog::nativeEvent(eventType, message, result);
         }
+        return QDialog::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1029,13 +1060,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_changeevent_isbase) {
             qdialog_changeevent_isbase = false;
             QDialog::changeEvent(param1);
-        } else if (qdialog_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qdialog_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            qdialog_changeevent_callback(this, cbval1);
-        } else {
-            QDialog::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QDialog::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,14 +1077,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_metric_isbase) {
             qdialog_metric_isbase = false;
             return QDialog::metric(param1);
-        } else if (qdialog_metric_callback != nullptr) {
+        }
+        auto metric_cb = qdialog_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qdialog_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::metric(param1);
         }
+        return QDialog::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,13 +1093,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_initpainter_isbase) {
             qdialog_initpainter_isbase = false;
             QDialog::initPainter(painter);
-        } else if (qdialog_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qdialog_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qdialog_initpainter_callback(this, cbval1);
-        } else {
-            QDialog::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QDialog::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1072,14 +1110,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_redirected_isbase) {
             qdialog_redirected_isbase = false;
             return QDialog::redirected(offset);
-        } else if (qdialog_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qdialog_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qdialog_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDialog::redirected(offset);
         }
+        return QDialog::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1087,12 +1126,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_sharedpainter_isbase) {
             qdialog_sharedpainter_isbase = false;
             return QDialog::sharedPainter();
-        } else if (qdialog_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qdialog_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QDialog::sharedPainter();
         }
+        auto sharedpainter_cb = qdialog_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QDialog::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1100,13 +1140,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_inputmethodevent_isbase) {
             qdialog_inputmethodevent_isbase = false;
             QDialog::inputMethodEvent(param1);
-        } else if (qdialog_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qdialog_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qdialog_inputmethodevent_callback(this, cbval1);
-        } else {
-            QDialog::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QDialog::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1114,14 +1157,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_inputmethodquery_isbase) {
             qdialog_inputmethodquery_isbase = false;
             return QDialog::inputMethodQuery(param1);
-        } else if (qdialog_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qdialog_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qdialog_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QDialog::inputMethodQuery(param1);
         }
+        return QDialog::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1129,14 +1173,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_focusnextprevchild_isbase) {
             qdialog_focusnextprevchild_isbase = false;
             return QDialog::focusNextPrevChild(next);
-        } else if (qdialog_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qdialog_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qdialog_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDialog::focusNextPrevChild(next);
         }
+        return QDialog::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1144,13 +1189,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_timerevent_isbase) {
             qdialog_timerevent_isbase = false;
             QDialog::timerEvent(event);
-        } else if (qdialog_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qdialog_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qdialog_timerevent_callback(this, cbval1);
-        } else {
-            QDialog::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QDialog::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1158,13 +1206,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_childevent_isbase) {
             qdialog_childevent_isbase = false;
             QDialog::childEvent(event);
-        } else if (qdialog_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qdialog_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qdialog_childevent_callback(this, cbval1);
-        } else {
-            QDialog::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QDialog::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,13 +1223,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_customevent_isbase) {
             qdialog_customevent_isbase = false;
             QDialog::customEvent(event);
-        } else if (qdialog_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qdialog_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qdialog_customevent_callback(this, cbval1);
-        } else {
-            QDialog::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QDialog::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1186,15 +1240,18 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_connectnotify_isbase) {
             qdialog_connectnotify_isbase = false;
             QDialog::connectNotify(signal);
-        } else if (qdialog_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qdialog_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdialog_connectnotify_callback(this, cbval1);
-        } else {
-            QDialog::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QDialog::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1202,15 +1259,18 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_disconnectnotify_isbase) {
             qdialog_disconnectnotify_isbase = false;
             QDialog::disconnectNotify(signal);
-        } else if (qdialog_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qdialog_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qdialog_disconnectnotify_callback(this, cbval1);
-        } else {
-            QDialog::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QDialog::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1218,13 +1278,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_adjustposition_isbase) {
             qdialog_adjustposition_isbase = false;
             QDialog::adjustPosition(param1);
-        } else if (qdialog_adjustposition_callback != nullptr) {
+            return;
+        }
+        auto adjustposition_cb = qdialog_adjustposition_callback;
+        if (adjustposition_cb) {
             QWidget* cbval1 = param1;
 
-            qdialog_adjustposition_callback(this, cbval1);
-        } else {
-            QDialog::adjustPosition(param1);
+            adjustposition_cb(this, cbval1);
+            return;
         }
+        QDialog::adjustPosition(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1232,11 +1295,14 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_updatemicrofocus_isbase) {
             qdialog_updatemicrofocus_isbase = false;
             QDialog::updateMicroFocus();
-        } else if (qdialog_updatemicrofocus_callback != nullptr) {
-            qdialog_updatemicrofocus_callback();
-        } else {
-            QDialog::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qdialog_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QDialog::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1244,11 +1310,14 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_create_isbase) {
             qdialog_create_isbase = false;
             QDialog::create();
-        } else if (qdialog_create_callback != nullptr) {
-            qdialog_create_callback();
-        } else {
-            QDialog::create();
+            return;
         }
+        auto create_cb = qdialog_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QDialog::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1256,11 +1325,14 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_destroy_isbase) {
             qdialog_destroy_isbase = false;
             QDialog::destroy();
-        } else if (qdialog_destroy_callback != nullptr) {
-            qdialog_destroy_callback();
-        } else {
-            QDialog::destroy();
+            return;
         }
+        auto destroy_cb = qdialog_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QDialog::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1268,12 +1340,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_focusnextchild_isbase) {
             qdialog_focusnextchild_isbase = false;
             return QDialog::focusNextChild();
-        } else if (qdialog_focusnextchild_callback != nullptr) {
-            bool callback_ret = qdialog_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QDialog::focusNextChild();
         }
+        auto focusnextchild_cb = qdialog_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QDialog::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1281,12 +1354,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_focuspreviouschild_isbase) {
             qdialog_focuspreviouschild_isbase = false;
             return QDialog::focusPreviousChild();
-        } else if (qdialog_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qdialog_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QDialog::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qdialog_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QDialog::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1294,12 +1368,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_sender_isbase) {
             qdialog_sender_isbase = false;
             return QDialog::sender();
-        } else if (qdialog_sender_callback != nullptr) {
-            QObject* callback_ret = qdialog_sender_callback();
-            return callback_ret;
-        } else {
-            return QDialog::sender();
         }
+        auto sender_cb = qdialog_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QDialog::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1307,12 +1382,13 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_sendersignalindex_isbase) {
             qdialog_sendersignalindex_isbase = false;
             return QDialog::senderSignalIndex();
-        } else if (qdialog_sendersignalindex_callback != nullptr) {
-            int callback_ret = qdialog_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qdialog_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QDialog::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1320,14 +1396,15 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_receivers_isbase) {
             qdialog_receivers_isbase = false;
             return QDialog::receivers(signal);
-        } else if (qdialog_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qdialog_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qdialog_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QDialog::receivers(signal);
         }
+        return QDialog::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1335,16 +1412,17 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_issignalconnected_isbase) {
             qdialog_issignalconnected_isbase = false;
             return QDialog::isSignalConnected(signal);
-        } else if (qdialog_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qdialog_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qdialog_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QDialog::isSignalConnected(signal);
         }
+        return QDialog::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1352,15 +1430,16 @@ class VirtualQDialog final : public QDialog {
         if (qdialog_getdecodedmetricf_isbase) {
             qdialog_getdecodedmetricf_isbase = false;
             return QDialog::getDecodedMetricF(metricA, metricB);
-        } else if (qdialog_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qdialog_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QDialog::getDecodedMetricF(metricA, metricB);
         }
+        return QDialog::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

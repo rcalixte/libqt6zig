@@ -215,71 +215,6 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     VirtualKMultiTabBar(KMultiTabBar::KMultiTabBarPosition pos) : KMultiTabBar(pos) {};
     VirtualKMultiTabBar(KMultiTabBar::KMultiTabBarPosition pos, QWidget* parent) : KMultiTabBar(pos, parent) {};
 
-    ~VirtualKMultiTabBar() {
-        kmultitabbar_metaobject_callback = nullptr;
-        kmultitabbar_metacast_callback = nullptr;
-        kmultitabbar_metacall_callback = nullptr;
-        kmultitabbar_fontchange_callback = nullptr;
-        kmultitabbar_paintevent_callback = nullptr;
-        kmultitabbar_devtype_callback = nullptr;
-        kmultitabbar_setvisible_callback = nullptr;
-        kmultitabbar_sizehint_callback = nullptr;
-        kmultitabbar_minimumsizehint_callback = nullptr;
-        kmultitabbar_heightforwidth_callback = nullptr;
-        kmultitabbar_hasheightforwidth_callback = nullptr;
-        kmultitabbar_paintengine_callback = nullptr;
-        kmultitabbar_event_callback = nullptr;
-        kmultitabbar_mousepressevent_callback = nullptr;
-        kmultitabbar_mousereleaseevent_callback = nullptr;
-        kmultitabbar_mousedoubleclickevent_callback = nullptr;
-        kmultitabbar_mousemoveevent_callback = nullptr;
-        kmultitabbar_wheelevent_callback = nullptr;
-        kmultitabbar_keypressevent_callback = nullptr;
-        kmultitabbar_keyreleaseevent_callback = nullptr;
-        kmultitabbar_focusinevent_callback = nullptr;
-        kmultitabbar_focusoutevent_callback = nullptr;
-        kmultitabbar_enterevent_callback = nullptr;
-        kmultitabbar_leaveevent_callback = nullptr;
-        kmultitabbar_moveevent_callback = nullptr;
-        kmultitabbar_resizeevent_callback = nullptr;
-        kmultitabbar_closeevent_callback = nullptr;
-        kmultitabbar_contextmenuevent_callback = nullptr;
-        kmultitabbar_tabletevent_callback = nullptr;
-        kmultitabbar_actionevent_callback = nullptr;
-        kmultitabbar_dragenterevent_callback = nullptr;
-        kmultitabbar_dragmoveevent_callback = nullptr;
-        kmultitabbar_dragleaveevent_callback = nullptr;
-        kmultitabbar_dropevent_callback = nullptr;
-        kmultitabbar_showevent_callback = nullptr;
-        kmultitabbar_hideevent_callback = nullptr;
-        kmultitabbar_nativeevent_callback = nullptr;
-        kmultitabbar_changeevent_callback = nullptr;
-        kmultitabbar_metric_callback = nullptr;
-        kmultitabbar_initpainter_callback = nullptr;
-        kmultitabbar_redirected_callback = nullptr;
-        kmultitabbar_sharedpainter_callback = nullptr;
-        kmultitabbar_inputmethodevent_callback = nullptr;
-        kmultitabbar_inputmethodquery_callback = nullptr;
-        kmultitabbar_focusnextprevchild_callback = nullptr;
-        kmultitabbar_eventfilter_callback = nullptr;
-        kmultitabbar_timerevent_callback = nullptr;
-        kmultitabbar_childevent_callback = nullptr;
-        kmultitabbar_customevent_callback = nullptr;
-        kmultitabbar_connectnotify_callback = nullptr;
-        kmultitabbar_disconnectnotify_callback = nullptr;
-        kmultitabbar_updateseparator_callback = nullptr;
-        kmultitabbar_updatemicrofocus_callback = nullptr;
-        kmultitabbar_create_callback = nullptr;
-        kmultitabbar_destroy_callback = nullptr;
-        kmultitabbar_focusnextchild_callback = nullptr;
-        kmultitabbar_focuspreviouschild_callback = nullptr;
-        kmultitabbar_sender_callback = nullptr;
-        kmultitabbar_sendersignalindex_callback = nullptr;
-        kmultitabbar_receivers_callback = nullptr;
-        kmultitabbar_issignalconnected_callback = nullptr;
-        kmultitabbar_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKMultiTabBar_MetaObject_Callback(KMultiTabBar_MetaObject_Callback cb) { kmultitabbar_metaobject_callback = cb; }
     inline void setKMultiTabBar_Metacast_Callback(KMultiTabBar_Metacast_Callback cb) { kmultitabbar_metacast_callback = cb; }
@@ -413,12 +348,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_metaobject_isbase) {
             kmultitabbar_metaobject_isbase = false;
             return KMultiTabBar::metaObject();
-        } else if (kmultitabbar_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kmultitabbar_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::metaObject();
         }
+        auto metaobject_cb = kmultitabbar_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -426,14 +362,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_metacast_isbase) {
             kmultitabbar_metacast_isbase = false;
             return KMultiTabBar::qt_metacast(param1);
-        } else if (kmultitabbar_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kmultitabbar_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kmultitabbar_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMultiTabBar::qt_metacast(param1);
         }
+        return KMultiTabBar::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -441,16 +378,17 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_metacall_isbase) {
             kmultitabbar_metacall_isbase = false;
             return KMultiTabBar::qt_metacall(param1, param2, param3);
-        } else if (kmultitabbar_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kmultitabbar_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kmultitabbar_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMultiTabBar::qt_metacall(param1, param2, param3);
         }
+        return KMultiTabBar::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,15 +396,18 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_fontchange_isbase) {
             kmultitabbar_fontchange_isbase = false;
             KMultiTabBar::fontChange(param1);
-        } else if (kmultitabbar_fontchange_callback != nullptr) {
+            return;
+        }
+        auto fontchange_cb = kmultitabbar_fontchange_callback;
+        if (fontchange_cb) {
             const QFont& param1_ret = param1;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&param1_ret);
 
-            kmultitabbar_fontchange_callback(this, cbval1);
-        } else {
-            KMultiTabBar::fontChange(param1);
+            fontchange_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::fontChange(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -474,13 +415,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_paintevent_isbase) {
             kmultitabbar_paintevent_isbase = false;
             KMultiTabBar::paintEvent(param1);
-        } else if (kmultitabbar_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = kmultitabbar_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            kmultitabbar_paintevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,12 +432,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_devtype_isbase) {
             kmultitabbar_devtype_isbase = false;
             return KMultiTabBar::devType();
-        } else if (kmultitabbar_devtype_callback != nullptr) {
-            int callback_ret = kmultitabbar_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMultiTabBar::devType();
         }
+        auto devtype_cb = kmultitabbar_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMultiTabBar::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -501,13 +446,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_setvisible_isbase) {
             kmultitabbar_setvisible_isbase = false;
             KMultiTabBar::setVisible(visible);
-        } else if (kmultitabbar_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = kmultitabbar_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            kmultitabbar_setvisible_callback(this, cbval1);
-        } else {
-            KMultiTabBar::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -515,12 +463,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_sizehint_isbase) {
             kmultitabbar_sizehint_isbase = false;
             return KMultiTabBar::sizeHint();
-        } else if (kmultitabbar_sizehint_callback != nullptr) {
-            QSize* callback_ret = kmultitabbar_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return KMultiTabBar::sizeHint();
         }
+        auto sizehint_cb = kmultitabbar_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return KMultiTabBar::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -528,12 +477,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_minimumsizehint_isbase) {
             kmultitabbar_minimumsizehint_isbase = false;
             return KMultiTabBar::minimumSizeHint();
-        } else if (kmultitabbar_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = kmultitabbar_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return KMultiTabBar::minimumSizeHint();
         }
+        auto minimumsizehint_cb = kmultitabbar_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return KMultiTabBar::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -541,14 +491,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_heightforwidth_isbase) {
             kmultitabbar_heightforwidth_isbase = false;
             return KMultiTabBar::heightForWidth(param1);
-        } else if (kmultitabbar_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = kmultitabbar_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = kmultitabbar_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMultiTabBar::heightForWidth(param1);
         }
+        return KMultiTabBar::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,12 +507,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_hasheightforwidth_isbase) {
             kmultitabbar_hasheightforwidth_isbase = false;
             return KMultiTabBar::hasHeightForWidth();
-        } else if (kmultitabbar_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = kmultitabbar_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = kmultitabbar_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -569,12 +521,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_paintengine_isbase) {
             kmultitabbar_paintengine_isbase = false;
             return KMultiTabBar::paintEngine();
-        } else if (kmultitabbar_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = kmultitabbar_paintengine_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::paintEngine();
         }
+        auto paintengine_cb = kmultitabbar_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,14 +535,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_event_isbase) {
             kmultitabbar_event_isbase = false;
             return KMultiTabBar::event(event);
-        } else if (kmultitabbar_event_callback != nullptr) {
+        }
+        auto event_cb = kmultitabbar_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kmultitabbar_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMultiTabBar::event(event);
         }
+        return KMultiTabBar::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -597,13 +551,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_mousepressevent_isbase) {
             kmultitabbar_mousepressevent_isbase = false;
             KMultiTabBar::mousePressEvent(event);
-        } else if (kmultitabbar_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = kmultitabbar_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmultitabbar_mousepressevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::mousePressEvent(event);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::mousePressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -611,13 +568,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_mousereleaseevent_isbase) {
             kmultitabbar_mousereleaseevent_isbase = false;
             KMultiTabBar::mouseReleaseEvent(event);
-        } else if (kmultitabbar_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = kmultitabbar_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmultitabbar_mousereleaseevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::mouseReleaseEvent(event);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::mouseReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -625,13 +585,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_mousedoubleclickevent_isbase) {
             kmultitabbar_mousedoubleclickevent_isbase = false;
             KMultiTabBar::mouseDoubleClickEvent(event);
-        } else if (kmultitabbar_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = kmultitabbar_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmultitabbar_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -639,13 +602,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_mousemoveevent_isbase) {
             kmultitabbar_mousemoveevent_isbase = false;
             KMultiTabBar::mouseMoveEvent(event);
-        } else if (kmultitabbar_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = kmultitabbar_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            kmultitabbar_mousemoveevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::mouseMoveEvent(event);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::mouseMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +619,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_wheelevent_isbase) {
             kmultitabbar_wheelevent_isbase = false;
             KMultiTabBar::wheelEvent(event);
-        } else if (kmultitabbar_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = kmultitabbar_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            kmultitabbar_wheelevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +636,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_keypressevent_isbase) {
             kmultitabbar_keypressevent_isbase = false;
             KMultiTabBar::keyPressEvent(event);
-        } else if (kmultitabbar_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = kmultitabbar_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kmultitabbar_keypressevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::keyPressEvent(event);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::keyPressEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +653,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_keyreleaseevent_isbase) {
             kmultitabbar_keyreleaseevent_isbase = false;
             KMultiTabBar::keyReleaseEvent(event);
-        } else if (kmultitabbar_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = kmultitabbar_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
 
-            kmultitabbar_keyreleaseevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::keyReleaseEvent(event);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::keyReleaseEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +670,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_focusinevent_isbase) {
             kmultitabbar_focusinevent_isbase = false;
             KMultiTabBar::focusInEvent(event);
-        } else if (kmultitabbar_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = kmultitabbar_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kmultitabbar_focusinevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::focusInEvent(event);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::focusInEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +687,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_focusoutevent_isbase) {
             kmultitabbar_focusoutevent_isbase = false;
             KMultiTabBar::focusOutEvent(event);
-        } else if (kmultitabbar_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = kmultitabbar_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
 
-            kmultitabbar_focusoutevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::focusOutEvent(event);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::focusOutEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,13 +704,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_enterevent_isbase) {
             kmultitabbar_enterevent_isbase = false;
             KMultiTabBar::enterEvent(event);
-        } else if (kmultitabbar_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = kmultitabbar_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            kmultitabbar_enterevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -737,13 +721,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_leaveevent_isbase) {
             kmultitabbar_leaveevent_isbase = false;
             KMultiTabBar::leaveEvent(event);
-        } else if (kmultitabbar_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = kmultitabbar_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            kmultitabbar_leaveevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -751,13 +738,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_moveevent_isbase) {
             kmultitabbar_moveevent_isbase = false;
             KMultiTabBar::moveEvent(event);
-        } else if (kmultitabbar_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = kmultitabbar_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            kmultitabbar_moveevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -765,13 +755,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_resizeevent_isbase) {
             kmultitabbar_resizeevent_isbase = false;
             KMultiTabBar::resizeEvent(event);
-        } else if (kmultitabbar_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = kmultitabbar_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            kmultitabbar_resizeevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -779,13 +772,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_closeevent_isbase) {
             kmultitabbar_closeevent_isbase = false;
             KMultiTabBar::closeEvent(event);
-        } else if (kmultitabbar_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = kmultitabbar_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            kmultitabbar_closeevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,13 +789,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_contextmenuevent_isbase) {
             kmultitabbar_contextmenuevent_isbase = false;
             KMultiTabBar::contextMenuEvent(event);
-        } else if (kmultitabbar_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = kmultitabbar_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            kmultitabbar_contextmenuevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -807,13 +806,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_tabletevent_isbase) {
             kmultitabbar_tabletevent_isbase = false;
             KMultiTabBar::tabletEvent(event);
-        } else if (kmultitabbar_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = kmultitabbar_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            kmultitabbar_tabletevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -821,13 +823,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_actionevent_isbase) {
             kmultitabbar_actionevent_isbase = false;
             KMultiTabBar::actionEvent(event);
-        } else if (kmultitabbar_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = kmultitabbar_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            kmultitabbar_actionevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -835,13 +840,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_dragenterevent_isbase) {
             kmultitabbar_dragenterevent_isbase = false;
             KMultiTabBar::dragEnterEvent(event);
-        } else if (kmultitabbar_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = kmultitabbar_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            kmultitabbar_dragenterevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -849,13 +857,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_dragmoveevent_isbase) {
             kmultitabbar_dragmoveevent_isbase = false;
             KMultiTabBar::dragMoveEvent(event);
-        } else if (kmultitabbar_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = kmultitabbar_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            kmultitabbar_dragmoveevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -863,13 +874,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_dragleaveevent_isbase) {
             kmultitabbar_dragleaveevent_isbase = false;
             KMultiTabBar::dragLeaveEvent(event);
-        } else if (kmultitabbar_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = kmultitabbar_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            kmultitabbar_dragleaveevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -877,13 +891,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_dropevent_isbase) {
             kmultitabbar_dropevent_isbase = false;
             KMultiTabBar::dropEvent(event);
-        } else if (kmultitabbar_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = kmultitabbar_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            kmultitabbar_dropevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -891,13 +908,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_showevent_isbase) {
             kmultitabbar_showevent_isbase = false;
             KMultiTabBar::showEvent(event);
-        } else if (kmultitabbar_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = kmultitabbar_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            kmultitabbar_showevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -905,13 +925,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_hideevent_isbase) {
             kmultitabbar_hideevent_isbase = false;
             KMultiTabBar::hideEvent(event);
-        } else if (kmultitabbar_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = kmultitabbar_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            kmultitabbar_hideevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -919,7 +942,9 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_nativeevent_isbase) {
             kmultitabbar_nativeevent_isbase = false;
             return KMultiTabBar::nativeEvent(eventType, message, result);
-        } else if (kmultitabbar_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = kmultitabbar_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -930,12 +955,11 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = kmultitabbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return KMultiTabBar::nativeEvent(eventType, message, result);
         }
+        return KMultiTabBar::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -943,13 +967,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_changeevent_isbase) {
             kmultitabbar_changeevent_isbase = false;
             KMultiTabBar::changeEvent(param1);
-        } else if (kmultitabbar_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = kmultitabbar_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = param1;
 
-            kmultitabbar_changeevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::changeEvent(param1);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::changeEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -957,14 +984,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_metric_isbase) {
             kmultitabbar_metric_isbase = false;
             return KMultiTabBar::metric(param1);
-        } else if (kmultitabbar_metric_callback != nullptr) {
+        }
+        auto metric_cb = kmultitabbar_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = kmultitabbar_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMultiTabBar::metric(param1);
         }
+        return KMultiTabBar::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +1000,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_initpainter_isbase) {
             kmultitabbar_initpainter_isbase = false;
             KMultiTabBar::initPainter(painter);
-        } else if (kmultitabbar_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = kmultitabbar_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            kmultitabbar_initpainter_callback(this, cbval1);
-        } else {
-            KMultiTabBar::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,14 +1017,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_redirected_isbase) {
             kmultitabbar_redirected_isbase = false;
             return KMultiTabBar::redirected(offset);
-        } else if (kmultitabbar_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = kmultitabbar_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = kmultitabbar_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMultiTabBar::redirected(offset);
         }
+        return KMultiTabBar::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1001,12 +1033,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_sharedpainter_isbase) {
             kmultitabbar_sharedpainter_isbase = false;
             return KMultiTabBar::sharedPainter();
-        } else if (kmultitabbar_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = kmultitabbar_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::sharedPainter();
         }
+        auto sharedpainter_cb = kmultitabbar_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1014,13 +1047,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_inputmethodevent_isbase) {
             kmultitabbar_inputmethodevent_isbase = false;
             KMultiTabBar::inputMethodEvent(param1);
-        } else if (kmultitabbar_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = kmultitabbar_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            kmultitabbar_inputmethodevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1028,14 +1064,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_inputmethodquery_isbase) {
             kmultitabbar_inputmethodquery_isbase = false;
             return KMultiTabBar::inputMethodQuery(param1);
-        } else if (kmultitabbar_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = kmultitabbar_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = kmultitabbar_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return KMultiTabBar::inputMethodQuery(param1);
         }
+        return KMultiTabBar::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1043,14 +1080,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_focusnextprevchild_isbase) {
             kmultitabbar_focusnextprevchild_isbase = false;
             return KMultiTabBar::focusNextPrevChild(next);
-        } else if (kmultitabbar_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = kmultitabbar_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = kmultitabbar_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMultiTabBar::focusNextPrevChild(next);
         }
+        return KMultiTabBar::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1058,15 +1096,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_eventfilter_isbase) {
             kmultitabbar_eventfilter_isbase = false;
             return KMultiTabBar::eventFilter(watched, event);
-        } else if (kmultitabbar_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kmultitabbar_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kmultitabbar_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KMultiTabBar::eventFilter(watched, event);
         }
+        return KMultiTabBar::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1074,13 +1113,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_timerevent_isbase) {
             kmultitabbar_timerevent_isbase = false;
             KMultiTabBar::timerEvent(event);
-        } else if (kmultitabbar_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kmultitabbar_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kmultitabbar_timerevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1088,13 +1130,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_childevent_isbase) {
             kmultitabbar_childevent_isbase = false;
             KMultiTabBar::childEvent(event);
-        } else if (kmultitabbar_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kmultitabbar_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kmultitabbar_childevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1102,13 +1147,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_customevent_isbase) {
             kmultitabbar_customevent_isbase = false;
             KMultiTabBar::customEvent(event);
-        } else if (kmultitabbar_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kmultitabbar_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kmultitabbar_customevent_callback(this, cbval1);
-        } else {
-            KMultiTabBar::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,15 +1164,18 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_connectnotify_isbase) {
             kmultitabbar_connectnotify_isbase = false;
             KMultiTabBar::connectNotify(signal);
-        } else if (kmultitabbar_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kmultitabbar_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmultitabbar_connectnotify_callback(this, cbval1);
-        } else {
-            KMultiTabBar::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1132,15 +1183,18 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_disconnectnotify_isbase) {
             kmultitabbar_disconnectnotify_isbase = false;
             KMultiTabBar::disconnectNotify(signal);
-        } else if (kmultitabbar_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kmultitabbar_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kmultitabbar_disconnectnotify_callback(this, cbval1);
-        } else {
-            KMultiTabBar::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KMultiTabBar::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1148,11 +1202,14 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_updateseparator_isbase) {
             kmultitabbar_updateseparator_isbase = false;
             KMultiTabBar::updateSeparator();
-        } else if (kmultitabbar_updateseparator_callback != nullptr) {
-            kmultitabbar_updateseparator_callback();
-        } else {
-            KMultiTabBar::updateSeparator();
+            return;
         }
+        auto updateseparator_cb = kmultitabbar_updateseparator_callback;
+        if (updateseparator_cb) {
+            updateseparator_cb();
+            return;
+        }
+        KMultiTabBar::updateSeparator();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1160,11 +1217,14 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_updatemicrofocus_isbase) {
             kmultitabbar_updatemicrofocus_isbase = false;
             KMultiTabBar::updateMicroFocus();
-        } else if (kmultitabbar_updatemicrofocus_callback != nullptr) {
-            kmultitabbar_updatemicrofocus_callback();
-        } else {
-            KMultiTabBar::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = kmultitabbar_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        KMultiTabBar::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1172,11 +1232,14 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_create_isbase) {
             kmultitabbar_create_isbase = false;
             KMultiTabBar::create();
-        } else if (kmultitabbar_create_callback != nullptr) {
-            kmultitabbar_create_callback();
-        } else {
-            KMultiTabBar::create();
+            return;
         }
+        auto create_cb = kmultitabbar_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        KMultiTabBar::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1184,11 +1247,14 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_destroy_isbase) {
             kmultitabbar_destroy_isbase = false;
             KMultiTabBar::destroy();
-        } else if (kmultitabbar_destroy_callback != nullptr) {
-            kmultitabbar_destroy_callback();
-        } else {
-            KMultiTabBar::destroy();
+            return;
         }
+        auto destroy_cb = kmultitabbar_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        KMultiTabBar::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1196,12 +1262,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_focusnextchild_isbase) {
             kmultitabbar_focusnextchild_isbase = false;
             return KMultiTabBar::focusNextChild();
-        } else if (kmultitabbar_focusnextchild_callback != nullptr) {
-            bool callback_ret = kmultitabbar_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::focusNextChild();
         }
+        auto focusnextchild_cb = kmultitabbar_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1209,12 +1276,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_focuspreviouschild_isbase) {
             kmultitabbar_focuspreviouschild_isbase = false;
             return KMultiTabBar::focusPreviousChild();
-        } else if (kmultitabbar_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = kmultitabbar_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = kmultitabbar_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1222,12 +1290,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_sender_isbase) {
             kmultitabbar_sender_isbase = false;
             return KMultiTabBar::sender();
-        } else if (kmultitabbar_sender_callback != nullptr) {
-            QObject* callback_ret = kmultitabbar_sender_callback();
-            return callback_ret;
-        } else {
-            return KMultiTabBar::sender();
         }
+        auto sender_cb = kmultitabbar_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KMultiTabBar::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1235,12 +1304,13 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_sendersignalindex_isbase) {
             kmultitabbar_sendersignalindex_isbase = false;
             return KMultiTabBar::senderSignalIndex();
-        } else if (kmultitabbar_sendersignalindex_callback != nullptr) {
-            int callback_ret = kmultitabbar_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KMultiTabBar::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kmultitabbar_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KMultiTabBar::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1248,14 +1318,15 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_receivers_isbase) {
             kmultitabbar_receivers_isbase = false;
             return KMultiTabBar::receivers(signal);
-        } else if (kmultitabbar_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kmultitabbar_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kmultitabbar_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KMultiTabBar::receivers(signal);
         }
+        return KMultiTabBar::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,16 +1334,17 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_issignalconnected_isbase) {
             kmultitabbar_issignalconnected_isbase = false;
             return KMultiTabBar::isSignalConnected(signal);
-        } else if (kmultitabbar_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kmultitabbar_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kmultitabbar_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KMultiTabBar::isSignalConnected(signal);
         }
+        return KMultiTabBar::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1280,15 +1352,16 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
         if (kmultitabbar_getdecodedmetricf_isbase) {
             kmultitabbar_getdecodedmetricf_isbase = false;
             return KMultiTabBar::getDecodedMetricF(metricA, metricB);
-        } else if (kmultitabbar_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = kmultitabbar_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = kmultitabbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return KMultiTabBar::getDecodedMetricF(metricA, metricB);
         }
+        return KMultiTabBar::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

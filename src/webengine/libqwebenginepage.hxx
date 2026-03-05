@@ -92,30 +92,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     VirtualQWebEnginePage(QObject* parent) : QWebEnginePage(parent) {};
     VirtualQWebEnginePage(QWebEngineProfile* profile, QObject* parent) : QWebEnginePage(profile, parent) {};
 
-    ~VirtualQWebEnginePage() {
-        qwebenginepage_metaobject_callback = nullptr;
-        qwebenginepage_metacast_callback = nullptr;
-        qwebenginepage_metacall_callback = nullptr;
-        qwebenginepage_triggeraction_callback = nullptr;
-        qwebenginepage_event_callback = nullptr;
-        qwebenginepage_createwindow_callback = nullptr;
-        qwebenginepage_choosefiles_callback = nullptr;
-        qwebenginepage_javascriptalert_callback = nullptr;
-        qwebenginepage_javascriptconfirm_callback = nullptr;
-        qwebenginepage_javascriptconsolemessage_callback = nullptr;
-        qwebenginepage_acceptnavigationrequest_callback = nullptr;
-        qwebenginepage_eventfilter_callback = nullptr;
-        qwebenginepage_timerevent_callback = nullptr;
-        qwebenginepage_childevent_callback = nullptr;
-        qwebenginepage_customevent_callback = nullptr;
-        qwebenginepage_connectnotify_callback = nullptr;
-        qwebenginepage_disconnectnotify_callback = nullptr;
-        qwebenginepage_sender_callback = nullptr;
-        qwebenginepage_sendersignalindex_callback = nullptr;
-        qwebenginepage_receivers_callback = nullptr;
-        qwebenginepage_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQWebEnginePage_MetaObject_Callback(QWebEnginePage_MetaObject_Callback cb) { qwebenginepage_metaobject_callback = cb; }
     inline void setQWebEnginePage_Metacast_Callback(QWebEnginePage_Metacast_Callback cb) { qwebenginepage_metacast_callback = cb; }
@@ -167,12 +143,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_metaobject_isbase) {
             qwebenginepage_metaobject_isbase = false;
             return QWebEnginePage::metaObject();
-        } else if (qwebenginepage_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qwebenginepage_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QWebEnginePage::metaObject();
         }
+        auto metaobject_cb = qwebenginepage_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QWebEnginePage::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -180,14 +157,15 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_metacast_isbase) {
             qwebenginepage_metacast_isbase = false;
             return QWebEnginePage::qt_metacast(param1);
-        } else if (qwebenginepage_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qwebenginepage_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qwebenginepage_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEnginePage::qt_metacast(param1);
         }
+        return QWebEnginePage::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -195,16 +173,17 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_metacall_isbase) {
             qwebenginepage_metacall_isbase = false;
             return QWebEnginePage::qt_metacall(param1, param2, param3);
-        } else if (qwebenginepage_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qwebenginepage_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qwebenginepage_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEnginePage::qt_metacall(param1, param2, param3);
         }
+        return QWebEnginePage::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -212,14 +191,17 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_triggeraction_isbase) {
             qwebenginepage_triggeraction_isbase = false;
             QWebEnginePage::triggerAction(action, checked);
-        } else if (qwebenginepage_triggeraction_callback != nullptr) {
+            return;
+        }
+        auto triggeraction_cb = qwebenginepage_triggeraction_callback;
+        if (triggeraction_cb) {
             int cbval1 = static_cast<int>(action);
             bool cbval2 = checked;
 
-            qwebenginepage_triggeraction_callback(this, cbval1, cbval2);
-        } else {
-            QWebEnginePage::triggerAction(action, checked);
+            triggeraction_cb(this, cbval1, cbval2);
+            return;
         }
+        QWebEnginePage::triggerAction(action, checked);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -227,14 +209,15 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_event_isbase) {
             qwebenginepage_event_isbase = false;
             return QWebEnginePage::event(param1);
-        } else if (qwebenginepage_event_callback != nullptr) {
+        }
+        auto event_cb = qwebenginepage_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = param1;
 
-            bool callback_ret = qwebenginepage_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEnginePage::event(param1);
         }
+        return QWebEnginePage::event(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -242,14 +225,15 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_createwindow_isbase) {
             qwebenginepage_createwindow_isbase = false;
             return QWebEnginePage::createWindow(typeVal);
-        } else if (qwebenginepage_createwindow_callback != nullptr) {
+        }
+        auto createwindow_cb = qwebenginepage_createwindow_callback;
+        if (createwindow_cb) {
             int cbval1 = static_cast<int>(typeVal);
 
-            QWebEnginePage* callback_ret = qwebenginepage_createwindow_callback(this, cbval1);
+            QWebEnginePage* callback_ret = createwindow_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEnginePage::createWindow(typeVal);
         }
+        return QWebEnginePage::createWindow(typeVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -257,7 +241,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_choosefiles_isbase) {
             qwebenginepage_choosefiles_isbase = false;
             return QWebEnginePage::chooseFiles(mode, oldFiles, acceptedMimeTypes);
-        } else if (qwebenginepage_choosefiles_callback != nullptr) {
+        }
+        auto choosefiles_cb = qwebenginepage_choosefiles_callback;
+        if (choosefiles_cb) {
             int cbval1 = static_cast<int>(mode);
             const QList<QString>& oldFiles_ret = oldFiles;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
@@ -288,7 +274,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             acceptedMimeTypes_arr[acceptedMimeTypes_ret.size()] = nullptr;
             const char** cbval3 = acceptedMimeTypes_arr;
 
-            const char** callback_ret = qwebenginepage_choosefiles_callback(this, cbval1, cbval2, cbval3);
+            const char** callback_ret = choosefiles_cb(this, cbval1, cbval2, cbval3);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -301,9 +287,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             libqt_free(oldFiles_arr);
             libqt_free(acceptedMimeTypes_arr);
             return callback_ret_QList;
-        } else {
-            return QWebEnginePage::chooseFiles(mode, oldFiles, acceptedMimeTypes);
         }
+        return QWebEnginePage::chooseFiles(mode, oldFiles, acceptedMimeTypes);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -311,7 +296,10 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_javascriptalert_isbase) {
             qwebenginepage_javascriptalert_isbase = false;
             QWebEnginePage::javaScriptAlert(securityOrigin, msg);
-        } else if (qwebenginepage_javascriptalert_callback != nullptr) {
+            return;
+        }
+        auto javascriptalert_cb = qwebenginepage_javascriptalert_callback;
+        if (javascriptalert_cb) {
             const QUrl& securityOrigin_ret = securityOrigin;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&securityOrigin_ret);
@@ -324,11 +312,11 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             ((char*)msg_str)[msg_str_len] = '\0';
             const char* cbval2 = msg_str;
 
-            qwebenginepage_javascriptalert_callback(this, cbval1, cbval2);
+            javascriptalert_cb(this, cbval1, cbval2);
             libqt_free(msg_str);
-        } else {
-            QWebEnginePage::javaScriptAlert(securityOrigin, msg);
+            return;
         }
+        QWebEnginePage::javaScriptAlert(securityOrigin, msg);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -336,7 +324,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_javascriptconfirm_isbase) {
             qwebenginepage_javascriptconfirm_isbase = false;
             return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
-        } else if (qwebenginepage_javascriptconfirm_callback != nullptr) {
+        }
+        auto javascriptconfirm_cb = qwebenginepage_javascriptconfirm_callback;
+        if (javascriptconfirm_cb) {
             const QUrl& securityOrigin_ret = securityOrigin;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&securityOrigin_ret);
@@ -349,12 +339,11 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             ((char*)msg_str)[msg_str_len] = '\0';
             const char* cbval2 = msg_str;
 
-            bool callback_ret = qwebenginepage_javascriptconfirm_callback(this, cbval1, cbval2);
+            bool callback_ret = javascriptconfirm_cb(this, cbval1, cbval2);
             libqt_free(msg_str);
             return callback_ret;
-        } else {
-            return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
         }
+        return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -362,7 +351,10 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_javascriptconsolemessage_isbase) {
             qwebenginepage_javascriptconsolemessage_isbase = false;
             QWebEnginePage::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
-        } else if (qwebenginepage_javascriptconsolemessage_callback != nullptr) {
+            return;
+        }
+        auto javascriptconsolemessage_cb = qwebenginepage_javascriptconsolemessage_callback;
+        if (javascriptconsolemessage_cb) {
             int cbval1 = static_cast<int>(level);
             const QString message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -382,12 +374,12 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             ((char*)sourceID_str)[sourceID_str_len] = '\0';
             const char* cbval4 = sourceID_str;
 
-            qwebenginepage_javascriptconsolemessage_callback(this, cbval1, cbval2, cbval3, cbval4);
+            javascriptconsolemessage_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(message_str);
             libqt_free(sourceID_str);
-        } else {
-            QWebEnginePage::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
+            return;
         }
+        QWebEnginePage::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -395,18 +387,19 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_acceptnavigationrequest_isbase) {
             qwebenginepage_acceptnavigationrequest_isbase = false;
             return QWebEnginePage::acceptNavigationRequest(url, typeVal, isMainFrame);
-        } else if (qwebenginepage_acceptnavigationrequest_callback != nullptr) {
+        }
+        auto acceptnavigationrequest_cb = qwebenginepage_acceptnavigationrequest_callback;
+        if (acceptnavigationrequest_cb) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = static_cast<int>(typeVal);
             bool cbval3 = isMainFrame;
 
-            bool callback_ret = qwebenginepage_acceptnavigationrequest_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = acceptnavigationrequest_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
-        } else {
-            return QWebEnginePage::acceptNavigationRequest(url, typeVal, isMainFrame);
         }
+        return QWebEnginePage::acceptNavigationRequest(url, typeVal, isMainFrame);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -414,15 +407,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_eventfilter_isbase) {
             qwebenginepage_eventfilter_isbase = false;
             return QWebEnginePage::eventFilter(watched, event);
-        } else if (qwebenginepage_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qwebenginepage_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qwebenginepage_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QWebEnginePage::eventFilter(watched, event);
         }
+        return QWebEnginePage::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -430,13 +424,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_timerevent_isbase) {
             qwebenginepage_timerevent_isbase = false;
             QWebEnginePage::timerEvent(event);
-        } else if (qwebenginepage_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qwebenginepage_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            qwebenginepage_timerevent_callback(this, cbval1);
-        } else {
-            QWebEnginePage::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QWebEnginePage::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,13 +441,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_childevent_isbase) {
             qwebenginepage_childevent_isbase = false;
             QWebEnginePage::childEvent(event);
-        } else if (qwebenginepage_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qwebenginepage_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qwebenginepage_childevent_callback(this, cbval1);
-        } else {
-            QWebEnginePage::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QWebEnginePage::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -458,13 +458,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_customevent_isbase) {
             qwebenginepage_customevent_isbase = false;
             QWebEnginePage::customEvent(event);
-        } else if (qwebenginepage_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qwebenginepage_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qwebenginepage_customevent_callback(this, cbval1);
-        } else {
-            QWebEnginePage::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QWebEnginePage::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -472,15 +475,18 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_connectnotify_isbase) {
             qwebenginepage_connectnotify_isbase = false;
             QWebEnginePage::connectNotify(signal);
-        } else if (qwebenginepage_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qwebenginepage_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebenginepage_connectnotify_callback(this, cbval1);
-        } else {
-            QWebEnginePage::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEnginePage::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -488,15 +494,18 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_disconnectnotify_isbase) {
             qwebenginepage_disconnectnotify_isbase = false;
             QWebEnginePage::disconnectNotify(signal);
-        } else if (qwebenginepage_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qwebenginepage_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qwebenginepage_disconnectnotify_callback(this, cbval1);
-        } else {
-            QWebEnginePage::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QWebEnginePage::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -504,12 +513,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_sender_isbase) {
             qwebenginepage_sender_isbase = false;
             return QWebEnginePage::sender();
-        } else if (qwebenginepage_sender_callback != nullptr) {
-            QObject* callback_ret = qwebenginepage_sender_callback();
-            return callback_ret;
-        } else {
-            return QWebEnginePage::sender();
         }
+        auto sender_cb = qwebenginepage_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QWebEnginePage::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -517,12 +527,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_sendersignalindex_isbase) {
             qwebenginepage_sendersignalindex_isbase = false;
             return QWebEnginePage::senderSignalIndex();
-        } else if (qwebenginepage_sendersignalindex_callback != nullptr) {
-            int callback_ret = qwebenginepage_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QWebEnginePage::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qwebenginepage_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QWebEnginePage::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -530,14 +541,15 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_receivers_isbase) {
             qwebenginepage_receivers_isbase = false;
             return QWebEnginePage::receivers(signal);
-        } else if (qwebenginepage_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qwebenginepage_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qwebenginepage_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QWebEnginePage::receivers(signal);
         }
+        return QWebEnginePage::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -545,16 +557,17 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (qwebenginepage_issignalconnected_isbase) {
             qwebenginepage_issignalconnected_isbase = false;
             return QWebEnginePage::isSignalConnected(signal);
-        } else if (qwebenginepage_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qwebenginepage_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qwebenginepage_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QWebEnginePage::isSignalConnected(signal);
         }
+        return QWebEnginePage::isSignalConnected(signal);
     }
 
     // Friend functions

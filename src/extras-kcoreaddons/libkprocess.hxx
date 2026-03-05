@@ -129,43 +129,6 @@ class VirtualKProcess final : public KProcess {
     VirtualKProcess() : KProcess() {};
     VirtualKProcess(QObject* parent) : KProcess(parent) {};
 
-    ~VirtualKProcess() {
-        kprocess_metaobject_callback = nullptr;
-        kprocess_metacast_callback = nullptr;
-        kprocess_metacall_callback = nullptr;
-        kprocess_open_callback = nullptr;
-        kprocess_waitforreadyread_callback = nullptr;
-        kprocess_waitforbyteswritten_callback = nullptr;
-        kprocess_bytestowrite_callback = nullptr;
-        kprocess_issequential_callback = nullptr;
-        kprocess_close_callback = nullptr;
-        kprocess_readdata_callback = nullptr;
-        kprocess_writedata_callback = nullptr;
-        kprocess_pos_callback = nullptr;
-        kprocess_size_callback = nullptr;
-        kprocess_seek_callback = nullptr;
-        kprocess_atend_callback = nullptr;
-        kprocess_reset_callback = nullptr;
-        kprocess_bytesavailable_callback = nullptr;
-        kprocess_canreadline_callback = nullptr;
-        kprocess_readlinedata_callback = nullptr;
-        kprocess_skipdata_callback = nullptr;
-        kprocess_event_callback = nullptr;
-        kprocess_eventfilter_callback = nullptr;
-        kprocess_timerevent_callback = nullptr;
-        kprocess_childevent_callback = nullptr;
-        kprocess_customevent_callback = nullptr;
-        kprocess_connectnotify_callback = nullptr;
-        kprocess_disconnectnotify_callback = nullptr;
-        kprocess_setprocessstate_callback = nullptr;
-        kprocess_setopenmode_callback = nullptr;
-        kprocess_seterrorstring_callback = nullptr;
-        kprocess_sender_callback = nullptr;
-        kprocess_sendersignalindex_callback = nullptr;
-        kprocess_receivers_callback = nullptr;
-        kprocess_issignalconnected_callback = nullptr;
-    }
-
     // Callback setters
     inline void setKProcess_MetaObject_Callback(KProcess_MetaObject_Callback cb) { kprocess_metaobject_callback = cb; }
     inline void setKProcess_Metacast_Callback(KProcess_Metacast_Callback cb) { kprocess_metacast_callback = cb; }
@@ -243,12 +206,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_metaobject_isbase) {
             kprocess_metaobject_isbase = false;
             return KProcess::metaObject();
-        } else if (kprocess_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = kprocess_metaobject_callback();
-            return callback_ret;
-        } else {
-            return KProcess::metaObject();
         }
+        auto metaobject_cb = kprocess_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return KProcess::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -256,14 +220,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_metacast_isbase) {
             kprocess_metacast_isbase = false;
             return KProcess::qt_metacast(param1);
-        } else if (kprocess_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = kprocess_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = kprocess_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::qt_metacast(param1);
         }
+        return KProcess::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -271,16 +236,17 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_metacall_isbase) {
             kprocess_metacall_isbase = false;
             return KProcess::qt_metacall(param1, param2, param3);
-        } else if (kprocess_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = kprocess_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = kprocess_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return KProcess::qt_metacall(param1, param2, param3);
         }
+        return KProcess::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -288,14 +254,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_open_isbase) {
             kprocess_open_isbase = false;
             return KProcess::open(mode);
-        } else if (kprocess_open_callback != nullptr) {
+        }
+        auto open_cb = kprocess_open_callback;
+        if (open_cb) {
             int cbval1 = static_cast<int>(mode);
 
-            bool callback_ret = kprocess_open_callback(this, cbval1);
+            bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::open(mode);
         }
+        return KProcess::open(mode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -303,14 +270,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_waitforreadyread_isbase) {
             kprocess_waitforreadyread_isbase = false;
             return KProcess::waitForReadyRead(msecs);
-        } else if (kprocess_waitforreadyread_callback != nullptr) {
+        }
+        auto waitforreadyread_cb = kprocess_waitforreadyread_callback;
+        if (waitforreadyread_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = kprocess_waitforreadyread_callback(this, cbval1);
+            bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::waitForReadyRead(msecs);
         }
+        return KProcess::waitForReadyRead(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -318,14 +286,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_waitforbyteswritten_isbase) {
             kprocess_waitforbyteswritten_isbase = false;
             return KProcess::waitForBytesWritten(msecs);
-        } else if (kprocess_waitforbyteswritten_callback != nullptr) {
+        }
+        auto waitforbyteswritten_cb = kprocess_waitforbyteswritten_callback;
+        if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
 
-            bool callback_ret = kprocess_waitforbyteswritten_callback(this, cbval1);
+            bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::waitForBytesWritten(msecs);
         }
+        return KProcess::waitForBytesWritten(msecs);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -333,12 +302,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_bytestowrite_isbase) {
             kprocess_bytestowrite_isbase = false;
             return KProcess::bytesToWrite();
-        } else if (kprocess_bytestowrite_callback != nullptr) {
-            long long callback_ret = kprocess_bytestowrite_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::bytesToWrite();
         }
+        auto bytestowrite_cb = kprocess_bytestowrite_callback;
+        if (bytestowrite_cb) {
+            long long callback_ret = bytestowrite_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KProcess::bytesToWrite();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -346,12 +316,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_issequential_isbase) {
             kprocess_issequential_isbase = false;
             return KProcess::isSequential();
-        } else if (kprocess_issequential_callback != nullptr) {
-            bool callback_ret = kprocess_issequential_callback();
-            return callback_ret;
-        } else {
-            return KProcess::isSequential();
         }
+        auto issequential_cb = kprocess_issequential_callback;
+        if (issequential_cb) {
+            bool callback_ret = issequential_cb();
+            return callback_ret;
+        }
+        return KProcess::isSequential();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -359,11 +330,14 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_close_isbase) {
             kprocess_close_isbase = false;
             KProcess::close();
-        } else if (kprocess_close_callback != nullptr) {
-            kprocess_close_callback();
-        } else {
-            KProcess::close();
+            return;
         }
+        auto close_cb = kprocess_close_callback;
+        if (close_cb) {
+            close_cb();
+            return;
+        }
+        KProcess::close();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -371,15 +345,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_readdata_isbase) {
             kprocess_readdata_isbase = false;
             return KProcess::readData(data, maxlen);
-        } else if (kprocess_readdata_callback != nullptr) {
+        }
+        auto readdata_cb = kprocess_readdata_callback;
+        if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = kprocess_readdata_callback(this, cbval1, cbval2);
+            long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::readData(data, maxlen);
         }
+        return KProcess::readData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -387,15 +362,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_writedata_isbase) {
             kprocess_writedata_isbase = false;
             return KProcess::writeData(data, lenVal);
-        } else if (kprocess_writedata_callback != nullptr) {
+        }
+        auto writedata_cb = kprocess_writedata_callback;
+        if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
 
-            long long callback_ret = kprocess_writedata_callback(this, cbval1, cbval2);
+            long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::writeData(data, lenVal);
         }
+        return KProcess::writeData(data, lenVal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -403,12 +379,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_pos_isbase) {
             kprocess_pos_isbase = false;
             return KProcess::pos();
-        } else if (kprocess_pos_callback != nullptr) {
-            long long callback_ret = kprocess_pos_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::pos();
         }
+        auto pos_cb = kprocess_pos_callback;
+        if (pos_cb) {
+            long long callback_ret = pos_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KProcess::pos();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -416,12 +393,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_size_isbase) {
             kprocess_size_isbase = false;
             return KProcess::size();
-        } else if (kprocess_size_callback != nullptr) {
-            long long callback_ret = kprocess_size_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::size();
         }
+        auto size_cb = kprocess_size_callback;
+        if (size_cb) {
+            long long callback_ret = size_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KProcess::size();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -429,14 +407,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_seek_isbase) {
             kprocess_seek_isbase = false;
             return KProcess::seek(pos);
-        } else if (kprocess_seek_callback != nullptr) {
+        }
+        auto seek_cb = kprocess_seek_callback;
+        if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
 
-            bool callback_ret = kprocess_seek_callback(this, cbval1);
+            bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::seek(pos);
         }
+        return KProcess::seek(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -444,12 +423,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_atend_isbase) {
             kprocess_atend_isbase = false;
             return KProcess::atEnd();
-        } else if (kprocess_atend_callback != nullptr) {
-            bool callback_ret = kprocess_atend_callback();
-            return callback_ret;
-        } else {
-            return KProcess::atEnd();
         }
+        auto atend_cb = kprocess_atend_callback;
+        if (atend_cb) {
+            bool callback_ret = atend_cb();
+            return callback_ret;
+        }
+        return KProcess::atEnd();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -457,12 +437,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_reset_isbase) {
             kprocess_reset_isbase = false;
             return KProcess::reset();
-        } else if (kprocess_reset_callback != nullptr) {
-            bool callback_ret = kprocess_reset_callback();
-            return callback_ret;
-        } else {
-            return KProcess::reset();
         }
+        auto reset_cb = kprocess_reset_callback;
+        if (reset_cb) {
+            bool callback_ret = reset_cb();
+            return callback_ret;
+        }
+        return KProcess::reset();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -470,12 +451,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_bytesavailable_isbase) {
             kprocess_bytesavailable_isbase = false;
             return KProcess::bytesAvailable();
-        } else if (kprocess_bytesavailable_callback != nullptr) {
-            long long callback_ret = kprocess_bytesavailable_callback();
-            return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::bytesAvailable();
         }
+        auto bytesavailable_cb = kprocess_bytesavailable_callback;
+        if (bytesavailable_cb) {
+            long long callback_ret = bytesavailable_cb();
+            return static_cast<qint64>(callback_ret);
+        }
+        return KProcess::bytesAvailable();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -483,12 +465,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_canreadline_isbase) {
             kprocess_canreadline_isbase = false;
             return KProcess::canReadLine();
-        } else if (kprocess_canreadline_callback != nullptr) {
-            bool callback_ret = kprocess_canreadline_callback();
-            return callback_ret;
-        } else {
-            return KProcess::canReadLine();
         }
+        auto canreadline_cb = kprocess_canreadline_callback;
+        if (canreadline_cb) {
+            bool callback_ret = canreadline_cb();
+            return callback_ret;
+        }
+        return KProcess::canReadLine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -496,15 +479,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_readlinedata_isbase) {
             kprocess_readlinedata_isbase = false;
             return KProcess::readLineData(data, maxlen);
-        } else if (kprocess_readlinedata_callback != nullptr) {
+        }
+        auto readlinedata_cb = kprocess_readlinedata_callback;
+        if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
 
-            long long callback_ret = kprocess_readlinedata_callback(this, cbval1, cbval2);
+            long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::readLineData(data, maxlen);
         }
+        return KProcess::readLineData(data, maxlen);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -512,14 +496,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_skipdata_isbase) {
             kprocess_skipdata_isbase = false;
             return KProcess::skipData(maxSize);
-        } else if (kprocess_skipdata_callback != nullptr) {
+        }
+        auto skipdata_cb = kprocess_skipdata_callback;
+        if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
 
-            long long callback_ret = kprocess_skipdata_callback(this, cbval1);
+            long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
-        } else {
-            return KProcess::skipData(maxSize);
         }
+        return KProcess::skipData(maxSize);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,14 +512,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_event_isbase) {
             kprocess_event_isbase = false;
             return KProcess::event(event);
-        } else if (kprocess_event_callback != nullptr) {
+        }
+        auto event_cb = kprocess_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = event;
 
-            bool callback_ret = kprocess_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::event(event);
         }
+        return KProcess::event(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,15 +528,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_eventfilter_isbase) {
             kprocess_eventfilter_isbase = false;
             return KProcess::eventFilter(watched, event);
-        } else if (kprocess_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = kprocess_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = kprocess_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return KProcess::eventFilter(watched, event);
         }
+        return KProcess::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -558,13 +545,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_timerevent_isbase) {
             kprocess_timerevent_isbase = false;
             KProcess::timerEvent(event);
-        } else if (kprocess_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = kprocess_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
 
-            kprocess_timerevent_callback(this, cbval1);
-        } else {
-            KProcess::timerEvent(event);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        KProcess::timerEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -572,13 +562,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_childevent_isbase) {
             kprocess_childevent_isbase = false;
             KProcess::childEvent(event);
-        } else if (kprocess_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = kprocess_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            kprocess_childevent_callback(this, cbval1);
-        } else {
-            KProcess::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        KProcess::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -586,13 +579,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_customevent_isbase) {
             kprocess_customevent_isbase = false;
             KProcess::customEvent(event);
-        } else if (kprocess_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = kprocess_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            kprocess_customevent_callback(this, cbval1);
-        } else {
-            KProcess::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        KProcess::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -600,15 +596,18 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_connectnotify_isbase) {
             kprocess_connectnotify_isbase = false;
             KProcess::connectNotify(signal);
-        } else if (kprocess_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = kprocess_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kprocess_connectnotify_callback(this, cbval1);
-        } else {
-            KProcess::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        KProcess::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -616,15 +615,18 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_disconnectnotify_isbase) {
             kprocess_disconnectnotify_isbase = false;
             KProcess::disconnectNotify(signal);
-        } else if (kprocess_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = kprocess_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            kprocess_disconnectnotify_callback(this, cbval1);
-        } else {
-            KProcess::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        KProcess::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -632,13 +634,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_setprocessstate_isbase) {
             kprocess_setprocessstate_isbase = false;
             KProcess::setProcessState(state);
-        } else if (kprocess_setprocessstate_callback != nullptr) {
+            return;
+        }
+        auto setprocessstate_cb = kprocess_setprocessstate_callback;
+        if (setprocessstate_cb) {
             int cbval1 = static_cast<int>(state);
 
-            kprocess_setprocessstate_callback(this, cbval1);
-        } else {
-            KProcess::setProcessState(state);
+            setprocessstate_cb(this, cbval1);
+            return;
         }
+        KProcess::setProcessState(state);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -646,13 +651,16 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_setopenmode_isbase) {
             kprocess_setopenmode_isbase = false;
             KProcess::setOpenMode(openMode);
-        } else if (kprocess_setopenmode_callback != nullptr) {
+            return;
+        }
+        auto setopenmode_cb = kprocess_setopenmode_callback;
+        if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
 
-            kprocess_setopenmode_callback(this, cbval1);
-        } else {
-            KProcess::setOpenMode(openMode);
+            setopenmode_cb(this, cbval1);
+            return;
         }
+        KProcess::setOpenMode(openMode);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -660,7 +668,10 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_seterrorstring_isbase) {
             kprocess_seterrorstring_isbase = false;
             KProcess::setErrorString(errorString);
-        } else if (kprocess_seterrorstring_callback != nullptr) {
+            return;
+        }
+        auto seterrorstring_cb = kprocess_seterrorstring_callback;
+        if (seterrorstring_cb) {
             const QString errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
@@ -670,11 +681,11 @@ class VirtualKProcess final : public KProcess {
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
 
-            kprocess_seterrorstring_callback(this, cbval1);
+            seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
-        } else {
-            KProcess::setErrorString(errorString);
+            return;
         }
+        KProcess::setErrorString(errorString);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -682,12 +693,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_sender_isbase) {
             kprocess_sender_isbase = false;
             return KProcess::sender();
-        } else if (kprocess_sender_callback != nullptr) {
-            QObject* callback_ret = kprocess_sender_callback();
-            return callback_ret;
-        } else {
-            return KProcess::sender();
         }
+        auto sender_cb = kprocess_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return KProcess::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,12 +707,13 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_sendersignalindex_isbase) {
             kprocess_sendersignalindex_isbase = false;
             return KProcess::senderSignalIndex();
-        } else if (kprocess_sendersignalindex_callback != nullptr) {
-            int callback_ret = kprocess_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return KProcess::senderSignalIndex();
         }
+        auto sendersignalindex_cb = kprocess_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return KProcess::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -708,14 +721,15 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_receivers_isbase) {
             kprocess_receivers_isbase = false;
             return KProcess::receivers(signal);
-        } else if (kprocess_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = kprocess_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = kprocess_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return KProcess::receivers(signal);
         }
+        return KProcess::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,16 +737,17 @@ class VirtualKProcess final : public KProcess {
         if (kprocess_issignalconnected_isbase) {
             kprocess_issignalconnected_isbase = false;
             return KProcess::isSignalConnected(signal);
-        } else if (kprocess_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = kprocess_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = kprocess_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return KProcess::isSignalConnected(signal);
         }
+        return KProcess::isSignalConnected(signal);
     }
 
     // Friend functions

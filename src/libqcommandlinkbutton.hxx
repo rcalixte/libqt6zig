@@ -223,73 +223,6 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     VirtualQCommandLinkButton(const QString& text, QWidget* parent) : QCommandLinkButton(text, parent) {};
     VirtualQCommandLinkButton(const QString& text, const QString& description, QWidget* parent) : QCommandLinkButton(text, description, parent) {};
 
-    ~VirtualQCommandLinkButton() {
-        qcommandlinkbutton_metaobject_callback = nullptr;
-        qcommandlinkbutton_metacast_callback = nullptr;
-        qcommandlinkbutton_metacall_callback = nullptr;
-        qcommandlinkbutton_sizehint_callback = nullptr;
-        qcommandlinkbutton_heightforwidth_callback = nullptr;
-        qcommandlinkbutton_minimumsizehint_callback = nullptr;
-        qcommandlinkbutton_initstyleoption_callback = nullptr;
-        qcommandlinkbutton_event_callback = nullptr;
-        qcommandlinkbutton_paintevent_callback = nullptr;
-        qcommandlinkbutton_keypressevent_callback = nullptr;
-        qcommandlinkbutton_focusinevent_callback = nullptr;
-        qcommandlinkbutton_focusoutevent_callback = nullptr;
-        qcommandlinkbutton_mousemoveevent_callback = nullptr;
-        qcommandlinkbutton_hitbutton_callback = nullptr;
-        qcommandlinkbutton_checkstateset_callback = nullptr;
-        qcommandlinkbutton_nextcheckstate_callback = nullptr;
-        qcommandlinkbutton_keyreleaseevent_callback = nullptr;
-        qcommandlinkbutton_mousepressevent_callback = nullptr;
-        qcommandlinkbutton_mousereleaseevent_callback = nullptr;
-        qcommandlinkbutton_changeevent_callback = nullptr;
-        qcommandlinkbutton_timerevent_callback = nullptr;
-        qcommandlinkbutton_devtype_callback = nullptr;
-        qcommandlinkbutton_setvisible_callback = nullptr;
-        qcommandlinkbutton_hasheightforwidth_callback = nullptr;
-        qcommandlinkbutton_paintengine_callback = nullptr;
-        qcommandlinkbutton_mousedoubleclickevent_callback = nullptr;
-        qcommandlinkbutton_wheelevent_callback = nullptr;
-        qcommandlinkbutton_enterevent_callback = nullptr;
-        qcommandlinkbutton_leaveevent_callback = nullptr;
-        qcommandlinkbutton_moveevent_callback = nullptr;
-        qcommandlinkbutton_resizeevent_callback = nullptr;
-        qcommandlinkbutton_closeevent_callback = nullptr;
-        qcommandlinkbutton_contextmenuevent_callback = nullptr;
-        qcommandlinkbutton_tabletevent_callback = nullptr;
-        qcommandlinkbutton_actionevent_callback = nullptr;
-        qcommandlinkbutton_dragenterevent_callback = nullptr;
-        qcommandlinkbutton_dragmoveevent_callback = nullptr;
-        qcommandlinkbutton_dragleaveevent_callback = nullptr;
-        qcommandlinkbutton_dropevent_callback = nullptr;
-        qcommandlinkbutton_showevent_callback = nullptr;
-        qcommandlinkbutton_hideevent_callback = nullptr;
-        qcommandlinkbutton_nativeevent_callback = nullptr;
-        qcommandlinkbutton_metric_callback = nullptr;
-        qcommandlinkbutton_initpainter_callback = nullptr;
-        qcommandlinkbutton_redirected_callback = nullptr;
-        qcommandlinkbutton_sharedpainter_callback = nullptr;
-        qcommandlinkbutton_inputmethodevent_callback = nullptr;
-        qcommandlinkbutton_inputmethodquery_callback = nullptr;
-        qcommandlinkbutton_focusnextprevchild_callback = nullptr;
-        qcommandlinkbutton_eventfilter_callback = nullptr;
-        qcommandlinkbutton_childevent_callback = nullptr;
-        qcommandlinkbutton_customevent_callback = nullptr;
-        qcommandlinkbutton_connectnotify_callback = nullptr;
-        qcommandlinkbutton_disconnectnotify_callback = nullptr;
-        qcommandlinkbutton_updatemicrofocus_callback = nullptr;
-        qcommandlinkbutton_create_callback = nullptr;
-        qcommandlinkbutton_destroy_callback = nullptr;
-        qcommandlinkbutton_focusnextchild_callback = nullptr;
-        qcommandlinkbutton_focuspreviouschild_callback = nullptr;
-        qcommandlinkbutton_sender_callback = nullptr;
-        qcommandlinkbutton_sendersignalindex_callback = nullptr;
-        qcommandlinkbutton_receivers_callback = nullptr;
-        qcommandlinkbutton_issignalconnected_callback = nullptr;
-        qcommandlinkbutton_getdecodedmetricf_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQCommandLinkButton_MetaObject_Callback(QCommandLinkButton_MetaObject_Callback cb) { qcommandlinkbutton_metaobject_callback = cb; }
     inline void setQCommandLinkButton_Metacast_Callback(QCommandLinkButton_Metacast_Callback cb) { qcommandlinkbutton_metacast_callback = cb; }
@@ -427,12 +360,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_metaobject_isbase) {
             qcommandlinkbutton_metaobject_isbase = false;
             return QCommandLinkButton::metaObject();
-        } else if (qcommandlinkbutton_metaobject_callback != nullptr) {
-            QMetaObject* callback_ret = qcommandlinkbutton_metaobject_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::metaObject();
         }
+        auto metaobject_cb = qcommandlinkbutton_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::metaObject();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -440,14 +374,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_metacast_isbase) {
             qcommandlinkbutton_metacast_isbase = false;
             return QCommandLinkButton::qt_metacast(param1);
-        } else if (qcommandlinkbutton_metacast_callback != nullptr) {
+        }
+        auto metacast_cb = qcommandlinkbutton_metacast_callback;
+        if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
 
-            void* callback_ret = qcommandlinkbutton_metacast_callback(this, cbval1);
+            void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::qt_metacast(param1);
         }
+        return QCommandLinkButton::qt_metacast(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -455,16 +390,17 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_metacall_isbase) {
             qcommandlinkbutton_metacall_isbase = false;
             return QCommandLinkButton::qt_metacall(param1, param2, param3);
-        } else if (qcommandlinkbutton_metacall_callback != nullptr) {
+        }
+        auto metacall_cb = qcommandlinkbutton_metacall_callback;
+        if (metacall_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
 
-            int callback_ret = qcommandlinkbutton_metacall_callback(this, cbval1, cbval2, cbval3);
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCommandLinkButton::qt_metacall(param1, param2, param3);
         }
+        return QCommandLinkButton::qt_metacall(param1, param2, param3);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -472,12 +408,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_sizehint_isbase) {
             qcommandlinkbutton_sizehint_isbase = false;
             return QCommandLinkButton::sizeHint();
-        } else if (qcommandlinkbutton_sizehint_callback != nullptr) {
-            QSize* callback_ret = qcommandlinkbutton_sizehint_callback();
-            return *callback_ret;
-        } else {
-            return QCommandLinkButton::sizeHint();
         }
+        auto sizehint_cb = qcommandlinkbutton_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return QCommandLinkButton::sizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -485,14 +422,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_heightforwidth_isbase) {
             qcommandlinkbutton_heightforwidth_isbase = false;
             return QCommandLinkButton::heightForWidth(param1);
-        } else if (qcommandlinkbutton_heightforwidth_callback != nullptr) {
+        }
+        auto heightforwidth_cb = qcommandlinkbutton_heightforwidth_callback;
+        if (heightforwidth_cb) {
             int cbval1 = param1;
 
-            int callback_ret = qcommandlinkbutton_heightforwidth_callback(this, cbval1);
+            int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCommandLinkButton::heightForWidth(param1);
         }
+        return QCommandLinkButton::heightForWidth(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -500,12 +438,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_minimumsizehint_isbase) {
             qcommandlinkbutton_minimumsizehint_isbase = false;
             return QCommandLinkButton::minimumSizeHint();
-        } else if (qcommandlinkbutton_minimumsizehint_callback != nullptr) {
-            QSize* callback_ret = qcommandlinkbutton_minimumsizehint_callback();
-            return *callback_ret;
-        } else {
-            return QCommandLinkButton::minimumSizeHint();
         }
+        auto minimumsizehint_cb = qcommandlinkbutton_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return QCommandLinkButton::minimumSizeHint();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -513,13 +452,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_initstyleoption_isbase) {
             qcommandlinkbutton_initstyleoption_isbase = false;
             QCommandLinkButton::initStyleOption(option);
-        } else if (qcommandlinkbutton_initstyleoption_callback != nullptr) {
+            return;
+        }
+        auto initstyleoption_cb = qcommandlinkbutton_initstyleoption_callback;
+        if (initstyleoption_cb) {
             QStyleOptionButton* cbval1 = option;
 
-            qcommandlinkbutton_initstyleoption_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::initStyleOption(option);
+            initstyleoption_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::initStyleOption(option);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -527,14 +469,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_event_isbase) {
             qcommandlinkbutton_event_isbase = false;
             return QCommandLinkButton::event(e);
-        } else if (qcommandlinkbutton_event_callback != nullptr) {
+        }
+        auto event_cb = qcommandlinkbutton_event_callback;
+        if (event_cb) {
             QEvent* cbval1 = e;
 
-            bool callback_ret = qcommandlinkbutton_event_callback(this, cbval1);
+            bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::event(e);
         }
+        return QCommandLinkButton::event(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -542,13 +485,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_paintevent_isbase) {
             qcommandlinkbutton_paintevent_isbase = false;
             QCommandLinkButton::paintEvent(param1);
-        } else if (qcommandlinkbutton_paintevent_callback != nullptr) {
+            return;
+        }
+        auto paintevent_cb = qcommandlinkbutton_paintevent_callback;
+        if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
 
-            qcommandlinkbutton_paintevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::paintEvent(param1);
+            paintevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::paintEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -556,13 +502,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_keypressevent_isbase) {
             qcommandlinkbutton_keypressevent_isbase = false;
             QCommandLinkButton::keyPressEvent(param1);
-        } else if (qcommandlinkbutton_keypressevent_callback != nullptr) {
+            return;
+        }
+        auto keypressevent_cb = qcommandlinkbutton_keypressevent_callback;
+        if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
 
-            qcommandlinkbutton_keypressevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::keyPressEvent(param1);
+            keypressevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::keyPressEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -570,13 +519,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_focusinevent_isbase) {
             qcommandlinkbutton_focusinevent_isbase = false;
             QCommandLinkButton::focusInEvent(param1);
-        } else if (qcommandlinkbutton_focusinevent_callback != nullptr) {
+            return;
+        }
+        auto focusinevent_cb = qcommandlinkbutton_focusinevent_callback;
+        if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qcommandlinkbutton_focusinevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::focusInEvent(param1);
+            focusinevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::focusInEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -584,13 +536,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_focusoutevent_isbase) {
             qcommandlinkbutton_focusoutevent_isbase = false;
             QCommandLinkButton::focusOutEvent(param1);
-        } else if (qcommandlinkbutton_focusoutevent_callback != nullptr) {
+            return;
+        }
+        auto focusoutevent_cb = qcommandlinkbutton_focusoutevent_callback;
+        if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
 
-            qcommandlinkbutton_focusoutevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::focusOutEvent(param1);
+            focusoutevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::focusOutEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -598,13 +553,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_mousemoveevent_isbase) {
             qcommandlinkbutton_mousemoveevent_isbase = false;
             QCommandLinkButton::mouseMoveEvent(param1);
-        } else if (qcommandlinkbutton_mousemoveevent_callback != nullptr) {
+            return;
+        }
+        auto mousemoveevent_cb = qcommandlinkbutton_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
 
-            qcommandlinkbutton_mousemoveevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::mouseMoveEvent(param1);
+            mousemoveevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::mouseMoveEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -612,16 +570,17 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_hitbutton_isbase) {
             qcommandlinkbutton_hitbutton_isbase = false;
             return QCommandLinkButton::hitButton(pos);
-        } else if (qcommandlinkbutton_hitbutton_callback != nullptr) {
+        }
+        auto hitbutton_cb = qcommandlinkbutton_hitbutton_callback;
+        if (hitbutton_cb) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
 
-            bool callback_ret = qcommandlinkbutton_hitbutton_callback(this, cbval1);
+            bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::hitButton(pos);
         }
+        return QCommandLinkButton::hitButton(pos);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -629,11 +588,14 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_checkstateset_isbase) {
             qcommandlinkbutton_checkstateset_isbase = false;
             QCommandLinkButton::checkStateSet();
-        } else if (qcommandlinkbutton_checkstateset_callback != nullptr) {
-            qcommandlinkbutton_checkstateset_callback();
-        } else {
-            QCommandLinkButton::checkStateSet();
+            return;
         }
+        auto checkstateset_cb = qcommandlinkbutton_checkstateset_callback;
+        if (checkstateset_cb) {
+            checkstateset_cb();
+            return;
+        }
+        QCommandLinkButton::checkStateSet();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -641,11 +603,14 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_nextcheckstate_isbase) {
             qcommandlinkbutton_nextcheckstate_isbase = false;
             QCommandLinkButton::nextCheckState();
-        } else if (qcommandlinkbutton_nextcheckstate_callback != nullptr) {
-            qcommandlinkbutton_nextcheckstate_callback();
-        } else {
-            QCommandLinkButton::nextCheckState();
+            return;
         }
+        auto nextcheckstate_cb = qcommandlinkbutton_nextcheckstate_callback;
+        if (nextcheckstate_cb) {
+            nextcheckstate_cb();
+            return;
+        }
+        QCommandLinkButton::nextCheckState();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -653,13 +618,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_keyreleaseevent_isbase) {
             qcommandlinkbutton_keyreleaseevent_isbase = false;
             QCommandLinkButton::keyReleaseEvent(e);
-        } else if (qcommandlinkbutton_keyreleaseevent_callback != nullptr) {
+            return;
+        }
+        auto keyreleaseevent_cb = qcommandlinkbutton_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
 
-            qcommandlinkbutton_keyreleaseevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::keyReleaseEvent(e);
+            keyreleaseevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::keyReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -667,13 +635,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_mousepressevent_isbase) {
             qcommandlinkbutton_mousepressevent_isbase = false;
             QCommandLinkButton::mousePressEvent(e);
-        } else if (qcommandlinkbutton_mousepressevent_callback != nullptr) {
+            return;
+        }
+        auto mousepressevent_cb = qcommandlinkbutton_mousepressevent_callback;
+        if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qcommandlinkbutton_mousepressevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::mousePressEvent(e);
+            mousepressevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::mousePressEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -681,13 +652,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_mousereleaseevent_isbase) {
             qcommandlinkbutton_mousereleaseevent_isbase = false;
             QCommandLinkButton::mouseReleaseEvent(e);
-        } else if (qcommandlinkbutton_mousereleaseevent_callback != nullptr) {
+            return;
+        }
+        auto mousereleaseevent_cb = qcommandlinkbutton_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
 
-            qcommandlinkbutton_mousereleaseevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::mouseReleaseEvent(e);
+            mousereleaseevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::mouseReleaseEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -695,13 +669,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_changeevent_isbase) {
             qcommandlinkbutton_changeevent_isbase = false;
             QCommandLinkButton::changeEvent(e);
-        } else if (qcommandlinkbutton_changeevent_callback != nullptr) {
+            return;
+        }
+        auto changeevent_cb = qcommandlinkbutton_changeevent_callback;
+        if (changeevent_cb) {
             QEvent* cbval1 = e;
 
-            qcommandlinkbutton_changeevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::changeEvent(e);
+            changeevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::changeEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -709,13 +686,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_timerevent_isbase) {
             qcommandlinkbutton_timerevent_isbase = false;
             QCommandLinkButton::timerEvent(e);
-        } else if (qcommandlinkbutton_timerevent_callback != nullptr) {
+            return;
+        }
+        auto timerevent_cb = qcommandlinkbutton_timerevent_callback;
+        if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
 
-            qcommandlinkbutton_timerevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::timerEvent(e);
+            timerevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::timerEvent(e);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -723,12 +703,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_devtype_isbase) {
             qcommandlinkbutton_devtype_isbase = false;
             return QCommandLinkButton::devType();
-        } else if (qcommandlinkbutton_devtype_callback != nullptr) {
-            int callback_ret = qcommandlinkbutton_devtype_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QCommandLinkButton::devType();
         }
+        auto devtype_cb = qcommandlinkbutton_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QCommandLinkButton::devType();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -736,13 +717,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_setvisible_isbase) {
             qcommandlinkbutton_setvisible_isbase = false;
             QCommandLinkButton::setVisible(visible);
-        } else if (qcommandlinkbutton_setvisible_callback != nullptr) {
+            return;
+        }
+        auto setvisible_cb = qcommandlinkbutton_setvisible_callback;
+        if (setvisible_cb) {
             bool cbval1 = visible;
 
-            qcommandlinkbutton_setvisible_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::setVisible(visible);
+            setvisible_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::setVisible(visible);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -750,12 +734,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_hasheightforwidth_isbase) {
             qcommandlinkbutton_hasheightforwidth_isbase = false;
             return QCommandLinkButton::hasHeightForWidth();
-        } else if (qcommandlinkbutton_hasheightforwidth_callback != nullptr) {
-            bool callback_ret = qcommandlinkbutton_hasheightforwidth_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::hasHeightForWidth();
         }
+        auto hasheightforwidth_cb = qcommandlinkbutton_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::hasHeightForWidth();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -763,12 +748,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_paintengine_isbase) {
             qcommandlinkbutton_paintengine_isbase = false;
             return QCommandLinkButton::paintEngine();
-        } else if (qcommandlinkbutton_paintengine_callback != nullptr) {
-            QPaintEngine* callback_ret = qcommandlinkbutton_paintengine_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::paintEngine();
         }
+        auto paintengine_cb = qcommandlinkbutton_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::paintEngine();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -776,13 +762,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_mousedoubleclickevent_isbase) {
             qcommandlinkbutton_mousedoubleclickevent_isbase = false;
             QCommandLinkButton::mouseDoubleClickEvent(event);
-        } else if (qcommandlinkbutton_mousedoubleclickevent_callback != nullptr) {
+            return;
+        }
+        auto mousedoubleclickevent_cb = qcommandlinkbutton_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
 
-            qcommandlinkbutton_mousedoubleclickevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::mouseDoubleClickEvent(event);
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::mouseDoubleClickEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -790,13 +779,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_wheelevent_isbase) {
             qcommandlinkbutton_wheelevent_isbase = false;
             QCommandLinkButton::wheelEvent(event);
-        } else if (qcommandlinkbutton_wheelevent_callback != nullptr) {
+            return;
+        }
+        auto wheelevent_cb = qcommandlinkbutton_wheelevent_callback;
+        if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
 
-            qcommandlinkbutton_wheelevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::wheelEvent(event);
+            wheelevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::wheelEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -804,13 +796,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_enterevent_isbase) {
             qcommandlinkbutton_enterevent_isbase = false;
             QCommandLinkButton::enterEvent(event);
-        } else if (qcommandlinkbutton_enterevent_callback != nullptr) {
+            return;
+        }
+        auto enterevent_cb = qcommandlinkbutton_enterevent_callback;
+        if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
 
-            qcommandlinkbutton_enterevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::enterEvent(event);
+            enterevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::enterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -818,13 +813,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_leaveevent_isbase) {
             qcommandlinkbutton_leaveevent_isbase = false;
             QCommandLinkButton::leaveEvent(event);
-        } else if (qcommandlinkbutton_leaveevent_callback != nullptr) {
+            return;
+        }
+        auto leaveevent_cb = qcommandlinkbutton_leaveevent_callback;
+        if (leaveevent_cb) {
             QEvent* cbval1 = event;
 
-            qcommandlinkbutton_leaveevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::leaveEvent(event);
+            leaveevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::leaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -832,13 +830,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_moveevent_isbase) {
             qcommandlinkbutton_moveevent_isbase = false;
             QCommandLinkButton::moveEvent(event);
-        } else if (qcommandlinkbutton_moveevent_callback != nullptr) {
+            return;
+        }
+        auto moveevent_cb = qcommandlinkbutton_moveevent_callback;
+        if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
 
-            qcommandlinkbutton_moveevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::moveEvent(event);
+            moveevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::moveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -846,13 +847,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_resizeevent_isbase) {
             qcommandlinkbutton_resizeevent_isbase = false;
             QCommandLinkButton::resizeEvent(event);
-        } else if (qcommandlinkbutton_resizeevent_callback != nullptr) {
+            return;
+        }
+        auto resizeevent_cb = qcommandlinkbutton_resizeevent_callback;
+        if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
 
-            qcommandlinkbutton_resizeevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::resizeEvent(event);
+            resizeevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::resizeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -860,13 +864,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_closeevent_isbase) {
             qcommandlinkbutton_closeevent_isbase = false;
             QCommandLinkButton::closeEvent(event);
-        } else if (qcommandlinkbutton_closeevent_callback != nullptr) {
+            return;
+        }
+        auto closeevent_cb = qcommandlinkbutton_closeevent_callback;
+        if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
 
-            qcommandlinkbutton_closeevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::closeEvent(event);
+            closeevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::closeEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -874,13 +881,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_contextmenuevent_isbase) {
             qcommandlinkbutton_contextmenuevent_isbase = false;
             QCommandLinkButton::contextMenuEvent(event);
-        } else if (qcommandlinkbutton_contextmenuevent_callback != nullptr) {
+            return;
+        }
+        auto contextmenuevent_cb = qcommandlinkbutton_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
 
-            qcommandlinkbutton_contextmenuevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::contextMenuEvent(event);
+            contextmenuevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::contextMenuEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -888,13 +898,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_tabletevent_isbase) {
             qcommandlinkbutton_tabletevent_isbase = false;
             QCommandLinkButton::tabletEvent(event);
-        } else if (qcommandlinkbutton_tabletevent_callback != nullptr) {
+            return;
+        }
+        auto tabletevent_cb = qcommandlinkbutton_tabletevent_callback;
+        if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
 
-            qcommandlinkbutton_tabletevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::tabletEvent(event);
+            tabletevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::tabletEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -902,13 +915,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_actionevent_isbase) {
             qcommandlinkbutton_actionevent_isbase = false;
             QCommandLinkButton::actionEvent(event);
-        } else if (qcommandlinkbutton_actionevent_callback != nullptr) {
+            return;
+        }
+        auto actionevent_cb = qcommandlinkbutton_actionevent_callback;
+        if (actionevent_cb) {
             QActionEvent* cbval1 = event;
 
-            qcommandlinkbutton_actionevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::actionEvent(event);
+            actionevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::actionEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -916,13 +932,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_dragenterevent_isbase) {
             qcommandlinkbutton_dragenterevent_isbase = false;
             QCommandLinkButton::dragEnterEvent(event);
-        } else if (qcommandlinkbutton_dragenterevent_callback != nullptr) {
+            return;
+        }
+        auto dragenterevent_cb = qcommandlinkbutton_dragenterevent_callback;
+        if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
 
-            qcommandlinkbutton_dragenterevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::dragEnterEvent(event);
+            dragenterevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::dragEnterEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -930,13 +949,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_dragmoveevent_isbase) {
             qcommandlinkbutton_dragmoveevent_isbase = false;
             QCommandLinkButton::dragMoveEvent(event);
-        } else if (qcommandlinkbutton_dragmoveevent_callback != nullptr) {
+            return;
+        }
+        auto dragmoveevent_cb = qcommandlinkbutton_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
 
-            qcommandlinkbutton_dragmoveevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::dragMoveEvent(event);
+            dragmoveevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::dragMoveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -944,13 +966,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_dragleaveevent_isbase) {
             qcommandlinkbutton_dragleaveevent_isbase = false;
             QCommandLinkButton::dragLeaveEvent(event);
-        } else if (qcommandlinkbutton_dragleaveevent_callback != nullptr) {
+            return;
+        }
+        auto dragleaveevent_cb = qcommandlinkbutton_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
 
-            qcommandlinkbutton_dragleaveevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::dragLeaveEvent(event);
+            dragleaveevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::dragLeaveEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -958,13 +983,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_dropevent_isbase) {
             qcommandlinkbutton_dropevent_isbase = false;
             QCommandLinkButton::dropEvent(event);
-        } else if (qcommandlinkbutton_dropevent_callback != nullptr) {
+            return;
+        }
+        auto dropevent_cb = qcommandlinkbutton_dropevent_callback;
+        if (dropevent_cb) {
             QDropEvent* cbval1 = event;
 
-            qcommandlinkbutton_dropevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::dropEvent(event);
+            dropevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::dropEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -972,13 +1000,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_showevent_isbase) {
             qcommandlinkbutton_showevent_isbase = false;
             QCommandLinkButton::showEvent(event);
-        } else if (qcommandlinkbutton_showevent_callback != nullptr) {
+            return;
+        }
+        auto showevent_cb = qcommandlinkbutton_showevent_callback;
+        if (showevent_cb) {
             QShowEvent* cbval1 = event;
 
-            qcommandlinkbutton_showevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::showEvent(event);
+            showevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::showEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -986,13 +1017,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_hideevent_isbase) {
             qcommandlinkbutton_hideevent_isbase = false;
             QCommandLinkButton::hideEvent(event);
-        } else if (qcommandlinkbutton_hideevent_callback != nullptr) {
+            return;
+        }
+        auto hideevent_cb = qcommandlinkbutton_hideevent_callback;
+        if (hideevent_cb) {
             QHideEvent* cbval1 = event;
 
-            qcommandlinkbutton_hideevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::hideEvent(event);
+            hideevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::hideEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1000,7 +1034,9 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_nativeevent_isbase) {
             qcommandlinkbutton_nativeevent_isbase = false;
             return QCommandLinkButton::nativeEvent(eventType, message, result);
-        } else if (qcommandlinkbutton_nativeevent_callback != nullptr) {
+        }
+        auto nativeevent_cb = qcommandlinkbutton_nativeevent_callback;
+        if (nativeevent_cb) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1011,12 +1047,11 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
 
-            bool callback_ret = qcommandlinkbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::nativeEvent(eventType, message, result);
         }
+        return QCommandLinkButton::nativeEvent(eventType, message, result);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1024,14 +1059,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_metric_isbase) {
             qcommandlinkbutton_metric_isbase = false;
             return QCommandLinkButton::metric(param1);
-        } else if (qcommandlinkbutton_metric_callback != nullptr) {
+        }
+        auto metric_cb = qcommandlinkbutton_metric_callback;
+        if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            int callback_ret = qcommandlinkbutton_metric_callback(this, cbval1);
+            int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCommandLinkButton::metric(param1);
         }
+        return QCommandLinkButton::metric(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1039,13 +1075,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_initpainter_isbase) {
             qcommandlinkbutton_initpainter_isbase = false;
             QCommandLinkButton::initPainter(painter);
-        } else if (qcommandlinkbutton_initpainter_callback != nullptr) {
+            return;
+        }
+        auto initpainter_cb = qcommandlinkbutton_initpainter_callback;
+        if (initpainter_cb) {
             QPainter* cbval1 = painter;
 
-            qcommandlinkbutton_initpainter_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::initPainter(painter);
+            initpainter_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::initPainter(painter);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1053,14 +1092,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_redirected_isbase) {
             qcommandlinkbutton_redirected_isbase = false;
             return QCommandLinkButton::redirected(offset);
-        } else if (qcommandlinkbutton_redirected_callback != nullptr) {
+        }
+        auto redirected_cb = qcommandlinkbutton_redirected_callback;
+        if (redirected_cb) {
             QPoint* cbval1 = offset;
 
-            QPaintDevice* callback_ret = qcommandlinkbutton_redirected_callback(this, cbval1);
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::redirected(offset);
         }
+        return QCommandLinkButton::redirected(offset);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1068,12 +1108,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_sharedpainter_isbase) {
             qcommandlinkbutton_sharedpainter_isbase = false;
             return QCommandLinkButton::sharedPainter();
-        } else if (qcommandlinkbutton_sharedpainter_callback != nullptr) {
-            QPainter* callback_ret = qcommandlinkbutton_sharedpainter_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::sharedPainter();
         }
+        auto sharedpainter_cb = qcommandlinkbutton_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::sharedPainter();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1081,13 +1122,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_inputmethodevent_isbase) {
             qcommandlinkbutton_inputmethodevent_isbase = false;
             QCommandLinkButton::inputMethodEvent(param1);
-        } else if (qcommandlinkbutton_inputmethodevent_callback != nullptr) {
+            return;
+        }
+        auto inputmethodevent_cb = qcommandlinkbutton_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
 
-            qcommandlinkbutton_inputmethodevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::inputMethodEvent(param1);
+            inputmethodevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::inputMethodEvent(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1095,14 +1139,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_inputmethodquery_isbase) {
             qcommandlinkbutton_inputmethodquery_isbase = false;
             return QCommandLinkButton::inputMethodQuery(param1);
-        } else if (qcommandlinkbutton_inputmethodquery_callback != nullptr) {
+        }
+        auto inputmethodquery_cb = qcommandlinkbutton_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
 
-            QVariant* callback_ret = qcommandlinkbutton_inputmethodquery_callback(this, cbval1);
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
             return *callback_ret;
-        } else {
-            return QCommandLinkButton::inputMethodQuery(param1);
         }
+        return QCommandLinkButton::inputMethodQuery(param1);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1110,14 +1155,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_focusnextprevchild_isbase) {
             qcommandlinkbutton_focusnextprevchild_isbase = false;
             return QCommandLinkButton::focusNextPrevChild(next);
-        } else if (qcommandlinkbutton_focusnextprevchild_callback != nullptr) {
+        }
+        auto focusnextprevchild_cb = qcommandlinkbutton_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
             bool cbval1 = next;
 
-            bool callback_ret = qcommandlinkbutton_focusnextprevchild_callback(this, cbval1);
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::focusNextPrevChild(next);
         }
+        return QCommandLinkButton::focusNextPrevChild(next);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1125,15 +1171,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_eventfilter_isbase) {
             qcommandlinkbutton_eventfilter_isbase = false;
             return QCommandLinkButton::eventFilter(watched, event);
-        } else if (qcommandlinkbutton_eventfilter_callback != nullptr) {
+        }
+        auto eventfilter_cb = qcommandlinkbutton_eventfilter_callback;
+        if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
 
-            bool callback_ret = qcommandlinkbutton_eventfilter_callback(this, cbval1, cbval2);
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::eventFilter(watched, event);
         }
+        return QCommandLinkButton::eventFilter(watched, event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1141,13 +1188,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_childevent_isbase) {
             qcommandlinkbutton_childevent_isbase = false;
             QCommandLinkButton::childEvent(event);
-        } else if (qcommandlinkbutton_childevent_callback != nullptr) {
+            return;
+        }
+        auto childevent_cb = qcommandlinkbutton_childevent_callback;
+        if (childevent_cb) {
             QChildEvent* cbval1 = event;
 
-            qcommandlinkbutton_childevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::childEvent(event);
+            childevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::childEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1155,13 +1205,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_customevent_isbase) {
             qcommandlinkbutton_customevent_isbase = false;
             QCommandLinkButton::customEvent(event);
-        } else if (qcommandlinkbutton_customevent_callback != nullptr) {
+            return;
+        }
+        auto customevent_cb = qcommandlinkbutton_customevent_callback;
+        if (customevent_cb) {
             QEvent* cbval1 = event;
 
-            qcommandlinkbutton_customevent_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::customEvent(event);
+            customevent_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::customEvent(event);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1169,15 +1222,18 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_connectnotify_isbase) {
             qcommandlinkbutton_connectnotify_isbase = false;
             QCommandLinkButton::connectNotify(signal);
-        } else if (qcommandlinkbutton_connectnotify_callback != nullptr) {
+            return;
+        }
+        auto connectnotify_cb = qcommandlinkbutton_connectnotify_callback;
+        if (connectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcommandlinkbutton_connectnotify_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::connectNotify(signal);
+            connectnotify_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::connectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1185,15 +1241,18 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_disconnectnotify_isbase) {
             qcommandlinkbutton_disconnectnotify_isbase = false;
             QCommandLinkButton::disconnectNotify(signal);
-        } else if (qcommandlinkbutton_disconnectnotify_callback != nullptr) {
+            return;
+        }
+        auto disconnectnotify_cb = qcommandlinkbutton_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            qcommandlinkbutton_disconnectnotify_callback(this, cbval1);
-        } else {
-            QCommandLinkButton::disconnectNotify(signal);
+            disconnectnotify_cb(this, cbval1);
+            return;
         }
+        QCommandLinkButton::disconnectNotify(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1201,11 +1260,14 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_updatemicrofocus_isbase) {
             qcommandlinkbutton_updatemicrofocus_isbase = false;
             QCommandLinkButton::updateMicroFocus();
-        } else if (qcommandlinkbutton_updatemicrofocus_callback != nullptr) {
-            qcommandlinkbutton_updatemicrofocus_callback();
-        } else {
-            QCommandLinkButton::updateMicroFocus();
+            return;
         }
+        auto updatemicrofocus_cb = qcommandlinkbutton_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        QCommandLinkButton::updateMicroFocus();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1213,11 +1275,14 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_create_isbase) {
             qcommandlinkbutton_create_isbase = false;
             QCommandLinkButton::create();
-        } else if (qcommandlinkbutton_create_callback != nullptr) {
-            qcommandlinkbutton_create_callback();
-        } else {
-            QCommandLinkButton::create();
+            return;
         }
+        auto create_cb = qcommandlinkbutton_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        QCommandLinkButton::create();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1225,11 +1290,14 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_destroy_isbase) {
             qcommandlinkbutton_destroy_isbase = false;
             QCommandLinkButton::destroy();
-        } else if (qcommandlinkbutton_destroy_callback != nullptr) {
-            qcommandlinkbutton_destroy_callback();
-        } else {
-            QCommandLinkButton::destroy();
+            return;
         }
+        auto destroy_cb = qcommandlinkbutton_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        QCommandLinkButton::destroy();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1237,12 +1305,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_focusnextchild_isbase) {
             qcommandlinkbutton_focusnextchild_isbase = false;
             return QCommandLinkButton::focusNextChild();
-        } else if (qcommandlinkbutton_focusnextchild_callback != nullptr) {
-            bool callback_ret = qcommandlinkbutton_focusnextchild_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::focusNextChild();
         }
+        auto focusnextchild_cb = qcommandlinkbutton_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::focusNextChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1250,12 +1319,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_focuspreviouschild_isbase) {
             qcommandlinkbutton_focuspreviouschild_isbase = false;
             return QCommandLinkButton::focusPreviousChild();
-        } else if (qcommandlinkbutton_focuspreviouschild_callback != nullptr) {
-            bool callback_ret = qcommandlinkbutton_focuspreviouschild_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::focusPreviousChild();
         }
+        auto focuspreviouschild_cb = qcommandlinkbutton_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::focusPreviousChild();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1263,12 +1333,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_sender_isbase) {
             qcommandlinkbutton_sender_isbase = false;
             return QCommandLinkButton::sender();
-        } else if (qcommandlinkbutton_sender_callback != nullptr) {
-            QObject* callback_ret = qcommandlinkbutton_sender_callback();
-            return callback_ret;
-        } else {
-            return QCommandLinkButton::sender();
         }
+        auto sender_cb = qcommandlinkbutton_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return QCommandLinkButton::sender();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1276,12 +1347,13 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_sendersignalindex_isbase) {
             qcommandlinkbutton_sendersignalindex_isbase = false;
             return QCommandLinkButton::senderSignalIndex();
-        } else if (qcommandlinkbutton_sendersignalindex_callback != nullptr) {
-            int callback_ret = qcommandlinkbutton_sendersignalindex_callback();
-            return static_cast<int>(callback_ret);
-        } else {
-            return QCommandLinkButton::senderSignalIndex();
         }
+        auto sendersignalindex_cb = qcommandlinkbutton_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return QCommandLinkButton::senderSignalIndex();
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1289,14 +1361,15 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_receivers_isbase) {
             qcommandlinkbutton_receivers_isbase = false;
             return QCommandLinkButton::receivers(signal);
-        } else if (qcommandlinkbutton_receivers_callback != nullptr) {
+        }
+        auto receivers_cb = qcommandlinkbutton_receivers_callback;
+        if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
 
-            int callback_ret = qcommandlinkbutton_receivers_callback(this, cbval1);
+            int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
-        } else {
-            return QCommandLinkButton::receivers(signal);
         }
+        return QCommandLinkButton::receivers(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1304,16 +1377,17 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_issignalconnected_isbase) {
             qcommandlinkbutton_issignalconnected_isbase = false;
             return QCommandLinkButton::isSignalConnected(signal);
-        } else if (qcommandlinkbutton_issignalconnected_callback != nullptr) {
+        }
+        auto issignalconnected_cb = qcommandlinkbutton_issignalconnected_callback;
+        if (issignalconnected_cb) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
 
-            bool callback_ret = qcommandlinkbutton_issignalconnected_callback(this, cbval1);
+            bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
-        } else {
-            return QCommandLinkButton::isSignalConnected(signal);
         }
+        return QCommandLinkButton::isSignalConnected(signal);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1321,15 +1395,16 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
         if (qcommandlinkbutton_getdecodedmetricf_isbase) {
             qcommandlinkbutton_getdecodedmetricf_isbase = false;
             return QCommandLinkButton::getDecodedMetricF(metricA, metricB);
-        } else if (qcommandlinkbutton_getdecodedmetricf_callback != nullptr) {
+        }
+        auto getdecodedmetricf_cb = qcommandlinkbutton_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
 
-            double callback_ret = qcommandlinkbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
-        } else {
-            return QCommandLinkButton::getDecodedMetricF(metricA, metricB);
         }
+        return QCommandLinkButton::getDecodedMetricF(metricA, metricB);
     }
 
     // Friend functions

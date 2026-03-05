@@ -32,11 +32,6 @@ class VirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
   public:
     VirtualQGraphicsSceneEvent(QEvent::Type typeVal) : QGraphicsSceneEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneEvent() {
-        qgraphicssceneevent_setaccepted_callback = nullptr;
-        qgraphicssceneevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneEvent_SetAccepted_Callback(QGraphicsSceneEvent_SetAccepted_Callback cb) { qgraphicssceneevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneEvent_Clone_Callback(QGraphicsSceneEvent_Clone_Callback cb) { qgraphicssceneevent_clone_callback = cb; }
@@ -50,13 +45,16 @@ class VirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
         if (qgraphicssceneevent_setaccepted_isbase) {
             qgraphicssceneevent_setaccepted_isbase = false;
             QGraphicsSceneEvent::setAccepted(accepted);
-        } else if (qgraphicssceneevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicssceneevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicssceneevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -64,12 +62,13 @@ class VirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
         if (qgraphicssceneevent_clone_isbase) {
             qgraphicssceneevent_clone_isbase = false;
             return QGraphicsSceneEvent::clone();
-        } else if (qgraphicssceneevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicssceneevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneEvent::clone();
         }
+        auto clone_cb = qgraphicssceneevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneEvent::clone();
     }
 };
 
@@ -97,11 +96,6 @@ class VirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
     VirtualQGraphicsSceneMouseEvent() : QGraphicsSceneMouseEvent() {};
     VirtualQGraphicsSceneMouseEvent(QEvent::Type typeVal) : QGraphicsSceneMouseEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneMouseEvent() {
-        qgraphicsscenemouseevent_setaccepted_callback = nullptr;
-        qgraphicsscenemouseevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneMouseEvent_SetAccepted_Callback(QGraphicsSceneMouseEvent_SetAccepted_Callback cb) { qgraphicsscenemouseevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneMouseEvent_Clone_Callback(QGraphicsSceneMouseEvent_Clone_Callback cb) { qgraphicsscenemouseevent_clone_callback = cb; }
@@ -115,13 +109,16 @@ class VirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
         if (qgraphicsscenemouseevent_setaccepted_isbase) {
             qgraphicsscenemouseevent_setaccepted_isbase = false;
             QGraphicsSceneMouseEvent::setAccepted(accepted);
-        } else if (qgraphicsscenemouseevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenemouseevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenemouseevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneMouseEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneMouseEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -129,12 +126,13 @@ class VirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
         if (qgraphicsscenemouseevent_clone_isbase) {
             qgraphicsscenemouseevent_clone_isbase = false;
             return QGraphicsSceneMouseEvent::clone();
-        } else if (qgraphicsscenemouseevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenemouseevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneMouseEvent::clone();
         }
+        auto clone_cb = qgraphicsscenemouseevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneMouseEvent::clone();
     }
 };
 
@@ -162,11 +160,6 @@ class VirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
     VirtualQGraphicsSceneWheelEvent() : QGraphicsSceneWheelEvent() {};
     VirtualQGraphicsSceneWheelEvent(QEvent::Type typeVal) : QGraphicsSceneWheelEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneWheelEvent() {
-        qgraphicsscenewheelevent_setaccepted_callback = nullptr;
-        qgraphicsscenewheelevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneWheelEvent_SetAccepted_Callback(QGraphicsSceneWheelEvent_SetAccepted_Callback cb) { qgraphicsscenewheelevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneWheelEvent_Clone_Callback(QGraphicsSceneWheelEvent_Clone_Callback cb) { qgraphicsscenewheelevent_clone_callback = cb; }
@@ -180,13 +173,16 @@ class VirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
         if (qgraphicsscenewheelevent_setaccepted_isbase) {
             qgraphicsscenewheelevent_setaccepted_isbase = false;
             QGraphicsSceneWheelEvent::setAccepted(accepted);
-        } else if (qgraphicsscenewheelevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenewheelevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenewheelevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneWheelEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneWheelEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -194,12 +190,13 @@ class VirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
         if (qgraphicsscenewheelevent_clone_isbase) {
             qgraphicsscenewheelevent_clone_isbase = false;
             return QGraphicsSceneWheelEvent::clone();
-        } else if (qgraphicsscenewheelevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenewheelevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneWheelEvent::clone();
         }
+        auto clone_cb = qgraphicsscenewheelevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneWheelEvent::clone();
     }
 };
 
@@ -227,11 +224,6 @@ class VirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContext
     VirtualQGraphicsSceneContextMenuEvent() : QGraphicsSceneContextMenuEvent() {};
     VirtualQGraphicsSceneContextMenuEvent(QEvent::Type typeVal) : QGraphicsSceneContextMenuEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneContextMenuEvent() {
-        qgraphicsscenecontextmenuevent_setaccepted_callback = nullptr;
-        qgraphicsscenecontextmenuevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneContextMenuEvent_SetAccepted_Callback(QGraphicsSceneContextMenuEvent_SetAccepted_Callback cb) { qgraphicsscenecontextmenuevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneContextMenuEvent_Clone_Callback(QGraphicsSceneContextMenuEvent_Clone_Callback cb) { qgraphicsscenecontextmenuevent_clone_callback = cb; }
@@ -245,13 +237,16 @@ class VirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContext
         if (qgraphicsscenecontextmenuevent_setaccepted_isbase) {
             qgraphicsscenecontextmenuevent_setaccepted_isbase = false;
             QGraphicsSceneContextMenuEvent::setAccepted(accepted);
-        } else if (qgraphicsscenecontextmenuevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenecontextmenuevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenecontextmenuevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneContextMenuEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneContextMenuEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -259,12 +254,13 @@ class VirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContext
         if (qgraphicsscenecontextmenuevent_clone_isbase) {
             qgraphicsscenecontextmenuevent_clone_isbase = false;
             return QGraphicsSceneContextMenuEvent::clone();
-        } else if (qgraphicsscenecontextmenuevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenecontextmenuevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneContextMenuEvent::clone();
         }
+        auto clone_cb = qgraphicsscenecontextmenuevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneContextMenuEvent::clone();
     }
 };
 
@@ -292,11 +288,6 @@ class VirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
     VirtualQGraphicsSceneHoverEvent() : QGraphicsSceneHoverEvent() {};
     VirtualQGraphicsSceneHoverEvent(QEvent::Type typeVal) : QGraphicsSceneHoverEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneHoverEvent() {
-        qgraphicsscenehoverevent_setaccepted_callback = nullptr;
-        qgraphicsscenehoverevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneHoverEvent_SetAccepted_Callback(QGraphicsSceneHoverEvent_SetAccepted_Callback cb) { qgraphicsscenehoverevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneHoverEvent_Clone_Callback(QGraphicsSceneHoverEvent_Clone_Callback cb) { qgraphicsscenehoverevent_clone_callback = cb; }
@@ -310,13 +301,16 @@ class VirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
         if (qgraphicsscenehoverevent_setaccepted_isbase) {
             qgraphicsscenehoverevent_setaccepted_isbase = false;
             QGraphicsSceneHoverEvent::setAccepted(accepted);
-        } else if (qgraphicsscenehoverevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenehoverevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenehoverevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneHoverEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneHoverEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -324,12 +318,13 @@ class VirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
         if (qgraphicsscenehoverevent_clone_isbase) {
             qgraphicsscenehoverevent_clone_isbase = false;
             return QGraphicsSceneHoverEvent::clone();
-        } else if (qgraphicsscenehoverevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenehoverevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneHoverEvent::clone();
         }
+        auto clone_cb = qgraphicsscenehoverevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneHoverEvent::clone();
     }
 };
 
@@ -357,11 +352,6 @@ class VirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
     VirtualQGraphicsSceneHelpEvent() : QGraphicsSceneHelpEvent() {};
     VirtualQGraphicsSceneHelpEvent(QEvent::Type typeVal) : QGraphicsSceneHelpEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneHelpEvent() {
-        qgraphicsscenehelpevent_setaccepted_callback = nullptr;
-        qgraphicsscenehelpevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneHelpEvent_SetAccepted_Callback(QGraphicsSceneHelpEvent_SetAccepted_Callback cb) { qgraphicsscenehelpevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneHelpEvent_Clone_Callback(QGraphicsSceneHelpEvent_Clone_Callback cb) { qgraphicsscenehelpevent_clone_callback = cb; }
@@ -375,13 +365,16 @@ class VirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
         if (qgraphicsscenehelpevent_setaccepted_isbase) {
             qgraphicsscenehelpevent_setaccepted_isbase = false;
             QGraphicsSceneHelpEvent::setAccepted(accepted);
-        } else if (qgraphicsscenehelpevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenehelpevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenehelpevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneHelpEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneHelpEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -389,12 +382,13 @@ class VirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
         if (qgraphicsscenehelpevent_clone_isbase) {
             qgraphicsscenehelpevent_clone_isbase = false;
             return QGraphicsSceneHelpEvent::clone();
-        } else if (qgraphicsscenehelpevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenehelpevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneHelpEvent::clone();
         }
+        auto clone_cb = qgraphicsscenehelpevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneHelpEvent::clone();
     }
 };
 
@@ -422,11 +416,6 @@ class VirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEv
     VirtualQGraphicsSceneDragDropEvent() : QGraphicsSceneDragDropEvent() {};
     VirtualQGraphicsSceneDragDropEvent(QEvent::Type typeVal) : QGraphicsSceneDragDropEvent(typeVal) {};
 
-    ~VirtualQGraphicsSceneDragDropEvent() {
-        qgraphicsscenedragdropevent_setaccepted_callback = nullptr;
-        qgraphicsscenedragdropevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneDragDropEvent_SetAccepted_Callback(QGraphicsSceneDragDropEvent_SetAccepted_Callback cb) { qgraphicsscenedragdropevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneDragDropEvent_Clone_Callback(QGraphicsSceneDragDropEvent_Clone_Callback cb) { qgraphicsscenedragdropevent_clone_callback = cb; }
@@ -440,13 +429,16 @@ class VirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEv
         if (qgraphicsscenedragdropevent_setaccepted_isbase) {
             qgraphicsscenedragdropevent_setaccepted_isbase = false;
             QGraphicsSceneDragDropEvent::setAccepted(accepted);
-        } else if (qgraphicsscenedragdropevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenedragdropevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenedragdropevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneDragDropEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneDragDropEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -454,12 +446,13 @@ class VirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEv
         if (qgraphicsscenedragdropevent_clone_isbase) {
             qgraphicsscenedragdropevent_clone_isbase = false;
             return QGraphicsSceneDragDropEvent::clone();
-        } else if (qgraphicsscenedragdropevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenedragdropevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneDragDropEvent::clone();
         }
+        auto clone_cb = qgraphicsscenedragdropevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneDragDropEvent::clone();
     }
 };
 
@@ -486,11 +479,6 @@ class VirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent 
   public:
     VirtualQGraphicsSceneResizeEvent() : QGraphicsSceneResizeEvent() {};
 
-    ~VirtualQGraphicsSceneResizeEvent() {
-        qgraphicssceneresizeevent_setaccepted_callback = nullptr;
-        qgraphicssceneresizeevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneResizeEvent_SetAccepted_Callback(QGraphicsSceneResizeEvent_SetAccepted_Callback cb) { qgraphicssceneresizeevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneResizeEvent_Clone_Callback(QGraphicsSceneResizeEvent_Clone_Callback cb) { qgraphicssceneresizeevent_clone_callback = cb; }
@@ -504,13 +492,16 @@ class VirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent 
         if (qgraphicssceneresizeevent_setaccepted_isbase) {
             qgraphicssceneresizeevent_setaccepted_isbase = false;
             QGraphicsSceneResizeEvent::setAccepted(accepted);
-        } else if (qgraphicssceneresizeevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicssceneresizeevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicssceneresizeevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneResizeEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneResizeEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -518,12 +509,13 @@ class VirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent 
         if (qgraphicssceneresizeevent_clone_isbase) {
             qgraphicssceneresizeevent_clone_isbase = false;
             return QGraphicsSceneResizeEvent::clone();
-        } else if (qgraphicssceneresizeevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicssceneresizeevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneResizeEvent::clone();
         }
+        auto clone_cb = qgraphicssceneresizeevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneResizeEvent::clone();
     }
 };
 
@@ -550,11 +542,6 @@ class VirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
   public:
     VirtualQGraphicsSceneMoveEvent() : QGraphicsSceneMoveEvent() {};
 
-    ~VirtualQGraphicsSceneMoveEvent() {
-        qgraphicsscenemoveevent_setaccepted_callback = nullptr;
-        qgraphicsscenemoveevent_clone_callback = nullptr;
-    }
-
     // Callback setters
     inline void setQGraphicsSceneMoveEvent_SetAccepted_Callback(QGraphicsSceneMoveEvent_SetAccepted_Callback cb) { qgraphicsscenemoveevent_setaccepted_callback = cb; }
     inline void setQGraphicsSceneMoveEvent_Clone_Callback(QGraphicsSceneMoveEvent_Clone_Callback cb) { qgraphicsscenemoveevent_clone_callback = cb; }
@@ -568,13 +555,16 @@ class VirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
         if (qgraphicsscenemoveevent_setaccepted_isbase) {
             qgraphicsscenemoveevent_setaccepted_isbase = false;
             QGraphicsSceneMoveEvent::setAccepted(accepted);
-        } else if (qgraphicsscenemoveevent_setaccepted_callback != nullptr) {
+            return;
+        }
+        auto setaccepted_cb = qgraphicsscenemoveevent_setaccepted_callback;
+        if (setaccepted_cb) {
             bool cbval1 = accepted;
 
-            qgraphicsscenemoveevent_setaccepted_callback(this, cbval1);
-        } else {
-            QGraphicsSceneMoveEvent::setAccepted(accepted);
+            setaccepted_cb(this, cbval1);
+            return;
         }
+        QGraphicsSceneMoveEvent::setAccepted(accepted);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -582,12 +572,13 @@ class VirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
         if (qgraphicsscenemoveevent_clone_isbase) {
             qgraphicsscenemoveevent_clone_isbase = false;
             return QGraphicsSceneMoveEvent::clone();
-        } else if (qgraphicsscenemoveevent_clone_callback != nullptr) {
-            QEvent* callback_ret = qgraphicsscenemoveevent_clone_callback();
-            return callback_ret;
-        } else {
-            return QGraphicsSceneMoveEvent::clone();
         }
+        auto clone_cb = qgraphicsscenemoveevent_clone_callback;
+        if (clone_cb) {
+            QEvent* callback_ret = clone_cb();
+            return callback_ret;
+        }
+        return QGraphicsSceneMoveEvent::clone();
     }
 };
 
