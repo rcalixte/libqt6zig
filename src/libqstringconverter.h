@@ -19,7 +19,6 @@ typedef struct QAnyStringView QAnyStringView;
 typedef struct QByteArrayView QByteArrayView;
 typedef struct QChar QChar;
 typedef struct QStringConverter QStringConverter;
-typedef struct QStringConverterBase QStringConverterBase;
 typedef struct QStringDecoder QStringDecoder;
 typedef struct QStringEncoder QStringEncoder;
 #endif

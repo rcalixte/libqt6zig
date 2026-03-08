@@ -227,6 +227,9 @@ func AllowClass(className string) bool {
 		"QDBusPendingReplyBase",          // internal Qt classes that should not be projected
 		"Qt::Disambiguated_t",            // internal Qt classes that should not be projected
 		"QInternal",                      // internal Qt classes that should not be projected
+		"QStringConverterBase",           // not a public class, will be removed in Qt 7
+		"QStringConverterBase::State",    // not a public class, will be removed in Qt 7
+		"QVariantConstPointer",           // scheduled for deprecation in Qt 6.15
 		"QTextStreamManipulator",         // Only seems to contain garbage methods
 		"QException",                     // Extends std::exception, too hard
 		"QGenericRunnable",               // Qt 6, Unavailable class header in Qt 6.8
