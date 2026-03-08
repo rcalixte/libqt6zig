@@ -1,4 +1,9 @@
 
+### 6.8.2 rev66 (8 March 2026)
+
+* **BREAKING CHANGE:** Remove classes marked for pending deprecation or deletion (#128)
+* Remove destructors and optimize conditionals in virtual classes (#127)
+
 ### 6.8.2 rev65 (4 March 2026)
 
 * Add [Poppler](https://poppler.freedesktop.org/api/qt6/) (#126)
