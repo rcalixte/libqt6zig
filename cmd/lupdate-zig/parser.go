@@ -64,22 +64,23 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 				var disambiguation, name, numerus, source string
 				var numerusForms []string
 
-				if strings.HasPrefix(lit, "Translate") || lit == "QBaseTranslate" {
+				if strings.HasPrefix(lit, "Translate") || lit == "QBaseTranslate" || lit == "SuperTranslate" {
 					if _, tok, _ := s.Scan(); tok != token.LPAREN {
 						continue
 					}
 
-					if lit == "QBaseTranslate" || lit == "Translate4" {
+					switch lit {
+					case "QBaseTranslate", "SuperTranslate", "Translate4":
 						expectedParams = 4
 						expectingNumerus = true
 
-					} else if lit == "Translate" {
+					case "Translate":
 						expectedParams = 2
 
-					} else if lit == "Translate3" {
+					case "Translate3":
 						expectedParams = 3
 
-					} else {
+					default:
 						continue
 					}
 
