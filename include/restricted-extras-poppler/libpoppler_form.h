@@ -232,6 +232,7 @@ bool Poppler_HasNSSSupport();
 libqt_list /* of Poppler__CertificateInfo* */ Poppler_GetAvailableSigningCertificates();
 libqt_string Poppler_GetNSSDir();
 void Poppler_SetNSSDir(const libqt_string param1);
+void Poppler_SetNSSPasswordCallback(intptr_t param1);
 void Poppler_SetPgpSignaturesAllowed(bool param1);
 bool Poppler_ArePgpSignaturesAllowed();
 

@@ -755,6 +755,28 @@ libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls() {
     return _out;
 }
 
+void QFileDialog_GetOpenFileContent(const libqt_string nameFilter, intptr_t fileContentsReady) {
+    QString nameFilter_QString = QString::fromUtf8(nameFilter.data, nameFilter.len);
+    auto fileContentsReady_func = [fileContentsReady](const QString& funcparam1_fp, const QByteArray& funcparam2_fp) -> void {
+        const QString funcparam1_ret = funcparam1_fp;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+        QByteArray funcparam1_b = funcparam1_ret.toUtf8();
+        auto funcparam1_str_len = funcparam1_b.length();
+        const char* funcparam1_str = static_cast<const char*>(malloc(funcparam1_str_len + 1));
+        memcpy((void*)funcparam1_str, funcparam1_b.data(), funcparam1_str_len);
+        ((char*)funcparam1_str)[funcparam1_str_len] = '\0';
+        const char* funcparam1_fv = funcparam1_str;
+        const QByteArray funcparam2_qb = funcparam2_fp;
+        libqt_string funcparam2_str;
+        funcparam2_str.len = funcparam2_qb.length();
+        funcparam2_str.data = static_cast<char*>(malloc(funcparam2_str.len));
+        memcpy((void*)funcparam2_str.data, funcparam2_qb.data(), funcparam2_str.len);
+        libqt_string funcparam2_fv = funcparam2_str;
+        reinterpret_cast<void (*)(const char*, libqt_string)>(fileContentsReady)(funcparam1_fv, funcparam2_fv);
+    };
+    QFileDialog::getOpenFileContent(nameFilter_QString, fileContentsReady_func);
+}
+
 void QFileDialog_SaveFileContent(const libqt_string fileContent, const libqt_string fileNameHint) {
     QByteArray fileContent_QByteArray(fileContent.data, fileContent.len);
     QString fileNameHint_QString = QString::fromUtf8(fileNameHint.data, fileNameHint.len);
@@ -1162,6 +1184,28 @@ libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls4(QWidget* parent, const li
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+void QFileDialog_GetOpenFileContent3(const libqt_string nameFilter, intptr_t fileContentsReady, QWidget* parent) {
+    QString nameFilter_QString = QString::fromUtf8(nameFilter.data, nameFilter.len);
+    auto fileContentsReady_func = [fileContentsReady](const QString& funcparam1_fp, const QByteArray& funcparam2_fp) -> void {
+        const QString funcparam1_ret = funcparam1_fp;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+        QByteArray funcparam1_b = funcparam1_ret.toUtf8();
+        auto funcparam1_str_len = funcparam1_b.length();
+        const char* funcparam1_str = static_cast<const char*>(malloc(funcparam1_str_len + 1));
+        memcpy((void*)funcparam1_str, funcparam1_b.data(), funcparam1_str_len);
+        ((char*)funcparam1_str)[funcparam1_str_len] = '\0';
+        const char* funcparam1_fv = funcparam1_str;
+        const QByteArray funcparam2_qb = funcparam2_fp;
+        libqt_string funcparam2_str;
+        funcparam2_str.len = funcparam2_qb.length();
+        funcparam2_str.data = static_cast<char*>(malloc(funcparam2_str.len));
+        memcpy((void*)funcparam2_str.data, funcparam2_qb.data(), funcparam2_str.len);
+        libqt_string funcparam2_fv = funcparam2_str;
+        reinterpret_cast<void (*)(const char*, libqt_string)>(fileContentsReady)(funcparam1_fv, funcparam2_fv);
+    };
+    QFileDialog::getOpenFileContent(nameFilter_QString, fileContentsReady_func, parent);
 }
 
 void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_string fileNameHint, QWidget* parent) {

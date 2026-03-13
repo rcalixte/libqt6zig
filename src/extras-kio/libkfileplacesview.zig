@@ -251,6 +251,18 @@ pub const kfileplacesview = struct {
         return qtc.KFilePlacesView_IsAutoResizeItemsEnabled(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setTeardownFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KFilePlacesView `
+    ///
+    /// ` teardownFunc: *const fn (funcparam1: QtC.QModelIndex) callconv(.c) void `
+    ///
+    pub fn SetTeardownFunction(self: ?*anyopaque, teardownFunc: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KFilePlacesView_SetTeardownFunction(@ptrCast(self), @bitCast(@intFromPtr(teardownFunc)));
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#sizeHint)
     ///
     /// ## Parameter(s):

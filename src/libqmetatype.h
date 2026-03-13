@@ -83,7 +83,9 @@ bool QMetaType_Compare2(const void* lhs, const void* rhs, int typeId, int* resul
 bool QMetaType_Equals2(const void* lhs, const void* rhs, int typeId, int* result);
 bool QMetaType_HasRegisteredConverterFunction(QMetaType* fromType, QMetaType* toType);
 bool QMetaType_HasRegisteredMutableViewFunction(QMetaType* fromType, QMetaType* toType);
+bool QMetaType_RegisterConverterFunction(intptr_t f, QMetaType* from, QMetaType* to);
 void QMetaType_UnregisterConverterFunction(QMetaType* from, QMetaType* to);
+bool QMetaType_RegisterMutableViewFunction(intptr_t f, QMetaType* from, QMetaType* to);
 void QMetaType_UnregisterMutableViewFunction(QMetaType* from, QMetaType* to);
 void QMetaType_UnregisterMetaType(QMetaType* typeVal);
 void* QMetaType_Create22(int typeVal, const void* copyVal);

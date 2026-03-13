@@ -350,6 +350,28 @@ void QTextDocument_AddResource(QTextDocument* self, int typeVal, const QUrl* nam
     self->addResource(static_cast<int>(typeVal), *name, *resource);
 }
 
+void QTextDocument_SetResourceProvider(QTextDocument* self, intptr_t provider) {
+    auto provider_func = [provider](const QUrl& funcparam1_fp) -> QVariant {
+        const QUrl& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QUrl* funcparam1_fv = const_cast<QUrl*>(&funcparam1_ret);
+        auto provider_funcret = reinterpret_cast<QVariant (*)(QUrl*)>(provider)(funcparam1_fv);
+        return static_cast<QVariant>(provider_funcret);
+    };
+    self->setResourceProvider(provider_func);
+}
+
+void QTextDocument_SetDefaultResourceProvider(intptr_t provider) {
+    auto provider_func = [provider](const QUrl& funcparam1_fp) -> QVariant {
+        const QUrl& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QUrl* funcparam1_fv = const_cast<QUrl*>(&funcparam1_ret);
+        auto provider_funcret = reinterpret_cast<QVariant (*)(QUrl*)>(provider)(funcparam1_fv);
+        return static_cast<QVariant>(provider_funcret);
+    };
+    QTextDocument::setDefaultResourceProvider(provider_func);
+}
+
 libqt_list /* of QTextFormat* */ QTextDocument_AllFormats(const QTextDocument* self) {
     QList<QTextFormat> _ret = self->allFormats();
     // Convert QList<> from C++ memory to manually-managed C memory

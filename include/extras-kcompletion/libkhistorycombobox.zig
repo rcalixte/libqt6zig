@@ -292,6 +292,18 @@ pub const khistorycombobox = struct {
         return qtc.KHistoryComboBox_RemoveFromHistory(@ptrCast(self), item_str);
     }
 
+    /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html#setIconProvider)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KHistoryComboBox `
+    ///
+    /// ` providerFunction: *const fn (funcparam1: [*:0]const u8) callconv(.c) QtC.QIcon `
+    ///
+    pub fn SetIconProvider(self: ?*anyopaque, providerFunction: *const fn ([*:0]const u8) callconv(.c) QtC.QIcon) void {
+        qtc.KHistoryComboBox_SetIconProvider(@ptrCast(self), @bitCast(@intFromPtr(providerFunction)));
+    }
+
     /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html#addToHistory)
     ///
     /// ## Parameter(s):

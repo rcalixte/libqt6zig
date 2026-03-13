@@ -1321,9 +1321,9 @@ pub const qstate = struct {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
-    /// Inherited from QAbstractState
+    /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractstate.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1336,16 +1336,16 @@ pub const qstate = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QState_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
     ///
     pub const QBaseEventFilter = SuperEventFilter;
 
-    /// Inherited from QAbstractState
+    /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractstate.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1358,12 +1358,12 @@ pub const qstate = struct {
     /// ` event: QtC.QEvent `
     ///
     pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+        return qtc.QState_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// Inherited from QAbstractState
+    /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractstate.html#eventFilter)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1374,7 +1374,7 @@ pub const qstate = struct {
     /// ` callback: *const fn (self: QtC.QState, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
     ///
     pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QObject_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+        qtc.QState_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

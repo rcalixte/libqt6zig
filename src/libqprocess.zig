@@ -783,6 +783,18 @@ pub const qprocess = struct {
         qtc.QProcess_SetStandardOutputProcess(@ptrCast(self), @ptrCast(destination));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setChildProcessModifier)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    /// ` modifier: *const fn () callconv(.c) void `
+    ///
+    pub fn SetChildProcessModifier(self: ?*anyopaque, modifier: *const fn () callconv(.c) void) void {
+        qtc.QProcess_SetChildProcessModifier(@ptrCast(self), @bitCast(@intFromPtr(modifier)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
     ///
     /// ## Parameter(s):

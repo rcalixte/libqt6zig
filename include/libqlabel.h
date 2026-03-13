@@ -72,6 +72,7 @@ QPicture* QLabel_Picture2(const QLabel* self);
 QMovie* QLabel_Movie(const QLabel* self);
 int QLabel_TextFormat(const QLabel* self);
 void QLabel_SetTextFormat(QLabel* self, int textFormat);
+void QLabel_SetResourceProvider(QLabel* self, intptr_t provider);
 int QLabel_Alignment(const QLabel* self);
 void QLabel_SetAlignment(QLabel* self, int alignment);
 void QLabel_SetWordWrap(QLabel* self, bool on);

@@ -170,6 +170,36 @@ void QWebEnginePage_SetContent(QWebEnginePage* self, const libqt_string data) {
     self->setContent(data_QByteArray);
 }
 
+void QWebEnginePage_ToHtml(const QWebEnginePage* self, intptr_t resultCallback) {
+    auto resultCallback_func = [resultCallback](const QString& funcparam1_fp) -> void {
+        const QString funcparam1_ret = funcparam1_fp;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+        QByteArray funcparam1_b = funcparam1_ret.toUtf8();
+        auto funcparam1_str_len = funcparam1_b.length();
+        const char* funcparam1_str = static_cast<const char*>(malloc(funcparam1_str_len + 1));
+        memcpy((void*)funcparam1_str, funcparam1_b.data(), funcparam1_str_len);
+        ((char*)funcparam1_str)[funcparam1_str_len] = '\0';
+        const char* funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(const char*)>(resultCallback)(funcparam1_fv);
+    };
+    self->toHtml(resultCallback_func);
+}
+
+void QWebEnginePage_ToPlainText(const QWebEnginePage* self, intptr_t resultCallback) {
+    auto resultCallback_func = [resultCallback](const QString& funcparam1_fp) -> void {
+        const QString funcparam1_ret = funcparam1_fp;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+        QByteArray funcparam1_b = funcparam1_ret.toUtf8();
+        auto funcparam1_str_len = funcparam1_b.length();
+        const char* funcparam1_str = static_cast<const char*>(malloc(funcparam1_str_len + 1));
+        memcpy((void*)funcparam1_str, funcparam1_b.data(), funcparam1_str_len);
+        ((char*)funcparam1_str)[funcparam1_str_len] = '\0';
+        const char* funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(const char*)>(resultCallback)(funcparam1_fv);
+    };
+    self->toPlainText(resultCallback_func);
+}
+
 libqt_string QWebEnginePage_Title(const QWebEnginePage* self) {
     QString _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -216,6 +246,17 @@ QPointF* QWebEnginePage_ScrollPosition(const QWebEnginePage* self) {
 
 QSizeF* QWebEnginePage_ContentsSize(const QWebEnginePage* self) {
     return new QSizeF(self->contentsSize());
+}
+
+void QWebEnginePage_RunJavaScript(QWebEnginePage* self, const libqt_string scriptSource, intptr_t resultCallback) {
+    QString scriptSource_QString = QString::fromUtf8(scriptSource.data, scriptSource.len);
+    auto resultCallback_func = [resultCallback](const QVariant& funcparam1_fp) -> void {
+        const QVariant& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QVariant* funcparam1_fv = const_cast<QVariant*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QVariant*)>(resultCallback)(funcparam1_fv);
+    };
+    self->runJavaScript(scriptSource_QString, resultCallback_func);
 }
 
 void QWebEnginePage_RunJavaScript2(QWebEnginePage* self, const libqt_string scriptSource) {
@@ -273,6 +314,19 @@ long long QWebEnginePage_RenderProcessPid(const QWebEnginePage* self) {
 void QWebEnginePage_PrintToPdf(QWebEnginePage* self, const libqt_string filePath) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString);
+}
+
+void QWebEnginePage_PrintToPdf2(QWebEnginePage* self, intptr_t resultCallback) {
+    auto resultCallback_func = [resultCallback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(resultCallback)(funcparam1_fv);
+    };
+    self->printToPdf(resultCallback_func);
 }
 
 void QWebEnginePage_SetInspectedPage(QWebEnginePage* self, QWebEnginePage* page) {
@@ -995,6 +1049,17 @@ void QWebEnginePage_FindText2(QWebEnginePage* self, const libqt_string subString
     self->findText(subString_QString, static_cast<QWebEnginePage::FindFlags>(options));
 }
 
+void QWebEnginePage_FindText3(QWebEnginePage* self, const libqt_string subString, int options, intptr_t resultCallback) {
+    QString subString_QString = QString::fromUtf8(subString.data, subString.len);
+    auto resultCallback_func = [resultCallback](const QWebEngineFindTextResult& funcparam1_fp) -> void {
+        const QWebEngineFindTextResult& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QWebEngineFindTextResult* funcparam1_fv = const_cast<QWebEngineFindTextResult*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QWebEngineFindTextResult*)>(resultCallback)(funcparam1_fv);
+    };
+    self->findText(subString_QString, static_cast<QWebEnginePage::FindFlags>(options), resultCallback_func);
+}
+
 void QWebEnginePage_Download2(QWebEnginePage* self, const QUrl* url, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     self->download(*url, filename_QString);
@@ -1022,6 +1087,17 @@ void QWebEnginePage_RunJavaScript22(QWebEnginePage* self, const libqt_string scr
     self->runJavaScript(scriptSource_QString, static_cast<quint32>(worldId));
 }
 
+void QWebEnginePage_RunJavaScript3(QWebEnginePage* self, const libqt_string scriptSource, unsigned int worldId, intptr_t resultCallback) {
+    QString scriptSource_QString = QString::fromUtf8(scriptSource.data, scriptSource.len);
+    auto resultCallback_func = [resultCallback](const QVariant& funcparam1_fp) -> void {
+        const QVariant& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QVariant* funcparam1_fv = const_cast<QVariant*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QVariant*)>(resultCallback)(funcparam1_fv);
+    };
+    self->runJavaScript(scriptSource_QString, static_cast<quint32>(worldId), resultCallback_func);
+}
+
 void QWebEnginePage_SetWebChannel2(QWebEnginePage* self, QWebChannel* param1, unsigned int worldId) {
     self->setWebChannel(param1, static_cast<quint32>(worldId));
 }
@@ -1039,6 +1115,32 @@ void QWebEnginePage_PrintToPdf22(QWebEnginePage* self, const libqt_string filePa
 void QWebEnginePage_PrintToPdf3(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout, *ranges);
+}
+
+void QWebEnginePage_PrintToPdf23(QWebEnginePage* self, intptr_t resultCallback, const QPageLayout* layout) {
+    auto resultCallback_func = [resultCallback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(resultCallback)(funcparam1_fv);
+    };
+    self->printToPdf(resultCallback_func, *layout);
+}
+
+void QWebEnginePage_PrintToPdf32(QWebEnginePage* self, intptr_t resultCallback, const QPageLayout* layout, const QPageRanges* ranges) {
+    auto resultCallback_func = [resultCallback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(resultCallback)(funcparam1_fv);
+    };
+    self->printToPdf(resultCallback_func, *layout, *ranges);
 }
 
 // Base class handler implementation

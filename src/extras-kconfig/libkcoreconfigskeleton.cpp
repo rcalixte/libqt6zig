@@ -587,6 +587,13 @@ void KPropertySkeletonItem_SwapDefault(KPropertySkeletonItem* self) {
     }
 }
 
+void KPropertySkeletonItem_SetNotifyFunction(KPropertySkeletonItem* self, intptr_t impl) {
+    auto impl_func = [impl]() -> void {
+        reinterpret_cast<void (*)()>(impl)();
+    };
+    self->setNotifyFunction(impl_func);
+}
+
 // Base class handler implementation
 QVariant* KPropertySkeletonItem_SuperProperty(const KPropertySkeletonItem* self) {
     auto* vkpropertyskeletonitem = const_cast<VirtualKPropertySkeletonItem*>(dynamic_cast<const VirtualKPropertySkeletonItem*>(self));

@@ -140,6 +140,22 @@ bool KHistoryComboBox_RemoveFromHistory(KHistoryComboBox* self, const libqt_stri
     return self->removeFromHistory(item_QString);
 }
 
+void KHistoryComboBox_SetIconProvider(KHistoryComboBox* self, intptr_t providerFunction) {
+    auto providerFunction_func = [providerFunction](const QString& funcparam1_fp) -> QIcon {
+        const QString funcparam1_ret = funcparam1_fp;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+        QByteArray funcparam1_b = funcparam1_ret.toUtf8();
+        auto funcparam1_str_len = funcparam1_b.length();
+        const char* funcparam1_str = static_cast<const char*>(malloc(funcparam1_str_len + 1));
+        memcpy((void*)funcparam1_str, funcparam1_b.data(), funcparam1_str_len);
+        ((char*)funcparam1_str)[funcparam1_str_len] = '\0';
+        const char* funcparam1_fv = funcparam1_str;
+        auto providerFunction_funcret = reinterpret_cast<QIcon (*)(const char*)>(providerFunction)(funcparam1_fv);
+        return static_cast<QIcon>(providerFunction_funcret);
+    };
+    self->setIconProvider(providerFunction_func);
+}
+
 void KHistoryComboBox_AddToHistory(KHistoryComboBox* self, const libqt_string item) {
     QString item_QString = QString::fromUtf8(item.data, item.len);
     self->addToHistory(item_QString);

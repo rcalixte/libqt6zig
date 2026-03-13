@@ -119,6 +119,16 @@ bool KFilePlacesView_IsAutoResizeItemsEnabled(const KFilePlacesView* self) {
     return self->isAutoResizeItemsEnabled();
 }
 
+void KFilePlacesView_SetTeardownFunction(KFilePlacesView* self, intptr_t teardownFunc) {
+    auto teardownFunc_func = [teardownFunc](const QModelIndex& funcparam1_fp) -> void {
+        const QModelIndex& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QModelIndex* funcparam1_fv = const_cast<QModelIndex*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QModelIndex*)>(teardownFunc)(funcparam1_fv);
+    };
+    self->setTeardownFunction(teardownFunc_func);
+}
+
 QSize* KFilePlacesView_SizeHint(const KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<const VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {

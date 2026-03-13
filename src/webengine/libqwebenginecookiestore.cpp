@@ -24,6 +24,17 @@ int QWebEngineCookieStore_Metacall(QWebEngineCookieStore* self, int param1, int 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+void QWebEngineCookieStore_SetCookieFilter(QWebEngineCookieStore* self, intptr_t filterCallback) {
+    auto filterCallback_func = [filterCallback](const QWebEngineCookieStore::FilterRequest& funcparam1_fp) -> bool {
+        const QWebEngineCookieStore::FilterRequest& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QWebEngineCookieStore__FilterRequest* funcparam1_fv = const_cast<QWebEngineCookieStore::FilterRequest*>(&funcparam1_ret);
+        auto filterCallback_funcret = reinterpret_cast<bool (*)(QWebEngineCookieStore__FilterRequest*)>(filterCallback)(funcparam1_fv);
+        return static_cast<bool>(filterCallback_funcret);
+    };
+    self->setCookieFilter(filterCallback_func);
+}
+
 void QWebEngineCookieStore_SetCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie) {
     self->setCookie(*cookie);
 }

@@ -69,6 +69,7 @@ void KHistoryComboBox_SetHistoryItems(KHistoryComboBox* self, const libqt_list /
 void KHistoryComboBox_SetHistoryItems2(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items, bool setCompletionList);
 libqt_list /* of libqt_string */ KHistoryComboBox_HistoryItems(const KHistoryComboBox* self);
 bool KHistoryComboBox_RemoveFromHistory(KHistoryComboBox* self, const libqt_string item);
+void KHistoryComboBox_SetIconProvider(KHistoryComboBox* self, intptr_t providerFunction);
 void KHistoryComboBox_AddToHistory(KHistoryComboBox* self, const libqt_string item);
 void KHistoryComboBox_ClearHistory(KHistoryComboBox* self);
 void KHistoryComboBox_Reset(KHistoryComboBox* self);

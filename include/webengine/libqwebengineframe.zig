@@ -111,6 +111,44 @@ pub const qwebengineframe = struct {
     ///
     /// ` script: []const u8 `
     ///
+    /// ` callback: *const fn (funcparam1: QtC.QVariant) callconv(.c) void `
+    ///
+    pub fn RunJavaScript(self: ?*anyopaque, script: []const u8, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        const script_str = qtc.libqt_string{
+            .len = script.len,
+            .data = script.ptr,
+        };
+        qtc.QWebEngineFrame_RunJavaScript(@ptrCast(self), script_str, @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` script: []const u8 `
+    ///
+    /// ` worldId: u32 `
+    ///
+    /// ` callback: *const fn (funcparam1: QtC.QVariant) callconv(.c) void `
+    ///
+    pub fn RunJavaScript2(self: ?*anyopaque, script: []const u8, worldId: u32, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        const script_str = qtc.libqt_string{
+            .len = script.len,
+            .data = script.ptr,
+        };
+        qtc.QWebEngineFrame_RunJavaScript2(@ptrCast(self), script_str, @bitCast(worldId), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` script: []const u8 `
+    ///
     pub fn RunJavaScript3(self: ?*anyopaque, script: []const u8) void {
         const script_str = qtc.libqt_string{
             .len = script.len,
@@ -133,6 +171,18 @@ pub const qwebengineframe = struct {
             .data = filePath.ptr,
         };
         qtc.QWebEngineFrame_PrintToPdf(@ptrCast(self), filePath_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineFrame `
+    ///
+    /// ` callback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    ///
+    pub fn PrintToPdf2(self: ?*anyopaque, callback: *const fn (qtc.libqt_string) callconv(.c) void) void {
+        qtc.QWebEngineFrame_PrintToPdf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)

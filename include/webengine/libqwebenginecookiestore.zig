@@ -58,6 +58,18 @@ pub const qwebenginecookiestore = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecookiestore.html#setCookieFilter)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineCookieStore `
+    ///
+    /// ` filterCallback: *const fn (funcparam1: QtC.QWebEngineCookieStore__FilterRequest) callconv(.c) bool `
+    ///
+    pub fn SetCookieFilter(self: ?*anyopaque, filterCallback: *const fn (?*anyopaque) callconv(.c) bool) void {
+        qtc.QWebEngineCookieStore_SetCookieFilter(@ptrCast(self), @bitCast(@intFromPtr(filterCallback)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecookiestore.html#setCookie)
     ///
     /// ## Parameter(s):

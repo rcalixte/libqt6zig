@@ -386,6 +386,48 @@ KPluginMetaData* KPluginMetaData_FindPluginById3(const libqt_string directory, c
     return new KPluginMetaData(KPluginMetaData::findPluginById(directory_QString, pluginId_QString, static_cast<KPluginMetaData::KPluginMetaDataOptions>(options)));
 }
 
+libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins2(const libqt_string directory, intptr_t filter) {
+    QString directory_QString = QString::fromUtf8(directory.data, directory.len);
+    auto filter_func = [filter](const KPluginMetaData& funcparam1_fp) -> bool {
+        const KPluginMetaData& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        KPluginMetaData* funcparam1_fv = const_cast<KPluginMetaData*>(&funcparam1_ret);
+        auto filter_funcret = reinterpret_cast<bool (*)(KPluginMetaData*)>(filter)(funcparam1_fv);
+        return static_cast<bool>(filter_funcret);
+    };
+    QList<KPluginMetaData> _ret = KPluginMetaData::findPlugins(directory_QString, filter_func);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new KPluginMetaData(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins3(const libqt_string directory, intptr_t filter, int options) {
+    QString directory_QString = QString::fromUtf8(directory.data, directory.len);
+    auto filter_func = [filter](const KPluginMetaData& funcparam1_fp) -> bool {
+        const KPluginMetaData& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        KPluginMetaData* funcparam1_fv = const_cast<KPluginMetaData*>(&funcparam1_ret);
+        auto filter_funcret = reinterpret_cast<bool (*)(KPluginMetaData*)>(filter)(funcparam1_fv);
+        return static_cast<bool>(filter_funcret);
+    };
+    QList<KPluginMetaData> _ret = KPluginMetaData::findPlugins(directory_QString, filter_func, static_cast<KPluginMetaData::KPluginMetaDataOptions>(options));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new KPluginMetaData(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
 libqt_string KPluginMetaData_Value23(const KPluginMetaData* self, const libqt_string key, const libqt_string defaultValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);

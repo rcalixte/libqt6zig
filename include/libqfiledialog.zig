@@ -1423,6 +1423,22 @@ pub const qfiledialog = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileContent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` nameFilter: []const u8 `
+    ///
+    /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: qtc.libqt_string) callconv(.c) void `
+    ///
+    pub fn GetOpenFileContent(nameFilter: []const u8, fileContentsReady: *const fn ([*:0]const u8, qtc.libqt_string) callconv(.c) void) void {
+        const nameFilter_str = qtc.libqt_string{
+            .len = nameFilter.len,
+            .data = nameFilter.ptr,
+        };
+        qtc.QFileDialog_GetOpenFileContent(nameFilter_str, @bitCast(@intFromPtr(fileContentsReady)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#saveFileContent)
     ///
     /// ## Parameter(s):
@@ -2397,6 +2413,24 @@ pub const qfiledialog = struct {
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileContent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` nameFilter: []const u8 `
+    ///
+    /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: qtc.libqt_string) callconv(.c) void `
+    ///
+    /// ` parent: QtC.QWidget `
+    ///
+    pub fn GetOpenFileContent3(nameFilter: []const u8, fileContentsReady: *const fn ([*:0]const u8, qtc.libqt_string) callconv(.c) void, parent: ?*anyopaque) void {
+        const nameFilter_str = qtc.libqt_string{
+            .len = nameFilter.len,
+            .data = nameFilter.ptr,
+        };
+        qtc.QFileDialog_GetOpenFileContent3(nameFilter_str, @bitCast(@intFromPtr(fileContentsReady)), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#saveFileContent)

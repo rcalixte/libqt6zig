@@ -30,6 +30,7 @@ typedef struct QWebEngineCookieStore__FilterRequest QWebEngineCookieStore__Filte
 QMetaObject* QWebEngineCookieStore_MetaObject(const QWebEngineCookieStore* self);
 void* QWebEngineCookieStore_Metacast(QWebEngineCookieStore* self, const char* param1);
 int QWebEngineCookieStore_Metacall(QWebEngineCookieStore* self, int param1, int param2, void** param3);
+void QWebEngineCookieStore_SetCookieFilter(QWebEngineCookieStore* self, intptr_t filterCallback);
 void QWebEngineCookieStore_SetCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie);
 void QWebEngineCookieStore_DeleteCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie);
 void QWebEngineCookieStore_DeleteSessionCookies(QWebEngineCookieStore* self);
