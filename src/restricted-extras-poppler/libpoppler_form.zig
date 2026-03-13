@@ -3909,6 +3909,16 @@ pub const poppler = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` param1: *const fn (funcparam1: [*:0]const u8) callconv(.c) qtc.libqt_string `
+    ///
+    pub fn SetNSSPasswordCallback(param1: *const fn ([*:0]const u8) callconv(.c) qtc.libqt_string) void {
+        qtc.Poppler_SetNSSPasswordCallback(@bitCast(@intFromPtr(param1)));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` param1: bool `
     ///
     pub fn SetPgpSignaturesAllowed(param1: bool) void {

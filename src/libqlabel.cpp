@@ -138,6 +138,17 @@ void QLabel_SetTextFormat(QLabel* self, int textFormat) {
     self->setTextFormat(static_cast<Qt::TextFormat>(textFormat));
 }
 
+void QLabel_SetResourceProvider(QLabel* self, intptr_t provider) {
+    auto provider_func = [provider](const QUrl& funcparam1_fp) -> QVariant {
+        const QUrl& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QUrl* funcparam1_fv = const_cast<QUrl*>(&funcparam1_ret);
+        auto provider_funcret = reinterpret_cast<QVariant (*)(QUrl*)>(provider)(funcparam1_fv);
+        return static_cast<QVariant>(provider_funcret);
+    };
+    self->setResourceProvider(provider_func);
+}
+
 int QLabel_Alignment(const QLabel* self) {
     return static_cast<int>(self->alignment());
 }

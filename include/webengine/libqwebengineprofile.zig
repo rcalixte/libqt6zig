@@ -754,6 +754,18 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetPushServiceEnabled(@ptrCast(self), enabled);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setNotificationPresenter)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineProfile `
+    ///
+    /// ` notificationPresenter: *const fn (funcparam1: QtC.QWebEngineNotification (WARNING: The library takes ownership of this parameter's memory and attempting to access it will lead to a crash.)) callconv(.c) void `
+    ///
+    pub fn SetNotificationPresenter(self: ?*anyopaque, notificationPresenter: *const fn (QtC.QWebEngineNotification) callconv(.c) void) void {
+        qtc.QWebEngineProfile_SetNotificationPresenter(@ptrCast(self), @bitCast(@intFromPtr(notificationPresenter)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clientCertificateStore)
     ///
     /// ## Parameter(s):
@@ -762,6 +774,38 @@ pub const qwebengineprofile = struct {
     ///
     pub fn ClientCertificateStore(self: ?*anyopaque) QtC.QWebEngineClientCertificateStore {
         return qtc.QWebEngineProfile_ClientCertificateStore(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#requestIconForPageURL)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineProfile `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` desiredSizeInPixel: i32 `
+    ///
+    /// ` iconAvailableCallback: *const fn (funcparam1: QtC.QIcon, funcparam2: QtC.QUrl, funcparam3: QtC.QUrl) callconv(.c) void `
+    ///
+    pub fn RequestIconForPageURL(self: ?*anyopaque, url: ?*anyopaque, desiredSizeInPixel: i32, iconAvailableCallback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineProfile_RequestIconForPageURL(@ptrCast(self), @ptrCast(url), @bitCast(desiredSizeInPixel), @bitCast(@intFromPtr(iconAvailableCallback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#requestIconForIconURL)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineProfile `
+    ///
+    /// ` url: QtC.QUrl `
+    ///
+    /// ` desiredSizeInPixel: i32 `
+    ///
+    /// ` iconAvailableCallback: *const fn (funcparam1: QtC.QIcon, funcparam2: QtC.QUrl) callconv(.c) void `
+    ///
+    pub fn RequestIconForIconURL(self: ?*anyopaque, url: ?*anyopaque, desiredSizeInPixel: i32, iconAvailableCallback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineProfile_RequestIconForIconURL(@ptrCast(self), @ptrCast(url), @bitCast(desiredSizeInPixel), @bitCast(@intFromPtr(iconAvailableCallback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#queryPermission)

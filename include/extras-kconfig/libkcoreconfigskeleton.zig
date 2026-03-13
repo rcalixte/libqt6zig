@@ -1173,6 +1173,18 @@ pub const kpropertyskeletonitem = struct {
         qtc.KPropertySkeletonItem_SuperSwapDefault(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kpropertyskeletonitem.html#setNotifyFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPropertySkeletonItem `
+    ///
+    /// ` impl: *const fn () callconv(.c) void `
+    ///
+    pub fn SetNotifyFunction(self: ?*anyopaque, impl: *const fn () callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_SetNotifyFunction(@ptrCast(self), @bitCast(@intFromPtr(impl)));
+    }
+
     /// Inherited from KConfigSkeletonItem
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setGroup)

@@ -66,6 +66,28 @@ bool QWebEngineFrame_IsMainFrame(const QWebEngineFrame* self) {
     return self->isMainFrame();
 }
 
+void QWebEngineFrame_RunJavaScript(QWebEngineFrame* self, const libqt_string script, intptr_t callback) {
+    QString script_QString = QString::fromUtf8(script.data, script.len);
+    auto callback_func = [callback](const QVariant& funcparam1_fp) -> void {
+        const QVariant& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QVariant* funcparam1_fv = const_cast<QVariant*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QVariant*)>(callback)(funcparam1_fv);
+    };
+    self->runJavaScript(script_QString, callback_func);
+}
+
+void QWebEngineFrame_RunJavaScript2(QWebEngineFrame* self, const libqt_string script, unsigned int worldId, intptr_t callback) {
+    QString script_QString = QString::fromUtf8(script.data, script.len);
+    auto callback_func = [callback](const QVariant& funcparam1_fp) -> void {
+        const QVariant& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QVariant* funcparam1_fv = const_cast<QVariant*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QVariant*)>(callback)(funcparam1_fv);
+    };
+    self->runJavaScript(script_QString, static_cast<quint32>(worldId), callback_func);
+}
+
 void QWebEngineFrame_RunJavaScript3(QWebEngineFrame* self, const libqt_string script) {
     QString script_QString = QString::fromUtf8(script.data, script.len);
     self->runJavaScript(script_QString);
@@ -74,6 +96,19 @@ void QWebEngineFrame_RunJavaScript3(QWebEngineFrame* self, const libqt_string sc
 void QWebEngineFrame_PrintToPdf(QWebEngineFrame* self, const libqt_string filePath) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString);
+}
+
+void QWebEngineFrame_PrintToPdf2(QWebEngineFrame* self, intptr_t callback) {
+    auto callback_func = [callback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(callback)(funcparam1_fv);
+    };
+    self->printToPdf(callback_func);
 }
 
 void QWebEngineFrame_RunJavaScript22(QWebEngineFrame* self, const libqt_string script, unsigned int worldId) {

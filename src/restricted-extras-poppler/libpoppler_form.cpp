@@ -1120,6 +1120,15 @@ void Poppler_SetNSSDir(const libqt_string param1) {
     Poppler::setNSSDir(param1_QString);
 }
 
+void Poppler_SetNSSPasswordCallback(intptr_t param1) {
+    auto param1_func = [param1](const char* funcparam1_fp) -> char* {
+        const char* funcparam1_fv = (const char*)funcparam1_fp;
+        auto param1_funcret = reinterpret_cast<char* (*)(const char*)>(param1)(funcparam1_fv);
+        return static_cast<char*>(param1_funcret);
+    };
+    Poppler::setNSSPasswordCallback(param1_func);
+}
+
 void Poppler_SetPgpSignaturesAllowed(bool param1) {
     Poppler::setPgpSignaturesAllowed(param1);
 }

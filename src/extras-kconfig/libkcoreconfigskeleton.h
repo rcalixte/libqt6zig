@@ -201,6 +201,7 @@ void KPropertySkeletonItem_WriteConfig(KPropertySkeletonItem* self, KConfig* par
 void KPropertySkeletonItem_ReadDefault(KPropertySkeletonItem* self, KConfig* param1);
 void KPropertySkeletonItem_SetDefault(KPropertySkeletonItem* self);
 void KPropertySkeletonItem_SwapDefault(KPropertySkeletonItem* self);
+void KPropertySkeletonItem_SetNotifyFunction(KPropertySkeletonItem* self, intptr_t impl);
 void KPropertySkeletonItem_OnProperty(const KPropertySkeletonItem* self, intptr_t slot);
 QVariant* KPropertySkeletonItem_SuperProperty(const KPropertySkeletonItem* self);
 void KPropertySkeletonItem_OnSetProperty(KPropertySkeletonItem* self, intptr_t slot);

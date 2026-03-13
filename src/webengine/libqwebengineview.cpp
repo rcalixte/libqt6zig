@@ -229,6 +229,19 @@ void QWebEngineView_PrintToPdf(QWebEngineView* self, const libqt_string filePath
     self->printToPdf(filePath_QString);
 }
 
+void QWebEngineView_PrintToPdf2(QWebEngineView* self, intptr_t resultCallback) {
+    auto resultCallback_func = [resultCallback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(resultCallback)(funcparam1_fv);
+    };
+    self->printToPdf(resultCallback_func);
+}
+
 void QWebEngineView_Print(QWebEngineView* self, QPrinter* printer) {
     self->print(printer);
 }
@@ -526,6 +539,17 @@ void QWebEngineView_FindText2(QWebEngineView* self, const libqt_string subString
     self->findText(subString_QString, static_cast<QWebEnginePage::FindFlags>(options));
 }
 
+void QWebEngineView_FindText3(QWebEngineView* self, const libqt_string subString, int options, intptr_t resultCallback) {
+    QString subString_QString = QString::fromUtf8(subString.data, subString.len);
+    auto resultCallback_func = [resultCallback](const QWebEngineFindTextResult& funcparam1_fp) -> void {
+        const QWebEngineFindTextResult& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QWebEngineFindTextResult* funcparam1_fv = const_cast<QWebEngineFindTextResult*>(&funcparam1_ret);
+        reinterpret_cast<void (*)(QWebEngineFindTextResult*)>(resultCallback)(funcparam1_fv);
+    };
+    self->findText(subString_QString, static_cast<QWebEnginePage::FindFlags>(options), resultCallback_func);
+}
+
 void QWebEngineView_PrintToPdf22(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout);
@@ -534,6 +558,32 @@ void QWebEngineView_PrintToPdf22(QWebEngineView* self, const libqt_string filePa
 void QWebEngineView_PrintToPdf3(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout, *ranges);
+}
+
+void QWebEngineView_PrintToPdf23(QWebEngineView* self, intptr_t resultCallback, const QPageLayout* layout) {
+    auto resultCallback_func = [resultCallback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(resultCallback)(funcparam1_fv);
+    };
+    self->printToPdf(resultCallback_func, *layout);
+}
+
+void QWebEngineView_PrintToPdf32(QWebEngineView* self, intptr_t resultCallback, const QPageLayout* layout, const QPageRanges* ranges) {
+    auto resultCallback_func = [resultCallback](const QByteArray& funcparam1_fp) -> void {
+        const QByteArray funcparam1_qb = funcparam1_fp;
+        libqt_string funcparam1_str;
+        funcparam1_str.len = funcparam1_qb.length();
+        funcparam1_str.data = static_cast<char*>(malloc(funcparam1_str.len));
+        memcpy((void*)funcparam1_str.data, funcparam1_qb.data(), funcparam1_str.len);
+        libqt_string funcparam1_fv = funcparam1_str;
+        reinterpret_cast<void (*)(libqt_string)>(resultCallback)(funcparam1_fv);
+    };
+    self->printToPdf(resultCallback_func, *layout, *ranges);
 }
 
 // Base class handler implementation

@@ -62,6 +62,8 @@ bool KPluginMetaData_OperatorEqual(const KPluginMetaData* self, const KPluginMet
 bool KPluginMetaData_OperatorNotEqual(const KPluginMetaData* self, const KPluginMetaData* other);
 bool KPluginMetaData_IsStaticPlugin(const KPluginMetaData* self);
 KPluginMetaData* KPluginMetaData_FindPluginById3(const libqt_string directory, const libqt_string pluginId, int options);
+libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins2(const libqt_string directory, intptr_t filter);
+libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins3(const libqt_string directory, intptr_t filter, int options);
 libqt_string KPluginMetaData_Value23(const KPluginMetaData* self, const libqt_string key, const libqt_string defaultValue);
 void KPluginMetaData_Delete(KPluginMetaData* self);
 

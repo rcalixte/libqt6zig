@@ -917,6 +917,28 @@ pub const qtextdocument = struct {
         qtc.QTextDocument_AddResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name), @ptrCast(resource));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setResourceProvider)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTextDocument `
+    ///
+    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    ///
+    pub fn SetResourceProvider(self: ?*anyopaque, provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QTextDocument_SetResourceProvider(@ptrCast(self), @bitCast(@intFromPtr(provider)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultResourceProvider)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    ///
+    pub fn SetDefaultResourceProvider(provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QTextDocument_SetDefaultResourceProvider(@bitCast(@intFromPtr(provider)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#allFormats)
     ///
     /// ## Parameter(s):

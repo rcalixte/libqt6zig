@@ -309,6 +309,13 @@ void QProcess_SetStandardOutputProcess(QProcess* self, QProcess* destination) {
     self->setStandardOutputProcess(destination);
 }
 
+void QProcess_SetChildProcessModifier(QProcess* self, intptr_t modifier) {
+    auto modifier_func = [modifier]() -> void {
+        reinterpret_cast<void (*)()>(modifier)();
+    };
+    self->setChildProcessModifier(modifier_func);
+}
+
 void QProcess_FailChildProcessModifier(QProcess* self, const char* description) {
     self->failChildProcessModifier(description);
 }

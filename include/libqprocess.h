@@ -76,6 +76,7 @@ void QProcess_SetStandardInputFile(QProcess* self, const libqt_string fileName);
 void QProcess_SetStandardOutputFile(QProcess* self, const libqt_string fileName);
 void QProcess_SetStandardErrorFile(QProcess* self, const libqt_string fileName);
 void QProcess_SetStandardOutputProcess(QProcess* self, QProcess* destination);
+void QProcess_SetChildProcessModifier(QProcess* self, intptr_t modifier);
 void QProcess_FailChildProcessModifier(QProcess* self, const char* description);
 QProcess__UnixProcessParameters* QProcess_UnixProcessParameters(const QProcess* self);
 void QProcess_SetUnixProcessParameters(QProcess* self, const QProcess__UnixProcessParameters* params);

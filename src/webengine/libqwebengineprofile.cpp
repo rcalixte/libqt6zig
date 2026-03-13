@@ -20,6 +20,7 @@
 #include <QWebEngineSettings>
 #include <QWebEngineUrlRequestInterceptor>
 #include <QWebEngineUrlSchemeHandler>
+#include <QWebEngineNotification>
 #include <qwebengineprofile.h>
 #include "libqwebengineprofile.h"
 #include "libqwebengineprofile.hxx"
@@ -315,8 +316,45 @@ void QWebEngineProfile_SetPushServiceEnabled(QWebEngineProfile* self, bool enabl
     self->setPushServiceEnabled(enabled);
 }
 
+void QWebEngineProfile_SetNotificationPresenter(QWebEngineProfile* self, intptr_t notificationPresenter) {
+    auto notificationPresenter_func = [notificationPresenter](std::unique_ptr<QWebEngineNotification> funcparam1_fp) -> void {
+        QWebEngineNotification* funcparam1_fv = funcparam1_fp.release();
+        reinterpret_cast<void (*)(QWebEngineNotification*)>(notificationPresenter)(funcparam1_fv);
+    };
+    self->setNotificationPresenter(notificationPresenter_func);
+}
+
 QWebEngineClientCertificateStore* QWebEngineProfile_ClientCertificateStore(QWebEngineProfile* self) {
     return self->clientCertificateStore();
+}
+
+void QWebEngineProfile_RequestIconForPageURL(const QWebEngineProfile* self, const QUrl* url, int desiredSizeInPixel, intptr_t iconAvailableCallback) {
+    auto iconAvailableCallback_func = [iconAvailableCallback](const QIcon& funcparam1_fp, const QUrl& funcparam2_fp, const QUrl& funcparam3_fp) -> void {
+        const QIcon& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QIcon* funcparam1_fv = const_cast<QIcon*>(&funcparam1_ret);
+        const QUrl& funcparam2_ret = funcparam2_fp;
+        // Cast returned reference into pointer
+        QUrl* funcparam2_fv = const_cast<QUrl*>(&funcparam2_ret);
+        const QUrl& funcparam3_ret = funcparam3_fp;
+        // Cast returned reference into pointer
+        QUrl* funcparam3_fv = const_cast<QUrl*>(&funcparam3_ret);
+        reinterpret_cast<void (*)(QIcon*, QUrl*, QUrl*)>(iconAvailableCallback)(funcparam1_fv, funcparam2_fv, funcparam3_fv);
+    };
+    self->requestIconForPageURL(*url, static_cast<int>(desiredSizeInPixel), iconAvailableCallback_func);
+}
+
+void QWebEngineProfile_RequestIconForIconURL(const QWebEngineProfile* self, const QUrl* url, int desiredSizeInPixel, intptr_t iconAvailableCallback) {
+    auto iconAvailableCallback_func = [iconAvailableCallback](const QIcon& funcparam1_fp, const QUrl& funcparam2_fp) -> void {
+        const QIcon& funcparam1_ret = funcparam1_fp;
+        // Cast returned reference into pointer
+        QIcon* funcparam1_fv = const_cast<QIcon*>(&funcparam1_ret);
+        const QUrl& funcparam2_ret = funcparam2_fp;
+        // Cast returned reference into pointer
+        QUrl* funcparam2_fv = const_cast<QUrl*>(&funcparam2_ret);
+        reinterpret_cast<void (*)(QIcon*, QUrl*)>(iconAvailableCallback)(funcparam1_fv, funcparam2_fv);
+    };
+    self->requestIconForIconURL(*url, static_cast<int>(desiredSizeInPixel), iconAvailableCallback_func);
 }
 
 QWebEnginePermission* QWebEngineProfile_QueryPermission(const QWebEngineProfile* self, const QUrl* securityOrigin, uint8_t permissionType) {

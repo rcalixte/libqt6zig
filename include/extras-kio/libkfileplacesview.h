@@ -78,6 +78,7 @@ void KFilePlacesView_SetDragAutoActivationDelay(KFilePlacesView* self, int delay
 int KFilePlacesView_DragAutoActivationDelay(const KFilePlacesView* self);
 void KFilePlacesView_SetAutoResizeItemsEnabled(KFilePlacesView* self, bool enabled);
 bool KFilePlacesView_IsAutoResizeItemsEnabled(const KFilePlacesView* self);
+void KFilePlacesView_SetTeardownFunction(KFilePlacesView* self, intptr_t teardownFunc);
 QSize* KFilePlacesView_SizeHint(const KFilePlacesView* self);
 void KFilePlacesView_SetUrl(KFilePlacesView* self, const QUrl* url);
 void KFilePlacesView_SetShowAll(KFilePlacesView* self, bool showAll);

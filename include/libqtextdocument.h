@@ -105,6 +105,8 @@ bool QTextDocument_IsModified(const QTextDocument* self);
 void QTextDocument_Print(const QTextDocument* self, QPagedPaintDevice* printer);
 QVariant* QTextDocument_Resource(const QTextDocument* self, int typeVal, const QUrl* name);
 void QTextDocument_AddResource(QTextDocument* self, int typeVal, const QUrl* name, const QVariant* resource);
+void QTextDocument_SetResourceProvider(QTextDocument* self, intptr_t provider);
+void QTextDocument_SetDefaultResourceProvider(intptr_t provider);
 libqt_list /* of QTextFormat* */ QTextDocument_AllFormats(const QTextDocument* self);
 void QTextDocument_MarkContentsDirty(QTextDocument* self, int from, int length);
 void QTextDocument_SetUseDesignMetrics(QTextDocument* self, bool b);

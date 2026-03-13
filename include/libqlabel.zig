@@ -329,6 +329,18 @@ pub const qlabel = struct {
         qtc.QLabel_SetTextFormat(@ptrCast(self), @bitCast(textFormat));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setResourceProvider)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLabel `
+    ///
+    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    ///
+    pub fn SetResourceProvider(self: ?*anyopaque, provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QLabel_SetResourceProvider(@ptrCast(self), @bitCast(@intFromPtr(provider)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#alignment)
     ///
     /// ## Parameter(s):

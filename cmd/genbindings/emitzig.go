@@ -1389,9 +1389,10 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// Single char** argument
 			zfs.imports["std"] = struct{}{}
 
-			maybeErr := ifv(p.ParameterName == "argv", "err", "")
 			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-			preamble += maybeErr + "defer allocator.free(" + nameprefix + "_chararr);\n"
+			if p.ParameterName != "argv" {
+				preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
+			}
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i| {\n"
 			preamble += "    " + nameprefix + "_chararr[i] = @ptrCast(str.ptr);\n"
 			preamble += "}\n"
@@ -2537,7 +2538,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		seenVirtuals := map[string]bool{}
 
 		for _, m := range virtualMethods {
-			if !virtualEligible {
+			if !virtualEligible || m.HasStdFunctionPointerParam {
 				continue
 			}
 

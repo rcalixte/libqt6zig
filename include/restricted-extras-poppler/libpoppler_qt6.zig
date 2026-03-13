@@ -2529,6 +2529,18 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` self: QtC.Poppler__Document `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
+    pub fn SetXRefReconstructedCallback(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Poppler__Document_SetXRefReconstructedCallback(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` filePath: []const u8 `
     ///
     /// ` ownerPassword: []u8 `

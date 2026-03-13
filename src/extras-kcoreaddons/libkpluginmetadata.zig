@@ -673,6 +673,54 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_FindPluginById3(directory_str, pluginId_str, @bitCast(options));
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#findPlugins)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` directory: []const u8 `
+    ///
+    /// ` filter: *const fn (funcparam1: QtC.KPluginMetaData) callconv(.c) bool `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn FindPlugins2(directory: []const u8, filter: *const fn (?*anyopaque) callconv(.c) bool, allocator: std.mem.Allocator) []QtC.KPluginMetaData {
+        const directory_str = qtc.libqt_string{
+            .len = directory.len,
+            .data = directory.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KPluginMetaData_FindPlugins2(directory_str, @bitCast(@intFromPtr(filter)));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.KPluginMetaData, _arr.len) catch @panic("kpluginmetadata.FindPlugins2: Memory allocation failed");
+        const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#findPlugins)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` directory: []const u8 `
+    ///
+    /// ` filter: *const fn (funcparam1: QtC.KPluginMetaData) callconv(.c) bool `
+    ///
+    /// ` options: flag of kpluginmetadata_enums.KPluginMetaDataOption `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn FindPlugins3(directory: []const u8, filter: *const fn (?*anyopaque) callconv(.c) bool, options: i32, allocator: std.mem.Allocator) []QtC.KPluginMetaData {
+        const directory_str = qtc.libqt_string{
+            .len = directory.len,
+            .data = directory.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KPluginMetaData_FindPlugins3(directory_str, @bitCast(@intFromPtr(filter)), @bitCast(options));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.KPluginMetaData, _arr.len) catch @panic("kpluginmetadata.FindPlugins3: Memory allocation failed");
+        const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
     ///
     /// ## Parameter(s):

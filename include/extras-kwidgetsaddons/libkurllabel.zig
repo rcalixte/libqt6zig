@@ -1011,6 +1011,20 @@ pub const kurllabel = struct {
 
     /// Inherited from QLabel
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setResourceProvider)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KUrlLabel `
+    ///
+    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    ///
+    pub fn SetResourceProvider(self: ?*anyopaque, provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QLabel_SetResourceProvider(@ptrCast(self), @bitCast(@intFromPtr(provider)));
+    }
+
+    /// Inherited from QLabel
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#alignment)
     ///
     /// ## Parameter(s):

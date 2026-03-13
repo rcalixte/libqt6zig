@@ -544,6 +544,18 @@ pub const qwebengineview = struct {
         qtc.QWebEngineView_PrintToPdf(@ptrCast(self), filePath_str);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineView `
+    ///
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    ///
+    pub fn PrintToPdf2(self: ?*anyopaque, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void) void {
+        qtc.QWebEngineView_PrintToPdf2(@ptrCast(self), @bitCast(@intFromPtr(resultCallback)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#print)
     ///
     /// ## Parameter(s):
@@ -1492,6 +1504,26 @@ pub const qwebengineview = struct {
         qtc.QWebEngineView_FindText2(@ptrCast(self), subString_str, @bitCast(options));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#findText)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineView `
+    ///
+    /// ` subString: []const u8 `
+    ///
+    /// ` options: flag of qwebenginepage_enums.FindFlag `
+    ///
+    /// ` resultCallback: *const fn (funcparam1: QtC.QWebEngineFindTextResult) callconv(.c) void `
+    ///
+    pub fn FindText3(self: ?*anyopaque, subString: []const u8, options: i32, resultCallback: *const fn (?*anyopaque) callconv(.c) void) void {
+        const subString_str = qtc.libqt_string{
+            .len = subString.len,
+            .data = subString.ptr,
+        };
+        qtc.QWebEngineView_FindText3(@ptrCast(self), subString_str, @bitCast(options), @bitCast(@intFromPtr(resultCallback)));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
     ///
     /// ## Parameter(s):
@@ -1528,6 +1560,36 @@ pub const qwebengineview = struct {
             .data = filePath.ptr,
         };
         qtc.QWebEngineView_PrintToPdf3(@ptrCast(self), filePath_str, @ptrCast(layout), @ptrCast(ranges));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineView `
+    ///
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    ///
+    /// ` layout: QtC.QPageLayout `
+    ///
+    pub fn PrintToPdf23(self: ?*anyopaque, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, layout: ?*anyopaque) void {
+        qtc.QWebEngineView_PrintToPdf23(@ptrCast(self), @bitCast(@intFromPtr(resultCallback)), @ptrCast(layout));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineView `
+    ///
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    ///
+    /// ` layout: QtC.QPageLayout `
+    ///
+    /// ` ranges: QtC.QPageRanges `
+    ///
+    pub fn PrintToPdf32(self: ?*anyopaque, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, layout: ?*anyopaque, ranges: ?*anyopaque) void {
+        qtc.QWebEngineView_PrintToPdf32(@ptrCast(self), @bitCast(@intFromPtr(resultCallback)), @ptrCast(layout), @ptrCast(ranges));
     }
 
     /// Inherited from QWidget

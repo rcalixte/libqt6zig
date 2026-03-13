@@ -714,6 +714,20 @@ pub const qmetatype = struct {
         return qtc.QMetaType_HasRegisteredMutableViewFunction(@ptrCast(fromType), @ptrCast(toType));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerConverterFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` f: *const fn (funcparam1: ?*const anyopaque, funcparam2: ?*anyopaque) callconv(.c) bool `
+    ///
+    /// ` from: QtC.QMetaType `
+    ///
+    /// ` to: QtC.QMetaType `
+    ///
+    pub fn RegisterConverterFunction(f: *const fn (?*const anyopaque, ?*anyopaque) callconv(.c) bool, from: QtC.QMetaType, to: QtC.QMetaType) bool {
+        return qtc.QMetaType_RegisterConverterFunction(@bitCast(@intFromPtr(f)), @ptrCast(from), @ptrCast(to));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterConverterFunction)
     ///
     /// ## Parameter(s):
@@ -724,6 +738,20 @@ pub const qmetatype = struct {
     ///
     pub fn UnregisterConverterFunction(from: QtC.QMetaType, to: QtC.QMetaType) void {
         qtc.QMetaType_UnregisterConverterFunction(@ptrCast(from), @ptrCast(to));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerMutableViewFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` f: *const fn (funcparam1: ?*anyopaque, funcparam2: ?*anyopaque) callconv(.c) bool `
+    ///
+    /// ` from: QtC.QMetaType `
+    ///
+    /// ` to: QtC.QMetaType `
+    ///
+    pub fn RegisterMutableViewFunction(f: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool, from: QtC.QMetaType, to: QtC.QMetaType) bool {
+        return qtc.QMetaType_RegisterMutableViewFunction(@bitCast(@intFromPtr(f)), @ptrCast(from), @ptrCast(to));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterMutableViewFunction)

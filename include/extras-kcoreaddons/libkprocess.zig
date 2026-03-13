@@ -998,6 +998,20 @@ pub const kprocess = struct {
 
     /// Inherited from QProcess
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setChildProcessModifier)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KProcess `
+    ///
+    /// ` modifier: *const fn () callconv(.c) void `
+    ///
+    pub fn SetChildProcessModifier(self: ?*anyopaque, modifier: *const fn () callconv(.c) void) void {
+        qtc.QProcess_SetChildProcessModifier(@ptrCast(self), @bitCast(@intFromPtr(modifier)));
+    }
+
+    /// Inherited from QProcess
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
     ///
     /// ## Parameter(s):

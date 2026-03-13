@@ -282,6 +282,7 @@ int Poppler__Document_FormType(const Poppler__Document* self);
 libqt_list /* of int */ Poppler__Document_FormCalculateOrder(const Poppler__Document* self);
 libqt_list /* of Poppler__FormFieldSignature* */ Poppler__Document_Signatures(const Poppler__Document* self);
 bool Poppler__Document_XrefWasReconstructed(const Poppler__Document* self);
+void Poppler__Document_SetXRefReconstructedCallback(Poppler__Document* self, intptr_t callback);
 Poppler__Document* Poppler__Document_Load22(const libqt_string filePath, const libqt_string ownerPassword);
 Poppler__Document* Poppler__Document_Load3(const libqt_string filePath, const libqt_string ownerPassword, const libqt_string userPassword);
 Poppler__Document* Poppler__Document_Load23(QIODevice* device, const libqt_string ownerPassword);

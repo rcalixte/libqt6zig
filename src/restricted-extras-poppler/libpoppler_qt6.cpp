@@ -1138,6 +1138,13 @@ bool Poppler__Document_XrefWasReconstructed(const Poppler__Document* self) {
     return self->xrefWasReconstructed();
 }
 
+void Poppler__Document_SetXRefReconstructedCallback(Poppler__Document* self, intptr_t callback) {
+    auto callback_func = [callback]() -> void {
+        reinterpret_cast<void (*)()>(callback)();
+    };
+    self->setXRefReconstructedCallback(callback_func);
+}
+
 Poppler__Document* Poppler__Document_Load22(const libqt_string filePath, const libqt_string ownerPassword) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     QByteArray ownerPassword_QByteArray(ownerPassword.data, ownerPassword.len);

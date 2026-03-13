@@ -252,8 +252,28 @@ bool QMetaType_HasRegisteredMutableViewFunction(QMetaType* fromType, QMetaType* 
     return QMetaType::hasRegisteredMutableViewFunction(*fromType, *toType);
 }
 
+bool QMetaType_RegisterConverterFunction(intptr_t f, QMetaType* from, QMetaType* to) {
+    auto f_func = [f](const void* funcparam1_fp, void* funcparam2_fp) -> bool {
+        const void* funcparam1_fv = (const void*)funcparam1_fp;
+        void* funcparam2_fv = funcparam2_fp;
+        auto f_funcret = reinterpret_cast<bool (*)(const void*, void*)>(f)(funcparam1_fv, funcparam2_fv);
+        return static_cast<bool>(f_funcret);
+    };
+    return QMetaType::registerConverterFunction(f_func, *from, *to);
+}
+
 void QMetaType_UnregisterConverterFunction(QMetaType* from, QMetaType* to) {
     QMetaType::unregisterConverterFunction(*from, *to);
+}
+
+bool QMetaType_RegisterMutableViewFunction(intptr_t f, QMetaType* from, QMetaType* to) {
+    auto f_func = [f](void* funcparam1_fp, void* funcparam2_fp) -> bool {
+        void* funcparam1_fv = funcparam1_fp;
+        void* funcparam2_fv = funcparam2_fp;
+        auto f_funcret = reinterpret_cast<bool (*)(void*, void*)>(f)(funcparam1_fv, funcparam2_fv);
+        return static_cast<bool>(f_funcret);
+    };
+    return QMetaType::registerMutableViewFunction(f_func, *from, *to);
 }
 
 void QMetaType_UnregisterMutableViewFunction(QMetaType* from, QMetaType* to) {

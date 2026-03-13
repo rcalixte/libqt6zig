@@ -199,6 +199,7 @@ func AllowClass(className string) bool {
 	}
 
 	if strings.HasPrefix(className, "std::pair<") || strings.HasPrefix(className, "std::unique_ptr<") ||
+		(strings.HasPrefix(className, "std::function<") && strings.HasSuffix(className, ">")) ||
 		strings.HasPrefix(className, "std::vector<") ||
 		(strings.HasPrefix(className, "std::chrono::") && strings.HasSuffix(className, "seconds")) ||
 		strings.HasPrefix(className, "std::map") || strings.HasPrefix(className, "std::multimap") ||
@@ -551,6 +552,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // This whole class type has been blocked, not only as a parameter/return type
 	}
 
+	if (strings.HasPrefix(p.ParameterType, "std::function<") && strings.HasSuffix(p.ParameterType, ">")) && !isReturnType {
+		return nil
+	}
 	if strings.Contains(p.ParameterType, "(*)") && !AllowFunctionParameter(p.ParameterType) { // Blocked function pointer parameters
 		return ErrTooComplex // e.g. QAccessible::installFactory, QSettings::registerFormat
 	}
@@ -619,6 +623,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return AllowType(t, isReturnType)
 	}
 	if strings.HasPrefix(p.ParameterType, "std::pair<") || p.IsChronoSeconds() || p.StdHashMapType() ||
+		((strings.HasPrefix(p.ParameterType, "std::function<") && strings.HasSuffix(p.ParameterType, ">")) && !isReturnType) ||
 		strings.HasPrefix(p.ParameterType, "std::vector<") {
 		// supported std:: types
 		return nil
@@ -785,7 +790,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPlatformMediaCaptureSession",    // Qt 6 Multimedia qmediacapturesession.h
 		"QPlatformMediaRecorder",          // Qt 6 Multimedia qmediarecorder.h
 		"QPlatformVideoSink",              // Qt 6 Multimedia qvideosink.h
-		"QTextDocument::ResourceProvider", // Qt 6 typedef for unsupported std::function<QVariant(const QUrl&)>
 		"QTransform::Affine",              // Qt 6 qtransform.h - public method returning private type
 		"QRhi",                            // Qt 6 unstable types, used in Multimedia
 		"QPostEventList",                  // Qt QCoreApplication: private headers required
