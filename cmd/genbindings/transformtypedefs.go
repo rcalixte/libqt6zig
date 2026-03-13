@@ -160,9 +160,14 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 		p.ParameterType = resolveStructType(ctd.Class.ClassName, className, namespace)
 	}
 
-	if strings.Contains(p.ParameterType, "(*)") {
+	if strings.Contains(p.ParameterType, "(*)") || strings.HasPrefix(p.ParameterType, "std::function<") {
 		typeStr := strings.ReplaceAll(p.ParameterType, " *", "* ")
 		typeStr = strings.Replace(typeStr, "(*)", " ", 1)
+		if strings.HasPrefix(typeStr, "std::function<") {
+			typeStr = typeStr[14 : len(typeStr)-1]
+			p.IsStdFunction = true
+		}
+
 		returnType, params, isConst, err := parseTypeString(typeStr, className)
 		if err == nil {
 			returnType = applyTypedefs(returnType, className)
@@ -191,6 +196,10 @@ func applyTypedefs_Method(m *CppMethod, className string) {
 		transformed := applyTypedefs(p, className)
 		m.Parameters[k] = transformed
 
+		if transformed.IsStdFunction {
+			m.HasStdFunctionPointerParam = true
+		}
+
 		if FossCompatCheck(transformed) {
 			m.FossOnly = true
 		}
@@ -209,17 +218,28 @@ func astTransformTypedefs(parsed *CppParsedHeader) {
 
 	for i, c := range parsed.Classes {
 
-		for j, m := range c.Methods {
+		methods := make([]CppMethod, 0, len(c.Methods))
+		for _, m := range c.Methods {
 
 			applyTypedefs_Method(&m, c.ClassName)
-			c.Methods[j] = m
+			if m.HasStdFunctionPointerParam && (m.IsProtected || m.IsVirtual) {
+				continue
+			}
+			methods = append(methods, m)
 		}
+		c.Methods = methods
 
-		for j, m := range c.Ctors {
+		ctors := make([]CppMethod, 0, len(c.Ctors))
+		for _, m := range c.Ctors {
 
 			applyTypedefs_Method(&m, c.ClassName)
-			c.Ctors[j] = m
+			if m.HasStdFunctionPointerParam && (m.IsProtected || m.IsVirtual) {
+				continue
+			}
+			ctors = append(ctors, m)
 		}
+		c.Ctors = ctors
+
 		parsed.Classes[i] = c
 	}
 
