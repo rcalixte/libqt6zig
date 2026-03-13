@@ -577,7 +577,45 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			pType = ifv(p.Const, "const ", "") + strings.Replace(pType, "(*)", "*(*)", max(p.PointerCount-1, 0))
 		}
 
-		preamble += "auto " + p.ParameterName + "_func = reinterpret_cast<" + pType + ">(" + p.ParameterName + ");\n"
+		if p.IsStdFunction {
+			var emitAssign, totAssign string
+			params := make([]string, 0, len(p.FunctionPointer.Parameters))
+			pTypes := make([]string, 0, len(p.FunctionPointer.Parameters))
+			pNames := make([]string, 0, len(p.FunctionPointer.Parameters))
+
+			for _, param := range p.FunctionPointer.Parameters {
+				pType := ifv(param.UniquePtr, "std::unique_ptr<"+param.RenderTypeQtCpp()+">", param.RenderTypeQtCpp())
+				params = append(params, pType+" "+param.ParameterName+"_fp")
+				pName := param.ParameterName + "_fv"
+				paramCabi := param.RenderTypeCabi(true)
+				emitAssign, _ = emitAssignCppToCabi(paramCabi+" "+pName+" = ", param, param.ParameterName+"_fp")
+				totAssign += emitAssign
+
+				pTypes = append(pTypes, paramCabi)
+				pNames = append(pNames, pName)
+			}
+
+			retType := p.FunctionPointer.ReturnType.RenderTypeQtCpp()
+
+			preamble += "auto " + p.ParameterName + "_func = [" + p.ParameterName + "](" + strings.Join(params, ",") + ") -> " + retType + "{\n"
+			preamble += totAssign
+
+			var assn, rett string
+			if retType != "void" {
+				assn = "auto " + p.ParameterName + "_funcret = "
+				rett = "return " + "static_cast<" + retType + ">(" + p.ParameterName + "_funcret);"
+			}
+
+			maybePtr := strings.Repeat("*", p.FunctionPointer.ReturnType.PointerCount)
+
+			preamble += assn + "reinterpret_cast<" + p.FunctionPointer.ReturnType.ParameterType + maybePtr + "(*)(" + strings.Join(pTypes, ",") + ")" + ">(" + p.ParameterName + ")("
+			preamble += strings.Join(pNames, ", ") + ");\n"
+			preamble += rett + "\n};\n"
+
+		} else {
+			preamble += "auto " + p.ParameterName + "_func = reinterpret_cast<" + pType + ">(" + p.ParameterName + ");\n"
+		}
+
 		return preamble, p.ParameterName + "_func"
 
 	} else if p.ByRef {
@@ -619,7 +657,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 	var afterCall, retExpr string
 	assignExpression = strings.TrimLeft(assignExpression, " \t")
 	indent := shouldReturn[0 : len(shouldReturn)-len(assignExpression)]
-	isSignal := strings.Contains(assignExpression, "cbval") || strings.Contains(assignExpression, "sigval")
+	isSignal := strings.Contains(assignExpression, "cbval") || strings.Contains(assignExpression, "sigval") || strings.Contains(assignExpression, "funcparam")
 
 	shouldReturn = shouldReturn[len(indent):]
 
@@ -1311,7 +1349,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 			virtualMethods = append(virtualMethods, protectedMethods...)
 
 			for _, m := range virtualMethods {
-				if m.IsFinal {
+				if m.IsFinal || m.HasStdFunctionPointerParam {
 					continue
 				}
 
@@ -1401,7 +1439,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 			seenVirtuals := map[string]bool{}
 
 			for _, m := range virtualMethods {
-				if m.IsFinal {
+				if m.IsFinal || m.HasStdFunctionPointerParam {
 					continue
 				}
 
@@ -1771,7 +1809,7 @@ extern "C" {
 		}
 
 		for _, m := range virtualMethods {
-			if !virtualEligible {
+			if !virtualEligible || m.HasStdFunctionPointerParam {
 				continue
 			}
 
@@ -1884,6 +1922,8 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ret.WriteString("#include <poppler-link.h>\n")
 	case "poppler-qt6.h":
 		ret.WriteString("#include <poppler-form.h>\n")
+	case "qwebengineprofile.h":
+		ret.WriteString("#include <QWebEngineNotification>\n")
 	}
 
 	ret.WriteString("#include <" + srcFilename + ">\n")
@@ -2222,7 +2262,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		}
 
 		for _, m := range virtualMethods {
-			if !virtualEligible {
+			if !virtualEligible || m.HasStdFunctionPointerParam {
 				continue
 			}
 
