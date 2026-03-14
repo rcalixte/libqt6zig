@@ -431,6 +431,8 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "isize"
 	case "uintptr_t", "quintptr", "QIntegerForSizeof<void *>::Unsigned":
 		ret += "usize"
+	case "quint128":
+		ret = "u128"
 
 	default:
 		if ft, ok := p.QFlagsOf(); ok {
@@ -2121,6 +2123,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 	}
 
 	for _, c := range src.Classes {
+		if !AllowDefinitionForClass(c.ClassName) {
+			continue
+		}
+
 		virtualMethods := c.VirtualMethods()
 		zigStructName := cabiClassName(c.ClassName)
 		zfs.currentClassName = strings.ReplaceAll(c.ClassName, "::", "__")

@@ -39,17 +39,23 @@ pub fn build(b: *std.Build) !void {
 
         var lines = std.mem.splitScalar(u8, result.stderr, '\n');
         while (lines.next()) |line| {
-            if (std.mem.startsWith(u8, line, " /usr/")) {
+            if (std.mem.startsWith(u8, line, " /")) {
+                const isystem_path = std.mem.trim(u8, line, &std.ascii.whitespace);
+                std.fs.cwd().access(isystem_path, .{}) catch {
+                    continue;
+                };
                 try linux_isystem.append(
                     b.allocator,
-                    b.dupe(std.mem.trim(u8, line, &std.ascii.whitespace)),
+                    isystem_path,
                 );
             }
         }
 
         for (linux_isystem.items) |isystem_path| {
             if (distro == .none) {
-                if (std.mem.containsAtLeastScalar(u8, isystem_path, 2, '.') and !std.mem.containsAtLeast(u8, isystem_path, 1, "..")) {
+                if (std.mem.containsAtLeast(u8, isystem_path, 1, "suse-linux")) {
+                    distro = .suse;
+                } else if (std.mem.containsAtLeastScalar(u8, isystem_path, 2, '.') and !std.mem.containsAtLeast(u8, isystem_path, 1, "..")) {
                     distro = .arch;
                 }
             }
@@ -68,7 +74,9 @@ pub fn build(b: *std.Build) !void {
                 var basename = std.fs.path.basename(entry.path);
                 basename = basename[3 .. basename.len - 4];
                 // conditional removals
-                if ((!is_linux or distro == .arch) and (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
+                if ((!is_linux or distro == .arch or distro == .suse) and (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
+                    continue;
+                if (distro == .suse and std.mem.eql(u8, @tagName(host_arch), "aarch64") and (std.mem.startsWith(u8, basename, "qopenglfunctions_") or std.mem.eql(u8, basename, "qopenglcontext_platform") or std.mem.eql(u8, basename, "qopengltimerquery") or std.mem.eql(u8, basename, "qopenglversionfunctions")))
                     continue;
                 if (is_windows and (std.mem.startsWith(u8, entry.path, "foss-") or std.mem.startsWith(u8, entry.path, "posix-")))
                     continue;
@@ -269,6 +277,7 @@ const os_include_path: []const []const u8 = switch (host_os) {
         "/usr/include",
         "/usr/lib/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6/mkspecs/common/posix",
         "/usr/lib/qt6/mkspecs/common/posix",
+        "/usr/lib64/qt6/mkspecs/common/posix",
     },
     .macos => &.{
         "/usr/local/opt/qt6/include",
@@ -292,6 +301,7 @@ const linux_cpp_flags = &.{
 
 const Distro = enum {
     arch,
+    suse,
     none,
 };
 
@@ -300,6 +310,8 @@ const qt_modules = &.{
     "QtCore",
     "QtGui",
     "QtWidgets",
+    // Qt 6 Bluetooth
+    "QtBluetooth",
     // Qt 6 Charts
     "QtCharts",
     // Qt 6 D-Bus

@@ -1,0 +1,53 @@
+#pragma once
+#ifndef SRC_BLUETOOTHC_LIBQLOWENERGYADVERTISINGPARAMETERS_H
+#define SRC_BLUETOOTHC_LIBQLOWENERGYADVERTISINGPARAMETERS_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QLowEnergyAdvertisingParameters__AddressInfo)
+typedef QLowEnergyAdvertisingParameters::AddressInfo QLowEnergyAdvertisingParameters__AddressInfo;
+#endif
+#else
+typedef struct QBluetoothAddress QBluetoothAddress;
+typedef struct QLowEnergyAdvertisingParameters QLowEnergyAdvertisingParameters;
+typedef struct QLowEnergyAdvertisingParameters__AddressInfo QLowEnergyAdvertisingParameters__AddressInfo;
+#endif
+
+QLowEnergyAdvertisingParameters* QLowEnergyAdvertisingParameters_new();
+QLowEnergyAdvertisingParameters* QLowEnergyAdvertisingParameters_new2(const QLowEnergyAdvertisingParameters* other);
+void QLowEnergyAdvertisingParameters_OperatorAssign(QLowEnergyAdvertisingParameters* self, const QLowEnergyAdvertisingParameters* other);
+void QLowEnergyAdvertisingParameters_SetMode(QLowEnergyAdvertisingParameters* self, int mode);
+int QLowEnergyAdvertisingParameters_Mode(const QLowEnergyAdvertisingParameters* self);
+void QLowEnergyAdvertisingParameters_SetWhiteList(QLowEnergyAdvertisingParameters* self, const libqt_list /* of QLowEnergyAdvertisingParameters__AddressInfo* */ whiteList, int policy);
+libqt_list /* of QLowEnergyAdvertisingParameters__AddressInfo* */ QLowEnergyAdvertisingParameters_WhiteList(const QLowEnergyAdvertisingParameters* self);
+int QLowEnergyAdvertisingParameters_FilterPolicy(const QLowEnergyAdvertisingParameters* self);
+void QLowEnergyAdvertisingParameters_SetInterval(QLowEnergyAdvertisingParameters* self, uint16_t minimum, uint16_t maximum);
+int QLowEnergyAdvertisingParameters_MinimumInterval(const QLowEnergyAdvertisingParameters* self);
+int QLowEnergyAdvertisingParameters_MaximumInterval(const QLowEnergyAdvertisingParameters* self);
+void QLowEnergyAdvertisingParameters_Swap(QLowEnergyAdvertisingParameters* self, QLowEnergyAdvertisingParameters* other);
+void QLowEnergyAdvertisingParameters_Delete(QLowEnergyAdvertisingParameters* self);
+
+QLowEnergyAdvertisingParameters__AddressInfo* QLowEnergyAdvertisingParameters__AddressInfo_new(const QBluetoothAddress* addr, int t);
+QLowEnergyAdvertisingParameters__AddressInfo* QLowEnergyAdvertisingParameters__AddressInfo_new2();
+QLowEnergyAdvertisingParameters__AddressInfo* QLowEnergyAdvertisingParameters__AddressInfo_new3(const QLowEnergyAdvertisingParameters__AddressInfo* param1);
+QBluetoothAddress* QLowEnergyAdvertisingParameters__AddressInfo_Address(const QLowEnergyAdvertisingParameters__AddressInfo* self);
+void QLowEnergyAdvertisingParameters__AddressInfo_SetAddress(QLowEnergyAdvertisingParameters__AddressInfo* self, QBluetoothAddress* address);
+int QLowEnergyAdvertisingParameters__AddressInfo_Type(const QLowEnergyAdvertisingParameters__AddressInfo* self);
+void QLowEnergyAdvertisingParameters__AddressInfo_SetType(QLowEnergyAdvertisingParameters__AddressInfo* self, int type);
+void QLowEnergyAdvertisingParameters__AddressInfo_Delete(QLowEnergyAdvertisingParameters__AddressInfo* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

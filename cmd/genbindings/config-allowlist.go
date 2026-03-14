@@ -135,6 +135,8 @@ func ImportHeaderForClass(className string) bool {
 		"QVLABaseBase",                   // e.g. Qt 6 qvarlengtharray.h
 		"QAdoptSharedDataTag",            // Qt 6 qshareddata.h
 		"qfloat16",                       // Qt 6 qfloat16.h
+		"quint128",                       // Qt 6 qbluetoothuuid.h
+		"QBluetooth",                     // Qt 6 qbluetooth.h
 		"QFormDataPartBuilder",           // Qt 6.8 qformdatabuilder.h
 		"QGenericRunnable",               // Qt 6.8 qrunnable.h
 		"QCameraPermission",              // Qt 6.8 qpermissions.h
@@ -300,6 +302,14 @@ func AllowVirtualForClass(className string) bool {
 	// Pure virtual method registerEventNotifier takes a QWinEventNotifier* on Windows
 	// which is platform-specific
 	if strings.HasPrefix(className, "QAbstractEventDispatcher") {
+		return false
+	}
+
+	return true
+}
+
+func AllowDefinitionForClass(className string) bool {
+	if className == "quint128" {
 		return false
 	}
 
