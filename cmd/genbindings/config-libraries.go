@@ -64,6 +64,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// Qt 6 Bluetooth
+		// Depends on Qt Core
+		{
+			path: "bluetooth",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtBluetooth",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Bluetooth"),
+		},
+
 		// Qt 6 CBOR
 		// Depends on Qt Core
 		{
