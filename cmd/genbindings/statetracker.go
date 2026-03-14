@@ -58,7 +58,7 @@ func (e CppEnum) getEnumTypeZig() string {
 		return "u8"
 	case "ushort", "quint16":
 		return "u16"
-	case "uint32_t", "quint32", "unsigned int":
+	case "uint32_t", "quint32", "unsigned int", "uint":
 		return "u32"
 	case "quint64":
 		return "u64"
