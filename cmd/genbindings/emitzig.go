@@ -176,6 +176,8 @@ func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, classNa
 				pageName = "ksvg-" + pageName
 			case "extras-ksyntaxhighlighting":
 				pageName = "ksyntaxhighlighting-" + pageName
+			case "extras-kunitconversion":
+				pageName = "kunitconversion"
 			case "extras-solid":
 				pageName = "solid-" + pageName
 			case "extras-sonnet":

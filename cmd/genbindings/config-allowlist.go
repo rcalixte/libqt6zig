@@ -912,6 +912,7 @@ func AllowInnerClassDef(className string) bool {
 		"KTextEditor::MovingCursor",          // Qt 6 KTextEditor, document.h
 		"KTextEditor::MovingRange",           // Qt 6 KTextEditor, document.h
 		"KTextEditor::Plugin",                // Qt 6 KTextEditor, plugin.h
+		"KUnitConversion::UnitCategory",      // Qt 6 KUnitConversion, unit.h
 		"PackageKit::Daemon",                 // Qt 6 PackageKit-Qt, daemon.h
 		"PackageKit::Details",                // Qt 6 PackageKit-Qt, transaction.h
 		"PackageKit::Offline",                // Qt 6 PackageKit-Qt, daemon.h
