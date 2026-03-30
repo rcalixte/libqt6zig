@@ -1,4 +1,8 @@
 
+### 6.8.2 rev68 (30 March 2026)
+
+* Add [KUnitConversion](https://api.kde.org/kunitconversion-index.html) (#132)
+
 ### 6.8.2 rev67 (14 March 2026)
 
 * Add [Qt Bluetooth](https://doc.qt.io/qt-6/qtbluetooth-index.html) and expand platform support (#131)
