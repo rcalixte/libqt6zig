@@ -44,21 +44,18 @@ pub fn build(b: *std.Build) !void {
                 std.fs.cwd().access(isystem_path, .{}) catch {
                     continue;
                 };
-                try linux_isystem.append(
-                    b.allocator,
-                    isystem_path,
-                );
+                try linux_isystem.append(b.allocator, isystem_path);
             }
         }
 
         for (linux_isystem.items) |isystem_path| {
-            if (distro == .none) {
+            if (distro == .none)
                 if (std.mem.containsAtLeast(u8, isystem_path, 1, "suse-linux")) {
                     distro = .suse;
                 } else if (std.mem.containsAtLeastScalar(u8, isystem_path, 2, '.') and !std.mem.containsAtLeast(u8, isystem_path, 1, "..")) {
                     distro = .arch;
-                }
-            }
+                };
+
             try cpp_flags.append(b.allocator, b.fmt("-isystem{s}", .{isystem_path}));
         }
     }
@@ -427,6 +424,10 @@ const qt_modules = &.{
     "KSyntaxHighlighting/KSyntaxHighlighting",
     // Qt 6 KTextWidgets
     "KTextWidgets",
+    // Qt 6 KUnitConversion
+    "KUnitConversion",
+    "KUnitConversion/KUnitConversion",
+    "KUnitConversion/kunitconversion",
     // Qt 6 KWidgetsAddons
     "KWidgetsAddons",
     // Qt 6 KColorScheme
