@@ -77,9 +77,9 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
@@ -89,7 +89,7 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` mtimeDest: QtC.QDateTime `
     ///
-    pub fn AskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
+    pub fn AskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,

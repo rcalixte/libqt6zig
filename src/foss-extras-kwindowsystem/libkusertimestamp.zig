@@ -5,7 +5,7 @@ const qtc = @import("qt6c");
 pub const kusertimestamp = struct {
     /// ### [Upstream resources](https://api.kde.org/kusertimestamp.html#userTimestamp)
     ///
-    pub fn UserTimestamp() u64 {
+    pub fn UserTimestamp() usize {
         return qtc.KUserTimestamp_UserTimestamp();
     }
 
@@ -13,9 +13,9 @@ pub const kusertimestamp = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn UpdateUserTimestamp(param1: u64) void {
+    pub fn UpdateUserTimestamp(param1: usize) void {
         qtc.KUserTimestamp_UpdateUserTimestamp(@bitCast(param1));
     }
 };

@@ -217,7 +217,7 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QGeoPath_Size(@ptrCast(self));
     }
 
@@ -239,11 +239,11 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
-    pub fn InsertCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
+    pub fn InsertCoordinate(self: ?*anyopaque, index: isize, coordinate: ?*anyopaque) void {
         qtc.QGeoPath_InsertCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
@@ -253,11 +253,11 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
-    pub fn ReplaceCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
+    pub fn ReplaceCoordinate(self: ?*anyopaque, index: isize, coordinate: ?*anyopaque) void {
         qtc.QGeoPath_ReplaceCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
@@ -267,9 +267,9 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn CoordinateAt(self: ?*anyopaque, index: i64) QtC.QGeoCoordinate {
+    pub fn CoordinateAt(self: ?*anyopaque, index: isize) QtC.QGeoCoordinate {
         return qtc.QGeoPath_CoordinateAt(@ptrCast(self), @bitCast(index));
     }
 
@@ -303,9 +303,9 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn RemoveCoordinate2(self: ?*anyopaque, index: i64) void {
+    pub fn RemoveCoordinate2(self: ?*anyopaque, index: isize) void {
         qtc.QGeoPath_RemoveCoordinate2(@ptrCast(self), @bitCast(index));
     }
 
@@ -331,9 +331,9 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    /// ` indexFrom: i64 `
+    /// ` indexFrom: isize `
     ///
-    pub fn Length1(self: ?*anyopaque, indexFrom: i64) f64 {
+    pub fn Length1(self: ?*anyopaque, indexFrom: isize) f64 {
         return qtc.QGeoPath_Length1(@ptrCast(self), @bitCast(indexFrom));
     }
 
@@ -343,11 +343,11 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    /// ` indexFrom: i64 `
+    /// ` indexFrom: isize `
     ///
-    /// ` indexTo: i64 `
+    /// ` indexTo: isize `
     ///
-    pub fn Length2(self: ?*anyopaque, indexFrom: i64, indexTo: i64) f64 {
+    pub fn Length2(self: ?*anyopaque, indexFrom: isize, indexTo: isize) f64 {
         return qtc.QGeoPath_Length2(@ptrCast(self), @bitCast(indexFrom), @bitCast(indexTo));
     }
 

@@ -15,9 +15,9 @@ pub const qrandomgenerator = struct {
     ///
     /// ` seedBuffer: *const u32 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn New2(seedBuffer: *const u32, lenVal: i64) QtC.QRandomGenerator {
+    pub fn New2(seedBuffer: *const u32, lenVal: isize) QtC.QRandomGenerator {
         return qtc.QRandomGenerator_new2(@ptrCast(seedBuffer), @bitCast(lenVal));
     }
 
@@ -307,9 +307,9 @@ pub const qrandomgenerator = struct {
     ///
     /// ` self: QtC.QRandomGenerator `
     ///
-    /// ` z: u64 `
+    /// ` z: usize `
     ///
-    pub fn Discard(self: ?*anyopaque, z: u64) void {
+    pub fn Discard(self: ?*anyopaque, z: usize) void {
         qtc.QRandomGenerator_Discard(@ptrCast(self), @bitCast(z));
     }
 
@@ -386,9 +386,9 @@ pub const qrandomgenerator64 = struct {
     ///
     /// ` seedBuffer: *const u32 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn New2(seedBuffer: *const u32, lenVal: i64) QtC.QRandomGenerator64 {
+    pub fn New2(seedBuffer: *const u32, lenVal: isize) QtC.QRandomGenerator64 {
         return qtc.QRandomGenerator64_new2(@ptrCast(seedBuffer), @bitCast(lenVal));
     }
 
@@ -450,7 +450,7 @@ pub const qrandomgenerator64 = struct {
     ///
     /// ` self: QtC.QRandomGenerator64 `
     ///
-    pub fn OperatorCall(self: ?*anyopaque) u64 {
+    pub fn OperatorCall(self: ?*anyopaque) usize {
         return qtc.QRandomGenerator64_OperatorCall(@ptrCast(self));
     }
 
@@ -460,21 +460,21 @@ pub const qrandomgenerator64 = struct {
     ///
     /// ` self: QtC.QRandomGenerator64 `
     ///
-    /// ` z: u64 `
+    /// ` z: usize `
     ///
-    pub fn Discard(self: ?*anyopaque, z: u64) void {
+    pub fn Discard(self: ?*anyopaque, z: usize) void {
         qtc.QRandomGenerator64_Discard(@ptrCast(self), @bitCast(z));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#min)
     ///
-    pub fn Min() u64 {
+    pub fn Min() usize {
         return qtc.QRandomGenerator64_Min();
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#max)
     ///
-    pub fn Max() u64 {
+    pub fn Max() usize {
         return qtc.QRandomGenerator64_Max();
     }
 

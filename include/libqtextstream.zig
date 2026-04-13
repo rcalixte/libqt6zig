@@ -578,9 +578,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: *i64 `
+    /// ` i: *isize `
     ///
-    pub fn OperatorShiftRight8(self: ?*anyopaque, i: *i64) QtC.QTextStream {
+    pub fn OperatorShiftRight8(self: ?*anyopaque, i: *isize) QtC.QTextStream {
         switch (builtin.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
@@ -595,9 +595,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: *u64 `
+    /// ` i: *usize `
     ///
-    pub fn OperatorShiftRight9(self: ?*anyopaque, i: *u64) QtC.QTextStream {
+    pub fn OperatorShiftRight9(self: ?*anyopaque, i: *usize) QtC.QTextStream {
         switch (builtin.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
@@ -612,9 +612,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: *i64 `
+    /// ` i: *isize `
     ///
-    pub fn OperatorShiftRight10(self: ?*anyopaque, i: *i64) QtC.QTextStream {
+    pub fn OperatorShiftRight10(self: ?*anyopaque, i: *isize) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftRight10(@ptrCast(self), @ptrCast(i));
     }
 
@@ -624,9 +624,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: *u64 `
+    /// ` i: *usize `
     ///
-    pub fn OperatorShiftRight11(self: ?*anyopaque, i: *u64) QtC.QTextStream {
+    pub fn OperatorShiftRight11(self: ?*anyopaque, i: *usize) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftRight11(@ptrCast(self), @ptrCast(i));
     }
 
@@ -777,9 +777,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorShiftLeft8(self: ?*anyopaque, i: i64) QtC.QTextStream {
+    pub fn OperatorShiftLeft8(self: ?*anyopaque, i: isize) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftLeft8(@ptrCast(self), @bitCast(i));
     }
 
@@ -789,9 +789,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: u64 `
+    /// ` i: usize `
     ///
-    pub fn OperatorShiftLeft9(self: ?*anyopaque, i: u64) QtC.QTextStream {
+    pub fn OperatorShiftLeft9(self: ?*anyopaque, i: usize) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftLeft9(@ptrCast(self), @bitCast(i));
     }
 
@@ -801,9 +801,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorShiftLeft10(self: ?*anyopaque, i: i64) QtC.QTextStream {
+    pub fn OperatorShiftLeft10(self: ?*anyopaque, i: isize) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftLeft10(@ptrCast(self), @bitCast(i));
     }
 
@@ -813,9 +813,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` i: u64 `
+    /// ` i: usize `
     ///
-    pub fn OperatorShiftLeft11(self: ?*anyopaque, i: u64) QtC.QTextStream {
+    pub fn OperatorShiftLeft11(self: ?*anyopaque, i: usize) QtC.QTextStream {
         return qtc.QTextStream_OperatorShiftLeft11(@ptrCast(self), @bitCast(i));
     }
 

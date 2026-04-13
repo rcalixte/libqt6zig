@@ -61,9 +61,9 @@ pub const qstringencoder = struct {
     ///
     /// ` self: QtC.QStringEncoder `
     ///
-    /// ` inputLength: i64 `
+    /// ` inputLength: isize `
     ///
-    pub fn RequiredSpace(self: ?*anyopaque, inputLength: i64) i64 {
+    pub fn RequiredSpace(self: ?*anyopaque, inputLength: isize) isize {
         return qtc.QStringEncoder_RequiredSpace(@ptrCast(self), @bitCast(inputLength));
     }
 
@@ -231,9 +231,9 @@ pub const qstringdecoder = struct {
     ///
     /// ` self: QtC.QStringDecoder `
     ///
-    /// ` inputLength: i64 `
+    /// ` inputLength: isize `
     ///
-    pub fn RequiredSpace(self: ?*anyopaque, inputLength: i64) i64 {
+    pub fn RequiredSpace(self: ?*anyopaque, inputLength: isize) isize {
         return qtc.QStringDecoder_RequiredSpace(@ptrCast(self), @bitCast(inputLength));
     }
 

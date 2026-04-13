@@ -193,9 +193,9 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, job: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn TotalAmount(self: ?*anyopaque, job: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KStatusBarJobTracker_TotalAmount(@ptrCast(self), @ptrCast(job), @bitCast(unit), @bitCast(amount));
     }
 
@@ -207,9 +207,9 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` percent: u64 `
+    /// ` percent: usize `
     ///
-    pub fn Percent(self: ?*anyopaque, job: ?*anyopaque, percent: u64) void {
+    pub fn Percent(self: ?*anyopaque, job: ?*anyopaque, percent: usize) void {
         qtc.KStatusBarJobTracker_Percent(@ptrCast(self), @ptrCast(job), @bitCast(percent));
     }
 
@@ -221,9 +221,9 @@ pub const kstatusbarjobtracker = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` value: u64 `
+    /// ` value: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, value: u64) void {
+    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, value: usize) void {
         qtc.KStatusBarJobTracker_Speed(@ptrCast(self), @ptrCast(job), @bitCast(value));
     }
 

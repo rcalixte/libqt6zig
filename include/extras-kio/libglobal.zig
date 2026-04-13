@@ -10,11 +10,11 @@ pub const kio = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ConvertSize(param1: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ConvertSize(param1: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO_ConvertSize(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ConvertSize: Memory allocation failed");
@@ -26,11 +26,11 @@ pub const kio = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Number(param1: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Number(param1: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO_Number(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.Number: Memory allocation failed");
@@ -42,11 +42,11 @@ pub const kio = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ConvertSizeFromKiB(param1: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ConvertSizeFromKiB(param1: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO_ConvertSizeFromKiB(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ConvertSizeFromKiB: Memory allocation failed");
@@ -58,13 +58,13 @@ pub const kio = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    /// ` param2: u64 `
+    /// ` param2: usize `
     ///
-    /// ` param3: u64 `
+    /// ` param3: usize `
     ///
-    pub fn CalculateRemainingSeconds(param1: u64, param2: u64, param3: u64) u32 {
+    pub fn CalculateRemainingSeconds(param1: usize, param2: usize, param3: usize) u32 {
         return qtc.KIO_CalculateRemainingSeconds(@bitCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
@@ -94,13 +94,13 @@ pub const kio = struct {
     ///
     /// ` param3: u32 `
     ///
-    /// ` param4: u64 `
+    /// ` param4: usize `
     ///
     /// ` param5: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemsSummaryString(param1: u32, param2: u32, param3: u32, param4: u64, param5: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn ItemsSummaryString(param1: u32, param2: u32, param3: u32, param4: usize, param5: bool, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO_ItemsSummaryString(@bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4), param5);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.ItemsSummaryString: Memory allocation failed");

@@ -390,9 +390,9 @@ pub const qjsonvalue = struct {
     ///
     /// ` self: QtC.QJsonValue `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+    pub fn OperatorSubscript4(self: ?*anyopaque, i: isize) QtC.QJsonValue {
         return qtc.QJsonValue_OperatorSubscript4(@ptrCast(self), @bitCast(i));
     }
 
@@ -669,9 +669,9 @@ pub const qjsonvalueconstref = struct {
     ///
     /// ` self: QtC.QJsonValueConstRef `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+    pub fn OperatorSubscript3(self: ?*anyopaque, i: isize) QtC.QJsonValue {
         return qtc.QJsonValueConstRef_OperatorSubscript3(@ptrCast(self), @bitCast(i));
     }
 
@@ -790,9 +790,9 @@ pub const qjsonvalueref = struct {
     ///
     /// ` array: QtC.QJsonArray `
     ///
-    /// ` idx: i64 `
+    /// ` idx: isize `
     ///
-    pub fn New3(array: ?*anyopaque, idx: i64) QtC.QJsonValueRef {
+    pub fn New3(array: ?*anyopaque, idx: isize) QtC.QJsonValueRef {
         return qtc.QJsonValueRef_new3(@ptrCast(array), @bitCast(idx));
     }
 
@@ -802,9 +802,9 @@ pub const qjsonvalueref = struct {
     ///
     /// ` object: QtC.QJsonObject `
     ///
-    /// ` idx: i64 `
+    /// ` idx: isize `
     ///
-    pub fn New4(object: ?*anyopaque, idx: i64) QtC.QJsonValueRef {
+    pub fn New4(object: ?*anyopaque, idx: isize) QtC.QJsonValueRef {
         return qtc.QJsonValueRef_new4(@ptrCast(object), @bitCast(idx));
     }
 
@@ -1018,9 +1018,9 @@ pub const qjsonvalueref = struct {
     ///
     /// ` self: QtC.QJsonValueRef `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+    pub fn OperatorSubscript3(self: ?*anyopaque, i: isize) QtC.QJsonValue {
         return qtc.QJsonValueRef_OperatorSubscript3(@ptrCast(self), @bitCast(i));
     }
 

@@ -32,9 +32,9 @@ pub const qstringmatcher = struct {
     ///
     /// ` uc: QtC.QChar `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn New3(uc: ?*anyopaque, lenVal: i64) QtC.QStringMatcher {
+    pub fn New3(uc: ?*anyopaque, lenVal: isize) QtC.QStringMatcher {
         return qtc.QStringMatcher_new3(@ptrCast(uc), @bitCast(lenVal));
     }
 
@@ -71,11 +71,11 @@ pub const qstringmatcher = struct {
     ///
     /// ` uc: QtC.QChar `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn New6(uc: ?*anyopaque, lenVal: i64, cs: i32) QtC.QStringMatcher {
+    pub fn New6(uc: ?*anyopaque, lenVal: isize, cs: i32) QtC.QStringMatcher {
         return qtc.QStringMatcher_new6(@ptrCast(uc), @bitCast(lenVal), @bitCast(cs));
     }
 
@@ -127,7 +127,7 @@ pub const qstringmatcher = struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn IndexIn(self: ?*anyopaque, str: []const u8) i64 {
+    pub fn IndexIn(self: ?*anyopaque, str: []const u8) isize {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -143,9 +143,9 @@ pub const qstringmatcher = struct {
     ///
     /// ` str: QtC.QChar `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
-    pub fn IndexIn2(self: ?*anyopaque, str: ?*anyopaque, length: i64) i64 {
+    pub fn IndexIn2(self: ?*anyopaque, str: ?*anyopaque, length: isize) isize {
         return qtc.QStringMatcher_IndexIn2(@ptrCast(self), @ptrCast(str), @bitCast(length));
     }
 
@@ -187,9 +187,9 @@ pub const qstringmatcher = struct {
     ///
     /// ` str: []const u8 `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexIn22(self: ?*anyopaque, str: []const u8, from: i64) i64 {
+    pub fn IndexIn22(self: ?*anyopaque, str: []const u8, from: isize) isize {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -205,11 +205,11 @@ pub const qstringmatcher = struct {
     ///
     /// ` str: QtC.QChar `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexIn32(self: ?*anyopaque, str: ?*anyopaque, length: i64, from: i64) i64 {
+    pub fn IndexIn32(self: ?*anyopaque, str: ?*anyopaque, length: isize, from: isize) isize {
         return qtc.QStringMatcher_IndexIn32(@ptrCast(self), @ptrCast(str), @bitCast(length), @bitCast(from));
     }
 

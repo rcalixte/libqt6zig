@@ -302,9 +302,9 @@ pub const qaudiosource = struct {
     ///
     /// ` self: QtC.QAudioSource `
     ///
-    /// ` bytes: i64 `
+    /// ` bytes: isize `
     ///
-    pub fn SetBufferSize(self: ?*anyopaque, bytes: i64) void {
+    pub fn SetBufferSize(self: ?*anyopaque, bytes: isize) void {
         qtc.QAudioSource_SetBufferSize(@ptrCast(self), @bitCast(bytes));
     }
 
@@ -314,7 +314,7 @@ pub const qaudiosource = struct {
     ///
     /// ` self: QtC.QAudioSource `
     ///
-    pub fn BufferSize(self: ?*anyopaque) i64 {
+    pub fn BufferSize(self: ?*anyopaque) isize {
         return qtc.QAudioSource_BufferSize(@ptrCast(self));
     }
 
@@ -324,7 +324,7 @@ pub const qaudiosource = struct {
     ///
     /// ` self: QtC.QAudioSource `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
+    pub fn BytesAvailable(self: ?*anyopaque) isize {
         return qtc.QAudioSource_BytesAvailable(@ptrCast(self));
     }
 

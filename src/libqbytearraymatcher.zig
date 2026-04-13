@@ -68,9 +68,9 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` pattern: [:0]const u8 `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
-    pub fn New6(pattern: [:0]const u8, length: i64) QtC.QByteArrayMatcher {
+    pub fn New6(pattern: [:0]const u8, length: isize) QtC.QByteArrayMatcher {
         const pattern_Cstring = pattern.ptr;
 
         return qtc.QByteArrayMatcher_new6(pattern_Cstring, @bitCast(length));
@@ -112,9 +112,9 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` str: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn IndexIn(self: ?*anyopaque, str: [:0]const u8, lenVal: i64) i64 {
+    pub fn IndexIn(self: ?*anyopaque, str: [:0]const u8, lenVal: isize) isize {
         const str_Cstring = str.ptr;
         return qtc.QByteArrayMatcher_IndexIn(@ptrCast(self), str_Cstring, @bitCast(lenVal));
     }
@@ -127,7 +127,7 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn IndexIn2(self: ?*anyopaque, data: []u8) i64 {
+    pub fn IndexIn2(self: ?*anyopaque, data: []u8) isize {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -159,11 +159,11 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` str: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexIn3(self: ?*anyopaque, str: [:0]const u8, lenVal: i64, from: i64) i64 {
+    pub fn IndexIn3(self: ?*anyopaque, str: [:0]const u8, lenVal: isize, from: isize) isize {
         const str_Cstring = str.ptr;
         return qtc.QByteArrayMatcher_IndexIn3(@ptrCast(self), str_Cstring, @bitCast(lenVal), @bitCast(from));
     }
@@ -176,9 +176,9 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexIn22(self: ?*anyopaque, data: []u8, from: i64) i64 {
+    pub fn IndexIn22(self: ?*anyopaque, data: []u8, from: isize) isize {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

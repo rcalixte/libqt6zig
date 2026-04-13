@@ -82,13 +82,13 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
     /// ` name: []const u8 `
     ///
     /// ` value: []const u8 `
     ///
-    pub fn Insert(self: ?*anyopaque, i: i64, name: []const u8, value: []const u8) bool {
+    pub fn Insert(self: ?*anyopaque, i: isize, name: []const u8, value: []const u8) bool {
         return qtc.QHttpHeaders_Insert(@ptrCast(self), @bitCast(i), name.ptr, value.ptr);
     }
 
@@ -98,13 +98,13 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
     /// ` value: []const u8 `
     ///
-    pub fn Insert2(self: ?*anyopaque, i: i64, name: i32, value: []const u8) bool {
+    pub fn Insert2(self: ?*anyopaque, i: isize, name: i32, value: []const u8) bool {
         return qtc.QHttpHeaders_Insert2(@ptrCast(self), @bitCast(i), @bitCast(name), value.ptr);
     }
 
@@ -114,13 +114,13 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
     /// ` name: []const u8 `
     ///
     /// ` newValue: []const u8 `
     ///
-    pub fn Replace(self: ?*anyopaque, i: i64, name: []const u8, newValue: []const u8) bool {
+    pub fn Replace(self: ?*anyopaque, i: isize, name: []const u8, newValue: []const u8) bool {
         return qtc.QHttpHeaders_Replace(@ptrCast(self), @bitCast(i), name.ptr, newValue.ptr);
     }
 
@@ -130,13 +130,13 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
     /// ` newValue: []const u8 `
     ///
-    pub fn Replace2(self: ?*anyopaque, i: i64, name: i32, newValue: []const u8) bool {
+    pub fn Replace2(self: ?*anyopaque, i: isize, name: i32, newValue: []const u8) bool {
         return qtc.QHttpHeaders_Replace2(@ptrCast(self), @bitCast(i), @bitCast(name), newValue.ptr);
     }
 
@@ -232,9 +232,9 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn RemoveAt(self: ?*anyopaque, i: i64) void {
+    pub fn RemoveAt(self: ?*anyopaque, i: isize) void {
         qtc.QHttpHeaders_RemoveAt(@ptrCast(self), @bitCast(i));
     }
 
@@ -338,11 +338,11 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ValueAt(self: ?*anyopaque, i: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn ValueAt(self: ?*anyopaque, i: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_ValueAt(@ptrCast(self), @bitCast(i));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.ValueAt: Memory allocation failed");
@@ -392,7 +392,7 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QHttpHeaders_Size(@ptrCast(self));
     }
 
@@ -402,9 +402,9 @@ pub const qhttpheaders = struct {
     ///
     /// ` self: QtC.QHttpHeaders `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
-    pub fn Reserve(self: ?*anyopaque, size: i64) void {
+    pub fn Reserve(self: ?*anyopaque, size: isize) void {
         qtc.QHttpHeaders_Reserve(@ptrCast(self), @bitCast(size));
     }
 

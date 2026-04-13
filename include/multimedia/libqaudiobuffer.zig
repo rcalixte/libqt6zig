@@ -141,7 +141,7 @@ pub const qaudiobuffer = struct {
     ///
     /// ` self: QtC.QAudioBuffer `
     ///
-    pub fn FrameCount(self: ?*anyopaque) i64 {
+    pub fn FrameCount(self: ?*anyopaque) isize {
         return qtc.QAudioBuffer_FrameCount(@ptrCast(self));
     }
 
@@ -151,7 +151,7 @@ pub const qaudiobuffer = struct {
     ///
     /// ` self: QtC.QAudioBuffer `
     ///
-    pub fn SampleCount(self: ?*anyopaque) i64 {
+    pub fn SampleCount(self: ?*anyopaque) isize {
         return qtc.QAudioBuffer_SampleCount(@ptrCast(self));
     }
 
@@ -161,7 +161,7 @@ pub const qaudiobuffer = struct {
     ///
     /// ` self: QtC.QAudioBuffer `
     ///
-    pub fn ByteCount(self: ?*anyopaque) i64 {
+    pub fn ByteCount(self: ?*anyopaque) isize {
         return qtc.QAudioBuffer_ByteCount(@ptrCast(self));
     }
 

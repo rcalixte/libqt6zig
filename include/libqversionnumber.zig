@@ -155,9 +155,9 @@ pub const qversionnumber = struct {
     ///
     /// ` self: QtC.QVersionNumber `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn SegmentAt(self: ?*anyopaque, index: i64) i32 {
+    pub fn SegmentAt(self: ?*anyopaque, index: isize) i32 {
         return qtc.QVersionNumber_SegmentAt(@ptrCast(self), @bitCast(index));
     }
 
@@ -167,7 +167,7 @@ pub const qversionnumber = struct {
     ///
     /// ` self: QtC.QVersionNumber `
     ///
-    pub fn SegmentCount(self: ?*anyopaque) i64 {
+    pub fn SegmentCount(self: ?*anyopaque) isize {
         return qtc.QVersionNumber_SegmentCount(@ptrCast(self));
     }
 
@@ -239,9 +239,9 @@ pub const qversionnumber = struct {
     ///
     /// ` stringVal: []const u8 `
     ///
-    /// ` suffixIndex: *i64 `
+    /// ` suffixIndex: *isize `
     ///
-    pub fn FromString2(stringVal: []const u8, suffixIndex: *i64) QtC.QVersionNumber {
+    pub fn FromString2(stringVal: []const u8, suffixIndex: *isize) QtC.QVersionNumber {
         switch (builtin.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),

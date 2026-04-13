@@ -217,7 +217,8 @@ nextTopLevel:
 // shouldPreferQualType returns true if we should use the qualType instead of
 // the desugared type based on certain type patterns
 func shouldPreferQualType(qualType string) bool {
-	if strings.Contains(qualType, "intptr") || strings.Contains(qualType, "_t") ||
+	if (strings.Contains(qualType, "intptr") && !strings.Contains(qualType, "_G")) ||
+		(strings.HasSuffix(qualType, "_t") && !strings.Contains(qualType, "::")) ||
 		strings.HasPrefix(qualType, "uint") || strings.Contains(qualType, "ushort") ||
 		strings.Contains(qualType, "quint") || strings.Contains(qualType, "qint") ||
 		strings.Contains(qualType, "qptrdiff") || strings.HasPrefix(qualType, "qsize") ||

@@ -18,9 +18,9 @@ pub const qcborstreamreader = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn New2(data: [:0]const u8, lenVal: i64) QtC.QCborStreamReader {
+    pub fn New2(data: [:0]const u8, lenVal: isize) QtC.QCborStreamReader {
         const data_Cstring = data.ptr;
 
         return qtc.QCborStreamReader_new2(data_Cstring, @bitCast(lenVal));
@@ -32,9 +32,9 @@ pub const qcborstreamreader = struct {
     ///
     /// ` data: *const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn New3(data: *const u8, lenVal: i64) QtC.QCborStreamReader {
+    pub fn New3(data: *const u8, lenVal: isize) QtC.QCborStreamReader {
         return qtc.QCborStreamReader_new3(@ptrCast(data), @bitCast(lenVal));
     }
 
@@ -109,9 +109,9 @@ pub const qcborstreamreader = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn AddData2(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) void {
+    pub fn AddData2(self: ?*anyopaque, data: [:0]const u8, lenVal: isize) void {
         const data_Cstring = data.ptr;
         qtc.QCborStreamReader_AddData2(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
@@ -124,9 +124,9 @@ pub const qcborstreamreader = struct {
     ///
     /// ` data: *const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn AddData3(self: ?*anyopaque, data: *const u8, lenVal: i64) void {
+    pub fn AddData3(self: ?*anyopaque, data: *const u8, lenVal: isize) void {
         qtc.QCborStreamReader_AddData3(@ptrCast(self), @ptrCast(data), @bitCast(lenVal));
     }
 
@@ -544,7 +544,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ` self: QtC.QCborStreamReader `
     ///
-    pub fn CurrentStringChunkSize(self: ?*anyopaque) i64 {
+    pub fn CurrentStringChunkSize(self: ?*anyopaque) isize {
         return qtc.QCborStreamReader_CurrentStringChunkSize(@ptrCast(self));
     }
 

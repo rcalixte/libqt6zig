@@ -13,9 +13,9 @@ pub const packagekit__bitfield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` val: u64 `
+    /// ` val: usize `
     ///
-    pub fn New2(val: u64) QtC.PackageKit__Bitfield {
+    pub fn New2(val: usize) QtC.PackageKit__Bitfield {
         return qtc.PackageKit__Bitfield_new2(@bitCast(val));
     }
 
@@ -35,9 +35,9 @@ pub const packagekit__bitfield = struct {
     ///
     /// ` self: QtC.PackageKit__Bitfield `
     ///
-    /// ` mask: u64 `
+    /// ` mask: usize `
     ///
-    pub fn OperatorBitwiseAnd(self: ?*anyopaque, mask: u64) u64 {
+    pub fn OperatorBitwiseAnd(self: ?*anyopaque, mask: usize) usize {
         return qtc.PackageKit__Bitfield_OperatorBitwiseAnd(@ptrCast(self), @bitCast(mask));
     }
 
@@ -47,9 +47,9 @@ pub const packagekit__bitfield = struct {
     ///
     /// ` self: QtC.PackageKit__Bitfield `
     ///
-    /// ` mask: u64 `
+    /// ` mask: usize `
     ///
-    pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, mask: u64) void {
+    pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, mask: usize) void {
         qtc.PackageKit__Bitfield_OperatorBitwiseAndAssign(@ptrCast(self), @bitCast(mask));
     }
 
@@ -59,9 +59,9 @@ pub const packagekit__bitfield = struct {
     ///
     /// ` self: QtC.PackageKit__Bitfield `
     ///
-    /// ` mask: u64 `
+    /// ` mask: usize `
     ///
-    pub fn OperatorBitwiseOr(self: ?*anyopaque, mask: u64) u64 {
+    pub fn OperatorBitwiseOr(self: ?*anyopaque, mask: usize) usize {
         return qtc.PackageKit__Bitfield_OperatorBitwiseOr(@ptrCast(self), @bitCast(mask));
     }
 
@@ -71,9 +71,9 @@ pub const packagekit__bitfield = struct {
     ///
     /// ` self: QtC.PackageKit__Bitfield `
     ///
-    /// ` mask: u64 `
+    /// ` mask: usize `
     ///
-    pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, mask: u64) void {
+    pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, mask: usize) void {
         qtc.PackageKit__Bitfield_OperatorBitwiseOrAssign(@ptrCast(self), @bitCast(mask));
     }
 

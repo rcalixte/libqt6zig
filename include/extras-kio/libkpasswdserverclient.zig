@@ -17,11 +17,11 @@ pub const kpasswdserverclient = struct {
     ///
     /// ` info: QtC.KIO__AuthInfo `
     ///
-    /// ` windowId: i64 `
+    /// ` windowId: isize `
     ///
-    /// ` usertime: i64 `
+    /// ` usertime: isize `
     ///
-    pub fn CheckAuthInfo(self: ?*anyopaque, info: ?*anyopaque, windowId: i64, usertime: i64) bool {
+    pub fn CheckAuthInfo(self: ?*anyopaque, info: ?*anyopaque, windowId: isize, usertime: isize) bool {
         return qtc.KPasswdServerClient_CheckAuthInfo(@ptrCast(self), @ptrCast(info), @bitCast(windowId), @bitCast(usertime));
     }
 
@@ -35,11 +35,11 @@ pub const kpasswdserverclient = struct {
     ///
     /// ` errorMsg: []const u8 `
     ///
-    /// ` windowId: i64 `
+    /// ` windowId: isize `
     ///
-    /// ` usertime: i64 `
+    /// ` usertime: isize `
     ///
-    pub fn QueryAuthInfo(self: ?*anyopaque, info: ?*anyopaque, errorMsg: []const u8, windowId: i64, usertime: i64) i32 {
+    pub fn QueryAuthInfo(self: ?*anyopaque, info: ?*anyopaque, errorMsg: []const u8, windowId: isize, usertime: isize) i32 {
         const errorMsg_str = qtc.libqt_string{
             .len = errorMsg.len,
             .data = errorMsg.ptr,
@@ -55,9 +55,9 @@ pub const kpasswdserverclient = struct {
     ///
     /// ` info: QtC.KIO__AuthInfo `
     ///
-    /// ` windowId: i64 `
+    /// ` windowId: isize `
     ///
-    pub fn AddAuthInfo(self: ?*anyopaque, info: ?*anyopaque, windowId: i64) void {
+    pub fn AddAuthInfo(self: ?*anyopaque, info: ?*anyopaque, windowId: isize) void {
         qtc.KPasswdServerClient_AddAuthInfo(@ptrCast(self), @ptrCast(info), @bitCast(windowId));
     }
 

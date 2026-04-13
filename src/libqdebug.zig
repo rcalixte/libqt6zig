@@ -285,9 +285,9 @@ pub const qdebug = struct {
     ///
     /// ` self: QtC.QDebug `
     ///
-    /// ` t: i64 `
+    /// ` t: isize `
     ///
-    pub fn OperatorShiftLeft10(self: ?*anyopaque, t: i64) QtC.QDebug {
+    pub fn OperatorShiftLeft10(self: ?*anyopaque, t: isize) QtC.QDebug {
         return qtc.QDebug_OperatorShiftLeft10(@ptrCast(self), @bitCast(t));
     }
 
@@ -297,9 +297,9 @@ pub const qdebug = struct {
     ///
     /// ` self: QtC.QDebug `
     ///
-    /// ` t: u64 `
+    /// ` t: usize `
     ///
-    pub fn OperatorShiftLeft11(self: ?*anyopaque, t: u64) QtC.QDebug {
+    pub fn OperatorShiftLeft11(self: ?*anyopaque, t: usize) QtC.QDebug {
         return qtc.QDebug_OperatorShiftLeft11(@ptrCast(self), @bitCast(t));
     }
 

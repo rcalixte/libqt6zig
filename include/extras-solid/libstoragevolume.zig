@@ -148,7 +148,7 @@ pub const solid__storagevolume = struct {
     ///
     /// ` self: QtC.Solid__StorageVolume `
     ///
-    pub fn Size(self: ?*anyopaque) u64 {
+    pub fn Size(self: ?*anyopaque) usize {
         return qtc.Solid__StorageVolume_Size(@ptrCast(self));
     }
 

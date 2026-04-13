@@ -534,7 +534,7 @@ pub const qdir = struct {
     ///
     /// ` self: QtC.QDir `
     ///
-    pub fn Count(self: ?*anyopaque) i64 {
+    pub fn Count(self: ?*anyopaque) isize {
         return qtc.QDir_Count(@ptrCast(self));
     }
 
@@ -554,11 +554,11 @@ pub const qdir = struct {
     ///
     /// ` self: QtC.QDir `
     ///
-    /// ` param1: i64 `
+    /// ` param1: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn OperatorSubscript(self: ?*anyopaque, param1: isize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_OperatorSubscript(@ptrCast(self), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.OperatorSubscript: Memory allocation failed");

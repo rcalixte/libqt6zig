@@ -1240,11 +1240,11 @@ pub const net = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` time1: u64 `
+    /// ` time1: usize `
     ///
-    /// ` time2: u64 `
+    /// ` time2: usize `
     ///
-    pub fn TimestampCompare(time1: u64, time2: u64) i32 {
+    pub fn TimestampCompare(time1: usize, time2: usize) i32 {
         return qtc.NET_TimestampCompare(@bitCast(time1), @bitCast(time2));
     }
 
@@ -1252,11 +1252,11 @@ pub const net = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` time1: u64 `
+    /// ` time1: usize `
     ///
-    /// ` time2: u64 `
+    /// ` time2: usize `
     ///
-    pub fn TimestampDiff(time1: u64, time2: u64) i32 {
+    pub fn TimestampDiff(time1: usize, time2: usize) i32 {
         return qtc.NET_TimestampDiff(@bitCast(time1), @bitCast(time2));
     }
 

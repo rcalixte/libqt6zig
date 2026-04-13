@@ -44,9 +44,9 @@ pub const qlatin1string = struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    /// ` sz: i64 `
+    /// ` sz: isize `
     ///
-    pub fn New4(s: [:0]const u8, sz: i64) QtC.QLatin1String {
+    pub fn New4(s: [:0]const u8, sz: isize) QtC.QLatin1String {
         const s_Cstring = s.ptr;
 
         return qtc.QLatin1String_new4(s_Cstring, @bitCast(sz));
@@ -139,7 +139,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QLatin1String_Size(@ptrCast(self));
     }
 
@@ -213,7 +213,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn Length(self: ?*anyopaque) i64 {
+    pub fn Length(self: ?*anyopaque) isize {
         return qtc.QLatin1String_Length(@ptrCast(self));
     }
 
@@ -253,9 +253,9 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn At(self: ?*anyopaque, i: i64) QtC.QLatin1Char {
+    pub fn At(self: ?*anyopaque, i: isize) QtC.QLatin1Char {
         return qtc.QLatin1String_At(@ptrCast(self), @bitCast(i));
     }
 
@@ -265,9 +265,9 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, i: i64) QtC.QLatin1Char {
+    pub fn OperatorSubscript(self: ?*anyopaque, i: isize) QtC.QLatin1Char {
         return qtc.QLatin1String_OperatorSubscript(@ptrCast(self), @bitCast(i));
     }
 
@@ -377,7 +377,7 @@ pub const qlatin1string = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    pub fn IndexOf3(self: ?*anyopaque, c: QtC.QChar) i64 {
+    pub fn IndexOf3(self: ?*anyopaque, c: QtC.QChar) isize {
         return qtc.QLatin1String_IndexOf3(@ptrCast(self), @ptrCast(c));
     }
 
@@ -401,7 +401,7 @@ pub const qlatin1string = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    pub fn LastIndexOf5(self: ?*anyopaque, c: QtC.QChar) i64 {
+    pub fn LastIndexOf5(self: ?*anyopaque, c: QtC.QChar) isize {
         return qtc.QLatin1String_LastIndexOf5(@ptrCast(self), @ptrCast(c));
     }
 
@@ -413,9 +413,9 @@ pub const qlatin1string = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn LastIndexOf6(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+    pub fn LastIndexOf6(self: ?*anyopaque, c: QtC.QChar, from: isize) isize {
         return qtc.QLatin1String_LastIndexOf6(@ptrCast(self), @ptrCast(c), @bitCast(from));
     }
 
@@ -427,7 +427,7 @@ pub const qlatin1string = struct {
     ///
     /// ` ch: QtC.QChar `
     ///
-    pub fn Count3(self: ?*anyopaque, ch: QtC.QChar) i64 {
+    pub fn Count3(self: ?*anyopaque, ch: QtC.QChar) isize {
         return qtc.QLatin1String_Count3(@ptrCast(self), @ptrCast(ch));
     }
 
@@ -477,7 +477,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ToLong(self: ?*anyopaque) i64 {
+    pub fn ToLong(self: ?*anyopaque) isize {
         return qtc.QLatin1String_ToLong(@ptrCast(self));
     }
 
@@ -487,7 +487,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ToULong(self: ?*anyopaque) u64 {
+    pub fn ToULong(self: ?*anyopaque) usize {
         return qtc.QLatin1String_ToULong(@ptrCast(self));
     }
 
@@ -497,7 +497,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ToLongLong(self: ?*anyopaque) i64 {
+    pub fn ToLongLong(self: ?*anyopaque) isize {
         return qtc.QLatin1String_ToLongLong(@ptrCast(self));
     }
 
@@ -507,7 +507,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn ToULongLong(self: ?*anyopaque) u64 {
+    pub fn ToULongLong(self: ?*anyopaque) usize {
         return qtc.QLatin1String_ToULongLong(@ptrCast(self));
     }
 
@@ -581,13 +581,13 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn MaxSize(self: ?*anyopaque) i64 {
+    pub fn MaxSize(self: ?*anyopaque) isize {
         return qtc.QLatin1String_MaxSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#maxSize)
     ///
-    pub fn MaxSize2() i64 {
+    pub fn MaxSize2() isize {
         return qtc.QLatin1String_MaxSize2();
     }
 
@@ -597,9 +597,9 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn Chop(self: ?*anyopaque, n: i64) void {
+    pub fn Chop(self: ?*anyopaque, n: isize) void {
         qtc.QLatin1String_Chop(@ptrCast(self), @bitCast(n));
     }
 
@@ -609,9 +609,9 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn Truncate(self: ?*anyopaque, n: i64) void {
+    pub fn Truncate(self: ?*anyopaque, n: isize) void {
         qtc.QLatin1String_Truncate(@ptrCast(self), @bitCast(n));
     }
 
@@ -623,9 +623,9 @@ pub const qlatin1string = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexOf24(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+    pub fn IndexOf24(self: ?*anyopaque, c: QtC.QChar, from: isize) isize {
         return qtc.QLatin1String_IndexOf24(@ptrCast(self), @ptrCast(c), @bitCast(from));
     }
 
@@ -637,11 +637,11 @@ pub const qlatin1string = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn IndexOf34(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
+    pub fn IndexOf34(self: ?*anyopaque, c: QtC.QChar, from: isize, cs: i32) isize {
         return qtc.QLatin1String_IndexOf34(@ptrCast(self), @ptrCast(c), @bitCast(from), @bitCast(cs));
     }
 
@@ -669,7 +669,7 @@ pub const qlatin1string = struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn LastIndexOf24(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
+    pub fn LastIndexOf24(self: ?*anyopaque, c: QtC.QChar, cs: i32) isize {
         return qtc.QLatin1String_LastIndexOf24(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
@@ -681,11 +681,11 @@ pub const qlatin1string = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn LastIndexOf34(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
+    pub fn LastIndexOf34(self: ?*anyopaque, c: QtC.QChar, from: isize, cs: i32) isize {
         return qtc.QLatin1String_LastIndexOf34(@ptrCast(self), @ptrCast(c), @bitCast(from), @bitCast(cs));
     }
 
@@ -699,7 +699,7 @@ pub const qlatin1string = struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn Count24(self: ?*anyopaque, ch: QtC.QChar, cs: i32) i64 {
+    pub fn Count24(self: ?*anyopaque, ch: QtC.QChar, cs: i32) isize {
         return qtc.QLatin1String_Count24(@ptrCast(self), @ptrCast(ch), @bitCast(cs));
     }
 
@@ -815,7 +815,7 @@ pub const qlatin1string = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QLatin1String_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -829,7 +829,7 @@ pub const qlatin1string = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
+    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) isize {
         return qtc.QLatin1String_ToLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -841,7 +841,7 @@ pub const qlatin1string = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QLatin1String_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -855,7 +855,7 @@ pub const qlatin1string = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
+    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) usize {
         return qtc.QLatin1String_ToULong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -867,7 +867,7 @@ pub const qlatin1string = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QLatin1String_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -881,7 +881,7 @@ pub const qlatin1string = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
+    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) isize {
         return qtc.QLatin1String_ToLongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -893,7 +893,7 @@ pub const qlatin1string = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QLatin1String_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -907,7 +907,7 @@ pub const qlatin1string = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
+    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) usize {
         return qtc.QLatin1String_ToULongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 

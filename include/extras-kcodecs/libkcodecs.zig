@@ -254,11 +254,11 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` insize: i64 `
+    /// ` insize: isize `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn MaxEncodedSizeFor(self: ?*anyopaque, insize: i64, newline: i32) i64 {
+    pub fn MaxEncodedSizeFor(self: ?*anyopaque, insize: isize, newline: i32) isize {
         return qtc.KCodecs__Codec_MaxEncodedSizeFor(@ptrCast(self), @bitCast(insize), @bitCast(newline));
     }
 
@@ -268,11 +268,11 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` insize: i64 `
+    /// ` insize: isize `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn MaxDecodedSizeFor(self: ?*anyopaque, insize: i64, newline: i32) i64 {
+    pub fn MaxDecodedSizeFor(self: ?*anyopaque, insize: isize, newline: i32) isize {
         return qtc.KCodecs__Codec_MaxDecodedSizeFor(@ptrCast(self), @bitCast(insize), @bitCast(newline));
     }
 

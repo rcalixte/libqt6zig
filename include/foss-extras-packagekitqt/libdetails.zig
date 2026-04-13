@@ -145,7 +145,7 @@ pub const packagekit__details = struct {
     ///
     /// ` self: QtC.PackageKit__Details `
     ///
-    pub fn Size(self: ?*anyopaque) u64 {
+    pub fn Size(self: ?*anyopaque) usize {
         return qtc.PackageKit__Details_Size(@ptrCast(self));
     }
 

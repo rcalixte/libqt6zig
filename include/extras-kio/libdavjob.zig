@@ -215,9 +215,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` bytes: u64 `
+    /// ` bytes: usize `
     ///
-    pub fn SetTotalSize(self: ?*anyopaque, bytes: u64) void {
+    pub fn SetTotalSize(self: ?*anyopaque, bytes: usize) void {
         qtc.KIO__TransferJob_SetTotalSize(@ptrCast(self), @bitCast(bytes));
     }
 
@@ -395,9 +395,9 @@ pub const kio__davjob = struct {
     ///
     /// ` job: QtC.KIO__Job `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    pub fn CanResume(self: ?*anyopaque, job: ?*anyopaque, offset: u64) void {
+    pub fn CanResume(self: ?*anyopaque, job: ?*anyopaque, offset: usize) void {
         qtc.KIO__TransferJob_CanResume(@ptrCast(self), @ptrCast(job), @bitCast(offset));
     }
 
@@ -409,9 +409,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KIO__Job, offset: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KIO__Job, offset: usize) callconv(.c) void `
     ///
-    pub fn OnCanResume(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnCanResume(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_CanResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1004,7 +1004,7 @@ pub const kio__davjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -1018,7 +1018,7 @@ pub const kio__davjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -1030,7 +1030,7 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    pub fn Percent(self: ?*anyopaque) u64 {
+    pub fn Percent(self: ?*anyopaque) usize {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
@@ -1186,9 +1186,9 @@ pub const kio__davjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -1200,9 +1200,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1216,9 +1216,9 @@ pub const kio__davjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -1230,9 +1230,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1246,9 +1246,9 @@ pub const kio__davjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
+    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
     }
 
@@ -1260,9 +1260,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2136,9 +2136,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2152,9 +2152,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2168,9 +2168,9 @@ pub const kio__davjob = struct {
     ///
     /// ` self: QtC.KIO__DavJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, percent: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__DavJob, job: QtC.KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

@@ -13,11 +13,11 @@ pub const kfind = struct {
     ///
     /// ` pattern: []const u8 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn New(pattern: []const u8, options: i64, parent: ?*anyopaque) QtC.KFind {
+    pub fn New(pattern: []const u8, options: isize, parent: ?*anyopaque) QtC.KFind {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -32,13 +32,13 @@ pub const kfind = struct {
     ///
     /// ` pattern: []const u8 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` parent: QtC.QWidget `
     ///
     /// ` findDialog: QtC.QWidget `
     ///
-    pub fn New2(pattern: []const u8, options: i64, parent: ?*anyopaque, findDialog: ?*anyopaque) QtC.KFind {
+    pub fn New2(pattern: []const u8, options: isize, parent: ?*anyopaque, findDialog: ?*anyopaque) QtC.KFind {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -254,7 +254,7 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) isize {
         return qtc.KFind_Options(@ptrCast(self));
     }
 
@@ -264,9 +264,9 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: isize) void {
         qtc.KFind_SetOptions(@ptrCast(self), @bitCast(options));
     }
 
@@ -278,9 +278,9 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, options: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFind, options: isize) callconv(.c) void `
     ///
-    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
         qtc.KFind_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -296,9 +296,9 @@ pub const kfind = struct {
     ///
     /// ` self: QtC.KFind `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn SuperSetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SuperSetOptions(self: ?*anyopaque, options: isize) void {
         qtc.KFind_SuperSetOptions(@ptrCast(self), @bitCast(options));
     }
 
@@ -502,13 +502,13 @@ pub const kfind = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` matchedLength: *i32 `
     ///
     /// ` rmatch: QtC.QRegularExpressionMatch `
     ///
-    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: i64, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
+    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: isize, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,

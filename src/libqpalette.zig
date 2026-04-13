@@ -605,7 +605,7 @@ pub const qpalette = struct {
     ///
     /// ` self: QtC.QPalette `
     ///
-    pub fn ResolveMask(self: ?*anyopaque) u64 {
+    pub fn ResolveMask(self: ?*anyopaque) usize {
         return qtc.QPalette_ResolveMask(@ptrCast(self));
     }
 
@@ -615,9 +615,9 @@ pub const qpalette = struct {
     ///
     /// ` self: QtC.QPalette `
     ///
-    /// ` mask: u64 `
+    /// ` mask: usize `
     ///
-    pub fn SetResolveMask(self: ?*anyopaque, mask: u64) void {
+    pub fn SetResolveMask(self: ?*anyopaque, mask: usize) void {
         qtc.QPalette_SetResolveMask(@ptrCast(self), @bitCast(mask));
     }
 

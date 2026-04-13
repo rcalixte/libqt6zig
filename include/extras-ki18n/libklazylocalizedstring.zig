@@ -250,9 +250,9 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
-    pub fn Subs3(self: ?*anyopaque, a: i64) QtC.KLocalizedString {
+    pub fn Subs3(self: ?*anyopaque, a: isize) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs3(@ptrCast(self), @bitCast(a));
     }
 
@@ -262,9 +262,9 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
-    pub fn Subs4(self: ?*anyopaque, a: u64) QtC.KLocalizedString {
+    pub fn Subs4(self: ?*anyopaque, a: usize) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs4(@ptrCast(self), @bitCast(a));
     }
 
@@ -274,9 +274,9 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
-    pub fn Subs5(self: ?*anyopaque, a: i64) QtC.KLocalizedString {
+    pub fn Subs5(self: ?*anyopaque, a: isize) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs5(@ptrCast(self), @bitCast(a));
     }
 
@@ -286,9 +286,9 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
-    pub fn Subs6(self: ?*anyopaque, a: u64) QtC.KLocalizedString {
+    pub fn Subs6(self: ?*anyopaque, a: usize) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs6(@ptrCast(self), @bitCast(a));
     }
 
@@ -488,11 +488,11 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
     /// ` fieldWidth: i32 `
     ///
-    pub fn Subs24(self: ?*anyopaque, a: i64, fieldWidth: i32) QtC.KLocalizedString {
+    pub fn Subs24(self: ?*anyopaque, a: isize, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs24(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
@@ -502,13 +502,13 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
     /// ` fieldWidth: i32 `
     ///
     /// ` base: i32 `
     ///
-    pub fn Subs34(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
+    pub fn Subs34(self: ?*anyopaque, a: isize, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs34(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
@@ -518,7 +518,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
     /// ` fieldWidth: i32 `
     ///
@@ -526,7 +526,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` fillChar: QtC.QChar `
     ///
-    pub fn Subs44(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
+    pub fn Subs44(self: ?*anyopaque, a: isize, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs44(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
@@ -536,11 +536,11 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
     /// ` fieldWidth: i32 `
     ///
-    pub fn Subs25(self: ?*anyopaque, a: u64, fieldWidth: i32) QtC.KLocalizedString {
+    pub fn Subs25(self: ?*anyopaque, a: usize, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs25(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
@@ -550,13 +550,13 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
     /// ` fieldWidth: i32 `
     ///
     /// ` base: i32 `
     ///
-    pub fn Subs35(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
+    pub fn Subs35(self: ?*anyopaque, a: usize, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs35(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
@@ -566,7 +566,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
     /// ` fieldWidth: i32 `
     ///
@@ -574,7 +574,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` fillChar: QtC.QChar `
     ///
-    pub fn Subs45(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
+    pub fn Subs45(self: ?*anyopaque, a: usize, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs45(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
@@ -584,11 +584,11 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
     /// ` fieldWidth: i32 `
     ///
-    pub fn Subs26(self: ?*anyopaque, a: i64, fieldWidth: i32) QtC.KLocalizedString {
+    pub fn Subs26(self: ?*anyopaque, a: isize, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs26(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
@@ -598,13 +598,13 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
     /// ` fieldWidth: i32 `
     ///
     /// ` base: i32 `
     ///
-    pub fn Subs36(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
+    pub fn Subs36(self: ?*anyopaque, a: isize, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs36(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
@@ -614,7 +614,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: i64 `
+    /// ` a: isize `
     ///
     /// ` fieldWidth: i32 `
     ///
@@ -622,7 +622,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` fillChar: QtC.QChar `
     ///
-    pub fn Subs46(self: ?*anyopaque, a: i64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
+    pub fn Subs46(self: ?*anyopaque, a: isize, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs46(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 
@@ -632,11 +632,11 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
     /// ` fieldWidth: i32 `
     ///
-    pub fn Subs27(self: ?*anyopaque, a: u64, fieldWidth: i32) QtC.KLocalizedString {
+    pub fn Subs27(self: ?*anyopaque, a: usize, fieldWidth: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs27(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth));
     }
 
@@ -646,13 +646,13 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
     /// ` fieldWidth: i32 `
     ///
     /// ` base: i32 `
     ///
-    pub fn Subs37(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32) QtC.KLocalizedString {
+    pub fn Subs37(self: ?*anyopaque, a: usize, fieldWidth: i32, base: i32) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs37(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base));
     }
 
@@ -662,7 +662,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` a: u64 `
+    /// ` a: usize `
     ///
     /// ` fieldWidth: i32 `
     ///
@@ -670,7 +670,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` fillChar: QtC.QChar `
     ///
-    pub fn Subs47(self: ?*anyopaque, a: u64, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
+    pub fn Subs47(self: ?*anyopaque, a: usize, fieldWidth: i32, base: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLazyLocalizedString_Subs47(@ptrCast(self), @bitCast(a), @bitCast(fieldWidth), @bitCast(base), @ptrCast(fillChar));
     }
 

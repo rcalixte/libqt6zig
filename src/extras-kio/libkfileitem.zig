@@ -465,7 +465,7 @@ pub const kfileitem = struct {
     ///
     /// ` self: QtC.KFileItem `
     ///
-    pub fn Size(self: ?*anyopaque) u64 {
+    pub fn Size(self: ?*anyopaque) usize {
         return qtc.KFileItem_Size(@ptrCast(self));
     }
 
@@ -475,7 +475,7 @@ pub const kfileitem = struct {
     ///
     /// ` self: QtC.KFileItem `
     ///
-    pub fn RecursiveSize(self: ?*anyopaque) u64 {
+    pub fn RecursiveSize(self: ?*anyopaque) usize {
         return qtc.KFileItem_RecursiveSize(@ptrCast(self));
     }
 

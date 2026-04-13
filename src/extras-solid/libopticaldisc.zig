@@ -135,7 +135,7 @@ pub const solid__opticaldisc = struct {
     ///
     /// ` self: QtC.Solid__OpticalDisc `
     ///
-    pub fn Capacity(self: ?*anyopaque) u64 {
+    pub fn Capacity(self: ?*anyopaque) usize {
         return qtc.Solid__OpticalDisc_Capacity(@ptrCast(self));
     }
 
@@ -271,7 +271,7 @@ pub const solid__opticaldisc = struct {
     ///
     /// ` self: QtC.Solid__OpticalDisc `
     ///
-    pub fn Size(self: ?*anyopaque) u64 {
+    pub fn Size(self: ?*anyopaque) usize {
         return qtc.Solid__StorageVolume_Size(@ptrCast(self));
     }
 

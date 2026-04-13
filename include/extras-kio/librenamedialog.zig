@@ -48,9 +48,9 @@ pub const kio__renamedialog = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    pub fn New2(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64) QtC.KIO__RenameDialog {
+    pub fn New2(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -73,11 +73,11 @@ pub const kio__renamedialog = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
-    pub fn New3(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64) QtC.KIO__RenameDialog {
+    pub fn New3(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -100,13 +100,13 @@ pub const kio__renamedialog = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
-    pub fn New4(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque) QtC.KIO__RenameDialog {
+    pub fn New4(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -129,15 +129,15 @@ pub const kio__renamedialog = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
     /// ` ctimeDest: QtC.QDateTime `
     ///
-    pub fn New5(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque) QtC.KIO__RenameDialog {
+    pub fn New5(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -160,9 +160,9 @@ pub const kio__renamedialog = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
@@ -170,7 +170,7 @@ pub const kio__renamedialog = struct {
     ///
     /// ` mtimeSrc: QtC.QDateTime `
     ///
-    pub fn New6(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque) QtC.KIO__RenameDialog {
+    pub fn New6(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -193,9 +193,9 @@ pub const kio__renamedialog = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
@@ -205,7 +205,7 @@ pub const kio__renamedialog = struct {
     ///
     /// ` mtimeDest: QtC.QDateTime `
     ///
-    pub fn New7(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) QtC.KIO__RenameDialog {
+    pub fn New7(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -3962,9 +3962,9 @@ pub const kio__renamedialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Find(param1: u64) QtC.QWidget {
+    pub fn Find(param1: usize) QtC.QWidget {
         return qtc.QWidget_Find(@bitCast(param1));
     }
 

@@ -29,9 +29,9 @@ pub const qwaitcondition = struct {
     ///
     /// ` lockedMutex: QtC.QMutex `
     ///
-    /// ` time: u64 `
+    /// ` time: usize `
     ///
-    pub fn Wait2(self: ?*anyopaque, lockedMutex: ?*anyopaque, time: u64) bool {
+    pub fn Wait2(self: ?*anyopaque, lockedMutex: ?*anyopaque, time: usize) bool {
         return qtc.QWaitCondition_Wait2(@ptrCast(self), @ptrCast(lockedMutex), @bitCast(time));
     }
 
@@ -55,9 +55,9 @@ pub const qwaitcondition = struct {
     ///
     /// ` lockedReadWriteLock: QtC.QReadWriteLock `
     ///
-    /// ` time: u64 `
+    /// ` time: usize `
     ///
-    pub fn Wait4(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque, time: u64) bool {
+    pub fn Wait4(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque, time: usize) bool {
         return qtc.QWaitCondition_Wait4(@ptrCast(self), @ptrCast(lockedReadWriteLock), @bitCast(time));
     }
 

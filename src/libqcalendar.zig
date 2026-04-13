@@ -841,7 +841,7 @@ pub const qcalendar__systemid = struct {
     ///
     /// ` self: QtC.QCalendar__SystemId `
     ///
-    pub fn Index(self: ?*anyopaque) u64 {
+    pub fn Index(self: ?*anyopaque) usize {
         return qtc.QCalendar__SystemId_Index(@ptrCast(self));
     }
 

@@ -327,7 +327,7 @@ pub const solid__opticaldrive = struct {
     ///
     /// ` self: QtC.Solid__OpticalDrive `
     ///
-    pub fn Size(self: ?*anyopaque) u64 {
+    pub fn Size(self: ?*anyopaque) usize {
         return qtc.Solid__StorageDrive_Size(@ptrCast(self));
     }
 

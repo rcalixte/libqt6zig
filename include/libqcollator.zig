@@ -241,13 +241,13 @@ pub const qcollator = struct {
     ///
     /// ` s1: QtC.QChar `
     ///
-    /// ` len1: i64 `
+    /// ` len1: isize `
     ///
     /// ` s2: QtC.QChar `
     ///
-    /// ` len2: i64 `
+    /// ` len2: isize `
     ///
-    pub fn Compare2(self: ?*anyopaque, s1: ?*anyopaque, len1: i64, s2: ?*anyopaque, len2: i64) i32 {
+    pub fn Compare2(self: ?*anyopaque, s1: ?*anyopaque, len1: isize, s2: ?*anyopaque, len2: isize) i32 {
         return qtc.QCollator_Compare2(@ptrCast(self), @ptrCast(s1), @bitCast(len1), @ptrCast(s2), @bitCast(len2));
     }
 

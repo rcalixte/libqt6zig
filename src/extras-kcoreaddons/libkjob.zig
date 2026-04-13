@@ -544,7 +544,7 @@ pub const kjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -556,7 +556,7 @@ pub const kjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -566,7 +566,7 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    pub fn Percent(self: ?*anyopaque) u64 {
+    pub fn Percent(self: ?*anyopaque) usize {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
@@ -700,9 +700,9 @@ pub const kjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -712,9 +712,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -726,9 +726,9 @@ pub const kjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -738,9 +738,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -752,9 +752,9 @@ pub const kjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
+    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
     }
 
@@ -764,9 +764,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -914,9 +914,9 @@ pub const kjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -928,9 +928,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_OnSetProcessedAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -948,9 +948,9 @@ pub const kjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KJob_SuperSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -962,9 +962,9 @@ pub const kjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -976,9 +976,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_OnSetTotalAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -996,9 +996,9 @@ pub const kjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KJob_SuperSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -1052,9 +1052,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` percentage: u64 `
+    /// ` percentage: usize `
     ///
-    pub fn SetPercent(self: ?*anyopaque, percentage: u64) void {
+    pub fn SetPercent(self: ?*anyopaque, percentage: usize) void {
         qtc.KJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
@@ -1066,9 +1066,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, percentage: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, percentage: usize) callconv(.c) void `
     ///
-    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_OnSetPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1084,9 +1084,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` percentage: u64 `
+    /// ` percentage: usize `
     ///
-    pub fn SuperSetPercent(self: ?*anyopaque, percentage: u64) void {
+    pub fn SuperSetPercent(self: ?*anyopaque, percentage: usize) void {
         qtc.KJob_SuperSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
@@ -1136,11 +1136,11 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` processedAmount: u64 `
+    /// ` processedAmount: usize `
     ///
-    /// ` totalAmount: u64 `
+    /// ` totalAmount: usize `
     ///
-    pub fn EmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+    pub fn EmitPercent(self: ?*anyopaque, processedAmount: usize, totalAmount: usize) void {
         qtc.KJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
@@ -1152,9 +1152,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, processedAmount: u64, totalAmount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
     ///
-    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, u64) callconv(.c) void) void {
+    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize, usize) callconv(.c) void) void {
         qtc.KJob_OnEmitPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1170,11 +1170,11 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` processedAmount: u64 `
+    /// ` processedAmount: usize `
     ///
-    /// ` totalAmount: u64 `
+    /// ` totalAmount: usize `
     ///
-    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: usize, totalAmount: usize) void {
         qtc.KJob_SuperEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
@@ -1184,9 +1184,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn EmitSpeed(self: ?*anyopaque, speed: u64) void {
+    pub fn EmitSpeed(self: ?*anyopaque, speed: usize) void {
         qtc.KJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
@@ -1198,9 +1198,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_OnEmitSpeed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1216,9 +1216,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: u64) void {
+    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: usize) void {
         qtc.KJob_SuperEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
@@ -2700,9 +2700,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2714,9 +2714,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2728,9 +2728,9 @@ pub const kjob = struct {
     ///
     /// ` self: QtC.KJob `
     ///
-    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, percent: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KJob, job: QtC.KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

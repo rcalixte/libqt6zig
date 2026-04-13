@@ -191,9 +191,9 @@ pub const kio__jobuidelegate = struct {
     ///
     /// ` self: QtC.KIO__JobUiDelegate `
     ///
-    /// ` time: u64 `
+    /// ` time: usize `
     ///
-    pub fn UpdateUserTimestamp(self: ?*anyopaque, time: u64) void {
+    pub fn UpdateUserTimestamp(self: ?*anyopaque, time: usize) void {
         qtc.KDialogJobUiDelegate_UpdateUserTimestamp(@ptrCast(self), @bitCast(time));
     }
 
@@ -205,7 +205,7 @@ pub const kio__jobuidelegate = struct {
     ///
     /// ` self: QtC.KIO__JobUiDelegate `
     ///
-    pub fn UserTimestamp(self: ?*anyopaque) u64 {
+    pub fn UserTimestamp(self: ?*anyopaque) usize {
         return qtc.KDialogJobUiDelegate_UserTimestamp(@ptrCast(self));
     }
 

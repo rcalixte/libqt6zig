@@ -416,7 +416,7 @@ pub const qeventpoint = struct {
     ///
     /// ` self: QtC.QEventPoint `
     ///
-    pub fn Timestamp(self: ?*anyopaque) u64 {
+    pub fn Timestamp(self: ?*anyopaque) usize {
         return qtc.QEventPoint_Timestamp(@ptrCast(self));
     }
 
@@ -426,7 +426,7 @@ pub const qeventpoint = struct {
     ///
     /// ` self: QtC.QEventPoint `
     ///
-    pub fn LastTimestamp(self: ?*anyopaque) u64 {
+    pub fn LastTimestamp(self: ?*anyopaque) usize {
         return qtc.QEventPoint_LastTimestamp(@ptrCast(self));
     }
 
@@ -436,7 +436,7 @@ pub const qeventpoint = struct {
     ///
     /// ` self: QtC.QEventPoint `
     ///
-    pub fn PressTimestamp(self: ?*anyopaque) u64 {
+    pub fn PressTimestamp(self: ?*anyopaque) usize {
         return qtc.QEventPoint_PressTimestamp(@ptrCast(self));
     }
 

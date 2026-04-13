@@ -302,9 +302,9 @@ pub const qaudiosink = struct {
     ///
     /// ` self: QtC.QAudioSink `
     ///
-    /// ` bytes: i64 `
+    /// ` bytes: isize `
     ///
-    pub fn SetBufferSize(self: ?*anyopaque, bytes: i64) void {
+    pub fn SetBufferSize(self: ?*anyopaque, bytes: isize) void {
         qtc.QAudioSink_SetBufferSize(@ptrCast(self), @bitCast(bytes));
     }
 
@@ -314,7 +314,7 @@ pub const qaudiosink = struct {
     ///
     /// ` self: QtC.QAudioSink `
     ///
-    pub fn BufferSize(self: ?*anyopaque) i64 {
+    pub fn BufferSize(self: ?*anyopaque) isize {
         return qtc.QAudioSink_BufferSize(@ptrCast(self));
     }
 
@@ -324,7 +324,7 @@ pub const qaudiosink = struct {
     ///
     /// ` self: QtC.QAudioSink `
     ///
-    pub fn BytesFree(self: ?*anyopaque) i64 {
+    pub fn BytesFree(self: ?*anyopaque) isize {
         return qtc.QAudioSink_BytesFree(@ptrCast(self));
     }
 

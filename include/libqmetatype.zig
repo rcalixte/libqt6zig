@@ -265,7 +265,7 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    pub fn SizeOf2(self: ?*anyopaque) i64 {
+    pub fn SizeOf2(self: ?*anyopaque) isize {
         return qtc.QMetaType_SizeOf2(@ptrCast(self));
     }
 
@@ -275,7 +275,7 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    pub fn AlignOf(self: ?*anyopaque) i64 {
+    pub fn AlignOf(self: ?*anyopaque) isize {
         return qtc.QMetaType_AlignOf(@ptrCast(self));
     }
 

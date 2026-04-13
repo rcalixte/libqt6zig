@@ -127,7 +127,7 @@ pub const kzipfileentry = struct {
     ///
     /// ` self: QtC.KZipFileEntry `
     ///
-    pub fn Crc32(self: ?*anyopaque) u64 {
+    pub fn Crc32(self: ?*anyopaque) usize {
         return qtc.KZipFileEntry_Crc32(@ptrCast(self));
     }
 
@@ -137,9 +137,9 @@ pub const kzipfileentry = struct {
     ///
     /// ` self: QtC.KZipFileEntry `
     ///
-    /// ` crc32: u64 `
+    /// ` crc32: usize `
     ///
-    pub fn SetCRC32(self: ?*anyopaque, crc32: u64) void {
+    pub fn SetCRC32(self: ?*anyopaque, crc32: usize) void {
         qtc.KZipFileEntry_SetCRC32(@ptrCast(self), @bitCast(crc32));
     }
 

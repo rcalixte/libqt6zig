@@ -81,11 +81,11 @@ pub const qimage = struct {
     ///
     /// ` height: i32 `
     ///
-    /// ` bytesPerLine: i64 `
+    /// ` bytesPerLine: isize `
     ///
     /// ` format: qimage_enums.Format `
     ///
-    pub fn New6(data: *u8, width: i32, height: i32, bytesPerLine: i64, format: i32) QtC.QImage {
+    pub fn New6(data: *u8, width: i32, height: i32, bytesPerLine: isize, format: i32) QtC.QImage {
         return qtc.QImage_new6(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format));
     }
 
@@ -99,11 +99,11 @@ pub const qimage = struct {
     ///
     /// ` height: i32 `
     ///
-    /// ` bytesPerLine: i64 `
+    /// ` bytesPerLine: isize `
     ///
     /// ` format: qimage_enums.Format `
     ///
-    pub fn New7(data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: i32) QtC.QImage {
+    pub fn New7(data: *const u8, width: i32, height: i32, bytesPerLine: isize, format: i32) QtC.QImage {
         return qtc.QImage_new7(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format));
     }
 
@@ -236,13 +236,13 @@ pub const qimage = struct {
     ///
     /// ` height: i32 `
     ///
-    /// ` bytesPerLine: i64 `
+    /// ` bytesPerLine: isize `
     ///
     /// ` format: qimage_enums.Format `
     ///
     /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn New15(data: *u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
+    pub fn New15(data: *u8, width: i32, height: i32, bytesPerLine: isize, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
         return qtc.QImage_new15(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)));
     }
 
@@ -256,7 +256,7 @@ pub const qimage = struct {
     ///
     /// ` height: i32 `
     ///
-    /// ` bytesPerLine: i64 `
+    /// ` bytesPerLine: isize `
     ///
     /// ` format: qimage_enums.Format `
     ///
@@ -264,7 +264,7 @@ pub const qimage = struct {
     ///
     /// ` cleanupInfo: ?*anyopaque `
     ///
-    pub fn New16(data: *u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
+    pub fn New16(data: *u8, width: i32, height: i32, bytesPerLine: isize, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
         return qtc.QImage_new16(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)), @ptrCast(cleanupInfo));
     }
 
@@ -278,13 +278,13 @@ pub const qimage = struct {
     ///
     /// ` height: i32 `
     ///
-    /// ` bytesPerLine: i64 `
+    /// ` bytesPerLine: isize `
     ///
     /// ` format: qimage_enums.Format `
     ///
     /// ` cleanupFunction: *const fn (funcparam1: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn New17(data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
+    pub fn New17(data: *const u8, width: i32, height: i32, bytesPerLine: isize, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void) QtC.QImage {
         return qtc.QImage_new17(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)));
     }
 
@@ -298,7 +298,7 @@ pub const qimage = struct {
     ///
     /// ` height: i32 `
     ///
-    /// ` bytesPerLine: i64 `
+    /// ` bytesPerLine: isize `
     ///
     /// ` format: qimage_enums.Format `
     ///
@@ -306,7 +306,7 @@ pub const qimage = struct {
     ///
     /// ` cleanupInfo: ?*anyopaque `
     ///
-    pub fn New18(data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
+    pub fn New18(data: *const u8, width: i32, height: i32, bytesPerLine: isize, format: i32, cleanupFunction: *const fn (?*anyopaque) callconv(.c) void, cleanupInfo: ?*anyopaque) QtC.QImage {
         return qtc.QImage_new18(@ptrCast(data), @bitCast(width), @bitCast(height), @bitCast(bytesPerLine), @bitCast(format), @bitCast(@intFromPtr(cleanupFunction)), @ptrCast(cleanupInfo));
     }
 
@@ -728,7 +728,7 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn SizeInBytes(self: ?*anyopaque) i64 {
+    pub fn SizeInBytes(self: ?*anyopaque) isize {
         return qtc.QImage_SizeInBytes(@ptrCast(self));
     }
 
@@ -774,7 +774,7 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn BytesPerLine(self: ?*anyopaque) i64 {
+    pub fn BytesPerLine(self: ?*anyopaque) isize {
         return qtc.QImage_BytesPerLine(@ptrCast(self));
     }
 

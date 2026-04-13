@@ -76,13 +76,13 @@ pub const kencodingprober = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
     /// ## Returns:
     ///
     /// ` kencodingprober_enums.ProberState `
     ///
-    pub fn Feed2(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i32 {
+    pub fn Feed2(self: ?*anyopaque, data: [:0]const u8, lenVal: isize) i32 {
         const data_Cstring = data.ptr;
         return qtc.KEncodingProber_Feed2(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }

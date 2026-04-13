@@ -58,7 +58,7 @@ pub const kio__udsentry = struct {
     ///
     /// ` field: u32 `
     ///
-    pub fn NumberValue(self: ?*anyopaque, field: u32) i64 {
+    pub fn NumberValue(self: ?*anyopaque, field: u32) isize {
         return qtc.KIO__UDSEntry_NumberValue(@ptrCast(self), @bitCast(field));
     }
 
@@ -120,9 +120,9 @@ pub const kio__udsentry = struct {
     ///
     /// ` field: u32 `
     ///
-    /// ` l: i64 `
+    /// ` l: isize `
     ///
-    pub fn FastInsert2(self: ?*anyopaque, field: u32, l: i64) void {
+    pub fn FastInsert2(self: ?*anyopaque, field: u32, l: isize) void {
         qtc.KIO__UDSEntry_FastInsert2(@ptrCast(self), @bitCast(field), @bitCast(l));
     }
 
@@ -201,9 +201,9 @@ pub const kio__udsentry = struct {
     ///
     /// ` field: u32 `
     ///
-    /// ` l: i64 `
+    /// ` l: isize `
     ///
-    pub fn Replace2(self: ?*anyopaque, field: u32, l: i64) void {
+    pub fn Replace2(self: ?*anyopaque, field: u32, l: isize) void {
         qtc.KIO__UDSEntry_Replace2(@ptrCast(self), @bitCast(field), @bitCast(l));
     }
 
@@ -215,9 +215,9 @@ pub const kio__udsentry = struct {
     ///
     /// ` field: u32 `
     ///
-    /// ` defaultValue: i64 `
+    /// ` defaultValue: isize `
     ///
-    pub fn NumberValue2(self: ?*anyopaque, field: u32, defaultValue: i64) i64 {
+    pub fn NumberValue2(self: ?*anyopaque, field: u32, defaultValue: isize) isize {
         return qtc.KIO__UDSEntry_NumberValue2(@ptrCast(self), @bitCast(field), @bitCast(defaultValue));
     }
 
