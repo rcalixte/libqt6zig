@@ -375,63 +375,41 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		return "[]" + ifv(p.Const, "const ", "") + ret
 	}
 
-	switch p.ParameterType {
+	paramType := p.ParameterType
+	if p.IntType() && p.QtCppOriginalType != nil && shouldPreferQualType(p.QtCppOriginalType.ParameterType) {
+		paramType = p.QtCppOriginalType.ParameterType
+	}
+
+	switch paramType {
 	case "GLvoid", "void":
 		ret += ifv((p.Pointer || p.ByRef), ifv(p.PointerCount > 1, "*", "")+"?*"+ifv(p.Const, "const ", "")+"anyopaque", "void")
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
 	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte", "GLchar":
-		// Zig byte is unsigned
 		ret += "u8"
 	case "qint8", "signed char", "GLbyte":
-		ret += "i8" // Signed
+		ret += "i8"
 	case "short", "qint16", "int16_t", "GLshort":
 		ret += "i16"
 	case "ushort", "quint16", "unsigned short", "uint16_t", "GLushort":
 		ret += "u16"
-	case "long":
-		// Windows ILP32 - 32-bits
-		// Linux LP64 - 64-bits
-		if C.sizeof_long == 4 {
-			ret += "i32"
-		} else {
-			ret += "i64"
-		}
-	case "ulong", "unsigned long":
-		if C.sizeof_long == 4 {
-			ret += "u32"
-		} else {
-			ret += "u64"
-		}
-
 	case "unsigned int", "quint32", "uint32_t", "uint", "mode_t", "gid_t", "uid_t", "GL", "GLbitfield", "GLenum", "GLuint":
 		ret += "u32"
 	case "qint32", "int", "int32_t", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
-	case "qlonglong", "qint64", "long long", "time_t", "GLint64":
+	case "qint64", "time_t", "GLint64":
 		ret += "i64"
-	case "qulonglong", "quint64", "unsigned long long", "dev_t", "GLuint64":
+	case "quint64", "dev_t", "GLuint64":
 		ret += "u64"
 	case "float", "GLclampf", "GLfloat":
 		ret += "f32"
 	case "const double", "double", "qreal", "GLdouble":
 		ret += "f64"
-	case "size_t": // size_t is unsigned
-		if C.sizeof_size_t == 4 {
-			ret += "u32"
-		} else {
-			ret += "u64"
-		}
-	case "qsizetype", "QIntegerForSizeof<std::size_t>::Signed", "qptrdiff", "ptrdiff_t": // all signed
-		if C.sizeof_size_t == 4 {
-			ret += "i32"
-		} else {
-			ret += "i64"
-		}
-
-	case "qintptr", "intptr_t", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr":
+	case "long", "ptrdiff_t", "qptrdiff", "qintptr", "qlonglong", "qsizetype", "intptr_t", "long long",
+		"QIntegerForSizeof<std::size_t>::Signed", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr":
 		ret += "isize"
-	case "uintptr_t", "quintptr", "QIntegerForSizeof<void *>::Unsigned":
+	case "ulong", "unsigned long", "size_t", "uintptr_t", "unsigned long long", "qulonglong", "quintptr",
+		"QIntegerForSizeof<void *>::Unsigned":
 		ret += "usize"
 	case "quint128":
 		ret = "u128"
@@ -665,9 +643,9 @@ func (p CppParameter) parameterTypeZig() string {
 	case "char":
 		tmp = "u8"
 	case "unsigned long long":
-		tmp = "u64"
+		tmp = "usize"
 	case "long long":
-		tmp = "i64"
+		tmp = "isize"
 	case "unsigned int":
 		tmp = "u32"
 	case "signed int":
