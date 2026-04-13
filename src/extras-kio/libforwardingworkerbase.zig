@@ -1840,9 +1840,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    pub fn CanResume(self: ?*anyopaque, offset: u64) bool {
+    pub fn CanResume(self: ?*anyopaque, offset: usize) bool {
         return qtc.KIO__WorkerBase_CanResume(@ptrCast(self), @bitCast(offset));
     }
 
@@ -1866,9 +1866,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` _bytes: u64 `
+    /// ` _bytes: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, _bytes: u64) void {
+    pub fn TotalSize(self: ?*anyopaque, _bytes: usize) void {
         qtc.KIO__WorkerBase_TotalSize(@ptrCast(self), @bitCast(_bytes));
     }
 
@@ -1880,9 +1880,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` _bytes: u64 `
+    /// ` _bytes: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, _bytes: u64) void {
+    pub fn ProcessedSize(self: ?*anyopaque, _bytes: usize) void {
         qtc.KIO__WorkerBase_ProcessedSize(@ptrCast(self), @bitCast(_bytes));
     }
 
@@ -1894,9 +1894,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` _pos: u64 `
+    /// ` _pos: usize `
     ///
-    pub fn Position(self: ?*anyopaque, _pos: u64) void {
+    pub fn Position(self: ?*anyopaque, _pos: usize) void {
         qtc.KIO__WorkerBase_Position(@ptrCast(self), @bitCast(_pos));
     }
 
@@ -1908,9 +1908,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` _bytes: u64 `
+    /// ` _bytes: usize `
     ///
-    pub fn Written(self: ?*anyopaque, _bytes: u64) void {
+    pub fn Written(self: ?*anyopaque, _bytes: usize) void {
         qtc.KIO__WorkerBase_Written(@ptrCast(self), @bitCast(_bytes));
     }
 
@@ -1922,9 +1922,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` _length: u64 `
+    /// ` _length: usize `
     ///
-    pub fn Truncated(self: ?*anyopaque, _length: u64) void {
+    pub fn Truncated(self: ?*anyopaque, _length: usize) void {
         qtc.KIO__WorkerBase_Truncated(@ptrCast(self), @bitCast(_length));
     }
 
@@ -1936,9 +1936,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` _bytes_per_second: u64 `
+    /// ` _bytes_per_second: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, _bytes_per_second: u64) void {
+    pub fn Speed(self: ?*anyopaque, _bytes_per_second: usize) void {
         qtc.KIO__WorkerBase_Speed(@ptrCast(self), @bitCast(_bytes_per_second));
     }
 
@@ -3604,9 +3604,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn Read(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
+    pub fn Read(self: ?*anyopaque, size: usize) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Read(@ptrCast(self), @bitCast(size));
     }
 
@@ -3624,9 +3624,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn SuperRead(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
+    pub fn SuperRead(self: ?*anyopaque, size: usize) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_SuperRead(@ptrCast(self), @bitCast(size));
     }
 
@@ -3640,9 +3640,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, size: usize) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3716,9 +3716,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    pub fn Seek(self: ?*anyopaque, offset: u64) QtC.KIO__WorkerResult {
+    pub fn Seek(self: ?*anyopaque, offset: usize) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Seek(@ptrCast(self), @bitCast(offset));
     }
 
@@ -3736,9 +3736,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    pub fn SuperSeek(self: ?*anyopaque, offset: u64) QtC.KIO__WorkerResult {
+    pub fn SuperSeek(self: ?*anyopaque, offset: usize) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_SuperSeek(@ptrCast(self), @bitCast(offset));
     }
 
@@ -3752,9 +3752,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, offset: u64) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, offset: usize) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3768,9 +3768,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn Truncate(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
+    pub fn Truncate(self: ?*anyopaque, size: usize) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Truncate(@ptrCast(self), @bitCast(size));
     }
 
@@ -3788,9 +3788,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn SuperTruncate(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
+    pub fn SuperTruncate(self: ?*anyopaque, size: usize) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_SuperTruncate(@ptrCast(self), @bitCast(size));
     }
 
@@ -3804,9 +3804,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, size: usize) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnTruncate(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnTruncate(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnTruncate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

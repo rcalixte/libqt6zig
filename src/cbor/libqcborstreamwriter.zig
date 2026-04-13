@@ -156,9 +156,9 @@ pub const qcborstreamwriter = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn AppendByteString(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) void {
+    pub fn AppendByteString(self: ?*anyopaque, data: [:0]const u8, lenVal: isize) void {
         const data_Cstring = data.ptr;
         qtc.QCborStreamWriter_AppendByteString(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
@@ -171,9 +171,9 @@ pub const qcborstreamwriter = struct {
     ///
     /// ` utf8: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn AppendTextString(self: ?*anyopaque, utf8: [:0]const u8, lenVal: i64) void {
+    pub fn AppendTextString(self: ?*anyopaque, utf8: [:0]const u8, lenVal: isize) void {
         const utf8_Cstring = utf8.ptr;
         qtc.QCborStreamWriter_AppendTextString(@ptrCast(self), utf8_Cstring, @bitCast(lenVal));
     }
@@ -319,9 +319,9 @@ pub const qcborstreamwriter = struct {
     ///
     /// ` str: [:0]const u8 `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
-    pub fn Append22(self: ?*anyopaque, str: [:0]const u8, size: i64) void {
+    pub fn Append22(self: ?*anyopaque, str: [:0]const u8, size: isize) void {
         const str_Cstring = str.ptr;
         qtc.QCborStreamWriter_Append22(@ptrCast(self), str_Cstring, @bitCast(size));
     }

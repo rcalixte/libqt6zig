@@ -741,7 +741,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    pub fn TotalCharacters(self: ?*anyopaque) i64 {
+    pub fn TotalCharacters(self: ?*anyopaque) isize {
         return qtc.KTextEditor__Document_TotalCharacters(@ptrCast(self));
     }
 
@@ -1036,7 +1036,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` c: QtC.KTextEditor__Cursor `
     ///
-    pub fn CursorToOffset(self: ?*anyopaque, c: QtC.KTextEditor__Cursor) i64 {
+    pub fn CursorToOffset(self: ?*anyopaque, c: QtC.KTextEditor__Cursor) isize {
         return qtc.KTextEditor__Document_CursorToOffset(@ptrCast(self), @ptrCast(c));
     }
 
@@ -1046,9 +1046,9 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` offset: i64 `
+    /// ` offset: isize `
     ///
-    pub fn OffsetToCursor(self: ?*anyopaque, offset: i64) QtC.KTextEditor__Cursor {
+    pub fn OffsetToCursor(self: ?*anyopaque, offset: isize) QtC.KTextEditor__Cursor {
         return qtc.KTextEditor__Document_OffsetToCursor(@ptrCast(self), @bitCast(offset));
     }
 

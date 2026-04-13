@@ -338,9 +338,9 @@ pub const qjsondocument = struct {
     ///
     /// ` self: QtC.QJsonDocument `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+    pub fn OperatorSubscript4(self: ?*anyopaque, i: isize) QtC.QJsonValue {
         return qtc.QJsonDocument_OperatorSubscript4(@ptrCast(self), @bitCast(i));
     }
 

@@ -32,9 +32,9 @@ pub const kreplacedialog = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn New3(parent: ?*anyopaque, options: i64) QtC.KReplaceDialog {
+    pub fn New3(parent: ?*anyopaque, options: isize) QtC.KReplaceDialog {
         return qtc.KReplaceDialog_new3(@ptrCast(parent), @bitCast(options));
     }
 
@@ -44,13 +44,13 @@ pub const kreplacedialog = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` findStrings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(parent: ?*anyopaque, options: i64, findStrings: []const []const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
+    pub fn New4(parent: ?*anyopaque, options: isize, findStrings: []const []const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
         const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New4: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
@@ -73,7 +73,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` findStrings: []const []const u8 `
     ///
@@ -81,7 +81,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New5(parent: ?*anyopaque, options: i64, findStrings: []const []const u8, replaceStrings: []const []const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
+    pub fn New5(parent: ?*anyopaque, options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
         const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New5: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
@@ -116,7 +116,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` findStrings: []const []const u8 `
     ///
@@ -126,7 +126,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(parent: ?*anyopaque, options: i64, findStrings: []const []const u8, replaceStrings: []const []const u8, hasSelection: bool, allocator: std.mem.Allocator) QtC.KReplaceDialog {
+    pub fn New6(parent: ?*anyopaque, options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8, hasSelection: bool, allocator: std.mem.Allocator) QtC.KReplaceDialog {
         const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New6: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
@@ -357,9 +357,9 @@ pub const kreplacedialog = struct {
     ///
     /// ` self: QtC.KReplaceDialog `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: isize) void {
         qtc.KReplaceDialog_SetOptions(@ptrCast(self), @bitCast(options));
     }
 
@@ -369,7 +369,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` self: QtC.KReplaceDialog `
     ///
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) isize {
         return qtc.KReplaceDialog_Options(@ptrCast(self));
     }
 
@@ -4153,9 +4153,9 @@ pub const kreplacedialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Find(param1: u64) QtC.QWidget {
+    pub fn Find(param1: usize) QtC.QWidget {
         return qtc.QWidget_Find(@bitCast(param1));
     }
 

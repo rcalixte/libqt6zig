@@ -534,7 +534,7 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -544,9 +544,9 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -1208,7 +1208,7 @@ pub const qsinglepointevent = struct {
     ///
     /// ` self: QtC.QSinglePointEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -1220,9 +1220,9 @@ pub const qsinglepointevent = struct {
     ///
     /// ` self: QtC.QSinglePointEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -1872,7 +1872,7 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -1884,9 +1884,9 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -2944,7 +2944,7 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -2956,9 +2956,9 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -3904,7 +3904,7 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -3916,9 +3916,9 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -4910,7 +4910,7 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -4922,9 +4922,9 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -5748,7 +5748,7 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -5760,9 +5760,9 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -6694,7 +6694,7 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -6706,9 +6706,9 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 
@@ -15889,7 +15889,7 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    pub fn PointCount(self: ?*anyopaque) i64 {
+    pub fn PointCount(self: ?*anyopaque) isize {
         return qtc.QPointerEvent_PointCount(@ptrCast(self));
     }
 
@@ -15901,9 +15901,9 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn Point(self: ?*anyopaque, i: i64) QtC.QEventPoint {
+    pub fn Point(self: ?*anyopaque, i: isize) QtC.QEventPoint {
         return qtc.QPointerEvent_Point(@ptrCast(self), @bitCast(i));
     }
 

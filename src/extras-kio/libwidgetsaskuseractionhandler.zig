@@ -184,9 +184,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
@@ -196,7 +196,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` mtimeDest: QtC.QDateTime `
     ///
-    pub fn AskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
+    pub fn AskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -212,9 +212,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: [*:0]const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: [*:0]const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: usize, sizeDest: usize, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime) callconv(.c) void `
     ///
-    pub fn OnAskUserRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, i32, u64, u64, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnAskUserRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, i32, usize, usize, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserRename(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -240,9 +240,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` options: flag of jobuidelegateextension_enums.RenameDialog_Option `
     ///
-    /// ` sizeSrc: u64 `
+    /// ` sizeSrc: usize `
     ///
-    /// ` sizeDest: u64 `
+    /// ` sizeDest: usize `
     ///
     /// ` ctimeSrc: QtC.QDateTime `
     ///
@@ -252,7 +252,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` mtimeDest: QtC.QDateTime `
     ///
-    pub fn SuperAskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
+    pub fn SuperAskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: usize, sizeDest: usize, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,

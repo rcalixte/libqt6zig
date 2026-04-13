@@ -123,9 +123,9 @@ pub const qdbusargument = struct {
     ///
     /// ` self: QtC.QDBusArgument `
     ///
-    /// ` arg: i64 `
+    /// ` arg: isize `
     ///
-    pub fn OperatorShiftLeft7(self: ?*anyopaque, arg: i64) QtC.QDBusArgument {
+    pub fn OperatorShiftLeft7(self: ?*anyopaque, arg: isize) QtC.QDBusArgument {
         return qtc.QDBusArgument_OperatorShiftLeft7(@ptrCast(self), @bitCast(arg));
     }
 
@@ -135,9 +135,9 @@ pub const qdbusargument = struct {
     ///
     /// ` self: QtC.QDBusArgument `
     ///
-    /// ` arg: u64 `
+    /// ` arg: usize `
     ///
-    pub fn OperatorShiftLeft8(self: ?*anyopaque, arg: u64) QtC.QDBusArgument {
+    pub fn OperatorShiftLeft8(self: ?*anyopaque, arg: usize) QtC.QDBusArgument {
         return qtc.QDBusArgument_OperatorShiftLeft8(@ptrCast(self), @bitCast(arg));
     }
 
@@ -491,9 +491,9 @@ pub const qdbusargument = struct {
     ///
     /// ` self: QtC.QDBusArgument `
     ///
-    /// ` arg: *i64 `
+    /// ` arg: *isize `
     ///
-    pub fn OperatorShiftRight7(self: ?*anyopaque, arg: *i64) QtC.QDBusArgument {
+    pub fn OperatorShiftRight7(self: ?*anyopaque, arg: *isize) QtC.QDBusArgument {
         return qtc.QDBusArgument_OperatorShiftRight7(@ptrCast(self), @ptrCast(arg));
     }
 
@@ -503,9 +503,9 @@ pub const qdbusargument = struct {
     ///
     /// ` self: QtC.QDBusArgument `
     ///
-    /// ` arg: *u64 `
+    /// ` arg: *usize `
     ///
-    pub fn OperatorShiftRight8(self: ?*anyopaque, arg: *u64) QtC.QDBusArgument {
+    pub fn OperatorShiftRight8(self: ?*anyopaque, arg: *usize) QtC.QDBusArgument {
         return qtc.QDBusArgument_OperatorShiftRight8(@ptrCast(self), @ptrCast(arg));
     }
 

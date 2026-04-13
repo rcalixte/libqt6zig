@@ -252,7 +252,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    pub fn DownloadSizeRemaining(self: ?*anyopaque) u64 {
+    pub fn DownloadSizeRemaining(self: ?*anyopaque) usize {
         return qtc.PackageKit__Transaction_DownloadSizeRemaining(@ptrCast(self));
     }
 

@@ -63,7 +63,7 @@ pub const qcbormap = struct {
     ///
     /// ` self: QtC.QCborMap `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QCborMap_Size(@ptrCast(self));
     }
 
@@ -894,9 +894,9 @@ pub const qcbormap__iterator = struct {
     ///
     /// ` self: QtC.QCborMap__Iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
+    pub fn OperatorSubscript(self: ?*anyopaque, j: isize) struct_qtcqcborvalue_qtcqcborvalue {
         const _pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @bitCast(j));
         return @bitCast(_pair);
     }
@@ -991,9 +991,9 @@ pub const qcbormap__iterator = struct {
     ///
     /// ` self: QtC.QCborMap__Iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
+    pub fn OperatorPlusAssign(self: ?*anyopaque, j: isize) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorPlusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -1003,9 +1003,9 @@ pub const qcbormap__iterator = struct {
     ///
     /// ` self: QtC.QCborMap__Iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
+    pub fn OperatorMinusAssign(self: ?*anyopaque, j: isize) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorMinusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -1015,9 +1015,9 @@ pub const qcbormap__iterator = struct {
     ///
     /// ` self: QtC.QCborMap__Iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
+    pub fn OperatorPlus(self: ?*anyopaque, j: isize) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorPlus(@ptrCast(self), @bitCast(j));
     }
 
@@ -1027,9 +1027,9 @@ pub const qcbormap__iterator = struct {
     ///
     /// ` self: QtC.QCborMap__Iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
+    pub fn OperatorMinus(self: ?*anyopaque, j: isize) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorMinus(@ptrCast(self), @bitCast(j));
     }
 
@@ -1041,7 +1041,7 @@ pub const qcbormap__iterator = struct {
     ///
     /// ` j: QtC.QCborMap__Iterator `
     ///
-    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QCborMap__Iterator) i64 {
+    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QCborMap__Iterator) isize {
         return qtc.QCborMap__Iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 
@@ -1117,9 +1117,9 @@ pub const qcbormap__constiterator = struct {
     ///
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
+    pub fn OperatorSubscript(self: ?*anyopaque, j: isize) struct_qtcqcborvalue_qtcqcborvalue {
         const _pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @bitCast(j));
         return @bitCast(_pair);
     }
@@ -1204,9 +1204,9 @@ pub const qcbormap__constiterator = struct {
     ///
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
+    pub fn OperatorPlusAssign(self: ?*anyopaque, j: isize) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorPlusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -1216,9 +1216,9 @@ pub const qcbormap__constiterator = struct {
     ///
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
+    pub fn OperatorMinusAssign(self: ?*anyopaque, j: isize) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorMinusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -1228,9 +1228,9 @@ pub const qcbormap__constiterator = struct {
     ///
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
+    pub fn OperatorPlus(self: ?*anyopaque, j: isize) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorPlus(@ptrCast(self), @bitCast(j));
     }
 
@@ -1240,9 +1240,9 @@ pub const qcbormap__constiterator = struct {
     ///
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
+    pub fn OperatorMinus(self: ?*anyopaque, j: isize) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorMinus(@ptrCast(self), @bitCast(j));
     }
 
@@ -1254,7 +1254,7 @@ pub const qcbormap__constiterator = struct {
     ///
     /// ` j: QtC.QCborMap__ConstIterator `
     ///
-    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QCborMap__ConstIterator) i64 {
+    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QCborMap__ConstIterator) isize {
         return qtc.QCborMap__ConstIterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 

@@ -150,7 +150,7 @@ pub const qgeoroute = struct {
     ///
     /// ` self: QtC.QGeoRoute `
     ///
-    pub fn SegmentsCount(self: ?*anyopaque) i64 {
+    pub fn SegmentsCount(self: ?*anyopaque) isize {
         return qtc.QGeoRoute_SegmentsCount(@ptrCast(self));
     }
 

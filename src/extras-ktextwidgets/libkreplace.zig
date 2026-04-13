@@ -15,9 +15,9 @@ pub const kreplace = struct {
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn New(pattern: []const u8, replacement: []const u8, options: i64) QtC.KReplace {
+    pub fn New(pattern: []const u8, replacement: []const u8, options: isize) QtC.KReplace {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -38,13 +38,13 @@ pub const kreplace = struct {
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` parent: QtC.QWidget `
     ///
     /// ` replaceDialog: QtC.QWidget `
     ///
-    pub fn New2(pattern: []const u8, replacement: []const u8, options: i64, parent: ?*anyopaque, replaceDialog: ?*anyopaque) QtC.KReplace {
+    pub fn New2(pattern: []const u8, replacement: []const u8, options: isize, parent: ?*anyopaque, replaceDialog: ?*anyopaque) QtC.KReplace {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -65,11 +65,11 @@ pub const kreplace = struct {
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn New3(pattern: []const u8, replacement: []const u8, options: i64, parent: ?*anyopaque) QtC.KReplace {
+    pub fn New3(pattern: []const u8, replacement: []const u8, options: isize, parent: ?*anyopaque) QtC.KReplace {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -321,11 +321,11 @@ pub const kreplace = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` replacedLength: *i32 `
     ///
-    pub fn Replace2(text: []const u8, pattern: []const u8, replacement: []const u8, index: i32, options: i64, replacedLength: *i32) i32 {
+    pub fn Replace2(text: []const u8, pattern: []const u8, replacement: []const u8, index: i32, options: isize, replacedLength: *i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -591,7 +591,7 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    pub fn Options(self: ?*anyopaque) i64 {
+    pub fn Options(self: ?*anyopaque) isize {
         return qtc.KFind_Options(@ptrCast(self));
     }
 
@@ -655,13 +655,13 @@ pub const kreplace = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
     /// ` matchedLength: *i32 `
     ///
     /// ` rmatch: QtC.QRegularExpressionMatch `
     ///
-    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: i64, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
+    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: isize, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1659,9 +1659,9 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SetOptions(self: ?*anyopaque, options: isize) void {
         qtc.KReplace_SetOptions(@ptrCast(self), @bitCast(options));
     }
 
@@ -1679,9 +1679,9 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace `
     ///
-    /// ` options: i64 `
+    /// ` options: isize `
     ///
-    pub fn SuperSetOptions(self: ?*anyopaque, options: i64) void {
+    pub fn SuperSetOptions(self: ?*anyopaque, options: isize) void {
         qtc.KReplace_SuperSetOptions(@ptrCast(self), @bitCast(options));
     }
 
@@ -1695,9 +1695,9 @@ pub const kreplace = struct {
     ///
     /// ` self: QtC.KReplace`
     ///
-    /// ` callback: *const fn (self: QtC.KReplace, options: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KReplace, options: isize) callconv(.c) void `
     ///
-    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
         qtc.KReplace_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

@@ -207,7 +207,7 @@ pub const qkeysequenceedit = struct {
     ///
     /// ` self: QtC.QKeySequenceEdit `
     ///
-    pub fn MaximumSequenceLength(self: ?*anyopaque) i64 {
+    pub fn MaximumSequenceLength(self: ?*anyopaque) isize {
         return qtc.QKeySequenceEdit_MaximumSequenceLength(@ptrCast(self));
     }
 
@@ -294,9 +294,9 @@ pub const qkeysequenceedit = struct {
     ///
     /// ` self: QtC.QKeySequenceEdit `
     ///
-    /// ` count: i64 `
+    /// ` count: isize `
     ///
-    pub fn SetMaximumSequenceLength(self: ?*anyopaque, count: i64) void {
+    pub fn SetMaximumSequenceLength(self: ?*anyopaque, count: isize) void {
         qtc.QKeySequenceEdit_SetMaximumSequenceLength(@ptrCast(self), @bitCast(count));
     }
 
@@ -3863,9 +3863,9 @@ pub const qkeysequenceedit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Find(param1: u64) QtC.QWidget {
+    pub fn Find(param1: usize) QtC.QWidget {
         return qtc.QWidget_Find(@bitCast(param1));
     }
 

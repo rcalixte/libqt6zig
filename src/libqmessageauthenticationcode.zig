@@ -78,9 +78,9 @@ pub const qmessageauthenticationcode = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
-    pub fn AddData(self: ?*anyopaque, data: [:0]const u8, length: i64) void {
+    pub fn AddData(self: ?*anyopaque, data: [:0]const u8, length: isize) void {
         const data_Cstring = data.ptr;
         qtc.QMessageAuthenticationCode_AddData(@ptrCast(self), data_Cstring, @bitCast(length));
     }

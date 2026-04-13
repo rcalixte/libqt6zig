@@ -3218,9 +3218,9 @@ pub const qwidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Find(param1: u64) QtC.QWidget {
+    pub fn Find(param1: usize) QtC.QWidget {
         return qtc.QWidget_Find(@bitCast(param1));
     }
 
@@ -5570,9 +5570,9 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Create1(self: ?*anyopaque, param1: u64) void {
+    pub fn Create1(self: ?*anyopaque, param1: usize) void {
         qtc.QWidget_Create1(@ptrCast(self), @bitCast(param1));
     }
 
@@ -5584,9 +5584,9 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QWidget, param1: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWidget, param1: usize) callconv(.c) void `
     ///
-    pub fn OnCreate1(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnCreate1(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.QWidget_OnCreate1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5602,9 +5602,9 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn SuperCreate1(self: ?*anyopaque, param1: u64) void {
+    pub fn SuperCreate1(self: ?*anyopaque, param1: usize) void {
         qtc.QWidget_SuperCreate1(@ptrCast(self), @bitCast(param1));
     }
 
@@ -5614,11 +5614,11 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` initializeWindow: bool `
     ///
-    pub fn Create2(self: ?*anyopaque, param1: u64, initializeWindow: bool) void {
+    pub fn Create2(self: ?*anyopaque, param1: usize, initializeWindow: bool) void {
         qtc.QWidget_Create2(@ptrCast(self), @bitCast(param1), initializeWindow);
     }
 
@@ -5630,9 +5630,9 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QWidget, param1: u64, initializeWindow: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWidget, param1: usize, initializeWindow: bool) callconv(.c) void `
     ///
-    pub fn OnCreate2(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, bool) callconv(.c) void) void {
+    pub fn OnCreate2(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize, bool) callconv(.c) void) void {
         qtc.QWidget_OnCreate2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5648,11 +5648,11 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` initializeWindow: bool `
     ///
-    pub fn SuperCreate2(self: ?*anyopaque, param1: u64, initializeWindow: bool) void {
+    pub fn SuperCreate2(self: ?*anyopaque, param1: usize, initializeWindow: bool) void {
         qtc.QWidget_SuperCreate2(@ptrCast(self), @bitCast(param1), initializeWindow);
     }
 
@@ -5662,13 +5662,13 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` initializeWindow: bool `
     ///
     /// ` destroyOldWindow: bool `
     ///
-    pub fn Create3(self: ?*anyopaque, param1: u64, initializeWindow: bool, destroyOldWindow: bool) void {
+    pub fn Create3(self: ?*anyopaque, param1: usize, initializeWindow: bool, destroyOldWindow: bool) void {
         qtc.QWidget_Create3(@ptrCast(self), @bitCast(param1), initializeWindow, destroyOldWindow);
     }
 
@@ -5680,9 +5680,9 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QWidget, param1: u64, initializeWindow: bool, destroyOldWindow: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWidget, param1: usize, initializeWindow: bool, destroyOldWindow: bool) callconv(.c) void `
     ///
-    pub fn OnCreate3(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, bool, bool) callconv(.c) void) void {
+    pub fn OnCreate3(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize, bool, bool) callconv(.c) void) void {
         qtc.QWidget_OnCreate3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5698,13 +5698,13 @@ pub const qwidget = struct {
     ///
     /// ` self: QtC.QWidget `
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
     /// ` initializeWindow: bool `
     ///
     /// ` destroyOldWindow: bool `
     ///
-    pub fn SuperCreate3(self: ?*anyopaque, param1: u64, initializeWindow: bool, destroyOldWindow: bool) void {
+    pub fn SuperCreate3(self: ?*anyopaque, param1: usize, initializeWindow: bool, destroyOldWindow: bool) void {
         qtc.QWidget_SuperCreate3(@ptrCast(self), @bitCast(param1), initializeWindow, destroyOldWindow);
     }
 

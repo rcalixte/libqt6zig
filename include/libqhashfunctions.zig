@@ -33,9 +33,9 @@ pub const qhashseed = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` d: u64 `
+    /// ` d: usize `
     ///
-    pub fn New4(d: u64) QtC.QHashSeed {
+    pub fn New4(d: usize) QtC.QHashSeed {
         return qtc.QHashSeed_new4(@bitCast(d));
     }
 
@@ -69,7 +69,7 @@ pub const qhashseed = struct {
     ///
     /// ` self: QtC.QHashSeed `
     ///
-    pub fn ToUnsignedLong(self: ?*anyopaque) u64 {
+    pub fn ToUnsignedLong(self: ?*anyopaque) usize {
         return qtc.QHashSeed_ToUnsignedLong(@ptrCast(self));
     }
 

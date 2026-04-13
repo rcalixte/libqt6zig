@@ -46,9 +46,9 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` chars: QtC.QChar `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
-    pub fn New4(typeVal: i32, chars: ?*anyopaque, length: i64) QtC.QTextBoundaryFinder {
+    pub fn New4(typeVal: i32, chars: ?*anyopaque, length: isize) QtC.QTextBoundaryFinder {
         return qtc.QTextBoundaryFinder_new4(@bitCast(typeVal), @ptrCast(chars), @bitCast(length));
     }
 
@@ -60,11 +60,11 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` chars: QtC.QChar `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
     /// ` buffer: *u8 `
     ///
-    pub fn New5(typeVal: i32, chars: ?*anyopaque, length: i64, buffer: *u8) QtC.QTextBoundaryFinder {
+    pub fn New5(typeVal: i32, chars: ?*anyopaque, length: isize, buffer: *u8) QtC.QTextBoundaryFinder {
         return qtc.QTextBoundaryFinder_new5(@bitCast(typeVal), @ptrCast(chars), @bitCast(length), @ptrCast(buffer));
     }
 
@@ -76,13 +76,13 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` chars: QtC.QChar `
     ///
-    /// ` length: i64 `
+    /// ` length: isize `
     ///
     /// ` buffer: *u8 `
     ///
-    /// ` bufferSize: i64 `
+    /// ` bufferSize: isize `
     ///
-    pub fn New6(typeVal: i32, chars: ?*anyopaque, length: i64, buffer: *u8, bufferSize: i64) QtC.QTextBoundaryFinder {
+    pub fn New6(typeVal: i32, chars: ?*anyopaque, length: isize, buffer: *u8, bufferSize: isize) QtC.QTextBoundaryFinder {
         return qtc.QTextBoundaryFinder_new6(@bitCast(typeVal), @ptrCast(chars), @bitCast(length), @ptrCast(buffer), @bitCast(bufferSize));
     }
 
@@ -164,7 +164,7 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` self: QtC.QTextBoundaryFinder `
     ///
-    pub fn Position(self: ?*anyopaque) i64 {
+    pub fn Position(self: ?*anyopaque) isize {
         return qtc.QTextBoundaryFinder_Position(@ptrCast(self));
     }
 
@@ -174,9 +174,9 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` self: QtC.QTextBoundaryFinder `
     ///
-    /// ` position: i64 `
+    /// ` position: isize `
     ///
-    pub fn SetPosition(self: ?*anyopaque, position: i64) void {
+    pub fn SetPosition(self: ?*anyopaque, position: isize) void {
         qtc.QTextBoundaryFinder_SetPosition(@ptrCast(self), @bitCast(position));
     }
 
@@ -186,7 +186,7 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` self: QtC.QTextBoundaryFinder `
     ///
-    pub fn ToNextBoundary(self: ?*anyopaque) i64 {
+    pub fn ToNextBoundary(self: ?*anyopaque) isize {
         return qtc.QTextBoundaryFinder_ToNextBoundary(@ptrCast(self));
     }
 
@@ -196,7 +196,7 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ` self: QtC.QTextBoundaryFinder `
     ///
-    pub fn ToPreviousBoundary(self: ?*anyopaque) i64 {
+    pub fn ToPreviousBoundary(self: ?*anyopaque) isize {
         return qtc.QTextBoundaryFinder_ToPreviousBoundary(@ptrCast(self));
     }
 

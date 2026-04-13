@@ -37,9 +37,9 @@ pub const qhttp1configuration = struct {
     ///
     /// ` self: QtC.QHttp1Configuration `
     ///
-    /// ` amount: i64 `
+    /// ` amount: isize `
     ///
-    pub fn SetNumberOfConnectionsPerHost(self: ?*anyopaque, amount: i64) void {
+    pub fn SetNumberOfConnectionsPerHost(self: ?*anyopaque, amount: isize) void {
         qtc.QHttp1Configuration_SetNumberOfConnectionsPerHost(@ptrCast(self), @bitCast(amount));
     }
 
@@ -49,7 +49,7 @@ pub const qhttp1configuration = struct {
     ///
     /// ` self: QtC.QHttp1Configuration `
     ///
-    pub fn NumberOfConnectionsPerHost(self: ?*anyopaque) i64 {
+    pub fn NumberOfConnectionsPerHost(self: ?*anyopaque) isize {
         return qtc.QHttp1Configuration_NumberOfConnectionsPerHost(@ptrCast(self));
     }
 

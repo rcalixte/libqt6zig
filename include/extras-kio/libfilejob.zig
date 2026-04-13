@@ -67,9 +67,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn Read(self: ?*anyopaque, size: u64) void {
+    pub fn Read(self: ?*anyopaque, size: usize) void {
         qtc.KIO__FileJob_Read(@ptrCast(self), @bitCast(size));
     }
 
@@ -105,9 +105,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    pub fn Seek(self: ?*anyopaque, offset: u64) void {
+    pub fn Seek(self: ?*anyopaque, offset: usize) void {
         qtc.KIO__FileJob_Seek(@ptrCast(self), @bitCast(offset));
     }
 
@@ -117,9 +117,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` length: u64 `
+    /// ` length: usize `
     ///
-    pub fn Truncate(self: ?*anyopaque, length: u64) void {
+    pub fn Truncate(self: ?*anyopaque, length: usize) void {
         qtc.KIO__FileJob_Truncate(@ptrCast(self), @bitCast(length));
     }
 
@@ -129,7 +129,7 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    pub fn Size(self: ?*anyopaque) u64 {
+    pub fn Size(self: ?*anyopaque) usize {
         return qtc.KIO__FileJob_Size(@ptrCast(self));
     }
 
@@ -251,9 +251,9 @@ pub const kio__filejob = struct {
     ///
     /// ` job: QtC.KIO__Job `
     ///
-    /// ` written: u64 `
+    /// ` written: usize `
     ///
-    pub fn Written(self: ?*anyopaque, job: ?*anyopaque, written: u64) void {
+    pub fn Written(self: ?*anyopaque, job: ?*anyopaque, written: usize) void {
         qtc.KIO__FileJob_Written(@ptrCast(self), @ptrCast(job), @bitCast(written));
     }
 
@@ -263,9 +263,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, written: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, written: usize) callconv(.c) void `
     ///
-    pub fn OnWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KIO__FileJob_Connect_Written(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -301,9 +301,9 @@ pub const kio__filejob = struct {
     ///
     /// ` job: QtC.KIO__Job `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    pub fn Position(self: ?*anyopaque, job: ?*anyopaque, offset: u64) void {
+    pub fn Position(self: ?*anyopaque, job: ?*anyopaque, offset: usize) void {
         qtc.KIO__FileJob_Position(@ptrCast(self), @ptrCast(job), @bitCast(offset));
     }
 
@@ -313,9 +313,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, offset: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, offset: usize) callconv(.c) void `
     ///
-    pub fn OnPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KIO__FileJob_Connect_Position(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -327,9 +327,9 @@ pub const kio__filejob = struct {
     ///
     /// ` job: QtC.KIO__Job `
     ///
-    /// ` length: u64 `
+    /// ` length: usize `
     ///
-    pub fn Truncated(self: ?*anyopaque, job: ?*anyopaque, length: u64) void {
+    pub fn Truncated(self: ?*anyopaque, job: ?*anyopaque, length: usize) void {
         qtc.KIO__FileJob_Truncated(@ptrCast(self), @ptrCast(job), @bitCast(length));
     }
 
@@ -339,9 +339,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, length: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, length: usize) callconv(.c) void `
     ///
-    pub fn OnTruncated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnTruncated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KIO__FileJob_Connect_Truncated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -976,7 +976,7 @@ pub const kio__filejob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -990,7 +990,7 @@ pub const kio__filejob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -1002,7 +1002,7 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    pub fn Percent(self: ?*anyopaque) u64 {
+    pub fn Percent(self: ?*anyopaque) usize {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
@@ -1158,9 +1158,9 @@ pub const kio__filejob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -1172,9 +1172,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1188,9 +1188,9 @@ pub const kio__filejob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -1202,9 +1202,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1218,9 +1218,9 @@ pub const kio__filejob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
+    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
     }
 
@@ -1232,9 +1232,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2108,9 +2108,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2124,9 +2124,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2140,9 +2140,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, percent: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

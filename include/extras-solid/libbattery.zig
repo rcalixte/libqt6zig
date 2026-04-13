@@ -164,7 +164,7 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    pub fn TimeToEmpty(self: ?*anyopaque) i64 {
+    pub fn TimeToEmpty(self: ?*anyopaque) isize {
         return qtc.Solid__Battery_TimeToEmpty(@ptrCast(self));
     }
 
@@ -174,7 +174,7 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    pub fn TimeToFull(self: ?*anyopaque) i64 {
+    pub fn TimeToFull(self: ?*anyopaque) isize {
         return qtc.Solid__Battery_TimeToFull(@ptrCast(self));
     }
 
@@ -274,7 +274,7 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    pub fn RemainingTime(self: ?*anyopaque) i64 {
+    pub fn RemainingTime(self: ?*anyopaque) isize {
         return qtc.Solid__Battery_RemainingTime(@ptrCast(self));
     }
 
@@ -458,11 +458,11 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    /// ` time: i64 `
+    /// ` time: isize `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TimeToEmptyChanged(self: ?*anyopaque, time: i64, udi: []const u8) void {
+    pub fn TimeToEmptyChanged(self: ?*anyopaque, time: isize, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
@@ -476,9 +476,9 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTimeToEmptyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
+    pub fn OnTimeToEmptyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__Battery_Connect_TimeToEmptyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -488,11 +488,11 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    /// ` time: i64 `
+    /// ` time: isize `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TimeToFullChanged(self: ?*anyopaque, time: i64, udi: []const u8) void {
+    pub fn TimeToFullChanged(self: ?*anyopaque, time: isize, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
@@ -506,9 +506,9 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTimeToFullChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
+    pub fn OnTimeToFullChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__Battery_Connect_TimeToFullChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -698,11 +698,11 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    /// ` time: i64 `
+    /// ` time: isize `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn RemainingTimeChanged(self: ?*anyopaque, time: i64, udi: []const u8) void {
+    pub fn RemainingTimeChanged(self: ?*anyopaque, time: isize, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
@@ -716,9 +716,9 @@ pub const solid__battery = struct {
     ///
     /// ` self: QtC.Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRemainingTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
+    pub fn OnRemainingTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__Battery_Connect_RemainingTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

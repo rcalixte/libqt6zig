@@ -57,7 +57,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QStringView_Size(@ptrCast(self));
     }
 
@@ -87,9 +87,9 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, n: i64) QtC.QChar {
+    pub fn OperatorSubscript(self: ?*anyopaque, n: isize) QtC.QChar {
         return qtc.QStringView_OperatorSubscript(@ptrCast(self), @bitCast(n));
     }
 
@@ -164,9 +164,9 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn At(self: ?*anyopaque, n: i64) QtC.QChar {
+    pub fn At(self: ?*anyopaque, n: isize) QtC.QChar {
         return qtc.QStringView_At(@ptrCast(self), @bitCast(n));
     }
 
@@ -176,9 +176,9 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn Truncate(self: ?*anyopaque, n: i64) void {
+    pub fn Truncate(self: ?*anyopaque, n: isize) void {
         qtc.QStringView_Truncate(@ptrCast(self), @bitCast(n));
     }
 
@@ -188,9 +188,9 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn Chop(self: ?*anyopaque, n: i64) void {
+    pub fn Chop(self: ?*anyopaque, n: isize) void {
         qtc.QStringView_Chop(@ptrCast(self), @bitCast(n));
     }
 
@@ -280,7 +280,7 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    pub fn IndexOf(self: ?*anyopaque, c: QtC.QChar) i64 {
+    pub fn IndexOf(self: ?*anyopaque, c: QtC.QChar) isize {
         return qtc.QStringView_IndexOf(@ptrCast(self), @ptrCast(c));
     }
 
@@ -304,7 +304,7 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    pub fn Count(self: ?*anyopaque, c: QtC.QChar) i64 {
+    pub fn Count(self: ?*anyopaque, c: QtC.QChar) isize {
         return qtc.QStringView_Count(@ptrCast(self), @ptrCast(c));
     }
 
@@ -316,7 +316,7 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    pub fn LastIndexOf(self: ?*anyopaque, c: QtC.QChar) i64 {
+    pub fn LastIndexOf(self: ?*anyopaque, c: QtC.QChar) isize {
         return qtc.QStringView_LastIndexOf(@ptrCast(self), @ptrCast(c));
     }
 
@@ -328,9 +328,9 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn LastIndexOf2(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+    pub fn LastIndexOf2(self: ?*anyopaque, c: QtC.QChar, from: isize) isize {
         return qtc.QStringView_LastIndexOf2(@ptrCast(self), @ptrCast(c), @bitCast(from));
     }
 
@@ -342,7 +342,7 @@ pub const qstringview = struct {
     ///
     /// ` re: QtC.QRegularExpression `
     ///
-    pub fn IndexOf4(self: ?*anyopaque, re: ?*anyopaque) i64 {
+    pub fn IndexOf4(self: ?*anyopaque, re: ?*anyopaque) isize {
         return qtc.QStringView_IndexOf4(@ptrCast(self), @ptrCast(re));
     }
 
@@ -354,9 +354,9 @@ pub const qstringview = struct {
     ///
     /// ` re: QtC.QRegularExpression `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn LastIndexOf7(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
+    pub fn LastIndexOf7(self: ?*anyopaque, re: ?*anyopaque, from: isize) isize {
         return qtc.QStringView_LastIndexOf7(@ptrCast(self), @ptrCast(re), @bitCast(from));
     }
 
@@ -380,7 +380,7 @@ pub const qstringview = struct {
     ///
     /// ` re: QtC.QRegularExpression `
     ///
-    pub fn Count4(self: ?*anyopaque, re: ?*anyopaque) i64 {
+    pub fn Count4(self: ?*anyopaque, re: ?*anyopaque) isize {
         return qtc.QStringView_Count4(@ptrCast(self), @ptrCast(re));
     }
 
@@ -470,7 +470,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn ToLong(self: ?*anyopaque) i64 {
+    pub fn ToLong(self: ?*anyopaque) isize {
         return qtc.QStringView_ToLong(@ptrCast(self));
     }
 
@@ -480,7 +480,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn ToULong(self: ?*anyopaque) u64 {
+    pub fn ToULong(self: ?*anyopaque) usize {
         return qtc.QStringView_ToULong(@ptrCast(self));
     }
 
@@ -490,7 +490,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn ToLongLong(self: ?*anyopaque) i64 {
+    pub fn ToLongLong(self: ?*anyopaque) isize {
         return qtc.QStringView_ToLongLong(@ptrCast(self));
     }
 
@@ -500,7 +500,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn ToULongLong(self: ?*anyopaque) u64 {
+    pub fn ToULongLong(self: ?*anyopaque) usize {
         return qtc.QStringView_ToULongLong(@ptrCast(self));
     }
 
@@ -600,7 +600,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn MaxSize(self: ?*anyopaque) i64 {
+    pub fn MaxSize(self: ?*anyopaque) isize {
         return qtc.QStringView_MaxSize(@ptrCast(self));
     }
 
@@ -650,7 +650,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn Length(self: ?*anyopaque) i64 {
+    pub fn Length(self: ?*anyopaque) isize {
         return qtc.QStringView_Length(@ptrCast(self));
     }
 
@@ -676,7 +676,7 @@ pub const qstringview = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#maxSize)
     ///
-    pub fn MaxSize2() i64 {
+    pub fn MaxSize2() isize {
         return qtc.QStringView_MaxSize2();
     }
 
@@ -688,9 +688,9 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexOf22(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+    pub fn IndexOf22(self: ?*anyopaque, c: QtC.QChar, from: isize) isize {
         return qtc.QStringView_IndexOf22(@ptrCast(self), @ptrCast(c), @bitCast(from));
     }
 
@@ -702,11 +702,11 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn IndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
+    pub fn IndexOf32(self: ?*anyopaque, c: QtC.QChar, from: isize, cs: i32) isize {
         return qtc.QStringView_IndexOf32(@ptrCast(self), @ptrCast(c), @bitCast(from), @bitCast(cs));
     }
 
@@ -734,7 +734,7 @@ pub const qstringview = struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn Count22(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
+    pub fn Count22(self: ?*anyopaque, c: QtC.QChar, cs: i32) isize {
         return qtc.QStringView_Count22(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
@@ -748,7 +748,7 @@ pub const qstringview = struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn LastIndexOf22(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
+    pub fn LastIndexOf22(self: ?*anyopaque, c: QtC.QChar, cs: i32) isize {
         return qtc.QStringView_LastIndexOf22(@ptrCast(self), @ptrCast(c), @bitCast(cs));
     }
 
@@ -760,11 +760,11 @@ pub const qstringview = struct {
     ///
     /// ` c: QtC.QChar `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn LastIndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
+    pub fn LastIndexOf32(self: ?*anyopaque, c: QtC.QChar, from: isize, cs: i32) isize {
         return qtc.QStringView_LastIndexOf32(@ptrCast(self), @ptrCast(c), @bitCast(from), @bitCast(cs));
     }
 
@@ -776,9 +776,9 @@ pub const qstringview = struct {
     ///
     /// ` re: QtC.QRegularExpression `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexOf25(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
+    pub fn IndexOf25(self: ?*anyopaque, re: ?*anyopaque, from: isize) isize {
         return qtc.QStringView_IndexOf25(@ptrCast(self), @ptrCast(re), @bitCast(from));
     }
 
@@ -790,11 +790,11 @@ pub const qstringview = struct {
     ///
     /// ` re: QtC.QRegularExpression `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
     /// ` rmatch: QtC.QRegularExpressionMatch `
     ///
-    pub fn IndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: i64, rmatch: ?*anyopaque) i64 {
+    pub fn IndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: isize, rmatch: ?*anyopaque) isize {
         return qtc.QStringView_IndexOf35(@ptrCast(self), @ptrCast(re), @bitCast(from), @ptrCast(rmatch));
     }
 
@@ -806,11 +806,11 @@ pub const qstringview = struct {
     ///
     /// ` re: QtC.QRegularExpression `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
     /// ` rmatch: QtC.QRegularExpressionMatch `
     ///
-    pub fn LastIndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: i64, rmatch: ?*anyopaque) i64 {
+    pub fn LastIndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: isize, rmatch: ?*anyopaque) isize {
         return qtc.QStringView_LastIndexOf35(@ptrCast(self), @ptrCast(re), @bitCast(from), @ptrCast(rmatch));
     }
 
@@ -940,7 +940,7 @@ pub const qstringview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QStringView_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -954,7 +954,7 @@ pub const qstringview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
+    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) isize {
         return qtc.QStringView_ToLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -966,7 +966,7 @@ pub const qstringview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QStringView_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -980,7 +980,7 @@ pub const qstringview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
+    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) usize {
         return qtc.QStringView_ToULong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -992,7 +992,7 @@ pub const qstringview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QStringView_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -1006,7 +1006,7 @@ pub const qstringview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
+    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) isize {
         return qtc.QStringView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -1018,7 +1018,7 @@ pub const qstringview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QStringView_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -1032,7 +1032,7 @@ pub const qstringview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
+    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) usize {
         return qtc.QStringView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 

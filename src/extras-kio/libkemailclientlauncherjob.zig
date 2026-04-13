@@ -532,7 +532,7 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -546,7 +546,7 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
+    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
         return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
     }
 
@@ -558,7 +558,7 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    pub fn Percent(self: ?*anyopaque) u64 {
+    pub fn Percent(self: ?*anyopaque) usize {
         return qtc.KJob_Percent(@ptrCast(self));
     }
 
@@ -714,9 +714,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -728,9 +728,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -744,9 +744,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
+    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
         qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
     }
 
@@ -758,9 +758,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -774,9 +774,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
+    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
         qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
     }
 
@@ -788,9 +788,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2358,9 +2358,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KEMailClientLauncherJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -2380,9 +2380,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KEMailClientLauncherJob_SuperSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -2396,9 +2396,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KEMailClientLauncherJob_OnSetProcessedAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2414,9 +2414,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KEMailClientLauncherJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -2436,9 +2436,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    /// ` amount: u64 `
+    /// ` amount: usize `
     ///
-    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
         qtc.KEMailClientLauncherJob_SuperSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
@@ -2452,9 +2452,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KEMailClientLauncherJob_OnSetTotalAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2520,9 +2520,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` percentage: u64 `
+    /// ` percentage: usize `
     ///
-    pub fn SetPercent(self: ?*anyopaque, percentage: u64) void {
+    pub fn SetPercent(self: ?*anyopaque, percentage: usize) void {
         qtc.KEMailClientLauncherJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
@@ -2540,9 +2540,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` percentage: u64 `
+    /// ` percentage: usize `
     ///
-    pub fn SuperSetPercent(self: ?*anyopaque, percentage: u64) void {
+    pub fn SuperSetPercent(self: ?*anyopaque, percentage: usize) void {
         qtc.KEMailClientLauncherJob_SuperSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
@@ -2556,9 +2556,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, percentage: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, percentage: usize) callconv(.c) void `
     ///
-    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.KEMailClientLauncherJob_OnSetPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2620,11 +2620,11 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` processedAmount: u64 `
+    /// ` processedAmount: usize `
     ///
-    /// ` totalAmount: u64 `
+    /// ` totalAmount: usize `
     ///
-    pub fn EmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+    pub fn EmitPercent(self: ?*anyopaque, processedAmount: usize, totalAmount: usize) void {
         qtc.KEMailClientLauncherJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
@@ -2642,11 +2642,11 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` processedAmount: u64 `
+    /// ` processedAmount: usize `
     ///
-    /// ` totalAmount: u64 `
+    /// ` totalAmount: usize `
     ///
-    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: usize, totalAmount: usize) void {
         qtc.KEMailClientLauncherJob_SuperEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
@@ -2660,9 +2660,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, processedAmount: u64, totalAmount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
     ///
-    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, u64) callconv(.c) void) void {
+    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize, usize) callconv(.c) void) void {
         qtc.KEMailClientLauncherJob_OnEmitPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2676,9 +2676,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn EmitSpeed(self: ?*anyopaque, speed: u64) void {
+    pub fn EmitSpeed(self: ?*anyopaque, speed: usize) void {
         qtc.KEMailClientLauncherJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
@@ -2696,9 +2696,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` speed: u64 `
+    /// ` speed: usize `
     ///
-    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: u64) void {
+    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: usize) void {
         qtc.KEMailClientLauncherJob_SuperEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
@@ -2712,9 +2712,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, speed: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.KEMailClientLauncherJob_OnEmitSpeed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3042,9 +3042,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3058,9 +3058,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3074,9 +3074,9 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, percent: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KEMailClientLauncherJob, job: QtC.KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

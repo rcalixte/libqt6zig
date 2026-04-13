@@ -339,11 +339,11 @@ pub const qglyphrun = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StringIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
+    pub fn StringIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []isize {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_StringIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i64, _arr.len) catch @panic("qglyphrun.StringIndexes: Memory allocation failed");
-        const _data: [*]i64 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(isize, _arr.len) catch @panic("qglyphrun.StringIndexes: Memory allocation failed");
+        const _data: [*]isize = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -354,9 +354,9 @@ pub const qglyphrun = struct {
     ///
     /// ` self: QtC.QGlyphRun `
     ///
-    /// ` stringIndexes: []i64 `
+    /// ` stringIndexes: []isize `
     ///
-    pub fn SetStringIndexes(self: ?*anyopaque, stringIndexes: []i64) void {
+    pub fn SetStringIndexes(self: ?*anyopaque, stringIndexes: []isize) void {
         const stringIndexes_list = qtc.libqt_list{
             .len = stringIndexes.len,
             .data = stringIndexes.ptr,

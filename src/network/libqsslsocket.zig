@@ -1304,7 +1304,7 @@ pub const qsslsocket = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryVersionNumber)
     ///
-    pub fn SslLibraryVersionNumber() i64 {
+    pub fn SslLibraryVersionNumber() isize {
         return qtc.QSslSocket_SslLibraryVersionNumber();
     }
 
@@ -1324,7 +1324,7 @@ pub const qsslsocket = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslLibraryBuildVersionNumber)
     ///
-    pub fn SslLibraryBuildVersionNumber() i64 {
+    pub fn SslLibraryBuildVersionNumber() isize {
         return qtc.QSslSocket_SslLibraryBuildVersionNumber();
     }
 

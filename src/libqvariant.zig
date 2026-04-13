@@ -57,9 +57,9 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` ll: i64 `
+    /// ` ll: isize `
     ///
-    pub fn New6(ll: i64) QtC.QVariant {
+    pub fn New6(ll: isize) QtC.QVariant {
         return qtc.QVariant_new6(@bitCast(ll));
     }
 
@@ -67,9 +67,9 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` ull: u64 `
+    /// ` ull: usize `
     ///
-    pub fn New7(ull: u64) QtC.QVariant {
+    pub fn New7(ull: usize) QtC.QVariant {
         return qtc.QVariant_new7(@bitCast(ull));
     }
 
@@ -714,7 +714,7 @@ pub const qvariant = struct {
     ///
     /// ` self: QtC.QVariant `
     ///
-    pub fn ToLongLong(self: ?*anyopaque) i64 {
+    pub fn ToLongLong(self: ?*anyopaque) isize {
         return qtc.QVariant_ToLongLong(@ptrCast(self));
     }
 
@@ -724,7 +724,7 @@ pub const qvariant = struct {
     ///
     /// ` self: QtC.QVariant `
     ///
-    pub fn ToULongLong(self: ?*anyopaque) u64 {
+    pub fn ToULongLong(self: ?*anyopaque) usize {
         return qtc.QVariant_ToULongLong(@ptrCast(self));
     }
 
@@ -1308,7 +1308,7 @@ pub const qvariant = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QVariant_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -1320,7 +1320,7 @@ pub const qvariant = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QVariant_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 

@@ -259,7 +259,7 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn Limit(self: ?*anyopaque) i64 {
+    pub fn Limit(self: ?*anyopaque) isize {
         return qtc.QGeoCodeReply_Limit(@ptrCast(self));
     }
 
@@ -269,7 +269,7 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn Offset(self: ?*anyopaque) i64 {
+    pub fn Offset(self: ?*anyopaque) isize {
         return qtc.QGeoCodeReply_Offset(@ptrCast(self));
     }
 
@@ -627,9 +627,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` limit: i64 `
+    /// ` limit: isize `
     ///
-    pub fn SetLimit(self: ?*anyopaque, limit: i64) void {
+    pub fn SetLimit(self: ?*anyopaque, limit: isize) void {
         qtc.QGeoCodeReply_SetLimit(@ptrCast(self), @bitCast(limit));
     }
 
@@ -641,9 +641,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoCodeReply, limit: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoCodeReply, limit: isize) callconv(.c) void `
     ///
-    pub fn OnSetLimit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetLimit(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
         qtc.QGeoCodeReply_OnSetLimit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -659,9 +659,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` limit: i64 `
+    /// ` limit: isize `
     ///
-    pub fn SuperSetLimit(self: ?*anyopaque, limit: i64) void {
+    pub fn SuperSetLimit(self: ?*anyopaque, limit: isize) void {
         qtc.QGeoCodeReply_SuperSetLimit(@ptrCast(self), @bitCast(limit));
     }
 
@@ -671,9 +671,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` offset: i64 `
+    /// ` offset: isize `
     ///
-    pub fn SetOffset(self: ?*anyopaque, offset: i64) void {
+    pub fn SetOffset(self: ?*anyopaque, offset: isize) void {
         qtc.QGeoCodeReply_SetOffset(@ptrCast(self), @bitCast(offset));
     }
 
@@ -685,9 +685,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoCodeReply, offset: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoCodeReply, offset: isize) callconv(.c) void `
     ///
-    pub fn OnSetOffset(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetOffset(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
         qtc.QGeoCodeReply_OnSetOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -703,9 +703,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` offset: i64 `
+    /// ` offset: isize `
     ///
-    pub fn SuperSetOffset(self: ?*anyopaque, offset: i64) void {
+    pub fn SuperSetOffset(self: ?*anyopaque, offset: isize) void {
         qtc.QGeoCodeReply_SuperSetOffset(@ptrCast(self), @bitCast(offset));
     }
 

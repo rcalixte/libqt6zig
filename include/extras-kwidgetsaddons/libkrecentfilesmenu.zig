@@ -273,9 +273,9 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    /// ` maximumItems: u64 `
+    /// ` maximumItems: usize `
     ///
-    pub fn SetMaximumItems(self: ?*anyopaque, maximumItems: u64) void {
+    pub fn SetMaximumItems(self: ?*anyopaque, maximumItems: usize) void {
         qtc.KRecentFilesMenu_SetMaximumItems(@ptrCast(self), @bitCast(maximumItems));
     }
 
@@ -4413,9 +4413,9 @@ pub const krecentfilesmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Find(param1: u64) QtC.QWidget {
+    pub fn Find(param1: usize) QtC.QWidget {
         return qtc.QWidget_Find(@bitCast(param1));
     }
 

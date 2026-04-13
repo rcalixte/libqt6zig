@@ -222,9 +222,9 @@ pub const qbuffer = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn SetData2(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) void {
+    pub fn SetData2(self: ?*anyopaque, data: [:0]const u8, lenVal: isize) void {
         const data_Cstring = data.ptr;
         qtc.QBuffer_SetData2(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }

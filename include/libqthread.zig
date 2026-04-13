@@ -426,9 +426,9 @@ pub const qthread = struct {
     ///
     /// ` self: QtC.QThread `
     ///
-    /// ` time: u64 `
+    /// ` time: usize `
     ///
-    pub fn Wait2(self: ?*anyopaque, time: u64) bool {
+    pub fn Wait2(self: ?*anyopaque, time: usize) bool {
         return qtc.QThread_Wait2(@ptrCast(self), @bitCast(time));
     }
 
@@ -436,9 +436,9 @@ pub const qthread = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Sleep(param1: u64) void {
+    pub fn Sleep(param1: usize) void {
         qtc.QThread_Sleep(@bitCast(param1));
     }
 
@@ -446,9 +446,9 @@ pub const qthread = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Msleep(param1: u64) void {
+    pub fn Msleep(param1: usize) void {
         qtc.QThread_Msleep(@bitCast(param1));
     }
 
@@ -456,9 +456,9 @@ pub const qthread = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Usleep(param1: u64) void {
+    pub fn Usleep(param1: usize) void {
         qtc.QThread_Usleep(@bitCast(param1));
     }
 

@@ -5435,13 +5435,13 @@ pub const qdomcharacterdata = struct {
     ///
     /// ` self: QtC.QDomCharacterData `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SubstringData(self: ?*anyopaque, offset: usize, count: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.SubstringData: Memory allocation failed");
@@ -5471,11 +5471,11 @@ pub const qdomcharacterdata = struct {
     ///
     /// ` self: QtC.QDomCharacterData `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: ?*anyopaque, offset: u64, arg: []const u8) void {
+    pub fn InsertData(self: ?*anyopaque, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -5489,11 +5489,11 @@ pub const qdomcharacterdata = struct {
     ///
     /// ` self: QtC.QDomCharacterData `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
-    pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
+    pub fn DeleteData(self: ?*anyopaque, offset: usize, count: usize) void {
         qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
@@ -5503,13 +5503,13 @@ pub const qdomcharacterdata = struct {
     ///
     /// ` self: QtC.QDomCharacterData `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: ?*anyopaque, offset: u64, count: u64, arg: []const u8) void {
+    pub fn ReplaceData(self: ?*anyopaque, offset: usize, count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -7881,9 +7881,9 @@ pub const qdomelement = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: i64 `
+    /// ` value: isize `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, name: []const u8, value: i64) void {
+    pub fn SetAttribute2(self: ?*anyopaque, name: []const u8, value: isize) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -7899,9 +7899,9 @@ pub const qdomelement = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: u64 `
+    /// ` value: usize `
     ///
-    pub fn SetAttribute3(self: ?*anyopaque, name: []const u8, value: u64) void {
+    pub fn SetAttribute3(self: ?*anyopaque, name: []const u8, value: usize) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -8183,9 +8183,9 @@ pub const qdomelement = struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: i64 `
+    /// ` value: isize `
     ///
-    pub fn SetAttributeNS4(self: ?*anyopaque, nsURI: []const u8, qName: []const u8, value: i64) void {
+    pub fn SetAttributeNS4(self: ?*anyopaque, nsURI: []const u8, qName: []const u8, value: isize) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -8207,9 +8207,9 @@ pub const qdomelement = struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: u64 `
+    /// ` value: usize `
     ///
-    pub fn SetAttributeNS5(self: ?*anyopaque, nsURI: []const u8, qName: []const u8, value: u64) void {
+    pub fn SetAttributeNS5(self: ?*anyopaque, nsURI: []const u8, qName: []const u8, value: usize) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -9588,13 +9588,13 @@ pub const qdomtext = struct {
     ///
     /// ` self: QtC.QDomText `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SubstringData(self: ?*anyopaque, offset: usize, count: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.SubstringData: Memory allocation failed");
@@ -9628,11 +9628,11 @@ pub const qdomtext = struct {
     ///
     /// ` self: QtC.QDomText `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: ?*anyopaque, offset: u64, arg: []const u8) void {
+    pub fn InsertData(self: ?*anyopaque, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -9648,11 +9648,11 @@ pub const qdomtext = struct {
     ///
     /// ` self: QtC.QDomText `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
-    pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
+    pub fn DeleteData(self: ?*anyopaque, offset: usize, count: usize) void {
         qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
@@ -9664,13 +9664,13 @@ pub const qdomtext = struct {
     ///
     /// ` self: QtC.QDomText `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: ?*anyopaque, offset: u64, count: u64, arg: []const u8) void {
+    pub fn ReplaceData(self: ?*anyopaque, offset: usize, count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -10835,13 +10835,13 @@ pub const qdomcomment = struct {
     ///
     /// ` self: QtC.QDomComment `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SubstringData(self: ?*anyopaque, offset: usize, count: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.SubstringData: Memory allocation failed");
@@ -10875,11 +10875,11 @@ pub const qdomcomment = struct {
     ///
     /// ` self: QtC.QDomComment `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: ?*anyopaque, offset: u64, arg: []const u8) void {
+    pub fn InsertData(self: ?*anyopaque, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -10895,11 +10895,11 @@ pub const qdomcomment = struct {
     ///
     /// ` self: QtC.QDomComment `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
-    pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
+    pub fn DeleteData(self: ?*anyopaque, offset: usize, count: usize) void {
         qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
@@ -10911,13 +10911,13 @@ pub const qdomcomment = struct {
     ///
     /// ` self: QtC.QDomComment `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: ?*anyopaque, offset: u64, count: u64, arg: []const u8) void {
+    pub fn ReplaceData(self: ?*anyopaque, offset: usize, count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -12096,13 +12096,13 @@ pub const qdomcdatasection = struct {
     ///
     /// ` self: QtC.QDomCDATASection `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringData(self: ?*anyopaque, offset: u64, count: u64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SubstringData(self: ?*anyopaque, offset: usize, count: usize, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.SubstringData: Memory allocation failed");
@@ -12136,11 +12136,11 @@ pub const qdomcdatasection = struct {
     ///
     /// ` self: QtC.QDomCDATASection `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: ?*anyopaque, offset: u64, arg: []const u8) void {
+    pub fn InsertData(self: ?*anyopaque, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -12156,11 +12156,11 @@ pub const qdomcdatasection = struct {
     ///
     /// ` self: QtC.QDomCDATASection `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
-    pub fn DeleteData(self: ?*anyopaque, offset: u64, count: u64) void {
+    pub fn DeleteData(self: ?*anyopaque, offset: usize, count: usize) void {
         qtc.QDomCharacterData_DeleteData(@ptrCast(self), @bitCast(offset), @bitCast(count));
     }
 
@@ -12172,13 +12172,13 @@ pub const qdomcdatasection = struct {
     ///
     /// ` self: QtC.QDomCDATASection `
     ///
-    /// ` offset: u64 `
+    /// ` offset: usize `
     ///
-    /// ` count: u64 `
+    /// ` count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: ?*anyopaque, offset: u64, count: u64, arg: []const u8) void {
+    pub fn ReplaceData(self: ?*anyopaque, offset: usize, count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -17873,7 +17873,7 @@ pub const qdomdocument__parseresult = struct {
     ///
     /// ` self: QtC.QDomDocument__ParseResult `
     ///
-    pub fn ErrorLine(self: ?*anyopaque) i64 {
+    pub fn ErrorLine(self: ?*anyopaque) isize {
         return qtc.QDomDocument__ParseResult_ErrorLine(@ptrCast(self));
     }
 
@@ -17883,9 +17883,9 @@ pub const qdomdocument__parseresult = struct {
     ///
     /// ` self: QtC.QDomDocument__ParseResult `
     ///
-    /// ` errorLine: i64 `
+    /// ` errorLine: isize `
     ///
-    pub fn SetErrorLine(self: ?*anyopaque, errorLine: i64) void {
+    pub fn SetErrorLine(self: ?*anyopaque, errorLine: isize) void {
         qtc.QDomDocument__ParseResult_SetErrorLine(@ptrCast(self), @bitCast(errorLine));
     }
 
@@ -17895,7 +17895,7 @@ pub const qdomdocument__parseresult = struct {
     ///
     /// ` self: QtC.QDomDocument__ParseResult `
     ///
-    pub fn ErrorColumn(self: ?*anyopaque) i64 {
+    pub fn ErrorColumn(self: ?*anyopaque) isize {
         return qtc.QDomDocument__ParseResult_ErrorColumn(@ptrCast(self));
     }
 
@@ -17905,9 +17905,9 @@ pub const qdomdocument__parseresult = struct {
     ///
     /// ` self: QtC.QDomDocument__ParseResult `
     ///
-    /// ` errorColumn: i64 `
+    /// ` errorColumn: isize `
     ///
-    pub fn SetErrorColumn(self: ?*anyopaque, errorColumn: i64) void {
+    pub fn SetErrorColumn(self: ?*anyopaque, errorColumn: isize) void {
         qtc.QDomDocument__ParseResult_SetErrorColumn(@ptrCast(self), @bitCast(errorColumn));
     }
 

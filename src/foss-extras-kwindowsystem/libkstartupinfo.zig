@@ -1941,7 +1941,7 @@ pub const kstartupinfoid = struct {
     ///
     /// ` self: QtC.KStartupInfoId `
     ///
-    pub fn Timestamp(self: ?*anyopaque) u64 {
+    pub fn Timestamp(self: ?*anyopaque) usize {
         return qtc.KStartupInfoId_Timestamp(@ptrCast(self));
     }
 

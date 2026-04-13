@@ -102,7 +102,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QByteArrayView_Size(@ptrCast(self));
     }
 
@@ -134,9 +134,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, n: i64) u8 {
+    pub fn OperatorSubscript(self: ?*anyopaque, n: isize) u8 {
         return qtc.QByteArrayView_OperatorSubscript(@ptrCast(self), @bitCast(n));
     }
 
@@ -146,9 +146,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn At(self: ?*anyopaque, n: i64) u8 {
+    pub fn At(self: ?*anyopaque, n: isize) u8 {
         return qtc.QByteArrayView_At(@ptrCast(self), @bitCast(n));
     }
 
@@ -158,11 +158,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn First(self: ?*anyopaque, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_First(@ptrCast(self), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.First: Memory allocation failed");
@@ -176,11 +176,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Last(self: ?*anyopaque, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Last(@ptrCast(self), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Last: Memory allocation failed");
@@ -194,11 +194,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Sliced(self: ?*anyopaque, pos: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Sliced(@ptrCast(self), @bitCast(pos));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Sliced: Memory allocation failed");
@@ -212,13 +212,13 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Sliced2(self: ?*anyopaque, pos: isize, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Sliced2(@ptrCast(self), @bitCast(pos), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Sliced2: Memory allocation failed");
@@ -232,11 +232,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Slice(self: ?*anyopaque, pos: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Slice(@ptrCast(self), @bitCast(pos));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Slice: Memory allocation failed");
@@ -250,13 +250,13 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Slice2(self: ?*anyopaque, pos: isize, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Slice2(@ptrCast(self), @bitCast(pos), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Slice2: Memory allocation failed");
@@ -270,11 +270,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Chopped(self: ?*anyopaque, lenVal: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Chopped(self: ?*anyopaque, lenVal: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Chopped(@ptrCast(self), @bitCast(lenVal));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Chopped: Memory allocation failed");
@@ -288,11 +288,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Left(self: ?*anyopaque, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Left(@ptrCast(self), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Left: Memory allocation failed");
@@ -306,11 +306,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Right(self: ?*anyopaque, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Right(@ptrCast(self), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Right: Memory allocation failed");
@@ -324,11 +324,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Mid(self: ?*anyopaque, pos: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Mid(@ptrCast(self), @bitCast(pos));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Mid: Memory allocation failed");
@@ -342,9 +342,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn Truncate(self: ?*anyopaque, n: i64) void {
+    pub fn Truncate(self: ?*anyopaque, n: isize) void {
         qtc.QByteArrayView_Truncate(@ptrCast(self), @bitCast(n));
     }
 
@@ -354,9 +354,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
-    pub fn Chop(self: ?*anyopaque, n: i64) void {
+    pub fn Chop(self: ?*anyopaque, n: isize) void {
         qtc.QByteArrayView_Chop(@ptrCast(self), @bitCast(n));
     }
 
@@ -422,7 +422,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn ToLong(self: ?*anyopaque) i64 {
+    pub fn ToLong(self: ?*anyopaque) isize {
         return qtc.QByteArrayView_ToLong(@ptrCast(self));
     }
 
@@ -432,7 +432,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn ToULong(self: ?*anyopaque) u64 {
+    pub fn ToULong(self: ?*anyopaque) usize {
         return qtc.QByteArrayView_ToULong(@ptrCast(self));
     }
 
@@ -442,7 +442,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn ToLongLong(self: ?*anyopaque) i64 {
+    pub fn ToLongLong(self: ?*anyopaque) isize {
         return qtc.QByteArrayView_ToLongLong(@ptrCast(self));
     }
 
@@ -452,7 +452,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn ToULongLong(self: ?*anyopaque) u64 {
+    pub fn ToULongLong(self: ?*anyopaque) usize {
         return qtc.QByteArrayView_ToULongLong(@ptrCast(self));
     }
 
@@ -540,7 +540,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` a: []u8 `
     ///
-    pub fn IndexOf(self: ?*anyopaque, a: []u8) i64 {
+    pub fn IndexOf(self: ?*anyopaque, a: []u8) isize {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -556,7 +556,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ch: u8 `
     ///
-    pub fn IndexOf2(self: ?*anyopaque, ch: u8) i64 {
+    pub fn IndexOf2(self: ?*anyopaque, ch: u8) isize {
         return qtc.QByteArrayView_IndexOf2(@ptrCast(self), @bitCast(ch));
     }
 
@@ -596,7 +596,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` a: []u8 `
     ///
-    pub fn LastIndexOf(self: ?*anyopaque, a: []u8) i64 {
+    pub fn LastIndexOf(self: ?*anyopaque, a: []u8) isize {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -612,9 +612,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` a: []u8 `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn LastIndexOf2(self: ?*anyopaque, a: []u8, from: i64) i64 {
+    pub fn LastIndexOf2(self: ?*anyopaque, a: []u8, from: isize) isize {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -630,7 +630,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ch: u8 `
     ///
-    pub fn LastIndexOf3(self: ?*anyopaque, ch: u8) i64 {
+    pub fn LastIndexOf3(self: ?*anyopaque, ch: u8) isize {
         return qtc.QByteArrayView_LastIndexOf3(@ptrCast(self), @bitCast(ch));
     }
 
@@ -642,7 +642,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` a: []u8 `
     ///
-    pub fn Count(self: ?*anyopaque, a: []u8) i64 {
+    pub fn Count(self: ?*anyopaque, a: []u8) isize {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -658,7 +658,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ch: u8 `
     ///
-    pub fn Count2(self: ?*anyopaque, ch: u8) i64 {
+    pub fn Count2(self: ?*anyopaque, ch: u8) isize {
         return qtc.QByteArrayView_Count2(@ptrCast(self), @bitCast(ch));
     }
 
@@ -768,7 +768,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn MaxSize(self: ?*anyopaque) i64 {
+    pub fn MaxSize(self: ?*anyopaque) isize {
         return qtc.QByteArrayView_MaxSize(@ptrCast(self));
     }
 
@@ -798,7 +798,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn Length(self: ?*anyopaque) i64 {
+    pub fn Length(self: ?*anyopaque) isize {
         return qtc.QByteArrayView_Length(@ptrCast(self));
     }
 
@@ -824,7 +824,7 @@ pub const qbytearrayview = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#maxSize)
     ///
-    pub fn MaxSize2() i64 {
+    pub fn MaxSize2() isize {
         return qtc.QByteArrayView_MaxSize2();
     }
 
@@ -834,13 +834,13 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
-    /// ` n: i64 `
+    /// ` n: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Mid2(self: ?*anyopaque, pos: isize, n: isize, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Mid2(@ptrCast(self), @bitCast(pos), @bitCast(n));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Mid2: Memory allocation failed");
@@ -960,7 +960,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QByteArrayView_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -974,7 +974,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
+    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) isize {
         return qtc.QByteArrayView_ToLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -986,7 +986,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QByteArrayView_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -1000,7 +1000,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
+    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) usize {
         return qtc.QByteArrayView_ToULong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -1012,7 +1012,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) isize {
         return qtc.QByteArrayView_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -1026,7 +1026,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
+    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) isize {
         return qtc.QByteArrayView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -1038,7 +1038,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) usize {
         return qtc.QByteArrayView_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
@@ -1052,7 +1052,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
+    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) usize {
         return qtc.QByteArrayView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @bitCast(base));
     }
 
@@ -1088,9 +1088,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` a: []u8 `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexOf22(self: ?*anyopaque, a: []u8, from: i64) i64 {
+    pub fn IndexOf22(self: ?*anyopaque, a: []u8, from: isize) isize {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -1106,9 +1106,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` ch: u8 `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn IndexOf23(self: ?*anyopaque, ch: u8, from: i64) i64 {
+    pub fn IndexOf23(self: ?*anyopaque, ch: u8, from: isize) isize {
         return qtc.QByteArrayView_IndexOf23(@ptrCast(self), @bitCast(ch), @bitCast(from));
     }
 
@@ -1120,9 +1120,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` ch: u8 `
     ///
-    /// ` from: i64 `
+    /// ` from: isize `
     ///
-    pub fn LastIndexOf22(self: ?*anyopaque, ch: u8, from: i64) i64 {
+    pub fn LastIndexOf22(self: ?*anyopaque, ch: u8, from: isize) isize {
         return qtc.QByteArrayView_LastIndexOf22(@ptrCast(self), @bitCast(ch), @bitCast(from));
     }
 

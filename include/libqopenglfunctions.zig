@@ -898,13 +898,13 @@ pub const qopenglfunctions = struct {
     ///
     /// ` target: u32 `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
     /// ` data: ?*const anyopaque `
     ///
     /// ` usage: u32 `
     ///
-    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: i64, data: ?*const anyopaque, usage: u32) void {
+    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: isize, data: ?*const anyopaque, usage: u32) void {
         qtc.QOpenGLFunctions_GlBufferData(@ptrCast(self), @bitCast(target), @bitCast(size), @ptrCast(data), @bitCast(usage));
     }
 
@@ -916,13 +916,13 @@ pub const qopenglfunctions = struct {
     ///
     /// ` target: u32 `
     ///
-    /// ` offset: i64 `
+    /// ` offset: isize `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
     /// ` data: ?*const anyopaque `
     ///
-    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: ?*const anyopaque) void {
+    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: ?*const anyopaque) void {
         qtc.QOpenGLFunctions_GlBufferSubData(@ptrCast(self), @bitCast(target), @bitCast(offset), @bitCast(size), @ptrCast(data));
     }
 

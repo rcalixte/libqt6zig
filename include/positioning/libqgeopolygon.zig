@@ -125,11 +125,11 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Hole(self: ?*anyopaque, index: i64, allocator: std.mem.Allocator) []QtC.QVariant {
+    pub fn Hole(self: ?*anyopaque, index: isize, allocator: std.mem.Allocator) []QtC.QVariant {
         const _arr: qtc.libqt_list = qtc.QGeoPolygon_Hole(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qgeopolygon.Hole: Memory allocation failed");
@@ -144,11 +144,11 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HolePath(self: ?*anyopaque, index: i64, allocator: std.mem.Allocator) []QtC.QGeoCoordinate {
+    pub fn HolePath(self: ?*anyopaque, index: isize, allocator: std.mem.Allocator) []QtC.QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoPolygon_HolePath(@ptrCast(self), @bitCast(index));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGeoCoordinate, _arr.len) catch @panic("qgeopolygon.HolePath: Memory allocation failed");
@@ -163,9 +163,9 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn RemoveHole(self: ?*anyopaque, index: i64) void {
+    pub fn RemoveHole(self: ?*anyopaque, index: isize) void {
         qtc.QGeoPolygon_RemoveHole(@ptrCast(self), @bitCast(index));
     }
 
@@ -175,7 +175,7 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    pub fn HolesCount(self: ?*anyopaque) i64 {
+    pub fn HolesCount(self: ?*anyopaque) isize {
         return qtc.QGeoPolygon_HolesCount(@ptrCast(self));
     }
 
@@ -223,7 +223,7 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QGeoPolygon_Size(@ptrCast(self));
     }
 
@@ -245,11 +245,11 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
-    pub fn InsertCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
+    pub fn InsertCoordinate(self: ?*anyopaque, index: isize, coordinate: ?*anyopaque) void {
         qtc.QGeoPolygon_InsertCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
@@ -259,11 +259,11 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
     /// ` coordinate: QtC.QGeoCoordinate `
     ///
-    pub fn ReplaceCoordinate(self: ?*anyopaque, index: i64, coordinate: ?*anyopaque) void {
+    pub fn ReplaceCoordinate(self: ?*anyopaque, index: isize, coordinate: ?*anyopaque) void {
         qtc.QGeoPolygon_ReplaceCoordinate(@ptrCast(self), @bitCast(index), @ptrCast(coordinate));
     }
 
@@ -273,9 +273,9 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn CoordinateAt(self: ?*anyopaque, index: i64) QtC.QGeoCoordinate {
+    pub fn CoordinateAt(self: ?*anyopaque, index: isize) QtC.QGeoCoordinate {
         return qtc.QGeoPolygon_CoordinateAt(@ptrCast(self), @bitCast(index));
     }
 
@@ -309,9 +309,9 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn RemoveCoordinate2(self: ?*anyopaque, index: i64) void {
+    pub fn RemoveCoordinate2(self: ?*anyopaque, index: isize) void {
         qtc.QGeoPolygon_RemoveCoordinate2(@ptrCast(self), @bitCast(index));
     }
 
@@ -337,9 +337,9 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` indexFrom: i64 `
+    /// ` indexFrom: isize `
     ///
-    pub fn Length1(self: ?*anyopaque, indexFrom: i64) f64 {
+    pub fn Length1(self: ?*anyopaque, indexFrom: isize) f64 {
         return qtc.QGeoPolygon_Length1(@ptrCast(self), @bitCast(indexFrom));
     }
 
@@ -349,11 +349,11 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    /// ` indexFrom: i64 `
+    /// ` indexFrom: isize `
     ///
-    /// ` indexTo: i64 `
+    /// ` indexTo: isize `
     ///
-    pub fn Length2(self: ?*anyopaque, indexFrom: i64, indexTo: i64) f64 {
+    pub fn Length2(self: ?*anyopaque, indexFrom: isize, indexTo: isize) f64 {
         return qtc.QGeoPolygon_Length2(@ptrCast(self), @bitCast(indexFrom), @bitCast(indexTo));
     }
 

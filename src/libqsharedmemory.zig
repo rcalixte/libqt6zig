@@ -313,9 +313,9 @@ pub const qsharedmemory = struct {
     ///
     /// ` self: QtC.QSharedMemory `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
-    pub fn Create(self: ?*anyopaque, size: i64) bool {
+    pub fn Create(self: ?*anyopaque, size: isize) bool {
         return qtc.QSharedMemory_Create(@ptrCast(self), @bitCast(size));
     }
 
@@ -325,7 +325,7 @@ pub const qsharedmemory = struct {
     ///
     /// ` self: QtC.QSharedMemory `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QSharedMemory_Size(@ptrCast(self));
     }
 
@@ -543,11 +543,11 @@ pub const qsharedmemory = struct {
     ///
     /// ` self: QtC.QSharedMemory `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
     /// ` mode: qsharedmemory_enums.AccessMode `
     ///
-    pub fn Create2(self: ?*anyopaque, size: i64, mode: i32) bool {
+    pub fn Create2(self: ?*anyopaque, size: isize, mode: i32) bool {
         return qtc.QSharedMemory_Create2(@ptrCast(self), @bitCast(size), @bitCast(mode));
     }
 

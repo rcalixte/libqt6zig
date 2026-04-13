@@ -938,9 +938,9 @@ pub const kcoredirlister = struct {
     ///
     /// ` self: QtC.KCoreDirLister `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, size: u64) void {
+    pub fn TotalSize(self: ?*anyopaque, size: usize) void {
         qtc.KCoreDirLister_TotalSize(@ptrCast(self), @bitCast(size));
     }
 
@@ -950,9 +950,9 @@ pub const kcoredirlister = struct {
     ///
     /// ` self: QtC.KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCoreDirLister, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
@@ -962,9 +962,9 @@ pub const kcoredirlister = struct {
     ///
     /// ` self: QtC.KCoreDirLister `
     ///
-    /// ` size: u64 `
+    /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, size: u64) void {
+    pub fn ProcessedSize(self: ?*anyopaque, size: usize) void {
         qtc.KCoreDirLister_ProcessedSize(@ptrCast(self), @bitCast(size));
     }
 
@@ -974,9 +974,9 @@ pub const kcoredirlister = struct {
     ///
     /// ` self: QtC.KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, size: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCoreDirLister, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 

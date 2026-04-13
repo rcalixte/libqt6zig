@@ -207,7 +207,7 @@ pub const qjsonobject = struct {
     ///
     /// ` self: QtC.QJsonObject `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QJsonObject_Size(@ptrCast(self));
     }
 
@@ -217,7 +217,7 @@ pub const qjsonobject = struct {
     ///
     /// ` self: QtC.QJsonObject `
     ///
-    pub fn Count(self: ?*anyopaque) i64 {
+    pub fn Count(self: ?*anyopaque) isize {
         return qtc.QJsonObject_Count(@ptrCast(self));
     }
 
@@ -227,7 +227,7 @@ pub const qjsonobject = struct {
     ///
     /// ` self: QtC.QJsonObject `
     ///
-    pub fn Length(self: ?*anyopaque) i64 {
+    pub fn Length(self: ?*anyopaque) isize {
         return qtc.QJsonObject_Length(@ptrCast(self));
     }
 
@@ -526,9 +526,9 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` obj: QtC.QJsonObject `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn New3(obj: ?*anyopaque, index: i64) QtC.QJsonObject__iterator {
+    pub fn New3(obj: ?*anyopaque, index: isize) QtC.QJsonObject__iterator {
         return qtc.QJsonObject__iterator_new3(@ptrCast(obj), @bitCast(index));
     }
 
@@ -616,9 +616,9 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QJsonValueRef {
+    pub fn OperatorSubscript(self: ?*anyopaque, j: isize) QtC.QJsonValueRef {
         return qtc.QJsonObject__iterator_OperatorSubscript(@ptrCast(self), @bitCast(j));
     }
 
@@ -672,9 +672,9 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QJsonObject__iterator {
+    pub fn OperatorPlus(self: ?*anyopaque, j: isize) QtC.QJsonObject__iterator {
         return qtc.QJsonObject__iterator_OperatorPlus(@ptrCast(self), @bitCast(j));
     }
 
@@ -684,9 +684,9 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QJsonObject__iterator {
+    pub fn OperatorMinus(self: ?*anyopaque, j: isize) QtC.QJsonObject__iterator {
         return qtc.QJsonObject__iterator_OperatorMinus(@ptrCast(self), @bitCast(j));
     }
 
@@ -696,9 +696,9 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QJsonObject__iterator {
+    pub fn OperatorPlusAssign(self: ?*anyopaque, j: isize) QtC.QJsonObject__iterator {
         return qtc.QJsonObject__iterator_OperatorPlusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -708,9 +708,9 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QJsonObject__iterator {
+    pub fn OperatorMinusAssign(self: ?*anyopaque, j: isize) QtC.QJsonObject__iterator {
         return qtc.QJsonObject__iterator_OperatorMinusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -722,7 +722,7 @@ pub const qjsonobject__iterator = struct {
     ///
     /// ` j: QtC.QJsonObject__iterator `
     ///
-    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonObject__iterator) i64 {
+    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonObject__iterator) isize {
         return qtc.QJsonObject__iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 
@@ -765,9 +765,9 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` obj: QtC.QJsonObject `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn New3(obj: ?*anyopaque, index: i64) QtC.QJsonObject__const_iterator {
+    pub fn New3(obj: ?*anyopaque, index: isize) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_new3(@ptrCast(obj), @bitCast(index));
     }
 
@@ -855,9 +855,9 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__const_iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QJsonValueConstRef {
+    pub fn OperatorSubscript(self: ?*anyopaque, j: isize) QtC.QJsonValueConstRef {
         return qtc.QJsonObject__const_iterator_OperatorSubscript(@ptrCast(self), @bitCast(j));
     }
 
@@ -911,9 +911,9 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__const_iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
+    pub fn OperatorPlus(self: ?*anyopaque, j: isize) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorPlus(@ptrCast(self), @bitCast(j));
     }
 
@@ -923,9 +923,9 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__const_iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
+    pub fn OperatorMinus(self: ?*anyopaque, j: isize) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorMinus(@ptrCast(self), @bitCast(j));
     }
 
@@ -935,9 +935,9 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__const_iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
+    pub fn OperatorPlusAssign(self: ?*anyopaque, j: isize) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorPlusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -947,9 +947,9 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` self: QtC.QJsonObject__const_iterator `
     ///
-    /// ` j: i64 `
+    /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
+    pub fn OperatorMinusAssign(self: ?*anyopaque, j: isize) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorMinusAssign(@ptrCast(self), @bitCast(j));
     }
 
@@ -961,7 +961,7 @@ pub const qjsonobject__const_iterator = struct {
     ///
     /// ` j: QtC.QJsonObject__const_iterator `
     ///
-    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonObject__const_iterator) i64 {
+    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonObject__const_iterator) isize {
         return qtc.QJsonObject__const_iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 

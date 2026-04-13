@@ -9,7 +9,7 @@ pub const qvlabasebase = struct {
     ///
     /// ` self: QtC.QVLABaseBase `
     ///
-    pub fn Capacity(self: ?*anyopaque) i64 {
+    pub fn Capacity(self: ?*anyopaque) isize {
         return qtc.QVLABaseBase_Capacity(@ptrCast(self));
     }
 
@@ -19,7 +19,7 @@ pub const qvlabasebase = struct {
     ///
     /// ` self: QtC.QVLABaseBase `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QVLABaseBase_Size(@ptrCast(self));
     }
 

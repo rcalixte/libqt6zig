@@ -237,9 +237,9 @@ pub const kwindowsystem = struct {
     ///
     /// ` window: QtC.QWindow `
     ///
-    /// ` time: i64 `
+    /// ` time: isize `
     ///
-    pub fn ActivateWindow2(window: ?*anyopaque, time: i64) void {
+    pub fn ActivateWindow2(window: ?*anyopaque, time: isize) void {
         qtc.KWindowSystem_ActivateWindow2(@ptrCast(window), @bitCast(time));
     }
 

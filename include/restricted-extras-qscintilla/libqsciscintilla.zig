@@ -1004,13 +1004,13 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` brace: *i64 `
+    /// ` brace: *isize `
     ///
-    /// ` other: *i64 `
+    /// ` other: *isize `
     ///
     /// ` mode: qsciscintilla_enums.BraceMatch `
     ///
-    pub fn FindMatchingBrace(self: ?*anyopaque, brace: *i64, other: *i64, mode: i32) bool {
+    pub fn FindMatchingBrace(self: ?*anyopaque, brace: *isize, other: *isize, mode: i32) bool {
         switch (builtin.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
@@ -7013,7 +7013,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    pub fn SendScintilla(self: ?*anyopaque, msg: u32) i64 {
+    pub fn SendScintilla(self: ?*anyopaque, msg: u32) isize {
         return qtc.QsciScintillaBase_SendScintilla(@ptrCast(self), @bitCast(msg));
     }
 
@@ -7027,11 +7027,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
     /// ` lParam: ?*anyopaque `
     ///
-    pub fn SendScintilla2(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
+    pub fn SendScintilla2(self: ?*anyopaque, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
         return qtc.QsciScintillaBase_SendScintilla2(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
     }
 
@@ -7049,7 +7049,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla3(self: ?*anyopaque, msg: u32, wParam: usize, lParam: [:0]const u8) i64 {
+    pub fn SendScintilla3(self: ?*anyopaque, msg: u32, wParam: usize, lParam: [:0]const u8) isize {
         const lParam_Cstring = lParam.ptr;
         return qtc.QsciScintillaBase_SendScintilla3(@ptrCast(self), @bitCast(msg), @bitCast(wParam), lParam_Cstring);
     }
@@ -7066,7 +7066,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla4(self: ?*anyopaque, msg: u32, lParam: [:0]const u8) i64 {
+    pub fn SendScintilla4(self: ?*anyopaque, msg: u32, lParam: [:0]const u8) isize {
         const lParam_Cstring = lParam.ptr;
         return qtc.QsciScintillaBase_SendScintilla4(@ptrCast(self), @bitCast(msg), lParam_Cstring);
     }
@@ -7085,7 +7085,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla5(self: ?*anyopaque, msg: u32, wParam: [:0]const u8, lParam: [:0]const u8) i64 {
+    pub fn SendScintilla5(self: ?*anyopaque, msg: u32, wParam: [:0]const u8, lParam: [:0]const u8) isize {
         const wParam_Cstring = wParam.ptr;
         const lParam_Cstring = lParam.ptr;
         return qtc.QsciScintillaBase_SendScintilla5(@ptrCast(self), @bitCast(msg), wParam_Cstring, lParam_Cstring);
@@ -7101,9 +7101,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: i64 `
+    /// ` wParam: isize `
     ///
-    pub fn SendScintilla6(self: ?*anyopaque, msg: u32, wParam: i64) i64 {
+    pub fn SendScintilla6(self: ?*anyopaque, msg: u32, wParam: isize) isize {
         return qtc.QsciScintillaBase_SendScintilla6(@ptrCast(self), @bitCast(msg), @bitCast(wParam));
     }
 
@@ -7119,7 +7119,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` wParam: i32 `
     ///
-    pub fn SendScintilla7(self: ?*anyopaque, msg: u32, wParam: i32) i64 {
+    pub fn SendScintilla7(self: ?*anyopaque, msg: u32, wParam: i32) isize {
         return qtc.QsciScintillaBase_SendScintilla7(@ptrCast(self), @bitCast(msg), @bitCast(wParam));
     }
 
@@ -7133,13 +7133,13 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` cpMin: i64 `
+    /// ` cpMin: isize `
     ///
-    /// ` cpMax: i64 `
+    /// ` cpMax: isize `
     ///
     /// ` lpstrText: [:0]u8 `
     ///
-    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: i64, cpMax: i64, lpstrText: [:0]u8) i64 {
+    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: isize, cpMax: isize, lpstrText: [:0]u8) isize {
         const lpstrText_Cstring = lpstrText.ptr;
         return qtc.QsciScintillaBase_SendScintilla8(@ptrCast(self), @bitCast(msg), @bitCast(cpMin), @bitCast(cpMax), lpstrText_Cstring);
     }
@@ -7154,11 +7154,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
     /// ` col: QtC.QColor `
     ///
-    pub fn SendScintilla9(self: ?*anyopaque, msg: u32, wParam: u64, col: ?*anyopaque) i64 {
+    pub fn SendScintilla9(self: ?*anyopaque, msg: u32, wParam: usize, col: ?*anyopaque) isize {
         return qtc.QsciScintillaBase_SendScintilla9(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(col));
     }
 
@@ -7174,7 +7174,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` col: QtC.QColor `
     ///
-    pub fn SendScintilla10(self: ?*anyopaque, msg: u32, col: ?*anyopaque) i64 {
+    pub fn SendScintilla10(self: ?*anyopaque, msg: u32, col: ?*anyopaque) isize {
         return qtc.QsciScintillaBase_SendScintilla10(@ptrCast(self), @bitCast(msg), @ptrCast(col));
     }
 
@@ -7188,17 +7188,17 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
     /// ` hdc: QtC.QPainter `
     ///
     /// ` rc: QtC.QRect `
     ///
-    /// ` cpMin: i64 `
+    /// ` cpMin: isize `
     ///
-    /// ` cpMax: i64 `
+    /// ` cpMax: isize `
     ///
-    pub fn SendScintilla11(self: ?*anyopaque, msg: u32, wParam: u64, hdc: ?*anyopaque, rc: ?*anyopaque, cpMin: i64, cpMax: i64) i64 {
+    pub fn SendScintilla11(self: ?*anyopaque, msg: u32, wParam: usize, hdc: ?*anyopaque, rc: ?*anyopaque, cpMin: isize, cpMax: isize) isize {
         return qtc.QsciScintillaBase_SendScintilla11(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(hdc), @ptrCast(rc), @bitCast(cpMin), @bitCast(cpMax));
     }
 
@@ -7212,11 +7212,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
     /// ` lParam: QtC.QPixmap `
     ///
-    pub fn SendScintilla12(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
+    pub fn SendScintilla12(self: ?*anyopaque, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
         return qtc.QsciScintillaBase_SendScintilla12(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
     }
 
@@ -7230,11 +7230,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
     /// ` lParam: QtC.QImage `
     ///
-    pub fn SendScintilla13(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
+    pub fn SendScintilla13(self: ?*anyopaque, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
         return qtc.QsciScintillaBase_SendScintilla13(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
     }
 
@@ -7590,11 +7590,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` param1: u32 `
     ///
-    /// ` param2: u64 `
+    /// ` param2: usize `
     ///
     /// ` param3: ?*anyopaque `
     ///
-    pub fn SCN_MACRORECORD(self: ?*anyopaque, param1: u32, param2: u64, param3: ?*anyopaque) void {
+    pub fn SCN_MACRORECORD(self: ?*anyopaque, param1: u32, param2: usize, param3: ?*anyopaque) void {
         qtc.QsciScintillaBase_SCN_MACRORECORD(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
@@ -7856,9 +7856,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
-    pub fn SendScintilla22(self: ?*anyopaque, msg: u32, wParam: u64) i64 {
+    pub fn SendScintilla22(self: ?*anyopaque, msg: u32, wParam: usize) isize {
         return qtc.QsciScintillaBase_SendScintilla22(@ptrCast(self), @bitCast(msg), @bitCast(wParam));
     }
 
@@ -7872,11 +7872,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: u64 `
+    /// ` wParam: usize `
     ///
-    /// ` lParam: i64 `
+    /// ` lParam: isize `
     ///
-    pub fn SendScintilla32(self: ?*anyopaque, msg: u32, wParam: u64, lParam: i64) i64 {
+    pub fn SendScintilla32(self: ?*anyopaque, msg: u32, wParam: usize, lParam: isize) isize {
         return qtc.QsciScintillaBase_SendScintilla32(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @bitCast(lParam));
     }
 
@@ -11540,9 +11540,9 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u64 `
+    /// ` param1: usize `
     ///
-    pub fn Find(param1: u64) QtC.QWidget {
+    pub fn Find(param1: usize) QtC.QWidget {
         return qtc.QWidget_Find(@bitCast(param1));
     }
 

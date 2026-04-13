@@ -15,9 +15,9 @@ pub const qbitarray = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
-    pub fn New2(size: i64) QtC.QBitArray {
+    pub fn New2(size: isize) QtC.QBitArray {
         return qtc.QBitArray_new2(@bitCast(size));
     }
 
@@ -35,11 +35,11 @@ pub const qbitarray = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
     /// ` val: bool `
     ///
-    pub fn New4(size: i64, val: bool) QtC.QBitArray {
+    pub fn New4(size: isize, val: bool) QtC.QBitArray {
         return qtc.QBitArray_new4(@bitCast(size), val);
     }
 
@@ -73,7 +73,7 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QBitArray_Size(@ptrCast(self));
     }
 
@@ -83,7 +83,7 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    pub fn Count(self: ?*anyopaque) i64 {
+    pub fn Count(self: ?*anyopaque) isize {
         return qtc.QBitArray_Count(@ptrCast(self));
     }
 
@@ -95,7 +95,7 @@ pub const qbitarray = struct {
     ///
     /// ` on: bool `
     ///
-    pub fn Count2(self: ?*anyopaque, on: bool) i64 {
+    pub fn Count2(self: ?*anyopaque, on: bool) isize {
         return qtc.QBitArray_Count2(@ptrCast(self), on);
     }
 
@@ -125,9 +125,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` size: i64 `
+    /// ` size: isize `
     ///
-    pub fn Resize(self: ?*anyopaque, size: i64) void {
+    pub fn Resize(self: ?*anyopaque, size: isize) void {
         qtc.QBitArray_Resize(@ptrCast(self), @bitCast(size));
     }
 
@@ -167,9 +167,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn TestBit(self: ?*anyopaque, i: i64) bool {
+    pub fn TestBit(self: ?*anyopaque, i: isize) bool {
         return qtc.QBitArray_TestBit(@ptrCast(self), @bitCast(i));
     }
 
@@ -179,9 +179,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn SetBit(self: ?*anyopaque, i: i64) void {
+    pub fn SetBit(self: ?*anyopaque, i: isize) void {
         qtc.QBitArray_SetBit(@ptrCast(self), @bitCast(i));
     }
 
@@ -191,11 +191,11 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
     /// ` val: bool `
     ///
-    pub fn SetBit2(self: ?*anyopaque, i: i64, val: bool) void {
+    pub fn SetBit2(self: ?*anyopaque, i: isize, val: bool) void {
         qtc.QBitArray_SetBit2(@ptrCast(self), @bitCast(i), val);
     }
 
@@ -205,9 +205,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn ClearBit(self: ?*anyopaque, i: i64) void {
+    pub fn ClearBit(self: ?*anyopaque, i: isize) void {
         qtc.QBitArray_ClearBit(@ptrCast(self), @bitCast(i));
     }
 
@@ -217,9 +217,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn ToggleBit(self: ?*anyopaque, i: i64) bool {
+    pub fn ToggleBit(self: ?*anyopaque, i: isize) bool {
         return qtc.QBitArray_ToggleBit(@ptrCast(self), @bitCast(i));
     }
 
@@ -229,9 +229,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn At(self: ?*anyopaque, i: i64) bool {
+    pub fn At(self: ?*anyopaque, i: isize) bool {
         return qtc.QBitArray_At(@ptrCast(self), @bitCast(i));
     }
 
@@ -241,9 +241,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, i: i64) QtC.QBitRef {
+    pub fn OperatorSubscript(self: ?*anyopaque, i: isize) QtC.QBitRef {
         return qtc.QBitArray_OperatorSubscript(@ptrCast(self), @bitCast(i));
     }
 
@@ -253,9 +253,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` i: i64 `
+    /// ` i: isize `
     ///
-    pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) bool {
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: isize) bool {
         return qtc.QBitArray_OperatorSubscript2(@ptrCast(self), @bitCast(i));
     }
 
@@ -315,11 +315,11 @@ pub const qbitarray = struct {
     ///
     /// ` val: bool `
     ///
-    /// ` first: i64 `
+    /// ` first: isize `
     ///
-    /// ` last: i64 `
+    /// ` last: isize `
     ///
-    pub fn Fill2(self: ?*anyopaque, val: bool, first: i64, last: i64) void {
+    pub fn Fill2(self: ?*anyopaque, val: bool, first: isize, last: isize) void {
         qtc.QBitArray_Fill2(@ptrCast(self), val, @bitCast(first), @bitCast(last));
     }
 
@@ -329,9 +329,9 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    /// ` pos: i64 `
+    /// ` pos: isize `
     ///
-    pub fn Truncate(self: ?*anyopaque, pos: i64) void {
+    pub fn Truncate(self: ?*anyopaque, pos: isize) void {
         qtc.QBitArray_Truncate(@ptrCast(self), @bitCast(pos));
     }
 
@@ -352,9 +352,9 @@ pub const qbitarray = struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn FromBits(data: [:0]const u8, lenVal: i64) QtC.QBitArray {
+    pub fn FromBits(data: [:0]const u8, lenVal: isize) QtC.QBitArray {
         const data_Cstring = data.ptr;
         return qtc.QBitArray_FromBits(data_Cstring, @bitCast(lenVal));
     }
@@ -379,9 +379,9 @@ pub const qbitarray = struct {
     ///
     /// ` aval: bool `
     ///
-    /// ` asize: i64 `
+    /// ` asize: isize `
     ///
-    pub fn Fill22(self: ?*anyopaque, aval: bool, asize: i64) bool {
+    pub fn Fill22(self: ?*anyopaque, aval: bool, asize: isize) bool {
         return qtc.QBitArray_Fill22(@ptrCast(self), aval, @bitCast(asize));
     }
 

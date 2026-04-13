@@ -53,9 +53,9 @@ pub const kjobwidgets = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    /// ` param2: u64 `
+    /// ` param2: usize `
     ///
-    pub fn UpdateUserTimestamp(param1: ?*anyopaque, param2: u64) void {
+    pub fn UpdateUserTimestamp(param1: ?*anyopaque, param2: usize) void {
         qtc.KJobWidgets_UpdateUserTimestamp(@ptrCast(param1), @bitCast(param2));
     }
 
@@ -65,7 +65,7 @@ pub const kjobwidgets = struct {
     ///
     /// ` param1: QtC.QObject `
     ///
-    pub fn UserTimestamp(param1: ?*anyopaque) u64 {
+    pub fn UserTimestamp(param1: ?*anyopaque) usize {
         return qtc.KJobWidgets_UserTimestamp(@ptrCast(param1));
     }
 };

@@ -31,9 +31,9 @@ pub const knscore = struct {
     ///
     /// ` param1: QtC.KNSCore__Entry `
     ///
-    /// ` param2: u64 `
+    /// ` param2: usize `
     ///
-    pub fn QHash(param1: ?*anyopaque, param2: u64) u64 {
+    pub fn QHash(param1: ?*anyopaque, param2: usize) usize {
         return qtc.KNSCore_QHash(@ptrCast(param1), @bitCast(param2));
     }
 };

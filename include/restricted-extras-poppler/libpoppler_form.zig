@@ -1876,11 +1876,11 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SignedRangeBounds(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
+    pub fn SignedRangeBounds(self: ?*anyopaque, allocator: std.mem.Allocator) []isize {
         const _arr: qtc.libqt_list = qtc.Poppler__SignatureValidationInfo_SignedRangeBounds(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i64, _arr.len) catch @panic("poppler__signaturevalidationinfo.SignedRangeBounds: Memory allocation failed");
-        const _data: [*]i64 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(isize, _arr.len) catch @panic("poppler__signaturevalidationinfo.SignedRangeBounds: Memory allocation failed");
+        const _data: [*]isize = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

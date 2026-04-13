@@ -142,9 +142,9 @@ pub const qmodelroledataspan = struct {
     ///
     /// ` modelRoleData: QtC.QModelRoleData `
     ///
-    /// ` lenVal: i64 `
+    /// ` lenVal: isize `
     ///
-    pub fn New5(modelRoleData: ?*anyopaque, lenVal: i64) QtC.QModelRoleDataSpan {
+    pub fn New5(modelRoleData: ?*anyopaque, lenVal: isize) QtC.QModelRoleDataSpan {
         return qtc.QModelRoleDataSpan_new5(@ptrCast(modelRoleData), @bitCast(lenVal));
     }
 
@@ -188,7 +188,7 @@ pub const qmodelroledataspan = struct {
     ///
     /// ` self: QtC.QModelRoleDataSpan `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
+    pub fn Size(self: ?*anyopaque) isize {
         return qtc.QModelRoleDataSpan_Size(@ptrCast(self));
     }
 
@@ -198,7 +198,7 @@ pub const qmodelroledataspan = struct {
     ///
     /// ` self: QtC.QModelRoleDataSpan `
     ///
-    pub fn Length(self: ?*anyopaque) i64 {
+    pub fn Length(self: ?*anyopaque) isize {
         return qtc.QModelRoleDataSpan_Length(@ptrCast(self));
     }
 
@@ -238,9 +238,9 @@ pub const qmodelroledataspan = struct {
     ///
     /// ` self: QtC.QModelRoleDataSpan `
     ///
-    /// ` index: i64 `
+    /// ` index: isize `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, index: i64) QtC.QModelRoleData {
+    pub fn OperatorSubscript(self: ?*anyopaque, index: isize) QtC.QModelRoleData {
         return qtc.QModelRoleDataSpan_OperatorSubscript(@ptrCast(self), @bitCast(index));
     }
 
