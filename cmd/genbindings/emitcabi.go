@@ -144,7 +144,7 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		ret = "int32_t"
 	case "quint32", "GLbitfield", "GLenum", "GLuint":
 		ret = "uint32_t"
-	case "qlonglong", "qint64", "GLint64":
+	case "qint64", "GLint64":
 		ret = "int64_t"
 	case "qulonglong", "quint64", "GLuint64":
 		ret = "uint64_t"
@@ -154,8 +154,8 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		ret = "_Float16" // No idea where this typedef comes from, but it exists
 	case "const double", "qreal", "GLdouble":
 		ret = "double"
-	case "qintptr", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr": // long long int
-		ret = "intptr_t" // long int
+	case "qlonglong", "qintptr", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr":
+		ret = "intptr_t"
 	case "quintptr", "uintptr", "QIntegerForSizeof<void *>::Unsigned":
 		ret = "uintptr_t"
 	case "qsizetype", "qptrdiff", "QIntegerForSizeof<std::size_t>::Signed":
