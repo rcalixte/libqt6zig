@@ -1,4 +1,9 @@
 
+### 6.8.2 rev69 (15 April 2026)
+
+* **BREAKING CHANGE:** Update to Zig 0.16 (#134)
+* Opt for platform-dependent types (#133)
+
 ### 6.8.2 rev68 (30 March 2026)
 
 * Add [KUnitConversion](https://api.kde.org/kunitconversion-index.html) (#132)
