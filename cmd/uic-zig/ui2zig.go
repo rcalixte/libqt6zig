@@ -1468,7 +1468,7 @@ const std = @import("std");
 const qt6 = @import("libqt6zig");` + maybeImport + `
 const C = qt6.C;
 
-/// The type definition for ` + uClass + `Ui containing all the Qt objects
+/// The type definition for ` + uClass + `Ui containing all of the Qt objects
 pub const ` + uClass + `Ui = struct {
 ` + strings.Join(collectClassNames_Widget(&u.Widget), ",\n") + `,
 
