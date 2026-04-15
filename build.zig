@@ -3,50 +3,37 @@ const host_os = @import("builtin").os.tag;
 const host_arch = @import("builtin").cpu.arch;
 
 var linux_isystem: std.ArrayList([]const u8) = .empty;
-var cpp_sources: std.ArrayList([]const u8) = .empty;
-var prefix_options: std.StringHashMapUnmanaged(bool) = .empty;
-var qt_include_path: std.ArrayList([]const u8) = .empty;
 var cpp_flags: std.ArrayList([]const u8) = .empty;
+var cpp_sources: std.ArrayList([]const u8) = .empty;
+var qt_include_path: std.ArrayList([]const u8) = .empty;
 
 pub fn build(b: *std.Build) !void {
+    const optimize = b.standardOptimizeOption(.{});
     const target = b.standardTargetOptions(.{});
-    const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode for libqt6zig") orelse .static;
     const extra_paths = b.option([]const []const u8, "extra-paths", "Extra library header search paths") orelse &.{};
-
-    var optimize = b.standardOptimizeOption(.{});
-    if (optimize == .Debug) optimize = .ReleaseFast;
-
-    var buffer: [512]u8 = undefined;
-    var stdout_writer = std.fs.File.stdout().writer(&buffer);
+    const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode for libqt6zig") orelse .static;
+    const strip = b.option(bool, "strip", "Include debug information in the compiled binary") orelse (optimize != .Debug);
 
     const is_macos = target.result.os.tag == .macos or host_os == .macos;
     const is_windows = target.result.os.tag == .windows or host_os == .windows;
-
-    const is_linux_target = switch (target.result.os.tag) {
-        .linux => true,
-        else => false,
-    };
-
-    const is_linux = is_linux_host or is_linux_target;
+    const is_linux = target.result.os.tag == .linux or host_os == .linux;
 
     // Add isystem paths for Linux
     var distro: Distro = .none;
     if (is_linux) {
-        const result = try std.process.Child.run(.{
-            .allocator = b.allocator,
+        const result = try std.process.run(b.allocator, b.graph.io, .{
             .argv = &.{ "gcc", "-xc++", "-E", "-Wp,-v", "/dev/null" },
         });
 
         var lines = std.mem.splitScalar(u8, result.stderr, '\n');
-        while (lines.next()) |line| {
+        while (lines.next()) |line|
             if (std.mem.startsWith(u8, line, " /")) {
                 const isystem_path = std.mem.trim(u8, line, &std.ascii.whitespace);
-                std.fs.cwd().access(isystem_path, .{}) catch {
+                std.Io.Dir.cwd().access(b.graph.io, isystem_path, .{}) catch {
                     continue;
                 };
                 try linux_isystem.append(b.allocator, isystem_path);
-            }
-        }
+            };
 
         for (linux_isystem.items) |isystem_path| {
             if (distro == .none)
@@ -60,96 +47,96 @@ pub fn build(b: *std.Build) !void {
         }
     }
 
-    var dir = try b.build_root.handle.openDir("src", .{ .iterate = true });
-    defer dir.close();
+    var dir = try b.build_root.handle.openDir(b.graph.io, "src", .{ .iterate = true });
+    defer dir.close(b.graph.io);
+
     var walker = try dir.walk(b.allocator);
     defer walker.deinit();
 
-    while (try walker.next()) |entry| {
-        entry_loop: {
-            if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".cpp")) {
-                var basename = std.fs.path.basename(entry.path);
-                basename = basename[3 .. basename.len - 4];
-                // conditional removals
-                if ((!is_linux or distro == .arch or distro == .suse) and (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
-                    continue;
-                if (distro == .suse and std.mem.eql(u8, @tagName(host_arch), "aarch64") and (std.mem.startsWith(u8, basename, "qopenglfunctions_") or std.mem.eql(u8, basename, "qopenglcontext_platform") or std.mem.eql(u8, basename, "qopengltimerquery") or std.mem.eql(u8, basename, "qopenglversionfunctions")))
-                    continue;
-                if (is_windows and (std.mem.startsWith(u8, entry.path, "foss-") or std.mem.startsWith(u8, entry.path, "posix-")))
-                    continue;
-                if (is_macos and std.mem.startsWith(u8, entry.path, "foss-"))
-                    continue;
-                if ((is_macos or is_windows) and std.mem.eql(u8, basename, "qopenglcontext_platform"))
-                    continue;
-                if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess")))
-                    continue;
+    var ok = true;
 
-                inline for (prefixes) |prefix| {
-                    if (std.mem.startsWith(u8, entry.path, prefix)) {
-                        var is_enabled = true;
-                        if ((host_os == .macos or host_os == .windows) and std.mem.eql(u8, prefix, "extras-")) {
-                            is_enabled = false;
-                        }
-                        const path = std.fs.path.stem(std.fs.path.dirname(entry.path).?);
-                        var library = std.mem.splitBackwardsScalar(u8, path, '-');
-                        const name = library.first();
-                        const enabled = prefix_options.get(name) orelse is_enabled;
-                        if (!enabled)
-                            break :entry_loop;
-                    }
-                }
+    while (try walker.next(b.graph.io)) |entry|
+        if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".cpp")) {
+            if (!ok and !std.mem.startsWith(u8, entry.path, "lib")) continue;
+            if (is_windows and std.mem.startsWith(u8, entry.path, "webengine")) continue;
+            var basename = std.fs.path.basename(entry.path);
+            basename = basename[3 .. basename.len - 4];
+            if ((!is_linux or distro == .arch or distro == .suse) and
+                (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
+                continue;
+            if (distro == .suse and std.mem.eql(u8, @tagName(host_arch), "aarch64") and
+                (std.mem.startsWith(u8, basename, "qopenglfunctions_") or
+                    std.mem.eql(u8, basename, "qopenglcontext_platform") or
+                    std.mem.eql(u8, basename, "qopengltimerquery") or
+                    std.mem.eql(u8, basename, "qopenglversionfunctions")))
+                continue;
+            if ((is_macos or is_windows) and std.mem.eql(u8, basename, "qopenglcontext_platform"))
+                continue;
+            if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess")))
+                continue;
 
-                try cpp_sources.append(b.allocator, b.fmt("{s}/{s}", .{ "src", entry.path }));
-            } else if (entry.kind == .directory) {
-                inline for (prefixes) |prefix| {
-                    if (std.mem.startsWith(u8, entry.path, prefix)) {
-                        const path = std.fs.path.stem(entry.path);
-                        var library = std.mem.splitBackwardsScalar(u8, path, '-');
-                        const name = library.first();
-                        const description = b.fmt("Enable {s} (where supported)", .{name});
-                        const option_name = b.fmt("enable-{s}", .{name});
-                        const option_value = b.option(bool, option_name, description);
-                        var is_enabled = true;
-                        if ((host_os == .macos or host_os == .windows) and std.mem.eql(u8, prefix, "extras-")) {
-                            is_enabled = false;
-                        }
-                        const map_value = if (option_value == null) is_enabled else option_value.?;
-                        try prefix_options.put(b.allocator, b.dupe(name), map_value);
-                    }
-                }
-            }
-        }
-    }
+            try cpp_sources.append(b.allocator, b.fmt("{s}/{s}", .{ "src", entry.path }));
+        } else if (entry.kind == .directory) {
+            ok = true;
+            inline for (prefixes) |prefix|
+                if (std.mem.startsWith(u8, entry.path, prefix)) {
+                    var is_supported = true;
+                    if (is_windows and (std.mem.startsWith(u8, entry.path, "foss-") or std.mem.startsWith(u8, entry.path, "posix-")))
+                        is_supported = false;
+                    if (is_macos and std.mem.startsWith(u8, entry.path, "foss-"))
+                        is_supported = false;
+
+                    var is_enabled = true;
+                    if ((is_macos or is_windows) and (std.mem.eql(u8, prefix, "extras-") or std.mem.eql(u8, prefix, "restricted-extras-")))
+                        is_enabled = false;
+                    if (is_macos and std.mem.startsWith(u8, entry.path, "posix-"))
+                        is_enabled = false;
+
+                    const option_value = opt: switch (is_supported) {
+                        true => {
+                            const path = std.fs.path.stem(entry.path);
+                            var library = std.mem.splitBackwardsScalar(u8, path, '-');
+                            const name = library.first();
+                            const description = b.fmt("Enable {s}", .{name});
+                            const option_name = b.fmt("enable-{s}", .{name});
+                            break :opt b.option(bool, option_name, description);
+                        },
+                        false => null,
+                    };
+
+                    ok = is_supported and if (option_value) |option| option else is_enabled;
+                    break;
+                };
+        };
 
     std.debug.assert(cpp_sources.items.len != 0);
 
     for (extra_paths) |extra_path| {
         if (std.mem.eql(u8, extra_path, "")) continue;
         const inc_path = b.fmt("{s}/include", .{extra_path});
-        std.fs.cwd().access(inc_path, .{}) catch {
-            try stdout_writer.interface.print("WARNING: extra path {s} does not exist\n", .{inc_path});
-            try stdout_writer.interface.flush();
+        std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}) catch {
+            try std.Io.File.stdout().writeStreamingAll(
+                b.graph.io,
+                b.fmt("WARNING: extra path {s} does not exist\n", .{inc_path}),
+            );
             continue;
         };
         try qt_include_path.append(b.allocator, b.dupe(inc_path));
     }
     for (os_include_path) |os_path| {
-        std.fs.cwd().access(os_path, .{}) catch {
+        std.Io.Dir.cwd().access(b.graph.io, os_path, .{}) catch {
             continue;
         };
         try qt_include_path.append(b.allocator, b.dupe(os_path));
     }
 
     // Add base flags
-    inline for (base_cpp_flags) |flag| {
+    inline for (base_cpp_flags) |flag|
         try cpp_flags.append(b.allocator, b.dupe(flag));
-    }
 
-    if (is_linux) {
-        inline for (linux_cpp_flags) |flag| {
+    if (is_linux)
+        inline for (linux_cpp_flags) |flag|
             try cpp_flags.append(b.allocator, b.dupe(flag));
-        }
-    }
 
     const translate_c = b.addTranslateC(.{
         .root_source_file = b.path("include/libqt6c.h"),
@@ -164,16 +151,15 @@ pub fn build(b: *std.Build) !void {
     }
 
     // Add Qt module include paths
-    inline for (qt_modules) |module| {
+    inline for (qt_modules) |module|
         for (qt_include_path.items) |qt_path| {
             const includePath = b.fmt("{s}/{s}", .{ qt_path, module });
-            std.fs.cwd().access(includePath, .{}) catch {
+            std.Io.Dir.cwd().access(b.graph.io, includePath, .{}) catch {
                 continue;
             };
             try cpp_flags.append(b.allocator, b.fmt("-I{s}", .{includePath}));
             translate_c.addIncludePath(.{ .cwd_relative = includePath });
-        }
-    }
+        };
 
     // Create a separate library for each source file
     for (cpp_sources.items) |source| {
@@ -185,15 +171,14 @@ pub fn build(b: *std.Build) !void {
             .root_module = b.createModule(.{
                 .target = target,
                 .optimize = optimize,
-                .strip = optimize != .Debug,
+                .sanitize_c = .off,
+                .strip = strip,
                 .pic = true,
             }),
             .linkage = linkage,
         });
 
-        if (!is_linux) {
-            lib.root_module.link_libcpp = true;
-        }
+        if (!is_linux) lib.root_module.link_libcpp = true;
 
         lib.root_module.addCSourceFiles(.{ .files = &.{source}, .flags = cpp_flags.items });
 
@@ -224,7 +209,7 @@ pub fn build(b: *std.Build) !void {
     libqt6zig.addImport("qt6zig", qtzig_types);
     libqt6zig.addImport("qtzig", qtzig_types);
 
-    try b.modules.put("libqt6zig", libqt6zig);
+    try b.modules.put(b.allocator, "libqt6zig", libqt6zig);
 
     // Documentation build step
     const docs_step = b.step("docs", "Emit libqt6zig documentation");
@@ -244,11 +229,6 @@ pub fn build(b: *std.Build) !void {
 
     docs_step.dependOn(&docs_install.step);
 }
-
-const is_linux_host = switch (host_os) {
-    .linux => true,
-    else => false,
-};
 
 const prefixes: []const []const u8 = &.{
     "extras-",

@@ -3,8 +3,8 @@ const qtc = @import("qt6c");
 const embeddedimagedata_enums = @import("libembeddedimagedata.zig").enums;
 const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
-const arraymap_i32_sliceqtcqvariant = std.AutoArrayHashMapUnmanaged(i32, []QtC.QVariant);
-const arraymap_i32_u8 = std.AutoArrayHashMapUnmanaged(i32, []u8);
+const arraymap_i32_sliceqtcqvariant = std.array_hash_map.Auto(i32, []QtC.QVariant);
+const arraymap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html)
 pub const kfilemetadata__writedata = struct {

@@ -36,24 +36,24 @@ const std = @import("std");
 /// These are collection types that are used in the Zig API of the library.
 /// They are added here for convenience.
 pub const all_types = struct {
-    pub const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
-    pub const arraymap_constu8_i32 = std.StringArrayHashMapUnmanaged(i32);
-    pub const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(C.QVariant);
-    pub const arraymap_constu8_sliceconstconstu8 = std.StringArrayHashMapUnmanaged([]const []const u8);
-    pub const arraymap_constu8_sliceqtcqaction = std.StringArrayHashMapUnmanaged([]C.QAction);
-    pub const arraymap_f64_constu8 = std.AutoArrayHashMapUnmanaged(f64, []const u8);
-    pub const arraymap_f64_qtcqcolor = std.AutoArrayHashMapUnmanaged(f64, C.QColor);
-    pub const arraymap_i32_qtcqplacecontent = std.AutoArrayHashMapUnmanaged(i32, C.QPlaceContent);
-    pub const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, C.QVariant);
-    pub const arraymap_i32_sliceconstconstu8 = std.AutoArrayHashMapUnmanaged(i32, []const []const u8);
-    pub const arraymap_i32_sliceqtcqkeysequence = std.AutoArrayHashMapUnmanaged(i32, []C.QKeySequence);
-    pub const arraymap_i32_sliceqtcqvariant = std.AutoArrayHashMapUnmanaged(i32, []C.QVariant);
-    pub const arraymap_i32_u8 = std.AutoArrayHashMapUnmanaged(i32, []u8);
-    pub const arraymap_qtcqdate_constu8 = std.AutoArrayHashMapUnmanaged(C.QDate, []const u8);
-    pub const arraymap_qtcqdate_qtcqtextcharformat = std.AutoArrayHashMapUnmanaged(C.QDate, C.QTextCharFormat);
-    pub const arraymap_u8_qtcqvariant = std.StringArrayHashMapUnmanaged(C.QVariant);
-    pub const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
-    pub const arraymap_u8_u8 = std.StringArrayHashMapUnmanaged([]u8);
+    pub const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
+    pub const arraymap_constu8_i32 = std.array_hash_map.String(i32);
+    pub const arraymap_constu8_qtcqvariant = std.array_hash_map.String(C.QVariant);
+    pub const arraymap_constu8_sliceconstconstu8 = std.array_hash_map.String([]const []const u8);
+    pub const arraymap_constu8_sliceqtcqaction = std.array_hash_map.String([]C.QAction);
+    pub const arraymap_f64_constu8 = std.array_hash_map.Auto(f64, []const u8);
+    pub const arraymap_f64_qtcqcolor = std.array_hash_map.Auto(f64, C.QColor);
+    pub const arraymap_i32_qtcqplacecontent = std.array_hash_map.Auto(i32, C.QPlaceContent);
+    pub const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, C.QVariant);
+    pub const arraymap_i32_sliceconstconstu8 = std.array_hash_map.Auto(i32, []const []const u8);
+    pub const arraymap_i32_sliceqtcqkeysequence = std.array_hash_map.Auto(i32, []C.QKeySequence);
+    pub const arraymap_i32_sliceqtcqvariant = std.array_hash_map.Auto(i32, []C.QVariant);
+    pub const arraymap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
+    pub const arraymap_qtcqdate_constu8 = std.array_hash_map.Auto(C.QDate, []const u8);
+    pub const arraymap_qtcqdate_qtcqtextcharformat = std.array_hash_map.Auto(C.QDate, C.QTextCharFormat);
+    pub const arraymap_u8_qtcqvariant = std.array_hash_map.String(C.QVariant);
+    pub const arraymap_u8_sliceu8 = std.array_hash_map.String([][]u8);
+    pub const arraymap_u8_u8 = std.array_hash_map.String([]u8);
     pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
     pub const map_constu8_qtcqobject = std.StringHashMapUnmanaged(C.QObject);
     pub const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(C.QVariant);
@@ -2816,3 +2816,22 @@ pub const view_enums = @import("extras-ktexteditor/libview.zig").enums;
 pub const weak_ordering = @import("libqcompare.zig").weak_ordering;
 pub const window_enums = @import("foss-extras-layershellqt/libwindow.zig").enums;
 pub const workerbase_enums = @import("extras-kio/libworkerbase.zig").enums;
+
+/// A convenience function that takes a std.process.Args parameter
+/// and returns a mutable slice that can be passed as an argument
+/// to initialize a Qt application object
+pub fn init(gpa: std.mem.Allocator, a: std.process.Args) ![][:0]u8 {
+    const argv = try gpa.alloc([:0]u8, a.vector.len);
+    var args = try a.iterateAllocator(gpa);
+    defer args.deinit();
+    for (0..a.vector.len) |i|
+        argv[i] = try gpa.dupeSentinel(u8, args.next().?, 0);
+    return argv;
+}
+
+/// A convenience function for freeing a slice created using `init`
+pub fn deinit(gpa: std.mem.Allocator, argv: [][:0]u8) void {
+    for (argv) |arg|
+        gpa.free(arg);
+    gpa.free(argv);
+}

@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qlocation_enums = @import("libqlocation.zig").enums;
 const qplacecontent_enums = @import("libqplacecontent.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqplacecontent = std.AutoArrayHashMapUnmanaged(i32, QtC.QPlaceContent);
+const arraymap_i32_qtcqplacecontent = std.array_hash_map.Auto(i32, QtC.QPlaceContent);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html)
 pub const qplace = struct {

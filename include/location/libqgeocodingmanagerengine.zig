@@ -4,7 +4,7 @@ const qgeocodereply_enums = @import("libqgeocodereply.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanagerengine.html)
 pub const qgeocodingmanagerengine = struct {

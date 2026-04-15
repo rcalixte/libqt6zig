@@ -4,8 +4,8 @@ const deviceinterface_enums = @import("libdeviceinterface.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_i32 = std.StringArrayHashMapUnmanaged(i32);
-const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_i32 = std.array_hash_map.String(i32);
+const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/solid-genericinterface.html)
 pub const solid__genericinterface = struct {

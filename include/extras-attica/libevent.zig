@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/attica-event.html)
 pub const attica__event = struct {

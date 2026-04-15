@@ -11,32 +11,40 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` argc: usize `
+    /// ` argc: *i32 `
     ///
-    /// ` argv: [*][*:0]u8 `
+    /// ` argv: [][:0]u8 `
     ///
-    pub fn New(argc: usize, argv: [*][*:0]u8) QtC.QApplication {
-        var argc_param: c_int = @intCast(argc);
-        const argv_param: [*c][*c]u8 = @ptrCast(@alignCast(&argv[0]));
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn New(argc: *i32, argv: [][:0]u8, allocator: std.mem.Allocator) QtC.QApplication {
+        const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qapplication.New: Memory allocation failed");
+        for (argv, 0..argv.len) |str, i| {
+            argv_chararr[i] = @ptrCast(str.ptr);
+        }
 
-        return qtc.QApplication_new(&argc_param, argv_param);
+        return qtc.QApplication_new(@ptrCast(argc), argv_chararr.ptr);
     }
 
     /// New2 constructs a new QApplication object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` argc: usize `
+    /// ` argc: *i32 `
     ///
-    /// ` argv: [*][*:0]u8 `
+    /// ` argv: [][:0]u8 `
     ///
     /// ` param3: i32 `
     ///
-    pub fn New2(argc: usize, argv: [*][*:0]u8, param3: i32) QtC.QApplication {
-        var argc_param: c_int = @intCast(argc);
-        const argv_param: [*c][*c]u8 = @ptrCast(@alignCast(&argv[0]));
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn New2(argc: *i32, argv: [][:0]u8, param3: i32, allocator: std.mem.Allocator) QtC.QApplication {
+        const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qapplication.New2: Memory allocation failed");
+        for (argv, 0..argv.len) |str, i| {
+            argv_chararr[i] = @ptrCast(str.ptr);
+        }
 
-        return qtc.QApplication_new2(&argc_param, argv_param, @bitCast(param3));
+        return qtc.QApplication_new2(@ptrCast(argc), argv_chararr.ptr, @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)

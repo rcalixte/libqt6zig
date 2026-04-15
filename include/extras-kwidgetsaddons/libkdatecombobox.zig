@@ -10,7 +10,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-const arraymap_qtcqdate_constu8 = std.AutoArrayHashMapUnmanaged(QtC.QDate, []const u8);
+const arraymap_qtcqdate_constu8 = std.array_hash_map.Auto(QtC.QDate, []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html)
 pub const kdatecombobox = struct {

@@ -5,7 +5,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/rcalixte/libqt6zig/blob/master/LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/rcalixte/libqt6zig)](https://goreportcard.com/report/github.com/rcalixte/libqt6zig)
-[![Static Badge](https://img.shields.io/badge/v0.15%20(stable)-fdc009?logo=zig&logoColor=f7a41d&label=Zig)](https://ziglang.org/download/)
+[![Static Badge](https://img.shields.io/badge/v0.16%20(stable)-fdc009?logo=zig&logoColor=f7a41d&label=Zig)](https://ziglang.org/download/)
 
 [![Documentation](https://github.com/rcalixte/libqt6zig/actions/workflows/docs.yml/badge.svg?branch=master)](https://github.com/rcalixte/libqt6zig/actions/workflows/docs.yml)
 </div>
@@ -20,7 +20,7 @@ For previous libqt6zig versions supporting Qt 6.4+, there are branches correspon
 
 This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used as a base to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
 
-These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QCustomPlot](https://www.qcustomplot.com), [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://develop.kde.org/products/frameworks/), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and [the Qt Resource System](https://doc.qt.io/qt-6/resources.html). With improper handling, it is fairly easy to encounter segmentation faults or errors. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples) and the [demo application](https://github.com/rcalixte/libqt6zig-demo). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
+These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QCustomPlot](https://www.qcustomplot.com), [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://develop.kde.org/products/frameworks/), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and [the Qt Resource System](https://doc.qt.io/qt-6/resources.html). With improper handling, it is possible to encounter segmentation faults or errors but developing in the Debug build mode affords significant advantages that aid the developer experience. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples) and the [demo application](https://github.com/rcalixte/libqt6zig-demo). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
 
 ---
 
@@ -81,11 +81,11 @@ Some libraries have restrictions, either due to limited platform support, less-p
 | extras-            | all platforms<sup>1</sup> | Permissive  |
 | foss-extras-       | BSD & Linux only          | Permissive  |
 | foss-restricted-   | BSD & Linux only          | Restrictive |
-| posix-extras-      | non-Windows               | Permissive  |
-| posix-restricted-  | non-Windows               | Restrictive |
-| restricted-extras- | all platforms             | Restrictive |
+| posix-extras-      | non-Windows<sup>1</sup>   | Permissive  |
+| posix-restricted-  | non-Windows<sup>1</sup>   | Restrictive |
+| restricted-extras- | all platforms<sup>1</sup> | Restrictive |
 
-<sup>1</sup>While macOS and Windows are supported upstream by the libraries, library installation for these platforms may be non-trivial. Therefore, these libraries are disabled by default and must be explicitly enabled with the appropriate build option.
+<sup>1</sup>While macOS and Windows are supported upstream by some of these libraries, library installation for these platforms may be non-trivial. Therefore, these libraries are disabled by default and must be explicitly enabled with the appropriate build option.
 
 License
 -------
@@ -102,42 +102,49 @@ The [`helloworld`](https://github.com/rcalixte/libqt6zig-examples/tree/master/sr
 ```zig
 const std = @import("std");
 const qt6 = @import("libqt6zig");
+// Import specific Qt modules for convenience
 const qapplication = qt6.qapplication;
 const qpushbutton = qt6.qpushbutton;
 const qwidget = qt6.qwidget;
 
-var counter: isize = 0;
+var counter: usize = 0;
+var buffer: [64]u8 = undefined;
 
-pub fn main() void {
-    // Initialize Qt application
-    const argc = std.os.argv.len;
-    const argv = std.os.argv.ptr;
-    const qapp = qapplication.New(argc, argv);
+pub fn main(init: std.process.Init) !void {
+    // Initialize the Qt application and defer cleanup
+    const argv = try qt6.init(init.gpa, init.minimal.args);
+    defer qt6.deinit(init.gpa, argv);
+    var argc: i32 = @intCast(argv.len);
+    // The c_allocator is an option here too, but the debug allocator is not recommended for this instance
+    const qapp = qapplication.New(&argc, argv, init.arena.allocator());
     defer qapplication.Delete(qapp);
 
-    const text = "Hello world!";
+    // Create a new widget and defer cleanup
     const widget = qwidget.New2();
-    if (widget == null) @panic("Failed to create widget");
     defer qwidget.Delete(widget);
 
-    // We don't need to free the button, it's a child of the widget
-    const button = qpushbutton.New5(text, widget);
+    // We don't need to free/delete the button, it's a child of the widget
+    const button = qpushbutton.New5("Hello world!", widget);
     qpushbutton.SetFixedWidth(button, 320);
+    // Connect the button to the callback function
+    qpushbutton.OnClicked(button, onClicked);
 
-    qpushbutton.OnClicked(button, button_callback);
-
+    // Display the widget
     qwidget.Show(widget);
 
+    // Start the event loop
     _ = qapplication.Exec();
 
-    std.debug.print("OK!\n", .{});
+    try std.Io.File.stdout().writeStreamingAll(init.io, "OK!\n");
 }
 
-fn button_callback(self: ?*anyopaque) callconv(.c) void {
+fn onClicked(self: ?*anyopaque) callconv(.c) void {
     counter += 1;
-    var buffer: [64]u8 = undefined;
-    const text = "You have clicked the button {d} time(s)";
-    const formatted = std.fmt.bufPrintZ(&buffer, text, .{counter}) catch @panic("Failed to bufPrintZ");
+    const formatted = std.fmt.bufPrint(
+        &buffer,
+        "You have clicked the button {d} time(s)",
+        .{counter},
+    ) catch @panic("Failed to bufPrint");
     qpushbutton.SetText(self, formatted);
 }
 ```
@@ -415,7 +422,13 @@ The version of the Qt 6 installation path may differ depending on the version of
 Usage
 -----
 
-- Use a commit hash to import the library into your project:
+- Import the library into your project:
+
+```bash
+zig fetch --save https://github.com/rcalixte/libqt6zig
+```
+
+- Alternatively, use a commit hash to import the library into your project:
 
 ```bash
 zig fetch --save https://github.com/rcalixte/libqt6zig/archive/<commit>.tar.gz
@@ -439,7 +452,7 @@ const qt6zig = b.dependency("libqt6zig", .{
 exe.root_module.addImport("libqt6zig", qt6zig.module("libqt6zig"));
 
 // Link the compiled libqt6zing libraries to the executable
-// qt_lib_name is the name of the target library without prefix and suffix, e.g. qapplication, qwidget, etc.
+// qt_lib_name is the name of the library file containing the class definition minus the "lib" prefix and file extension suffix, e.g. qapplication, qwidget, etc.
 exe.root_module.linkLibrary(qt6zig.artifact(qt_lib_name));
 ```
 
@@ -449,13 +462,15 @@ exe.root_module.linkLibrary(qt6zig.artifact(qt_lib_name));
 // the main qt6 module to import
 const qt6 = @import("libqt6zig");
 
-// C ABI Qt typedefs (if needed)
+// C ABI helper library and Qt typedefs (if needed)
 const C = qt6.C;
 
 // Qt class imports for Zig
 const qapplication = qt6.qapplication;
 const qwidget = qt6.qwidget;
 const qnamespace_enums = qt6.qnamespace_enums;
+// qnamespace_enums projects the `Qt::` namespace for enums so a more familiar alternative import name could be used
+const qt = qnamespace_enums;
 ```
 
 Full examples of the build system and sample applications can be found in the [`libqt6zig-examples`](https://github.com/rcalixte/libqt6zig-examples) repository.
@@ -488,11 +503,11 @@ There are bits of idiomatic Zig in the library but much of the code is not idiom
 - [Qt's Meta-Object system](https://doc.qt.io/qt-6/metaobjects.html)
 - [Qt widgets](https://doc.qt.io/qt-6/examples-widgets.html)
 
-The `QAnyStringView`, `QByteArray`, `QByteArrayView`, `QString`, `QList<T>`, `QSpan<T>`, `QVector<T>`, `QSet<T>`, `QHash<K,V>`, `QMap<K,V>`, `QMultiHash<K,V>`, and `QMultiMap<K,V>` types are projected as plain Zig types: `[]T`, `AutoArrayHashMapUnmanaged[K]V`, `AutoHashMapUnmanaged[K]V`, `StringArrayHashMapUnmanaged[K]V`, and `StringHashMapUnmanaged[V]`. Therefore, it is not possible to call any of the Qt type's methods and some Zig equivalent method must be used instead. The raw C ABI pointer types for the Qt C++ API are available for use where needed by default in the `C` namespace of the top level of the library. In the same `C` namespace, the C ABI container types `libqt_list`, `libqt_map`, `libqt_pair`, and `libqt_string` are available for use, mainly for callback functions that must use the C calling convention. An example where this would be needed is when overriding a function that returns a map type. There is also a namespace added for convenience named `all_types` that contains the data structure types used throughout the library. This library was constructed with the goal of enabling single-language application development. Anything beyond that boundary is up to the developer to implement.
+The `QAnyStringView`, `QByteArray`, `QByteArrayView`, `QString`, `QList<T>`, `QSpan<T>`, `QVector<T>`, `QSet<T>`, `QHash<K,V>`, `QMap<K,V>`, `QMultiHash<K,V>`, and `QMultiMap<K,V>` types are projected as plain Zig types: `[]T`, `array_hash_map.Auto[K]V`, `AutoHashMapUnmanaged[K]V`, `array_hash_map.String[K]V`, and `StringHashMapUnmanaged[V]`. Therefore, it is not possible to call any of the Qt type's methods and some Zig equivalent method must be used instead. The raw C ABI pointer types for the Qt C++ API are available for use where needed by default in the `C` namespace of the top level of the library. In the same `C` namespace, the C ABI container types `libqt_list`, `libqt_map`, `libqt_pair`, and `libqt_string` are available for use, mainly for callback functions that must use the C calling convention. An example where this would be needed is when overriding a function that returns a map type. There is also a namespace added for convenience named `all_types` that contains the data structure types used throughout the library. This library was constructed with the goal of enabling single-language application development. Anything beyond that boundary is up to the developer to implement.
 
 - Zig string types are internally converted to `QString` using `QString::fromUtf8`. Therefore, the Zig string input must be UTF-8 to avoid [mojibake](https://en.wikipedia.org/wiki/Mojibake). If the Zig input string contains binary data, the conversion would corrupt such bytes into U+FFFD (�). On return to Zig space, this becomes `\xEF\xBF\xBD`.
 
-- `QMap` and `QMultiMap` are iterated by key order and are projected as `AutoArrayHashMapUnmanaged` and `StringArrayHashMapUnmanaged` types. `QHash` and `QMultiHash` iterate in an undefined internal order and are projected as `AutoHashMapUnmanaged` and `StringHashMapUnmanaged` types. `QMultiHash` and `QMultiMap` `<K,V>` types are projected in the Zig API as hash map types of `<K,[]V>`.
+- `QMap` and `QMultiMap` are iterated by key order and are projected as `array_hash_map.Auto` and `array_hash_map.String` types. `QHash` and `QMultiHash` iterate in an undefined internal order and are projected as `AutoHashMapUnmanaged` and `StringHashMapUnmanaged` types. `QMultiHash` and `QMultiMap` `<K,V>` types are projected in the Zig API as hash map types of `<K,[]V>`.
 
 Where Qt returns a C++ object by value (e.g. `QSize`), the binding may have moved it to the heap, and in Zig, this may be represented as a pointer type. In such cases, the caller is the owner and must free the object (using either `Delete` methods for the type or deallocating or destroying via the allocators). This means code using `libqt6zig` can look similar to the Qt C++ equivalent code but with the addition of proper memory management.
 
@@ -508,11 +523,11 @@ Qt class inherited types are projected via opaque pointers and `@ptrCast` in Zig
 
 - When a Qt subclass adds a method overload (e.g. `QMenu::sizeHint(QMenu*)` vs `QWidget::sizeHint(QWidget*)`), the base class version is shadowed and can only be called via `qwidget.SizeHint(?*anyopaque)` while the subclass implementation can be called directly, e.g. `qmenu.SizeHint(?*anyopaque)`. Inherited methods are shadowed for convenience as well, e.g. `qmenu.Show(?*anyopaque)` is equivalent to `qwidget.Show(?*anyopaque)`. While the library aims to simplify usage, consideration should still be given to the Qt documentation for the proper usage of the parameter types and Qt vtable references.
 
-Qt expects fixed OS threads to be used for each QObject. When you first call `qapplication.New`, that will be considered the [Qt main thread](https://doc.qt.io/qt-6.8/thread-basics.html#gui-thread-and-worker-thread).
+Qt expects fixed OS threads to be used for each QObject. When you first call `qapplication.New` (or similar constructors that create a Qt application instance), that will be considered the [Qt main thread](https://doc.qt.io/qt-6.8/thread-basics.html#gui-thread-and-worker-thread).
 
 - When accessing Qt objects from inside another thread, it's safest to use `Threading.Async()` (from this library) to access the Qt objects from Qt's main thread. The [Threading library](https://github.com/rcalixte/libqt6zig/tree/master/src/threading/libqt6zigthreading.zig) documents additional available strategies within the source code.
 
-Qt C++ enums are projected as Zig enum structs of `i8`, `i32`, `u8`, `u16`, `u32`, or `u64` values with the same names. For example, `Qt::AlignmentFlag` is projected as `enums.AlignmentFlag` within the `libqnamespace` module and exported by default as `qnamespace_enums.AlignmentFlag` though developers are free to use whatever naming convention they prefer for imports. The value `Qt::AlignmentFlag::AlignLeft` or the shorthand equivalent `Qt::AlignLeft` is projected by default as `qnamespace_enums.AlignmentFlag.AlignLeft` which is of the type `i32` and value `1`. Qt C++ [QFlags](https://doc.qt.io/qt-6/qflags.html) are projected as `i32`, `u8, `u16`, or `u32` when expected as a parameter or returned as a type by the Zig API.
+Qt C++ enums are projected as Zig enum structs of `i8`, `i32`, `u8`, `u16`, `u32`, or `u64` values with the same names. For example, `Qt::AlignmentFlag` is projected as `enums.AlignmentFlag` within the `libqnamespace` module and exported by default as `qnamespace_enums.AlignmentFlag` though, as previously shown, developers are free to use whatever naming convention they prefer for imports. The value `Qt::AlignmentFlag::AlignLeft` or the shorthand equivalent `Qt::AlignLeft` is projected by default as `qnamespace_enums.AlignmentFlag.AlignLeft` which is of the type `i32` and value `1`. Qt C++ [QFlags](https://doc.qt.io/qt-6/qflags.html) are projected as `i32`, `u8, `u16`, or `u32` when expected as a parameter or returned as a type by the Zig API.
 
 #### API at a glance
 
@@ -565,7 +580,7 @@ const alignment = qnamespace_enums.AlignmentFlag.AlignLeft | qnamespace_enums.Al
 
 ### Q4. What build modes are supported by the library?
 
-Currently, only `ReleaseFast`, `ReleaseSafe`, and `ReleaseSmall` are supported. The `Debug` build mode is not supported. This may change in the future. The default build mode is `ReleaseFast`. To change the build mode:
+Currently, `Debug`, `ReleaseFast`, `ReleaseSafe`, and `ReleaseSmall` are supported. The default build mode is `Debug`. To change the build mode:
 
 ```bash
 zig build -Doptimize=ReleaseSafe

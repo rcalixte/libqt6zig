@@ -5,7 +5,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qtextformat_enums = @import("../libqtextformat.zig").enums;
 const std = @import("std");
 const theme_enums = @import("../extras-ksyntaxhighlighting/libtheme.zig").enums;
-const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, QtC.QVariant);
+const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-attribute.html)
 pub const ktexteditor__attribute = struct {

@@ -4,7 +4,7 @@ const qcryptographichash_enums = @import("../libqcryptographichash.zig").enums;
 const qssl_enums = @import("libqssl.zig").enums;
 const qsslcertificate_enums = enums;
 const std = @import("std");
-const arraymap_i32_sliceconstconstu8 = std.AutoArrayHashMapUnmanaged(i32, []const []const u8);
+const arraymap_i32_sliceconstconstu8 = std.array_hash_map.Auto(i32, []const []const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)
 pub const qsslcertificate = struct {

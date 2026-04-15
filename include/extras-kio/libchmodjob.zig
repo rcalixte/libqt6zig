@@ -4,7 +4,7 @@ const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kio-chmodjob.html)
 pub const kio__chmodjob = struct {

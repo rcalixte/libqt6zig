@@ -1022,7 +1022,28 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	}
 	typedefExport += "};\n\n"
 
-	zigDefs = zigDocs + zigDefs + typedefExport + strings.Join(zigIncList, "\n")
+	zigInit := `
+
+/// A convenience function that takes a std.process.Args parameter
+/// and returns a mutable slice that can be passed as an argument
+/// to initialize a Qt application object
+pub fn init(gpa: std.mem.Allocator, a: std.process.Args) ![][:0]u8 {
+    const argv = try gpa.alloc([:0]u8, a.vector.len);
+    var args = try a.iterateAllocator(gpa);
+    defer args.deinit();
+    for (0..a.vector.len) |i|
+        argv[i] = try gpa.dupeSentinel(u8, args.next().?, 0);
+    return argv;
+}
+
+/// A convenience function for freeing a slice created using ` + "`init`" + `
+pub fn deinit(gpa: std.mem.Allocator, argv: [][:0]u8) void {
+    for (argv) |arg|
+        gpa.free(arg);
+    gpa.free(argv);
+}`
+
+	zigDefs = zigDocs + zigDefs + typedefExport + strings.Join(zigIncList, "\n") + zigInit
 	zigQtPath := filepath.Join(outDir, "src", "libqt6.zig")
 	err = os.WriteFile(zigQtPath, []byte(zigDefs), 0644)
 	if err != nil {

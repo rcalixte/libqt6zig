@@ -1,14 +1,15 @@
 .{
     .name = .libqt6zig,
     .version = "6.8.2",
+    .fingerprint = 0xa83076c75ced2539,
     .dependencies = .{},
     .paths = .{
         "LICENSE",
         "README.md",
+        "assets",
         "build.zig",
         "build.zig.zon",
         "include",
         "src",
     },
-    .fingerprint = 0xa83076c75ced2539,
 }

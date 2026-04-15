@@ -11,7 +11,7 @@ const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
-const arraymap_i32_sliceqtcqkeysequence = std.AutoArrayHashMapUnmanaged(i32, []QtC.QKeySequence);
+const arraymap_i32_sliceqtcqkeysequence = std.array_hash_map.Auto(i32, []QtC.QKeySequence);
 
 /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html)
 pub const kurlcombobox = struct {

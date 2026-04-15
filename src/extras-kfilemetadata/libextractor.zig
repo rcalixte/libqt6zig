@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractor.html)
 pub const kfilemetadata__extractor = struct {

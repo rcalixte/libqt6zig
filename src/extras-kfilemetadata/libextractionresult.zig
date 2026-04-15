@@ -5,7 +5,7 @@ const extractionresult_enums = enums;
 const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
 const types_enums = @import("libtypes.zig").enums;
-const arraymap_i32_u8 = std.AutoArrayHashMapUnmanaged(i32, []u8);
+const arraymap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html)
 pub const kfilemetadata__extractionresult = struct {

@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qplacereply_enums = @import("libqplacereply.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqplacecontent = std.AutoArrayHashMapUnmanaged(i32, QtC.QPlaceContent);
+const arraymap_i32_qtcqplacecontent = std.array_hash_map.Auto(i32, QtC.QPlaceContent);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html)
 pub const qplacecontentreply = struct {

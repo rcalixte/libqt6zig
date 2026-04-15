@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
-const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
+const arraymap_u8_sliceu8 = std.array_hash_map.String([][]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
 pub const qwebengineloadinginfo = struct {

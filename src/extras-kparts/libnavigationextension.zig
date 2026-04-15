@@ -4,8 +4,8 @@ const navigationextension_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_sliceqtcqaction = std.StringArrayHashMapUnmanaged([]QtC.QAction);
-const arraymap_u8_u8 = std.StringArrayHashMapUnmanaged([]u8);
+const arraymap_constu8_sliceqtcqaction = std.array_hash_map.String([]QtC.QAction);
+const arraymap_u8_u8 = std.array_hash_map.String([]u8);
 
 /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html)
 pub const kparts__navigationextension = struct {
