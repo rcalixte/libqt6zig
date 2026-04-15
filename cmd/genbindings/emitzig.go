@@ -468,9 +468,6 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			}
 			ret += maybePointer + cClassName
 
-		} else if strings.HasPrefix(p.ParameterType, "QFlags<") {
-			ret += "flag of enums." + cabiEnumName(p.ParameterType)
-
 		} else {
 			// Do not transform this type
 			ret += p.ParameterType
@@ -679,114 +676,106 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 
 	tmp := make([]string, 0, len(params))
 
-	for i := 0; i < len(params); i++ {
-		p := params[i]
-		if IsArgcArgv(params, i) {
-			tmp = append(tmp, "argc: usize")
-			tmp = append(tmp, "argv: [*][*:0]u8")
-			i++ // Skip the next parameter, already handled
-		} else {
-			// Ordinary parameter
-			paramType := p.RenderTypeZig(zfs, true, true)
-			if p.needsPointer(paramType) {
-				paramType = "QtC." + paramType
-			}
-			if strings.HasPrefix(paramType, "QtC.") && p.PointerCount > 1 {
-				paramType = "*" + paramType
-			}
-			if p.IntType() && (p.Pointer || p.ByRef) {
-				if !p.GlIntType() {
-					paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
-				}
-			}
-			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
-				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
-			}
-			if p.IsFunctionPointer {
-				returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
-				paramType = "*const fn (" + zfs.emitCommentParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
-			}
-			if isSlot {
-				if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
-					paramType = "qtc.libqt_list (" + paramType + ")"
-				} else {
-					// C calling convention limitations
-					switch paramType {
-					case "[][]const u8", "[]const []const u8", "[]const [:0]const u8":
-						paramType = "?[*:null]?[*:0]const u8"
-					case "[][]u8":
-						paramType = "?[*:null]?[*:0]u8"
-					case "[]const u8", "[:0]const u8":
-						paramType = "[*:0]const u8"
-					case "[]u8", "[:0]u8":
-						paramType = "qtc.libqt_string"
-					default:
-						if strings.HasPrefix(paramType, "arraymap_") || strings.HasPrefix(paramType, "map_") {
-							paramType = "qtc.libqt_map (" + paramType + ")"
-						}
-					}
-				}
-			} else if k, v, _, ok := p.QMapOf(); ok {
-				var keyComment, valueComment string
-
-				if _, ok := KnownEnums[k.ParameterType]; ok {
-					if zigImport, ok := KnownImports[k.ParameterType]; ok {
-						keyComment = " (key: " + zigImport.Filename + "_enums." + cabiEnumName(k.ParameterType) + ")"
-						maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
-						zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
-					}
-				}
-				if _, ok := KnownEnums[v.ParameterType]; ok {
-					if zigImport, ok := KnownImports[v.ParameterType]; ok {
-						valueComment = " (value: " + zigImport.Filename + "_enums." + cabiEnumName(v.ParameterType) + ")"
-						maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
-						zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
-					}
-				}
-
-				paramType += keyComment + valueComment
-
-			} else if t, ok := p.QSetOf(); ok {
-				if _, ok := KnownEnums[t.ParameterType]; ok {
-					if zigImport, ok := KnownImports[t.ParameterType]; ok {
-						paramType += " of " + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType)
-						maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
-						zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
-					}
-				}
-
-			} else if f, s, ok := p.QPairOf(); ok {
-				var firstComment, secondComment string
-
-				if _, ok := KnownEnums[f.ParameterType]; ok {
-					if zigImport, ok := KnownImports[f.ParameterType]; ok {
-						firstComment = " (first: " + zigImport.Filename + "_enums." + cabiEnumName(f.ParameterType) + ")"
-						maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
-						zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
-					}
-				}
-
-				if _, ok := KnownEnums[s.ParameterType]; ok {
-					if zigImport, ok := KnownImports[s.ParameterType]; ok {
-						secondComment = " (second: " + zigImport.Filename + "_enums." + cabiEnumName(s.ParameterType) + ")"
-						maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
-						zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
-					}
-				}
-
-				paramType += firstComment + secondComment
-
-			} else if p.IsChronoSeconds() {
-				secType := strings.Split(p.ParameterType, "::")[2]
-				paramType += " of " + secType
-			}
-
-			if p.UniquePtr {
-				paramType += uniquePtrWarning
-			}
-
-			tmp = append(tmp, p.ParameterName+": "+paramType)
+	for _, p := range params {
+		paramType := p.RenderTypeZig(zfs, true, true)
+		if p.needsPointer(paramType) {
+			paramType = "QtC." + paramType
 		}
+		if strings.HasPrefix(paramType, "QtC.") && p.PointerCount > 1 {
+			paramType = "*" + paramType
+		}
+		if p.IntType() && (p.Pointer || p.ByRef) {
+			if !p.GlIntType() {
+				paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
+			}
+		}
+		if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
+			paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
+		}
+		if p.IsFunctionPointer {
+			returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
+			paramType = "*const fn (" + zfs.emitCommentParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
+		}
+		if isSlot {
+			if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
+				paramType = "qtc.libqt_list (" + paramType + ")"
+			} else {
+				// C calling convention limitations
+				switch paramType {
+				case "[][]const u8", "[]const []const u8", "[]const [:0]const u8":
+					paramType = "?[*:null]?[*:0]const u8"
+				case "[][]u8":
+					paramType = "?[*:null]?[*:0]u8"
+				case "[]const u8", "[:0]const u8":
+					paramType = "[*:0]const u8"
+				case "[]u8", "[:0]u8":
+					paramType = "qtc.libqt_string"
+				default:
+					if strings.HasPrefix(paramType, "arraymap_") || strings.HasPrefix(paramType, "map_") {
+						paramType = "qtc.libqt_map (" + paramType + ")"
+					}
+				}
+			}
+		} else if k, v, _, ok := p.QMapOf(); ok {
+			var keyComment, valueComment string
+
+			if _, ok := KnownEnums[k.ParameterType]; ok {
+				if zigImport, ok := KnownImports[k.ParameterType]; ok {
+					keyComment = " (key: " + zigImport.Filename + "_enums." + cabiEnumName(k.ParameterType) + ")"
+					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+					zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
+				}
+			}
+			if _, ok := KnownEnums[v.ParameterType]; ok {
+				if zigImport, ok := KnownImports[v.ParameterType]; ok {
+					valueComment = " (value: " + zigImport.Filename + "_enums." + cabiEnumName(v.ParameterType) + ")"
+					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+					zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
+				}
+			}
+
+			paramType += keyComment + valueComment
+
+		} else if t, ok := p.QSetOf(); ok {
+			if _, ok := KnownEnums[t.ParameterType]; ok {
+				if zigImport, ok := KnownImports[t.ParameterType]; ok {
+					paramType += " of " + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType)
+					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+					zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
+				}
+			}
+
+		} else if f, s, ok := p.QPairOf(); ok {
+			var firstComment, secondComment string
+
+			if _, ok := KnownEnums[f.ParameterType]; ok {
+				if zigImport, ok := KnownImports[f.ParameterType]; ok {
+					firstComment = " (first: " + zigImport.Filename + "_enums." + cabiEnumName(f.ParameterType) + ")"
+					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+					zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
+				}
+			}
+
+			if _, ok := KnownEnums[s.ParameterType]; ok {
+				if zigImport, ok := KnownImports[s.ParameterType]; ok {
+					secondComment = " (second: " + zigImport.Filename + "_enums." + cabiEnumName(s.ParameterType) + ")"
+					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+					zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
+				}
+			}
+
+			paramType += firstComment + secondComment
+
+		} else if p.IsChronoSeconds() {
+			secType := strings.Split(p.ParameterType, "::")[2]
+			paramType += " of " + secType
+		}
+
+		if p.UniquePtr {
+			paramType += uniquePtrWarning
+		}
+
+		tmp = append(tmp, p.ParameterName+": "+paramType)
 	}
 
 	var ret string
@@ -811,52 +800,45 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 
 	tmp := make([]string, 0, len(params))
 
-	for i := 0; i < len(params); i++ {
-		p := params[i]
-		if IsArgcArgv(params, i) {
-			tmp = append(tmp, "argc: usize, argv: [*][*:0]u8")
-			i++ // Skip the next parameter, already handled
-		} else {
-			// Ordinary parameter
-			param := p.ParameterName
-			paramType := p.RenderTypeZig(zfs, false, false)
-			if zigReservedWord(param) {
-				param = "_" + param
-			}
-			if p.needsPointer(paramType) {
-				paramType = ifv(p.PointerCount > 1, "*", "") + "QtC." + paramType
-			}
-			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
-				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
-			}
-			if p.IsFunctionPointer {
-				returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
-				paramType = "*const fn (" + zfs.emitParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
-			}
-			if isSlot {
-				if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
-					paramType = "qtc.libqt_list"
-				} else {
-					// C calling convention limitations
-					switch paramType {
-					case "[][]const u8", "[]const []const u8", "[]const [:0]const u8":
-						paramType = "?[*:null]?[*:0]const u8"
-					case "[][]u8":
-						paramType = "?[*:null]?[*:0]u8"
-					case "[]const u8", "[:0]const u8":
-						paramType = "[*:0]const u8"
-					case "[]u8", "[:0]u8":
-						paramType = "qtc.libqt_string"
-					default:
-						if strings.HasPrefix(paramType, "arraymap_") || strings.HasPrefix(paramType, "map_") {
-							paramType = "qtc.libqt_map"
-						}
+	for _, p := range params {
+		param := p.ParameterName
+		paramType := p.RenderTypeZig(zfs, false, false)
+		if zigReservedWord(param) {
+			param = "_" + param
+		}
+		if p.needsPointer(paramType) {
+			paramType = ifv(p.PointerCount > 1, "*", "") + "QtC." + paramType
+		}
+		if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
+			paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
+		}
+		if p.IsFunctionPointer {
+			returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
+			paramType = "*const fn (" + zfs.emitParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
+		}
+		if isSlot {
+			if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
+				paramType = "qtc.libqt_list"
+			} else {
+				// C calling convention limitations
+				switch paramType {
+				case "[][]const u8", "[]const []const u8", "[]const [:0]const u8":
+					paramType = "?[*:null]?[*:0]const u8"
+				case "[][]u8":
+					paramType = "?[*:null]?[*:0]u8"
+				case "[]const u8", "[:0]const u8":
+					paramType = "[*:0]const u8"
+				case "[]u8", "[:0]u8":
+					paramType = "qtc.libqt_string"
+				default:
+					if strings.HasPrefix(paramType, "arraymap_") || strings.HasPrefix(paramType, "map_") {
+						paramType = "qtc.libqt_map"
 					}
 				}
-				tmp = append(tmp, paramType)
-			} else {
-				tmp = append(tmp, param+": "+paramType)
 			}
+			tmp = append(tmp, paramType)
+		} else {
+			tmp = append(tmp, param+": "+paramType)
 		}
 	}
 	return strings.Join(tmp, ", ")
@@ -876,7 +858,7 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 	if rt.IsKnownEnum() {
 		if strings.HasPrefix(rt.ParameterType, "QFlags<") {
 			if zigImport, ok := KnownImports[rt.ParameterType[7:len(rt.ParameterType)-1]]; ok {
-				returnComment = "\n///\n/// ## Returns:\n///\n/// ` flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " `"
+				returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + ifv(rt.Pointer || rt.ByRef, "*", "") + "flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " `"
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
@@ -966,32 +948,15 @@ func (zfs *zigFileState) emitParametersZig2CABIForwarding(m CppMethod) (preamble
 		tmp = append(tmp, "@ptrCast(self)")
 	}
 
-	for i := 0; i < len(m.Parameters); i++ {
-		p := m.Parameters[i]
-		if IsArgcArgv(m.Parameters, i) {
-			// QApplication constructor. Convert 'args' into Qt's wanted types
-			// Qt has a warning in the docs saying these pointers must be valid
-			// for the entire lifetype of QApplication, so we pass by address
-			// and never free the memory
-			// This transformation only affects the Zig side. The C ABI side is
-			// projected naturally.
+	for _, p := range m.Parameters {
+		addPreamble, rvalue := zfs.emitParameterZig2CABIForwarding(p)
 
-			preamble += "var argc_param: c_int = @intCast(argc);\n"
-			preamble += "const argv_param: [*c][*c]u8 = @ptrCast(@alignCast(&argv[0]));\n"
-
-			tmp = append(tmp, "&argc_param, argv_param")
-			i++ // Skip the next parameter, already handled
-
-		} else {
-			addPreamble, rvalue := zfs.emitParameterZig2CABIForwarding(p)
-
-			preamble += addPreamble
-			if (p.Pointer || p.ByRef) && (p.ParameterType == "GLvoid" || p.ParameterType == "void") {
-				// void*, void**
-				rvalue = "@ptrCast(" + rvalue + ")"
-			}
-			tmp = append(tmp, rvalue)
+		preamble += addPreamble
+		if (p.Pointer || p.ByRef) && (p.ParameterType == "GLvoid" || p.ParameterType == "void") {
+			// void*, void**
+			rvalue = "@ptrCast(" + rvalue + ")"
 		}
+		tmp = append(tmp, rvalue)
 	}
 	return preamble, strings.Join(tmp, ", ")
 }
@@ -1371,6 +1336,10 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// Single char** argument
 			zfs.imports["std"] = struct{}{}
 
+			// Q*Application constructor
+			// Qt has a warning in the docs saying these pointers must be valid for
+			// the entire lifetime of Q*Application, so we allocate and never free
+			// the memory unless an error occurs.
 			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			if p.ParameterName != "argv" {
 				preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
@@ -2804,17 +2773,17 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 					switch mapType {
 					case "StringArrayHashMap", "StringHashMap":
-						maybeArray := ifv(mapType == "StringArrayHashMap", "array", "")
-						key := maybeArray + "map_" + keyType + "_" + mapParamToString(valueType)
-						value := "std." + mapType + "Unmanaged(" + valueType + ")"
+						maybeArray := mapType == "StringArrayHashMap"
+						key := ifv(maybeArray, "array", "") + "map_" + keyType + "_" + mapParamToString(valueType)
+						value := "std." + ifv(maybeArray, "array_hash_map.String", mapType+"Unmanaged") + "(" + valueType + ")"
 						structDef = append(structDef, "const "+key+" = "+value+";")
 						zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
 					case "AutoArrayHashMap", "AutoHashMap":
 						autoKeyType := keyType
 						keyType = mapParamToString(strings.ToLower(keyType))
-						maybeArray := ifv(mapType == "AutoArrayHashMap", "array", "")
-						key := maybeArray + "map_" + keyType + "_" + mapParamToString(valueType)
-						value := "std." + mapType + "Unmanaged(" + autoKeyType + ", " + valueType + ")"
+						maybeArray := mapType == "AutoArrayHashMap"
+						key := ifv(maybeArray, "array", "") + "map_" + keyType + "_" + mapParamToString(valueType)
+						value := "std." + ifv(maybeArray, "array_hash_map.Auto", mapType+"Unmanaged") + "(" + autoKeyType + ", " + valueType + ")"
 						structDef = append(structDef, "const "+key+" = "+value+";")
 						zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
 					}
