@@ -9,3 +9,4 @@ cmd/qrc-zig/qrc-zig.exe
 cmd/uic-zig/uic-zig
 cmd/uic-zig/uic-zig.exe
 zig-out
+zig-pkg
