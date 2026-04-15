@@ -4,7 +4,7 @@ const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, QtC.QVariant);
+const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
 const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfsearchmodel.html)

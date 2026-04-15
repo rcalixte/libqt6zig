@@ -4,8 +4,8 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qwebengineurlrequestjob_enums = enums;
 const std = @import("std");
-const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
-const arraymap_u8_u8 = std.StringArrayHashMapUnmanaged([]u8);
+const arraymap_u8_sliceu8 = std.array_hash_map.String([][]u8);
+const arraymap_u8_u8 = std.array_hash_map.String([]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestjob.html)
 pub const qwebengineurlrequestjob = struct {

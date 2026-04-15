@@ -4,7 +4,7 @@ const offline_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_qtcqvariant = std.StringArrayHashMapUnmanaged(QtC.QVariant);
+const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
 
 /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
 pub const packagekit__offline = struct {

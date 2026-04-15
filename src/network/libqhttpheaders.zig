@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qhttpheaders_enums = enums;
 const std = @import("std");
-const arraymap_u8_sliceu8 = std.StringArrayHashMapUnmanaged([][]u8);
+const arraymap_u8_sliceu8 = std.array_hash_map.String([][]u8);
 const map_u8_sliceu8 = std.StringHashMapUnmanaged([][]u8);
 const struct_u8_u8 = struct { first: []u8, second: []u8 };
 

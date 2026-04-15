@@ -4,7 +4,7 @@ const kconfig_enums = enums;
 const kconfigbase_enums = @import("libkconfigbase.zig").enums;
 const qstandardpaths_enums = @import("../libqstandardpaths.zig").enums;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.StringArrayHashMapUnmanaged([]const u8);
+const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kconfig.html)
 pub const kconfig = struct {

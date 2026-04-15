@@ -6,7 +6,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qsqlrelationaltablemodel_enums = enums;
 const qsqltablemodel_enums = @import("libqsqltablemodel.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.AutoArrayHashMapUnmanaged(i32, QtC.QVariant);
+const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
 const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrelation.html)

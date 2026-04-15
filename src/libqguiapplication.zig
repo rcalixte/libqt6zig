@@ -11,32 +11,40 @@ pub const qguiapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` argc: usize `
+    /// ` argc: *i32 `
     ///
-    /// ` argv: [*][*:0]u8 `
+    /// ` argv: [][:0]u8 `
     ///
-    pub fn New(argc: usize, argv: [*][*:0]u8) QtC.QGuiApplication {
-        var argc_param: c_int = @intCast(argc);
-        const argv_param: [*c][*c]u8 = @ptrCast(@alignCast(&argv[0]));
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn New(argc: *i32, argv: [][:0]u8, allocator: std.mem.Allocator) QtC.QGuiApplication {
+        const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qguiapplication.New: Memory allocation failed");
+        for (argv, 0..argv.len) |str, i| {
+            argv_chararr[i] = @ptrCast(str.ptr);
+        }
 
-        return qtc.QGuiApplication_new(&argc_param, argv_param);
+        return qtc.QGuiApplication_new(@ptrCast(argc), argv_chararr.ptr);
     }
 
     /// New2 constructs a new QGuiApplication object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` argc: usize `
+    /// ` argc: *i32 `
     ///
-    /// ` argv: [*][*:0]u8 `
+    /// ` argv: [][:0]u8 `
     ///
     /// ` param3: i32 `
     ///
-    pub fn New2(argc: usize, argv: [*][*:0]u8, param3: i32) QtC.QGuiApplication {
-        var argc_param: c_int = @intCast(argc);
-        const argv_param: [*c][*c]u8 = @ptrCast(@alignCast(&argv[0]));
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn New2(argc: *i32, argv: [][:0]u8, param3: i32, allocator: std.mem.Allocator) QtC.QGuiApplication {
+        const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qguiapplication.New2: Memory allocation failed");
+        for (argv, 0..argv.len) |str, i| {
+            argv_chararr[i] = @ptrCast(str.ptr);
+        }
 
-        return qtc.QGuiApplication_new2(&argc_param, argv_param, @bitCast(param3));
+        return qtc.QGuiApplication_new2(@ptrCast(argc), argv_chararr.ptr, @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)

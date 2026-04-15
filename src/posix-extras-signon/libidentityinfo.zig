@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const identityinfo_enums = enums;
 const std = @import("std");
-const arraymap_constu8_sliceconstconstu8 = std.StringArrayHashMapUnmanaged([]const []const u8);
+const arraymap_constu8_sliceconstconstu8 = std.array_hash_map.String([]const []const u8);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
 pub const signon__identityinfo = struct {
